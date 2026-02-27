@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.claude/
+*.swp
+*.swo
+
+# Documents (not needed for deployment)
+*.docx
+*.txt
+mockup.html
+
+# Unused source images
+IMG_6107.PNG
+1BC169BD-778A-419C-8170-B51866E5F699.png
+kinedu-app.jpg
+App of the day.webp
+EN 4 Copia.jpg
+EN 5 Copia.jpg
+EN 6 Copia (1).jpg
+EN 7 Copia.jpg
