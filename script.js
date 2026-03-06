@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SCROLL REVEAL ---
     const revealElements = document.querySelectorAll(
-        '.feature-carousel, .step-item, .testi-card, .trial-wrap, .stat-item, .faq-item'
+        '.feature-row, .step-item, .review-card, .trial-wrap, .stat-item, .faq-item'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -215,105 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // --- FEATURE CAROUSEL — Immersive Color-Shifting ---
-    const fcCarousel = document.querySelector('.feature-carousel');
-    if (fcCarousel) {
-        const slideImgs = fcCarousel.querySelectorAll('.fc-slide-img');
-        const slideTexts = fcCarousel.querySelectorAll('.fc-slide');
-        const dots = fcCarousel.querySelectorAll('.fc-dot');
-        const prevBtn = fcCarousel.querySelector('.fc-arrow--prev');
-        const nextBtn = fcCarousel.querySelector('.fc-arrow--next');
-        const totalSlides = slideTexts.length;
-        let currentSlide = 0;
-        let autoplayTimer = null;
-        const AUTO_INTERVAL = 5000;
-
-        function goToSlide(index) {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
-
-            // Update images (crossfade with blur/scale)
-            slideImgs.forEach(img => img.classList.remove('active'));
-            slideImgs[index].classList.add('active');
-
-            // Update text slides
-            slideTexts.forEach(s => s.classList.remove('active'));
-            slideTexts[index].classList.add('active');
-
-            // Update dots
-            dots.forEach(d => {
-                d.classList.remove('active');
-                d.style.animation = 'none';
-            });
-
-            dots[index].classList.add('active');
-
-            // Restart progress bar animation
-            void dots[index].offsetWidth;
-            dots[index].style.animation = '';
-
-            currentSlide = index;
-        }
-
-        function nextSlide() { goToSlide(currentSlide + 1); }
-        function prevSlide() { goToSlide(currentSlide - 1); }
-
-        function startAutoplay() {
-            stopAutoplay();
-            autoplayTimer = setInterval(nextSlide, AUTO_INTERVAL);
-        }
-
-        function stopAutoplay() {
-            if (autoplayTimer) {
-                clearInterval(autoplayTimer);
-                autoplayTimer = null;
-            }
-        }
-
-        // Arrow clicks
-        nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
-        prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
-
-        // Dot clicks
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                goToSlide(parseInt(dot.dataset.index));
-                startAutoplay();
-            });
-        });
-
-        // Pause on hover
-        fcCarousel.addEventListener('mouseenter', stopAutoplay);
-        fcCarousel.addEventListener('mouseleave', startAutoplay);
-
-        // Touch swipe
-        let touchStartX = 0;
-        fcCarousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            stopAutoplay();
-        }, { passive: true });
-
-        fcCarousel.addEventListener('touchend', (e) => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) nextSlide(); else prevSlide();
-            }
-            startAutoplay();
-        }, { passive: true });
-
-        // Keyboard accessibility
-        fcCarousel.setAttribute('tabindex', '0');
-        fcCarousel.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                e.preventDefault(); nextSlide(); startAutoplay();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                e.preventDefault(); prevSlide(); startAutoplay();
-            }
-        });
-
-        startAutoplay();
-    }
-
     // --- FAQ ACCORDION ---
     const faqItems = document.querySelectorAll('.faq-item');
 
@@ -331,28 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // --- TILT EFFECT on testimonial cards ---
-    const testiCards = document.querySelectorAll('.testi-card');
-
-    testiCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 25;
-            const rotateY = (centerX - x) / 25;
-
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-        });
-    });
-
 
     // --- MOUSE GLOW on hero (optional subtle effect) ---
     const hero = document.querySelector('.hero');
