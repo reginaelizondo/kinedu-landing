@@ -2101,23 +2101,22 @@ a {
         padding: 0 24px;
     }
 
-    .hero-text-col {
-        align-items: center;
-        text-align: center;
+    .hero-phone-col {
         order: -1;
     }
 
-    .hero-phone-col {
-        order: 1;
+    .hero-text-col {
+        align-items: center;
+        text-align: center;
     }
 
     .hero-phone-img {
-        width: 220px;
+        width: 180px;
     }
 
     .device-glow {
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
     }
 
     .hero-headline {
@@ -2235,7 +2234,7 @@ a {
     }
 
     .hero-split {
-        gap: 28px;
+        gap: 16px;
     }
 
     .hero-headline {
@@ -2275,12 +2274,12 @@ a {
     }
 
     .hero-phone-img {
-        width: 180px;
+        width: 160px;
     }
 
     .device-glow {
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
     }
 
     /* Trust bar — compact 2x2 grid */
@@ -2669,12 +2668,12 @@ a {
     }
 
     .hero-phone-img {
-        width: 150px;
+        width: 130px;
     }
 
     .device-glow {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
     }
 
     .hero-trust {
