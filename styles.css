@@ -579,6 +579,11 @@ a {
     z-index: 1;
 }
 
+/* Mobile/Desktop text toggle */
+.btn-text--mobile {
+    display: none;
+}
+
 .btn-hero-primary svg {
     position: relative;
     z-index: 1;
@@ -2227,93 +2232,89 @@ a {
         font-size: 1.1rem;
     }
 
-    /* --- HERO MOBILE --- */
+    /* --- HERO MOBILE — Opal-style clean layout --- */
     .hero {
         min-height: auto;
-        padding: 90px 0 40px;
+        padding: 80px 0 40px;
     }
 
     .hero-split {
-        gap: 16px;
+        gap: 20px;
     }
 
-    .hero-headline {
-        font-size: clamp(1.9rem, 7.5vw, 2.6rem);
-        letter-spacing: -0.03em;
-    }
-
-    .hero-sub {
-        font-size: 0.95rem;
-        line-height: 1.65;
-        margin-bottom: 8px;
-    }
-
-    .hero-proof {
-        font-size: 0.78rem;
-        margin-bottom: 24px;
-    }
-
-    .hero-ctas {
-        flex-direction: column;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .btn-hero-primary {
-        width: 100%;
-        justify-content: center;
-        padding: 16px 32px;
-        font-size: 1rem;
-    }
-
-    .btn-hero-secondary {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 28px;
-        font-size: 0.88rem;
+    .hero-phone-col {
+        margin-bottom: 4px;
     }
 
     .hero-phone-img {
         width: 160px;
+        animation: phoneEntrance 0.8s ease 0.3s forwards;
     }
 
     .device-glow {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
 
-    /* Trust bar — compact 2x2 grid */
-    .trust-sep {
+    .hero-headline {
+        font-size: clamp(1.85rem, 7.5vw, 2.4rem);
+        letter-spacing: -0.035em;
+        margin-bottom: 12px;
+        line-height: 1.12;
+    }
+
+    .hero-sub {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-bottom: 28px;
+        max-width: 320px;
+        color: var(--text-tertiary);
+    }
+
+    /* Hide secondary elements — keep it clean like Opal */
+    .hero-proof {
         display: none;
     }
 
     .hero-trust {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px;
-        width: 100%;
-        max-width: 320px;
+        display: none !important;
     }
 
-    .trust-item {
+    .trust-sep {
+        display: none;
+    }
+
+    /* Single CTA — pill style */
+    .hero-ctas {
         flex-direction: column;
-        text-align: center;
-        gap: 2px;
-        padding: 8px 8px;
-        background: rgba(255,255,255,0.5);
-        border-radius: 12px;
+        align-items: center;
+        width: 100%;
     }
 
-    .trust-item:first-child {
-        padding-left: 8px;
+    .btn-hero-primary {
+        width: auto;
+        min-width: 260px;
+        justify-content: center;
+        padding: 16px 40px;
+        font-size: 1rem;
+        border-radius: 60px;
     }
 
-    .trust-val {
-        font-size: 0.95rem;
+    .btn-hero-secondary {
+        display: none;
     }
 
-    .trust-label {
-        font-size: 0.7rem;
+    /* Swap CTA text for mobile */
+    .btn-text--desktop {
+        display: none;
+    }
+
+    .btn-text--mobile {
+        display: inline;
+    }
+
+    .btn-hero-primary .btn-arrow {
+        display: none;
     }
 
     /* --- STATS MOBILE --- */
@@ -2629,46 +2630,28 @@ a {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 80px 0 32px;
+        padding: 74px 0 28px;
     }
 
     .hero-split {
-        gap: 20px;
-        padding: 0 16px;
+        gap: 16px;
+        padding: 0 20px;
     }
 
     .hero-headline {
         font-size: 1.65rem;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.035em;
     }
 
     .hero-sub {
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         line-height: 1.6;
-        margin-bottom: 6px;
-    }
-
-    .hero-proof {
-        font-size: 0.72rem;
-        margin-bottom: 20px;
-    }
-
-    .hero-ctas {
-        max-width: 100%;
-    }
-
-    .btn-hero-primary {
-        padding: 14px 24px;
-        font-size: 0.92rem;
-    }
-
-    .btn-hero-secondary {
-        padding: 12px 24px;
-        font-size: 0.82rem;
+        margin-bottom: 24px;
+        max-width: 280px;
     }
 
     .hero-phone-img {
-        width: 130px;
+        width: 140px;
     }
 
     .device-glow {
@@ -2676,21 +2659,10 @@ a {
         height: 200px;
     }
 
-    .hero-trust {
-        max-width: 280px;
-        gap: 3px;
-    }
-
-    .trust-item {
-        padding: 6px 6px;
-    }
-
-    .trust-val {
-        font-size: 0.85rem;
-    }
-
-    .trust-label {
-        font-size: 0.62rem;
+    .btn-hero-primary {
+        min-width: 220px;
+        padding: 14px 36px;
+        font-size: 0.95rem;
     }
 
     /* --- SECTIONS --- */
