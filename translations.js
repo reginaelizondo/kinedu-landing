@@ -194,7 +194,7 @@ window.TRANSLATIONS = {
     'nav.tryFree': 'Prueba gratis',
 
     // HERO
-    'hero.headline': '<span class="line">Descubre <span class="gradient-shift">exactamente</span> qué</span><span class="line">hacer con tu bebé,</span><span class="line"><span class="gradient-shift-alt">cada día.</span></span>',
+    'hero.headline': '<span class="line">Descubre <span class="gradient-shift">exactamente</span></span><span class="line">qué hacer con tu</span><span class="line"><span class="gradient-shift-alt">bebé, cada día.</span></span>',
     'hero.sub': 'Kinedu te da un plan diario personalizado, actividades fáciles, seguimiento de hitos y guía de expertos reales, <strong>todo pensado para la edad y etapa exacta de tu bebé.</strong>',
     'hero.proof': '8 millones de familias ya lo usan. Recomendado por pediatras. Respaldado por Harvard.',
     'hero.ctaDesktop': 'Prueba 7 días GRATIS',
