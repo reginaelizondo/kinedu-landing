@@ -2207,11 +2207,11 @@ a {
     }
 
     .hero-split {
-        gap: 24px;
+        gap: 0;
     }
 
     .hero-phone-col {
-        margin-bottom: 4px;
+        margin-bottom: 0;
     }
 
     .hero-phone-img {
@@ -2601,7 +2601,7 @@ a {
     }
 
     .hero-split {
-        gap: 20px;
+        gap: 0;
         padding: 0 20px;
     }
 
