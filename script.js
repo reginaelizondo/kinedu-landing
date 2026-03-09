@@ -95,6 +95,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroDevice = document.querySelector('.hero-device');
     if (heroDevice) deviceObserver.observe(heroDevice);
 
+    // --- TRUST BAR — Staggered reveal + counting animation ---
+    const trustItems = document.querySelectorAll('.trust-item');
+    const trustSeps = document.querySelectorAll('.trust-sep');
+
+    // Hide separators initially too
+    trustSeps.forEach(sep => { sep.style.opacity = '0'; sep.style.transition = 'opacity 0.4s ease'; });
+
+    const trustObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                trustItems.forEach((item, i) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                        // Animate the counting value
+                        const val = item.querySelector('.trust-val[data-count]');
+                        if (val) {
+                            const target = parseInt(val.getAttribute('data-count'));
+                            const suffix = val.getAttribute('data-suffix') || '';
+                            animateTrustCount(val, target, suffix);
+                        }
+                    }, i * 150);
+                });
+                // Fade in separators
+                trustSeps.forEach((sep, i) => {
+                    setTimeout(() => { sep.style.opacity = '1'; }, i * 150 + 75);
+                });
+                trustObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const heroTrust = document.querySelector('.hero-trust');
+    if (heroTrust) trustObserver.observe(heroTrust);
+
+    function animateTrustCount(el, target, suffix) {
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(target * eased);
+            el.textContent = current.toLocaleString() + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target.toLocaleString() + suffix;
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
     // --- PROBLEM TEXT — Illuminate words on scroll ---
     const problemSection = document.getElementById('problem');
     const words = document.querySelectorAll('.problem-text .word');

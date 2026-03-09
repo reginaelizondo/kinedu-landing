@@ -638,6 +638,17 @@ a {
     align-items: center;
 }
 
+.trust-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.trust-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .trust-val--blue { color: var(--kinedu-blue); }
 .trust-val--green { color: var(--kinedu-green); }
 .trust-val--orange { color: var(--kinedu-orange); }
