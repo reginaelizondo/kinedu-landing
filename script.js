@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (function initI18n() {
         const STORAGE_KEY = 'kinedu-lang';
         const DEFAULT_LANG = 'en';
-        const SUPPORTED = ['en', 'es'];
+        const SUPPORTED = ['en', 'es', 'pt'];
 
         function getInitialLang() {
             const stored = localStorage.getItem(STORAGE_KEY);
@@ -54,6 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
+
+            // Swap hero images per language
+            const imgMap = { en: 'EN', es: 'ES', pt: 'PT' };
+            const folder = imgMap[lang] || 'EN';
+            const heroImg = document.getElementById('heroImg');
+            const heroSource = document.getElementById('heroSourceMobile');
+            if (heroImg) heroImg.src = folder + '/' + (folder === 'EN' ? 'desktop.png' : folder.toLowerCase() + '_desktop.png');
+            if (heroSource) heroSource.srcset = folder + '/' + (folder === 'EN' ? 'mobile.png' : folder.toLowerCase() + '_mobile.png');
 
             localStorage.setItem(STORAGE_KEY, lang);
             currentLang = lang;
