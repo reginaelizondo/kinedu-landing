@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinedu — Give your baby the best start</title>
+    <style>.no-fouc{opacity:0}.fouc-ready{opacity:1;transition:opacity .15s ease}</style>
+    <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc')})()</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,16 +18,24 @@
         <div class="nav-pill">
             <a href="#" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
-                <a href="#features">How It Works</a>
-                <a href="science.html">Science</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only">For Schools</a>
-                <a href="https://kinedu.com/app/signup" class="nav-cta mobile-only">Try free</a>
+                <a href="#features" data-i18n="nav.howItWorks">How It Works</a>
+                <a href="science.html" data-i18n="nav.science">Science</a>
+                <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="#faq" data-i18n="nav.faq">FAQ</a>
+                <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://kinedu.com/app/signup" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+                <div class="lang-toggle lang-toggle--mobile">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
             </div>
             <div class="nav-actions">
-                <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools">For Schools</a>
-                <a href="https://kinedu.com/app/signup" class="nav-cta">Try free</a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://kinedu.com/app/signup" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
             </div>
             <button class="nav-hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -59,26 +69,26 @@
 
             <!-- RIGHT — Text content -->
             <div class="hero-text-col">
-                <h1 class="hero-headline">
+                <h1 class="hero-headline" data-i18n="hero.headline" data-i18n-html>
                     <span class="line">Know <span class="gradient-shift">exactly</span> what to</span>
                     <span class="line">do with your baby,</span>
                     <span class="line"><span class="gradient-shift-alt">every single day.</span></span>
                 </h1>
 
-                <p class="hero-sub">
+                <p class="hero-sub" data-i18n="hero.sub" data-i18n-html>
                     Kinedu gives you a personalized daily plan, simple activities, milestone tracking, and real expert guidance, <strong>built around your baby's exact age and stage.</strong>
                 </p>
-                <p class="hero-proof">Trusted by 8 million families. Recommended by pediatricians. Backed by Harvard.</p>
+                <p class="hero-proof" data-i18n="hero.proof">Trusted by 8 million families. Recommended by pediatricians. Backed by Harvard.</p>
 
                 <div class="hero-ctas">
                     <a href="https://kinedu.com/app/signup" class="btn-hero-primary">
                         <span class="btn-bg"></span>
-                        <span class="btn-text btn-text--desktop">Try 7 days for FREE</span>
-                        <span class="btn-text btn-text--mobile">Download the App</span>
+                        <span class="btn-text btn-text--desktop" data-i18n="hero.ctaDesktop">Try 7 days for FREE</span>
+                        <span class="btn-text btn-text--mobile" data-i18n="hero.ctaMobile">Download the App</span>
                         <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <a href="https://kinedu-classrooms.vercel.app/" class="btn-hero-secondary">
-                        <span class="btn-text">For Schools & Educators</span>
+                        <span class="btn-text" data-i18n="hero.ctaSecondary">For Schools & Educators</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                     </a>
                 </div>
@@ -86,22 +96,22 @@
                 <div class="hero-trust">
                     <div class="trust-item">
                         <span class="trust-val trust-val--blue" data-count="8" data-suffix="M+">8M+</span>
-                        <span class="trust-label">families</span>
+                        <span class="trust-label" data-i18n="trust.families">families</span>
                     </div>
                     <div class="trust-sep"></div>
                     <div class="trust-item">
                         <span class="trust-val trust-val--green" data-count="180" data-suffix="+">180+</span>
-                        <span class="trust-label">countries</span>
+                        <span class="trust-label" data-i18n="trust.countries">countries</span>
                     </div>
                     <div class="trust-sep"></div>
                     <div class="trust-item">
                         <span class="trust-val trust-val--orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg></span>
-                        <span class="trust-label">Backed by Harvard</span>
+                        <span class="trust-label" data-i18n="trust.harvard">Backed by Harvard</span>
                     </div>
                     <div class="trust-sep"></div>
                     <div class="trust-item">
                         <span class="trust-val trust-val--pink" data-count="25" data-suffix="K+">25K+</span>
-                        <span class="trust-label">5-star reviews</span>
+                        <span class="trust-label" data-i18n="trust.reviews">5-star reviews</span>
                     </div>
                 </div>
             </div>
@@ -112,7 +122,7 @@
     <section class="problem" id="problem">
         <div class="section-wrap">
             <div class="problem-glow"></div>
-            <p class="problem-text" id="problemText">
+            <p class="problem-text" id="problemText" data-i18n="problem.words">
                 <span class="word">The</span>
                 <span class="word">experiences</span>
                 <span class="word">a</span>
@@ -136,7 +146,7 @@
                 <span class="word">the</span>
                 <span class="word accent">brain.</span>
             </p>
-            <p class="problem-source">— Harvard Center on the Developing Child</p>
+            <p class="problem-source" data-i18n="problem.source">— Harvard Center on the Developing Child</p>
         </div>
     </section>
 
@@ -144,8 +154,8 @@
     <section class="why-now" id="science">
         <div class="section-wrap">
             <div class="why-now-content">
-                <p class="why-now-body">Every time you play with your baby, respond to them, or talk to them through a diaper change — you're doing something that matters more than most parents realize. You don't need a degree in child development. You just need to know what to do in those moments. That's what Kinedu is for.</p>
-                <a href="science.html" class="why-now-cta">The <strong>Science</strong> behind Kinedu →</a>
+                <p class="why-now-body" data-i18n="whyNow.body">Every time you play with your baby, respond to them, or talk to them through a diaper change — you're doing something that matters more than most parents realize. You don't need a degree in child development. You just need to know what to do in those moments. That's what Kinedu is for.</p>
+                <a href="science.html" class="why-now-cta" data-i18n="whyNow.cta" data-i18n-html>The <strong>Science</strong> behind Kinedu →</a>
             </div>
         </div>
     </section>
@@ -157,26 +167,26 @@
                 <div class="stat-item">
                     <div class="stat-glow stat-glow-blue"></div>
                     <span class="stat-num" data-target="8" data-suffix="M+">0</span>
-                    <span class="stat-label">Active families</span>
-                    <span class="stat-sub">worldwide</span>
+                    <span class="stat-label" data-i18n="stats.label1">Active families</span>
+                    <span class="stat-sub" data-i18n="stats.sub1">worldwide</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-glow stat-glow-pink"></div>
                     <span class="stat-num" data-target="1800" data-suffix="+">0</span>
-                    <span class="stat-label">Expert activities</span>
-                    <span class="stat-sub">science-backed</span>
+                    <span class="stat-label" data-i18n="stats.label2">Expert activities</span>
+                    <span class="stat-sub" data-i18n="stats.sub2">science-backed</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-glow stat-glow-green"></div>
                     <span class="stat-num" data-target="180" data-suffix="+">0</span>
-                    <span class="stat-label">Countries</span>
-                    <span class="stat-sub">global presence</span>
+                    <span class="stat-label" data-i18n="stats.label3">Countries</span>
+                    <span class="stat-sub" data-i18n="stats.sub3">global presence</span>
                 </div>
                 <div class="stat-item">
                     <div class="stat-glow stat-glow-yellow"></div>
                     <span class="stat-num" data-target="25" data-suffix="K+">0</span>
-                    <span class="stat-label">5-star reviews</span>
-                    <span class="stat-sub">on App Store & Google Play</span>
+                    <span class="stat-label" data-i18n="stats.label4">5-star reviews</span>
+                    <span class="stat-sub" data-i18n="stats.sub4">on App Store & Google Play</span>
                 </div>
             </div>
         </div>
@@ -186,8 +196,8 @@
     <section class="features" id="features">
         <div class="section-wrap">
             <div class="sec-header">
-                <h2 class="sec-title">Everything you wished<br><span class="gradient-shift">someone just told you</span></h2>
-                <p class="sec-desc">Real guidance for real parents — built around your baby, your stage, your life.</p>
+                <h2 class="sec-title" data-i18n="features.title" data-i18n-html>Everything you wished<br><span class="gradient-shift">someone just told you</span></h2>
+                <p class="sec-desc" data-i18n="features.desc">Real guidance for real parents — built around your baby, your stage, your life.</p>
             </div>
 
             <div class="features-stack">
@@ -201,9 +211,9 @@
                     </div>
                     <div class="feature-row__text">
                         <span class="feature-row__num">01</span>
-                        <span class="feature-tag">Daily Activities</span>
-                        <h3>Wake up knowing exactly what to do.</h3>
-                        <p>Get an activity plan every day based on where your baby actually is developmentally. Quick, simple, uses stuff you already have at home. You just show up.</p>
+                        <span class="feature-tag" data-i18n="f1.tag">Daily Activities</span>
+                        <h3 data-i18n="f1.title">Wake up knowing exactly what to do.</h3>
+                        <p data-i18n="f1.body">Get an activity plan every day based on where your baby actually is developmentally. Quick, simple, uses stuff you already have at home. You just show up.</p>
                     </div>
                 </div>
 
@@ -216,9 +226,9 @@
                     </div>
                     <div class="feature-row__text">
                         <span class="feature-row__num">02</span>
-                        <span class="feature-tag">Expert Guidance</span>
-                        <h3>Real answers, from real experts.</h3>
-                        <p>Sleep, feeding, development, behavior — Kinedu's experts cover it all through live classes and on-demand content. No waiting for the next pediatrician appointment to get a real answer.</p>
+                        <span class="feature-tag" data-i18n="f2.tag">Expert Guidance</span>
+                        <h3 data-i18n="f2.title">Real answers, from real experts.</h3>
+                        <p data-i18n="f2.body">Sleep, feeding, development, behavior — Kinedu's experts cover it all through live classes and on-demand content. No waiting for the next pediatrician appointment to get a real answer.</p>
                     </div>
                 </div>
 
@@ -231,9 +241,9 @@
                     </div>
                     <div class="feature-row__text">
                         <span class="feature-row__num">03</span>
-                        <span class="feature-tag">Milestone Tracking</span>
-                        <h3>Stop wondering if they're on track. Know.</h3>
-                        <p>Answer a few simple questions and see exactly where your baby stands. Strengths, areas to work on, what's coming next.</p>
+                        <span class="feature-tag" data-i18n="f3.tag">Milestone Tracking</span>
+                        <h3 data-i18n="f3.title">Stop wondering if they're on track. Know.</h3>
+                        <p data-i18n="f3.body">Answer a few simple questions and see exactly where your baby stands. Strengths, areas to work on, what's coming next.</p>
                     </div>
                 </div>
 
@@ -246,9 +256,9 @@
                     </div>
                     <div class="feature-row__text">
                         <span class="feature-row__num">04</span>
-                        <span class="feature-tag">Baby Tracker</span>
-                        <h3>One place to track everything.</h3>
-                        <p>Log feeds, sleep, and diapers as you go. Spot patterns, share with your pediatrician, and actually feel on top of the day.</p>
+                        <span class="feature-tag" data-i18n="f4.tag">Baby Tracker</span>
+                        <h3 data-i18n="f4.title">One place to track everything.</h3>
+                        <p data-i18n="f4.body">Log feeds, sleep, and diapers as you go. Spot patterns, share with your pediatrician, and actually feel on top of the day.</p>
                     </div>
                 </div>
 
@@ -261,9 +271,9 @@
                     </div>
                     <div class="feature-row__text">
                         <span class="feature-row__num">05</span>
-                        <span class="feature-tag">Family Sharing</span>
-                        <h3>Everyone who loves your baby can be on the same page.</h3>
-                        <p>Add your partner, a grandparent, the daycare provider, whoever is part of your baby's world. They see the milestones, do the activities, and actually feel involved without you coordinating everything.</p>
+                        <span class="feature-tag" data-i18n="f5.tag">Family Sharing</span>
+                        <h3 data-i18n="f5.title">Everyone who loves your baby can be on the same page.</h3>
+                        <p data-i18n="f5.body">Add your partner, a grandparent, the daycare provider, whoever is part of your baby's world. They see the milestones, do the activities, and actually feel involved without you coordinating everything.</p>
                     </div>
                 </div>
 
@@ -276,7 +286,7 @@
     <!-- LOGOS / SOCIAL PROOF -->
     <section class="logos-section">
         <div class="section-wrap">
-            <p class="logos-title">As seen in</p>
+            <p class="logos-title" data-i18n="logos.title">As seen in</p>
             <div class="logos-marquee">
                 <div class="logos-track">
                     <div class="logo-item">Forbes</div>
@@ -298,14 +308,14 @@
     <section class="testimonials" id="testimonials">
         <div class="section-wrap">
             <div class="sec-header">
-                <h2 class="sec-title">What parents are<br><span class="gradient-shift-alt">saying</span></h2>
+                <h2 class="sec-title" data-i18n="testimonials.title" data-i18n-html>What parents are<br><span class="gradient-shift-alt">saying</span></h2>
             </div>
 
             <div class="reviews-masonry">
                 <div class="review-card reveal" style="--tilt: -1.2deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"After having 2 kids on the spectrum this app has truly helped me gain the early on interventions I needed to support my new baby right from day 1. The best download of my life. This app does more than what it says..."</p>
                     <div class="review-card__author">
@@ -316,7 +326,7 @@
                 <div class="review-card reveal" style="--tilt: 0.8deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"There IS a manual for being a parent — Kinedu has definitely been helping me through this new phase of my life."</p>
                     <div class="review-card__author">
@@ -327,7 +337,7 @@
                 <div class="review-card reveal" style="--tilt: 1.5deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"I am a first time mom to twins. I had no idea where to start and what to do to entertain two little growing minds. Kinedu has been such a life saver! The daily activities to try are so refreshing and new, the twins usually love them!"</p>
                     <div class="review-card__author">
@@ -338,7 +348,7 @@
                 <div class="review-card reveal" style="--tilt: -0.5deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"It's truly completely worth it, my pediatrician recommended it to me, and 10/10"</p>
                     <div class="review-card__author">
@@ -349,7 +359,7 @@
                 <div class="review-card reveal" style="--tilt: 0.9deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"I loved this app — with your subscription you get access to real live experts for sleep training and group therapy. I was genuinely impressed. It was a God send when I needed it and I highly recommend!"</p>
                     <div class="review-card__author">
@@ -360,7 +370,7 @@
                 <div class="review-card reveal" style="--tilt: -1.8deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"5 stars fall short! I was gifted the subscription and I use it EVERY single day. It's excellent for those first months where your memory fails and you want to keep track of diapers, feeding, and naps."</p>
                     <div class="review-card__author">
@@ -371,7 +381,7 @@
                 <div class="review-card reveal" style="--tilt: 1.1deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"I was hesitant at first to pay for a subscription but I'm glad I did! As a new parent this app really is great for learning and understanding how I should interact with my infant to ensure appropriate developmental progress."</p>
                     <div class="review-card__author">
@@ -382,7 +392,7 @@
                 <div class="review-card reveal" style="--tilt: -0.7deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"You create an incredible community with other moms and receive advice from women who've already walked in our footsteps at every stage of motherhood."</p>
                     <div class="review-card__author">
@@ -393,7 +403,7 @@
                 <div class="review-card reveal" style="--tilt: 1.3deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"I can track the developmental milestones of my baby who is premature and stimulate him to reach new milestones."</p>
                     <div class="review-card__author">
@@ -404,7 +414,7 @@
                 <div class="review-card reveal" style="--tilt: -1.0deg;">
                     <div class="review-card__header">
                         <div class="review-card__stars">★★★★★</div>
-                        <span class="review-card__source">App Store Review</span>
+                        <span class="review-card__source" data-i18n="testimonials.source">App Store Review</span>
                     </div>
                     <p class="review-card__body">"I love Kinedu because besides giving me ideas for exercises and games for my baby, it also has really interesting classes on parenting, child development, and even therapeutic groups."</p>
                     <div class="review-card__author">
@@ -414,8 +424,8 @@
             </div>
 
             <div class="testi-community">
-                <h3 class="testi-community-title">Thousands who felt exactly like you do right now.</h3>
-                <p class="testi-community-sub">You're not doing this alone. Join live classes with real experts, connect with other parents, and get the support you actually need every week.</p>
+                <h3 class="testi-community-title" data-i18n="testimonials.communityTitle">Thousands who felt exactly like you do right now.</h3>
+                <p class="testi-community-sub" data-i18n="testimonials.communitySub">You're not doing this alone. Join live classes with real experts, connect with other parents, and get the support you actually need every week.</p>
             </div>
         </div>
     </section>
@@ -424,7 +434,7 @@
     <section class="pricing" id="pricing">
         <div class="section-wrap">
             <div class="trial-header">
-                <h2 class="trial-headline">Start for <span class="trial-price">$0</span> today.</h2>
+                <h2 class="trial-headline" data-i18n="pricing.headline" data-i18n-html>Start for <span class="trial-price">$0</span> today.</h2>
             </div>
 
             <div class="trial-timeline">
@@ -435,33 +445,33 @@
                     <div class="tl-icon tl-icon--green">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
-                    <span class="tl-day">Today</span>
-                    <span class="tl-label">Create your account.<br>Instant access to everything.</span>
+                    <span class="tl-day" data-i18n="pricing.today">Today</span>
+                    <span class="tl-label" data-i18n="pricing.todayLabel" data-i18n-html>Create your account.<br>Instant access to everything.</span>
                 </div>
 
                 <div class="tl-step">
                     <div class="tl-icon tl-icon--green-light">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <span class="tl-day">Days 1–6</span>
-                    <span class="tl-label">Use the full app.<br>See if it actually helps.</span>
+                    <span class="tl-day" data-i18n="pricing.days">Days 1–6</span>
+                    <span class="tl-label" data-i18n="pricing.daysLabel" data-i18n-html>Use the full app.<br>See if it actually helps.</span>
                 </div>
 
                 <div class="tl-step">
                     <div class="tl-icon tl-icon--gray">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                     </div>
-                    <span class="tl-day">Day 7</span>
-                    <span class="tl-label">Only then does anything charge.<br><span class="tl-muted">Cancel before and you pay nothing.</span></span>
+                    <span class="tl-day" data-i18n="pricing.day7">Day 7</span>
+                    <span class="tl-label" data-i18n="pricing.day7Label" data-i18n-html>Only then does anything charge.<br><span class="tl-muted">Cancel before and you pay nothing.</span></span>
                 </div>
             </div>
 
             <div class="trial-cta-area">
                 <a href="https://kinedu.com/app/signup" class="btn-trial">
-                    Start free trial
+                    <span data-i18n="pricing.cta">Start free trial</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <p class="trial-note">Cancel anytime · Then just $7/month</p>
+                <p class="trial-note" data-i18n="pricing.note">Cancel anytime · Then just $7/month</p>
             </div>
         </div>
     </section>
@@ -469,69 +479,69 @@
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="section-wrap">
-            <h3 class="faq-title">Questions you probably have</h3>
+            <h3 class="faq-title" data-i18n="faq.title">Questions you probably have</h3>
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>What is Kinedu, exactly?</span>
+                        <span data-i18n="faq.q1">What is Kinedu, exactly?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>It's a baby development app built by child development experts and backed by Harvard research. It gives you a personalized daily plan of activities, tracks your baby's milestones, and connects you with real experts through live classes and courses. Think of it as having a pediatric development specialist in your pocket.</p>
+                        <p data-i18n="faq.a1">It's a baby development app built by child development experts and backed by Harvard research. It gives you a personalized daily plan of activities, tracks your baby's milestones, and connects you with real experts through live classes and courses. Think of it as having a pediatric development specialist in your pocket.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>How do I actually get the app?</span>
+                        <span data-i18n="faq.q2">How do I actually get the app?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Sign up here, then check your email — you'll get a temporary password and download links for iPhone and Android. Takes about 2 minutes to be up and running.</p>
+                        <p data-i18n="faq.a2">Sign up here, then check your email — you'll get a temporary password and download links for iPhone and Android. Takes about 2 minutes to be up and running.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>What if I have questions or need help?</span>
+                        <span data-i18n="faq.q3">What if I have questions or need help?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Just email us at <a href="mailto:hello@kinedu.com" style="color: var(--kinedu-blue); text-decoration: underline;">hello@kinedu.com</a>. A real person will get back to you — no digging through a help center to find a contact form.</p>
+                        <p data-i18n="faq.a3" data-i18n-html>Just email us at <a href="mailto:hello@kinedu.com" style="color: var(--kinedu-blue); text-decoration: underline;">hello@kinedu.com</a>. A real person will get back to you — no digging through a help center to find a contact form.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Is any part of it actually free?</span>
+                        <span data-i18n="faq.q4">Is any part of it actually free?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes — you get a full 7-day free trial with access to everything. After that, it's $7/month or less if you go yearly. Cancel anytime. A lot of parents tell us it's cheaper than one pediatrician visit and they use it every single day.</p>
+                        <p data-i18n="faq.a4">Yes — you get a full 7-day free trial with access to everything. After that, it's $7/month or less if you go yearly. Cancel anytime. A lot of parents tell us it's cheaper than one pediatrician visit and they use it every single day.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>What age is Kinedu for?</span>
+                        <span data-i18n="faq.q5">What age is Kinedu for?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Kinedu covers pregnancy through age 6. Every activity, milestone, and piece of guidance is tailored to your baby's exact age and developmental stage — so the app grows with your child.</p>
+                        <p data-i18n="faq.a5">Kinedu covers pregnancy through age 6. Every activity, milestone, and piece of guidance is tailored to your baby's exact age and developmental stage — so the app grows with your child.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Do I need special toys?</span>
+                        <span data-i18n="faq.q6">Do I need special toys?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Nope. Activities use everyday things you already have at home — spoons, towels, boxes, your own voice. No special equipment or fancy toys required.</p>
+                        <p data-i18n="faq.a6">Nope. Activities use everyday things you already have at home — spoons, towels, boxes, your own voice. No special equipment or fancy toys required.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Can I use it with multiple babies?</span>
+                        <span data-i18n="faq.q7">Can I use it with multiple babies?</span>
                         <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! You can add multiple children to your account. Each one gets their own personalized plan based on their age and development — so if you have a newborn and a toddler, both get exactly what they need.</p>
+                        <p data-i18n="faq.a7">Yes! You can add multiple children to your account. Each one gets their own personalized plan based on their age and development — so if you have a newborn and a toddler, both get exactly what they need.</p>
                     </div>
                 </div>
             </div>
@@ -544,7 +554,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <span class="footer-logo"><img src="logo kinedu.png" alt="Kinedu" class="footer-logo-img"></span>
-                    <p>Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.</p>
+                    <p data-i18n="footer.brand">Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.</p>
                     <div class="footer-social">
                         <a href="#" aria-label="Facebook">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -561,33 +571,34 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Live classes</a>
-                    <a href="#">Masterclasses</a>
+                    <h4 data-i18n="footer.product">Product</h4>
+                    <a href="#" data-i18n="footer.features">Features</a>
+                    <a href="#" data-i18n="footer.pricing">Pricing</a>
+                    <a href="#" data-i18n="footer.liveClasses">Live classes</a>
+                    <a href="#" data-i18n="footer.masterclasses">Masterclasses</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="#">About us</a>
-                    <a href="science.html">The science</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Educators</a>
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="#" data-i18n="footer.aboutUs">About us</a>
+                    <a href="science.html" data-i18n="footer.theScience">The science</a>
+                    <a href="#" data-i18n="footer.blog">Blog</a>
+                    <a href="#" data-i18n="footer.educators">Educators</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
-                    <a href="#">Help center</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="#" data-i18n="footer.helpCenter">Help center</a>
+                    <a href="#" data-i18n="footer.contact">Contact</a>
+                    <a href="#" data-i18n="footer.privacy">Privacy</a>
+                    <a href="#" data-i18n="footer.terms">Terms</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kinedu. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Kinedu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

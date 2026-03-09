@@ -4,6 +4,92 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- i18n SYSTEM ---
+    (function initI18n() {
+        const STORAGE_KEY = 'kinedu-lang';
+        const DEFAULT_LANG = 'en';
+        const SUPPORTED = ['en', 'es'];
+
+        function getInitialLang() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored && SUPPORTED.includes(stored)) return stored;
+            return DEFAULT_LANG;
+        }
+
+        let currentLang = getInitialLang();
+
+        function applyTranslations(lang) {
+            if (!window.TRANSLATIONS) return;
+            const t = window.TRANSLATIONS[lang];
+            if (!t) return;
+
+            document.documentElement.lang = lang;
+
+            // Page title
+            const isScience = window.location.pathname.includes('science');
+            const titleKey = isScience ? 'meta.titleScience' : 'meta.title';
+            if (t[titleKey]) document.title = t[titleKey];
+
+            // Standard text replacements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+
+                // Special case: problem words
+                if (key === 'problem.words') {
+                    rebuildProblemText(el, t[key]);
+                    return;
+                }
+
+                const value = t[key];
+                if (value === undefined) return;
+
+                if (el.hasAttribute('data-i18n-html')) {
+                    el.innerHTML = value;
+                } else {
+                    el.textContent = value;
+                }
+            });
+
+            // Update toggle buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            localStorage.setItem(STORAGE_KEY, lang);
+            currentLang = lang;
+
+            // Remove FOUC class
+            document.documentElement.classList.remove('no-fouc');
+            document.documentElement.classList.add('fouc-ready');
+        }
+
+        function rebuildProblemText(container, words) {
+            if (!words || !Array.isArray(words)) return;
+            const existingWords = container.querySelectorAll('.word');
+            const litStates = Array.from(existingWords).map(w => w.classList.contains('lit'));
+
+            container.innerHTML = words.map((w, i) => {
+                const classes = ['word'];
+                if (w.a) classes.push('accent');
+                if (litStates[i]) classes.push('lit');
+                return '<span class="' + classes.join(' ') + '">' + w.t + '</span>';
+            }).join('\n');
+        }
+
+        // Bind toggle buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                if (lang !== currentLang) {
+                    applyTranslations(lang);
+                }
+            });
+        });
+
+        // Initialize
+        applyTranslations(currentLang);
+    })();
+
     // --- NAVBAR SCROLL EFFECT ---
     const navbar = document.getElementById('navbar');
 
@@ -259,9 +345,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
                 const index = siblings.indexOf(entry.target);
 
+                const delay = entry.target.classList.contains('stat-item') ? 180 : 100;
                 setTimeout(() => {
                     entry.target.classList.add('active');
-                }, index * 100);
+                }, index * delay);
 
                 revealObserver.unobserve(entry.target);
             }

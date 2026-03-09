@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Science Behind Kinedu</title>
+    <style>.no-fouc{opacity:0}.fouc-ready{opacity:1;transition:opacity .15s ease}</style>
+    <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc')})()</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -410,16 +412,24 @@
         <div class="nav-pill">
             <a href="index.html" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
-                <a href="index.html#features">Features</a>
-                <a href="science.html" class="active">Science</a>
-                <a href="index.html#pricing">Pricing</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="https://kinedu-classroms.vercel.app.com/" class="mobile-only">For Schools</a>
-                <a href="index.html#pricing" class="nav-cta mobile-only">Try free</a>
+                <a href="index.html#features" data-i18n="sci.nav.features">Features</a>
+                <a href="science.html" class="active" data-i18n="nav.science">Science</a>
+                <a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a>
+                <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+                <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://kinedu.com/app/signup" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+                <div class="lang-toggle lang-toggle--mobile">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
             </div>
             <div class="nav-actions">
-                <a href="https://kinedu-classroms.vercel.app.com/" class="nav-schools">For Schools</a>
-                <a href="index.html#pricing" class="nav-cta">Try free</a>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://kinedu.com/app/signup" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
             </div>
             <button class="nav-hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -434,10 +444,10 @@
         <div class="section-wrap">
             <a href="index.html" class="back-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back to home
+                <span data-i18n="sci.backToHome">Back to home</span>
             </a>
-            <h1>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
-            <p class="hero-sub">We've partnered with experts from Harvard, Stanford, and MIT to make sure everything in Kinedu is grounded in the latest research on early childhood development.</p>
+            <h1 data-i18n="sci.heroTitle" data-i18n-html>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
+            <p class="hero-sub" data-i18n="sci.heroSub">We've partnered with experts from Harvard, Stanford, and MIT to make sure everything in Kinedu is grounded in the latest research on early childhood development.</p>
         </div>
     </section>
 
@@ -447,12 +457,12 @@
             <div class="science-grid">
                 <div class="science-text">
                     <span class="science-num">01</span>
-                    <h2>Baby development in a nutshell</h2>
-                    <p>Early experiences form the foundation for future health and wellbeing — they literally build the architecture of the developing brain.</p>
-                    <p>When children interact with engaged and responsive adults, and are allowed to play and experiment, they thrive. These interactions — called serve and return — shape brain circuitry and form the basis from which children learn to interact with the world.</p>
+                    <h2 data-i18n="sci.s1.title">Baby development in a nutshell</h2>
+                    <p data-i18n="sci.s1.p1">Early experiences form the foundation for future health and wellbeing — they literally build the architecture of the developing brain.</p>
+                    <p data-i18n="sci.s1.p2">When children interact with engaged and responsive adults, and are allowed to play and experiment, they thrive. These interactions — called serve and return — shape brain circuitry and form the basis from which children learn to interact with the world.</p>
                     <a href="https://developingchild.harvard.edu/resources/videos/three-core-concepts-in-early-development/" target="_blank" class="science-ref">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
-                        Learn more from Harvard's Center on the Developing Child →
+                        <span data-i18n="sci.s1.ref">Learn more from Harvard's Center on the Developing Child →</span>
                     </a>
                 </div>
                 <div class="science-visual">
@@ -468,12 +478,12 @@
             <div class="science-grid reverse">
                 <div class="science-text">
                     <span class="science-num">02</span>
-                    <h2>Developmental playtime activities</h2>
-                    <p>Every activity in Kinedu is developed by our team of early learning experts with two goals: generate playtime ideas that develop specific milestones, and create serve-and-return interactions that strengthen your bond with your baby.</p>
-                    <p>In 2016, we partnered with Prof. Michael Frank from Stanford University and found that our activities lead to real increases in parents' verbal and non-verbal engagement with their children.</p>
+                    <h2 data-i18n="sci.s2.title">Developmental playtime activities</h2>
+                    <p data-i18n="sci.s2.p1">Every activity in Kinedu is developed by our team of early learning experts with two goals: generate playtime ideas that develop specific milestones, and create serve-and-return interactions that strengthen your bond with your baby.</p>
+                    <p data-i18n="sci.s2.p2">In 2016, we partnered with Prof. Michael Frank from Stanford University and found that our activities lead to real increases in parents' verbal and non-verbal engagement with their children.</p>
                     <div class="science-ref">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        Stanford University · Prof. Michael Frank
+                        <span data-i18n="sci.s2.ref">Stanford University · Prof. Michael Frank</span>
                     </div>
                 </div>
                 <div class="science-visual">
@@ -489,12 +499,12 @@
             <div class="science-grid">
                 <div class="science-text">
                     <span class="science-num">03</span>
-                    <h2>Kinedu Skills® Milestone Model</h2>
-                    <p>With support from MIT-Solve and our research partner Prof. Michael Frank, we leveraged millions of milestone observations to develop our innovative Early Childhood Milestone Model.</p>
-                    <p>Kinedu Skills® is different from other assessments because it shows that development is multi-factorial, interdependent, and continuous. Cognitive, linguistic, social-emotional, and physical areas all interact and build upon each other.</p>
+                    <h2 data-i18n="sci.s3.title">Kinedu Skills® Milestone Model</h2>
+                    <p data-i18n="sci.s3.p1">With support from MIT-Solve and our research partner Prof. Michael Frank, we leveraged millions of milestone observations to develop our innovative Early Childhood Milestone Model.</p>
+                    <p data-i18n="sci.s3.p2">Kinedu Skills® is different from other assessments because it shows that development is multi-factorial, interdependent, and continuous. Cognitive, linguistic, social-emotional, and physical areas all interact and build upon each other.</p>
                     <div class="science-ref">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        MIT-Solve · Published research: psyarxiv.com/95erq
+                        <span data-i18n="sci.s3.ref">MIT-Solve · Published research: psyarxiv.com/95erq</span>
                     </div>
                 </div>
                 <div class="science-visual">
@@ -508,27 +518,27 @@
     <section class="aira-section">
         <div class="section-wrap">
             <div class="aira-card">
-                <h2>Your baby's plan is built on <span class="gradient-shift">millions of data points</span></h2>
-                <p>Our research powers an intelligent algorithm that creates a daily plan unique to your baby — challenging enough to build new skills, smart enough to reinforce what they've learned, and fun enough that you'll both look forward to it.</p>
+                <h2 data-i18n="sci.aira.title" data-i18n-html>Your baby's plan is built on <span class="gradient-shift">millions of data points</span></h2>
+                <p data-i18n="sci.aira.body">Our research powers an intelligent algorithm that creates a daily plan unique to your baby — challenging enough to build new skills, smart enough to reinforce what they've learned, and fun enough that you'll both look forward to it.</p>
 
                 <div class="aira-features">
                     <div class="aira-feature">
                         <div class="aira-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                         </div>
-                        <span>Growth charts that actually make sense</span>
+                        <span data-i18n="sci.aira.f1">Growth charts that actually make sense</span>
                     </div>
                     <div class="aira-feature">
                         <div class="aira-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <span>A new activity every day, just for your baby</span>
+                        <span data-i18n="sci.aira.f2">A new activity every day, just for your baby</span>
                     </div>
                     <div class="aira-feature">
                         <div class="aira-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
-                        <span>Adapts as your baby grows</span>
+                        <span data-i18n="sci.aira.f3">Adapts as your baby grows</span>
                     </div>
                 </div>
             </div>
@@ -538,11 +548,11 @@
     <!-- CTA -->
     <section class="science-cta">
         <div class="section-wrap">
-            <h2>Start science-based parenting <span class="gradient-shift-alt">today.</span></h2>
-            <p>Everything in Kinedu is built on real research. See the difference it makes.</p>
-            <a href="index.html#pricing" class="btn-hero-primary">
+            <h2 data-i18n="sci.cta.title" data-i18n-html>Start science-based parenting <span class="gradient-shift-alt">today.</span></h2>
+            <p data-i18n="sci.cta.sub">Everything in Kinedu is built on real research. See the difference it makes.</p>
+            <a href="https://kinedu.com/app/signup" class="btn-hero-primary">
                 <span class="btn-bg"></span>
-                <span class="btn-text">Start your free trial</span>
+                <span class="btn-text" data-i18n="sci.cta.btn">Start your free trial</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
@@ -554,7 +564,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <span class="footer-logo"><img src="logo kinedu.png" alt="Kinedu" class="footer-logo-img"></span>
-                    <p>Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.</p>
+                    <p data-i18n="footer.brand">Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.</p>
                     <div class="footer-social">
                         <a href="#" aria-label="Facebook">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -571,53 +581,34 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="index.html#features">Features</a>
-                    <a href="index.html#pricing">Pricing</a>
-                    <a href="#">Live classes</a>
-                    <a href="#">Masterclasses</a>
+                    <h4 data-i18n="footer.product">Product</h4>
+                    <a href="index.html#features" data-i18n="footer.features">Features</a>
+                    <a href="index.html#pricing" data-i18n="footer.pricing">Pricing</a>
+                    <a href="#" data-i18n="footer.liveClasses">Live classes</a>
+                    <a href="#" data-i18n="footer.masterclasses">Masterclasses</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="#">About us</a>
-                    <a href="science.html">The science</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Educators</a>
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="#" data-i18n="footer.aboutUs">About us</a>
+                    <a href="science.html" data-i18n="footer.theScience">The science</a>
+                    <a href="#" data-i18n="footer.blog">Blog</a>
+                    <a href="#" data-i18n="footer.educators">Educators</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
-                    <a href="#">Help center</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="#" data-i18n="footer.helpCenter">Help center</a>
+                    <a href="#" data-i18n="footer.contact">Contact</a>
+                    <a href="#" data-i18n="footer.privacy">Privacy</a>
+                    <a href="#" data-i18n="footer.terms">Terms</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kinedu. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2026 Kinedu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Hamburger menu
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        }
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
