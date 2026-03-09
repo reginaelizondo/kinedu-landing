@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const offset = navbar.offsetHeight + 20;
+                const offset = navbar.offsetHeight - 10;
                 const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
