@@ -114,15 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('navLinks');
 
     if (hamburger) {
+        const navPill = document.querySelector('.nav-pill');
+        const navLogo = document.querySelector('.nav-logo');
+
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+            if (navPill) navPill.classList.toggle('menu-open', isOpen);
+            if (navLogo) navLogo.classList.toggle('menu-open', isOpen);
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
+                if (navPill) navPill.classList.remove('menu-open');
+                if (navLogo) navLogo.classList.remove('menu-open');
             });
         });
     }

@@ -400,6 +400,17 @@ a {
     transition: all 0.3s ease;
 }
 
+/* Hamburger → X animation */
+.nav-hamburger.active span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+.nav-hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-hamburger.active span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
 /* =========================================
    HERO — Split layout: Phone LEFT, Text RIGHT
    ========================================= */
@@ -2229,6 +2240,16 @@ a {
     .nav-links, .nav-actions { display: none; }
     .nav-hamburger { display: flex; }
 
+    /* When menu is open, remove backdrop-filter from pill so
+       position:fixed on nav-links isn't trapped (WebKit bug) */
+    .nav-pill.menu-open {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
     .nav-links.active {
         display: flex;
         flex-direction: column;
@@ -2237,15 +2258,30 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: #ffffff;
         justify-content: center;
         align-items: center;
         gap: 24px;
-        z-index: 5;
+        z-index: 9999;
         border-radius: 0;
         border: none;
+    }
+
+    .nav-hamburger.active {
+        position: fixed;
+        top: 16px;
+        right: 20px;
+        z-index: 10000;
+    }
+
+    .nav-logo.menu-open {
+        position: fixed;
+        top: 16px;
+        left: 20px;
+        z-index: 10000;
     }
 
     .nav-links.active a {
