@@ -9,6 +9,7 @@ window.TRANSLATIONS = {
     'nav.science': 'Science',
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
+    'nav.founder': 'Founder',
     'nav.forSchools': 'For Schools',
     'nav.tryFree': 'Try free',
 
@@ -238,6 +239,7 @@ window.TRANSLATIONS = {
     'nav.science': 'Ciencia',
     'nav.pricing': 'Precios',
     'nav.faq': 'FAQ',
+    'nav.founder': 'Fundador',
     'nav.forSchools': 'Para Escuelas',
     'nav.tryFree': 'Prueba gratis',
 
@@ -466,6 +468,7 @@ window.TRANSLATIONS = {
     'nav.science': 'Ciência',
     'nav.pricing': 'Preços',
     'nav.faq': 'FAQ',
+    'nav.founder': 'Fundador',
     'nav.forSchools': 'Para Escolas',
     'nav.tryFree': 'Teste grátis',
 
