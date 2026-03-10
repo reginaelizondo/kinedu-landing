@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* =========================================
-           SCIENCE PAGE — Specific Styles
+           SCIENCE PAGE — Styles
            ========================================= */
 
         .science-hero {
@@ -65,9 +65,26 @@
             line-height: 1.7;
         }
 
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--kinedu-blue);
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
         /* Science sections */
         .science-section {
-            padding: 60px 0;
+            padding: 70px 0;
             position: relative;
         }
 
@@ -75,6 +92,42 @@
             background: rgba(255,255,255,0.5);
         }
 
+        .science-section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .science-section-header .sec-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--kinedu-blue);
+            background: var(--bg-soft-blue);
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .science-section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.5rem, 2.8vw, 2rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .science-section-header p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* Grid layout for text + image sections */
         .science-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -94,17 +147,6 @@
 
         .science-text {
             max-width: 520px;
-        }
-
-        .science-num {
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: var(--kinedu-blue);
-            opacity: 0.5;
-            margin-bottom: 12px;
         }
 
         .science-text h2 {
@@ -155,7 +197,12 @@
             color: var(--kinedu-blue);
         }
 
-        /* Science images */
+        .science-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .science-img {
             width: 100%;
             max-width: 400px;
@@ -163,102 +210,201 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
         }
 
-        /* Visual cards for science sections */
-        .science-visual {
-            display: flex;
+        /* Big stat highlight */
+        .stat-highlight {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-        }
-
-        .science-card {
+            gap: 16px;
             background: var(--bg-glass);
             border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.04);
-        }
-
-        .science-card-icon {
-            width: 64px;
-            height: 64px;
             border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+            padding: 20px 28px;
+            margin-top: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
         }
 
-        .science-card-icon.blue { background: var(--bg-soft-blue); color: var(--kinedu-blue); }
-        .science-card-icon.green { background: var(--bg-soft-green); color: var(--kinedu-green); }
-        .science-card-icon.orange { background: var(--bg-soft-orange); color: var(--kinedu-orange); }
-        .science-card-icon.pink { background: var(--bg-soft-pink); color: var(--kinedu-pink); }
-
-        .science-card-stat {
+        .stat-highlight-num {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 4px;
             background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1;
         }
 
-        .science-card-label {
+        .stat-highlight-label {
             font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.3;
+            max-width: 180px;
+        }
+
+        /* 4-domain cards */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .domain-card {
+            background: var(--bg-glass);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+
+        .domain-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .domain-icon.blue { background: var(--bg-soft-blue); color: var(--kinedu-blue); }
+        .domain-icon.green { background: var(--bg-soft-green); color: var(--kinedu-green); }
+        .domain-icon.orange { background: var(--bg-soft-orange); color: var(--kinedu-orange); }
+        .domain-icon.pink { background: var(--bg-soft-pink); color: var(--kinedu-pink); }
+
+        .domain-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .domain-card p {
+            font-size: 0.82rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        .domains-note {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.88rem;
             color: var(--text-tertiary);
             font-weight: 500;
         }
 
-        /* Partners grid */
-        .partners-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .partners-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 40px;
-            letter-spacing: -0.02em;
-        }
-
-        .partners-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            max-width: 700px;
+        /* Two-card row (sensitive periods) */
+        .two-card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .partner-item {
+        .info-card {
+            background: var(--bg-glass);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+
+        .info-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .info-card-icon.blue { background: var(--bg-soft-blue); color: var(--kinedu-blue); }
+        .info-card-icon.green { background: var(--bg-soft-green); color: var(--kinedu-green); }
+
+        .info-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--text-tertiary);
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
+            color: var(--text-primary);
+            margin-bottom: 10px;
         }
 
-        .partner-item:hover {
-            opacity: 1;
+        .info-card p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
         }
 
-        /* AIRA section */
-        .aira-section {
-            padding: 60px 0;
+        /* Research partners */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .aira-card {
-            max-width: 800px;
+        .partner-card {
+            background: var(--bg-glass);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+
+        .partner-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            background: var(--bg-soft-blue);
+            color: var(--kinedu-blue);
+        }
+
+        .partner-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .partner-card p {
+            font-size: 0.82rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* Catalyst section (full-width card) */
+        .catalyst-section {
+            padding: 70px 0;
+        }
+
+        .catalyst-card {
+            max-width: 840px;
             margin: 0 auto;
             background: linear-gradient(135deg, rgba(43,139,228,0.05), rgba(76,217,100,0.05));
             border: 1px solid rgba(43,139,228,0.1);
@@ -267,20 +413,7 @@
             text-align: center;
         }
 
-        .aira-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--kinedu-blue);
-            background: rgba(43,139,228,0.1);
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin-bottom: 16px;
-        }
-
-        .aira-card h2 {
+        .catalyst-card h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.4rem, 2.5vw, 1.8rem);
             font-weight: 800;
@@ -289,7 +422,7 @@
             letter-spacing: -0.02em;
         }
 
-        .aira-card p {
+        .catalyst-card p {
             font-size: 0.95rem;
             line-height: 1.75;
             color: var(--text-secondary);
@@ -297,7 +430,7 @@
             margin: 0 auto 24px;
         }
 
-        .aira-features {
+        .catalyst-features {
             display: flex;
             justify-content: center;
             gap: 40px;
@@ -305,12 +438,12 @@
             flex-wrap: wrap;
         }
 
-        .aira-feature {
+        .catalyst-feature {
             text-align: center;
             max-width: 180px;
         }
 
-        .aira-feature-icon {
+        .catalyst-feature-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
@@ -322,7 +455,7 @@
             color: var(--kinedu-blue);
         }
 
-        .aira-feature span {
+        .catalyst-feature span {
             font-size: 0.82rem;
             font-weight: 600;
             color: var(--text-secondary);
@@ -331,7 +464,7 @@
 
         /* Science CTA */
         .science-cta {
-            padding: 60px 0;
+            padding: 70px 0;
             text-align: center;
         }
 
@@ -354,25 +487,12 @@
             margin: 0 auto;
         }
 
-        /* Back link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--kinedu-blue);
-            text-decoration: none;
-            margin-bottom: 20px;
-            transition: opacity 0.3s;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
+            .science-hero {
+                padding: 120px 0 40px;
+            }
+
             .science-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -382,25 +502,41 @@
                 direction: ltr;
             }
 
-            .science-card {
-                max-width: 100%;
-                padding: 28px;
+            .domains-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
             }
 
-            .aira-card {
-                padding: 32px 24px;
+            .domain-card {
+                padding: 20px 14px;
             }
 
-            .aira-features {
-                gap: 24px;
+            .two-card-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .partners-grid {
-                gap: 30px;
+                grid-template-columns: 1fr;
+                gap: 16px;
+                max-width: 360px;
             }
 
-            .science-hero {
-                padding: 120px 0 40px;
+            .catalyst-card {
+                padding: 32px 24px;
+            }
+
+            .catalyst-features {
+                gap: 24px;
+            }
+
+            .stat-highlight {
+                padding: 16px 20px;
+                gap: 12px;
+            }
+
+            .stat-highlight-num {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -417,7 +553,7 @@
                 <a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a>
                 <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
                 <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
-                <a href="https://kinedu.com/app/signup" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+                <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
                 <div class="lang-toggle lang-toggle--mobile">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="es">ES</button>
@@ -431,7 +567,7 @@
                     <button class="lang-btn" data-lang="pt">PT</button>
                 </div>
                 <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
-                <a href="https://kinedu.com/app/signup" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+                <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
             </div>
             <button class="nav-hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -448,65 +584,112 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 <span data-i18n="sci.backToHome">Back to home</span>
             </a>
+            <span class="sec-tag" data-i18n="sci.hero.tag">Backed by Research</span>
             <h1 data-i18n="sci.heroTitle" data-i18n-html>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
-            <p class="hero-sub" data-i18n="sci.heroSub">We've partnered with experts from Harvard, Stanford, and MIT to make sure everything in Kinedu is grounded in the latest research on early childhood development.</p>
+            <p class="hero-sub" data-i18n="sci.heroSub">We partnered with researchers from Harvard, Stanford, and MIT to build a parenting app grounded in the latest science on early childhood development — powered by millions of real data points.</p>
         </div>
     </section>
 
-    <!-- SECTION 1: Brain Development -->
+    <!-- SECTION 1: The Big Bang of Development -->
     <section class="science-section">
         <div class="section-wrap">
             <div class="science-grid">
                 <div class="science-text">
-                    <span class="science-num">01</span>
-                    <h2 data-i18n="sci.s1.title">Baby development in a nutshell</h2>
-                    <p data-i18n="sci.s1.p1">Early experiences form the foundation for future health and wellbeing — they literally build the architecture of the developing brain.</p>
-                    <p data-i18n="sci.s1.p2">When children interact with engaged and responsive adults, and are allowed to play and experiment, they thrive. These interactions — called serve and return — shape brain circuitry and form the basis from which children learn to interact with the world.</p>
+                    <span class="sec-tag" data-i18n="sci.bigbang.tag">The Big Bang of Development</span>
+                    <h2 data-i18n="sci.bigbang.title" data-i18n-html>Early experiences <span class="gradient-shift">build brain architecture</span></h2>
+                    <p data-i18n="sci.bigbang.p1">Your baby's development is like a Big Bang — it starts from a few simple building blocks and rapidly expands into a universe of skills and abilities. Small early milestones lead to an expanding cascade of new capabilities.</p>
+                    <p data-i18n="sci.bigbang.p2">During early childhood, the brain grows at an astonishing rate. These years build the foundation for future learning, health, and life success, so nurturing care and rich everyday experiences are crucial.</p>
+                    <div class="stat-highlight">
+                        <span class="stat-highlight-num" data-i18n="sci.bigbang.stat">80%</span>
+                        <span class="stat-highlight-label" data-i18n="sci.bigbang.statLabel">of the brain develops by age 3</span>
+                    </div>
                     <a href="https://developingchild.harvard.edu/resources/videos/three-core-concepts-in-early-development/" target="_blank" class="science-ref">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
-                        <span data-i18n="sci.s1.ref">Learn more from Harvard's Center on the Developing Child →</span>
+                        <span data-i18n="sci.bigbang.ref">Harvard Center on the Developing Child</span>
                     </a>
                 </div>
                 <div class="science-visual">
-                    <img src="nutshell.png" alt="Baby development in a nutshell" class="science-img">
+                    <img src="nutshell.png" alt="Brain development in early childhood" class="science-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: Developmental Activities -->
+    <!-- SECTION 2: Four Connected Domains -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.domains.tag">Interconnected Growth</span>
+                <h2 data-i18n="sci.domains.title" data-i18n-html>Four domains, <span class="gradient-shift">one universe</span></h2>
+                <p data-i18n="sci.domains.sub">Development isn't just one thing. Babies grow physically, cognitively, linguistically, and socially-emotionally — all at once. These domains are deeply interconnected: each one influences and builds upon the others.</p>
+            </div>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-icon blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.domains.physical.title">Physical</h3>
+                    <p data-i18n="sci.domains.physical.desc">From rolling over to running — gross and fine motor skills that let your baby explore the world.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.domains.cognitive.title">Cognitive</h3>
+                    <p data-i18n="sci.domains.cognitive.desc">Problem-solving, curiosity, cause and effect — how children learn to think and understand.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon orange">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.domains.language.title">Language</h3>
+                    <p data-i18n="sci.domains.language.desc">From first coos to full sentences — speech, listening, and early literacy skills.</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon pink">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.domains.social.title">Social-Emotional</h3>
+                    <p data-i18n="sci.domains.social.desc">Bonding, empathy, self-regulation — the emotional skills that last a lifetime.</p>
+                </div>
+            </div>
+            <p class="domains-note" data-i18n="sci.domains.note">When a baby learns to crawl, they can explore more — boosting cognitive and social development at the same time.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Serve and Return -->
     <section class="science-section">
         <div class="section-wrap">
             <div class="science-grid reverse">
                 <div class="science-text">
-                    <span class="science-num">02</span>
-                    <h2 data-i18n="sci.s2.title">Developmental playtime activities</h2>
-                    <p data-i18n="sci.s2.p1">Every activity in Kinedu is developed by our team of early learning experts with two goals: generate playtime ideas that develop specific milestones, and create serve-and-return interactions that strengthen your bond with your baby.</p>
-                    <p data-i18n="sci.s2.p2">In 2016, we partnered with Prof. Michael Frank from Stanford University and found that our activities lead to real increases in parents' verbal and non-verbal engagement with their children.</p>
-                    <div class="science-ref">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        <span data-i18n="sci.s2.ref">Stanford University · Prof. Michael Frank</span>
-                    </div>
+                    <span class="sec-tag" data-i18n="sci.serve.tag">Brain-Building Interactions</span>
+                    <h2 data-i18n="sci.serve.title" data-i18n-html>Serve and return: <span class="gradient-shift">how brains are built</span></h2>
+                    <p data-i18n="sci.serve.p1">When a baby babbles, gestures, or cries, and an adult responds with eye contact, words, or a hug — that's called "serve and return." These back-and-forth interactions are the building blocks of brain architecture.</p>
+                    <p data-i18n="sci.serve.p2">Every activity in Kinedu is designed to create these powerful serve-and-return moments. Our research with Stanford University found that Kinedu activities lead to real increases in parents' verbal and non-verbal engagement with their children.</p>
+                    <a href="https://developingchild.harvard.edu/resources/videos/three-core-concepts-in-early-development/" target="_blank" class="science-ref">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                        <span data-i18n="sci.serve.ref">Harvard CDCH · Stanford University</span>
+                    </a>
                 </div>
                 <div class="science-visual">
-                    <img src="Developmental playtime activities.png" alt="Developmental playtime activities" class="science-img">
+                    <img src="Developmental playtime activities.png" alt="Parent-child serve and return interaction" class="science-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: Kinedu Skills Model -->
+    <!-- SECTION 4: Kinedu Skills Model -->
     <section class="science-section">
         <div class="section-wrap">
             <div class="science-grid">
                 <div class="science-text">
-                    <span class="science-num">03</span>
-                    <h2 data-i18n="sci.s3.title">Kinedu Skills® Milestone Model</h2>
-                    <p data-i18n="sci.s3.p1">With support from MIT-Solve and our research partner Prof. Michael Frank, we leveraged millions of milestone observations to develop our innovative Early Childhood Milestone Model.</p>
-                    <p data-i18n="sci.s3.p2">Kinedu Skills® is different from other assessments because it shows that development is multi-factorial, interdependent, and continuous. Cognitive, linguistic, social-emotional, and physical areas all interact and build upon each other.</p>
+                    <span class="sec-tag" data-i18n="sci.skills.tag">Our Milestone Model</span>
+                    <h2 data-i18n="sci.skills.title" data-i18n-html>Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">development reimagined</span></h2>
+                    <p data-i18n="sci.skills.p1">With support from MIT-Solve and our research partner Prof. Michael Frank at Stanford, we analyzed millions of milestone observations to build an innovative Early Childhood Milestone Model.</p>
+                    <p data-i18n="sci.skills.p2">Unlike traditional checklists, Kinedu Skills&reg; shows that development is multi-factorial, interdependent, and continuous. It tracks skills-based trajectories across all four domains — so you see the full picture, not just isolated milestones.</p>
                     <div class="science-ref">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span data-i18n="sci.s3.ref">MIT-Solve · Published research: psyarxiv.com/95erq</span>
+                        <span data-i18n="sci.skills.ref">MIT-Solve · Stanford · psyarxiv.com/95erq</span>
                     </div>
                 </div>
                 <div class="science-visual">
@@ -516,31 +699,90 @@
         </div>
     </section>
 
-    <!-- SECTION 4: AIRA -->
-    <section class="aira-section">
+    <!-- SECTION 5: Sensitive Periods & Variability -->
+    <section class="science-section">
         <div class="section-wrap">
-            <div class="aira-card">
-                <h2 data-i18n="sci.aira.title" data-i18n-html>Your baby's plan is built on <span class="gradient-shift">millions of data points</span></h2>
-                <p data-i18n="sci.aira.body">Our research powers an intelligent algorithm that creates a daily plan unique to your baby — challenging enough to build new skills, smart enough to reinforce what they've learned, and fun enough that you'll both look forward to it.</p>
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.sensitive.tag">Timing & Uniqueness</span>
+                <h2 data-i18n="sci.sensitive.title" data-i18n-html>Every child's universe <span class="gradient-shift">is unique</span></h2>
+            </div>
+            <div class="two-card-grid">
+                <div class="info-card">
+                    <div class="info-card-icon blue">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.sensitive.card1.title">Sensitive periods</h3>
+                    <p data-i18n="sci.sensitive.card1.desc">At certain windows of time, children are especially ready to learn specific skills. Toddlers are primed for a language explosion around age 2, and preschoolers are eager to socialize. Kinedu's plan targets these windows so you never miss them.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon green">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3 data-i18n="sci.sensitive.card2.title">Every child is different</h3>
+                    <p data-i18n="sci.sensitive.card2.desc">One child might walk at 10 months, another at 15 — and both are perfectly healthy. Development has a wide range of normal. Kinedu adapts to your child's unique pace instead of rigid timelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="aira-features">
-                    <div class="aira-feature">
-                        <div class="aira-feature-icon">
+    <!-- SECTION 6: Research Partners -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.partners.tag">Research Partners</span>
+                <h2 data-i18n="sci.partners.title" data-i18n-html>Backed by <span class="gradient-shift">world-class institutions</span></h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    </div>
+                    <h3>Harvard</h3>
+                    <p data-i18n="sci.partners.harvardDesc">Center on the Developing Child — the science of brain architecture, toxic stress, and serve-and-return interactions.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3>Stanford</h3>
+                    <p data-i18n="sci.partners.stanfordDesc">Prof. Michael Frank — the Structure of Development research and activity effectiveness studies.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>MIT-Solve</h3>
+                    <p data-i18n="sci.partners.mitDesc">Supporting the Kinedu Skills&reg; Milestone Model — a new approach to tracking early childhood development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Parents as Cosmic Catalysts -->
+    <section class="catalyst-section">
+        <div class="section-wrap">
+            <div class="catalyst-card">
+                <h2 data-i18n="sci.catalyst.title" data-i18n-html>You are your baby's <span class="gradient-shift">most powerful catalyst</span></h2>
+                <p data-i18n="sci.catalyst.body">Your love and everyday interactions spark your baby's growth. Kinedu's research-powered algorithm uses millions of data points to create a daily plan unique to your baby — challenging enough to build new skills, smart enough to reinforce what they've learned, and fun enough that you'll both look forward to it.</p>
+
+                <div class="catalyst-features">
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                         </div>
-                        <span data-i18n="sci.aira.f1">Growth charts that actually make sense</span>
+                        <span data-i18n="sci.catalyst.f1">Personalized milestone tracking</span>
                     </div>
-                    <div class="aira-feature">
-                        <div class="aira-feature-icon">
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <span data-i18n="sci.aira.f2">A new activity every day, just for your baby</span>
+                        <span data-i18n="sci.catalyst.f2">A new activity every day, just for your baby</span>
                     </div>
-                    <div class="aira-feature">
-                        <div class="aira-feature-icon">
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
-                        <span data-i18n="sci.aira.f3">Adapts as your baby grows</span>
+                        <span data-i18n="sci.catalyst.f3">Adapts as your baby grows</span>
                     </div>
                 </div>
             </div>
@@ -552,7 +794,7 @@
         <div class="section-wrap">
             <h2 data-i18n="sci.cta.title" data-i18n-html>Start science-based parenting <span class="gradient-shift-alt">today.</span></h2>
             <p data-i18n="sci.cta.sub">Everything in Kinedu is built on real research. See the difference it makes.</p>
-            <a href="https://kinedu.com/app/signup" class="btn-hero-primary">
+            <a href="https://app.kinedu.com/dha2/?swc=dha2" class="btn-hero-primary">
                 <span class="btn-bg"></span>
                 <span class="btn-text" data-i18n="sci.cta.btn">Start your free trial</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
