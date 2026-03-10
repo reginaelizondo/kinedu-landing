@@ -12,48 +12,60 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* =========================================
-           FOUNDER PAGE — v2 Visual Redesign
+           FOUNDER PAGE — Styles
            ========================================= */
 
-        /* ---------- HERO — Photo + Text Split ---------- */
+        /* ---------- HERO ---------- */
         .founder-hero {
-            padding: 140px 0 80px;
+            padding: 150px 0 70px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(180deg, rgba(76,217,100,0.04) 0%, rgba(43,139,228,0.03) 40%, transparent 80%);
+            background: linear-gradient(180deg, rgba(43,139,228,0.04) 0%, transparent 60%);
         }
 
         .founder-hero::before {
             content: '';
             position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(76,217,100,0.08) 0%, rgba(43,139,228,0.04) 40%, transparent 70%);
-            pointer-events: none;
-            animation: heroFloat 10s ease-in-out infinite;
-        }
-
-        .founder-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -200px;
-            left: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(43,139,228,0.06) 0%, transparent 70%);
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(76,217,100,0.08) 0%, rgba(43,139,228,0.05) 40%, transparent 70%);
             pointer-events: none;
         }
 
-        @keyframes heroFloat {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.08); opacity: 0.7; }
+        .founder-hero .sec-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--kinedu-blue);
+            background: rgba(43,139,228,0.08);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(43,139,228,0.1);
         }
 
-        .back-link-row {
-            text-align: left;
-            margin-bottom: 32px;
+        .founder-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.12;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+
+        .founder-hero .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
         .back-link {
@@ -64,324 +76,76 @@
             font-weight: 600;
             color: var(--kinedu-blue);
             text-decoration: none;
+            margin-bottom: 24px;
             transition: opacity 0.3s;
+        }
+
+        .back-link-row {
+            text-align: left;
         }
 
         .back-link:hover { opacity: 0.7; }
 
-        .hero-split {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 64px;
-            align-items: center;
-            max-width: 1020px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-photo-col {
-            position: relative;
-        }
-
-        .hero-avatar {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-            border: 5px solid rgba(255,255,255,0.8);
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-avatar-glow {
-            position: absolute;
-            inset: -16px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(43,139,228,0.15), rgba(76,217,100,0.12));
-            z-index: 0;
-            animation: heroFloat 8s ease-in-out infinite;
-        }
-
-        .hero-text-col {
-            text-align: left;
-        }
-
-        .hero-text-col .sec-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--kinedu-green);
-            background: rgba(76,217,100,0.08);
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(76,217,100,0.12);
-        }
-
-        .hero-text-col h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.4rem, 5vw, 3.6rem);
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1.1;
-            margin-bottom: 16px;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-text-col .hero-sub {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
-            color: var(--text-secondary);
-            max-width: 480px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-
-        .hero-roles {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero-role {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            background: rgba(255,255,255,0.7);
-            border: 1px solid rgba(0,0,0,0.06);
-            padding: 8px 16px;
-            border-radius: 50px;
-            backdrop-filter: blur(8px);
-        }
-
-        .hero-role-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .hero-role-icon.green { background: rgba(76,217,100,0.1); color: var(--kinedu-green); }
-        .hero-role-icon.blue { background: rgba(43,139,228,0.1); color: var(--kinedu-blue); }
-        .hero-role-icon.pink { background: rgba(255,45,85,0.1); color: var(--kinedu-pink); }
-
-        /* ---------- IMPACT BANNER ---------- */
-        .impact-banner {
-            padding: 56px 0;
-            background: linear-gradient(135deg, rgba(43,139,228,0.06) 0%, rgba(76,217,100,0.04) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .impact-banner::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(43,139,228,0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .impact-item {
-            text-align: center;
-        }
-
-        .impact-num {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .impact-num.blue {
-            background: linear-gradient(135deg, var(--kinedu-blue), #6ac5fe);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .impact-num.green {
-            background: linear-gradient(135deg, var(--kinedu-green), #a8e6cf);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .impact-num.orange {
-            background: linear-gradient(135deg, var(--kinedu-orange), #ffd699);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .impact-num.pink {
-            background: linear-gradient(135deg, var(--kinedu-pink), #ff9eb5);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-
-        .impact-label {
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-tertiary);
-            line-height: 1.4;
-        }
-
-        /* ---------- STORY — Timeline Style ---------- */
+        /* ---------- STORY SECTION ---------- */
         .founder-story {
             padding: 80px 0;
         }
 
-        .story-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 52px;
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+            max-width: 1020px;
+            margin: 0 auto;
         }
 
-        .story-header h2 {
+        .founder-photo-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .founder-photo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(43,139,228,0.1), rgba(76,217,100,0.08));
+            z-index: -1;
+        }
+
+        .founder-photo {
+            width: 100%;
+            border-radius: 22px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .founder-text h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
             font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            line-height: 1.25;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
-        .story-header p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .story-timeline {
-            max-width: 860px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .story-timeline::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--kinedu-blue), var(--kinedu-green), rgba(76,217,100,0.2));
-        }
-
-        .story-step {
-            display: grid;
-            grid-template-columns: 58px 1fr;
-            gap: 28px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .story-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .story-dot-col {
-            display: flex;
-            justify-content: center;
-            padding-top: 4px;
-        }
-
-        .story-dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 3px solid var(--kinedu-blue);
-            background: white;
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
-        }
-
-        .story-step:nth-child(2) .story-dot { border-color: #5bb0f0; }
-        .story-step:nth-child(3) .story-dot { border-color: #4dc480; }
-        .story-step:nth-child(4) .story-dot { border-color: var(--kinedu-green); }
-
-        .story-card {
-            background: var(--bg-glass);
-            border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 20px;
-            padding: 28px 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .story-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.06);
-        }
-
-        .story-card-label {
-            display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--kinedu-blue);
-            margin-bottom: 10px;
-        }
-
-        .story-step:nth-child(2) .story-card-label { color: #5bb0f0; }
-        .story-step:nth-child(3) .story-card-label { color: #4dc480; }
-        .story-step:nth-child(4) .story-card-label { color: var(--kinedu-green); }
-
-        .story-card p {
+        .founder-text p {
             font-size: 0.93rem;
-            line-height: 1.78;
+            line-height: 1.8;
             color: var(--text-secondary);
+            margin-bottom: 16px;
         }
 
-        /* ---------- PHOTO BREAK ---------- */
-        .photo-break {
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-break-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .photo-break-img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-            object-fit: cover;
-            max-height: 500px;
-        }
-
-        .photo-break-glow {
-            position: absolute;
-            inset: -14px;
-            border-radius: 32px;
-            background: linear-gradient(135deg, rgba(43,139,228,0.08), rgba(76,217,100,0.06));
-            z-index: -1;
+        .founder-text p:last-of-type {
+            margin-bottom: 0;
         }
 
         /* ---------- QUOTE ---------- */
         .founder-quote-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, rgba(43,139,228,0.05) 0%, rgba(76,217,100,0.03) 100%);
             position: relative;
             overflow: hidden;
@@ -392,156 +156,77 @@
             position: absolute;
             top: -150px;
             right: -150px;
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, rgba(76,217,100,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .founder-quote-section::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(43,139,228,0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
         .founder-quote-inner {
-            max-width: 760px;
+            max-width: 720px;
             margin: 0 auto;
             text-align: center;
             position: relative;
-            z-index: 1;
         }
 
         .founder-quote-mark {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 5rem;
+            font-size: 4rem;
             line-height: 1;
             background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .founder-quote-text {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            font-size: clamp(1.15rem, 2.5vw, 1.45rem);
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.6;
             font-style: italic;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .founder-quote-author {
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 600;
             color: var(--text-tertiary);
-            letter-spacing: 0.02em;
         }
 
-        /* ---------- WHY SECTION — Feature Cards ---------- */
+        /* ---------- WHY SECTION ---------- */
         .founder-why {
             padding: 80px 0;
         }
 
-        .founder-why-header {
+        .founder-why-inner {
+            max-width: 680px;
+            margin: 0 auto;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto 48px;
         }
 
-        .founder-why-header h2 {
+        .founder-why-inner h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 14px;
+            margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
 
-        .founder-why-header p {
+        .founder-why-inner p {
             font-size: 0.95rem;
+            line-height: 1.8;
             color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .why-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .why-card {
-            background: var(--bg-glass);
-            border: 1px solid rgba(0,0,0,0.05);
-            border-radius: 20px;
-            padding: 32px 26px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .why-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-
-        .why-card:nth-child(1)::before { background: linear-gradient(90deg, var(--kinedu-blue), rgba(43,139,228,0.3)); }
-        .why-card:nth-child(2)::before { background: linear-gradient(90deg, var(--kinedu-green), rgba(76,217,100,0.3)); }
-        .why-card:nth-child(3)::before { background: linear-gradient(90deg, var(--kinedu-pink), rgba(255,45,85,0.3)); }
-
-        .why-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.07);
-        }
-
-        .why-card-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-        }
-
-        .why-card:nth-child(1) .why-card-icon { background: var(--bg-soft-blue); color: var(--kinedu-blue); }
-        .why-card:nth-child(2) .why-card-icon { background: var(--bg-soft-green); color: var(--kinedu-green); }
-        .why-card:nth-child(3) .why-card-icon { background: var(--bg-soft-pink); color: var(--kinedu-pink); }
-
-        .why-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-        }
-
-        .why-card p {
-            font-size: 0.84rem;
-            line-height: 1.65;
-            color: var(--text-secondary);
+            margin-bottom: 16px;
         }
 
         /* ---------- CTA ---------- */
         .founder-cta {
             padding: 80px 0;
             text-align: center;
-            background: linear-gradient(180deg, transparent, rgba(43,139,228,0.03));
         }
 
         .founder-cta h2 {
@@ -566,69 +251,26 @@
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             .founder-hero {
-                padding: 120px 0 60px;
+                padding: 120px 0 50px;
             }
 
-            .hero-split {
+            .founder-grid {
                 grid-template-columns: 1fr;
                 gap: 36px;
                 text-align: center;
             }
 
-            .hero-photo-col {
-                display: flex;
-                justify-content: center;
+            .founder-photo-wrapper {
+                max-width: 300px;
+                margin: 0 auto;
             }
 
-            .hero-avatar {
-                width: 200px;
-                height: 200px;
-            }
-
-            .hero-text-col {
-                text-align: center;
-            }
-
-            .hero-roles {
-                justify-content: center;
-            }
-
-            .impact-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .story-timeline::before {
-                left: 18px;
-            }
-
-            .story-step {
-                grid-template-columns: 38px 1fr;
-                gap: 16px;
-            }
-
-            .story-card {
-                padding: 22px 20px;
-            }
-
-            .photo-break-img {
-                border-radius: 16px;
-                max-height: 320px;
-            }
-
-            .photo-break-glow {
-                inset: -10px;
-                border-radius: 22px;
-            }
-
-            .why-cards {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                max-width: 400px;
+            .founder-text {
+                text-align: left;
             }
 
             .founder-quote-text {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
         }
     </style>
@@ -669,7 +311,7 @@
         </div>
     </nav>
 
-    <!-- HERO — Photo + Text Split -->
+    <!-- HERO -->
     <section class="founder-hero">
         <div class="section-wrap">
             <div class="back-link-row">
@@ -678,110 +320,26 @@
                     <span data-i18n="founder.backToHome">Back to home</span>
                 </a>
             </div>
-            <div class="hero-split">
-                <div class="hero-photo-col">
-                    <div class="hero-avatar-glow"></div>
-                    <img src="Founder.jpeg" alt="Luis Garza Sada — Founder of Kinedu" class="hero-avatar">
-                </div>
-                <div class="hero-text-col">
-                    <span class="sec-tag" data-i18n="founder.hero.tag">Meet the Founder</span>
-                    <h1 data-i18n="founder.hero.title" data-i18n-html>Hi, I'm <span class="gradient-shift">Luis.</span></h1>
-                    <p class="hero-sub" data-i18n="founder.hero.sub">Founder of Kinedu. Dad of four.</p>
-                    <div class="hero-roles">
-                        <span class="hero-role">
-                            <span class="hero-role-icon pink">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            </span>
-                            <span data-i18n="founder.role.dad">Dad of 4 girls</span>
-                        </span>
-                        <span class="hero-role">
-                            <span class="hero-role-icon blue">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                            </span>
-                            <span data-i18n="founder.role.founder">Founder & CEO</span>
-                        </span>
-                        <span class="hero-role">
-                            <span class="hero-role-icon green">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
-                            </span>
-                            <span data-i18n="founder.role.earlyEd">Early education pioneer</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <span class="sec-tag" data-i18n="founder.hero.tag">Meet the Founder</span>
+            <h1 data-i18n="founder.hero.title" data-i18n-html>Hi, I'm <span class="gradient-shift">Luis.</span></h1>
+            <p class="hero-sub" data-i18n="founder.hero.sub">Founder of Kinedu. Dad of four.</p>
         </div>
     </section>
 
-    <!-- IMPACT BANNER -->
-    <section class="impact-banner">
-        <div class="section-wrap">
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <div class="impact-num pink">4</div>
-                    <span class="impact-label" data-i18n="founder.impact.daughters">daughters who inspired it all</span>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-num blue">26</div>
-                    <span class="impact-label" data-i18n="founder.impact.centers">early learning centers built</span>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-num green">8M+</div>
-                    <span class="impact-label" data-i18n="founder.impact.families">families using Kinedu</span>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-num orange">180+</div>
-                    <span class="impact-label" data-i18n="founder.impact.countries">countries worldwide</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STORY — Timeline -->
+    <!-- FOUNDER STORY -->
     <section class="founder-story">
         <div class="section-wrap">
-            <div class="story-header">
-                <h2 data-i18n="founder.story.title" data-i18n-html>The story behind <span class="gradient-shift">Kinedu</span></h2>
-                <p data-i18n="founder.story.intro">Every great product starts with a personal question. Mine was simple.</p>
-            </div>
-            <div class="story-timeline">
-                <div class="story-step">
-                    <div class="story-dot-col"><div class="story-dot"></div></div>
-                    <div class="story-card">
-                        <span class="story-card-label" data-i18n="founder.step1.label">The question</span>
-                        <p data-i18n="founder.story.p1">Like many parents, I often wondered: "Am I doing enough to support my children's development?" With four amazing daughters, that question stayed with me every day. That's why I built Kinedu — a resource I wish I had from the very beginning of my parenting journey.</p>
-                    </div>
+            <div class="founder-grid">
+                <div class="founder-photo-wrapper">
+                    <img src="Founder.jpeg" alt="Luis Garza Sada — Founder of Kinedu" class="founder-photo">
                 </div>
-                <div class="story-step">
-                    <div class="story-dot-col"><div class="story-dot"></div></div>
-                    <div class="story-card">
-                        <span class="story-card-label" data-i18n="founder.step2.label">Advenio — where it began</span>
-                        <p data-i18n="founder.story.p2">Before Kinedu, I co-founded Advenio, the first company to build and operate corporate-sponsored early learning centers across Latin America. We grew to 26 centers in Mexico and Colombia — and I saw firsthand how parents felt dropping off their kids: a mix of guilt, pride, and a deep desire to be more involved.</p>
-                    </div>
+                <div class="founder-text">
+                    <h2 data-i18n="founder.story.title" data-i18n-html>Welcome to <span class="gradient-shift">Kinedu</span></h2>
+                    <p data-i18n="founder.story.p1">Like many parents, I often wondered: "Am I doing enough to support my children's development?" With four amazing daughters, that question stayed with me every day. That's why I built Kinedu — a resource I wish I had from the very beginning of my parenting journey.</p>
+                    <p data-i18n="founder.story.p2">Before Kinedu, I co-founded Advenio, the first company to build and operate corporate-sponsored early learning centers across Latin America. We grew to 26 centers in Mexico and Colombia — and I saw firsthand how parents felt dropping off their kids: a mix of guilt, pride, and a deep desire to be more involved.</p>
+                    <p data-i18n="founder.story.p3">That's what inspired me to create something different — a proactive toolkit in the palm of parents' hands, feeding them information, ideas, knowledge, and tools to play with their babies and truly make a difference.</p>
+                    <p data-i18n="founder.story.p4">In 2016, when I became a parent myself, everything became even more real. Every laugh, every milestone, every sleepless night reminded me why this work matters so much.</p>
                 </div>
-                <div class="story-step">
-                    <div class="story-dot-col"><div class="story-dot"></div></div>
-                    <div class="story-card">
-                        <span class="story-card-label" data-i18n="founder.step3.label">Building Kinedu</span>
-                        <p data-i18n="founder.story.p3">That's what inspired me to create something different — a proactive toolkit in the palm of parents' hands, feeding them information, ideas, knowledge, and tools to play with their babies and truly make a difference.</p>
-                    </div>
-                </div>
-                <div class="story-step">
-                    <div class="story-dot-col"><div class="story-dot"></div></div>
-                    <div class="story-card">
-                        <span class="story-card-label" data-i18n="founder.step4.label">Becoming a dad</span>
-                        <p data-i18n="founder.story.p4">In 2016, when I became a parent myself, everything became even more real. Every laugh, every milestone, every sleepless night reminded me why this work matters so much.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PHOTO BREAK -->
-    <section class="photo-break">
-        <div class="section-wrap">
-            <div class="photo-break-inner">
-                <div class="photo-break-glow"></div>
-                <img src="Founder.jpeg" alt="Luis and his family" class="photo-break-img">
             </div>
         </div>
     </section>
@@ -797,35 +355,13 @@
         </div>
     </section>
 
-    <!-- WHY KINEDU EXISTS — Feature Cards -->
+    <!-- WHY KINEDU EXISTS -->
     <section class="founder-why">
         <div class="section-wrap">
-            <div class="founder-why-header">
+            <div class="founder-why-inner">
                 <h2 data-i18n="founder.why.title" data-i18n-html>Why <span class="gradient-shift">Kinedu</span> exists</h2>
                 <p data-i18n="founder.why.p1">Parenting is unpredictable, tough, delightful, and blissful — with every emotion compressed into fleeting moments. We built Kinedu to help you savor those moments while giving your child the best possible start.</p>
-            </div>
-            <div class="why-cards">
-                <div class="why-card">
-                    <div class="why-card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    </div>
-                    <h3 data-i18n="founder.why.card1.title">Daily activities</h3>
-                    <p data-i18n="founder.why.card1.desc">Expert-designed activities personalized for your baby's exact age and developmental stage.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
-                    </div>
-                    <h3 data-i18n="founder.why.card2.title">Science-backed</h3>
-                    <p data-i18n="founder.why.card2.desc">Built on real research from Harvard, Stanford, and MIT — not guesswork.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    </div>
-                    <h3 data-i18n="founder.why.card3.title">Made by parents</h3>
-                    <p data-i18n="founder.why.card3.desc">We know what it's like. Every feature was designed with real families in mind.</p>
-                </div>
+                <p data-i18n="founder.why.p2">From sleep and motor skills to cognitive growth and emotional bonding, Kinedu provides daily activities and expert advice tailored to your child's exact age and stage. Because if you're looking for a way to give your child the best start in life, we're here to help you every step of the way.</p>
             </div>
         </div>
     </section>
