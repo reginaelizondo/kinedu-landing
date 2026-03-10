@@ -159,6 +159,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.p2': 'During early childhood, the brain grows at an astonishing rate. These years build the foundation for future learning, health, and life success, so nurturing care and rich everyday experiences are crucial.',
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'of the brain develops by age 3',
+    'sci.stat.sub': 'That\'s why the first years matter so much. Early experiences literally shape brain architecture.',
     'sci.bigbang.ref': 'Harvard Center on the Developing Child',
 
     'sci.domains.tag': 'Interconnected Growth',
@@ -183,7 +184,7 @@ window.TRANSLATIONS = {
     'sci.skills.tag': 'Our Milestone Model',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">development reimagined</span>',
     'sci.skills.p1': 'With support from MIT-Solve and our research partner Prof. Michael Frank at Stanford, we analyzed millions of milestone observations to build an innovative Early Childhood Milestone Model.',
-    'sci.skills.p2': 'Unlike traditional checklists, Kinedu Skills&reg; shows that development is multi-factorial, interdependent, and continuous. It tracks skills-based trajectories across all four domains — so you see the full picture, not just isolated milestones.',
+    'sci.skills.p2': 'Unlike traditional checklists, Kinedu Skills® shows that development is multi-factorial, interdependent, and continuous. It tracks skills-based trajectories across all four domains — so you see the full picture, not just isolated milestones.',
     'sci.skills.ref': 'MIT-Solve · Stanford · psyarxiv.com/95erq',
 
     'sci.sensitive.tag': 'Timing & Uniqueness',
@@ -371,6 +372,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.p2': 'Durante la primera infancia, el cerebro crece a un ritmo asombroso. Estos años construyen la base del aprendizaje, la salud y el éxito futuro, por eso el cuidado y las experiencias cotidianas son tan importantes.',
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'del cerebro se desarrolla antes de los 3 años',
+    'sci.stat.sub': 'Por eso los primeros años importan tanto. Las experiencias tempranas literalmente moldean la arquitectura del cerebro.',
     'sci.bigbang.ref': 'Centro de Desarrollo Infantil de Harvard',
 
     'sci.domains.tag': 'Crecimiento Conectado',
@@ -395,7 +397,7 @@ window.TRANSLATIONS = {
     'sci.skills.tag': 'Nuestro Modelo de Hitos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desarrollo reimaginado</span>',
     'sci.skills.p1': 'Con el apoyo de MIT-Solve y nuestro socio de investigación Prof. Michael Frank en Stanford, analizamos millones de observaciones de hitos para crear un Modelo de Hitos innovador.',
-    'sci.skills.p2': 'A diferencia de las listas tradicionales, Kinedu Skills&reg; muestra que el desarrollo es multifactorial, interdependiente y continuo. Rastrea trayectorias basadas en habilidades en las cuatro áreas — para que veas el panorama completo, no hitos aislados.',
+    'sci.skills.p2': 'A diferencia de las listas tradicionales, Kinedu Skills® muestra que el desarrollo es multifactorial, interdependiente y continuo. Rastrea trayectorias basadas en habilidades en las cuatro áreas — para que veas el panorama completo, no hitos aislados.',
     'sci.skills.ref': 'MIT-Solve · Stanford · psyarxiv.com/95erq',
 
     'sci.sensitive.tag': 'Tiempo y Singularidad',
@@ -583,6 +585,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.p2': 'Durante a primeira infância, o cérebro cresce em um ritmo impressionante. Esses anos constroem a base do aprendizado, da saúde e do sucesso futuro — por isso o cuidado e as experiências do dia a dia são tão importantes.',
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'do cérebro se desenvolve até os 3 anos',
+    'sci.stat.sub': 'Por isso os primeiros anos importam tanto. As experiências iniciais literalmente moldam a arquitetura do cérebro.',
     'sci.bigbang.ref': 'Centro de Desenvolvimento Infantil de Harvard',
 
     'sci.domains.tag': 'Crescimento Conectado',
@@ -607,7 +610,7 @@ window.TRANSLATIONS = {
     'sci.skills.tag': 'Nosso Modelo de Marcos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desenvolvimento reimaginado</span>',
     'sci.skills.p1': 'Com o apoio do MIT-Solve e nosso parceiro de pesquisa Prof. Michael Frank em Stanford, analisamos milhões de observações de marcos para criar um Modelo de Marcos inovador.',
-    'sci.skills.p2': 'Diferente das listas tradicionais, o Kinedu Skills&reg; mostra que o desenvolvimento é multifatorial, interdependente e contínuo. Ele rastreia trajetórias baseadas em habilidades nas quatro áreas — para que você veja o panorama completo, não marcos isolados.',
+    'sci.skills.p2': 'Diferente das listas tradicionais, o Kinedu Skills® mostra que o desenvolvimento é multifatorial, interdependente e contínuo. Ele rastreia trajetórias baseadas em habilidades nas quatro áreas — para que você veja o panorama completo, não marcos isolados.',
     'sci.skills.ref': 'MIT-Solve · Stanford · psyarxiv.com/95erq',
 
     'sci.sensitive.tag': 'Tempo e Singularidade',
