@@ -223,6 +223,29 @@
             margin-bottom: 16px;
         }
 
+        .founder-photo2-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            margin: 36px auto 0;
+        }
+
+        .founder-photo2-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(76,217,100,0.1), rgba(43,139,228,0.08));
+            z-index: -1;
+        }
+
+        .founder-photo2 {
+            width: 100%;
+            border-radius: 22px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
         /* ---------- CTA ---------- */
         .founder-cta {
             padding: 80px 0;
@@ -271,6 +294,10 @@
 
             .founder-quote-text {
                 font-size: 1.05rem;
+            }
+
+            .founder-photo2-wrapper {
+                max-width: 240px;
             }
         }
     </style>
@@ -360,6 +387,9 @@
             <div class="founder-why-inner">
                 <h2 data-i18n="founder.why.title" data-i18n-html>Why <span class="gradient-shift">Kinedu</span> exists</h2>
                 <p data-i18n="founder.why.p1">Every moment in your child's early years matters. Kinedu gives you daily activities and expert advice tailored to your baby's exact age and stage — so you can make the most of each one.</p>
+                <div class="founder-photo2-wrapper">
+                    <img src="Founder 2.jpeg" alt="Luis and his daughters exploring nature" class="founder-photo2">
+                </div>
             </div>
         </div>
     </section>
