@@ -426,17 +426,37 @@
             border-radius: 20px;
             padding: 36px 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .info-card:first-child::before {
+            background: linear-gradient(90deg, var(--kinedu-blue), var(--accent-cyan));
+        }
+
+        .info-card:last-child::before {
+            background: linear-gradient(90deg, var(--kinedu-green), var(--accent-teal));
         }
 
         .info-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.07);
         }
 
         .info-card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -448,7 +468,7 @@
 
         .info-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.08rem;
+            font-size: 1.12rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 12px;
@@ -458,6 +478,18 @@
             font-size: 0.88rem;
             line-height: 1.7;
             color: var(--text-secondary);
+        }
+
+        .info-card .info-highlight {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--kinedu-blue);
+            background: rgba(43,139,228,0.06);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid rgba(43,139,228,0.1);
         }
 
         /* ---------- PARTNERS ---------- */
@@ -512,6 +544,12 @@
         .partner-card-icon.harvard { background: rgba(165,28,48,0.08); color: #a51c30; }
         .partner-card-icon.stanford { background: rgba(140,21,21,0.08); color: #8c1515; }
         .partner-card-icon.mit { background: rgba(163,31,52,0.08); color: #a31f34; }
+
+        .partner-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
 
         .partner-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -900,21 +938,24 @@
         <div class="section-wrap">
             <div class="science-section-header">
                 <h2 data-i18n="sci.sensitive.title" data-i18n-html>Every child's universe <span class="gradient-shift">is unique</span></h2>
+                <p data-i18n="sci.sensitive.sub">Development doesn't follow a single timeline. Kinedu understands this — and adapts to your child.</p>
             </div>
             <div class="two-card-grid">
                 <div class="info-card">
                     <div class="info-card-icon blue">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
                     <h3 data-i18n="sci.sensitive.card1.title">Sensitive periods</h3>
-                    <p data-i18n="sci.sensitive.card1.desc">At certain windows of time, children are especially ready to learn specific skills. Toddlers are primed for a language explosion around age 2, and preschoolers are eager to socialize. Kinedu's plan targets these windows so you never miss them.</p>
+                    <p data-i18n="sci.sensitive.card1.desc">At certain windows of time, children are especially ready to learn specific skills. Toddlers are primed for a language explosion around age 2, and preschoolers are eager to socialize.</p>
+                    <span class="info-highlight" data-i18n="sci.sensitive.card1.highlight">Kinedu targets these windows so you never miss them</span>
                 </div>
                 <div class="info-card">
                     <div class="info-card-icon green">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
                     <h3 data-i18n="sci.sensitive.card2.title">Every child is different</h3>
-                    <p data-i18n="sci.sensitive.card2.desc">One child might walk at 10 months, another at 15 — and both are perfectly healthy. Development has a wide range of normal. Kinedu adapts to your child's unique pace instead of rigid timelines.</p>
+                    <p data-i18n="sci.sensitive.card2.desc">One child might walk at 10 months, another at 15 — and both are perfectly healthy. Development has a wide range of normal.</p>
+                    <span class="info-highlight" data-i18n="sci.sensitive.card2.highlight">Kinedu adapts to your child's unique pace</span>
                 </div>
             </div>
         </div>
@@ -930,21 +971,21 @@
             <div class="partners-grid">
                 <div class="partner-card harvard">
                     <div class="partner-card-icon harvard">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                        <img src="Partners/Shield_of_Harvard_College.svg" alt="Harvard" class="partner-logo">
                     </div>
                     <h3>Harvard</h3>
                     <p data-i18n="sci.partners.harvardDesc">Center on the Developing Child — the science of brain architecture, toxic stress, and serve-and-return interactions.</p>
                 </div>
                 <div class="partner-card stanford">
                     <div class="partner-card-icon stanford">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        <img src="Partners/channels4_profile.jpg" alt="Stanford" class="partner-logo">
                     </div>
                     <h3>Stanford</h3>
                     <p data-i18n="sci.partners.stanfordDesc">Prof. Michael Frank — the Structure of Development research and activity effectiveness studies.</p>
                 </div>
                 <div class="partner-card mit">
                     <div class="partner-card-icon mit">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <img src="Partners/MIT_2023_red_logo.svg.png" alt="MIT" class="partner-logo">
                     </div>
                     <h3>MIT-Solve</h3>
                     <p data-i18n="sci.partners.mitDesc">Supporting the Kinedu Skills® Milestone Model — a new approach to tracking early childhood development.</p>

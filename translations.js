@@ -190,10 +190,13 @@ window.TRANSLATIONS = {
 
     'sci.sensitive.tag': 'Timing & Uniqueness',
     'sci.sensitive.title': 'Every child\'s universe <span class="gradient-shift">is unique</span>',
+    'sci.sensitive.sub': 'Development doesn\'t follow a single timeline. Kinedu understands this — and adapts to your child.',
     'sci.sensitive.card1.title': 'Sensitive periods',
-    'sci.sensitive.card1.desc': 'At certain windows of time, children are especially ready to learn specific skills. Toddlers are primed for a language explosion around age 2, and preschoolers are eager to socialize. Kinedu\'s plan targets these windows so you never miss them.',
+    'sci.sensitive.card1.desc': 'At certain windows of time, children are especially ready to learn specific skills. Toddlers are primed for a language explosion around age 2, and preschoolers are eager to socialize.',
+    'sci.sensitive.card1.highlight': 'Kinedu targets these windows so you never miss them',
     'sci.sensitive.card2.title': 'Every child is different',
-    'sci.sensitive.card2.desc': 'One child might walk at 10 months, another at 15 — and both are perfectly healthy. Development has a wide range of normal. Kinedu adapts to your child\'s unique pace instead of rigid timelines.',
+    'sci.sensitive.card2.desc': 'One child might walk at 10 months, another at 15 — and both are perfectly healthy. Development has a wide range of normal.',
+    'sci.sensitive.card2.highlight': 'Kinedu adapts to your child\'s unique pace',
 
     'sci.partners.tag': 'Research Partners',
     'sci.partners.title': 'Backed by <span class="gradient-shift">world-class institutions</span>',
@@ -418,10 +421,13 @@ window.TRANSLATIONS = {
 
     'sci.sensitive.tag': 'Tiempo y Singularidad',
     'sci.sensitive.title': 'El universo de cada niño <span class="gradient-shift">es único</span>',
+    'sci.sensitive.sub': 'El desarrollo no sigue un solo cronograma. Kinedu lo entiende — y se adapta a tu hijo.',
     'sci.sensitive.card1.title': 'Períodos sensibles',
-    'sci.sensitive.card1.desc': 'En ciertos momentos, los niños están especialmente listos para aprender habilidades específicas. Los niños pequeños están preparados para una explosión del lenguaje alrededor de los 2 años. El plan de Kinedu aprovecha estas ventanas para que no te pierdas ninguna.',
+    'sci.sensitive.card1.desc': 'En ciertos momentos, los niños están especialmente listos para aprender habilidades específicas. Los niños pequeños están preparados para una explosión del lenguaje alrededor de los 2 años.',
+    'sci.sensitive.card1.highlight': 'Kinedu aprovecha estas ventanas para que no te pierdas ninguna',
     'sci.sensitive.card2.title': 'Cada niño es diferente',
-    'sci.sensitive.card2.desc': 'Un niño puede caminar a los 10 meses, otro a los 15 — y ambos están perfectamente sanos. El desarrollo tiene un rango amplio de normalidad. Kinedu se adapta al ritmo único de tu hijo en vez de seguir cronogramas rígidos.',
+    'sci.sensitive.card2.desc': 'Un niño puede caminar a los 10 meses, otro a los 15 — y ambos están perfectamente sanos. El desarrollo tiene un rango amplio de normalidad.',
+    'sci.sensitive.card2.highlight': 'Kinedu se adapta al ritmo único de tu hijo',
 
     'sci.partners.tag': 'Socios de Investigación',
     'sci.partners.title': 'Respaldado por <span class="gradient-shift">instituciones de clase mundial</span>',
@@ -646,10 +652,13 @@ window.TRANSLATIONS = {
 
     'sci.sensitive.tag': 'Tempo e Singularidade',
     'sci.sensitive.title': 'O universo de cada criança <span class="gradient-shift">é único</span>',
+    'sci.sensitive.sub': 'O desenvolvimento não segue um único cronograma. O Kinedu entende isso — e se adapta ao seu filho.',
     'sci.sensitive.card1.title': 'Períodos sensíveis',
-    'sci.sensitive.card1.desc': 'Em certos momentos, as crianças estão especialmente prontas para aprender habilidades específicas. As crianças pequenas estão preparadas para uma explosão da linguagem por volta dos 2 anos. O plano do Kinedu aproveita essas janelas para que você não perca nenhuma.',
+    'sci.sensitive.card1.desc': 'Em certos momentos, as crianças estão especialmente prontas para aprender habilidades específicas. As crianças pequenas estão preparadas para uma explosão da linguagem por volta dos 2 anos.',
+    'sci.sensitive.card1.highlight': 'O Kinedu aproveita essas janelas para que você não perca nenhuma',
     'sci.sensitive.card2.title': 'Cada criança é diferente',
-    'sci.sensitive.card2.desc': 'Uma criança pode andar aos 10 meses, outra aos 15 — e ambas estão perfeitamente saudáveis. O desenvolvimento tem uma faixa ampla de normalidade. O Kinedu se adapta ao ritmo único do seu filho em vez de seguir cronogramas rígidos.',
+    'sci.sensitive.card2.desc': 'Uma criança pode andar aos 10 meses, outra aos 15 — e ambas estão perfeitamente saudáveis. O desenvolvimento tem uma faixa ampla de normalidade.',
+    'sci.sensitive.card2.highlight': 'O Kinedu se adapta ao ritmo único do seu filho',
 
     'sci.partners.tag': 'Parceiros de Pesquisa',
     'sci.partners.title': 'Apoiado por <span class="gradient-shift">instituições de classe mundial</span>',
