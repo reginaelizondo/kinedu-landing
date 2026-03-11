@@ -131,21 +131,15 @@ window.TRANSLATIONS = {
 
     // FOOTER
     'footer.brand': 'Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.',
-    'footer.product': 'Product',
-    'footer.features': 'Features',
-    'footer.pricing': 'Pricing',
-    'footer.liveClasses': 'Live classes',
-    'footer.masterclasses': 'Masterclasses',
     'footer.company': 'Company',
     'footer.aboutUs': 'About us',
     'footer.theScience': 'The science',
     'footer.blog': 'Blog',
-    'footer.educators': 'Educators',
+    'footer.blogUrl': 'https://blog.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
     'footer.support': 'Support',
-    'footer.helpCenter': 'Help center',
-    'footer.contact': 'Contact',
-    'footer.privacy': 'Privacy',
-    'footer.terms': 'Terms',
+    'footer.contactUs': 'Contact us',
+    'footer.termsConditions': 'Terms & Conditions',
+    'footer.privacyPolicy': 'Privacy Policy',
     'footer.copyright': '© 2026 Kinedu. All rights reserved.',
 
     // SCIENCE PAGE
@@ -367,21 +361,15 @@ window.TRANSLATIONS = {
 
     // FOOTER
     'footer.brand': 'Recomendado por pediatras. Amado por padres. Hecho para tu bebé — justo como es ahora.',
-    'footer.product': 'Producto',
-    'footer.features': 'Funciones',
-    'footer.pricing': 'Precios',
-    'footer.liveClasses': 'Clases en vivo',
-    'footer.masterclasses': 'Masterclasses',
     'footer.company': 'Empresa',
     'footer.aboutUs': 'Nosotros',
     'footer.theScience': 'La ciencia',
     'footer.blog': 'Blog',
-    'footer.educators': 'Educadores',
+    'footer.blogUrl': 'https://blog-es.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
     'footer.support': 'Soporte',
-    'footer.helpCenter': 'Centro de ayuda',
-    'footer.contact': 'Contacto',
-    'footer.privacy': 'Privacidad',
-    'footer.terms': 'Términos',
+    'footer.contactUs': 'Contáctanos',
+    'footer.termsConditions': 'Términos y Condiciones',
+    'footer.privacyPolicy': 'Política de Privacidad',
     'footer.copyright': '© 2026 Kinedu. Todos los derechos reservados.',
 
     // SCIENCE PAGE
@@ -603,21 +591,15 @@ window.TRANSLATIONS = {
 
     // FOOTER
     'footer.brand': 'Recomendado por pediatras. Amado por pais. Feito para o seu bebê — exatamente como ele é agora.',
-    'footer.product': 'Produto',
-    'footer.features': 'Funcionalidades',
-    'footer.pricing': 'Preços',
-    'footer.liveClasses': 'Aulas ao vivo',
-    'footer.masterclasses': 'Masterclasses',
     'footer.company': 'Empresa',
     'footer.aboutUs': 'Sobre nós',
     'footer.theScience': 'A ciência',
     'footer.blog': 'Blog',
-    'footer.educators': 'Educadores',
+    'footer.blogUrl': 'https://blog-pt.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
     'footer.support': 'Suporte',
-    'footer.helpCenter': 'Central de ajuda',
-    'footer.contact': 'Contato',
-    'footer.privacy': 'Privacidade',
-    'footer.terms': 'Termos',
+    'footer.contactUs': 'Fale conosco',
+    'footer.termsConditions': 'Termos e Condições',
+    'footer.privacyPolicy': 'Política de Privacidade',
     'footer.copyright': '© 2026 Kinedu. Todos os direitos reservados.',
 
     // SCIENCE PAGE

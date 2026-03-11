@@ -50,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Update href values for language-specific links
+            document.querySelectorAll('[data-i18n-href]').forEach(el => {
+                const key = el.getAttribute('data-i18n-href');
+                const value = t[key];
+                if (value) el.setAttribute('href', value);
+            });
+
             // Update toggle buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
