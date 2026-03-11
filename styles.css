@@ -2333,6 +2333,19 @@ a {
         text-align: center;
         justify-content: center;
         border-radius: 14px;
+        background: linear-gradient(135deg, var(--kinedu-blue), var(--accent-cyan), var(--kinedu-green));
+        background-size: 200% 200%;
+        animation: gradientShift 6s ease infinite;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        box-shadow: 0 4px 16px rgba(43, 139, 228, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links .nav-cta.mobile-only:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 24px rgba(43, 139, 228, 0.35);
     }
 
     .lang-toggle--mobile {
