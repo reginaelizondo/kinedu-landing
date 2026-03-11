@@ -115,22 +115,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger) {
         const navPill = document.querySelector('.nav-pill');
-        const navLogo = document.querySelector('.nav-logo');
+
+        // Create backdrop element
+        const backdrop = document.createElement('div');
+        backdrop.className = 'nav-menu-backdrop';
+        document.body.appendChild(backdrop);
+
+        function openMenu() {
+            navLinks.classList.add('active');
+            hamburger.classList.add('active');
+            if (navPill) navPill.classList.add('menu-open');
+            backdrop.classList.add('visible');
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            if (navPill) navPill.classList.remove('menu-open');
+            backdrop.classList.remove('visible');
+        }
 
         hamburger.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            if (navPill) navPill.classList.toggle('menu-open', isOpen);
-            if (navLogo) navLogo.classList.toggle('menu-open', isOpen);
+            navLinks.classList.contains('active') ? closeMenu() : openMenu();
         });
 
+        backdrop.addEventListener('click', closeMenu);
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                if (navPill) navPill.classList.remove('menu-open');
-                if (navLogo) navLogo.classList.remove('menu-open');
-            });
+            link.addEventListener('click', closeMenu);
         });
     }
 
