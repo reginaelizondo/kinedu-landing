@@ -129,44 +129,32 @@
         }
 
         .founder-quote-inner {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
             position: relative;
-            padding: 40px 48px;
+            padding: 48px 56px;
             border-radius: 24px;
-            background: linear-gradient(135deg, #2B8BE4 0%, #6C5CE7 40%, #E84D8A 70%, #FFC033 100%);
-            border: none;
-            overflow: hidden;
-        }
-
-        .founder-quote-inner::before {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            border-radius: 22px;
             background: #ffffff;
-            z-index: 0;
-        }
-
-        .founder-quote-text,
-        .founder-quote-author {
-            position: relative;
-            z-index: 1;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
         }
 
         .founder-quote-text {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-            font-weight: 600;
+            font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+            font-weight: 700;
             color: var(--text-primary);
-            line-height: 1.6;
-            font-style: italic;
-            margin-bottom: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .founder-quote-text .gradient-shift {
+            font-weight: 700;
         }
 
         .founder-quote-author {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-tertiary);
             letter-spacing: 0.02em;
@@ -224,7 +212,7 @@
             }
 
             .founder-quote-text {
-                font-size: 1.05rem;
+                font-size: 1.15rem;
             }
         }
     </style>
@@ -296,8 +284,8 @@
     <section class="founder-quote-section">
         <div class="section-wrap">
             <div class="founder-quote-inner">
-                <p class="founder-quote-text" data-i18n="founder.quote">Kinedu is your personalized guide to know exactly what to do with your baby, every single day.</p>
-                <span class="founder-quote-author">— Luis Garza Sada</span>
+                <p class="founder-quote-text">Kinedu is your <span class="gradient-shift">personalized guide</span> to know <span class="gradient-shift">exactly</span> what to do with your baby, <span class="gradient-shift">every single day.</span></p>
+                <span class="founder-quote-author">— Luis Garza</span>
             </div>
         </div>
     </section>
