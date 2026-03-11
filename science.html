@@ -163,10 +163,12 @@
             font-size: clamp(4rem, 10vw, 7rem);
             font-weight: 800;
             letter-spacing: -0.04em;
-            background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
+            background: linear-gradient(135deg, var(--kinedu-blue), var(--accent-cyan), var(--kinedu-green), var(--kinedu-blue));
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 6s ease infinite;
             line-height: 1;
             margin-bottom: 8px;
         }
@@ -377,10 +379,11 @@
             margin: 0 auto 16px;
         }
 
-        .domain-icon.blue { background: var(--bg-soft-blue); color: var(--kinedu-blue); }
-        .domain-icon.green { background: var(--bg-soft-green); color: var(--kinedu-green); }
-        .domain-icon.orange { background: var(--bg-soft-orange); color: var(--kinedu-orange); }
-        .domain-icon.pink { background: var(--bg-soft-pink); color: var(--kinedu-pink); }
+        .domain-logo {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
 
         .domain-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -748,7 +751,6 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 <span data-i18n="sci.backToHome">Back to home</span>
             </a>
-            <span class="sec-tag" data-i18n="sci.hero.tag">Backed by Research</span>
             <h1 data-i18n="sci.heroTitle" data-i18n-html>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
             <p class="hero-sub" data-i18n="sci.heroSub">We partnered with researchers from Harvard, Stanford, and MIT to build a parenting app grounded in the latest science on early childhood development — powered by millions of real data points.</p>
 
@@ -791,7 +793,6 @@
         <div class="section-wrap">
             <div class="science-grid">
                 <div class="science-text">
-                    <span class="sec-tag" data-i18n="sci.bigbang.tag">The Big Bang of Development</span>
                     <h2 data-i18n="sci.bigbang.title" data-i18n-html>Early experiences <span class="gradient-shift">build brain architecture</span></h2>
                     <p data-i18n="sci.bigbang.p1">Your baby's development is like a Big Bang — it starts from a few simple building blocks and rapidly expands into a universe of skills and abilities. Small early milestones lead to an expanding cascade of new capabilities.</p>
                     <p data-i18n="sci.bigbang.p2">During early childhood, the brain grows at an astonishing rate. These years build the foundation for future learning, health, and life success, so nurturing care and rich everyday experiences are crucial.</p>
@@ -813,35 +814,34 @@
     <section class="science-section alt-bg">
         <div class="section-wrap">
             <div class="science-section-header">
-                <span class="sec-tag" data-i18n="sci.domains.tag">Interconnected Growth</span>
                 <h2 data-i18n="sci.domains.title" data-i18n-html>Four domains, <span class="gradient-shift">one universe</span></h2>
                 <p data-i18n="sci.domains.sub">Development isn't just one thing. Babies grow physically, cognitively, linguistically, and socially-emotionally — all at once. These domains are deeply interconnected: each one influences and builds upon the others.</p>
             </div>
             <div class="domains-grid">
                 <div class="domain-card blue-accent">
-                    <div class="domain-icon blue">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    <div class="domain-icon">
+                        <img src="areas/Logo_Physical_HD.png" alt="Physical" class="domain-logo">
                     </div>
                     <h3 data-i18n="sci.domains.physical.title">Physical</h3>
                     <p data-i18n="sci.domains.physical.desc">From rolling over to running — gross and fine motor skills that let your baby explore the world.</p>
                 </div>
                 <div class="domain-card green-accent">
-                    <div class="domain-icon green">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    <div class="domain-icon">
+                        <img src="areas/Logo_Cognitive_HD.png" alt="Cognitive" class="domain-logo">
                     </div>
                     <h3 data-i18n="sci.domains.cognitive.title">Cognitive</h3>
                     <p data-i18n="sci.domains.cognitive.desc">Problem-solving, curiosity, cause and effect — how children learn to think and understand.</p>
                 </div>
                 <div class="domain-card orange-accent">
-                    <div class="domain-icon orange">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <div class="domain-icon">
+                        <img src="areas/Logo_Linguistic_HD.png" alt="Language" class="domain-logo">
                     </div>
-                    <h3 data-i18n="sci.domains.language.title">Language</h3>
+                    <h3 data-i18n="sci.domains.language.title">Linguistic</h3>
                     <p data-i18n="sci.domains.language.desc">From first coos to full sentences — speech, listening, and early literacy skills.</p>
                 </div>
                 <div class="domain-card pink-accent">
-                    <div class="domain-icon pink">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <div class="domain-icon">
+                        <img src="areas/Logo_Emotional_HD.png" alt="Social-Emotional" class="domain-logo">
                     </div>
                     <h3 data-i18n="sci.domains.social.title">Social-Emotional</h3>
                     <p data-i18n="sci.domains.social.desc">Bonding, empathy, self-regulation — the emotional skills that last a lifetime.</p>
@@ -856,7 +856,6 @@
         <div class="section-wrap">
             <div class="science-grid reverse">
                 <div class="science-text">
-                    <span class="sec-tag" data-i18n="sci.serve.tag">Brain-Building Interactions</span>
                     <h2 data-i18n="sci.serve.title" data-i18n-html>Serve and return: <span class="gradient-shift">how brains are built</span></h2>
                     <p data-i18n="sci.serve.p1">When a baby babbles, gestures, or cries, and an adult responds with eye contact, words, or a hug — that's called "serve and return." These back-and-forth interactions are the building blocks of brain architecture.</p>
                     <p data-i18n="sci.serve.p2">Every activity in Kinedu is designed to create these powerful serve-and-return moments. Our research with Stanford University found that Kinedu activities lead to real increases in parents' verbal and non-verbal engagement with their children.</p>
@@ -879,7 +878,6 @@
         <div class="section-wrap">
             <div class="science-grid">
                 <div class="science-text">
-                    <span class="sec-tag" data-i18n="sci.skills.tag">Our Milestone Model</span>
                     <h2 data-i18n-html data-i18n="sci.skills.title">Kinedu Skills<sup>®</sup>: <span class="gradient-shift">development reimagined</span></h2>
                     <p data-i18n="sci.skills.p1">With support from MIT-Solve and our research partner Prof. Michael Frank at Stanford, we analyzed millions of milestone observations to build an innovative Early Childhood Milestone Model.</p>
                     <p data-i18n-html data-i18n="sci.skills.p2">Unlike traditional checklists, Kinedu Skills® shows that development is multi-factorial, interdependent, and continuous. It tracks skills-based trajectories across all four domains — so you see the full picture, not just isolated milestones.</p>
@@ -901,7 +899,6 @@
     <section class="science-section">
         <div class="section-wrap">
             <div class="science-section-header">
-                <span class="sec-tag" data-i18n="sci.sensitive.tag">Timing & Uniqueness</span>
                 <h2 data-i18n="sci.sensitive.title" data-i18n-html>Every child's universe <span class="gradient-shift">is unique</span></h2>
             </div>
             <div class="two-card-grid">
