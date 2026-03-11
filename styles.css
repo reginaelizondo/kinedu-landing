@@ -2245,7 +2245,7 @@ a {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(15, 23, 42, 0.35);
         z-index: 9998;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -2269,21 +2269,22 @@ a {
         position: fixed;
         top: 0;
         right: 0;
-        width: 280px;
+        width: 300px;
         height: 100vh;
         height: 100dvh;
         background: #ffffff;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 90px 32px 40px;
-        gap: 4px;
+        align-items: stretch;
+        padding: 80px 24px 40px;
+        gap: 2px;
         z-index: 9999;
-        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
+        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), visibility 0.35s;
         overflow-y: auto;
         display: flex !important;
         transform: translateX(100%);
         visibility: hidden;
+        border-left: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav-links.active {
@@ -2299,22 +2300,26 @@ a {
     }
 
     .nav-links a {
-        font-size: 1.05rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.95rem;
         font-weight: 600;
         color: var(--text-primary);
-        padding: 14px 16px;
-        border-radius: 12px;
+        padding: 14px 20px;
+        border-radius: 14px;
         width: 100%;
-        transition: background 0.2s;
+        transition: all 0.2s ease;
+        letter-spacing: -0.01em;
     }
 
     .nav-links a:hover {
-        background: rgba(43, 139, 228, 0.06);
+        background: linear-gradient(135deg, rgba(43, 139, 228, 0.06), rgba(76, 217, 100, 0.04));
+        transform: translateX(4px);
     }
 
     .nav-links a.active {
         color: var(--kinedu-blue);
-        background: rgba(43, 139, 228, 0.08);
+        background: linear-gradient(135deg, rgba(43, 139, 228, 0.1), rgba(76, 217, 100, 0.05));
+        font-weight: 700;
     }
 
     .nav-links .mobile-only {
@@ -2322,17 +2327,18 @@ a {
     }
 
     .nav-links .nav-cta.mobile-only {
-        margin-top: 12px;
-        padding: 14px 24px;
-        font-size: 1rem;
+        margin-top: 16px;
+        padding: 15px 24px;
+        font-size: 0.95rem;
         text-align: center;
         justify-content: center;
+        border-radius: 14px;
     }
 
     .lang-toggle--mobile {
         display: flex;
-        margin-top: 16px;
-        padding-left: 16px;
+        margin-top: 20px;
+        justify-content: center;
     }
 
     /* --- HERO MOBILE — Opal-style clean layout --- */
