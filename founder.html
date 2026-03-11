@@ -12,16 +12,14 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* =========================================
-           FOUNDER PAGE — Styles
+           FOUNDER PAGE — Clean redesign
            ========================================= */
 
-        /* ---------- HERO ---------- */
         .founder-hero {
-            padding: 150px 0 70px;
+            padding: 140px 0 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(180deg, rgba(43,139,228,0.04) 0%, transparent 60%);
         }
 
         .founder-hero::before {
@@ -32,7 +30,7 @@
             transform: translateX(-50%);
             width: 900px;
             height: 900px;
-            background: radial-gradient(circle, rgba(76,217,100,0.08) 0%, rgba(43,139,228,0.05) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(76,217,100,0.06) 0%, rgba(43,139,228,0.04) 40%, transparent 70%);
             pointer-events: none;
         }
 
@@ -46,95 +44,78 @@
             background: rgba(43,139,228,0.08);
             padding: 8px 20px;
             border-radius: 50px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border: 1px solid rgba(43,139,228,0.1);
         }
 
         .founder-hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
             font-weight: 800;
             color: var(--text-primary);
-            line-height: 1.12;
-            margin-bottom: 16px;
+            line-height: 1.1;
+            margin-bottom: 12px;
             letter-spacing: -0.03em;
         }
 
         .founder-hero .hero-sub {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
             color: var(--text-secondary);
-            max-width: 500px;
+            max-width: 400px;
             margin: 0 auto;
             line-height: 1.7;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--kinedu-blue);
-            text-decoration: none;
-            margin-bottom: 24px;
-            transition: opacity 0.3s;
-        }
-
-        .back-link-row {
-            text-align: left;
-        }
-
-        .back-link:hover { opacity: 0.7; }
-
-        /* ---------- STORY SECTION ---------- */
+        /* ---------- STORY ---------- */
         .founder-story {
-            padding: 80px 0;
+            padding: 72px 0 80px;
         }
 
         .founder-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 64px;
-            align-items: center;
-            max-width: 1020px;
+            grid-template-columns: auto 1fr;
+            gap: 56px;
+            align-items: start;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .founder-photo-wrapper {
             position: relative;
-            width: 100%;
-            max-width: 300px;
+            width: 260px;
+            position: sticky;
+            top: 100px;
         }
 
         .founder-photo-wrapper::before {
             content: '';
             position: absolute;
-            inset: -12px;
-            border-radius: 28px;
-            background: linear-gradient(135deg, rgba(43,139,228,0.1), rgba(76,217,100,0.08));
+            inset: -10px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(43,139,228,0.08), rgba(76,217,100,0.06));
             z-index: -1;
         }
 
         .founder-photo {
             width: 100%;
-            border-radius: 22px;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
             object-fit: cover;
         }
 
         .founder-text h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
             font-weight: 800;
             color: var(--text-primary);
-            line-height: 1.25;
+            line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
 
         .founder-text p {
-            font-size: 0.93rem;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: 16px;
         }
@@ -145,105 +126,35 @@
 
         /* ---------- QUOTE ---------- */
         .founder-quote-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, rgba(43,139,228,0.05) 0%, rgba(76,217,100,0.03) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founder-quote-section::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(76,217,100,0.08) 0%, transparent 70%);
-            pointer-events: none;
+            padding: 48px 0;
         }
 
         .founder-quote-inner {
-            max-width: 720px;
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
             position: relative;
-        }
-
-        .founder-quote-mark {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 4rem;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
+            padding: 40px 48px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(43,139,228,0.04) 0%, rgba(76,217,100,0.03) 100%);
+            border: 1px solid rgba(43,139,228,0.06);
         }
 
         .founder-quote-text {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.35rem);
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.6;
             font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .founder-quote-author {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-tertiary);
-        }
-
-        /* ---------- WHY SECTION ---------- */
-        .founder-why {
-            padding: 80px 0;
-        }
-
-        .founder-why-inner {
-            max-width: 680px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .founder-why-inner h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .founder-why-inner p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
             margin-bottom: 16px;
         }
 
-        .founder-photo2-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 340px;
-            margin: 36px auto 0;
-        }
-
-        .founder-photo2-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            border-radius: 28px;
-            background: linear-gradient(135deg, rgba(76,217,100,0.1), rgba(43,139,228,0.08));
-            z-index: -1;
-        }
-
-        .founder-photo2 {
-            width: 100%;
-            border-radius: 22px;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-            object-fit: cover;
+        .founder-quote-author {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.02em;
         }
 
         /* ---------- CTA ---------- */
@@ -274,30 +185,31 @@
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             .founder-hero {
-                padding: 120px 0 50px;
+                padding: 120px 0 0;
             }
 
             .founder-grid {
                 grid-template-columns: 1fr;
-                gap: 36px;
+                gap: 32px;
                 text-align: center;
             }
 
             .founder-photo-wrapper {
-                max-width: 220px;
+                width: 200px;
                 margin: 0 auto;
+                position: static;
             }
 
             .founder-text {
                 text-align: left;
             }
 
-            .founder-quote-text {
-                font-size: 1.05rem;
+            .founder-quote-inner {
+                padding: 32px 24px;
             }
 
-            .founder-photo2-wrapper {
-                max-width: 240px;
+            .founder-quote-text {
+                font-size: 1.05rem;
             }
         }
     </style>
@@ -342,19 +254,13 @@
     <!-- HERO -->
     <section class="founder-hero">
         <div class="section-wrap">
-            <div class="back-link-row">
-                <a href="index.html" class="back-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    <span data-i18n="founder.backToHome">Back to home</span>
-                </a>
-            </div>
             <span class="sec-tag" data-i18n="founder.hero.tag">Meet the Founder</span>
             <h1 data-i18n="founder.hero.title" data-i18n-html>Hi, I'm <span class="gradient-shift">Luis.</span></h1>
             <p class="hero-sub" data-i18n="founder.hero.sub">Founder of Kinedu. Dad of four.</p>
         </div>
     </section>
 
-    <!-- FOUNDER STORY -->
+    <!-- STORY -->
     <section class="founder-story">
         <div class="section-wrap">
             <div class="founder-grid">
@@ -365,6 +271,7 @@
                     <h2 data-i18n="founder.story.title" data-i18n-html>Welcome to <span class="gradient-shift">Kinedu</span></h2>
                     <p data-i18n="founder.story.p1">With four daughters, one question never left me: "Am I doing enough?" Before Kinedu, I co-founded Advenio — 26 early learning centers across Mexico and Colombia. I saw firsthand how much parents wanted to be involved in their child's development.</p>
                     <p data-i18n="founder.story.p2">That inspired Kinedu — a toolkit that puts expert guidance directly in parents' hands. When I became a dad in 2016, every laugh and milestone reminded me why this work matters so much.</p>
+                    <p data-i18n="founder.why.p1">Every moment in your child's early years matters. Kinedu gives you daily activities and expert advice tailored to your baby's exact age and stage — so you can make the most of each one.</p>
                 </div>
             </div>
         </div>
@@ -376,19 +283,6 @@
             <div class="founder-quote-inner">
                 <p class="founder-quote-text" data-i18n="founder.quote">Kinedu is your personalized guide to know exactly what to do with your baby, every single day.</p>
                 <span class="founder-quote-author">— Luis Garza Sada</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY KINEDU EXISTS -->
-    <section class="founder-why">
-        <div class="section-wrap">
-            <div class="founder-why-inner">
-                <h2 data-i18n="founder.why.title" data-i18n-html>Why <span class="gradient-shift">Kinedu</span> exists</h2>
-                <p data-i18n="founder.why.p1">Every moment in your child's early years matters. Kinedu gives you daily activities and expert advice tailored to your baby's exact age and stage — so you can make the most of each one.</p>
-                <div class="founder-photo2-wrapper">
-                    <img src="Founder 2.jpeg" alt="Luis and his daughters exploring nature" class="founder-photo2">
-                </div>
             </div>
         </div>
     </section>
