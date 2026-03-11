@@ -35,17 +35,25 @@
         }
 
         .founder-hero .sec-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--kinedu-blue);
-            background: rgba(43,139,228,0.08);
-            padding: 8px 20px;
+            background: linear-gradient(135deg, #2B8BE4, #6C5CE7);
+            color: #ffffff;
+            padding: 10px 22px;
             border-radius: 50px;
             margin-bottom: 20px;
-            border: 1px solid rgba(43,139,228,0.1);
+            border: none;
+            box-shadow: 0 2px 12px rgba(43,139,228,0.25);
+        }
+
+        .founder-hero .sec-tag::before {
+            content: '\01F44B';
+            font-size: 0.85rem;
         }
 
         .founder-hero h1 {
@@ -136,8 +144,24 @@
             position: relative;
             padding: 40px 48px;
             border-radius: 24px;
-            background: linear-gradient(135deg, rgba(43,139,228,0.04) 0%, rgba(76,217,100,0.03) 100%);
-            border: 1px solid rgba(43,139,228,0.06);
+            background: linear-gradient(135deg, #2B8BE4 0%, #6C5CE7 40%, #E84D8A 70%, #FFC033 100%);
+            border: none;
+            overflow: hidden;
+        }
+
+        .founder-quote-inner::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 22px;
+            background: #ffffff;
+            z-index: 0;
+        }
+
+        .founder-quote-text,
+        .founder-quote-author {
+            position: relative;
+            z-index: 1;
         }
 
         .founder-quote-text {
@@ -268,10 +292,10 @@
                     <img src="Founder.jpeg" alt="Luis Garza Sada — Founder of Kinedu" class="founder-photo">
                 </div>
                 <div class="founder-text">
-                    <h2 data-i18n="founder.story.title" data-i18n-html>Welcome to <span class="gradient-shift">Kinedu</span></h2>
-                    <p data-i18n="founder.story.p1">With four daughters, one question never left me: "Am I doing enough?" Before Kinedu, I co-founded Advenio — 26 early learning centers across Mexico and Colombia. I saw firsthand how much parents wanted to be involved in their child's development.</p>
-                    <p data-i18n="founder.story.p2">That inspired Kinedu — a toolkit that puts expert guidance directly in parents' hands. When I became a dad in 2016, every laugh and milestone reminded me why this work matters so much.</p>
-                    <p data-i18n="founder.why.p1">Every moment in your child's early years matters. Kinedu gives you daily activities and expert advice tailored to your baby's exact age and stage — so you can make the most of each one.</p>
+                    <h2 data-i18n="founder.story.greeting" data-i18n-html>Hey Parents, Welcome to <span class="gradient-shift">Kinedu!</span></h2>
+                    <p data-i18n="founder.story.p1">I'm Luis, the founder and a dad of four amazing girls. Like many parents, I often wondered, "Am I doing enough to support my children's development?" That's why I built Kinedu—a resource I wish I had from the beginning of my parenting journey.</p>
+                    <p data-i18n="founder.story.p2">Kinedu isn't just an app; it's your personalized guide, created by experts, to support your child's development. From sleep and motor skills to cognitive growth, Kinedu provides daily activities and advice tailored to your child's needs—so you can know EXACTLY what to do everyday.</p>
+                    <p data-i18n="founder.story.p3">If you're looking for a way to give your child the best start in life, Kinedu is here to help you every step of the way.</p>
                 </div>
             </div>
         </div>
