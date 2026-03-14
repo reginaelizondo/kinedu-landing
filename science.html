@@ -1249,5 +1249,21 @@
 
     <script src="translations.js"></script>
     <script src="script.js"></script>
+    <script>
+    (function(){
+        var lang = localStorage.getItem('kinedu-lang') || 'en';
+        var page = location.pathname;
+        navigator.sendBeacon('/api/track', JSON.stringify({page: page, referrer: document.referrer, lang: lang}));
+        document.querySelectorAll('a[href*="app.kinedu.com"]').forEach(function(a){
+            a.addEventListener('click', function(){
+                var label = 'CTA';
+                if (a.closest('.nav-cta, nav')) label = 'Nav — Try Free';
+                else if (a.closest('.science-cta, .final-cta')) label = 'Science — Start Trial';
+                else label = (a.textContent || '').trim().slice(0, 40) || 'CTA';
+                navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang}));
+            });
+        });
+    })();
+    </script>
 </body>
 </html>
