@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 featureImg1: 'TAP',
                 featureImg2: 'Calendar',
                 featureImg3: 'Milestones',
-                featureImg4: 'Tracker',
+                featureImg4: 'Report',
+                featureImg5: 'Tracker',
             };
             for (const [id, name] of Object.entries(featureImages)) {
                 const el = document.getElementById(id);

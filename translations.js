@@ -84,13 +84,13 @@ window.TRANSLATIONS = {
     'f3.title': 'Stop wondering if they\'re on track. Know.',
     'f3.body': 'Answer a few simple questions and see exactly where your baby stands. Strengths, areas to work on, what\'s coming next.',
 
-    'f4.tag': 'Baby Tracker',
-    'f4.title': 'One place to track everything.',
-    'f4.body': 'Log feeds, sleep, and diapers as you go. Spot patterns, share with your pediatrician, and actually feel on top of the day.',
+    'f4.tag': 'Progress Report',
+    'f4.title': 'Get peace of mind.',
+    'f4.body': 'Find out if your baby\'s development is on track with personalized progress reports. See where they stand, celebrate their wins, and know exactly what to focus on next.',
 
-    'f5.tag': 'Family Sharing',
-    'f5.title': 'Everyone who loves your baby can be on the same page.',
-    'f5.body': 'Add your partner, a grandparent, the daycare provider, whoever is part of your baby\'s world. They see the milestones, do the activities, and actually feel involved without you coordinating everything.',
+    'f5.tag': 'Baby Tracker',
+    'f5.title': 'One place to track everything.',
+    'f5.body': 'Log feeds, sleep, and diapers as you go. Spot patterns, share with your pediatrician, and actually feel on top of the day.',
 
     // LOGOS
     'logos.title': 'As seen in',
@@ -314,13 +314,13 @@ window.TRANSLATIONS = {
     'f3.title': 'Deja de preguntarte si va bien. Descúbrelo.',
     'f3.body': 'Responde unas preguntas sencillas y descubre exactamente dónde está tu bebé. Fortalezas, áreas por trabajar, lo que viene después.',
 
-    'f4.tag': 'Registro del Bebé',
-    'f4.title': 'Un solo lugar para registrar todo.',
-    'f4.body': 'Registra tomas, sueño y pañales sobre la marcha. Detecta patrones, comparte con tu pediatra y siéntete en control del día.',
+    'f4.tag': 'Reporte de Progreso',
+    'f4.title': 'Ten tranquilidad.',
+    'f4.body': 'Descubre si el desarrollo de tu bebé va por buen camino con reportes de progreso personalizados. Ve dónde está, celebra sus logros y sabe exactamente en qué enfocarte.',
 
-    'f5.tag': 'Compartir en Familia',
-    'f5.title': 'Que todos los que quieren a tu bebé estén en sintonía.',
-    'f5.body': 'Agrega a tu pareja, abuelos, la niñera, quien sea parte del mundo de tu bebé. Ven los hitos, hacen las actividades y se sienten involucrados sin que tú tengas que coordinar todo.',
+    'f5.tag': 'Registro del Bebé',
+    'f5.title': 'Un solo lugar para registrar todo.',
+    'f5.body': 'Registra tomas, sueño y pañales sobre la marcha. Detecta patrones, comparte con tu pediatra y siéntete en control del día.',
 
     // LOGOS
     'logos.title': 'Visto en',
@@ -544,13 +544,13 @@ window.TRANSLATIONS = {
     'f3.title': 'Pare de se perguntar se está tudo bem. Descubra.',
     'f3.body': 'Responda algumas perguntas simples e descubra exatamente onde seu bebê está. Pontos fortes, áreas para trabalhar, o que vem depois.',
 
-    'f4.tag': 'Registro do Bebê',
-    'f4.title': 'Um só lugar para registrar tudo.',
-    'f4.body': 'Registre mamadas, sono e fraldas na hora. Identifique padrões, compartilhe com o pediatra e sinta que tem o dia sob controle.',
+    'f4.tag': 'Relatório de Progresso',
+    'f4.title': 'Tenha tranquilidade.',
+    'f4.body': 'Descubra se o desenvolvimento do seu bebê está no caminho certo com relatórios de progresso personalizados. Veja onde ele está, celebre suas conquistas e saiba exatamente no que focar.',
 
-    'f5.tag': 'Compartilhar em Família',
-    'f5.title': 'Todos que amam seu bebê podem estar em sintonia.',
-    'f5.body': 'Adicione seu parceiro(a), avós, a babá, quem faz parte do mundo do seu bebê. Eles veem os marcos, fazem as atividades e se sentem envolvidos sem você ter que coordenar tudo.',
+    'f5.tag': 'Registro do Bebê',
+    'f5.title': 'Um só lugar para registrar tudo.',
+    'f5.body': 'Registre mamadas, sono e fraldas na hora. Identifique padrões, compartilhe com o pediatra e sinta que tem o dia sob controle.',
 
     // LOGOS
     'logos.title': 'Visto em',
