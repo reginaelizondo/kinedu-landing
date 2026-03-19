@@ -1187,6 +1187,11 @@ a {
     background: var(--bg-soft-pink);
     border: 1px solid rgba(232, 77, 138, 0.12);
 }
+[data-color="purple"] .feature-tag {
+    color: #8B5CF6;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
 
 .feature-row__text h3 {
     font-size: clamp(1.6rem, 2.8vw, 2.2rem);
