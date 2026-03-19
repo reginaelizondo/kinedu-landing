@@ -345,40 +345,7 @@
             position: relative;
         }
 
-        /* Central connecting hub */
-        .domains-grid::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--kinedu-blue), var(--accent-cyan), var(--kinedu-green));
-            background-size: 200% 200%;
-            animation: gradientShift 6s ease infinite;
-            z-index: 2;
-            box-shadow: 0 4px 20px rgba(43,139,228,0.3);
-        }
-
-        .domains-grid::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            border: 2px dashed rgba(43,139,228,0.15);
-            z-index: 1;
-            animation: spin 20s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+        /* Central hub removed */
 
         .domain-card {
             background: var(--bg-glass);
