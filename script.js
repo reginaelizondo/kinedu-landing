@@ -70,6 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (heroImg) heroImg.src = folder + '/' + (folder === 'EN' ? 'desktop.png' : folder.toLowerCase() + '_desktop.png');
             if (heroSource) heroSource.srcset = folder + '/' + (folder === 'EN' ? 'mobile.png' : folder.toLowerCase() + '_mobile.png');
 
+            // Swap feature images per language
+            const featureImages = {
+                featureImg1: 'TAP',
+                featureImg2: 'Calendar',
+                featureImg3: 'Milestones',
+                featureImg4: 'Tracker',
+            };
+            for (const [id, name] of Object.entries(featureImages)) {
+                const el = document.getElementById(id);
+                if (el) el.src = 'Features/' + folder + '/' + name + ' ' + folder + '.png';
+            }
+
             localStorage.setItem(STORAGE_KEY, lang);
             currentLang = lang;
 
