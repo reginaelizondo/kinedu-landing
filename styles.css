@@ -592,7 +592,8 @@ a {
 }
 .store-badge img {
     height: 44px;
-    width: auto;
+    width: 148px;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -2204,6 +2205,7 @@ a {
     }
     .store-badge img {
         height: 40px;
+        width: 135px;
     }
 
     .hero-trust {
