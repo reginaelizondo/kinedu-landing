@@ -579,8 +579,8 @@ a {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 36px;
-    animation: fadeUp 0.8s ease 0.55s forwards;
+    margin-top: 24px;
+    animation: fadeUp 0.8s ease 0.65s forwards;
     opacity: 0;
 }
 .store-badge {
