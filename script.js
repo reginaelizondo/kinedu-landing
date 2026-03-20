@@ -83,6 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el) el.src = 'Features/' + folder + '/' + name + ' ' + folder + '.png';
             }
 
+            // Swap App Store link per language
+            const appStoreUrls = {
+                en: 'https://apps.apple.com/us/app/kinedu-baby-development/id741277284',
+                es: 'https://apps.apple.com/es/app/kinedu-desarrollo-del-beb%C3%A9/id741277284',
+                pt: 'https://apps.apple.com/br/app/kinedu-desenvolvimento-do-beb%C3%AA/id741277284',
+            };
+            const appStoreBadge = document.getElementById('appStoreBadge');
+            if (appStoreBadge) appStoreBadge.href = appStoreUrls[lang] || appStoreUrls.en;
+
             localStorage.setItem(STORAGE_KEY, lang);
             currentLang = lang;
 

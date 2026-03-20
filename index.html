@@ -95,6 +95,15 @@
                     </a>
                 </div>
 
+                <div class="store-badges">
+                    <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" class="store-badge" id="appStoreBadge" target="_blank" rel="noopener">
+                        <img src="Features/stores/app-store-badge-final.png" alt="Download on the App Store" loading="lazy">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.kinedu.appkinedu&hl=es_419" class="store-badge" id="playStoreBadge" target="_blank" rel="noopener">
+                        <img src="Features/stores/google-play-badge.png" alt="Get it on Google Play" loading="lazy">
+                    </a>
+                </div>
+
                 <div class="hero-trust">
                     <div class="trust-item">
                         <span class="trust-val trust-val--blue" data-count="8" data-suffix="M+">8M+</span>
@@ -601,6 +610,14 @@
             a.addEventListener('click', function(){
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Hero — Schools & Educators', lang: lang}));
             });
+        });
+        var appStore = document.getElementById('appStoreBadge');
+        var playStore = document.getElementById('playStoreBadge');
+        if (appStore) appStore.addEventListener('click', function(){
+            navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'App Store Badge', lang: lang}));
+        });
+        if (playStore) playStore.addEventListener('click', function(){
+            navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Google Play Badge', lang: lang}));
         });
     })();
     </script>

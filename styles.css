@@ -570,9 +570,30 @@ a {
 .hero-ctas {
     display: flex;
     gap: 14px;
-    margin-bottom: 36px;
+    margin-bottom: 16px;
     animation: fadeUp 0.8s ease 0.45s forwards;
     opacity: 0;
+}
+
+.store-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s ease 0.55s forwards;
+    opacity: 0;
+}
+.store-badge {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.store-badge:hover {
+    transform: scale(1.04);
+    opacity: 0.9;
+}
+.store-badge img {
+    height: 44px;
+    width: auto;
+    border-radius: 8px;
 }
 
 .btn-hero-primary {
@@ -2176,6 +2197,13 @@ a {
 
     .hero-ctas {
         justify-content: center;
+    }
+
+    .store-badges {
+        justify-content: center;
+    }
+    .store-badge img {
+        height: 40px;
     }
 
     .hero-trust {
