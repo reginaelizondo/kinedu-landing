@@ -1221,7 +1221,7 @@
         var lang = localStorage.getItem('kinedu-lang') || 'en';
         var page = location.pathname;
         navigator.sendBeacon('/api/track', JSON.stringify({page: page, referrer: document.referrer, lang: lang}));
-        document.querySelectorAll('a[href*="app.kinedu.com"]').forEach(function(a){
+        document.querySelectorAll('a[href*="superwall.app"]').forEach(function(a){
             a.addEventListener('click', function(){
                 var label = 'CTA';
                 if (a.closest('.nav-cta, nav')) label = 'Nav — Try Free';
