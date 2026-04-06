@@ -242,7 +242,7 @@
                 <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
                 <a href="founder.html" class="active" data-i18n="nav.founder">Founder</a>
                 <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
-                <a href="https://kinedu.superwall.app/dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+                <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
                 <div class="lang-toggle lang-toggle--mobile">
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="es">ES</button>
@@ -256,7 +256,7 @@
                     <button class="lang-btn" data-lang="pt">PT</button>
                 </div>
                 <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
-                <a href="https://kinedu.superwall.app/dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+                <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
             </div>
             <button class="nav-hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
@@ -307,7 +307,7 @@
         <div class="section-wrap">
             <h2 data-i18n="founder.cta.title" data-i18n-html>Start your journey with <span class="gradient-shift-alt">Kinedu.</span></h2>
             <p data-i18n="founder.cta.sub">Join 8 million families who already trust the science.</p>
-            <a href="https://kinedu.superwall.app/dha2" class="btn-hero-primary">
+            <a href="https://app.kinedu.com/dha2/?swc=dha2" class="btn-hero-primary">
                 <span class="btn-bg"></span>
                 <span class="btn-text" data-i18n="founder.cta.btn">Start your free trial</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -363,7 +363,7 @@
         var lang = localStorage.getItem('kinedu-lang') || 'en';
         var page = location.pathname;
         navigator.sendBeacon('/api/track', JSON.stringify({page: page, referrer: document.referrer, lang: lang}));
-        document.querySelectorAll('a[href*="superwall.app"]').forEach(function(a){
+        document.querySelectorAll('a[href*="app.kinedu.com"]').forEach(function(a){
             a.addEventListener('click', function(){
                 var label = 'CTA';
                 if (a.closest('.nav-cta, nav')) label = 'Nav — Try Free';
