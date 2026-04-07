@@ -494,6 +494,18 @@
             </div>
         </div>
 
+        <!-- App Store Sources -->
+        <div class="cta-section" id="appleSection">
+            <h2 style="display:flex;align-items:center;gap:10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store — Download Sources
+                <span id="appleReportDate" style="font-size:12px;font-weight:400;color:#9ca3af;margin-left:auto;"></span>
+            </h2>
+            <div id="appleContent">
+                <div class="empty-state" style="padding:20px 0;">Loading App Store data...</div>
+            </div>
+        </div>
+
         <!-- Tables -->
         <div class="tables-grid">
             <div class="data-table">
@@ -598,6 +610,82 @@
         loginScreen.style.display = 'none';
         dashboard.classList.add('active');
         fetchData();
+        fetchAppleData();
+    }
+
+    function fetchAppleData() {
+        var content = document.getElementById('appleContent');
+        content.innerHTML = '<div class="empty-state" style="padding:20px 0;">Loading App Store data...</div>';
+        fetch('/api/apple-analytics', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password: password })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            renderAppleData(data);
+        })
+        .catch(function(err) {
+            content.innerHTML = '<div class="empty-state" style="padding:20px 0;color:#ef4444;">Error: ' + err.message + '</div>';
+        });
+    }
+
+    function renderAppleData(data) {
+        var content = document.getElementById('appleContent');
+        var dateEl = document.getElementById('appleReportDate');
+
+        if (data.status === 'initializing' || data.status === 'pending') {
+            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⏳ ' + data.message + '</div>';
+            return;
+        }
+        if (data.error) {
+            content.innerHTML = '<div class="empty-state" style="padding:20px 0;color:#ef4444;">Error: ' + data.error + '</div>';
+            return;
+        }
+        if (!data.sources || data.sources.length === 0) {
+            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">No source data available yet.</div>';
+            return;
+        }
+
+        if (data.reportDate) dateEl.textContent = 'Report: ' + data.reportDate;
+
+        var smartBannerDownloads = (data.smartBanner && data.smartBanner.downloads) || 0;
+        var total = data.total || 1;
+
+        var html = '<div class="cta-grid" style="margin-bottom:20px;">';
+        // Smart App Banner highlight card
+        var pct = total > 0 ? ((smartBannerDownloads / total) * 100).toFixed(1) : '0.0';
+        html += '<div class="cta-card" style="border:2px solid #2b8be4;">' +
+            '<div class="cta-name">📱 Smart App Banner</div>' +
+            '<div class="cta-count">' + formatNum(smartBannerDownloads) + '</div>' +
+            '<div class="cta-pct">' + pct + '% of downloads</div>' +
+            '</div>';
+        html += '<div class="cta-card">' +
+            '<div class="cta-name">Total Downloads</div>' +
+            '<div class="cta-count">' + formatNum(total) + '</div>' +
+            '<div class="cta-pct">All sources</div>' +
+            '</div>';
+        html += '</div>';
+
+        // Sources breakdown table
+        html += '<table style="width:100%;border-collapse:collapse;font-size:13px;">' +
+            '<thead><tr><th style="text-align:left;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">Source</th>' +
+            '<th style="text-align:right;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">Downloads</th>' +
+            '<th style="text-align:right;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">%</th></tr></thead><tbody>';
+
+        var maxDl = data.sources[0].downloads || 1;
+        data.sources.forEach(function(s) {
+            var rowPct = total > 0 ? ((s.downloads / total) * 100).toFixed(1) : '0.0';
+            var barW = maxDl > 0 ? Math.round((s.downloads / maxDl) * 100) : 0;
+            var isSmartBanner = s.name.toLowerCase().includes('smart');
+            html += '<tr style="' + (isSmartBanner ? 'background:#eff6ff;' : '') + '">' +
+                '<td style="padding:8px 4px;"><div class="bar-cell"><div class="mini-bar" style="width:' + barW + 'px;' + (isSmartBanner ? 'background:#2b8be4;' : '') + '"></div>' + s.name + '</div></td>' +
+                '<td style="text-align:right;padding:8px 4px;">' + formatNum(s.downloads) + '</td>' +
+                '<td style="text-align:right;padding:8px 4px;color:#6b7280;">' + rowPct + '%</td>' +
+                '</tr>';
+        });
+        html += '</tbody></table>';
+        content.innerHTML = html;
     }
 
     function fetchData(callback) {

@@ -1,0 +1,140 @@
+const crypto = require('crypto');
+const zlib = require('zlib');
+
+function generateJWT() {
+    const keyId = process.env.ASC_KEY_ID;
+    const issuerId = process.env.ASC_ISSUER_ID;
+    const privateKey = Buffer.from(process.env.ASC_PRIVATE_KEY, 'base64').toString('utf8');
+
+    const header = Buffer.from(JSON.stringify({ alg: 'ES256', kid: keyId, typ: 'JWT' })).toString('base64url');
+    const now = Math.floor(Date.now() / 1000);
+    const payload = Buffer.from(JSON.stringify({
+        iss: issuerId,
+        iat: now,
+        exp: now + 1200,
+        aud: 'appstoreconnect-v1'
+    })).toString('base64url');
+
+    const signingInput = `${header}.${payload}`;
+    const sign = crypto.createSign('SHA256');
+    sign.update(signingInput);
+    sign.end();
+    const signature = sign.sign({ key: privateKey, dsaEncoding: 'ieee-p1363' }, 'base64url');
+    return `${signingInput}.${signature}`;
+}
+
+async function asc(path, token, opts = {}) {
+    const res = await fetch(`https://api.appstoreconnect.apple.com${path}`, {
+        ...opts,
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json', ...(opts.headers || {}) }
+    });
+    const text = await res.text();
+    if (!res.ok) throw new Error(`ASC ${res.status}: ${text.slice(0, 300)}`);
+    return JSON.parse(text);
+}
+
+function parseTSV(tsv) {
+    const lines = tsv.trim().split('\n');
+    if (lines.length < 2) return [];
+    const headers = lines[0].split('\t');
+    return lines.slice(1).map(line => {
+        const vals = line.split('\t');
+        return headers.reduce((o, h, i) => { o[h.trim()] = (vals[i] || '').trim(); return o; }, {});
+    });
+}
+
+module.exports = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+
+    let body = {};
+    try { body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {}); } catch(e) {}
+
+    if (body.password !== process.env.ANALYTICS_PASSWORD) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    try {
+        const token = generateJWT();
+        const appId = '741277284';
+
+        // 1. Get or create ONGOING analytics report request
+        let requestId;
+        const existing = await asc(`/v1/apps/${appId}/analyticsReportRequests?filter[accessType]=ONGOING`, token);
+        if (existing.data && existing.data.length > 0) {
+            requestId = existing.data[0].id;
+        } else {
+            const created = await asc('/v1/analyticsReportRequests', token, {
+                method: 'POST',
+                body: JSON.stringify({
+                    data: {
+                        type: 'analyticsReportRequests',
+                        attributes: { accessType: 'ONGOING' },
+                        relationships: { app: { data: { type: 'apps', id: appId } } }
+                    }
+                })
+            });
+            requestId = created.data.id;
+            return res.json({ status: 'initializing', message: 'Analytics report request created. Data will be available in ~24 hours. Check back tomorrow.' });
+        }
+
+        // 2. List available reports for this request
+        const reports = await asc(`/v1/analyticsReportRequests/${requestId}/reports?limit=20`, token);
+        if (!reports.data || reports.data.length === 0) {
+            return res.json({ status: 'pending', message: 'Reports are being generated. Check back in a few hours.' });
+        }
+
+        // 3. Find acquisition report (has source/Smart App Banner data)
+        const acqReport = reports.data.find(r => r.attributes?.reportType === 'APP_STORE_ACQUISITION')
+            || reports.data[0];
+
+        // 4. Get latest instances
+        const instances = await asc(`/v1/analyticsReports/${acqReport.id}/instances?sort=-processingDate&limit=7`, token);
+        if (!instances.data || instances.data.length === 0) {
+            return res.json({ status: 'no_instances', reportType: acqReport.attributes?.reportType });
+        }
+
+        // 5. Get segments for latest instance
+        const latestInstance = instances.data[0];
+        const segments = await asc(`/v1/analyticsReportInstances/${latestInstance.id}/segments`, token);
+        if (!segments.data || segments.data.length === 0) {
+            return res.json({ status: 'no_segments' });
+        }
+
+        // 6. Download & decompress the TSV
+        const segmentUrl = segments.data[0].attributes?.url;
+        const raw = await fetch(segmentUrl, { headers: { 'Authorization': `Bearer ${token}` } });
+        const buffer = Buffer.from(await raw.arrayBuffer());
+        const tsv = zlib.gunzipSync(buffer).toString('utf8');
+        const rows = parseTSV(tsv);
+
+        // 7. Group by source type
+        const bySource = {};
+        rows.forEach(r => {
+            const src = r['Source Type'] || r['sourceType'] || r['Source'] || r['source'] || 'Unknown';
+            const downloads = parseInt(r['Downloads'] || r['downloads'] || r['First Time Downloads'] || '0', 10) || 0;
+            bySource[src] = (bySource[src] || 0) + downloads;
+        });
+
+        // Sort by downloads desc
+        const sources = Object.entries(bySource)
+            .map(([name, downloads]) => ({ name, downloads }))
+            .sort((a, b) => b.downloads - a.downloads);
+
+        const smartBanner = sources.find(s => s.name.toLowerCase().includes('smart')) || { name: 'Smart App Banner', downloads: 0 };
+        const total = sources.reduce((sum, s) => sum + s.downloads, 0);
+
+        res.json({
+            status: 'ok',
+            reportDate: latestInstance.attributes?.processingDate,
+            reportType: acqReport.attributes?.reportType,
+            total,
+            smartBanner,
+            sources,
+            headers: rows.length > 0 ? Object.keys(rows[0]) : []
+        });
+
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+};
