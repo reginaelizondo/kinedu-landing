@@ -89,7 +89,7 @@ module.exports = async (req, res) => {
             || reports.data[0];
 
         // 4. Get latest instances
-        const instances = await asc(`/v1/analyticsReports/${acqReport.id}/instances?sort=-processingDate&limit=7`, token);
+        const instances = await asc(`/v1/analyticsReports/${acqReport.id}/instances?limit=7`, token);
         if (!instances.data || instances.data.length === 0) {
             return res.json({ status: 'no_instances', reportType: acqReport.attributes?.reportType });
         }
