@@ -492,21 +492,34 @@
         .lc-step-body { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; }
 
         /* What's inside */
-        .lc-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+        .lc-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px; margin-top: 48px;
+            max-width: 780px; margin-left: auto; margin-right: auto;
+        }
         .lc-feature-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--r-lg);
-            padding: 24px;
-            display: flex; gap: 16px; align-items: flex-start;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 28px 24px;
+            display: flex; flex-direction: column;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
         }
+        .lc-feature-item:hover { transform: translateY(-2px); }
         .lc-feature-icon {
-            font-size: 1.5rem; flex-shrink: 0;
-            width: 44px; height: 44px;
+            font-size: 1.6rem; flex-shrink: 0;
+            width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center;
-            background: var(--bg-soft-blue);
-            border-radius: var(--r-md);
+            border-radius: 14px;
+            margin-bottom: 16px;
         }
+        .lc-feature-item:nth-child(1) .lc-feature-icon { background: #EBF3FF; }
+        .lc-feature-item:nth-child(2) .lc-feature-icon { background: #F0ECFF; }
+        .lc-feature-item:nth-child(3) .lc-feature-icon { background: #FFF7EC; }
+        .lc-feature-item:nth-child(4) .lc-feature-icon { background: #EDFAF4; }
         .lc-feature-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
         .lc-feature-desc { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.5; }
 
@@ -806,39 +819,24 @@
 
             <div class="lc-features-grid">
                 <div class="lc-feature-item">
-                    <div class="lc-feature-icon">🎥</div>
-                    <div>
-                        <div class="lc-feature-title">Weekly live classes</div>
-                        <div class="lc-feature-desc">Every class includes a live Q&A where you can ask your specific questions.</div>
-                    </div>
-                </div>
-                <div class="lc-feature-item">
                     <div class="lc-feature-icon">📚</div>
-                    <div>
-                        <div class="lc-feature-title">100+ recorded masterclasses</div>
-                        <div class="lc-feature-desc">Watch expert-led sessions on every topic — anytime, in any language.</div>
-                    </div>
+                    <div class="lc-feature-title">10+ recorded masterclasses</div>
+                    <div class="lc-feature-desc">Watch expert-led sessions on every topic — anytime, in any language.</div>
                 </div>
                 <div class="lc-feature-item">
                     <div class="lc-feature-icon">🎧</div>
-                    <div>
-                        <div class="lc-feature-title">Expert-led podcasts</div>
-                        <div class="lc-feature-desc">Listen while you feed, rock, or walk. Real expert conversations on the go.</div>
-                    </div>
+                    <div class="lc-feature-title">Expert-led podcasts</div>
+                    <div class="lc-feature-desc">Listen while you feed, rock, or walk. Real expert conversations on the go.</div>
                 </div>
                 <div class="lc-feature-item">
                     <div class="lc-feature-icon">📖</div>
-                    <div>
-                        <div class="lc-feature-title">Vetted articles</div>
-                        <div class="lc-feature-desc">Every article is reviewed by pediatricians. No random internet opinions.</div>
-                    </div>
+                    <div class="lc-feature-title">Vetted articles</div>
+                    <div class="lc-feature-desc">Every article is reviewed by pediatricians. No random internet opinions.</div>
                 </div>
                 <div class="lc-feature-item">
                     <div class="lc-feature-icon">👶</div>
-                    <div>
-                        <div class="lc-feature-title">Full Kinedu app</div>
-                        <div class="lc-feature-desc">Daily activities, milestone tracking, baby tracker — personalized for your baby's exact age.</div>
-                    </div>
+                    <div class="lc-feature-title">Full Kinedu app</div>
+                    <div class="lc-feature-desc">Daily activities, milestone tracking, baby tracker — personalized for your baby's exact age.</div>
                 </div>
             </div>
         </div>
