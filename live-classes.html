@@ -21,18 +21,25 @@
 
         /* Hero */
         .lc-hero {
-            padding: 140px 24px 80px;
-            background: linear-gradient(160deg, #EEF5FF 0%, #fff 60%);
-            text-align: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(140deg, #EBF3FF 0%, #F6FAFF 45%, #EDFAF4 100%);
             position: relative;
             overflow: hidden;
         }
         .lc-hero::before {
             content: '';
             position: absolute;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(43,139,228,0.1), transparent 70%);
-            top: -150px; left: 50%; transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(43,139,228,0.12), transparent 70%);
+            top: -100px; right: -100px;
+            pointer-events: none;
+        }
+        .lc-hero::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(52,201,137,0.1), transparent 70%);
+            bottom: -80px; left: -80px;
             pointer-events: none;
         }
         .lc-hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
@@ -57,14 +64,38 @@
             background-clip: text;
         }
 
+        /* Live badge */
+        .lc-live-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid rgba(43,139,228,0.18);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-radius: 100px;
+            padding: 7px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+        }
+        .lc-live-dot-red {
+            width: 7px; height: 7px;
+            background: #E53935;
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
         .lc-h1-sub {
             display: block;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-            font-weight: 600;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 500;
             color: var(--text-secondary);
-            margin-top: 10px;
-            letter-spacing: -0.02em;
+            margin-top: 12px;
+            letter-spacing: -0.01em;
         }
         .lc-hero-mockup {
             display: flex; align-items: center; justify-content: center;
@@ -73,33 +104,51 @@
             width: 100%; max-width: 420px;
             filter: drop-shadow(0 24px 48px rgba(0,0,0,0.13));
         }
+
+        /* Expert type pills */
+        .lc-spec-pills {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 28px;
+        }
+        .lc-spec-pill {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
         .lc-hero-badges {
             display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
             margin-top: 4px;
         }
         .lc-hero-badges img { height: 40px; width: auto; border-radius: 7px; }
+
         @media (max-width: 900px) {
             .lc-hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
             .lc-hero-grid .lc-cta-group { align-items: center; }
             .lc-hero-grid .lc-trust-bar { justify-content: center; }
             .lc-hero-badges { justify-content: center; }
             .lc-hero-mockup { order: -1; }
-            .lc-hero-mockup img { max-width: 280px; }
+            .lc-hero-mockup img { max-width: 260px; }
+            .lc-hero-text { display: flex; flex-direction: column; align-items: center; }
+            .lc-spec-pills { justify-content: center; }
+            /* Fix headline: hide standalone "Real", prepend it per line */
+            .lc-h1-row { flex-direction: column; align-items: center; gap: 0; }
+            .lc-h1-real { display: none; }
+            .lc-h1-words { align-items: center; }
+            .lc-h1-line { text-align: center; }
+            .lc-h1-line::before {
+                content: 'Real ';
+                color: var(--text-primary);
+                -webkit-text-fill-color: var(--text-primary);
+            }
+            .lc-next-class { display: none; }
+            .lc-h1-sub { text-align: center; }
         }
-
-        .lc-badge {
-            display: inline-flex; align-items: center; gap: 7px;
-            background: var(--bg-soft-blue);
-            color: var(--kinedu-blue);
-            border: 1px solid rgba(43,139,228,0.18);
-            border-radius: var(--r-full);
-            padding: 6px 18px;
-            font-size: 0.75rem; font-weight: 700;
-            letter-spacing: 0.07em; text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-        .lc-badge span { width: 7px; height: 7px; background: var(--kinedu-blue); border-radius: 50%; animation: pulse 2s ease infinite; }
-        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
 
         .lc-h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -139,13 +188,7 @@
             letter-spacing: -0.03em;
         }
 
-        .lc-sub {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            color: var(--text-secondary); line-height: 1.7;
-            max-width: 580px; margin: 0 auto 36px;
-        }
-
-        .lc-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 36px; }
+        .lc-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 28px; }
 
         .lc-next-class {
             font-size: 0.83rem; color: var(--text-tertiary);
@@ -605,6 +648,10 @@
             <!-- Text column (right) -->
             <div class="lc-hero-text">
 
+                <div class="lc-live-pill">
+                    <span class="lc-live-dot-red"></span> Live · Every day
+                </div>
+
                 <h1 class="lc-h1">
                     <span class="lc-h1-row">
                         <span class="lc-h1-real">Real</span>
@@ -614,12 +661,15 @@
                             <span class="lc-h1-line"><span class="lc-grad">community</span>.</span>
                         </span>
                     </span>
-                    <span class="lc-h1-sub">Every day — live, included in Kinedu app.</span>
+                    <span class="lc-h1-sub">Every day — live, included in Kinedu.</span>
                 </h1>
 
-                <p class="lc-sub">
-                    Pediatricians, sleep consultants, lactation experts, child psychologists. Ask them anything, live.
-                </p>
+                <div class="lc-spec-pills">
+                    <span class="lc-spec-pill">👶 Pediatricians</span>
+                    <span class="lc-spec-pill">😴 Sleep consultants</span>
+                    <span class="lc-spec-pill">🍼 Lactation experts</span>
+                    <span class="lc-spec-pill">🧠 Child psychology</span>
+                </div>
 
                 <div class="lc-cta-group">
                     <a href="https://app.kinedu.com/dha2/?swc=dha2" class="btn-hero-primary" id="cta-hero" data-track="LiveClasses_Hero">
