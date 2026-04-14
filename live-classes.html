@@ -105,21 +105,50 @@
             filter: drop-shadow(0 24px 48px rgba(0,0,0,0.13));
         }
 
-        /* Expert type pills */
-        .lc-spec-pills {
-            display: flex; flex-wrap: wrap; gap: 8px;
+        /* Stacked coach avatars */
+        .lc-coaches-row {
             margin-bottom: 28px;
         }
-        .lc-spec-pill {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            border-radius: 100px;
-            padding: 5px 14px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+        .lc-expert-stack {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
         }
+        .lc-expert-stack-avatar {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            border: 3px solid white;
+            overflow: hidden;
+            margin-right: -12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #dde8f5;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .lc-expert-stack-avatar img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+        }
+        .lc-expert-stack-more {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            border: 3px solid white;
+            background: linear-gradient(135deg, #2B8BE4, #34C989);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 14px;
+            box-shadow: 0 2px 8px rgba(43,139,228,0.25);
+            flex-shrink: 0;
+        }
+        .lc-coaches-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) { .lc-coaches-row { display: flex; flex-direction: column; align-items: center; } }
 
         .lc-hero-badges {
             display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
@@ -647,10 +676,6 @@
             <!-- Text column (right) -->
             <div class="lc-hero-text">
 
-                <div class="lc-live-pill">
-                    <span class="lc-live-dot-red"></span> Live · Every day
-                </div>
-
                 <h1 class="lc-h1">
                     Real <span class="lc-grad">experts</span>.<br>
                     Real <span class="lc-grad">answers</span>.<br>
@@ -658,11 +683,18 @@
                     <span class="lc-h1-sub">Every day — live, included in Kinedu.</span>
                 </h1>
 
-                <div class="lc-spec-pills">
-                    <span class="lc-spec-pill">👶 Pediatricians</span>
-                    <span class="lc-spec-pill">😴 Sleep consultants</span>
-                    <span class="lc-spec-pill">🍼 Lactation experts</span>
-                    <span class="lc-spec-pill">🧠 Child psychology</span>
+                <div class="lc-coaches-row">
+                    <div class="lc-expert-stack">
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/thanya-asse.jpg" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/amaya-martinez.jpg" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/alicia-simpson.png" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/caryn-shender.jpg" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/sarah-rappenhagen.webp" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/en/delia-herrera.png" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-avatar"><img src="Features/experts/es/samantha-espino.png" alt="Expert" loading="lazy"></div>
+                        <div class="lc-expert-stack-more">+24</div>
+                    </div>
+                    <p class="lc-coaches-label">Pediatricians · Sleep coaches · Lactation experts · Psychologists · Nutritionists · Feeding therapists</p>
                 </div>
 
                 <div class="lc-cta-group">
