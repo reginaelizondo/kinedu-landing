@@ -523,37 +523,69 @@
         .lc-feature-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
         .lc-feature-desc { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.5; }
 
+        /* Day tabs */
+        .lc-day-tabs {
+            display: flex; gap: 8px;
+            margin: 32px 0 24px;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; padding-bottom: 2px;
+        }
+        .lc-day-tabs::-webkit-scrollbar { display: none; }
+        .lc-day-tab {
+            flex-shrink: 0; padding: 9px 22px;
+            border-radius: 100px; border: 1.5px solid var(--border);
+            background: transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--text-secondary); cursor: pointer;
+            transition: all 0.2s; white-space: nowrap;
+        }
+        .lc-day-tab:hover:not(.active) { border-color: #2B8BE4; color: #2B8BE4; }
+        .lc-day-tab.active { background: #2B8BE4; border-color: #2B8BE4; color: white; }
+        .lc-day-panel { display: none; flex-direction: column; gap: 10px; }
+        .lc-day-panel.active { display: flex; }
+
         /* Upcoming classes */
-        .lc-classes-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+        .lc-classes-list { margin-top: 0; display: flex; flex-direction: column; gap: 10px; }
+        .lc-class-group { display: flex; flex-direction: column; }
+        .lc-course-label {
+            background: #2B8BE4; color: white;
+            font-size: 0.72rem; font-weight: 700;
+            padding: 6px 16px; border-radius: 10px 10px 0 0;
+            letter-spacing: 0.02em;
+        }
+        .lc-class-group .lc-class-row { border-radius: 0 0 12px 12px; }
         .lc-class-row {
-            display: flex; align-items: center; gap: 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--r-lg);
-            padding: 18px 24px;
-            transition: box-shadow 0.2s ease;
+            display: flex; align-items: stretch;
+            background: white; border: 1px solid #E8EEF5;
+            border-radius: 12px; overflow: hidden;
+            transition: box-shadow 0.2s;
         }
-        .lc-class-row:hover { box-shadow: var(--shadow-md); }
+        .lc-class-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
         .lc-class-time {
-            min-width: 120px; font-size: 0.8rem; color: var(--text-tertiary); font-weight: 600;
-            font-variant-numeric: tabular-nums;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-end;
+            padding: 16px 14px 16px 16px;
+            min-width: 68px; flex-shrink: 0;
         }
-        .lc-class-info { flex: 1; }
-        .lc-class-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
-        .lc-class-coach { font-size: 0.8rem; color: var(--text-tertiary); display: flex; align-items: center; gap: 8px; }
-        .lc-class-avatar {
-            width: 24px; height: 24px; border-radius: 50%;
-            background: var(--bg-soft-blue);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.6rem; color: var(--text-tertiary);
-            overflow: hidden; flex-shrink: 0;
+        .lc-class-time-hm {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 700;
+            color: var(--text-primary); white-space: nowrap;
         }
-        .lc-class-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .lc-class-time-dur { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 3px; }
+        .lc-class-info { flex: 1; border-left: 3px solid #2B8BE4; padding: 14px 16px; }
+        .lc-class-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 700;
+            color: var(--text-primary); margin-bottom: 6px; line-height: 1.3;
+        }
+        .lc-class-meta { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; color: var(--text-tertiary); flex-wrap: wrap; }
+        .lc-class-meta-item { display: flex; align-items: center; gap: 5px; }
+        .lc-class-avatar-img { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
         .lc-live-dot {
             width: 8px; height: 8px; border-radius: 50%;
-            background: #ef4444;
-            animation: pulse 2s ease infinite;
-            flex-shrink: 0;
+            background: #ef4444; animation: pulse 2s ease infinite; flex-shrink: 0;
         }
 
         /* Testimonials */
@@ -700,11 +732,12 @@
             .lc-feature-title { font-size: 0.88rem; }
 
             /* Upcoming classes */
-            .lc-classes-list { margin-top: 24px; gap: 10px; }
-            .lc-class-row { flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
-            .lc-class-time { min-width: unset; width: 100%; }
-            .lc-class-info { width: 100%; }
-            .lc-live-dot { display: none; }
+            .lc-day-tabs { margin: 24px 0 16px; gap: 6px; }
+            .lc-day-tab { padding: 7px 16px; font-size: 0.8rem; }
+            .lc-class-time { padding: 12px 10px 12px 12px; min-width: 60px; }
+            .lc-class-time-hm { font-size: 0.82rem; }
+            .lc-class-title { font-size: 0.85rem; }
+            .lc-class-info { padding: 12px 12px; }
 
             /* Testimonials */
             .lc-testi-grid { margin-top: 28px; }
@@ -911,72 +944,277 @@
     <section class="lc-section">
         <div class="lc-wrap">
             <div class="lc-center" style="margin-bottom:0;">
-                <div class="sec-tag">This week</div>
-                <h2 class="lc-h2">This week's live classes</h2>
+                <h2 class="lc-h2">This <span class="lc-grad">week's</span> live classes</h2>
             </div>
 
-            <div class="lc-classes-list">
+            <!-- Day tabs -->
+            <div class="lc-day-tabs" role="tablist">
+                <button class="lc-day-tab active" data-day="mon" role="tab">Mon · Apr 20</button>
+                <button class="lc-day-tab" data-day="tue" role="tab">Tue · Apr 21</button>
+                <button class="lc-day-tab" data-day="wed" role="tab">Wed · Apr 22</button>
+                <button class="lc-day-tab" data-day="thu" role="tab">Thu · Apr 23</button>
+                <button class="lc-day-tab" data-day="fri" role="tab">Fri · Apr 24</button>
+            </div>
 
-                <!-- Row × 4 — replace with real schedule -->
+            <!-- Monday -->
+            <div class="lc-day-panel active" id="day-mon">
                 <div class="lc-class-row">
-                    <div class="lc-class-time">Mon · 7:00 PM</div>
+                    <div class="lc-class-time"><div class="lc-class-time-hm">08:30</div><div class="lc-class-time-dur">30 min</div></div>
                     <div class="lc-class-info">
-                        <div class="lc-class-title">[PLACEHOLDER] Sleep at 4 months: what's normal and what isn't</div>
-                        <div class="lc-class-coach">
-                            <div class="lc-class-avatar">[P]</div>
-                            [PLACEHOLDER] — Sleep Consultant
+                        <div class="lc-class-title">Baby Sign Language: Action Words in Motion</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/lee-ann-steyns.png" class="lc-class-avatar-img" alt=""> Lee Ann Steyns</span>
                         </div>
                     </div>
-                    <div class="lc-live-dot"></div>
                 </div>
-
                 <div class="lc-class-row">
-                    <div class="lc-class-time">Tue · 12:00 PM</div>
+                    <div class="lc-class-time"><div class="lc-class-time-hm">11:00</div><div class="lc-class-time-dur">30 min</div></div>
                     <div class="lc-class-info">
-                        <div class="lc-class-title">[PLACEHOLDER] Starting solids: what to introduce first</div>
-                        <div class="lc-class-coach">
-                            <div class="lc-class-avatar">[P]</div>
-                            [PLACEHOLDER] — Nutritionist, RD
+                        <div class="lc-class-title">Developmental Leaps: Everything You Need to Know!</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/keyla-dguez.jpg" class="lc-class-avatar-img" alt=""> Dr. Keyla Dguez</span>
                         </div>
                     </div>
-                    <div class="lc-live-dot"></div>
                 </div>
-
                 <div class="lc-class-row">
-                    <div class="lc-class-time">Thu · 8:00 PM</div>
+                    <div class="lc-class-time"><div class="lc-class-time-hm">17:00</div><div class="lc-class-time-dur">30 min</div></div>
                     <div class="lc-class-info">
-                        <div class="lc-class-title">[PLACEHOLDER] Breastfeeding Q&A: your questions answered</div>
-                        <div class="lc-class-coach">
-                            <div class="lc-class-avatar">[P]</div>
-                            [PLACEHOLDER] — IBCLC Lactation Consultant
+                        <div class="lc-class-title">Managing Tantrums</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/es/samantha-espino.png" class="lc-class-avatar-img" alt=""> Samantha Espino</span>
                         </div>
                     </div>
-                    <div class="lc-live-dot"></div>
                 </div>
+            </div>
 
+            <!-- Tuesday -->
+            <div class="lc-day-panel" id="day-tue">
                 <div class="lc-class-row">
-                    <div class="lc-class-time">Sat · 10:00 AM</div>
+                    <div class="lc-class-time"><div class="lc-class-time-hm">07:30</div><div class="lc-class-time-dur">30 min</div></div>
                     <div class="lc-class-info">
-                        <div class="lc-class-title">[PLACEHOLDER] Toddler tantrums: what's happening and how to respond</div>
-                        <div class="lc-class-coach">
-                            <div class="lc-class-avatar">[P]</div>
-                            [PLACEHOLDER] — Child Psychologist, PhD
+                        <div class="lc-class-title">Baby Massage: Colics</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/pt/gabriella-demarque.jpg" class="lc-class-avatar-img" alt=""> Gabriella Demarque</span>
                         </div>
                     </div>
-                    <div class="lc-live-dot"></div>
                 </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">08:30</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Dancing: Baby &amp; Me</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/juno.webp" class="lc-class-avatar-img" alt=""> Juno</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">09:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Basics for Giving First Aid at Home</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/thanya-asse.jpg" class="lc-class-avatar-img" alt=""> Dr. Thanya Asse</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">11:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Language Stimulation: Playing by Categories</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/delia-herrera.png" class="lc-class-avatar-img" alt=""> Delia Herrera</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Independent Sleep Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">11:45</div><div class="lc-class-time-dur">30 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Effective Strategies to Lengthen and Improve Naps</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/caryn-shender.jpg" class="lc-class-avatar-img" alt=""> Caryn Shender</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Independent Sleep Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">12:15</div><div class="lc-class-time-dur">15 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Q&amp;A</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/caryn-shender.jpg" class="lc-class-avatar-img" alt=""> Caryn Shender</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Wednesday -->
+            <div class="lc-day-panel" id="day-wed">
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">08:30</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Baby Sign Language: Action Words in Motion</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/lee-ann-steyns.png" class="lc-class-avatar-img" alt=""> Lee Ann Steyns</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">10:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Therapeutic Group</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item">Claudia Mtz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">11:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Healthy Snacks for Breastfeeding Moms</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/alicia-simpson.png" class="lc-class-avatar-img" alt=""> Alicia Simpson</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Independent Sleep Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">11:30</div><div class="lc-class-time-dur">30 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Handling Nighttime Feeds</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/caryn-shender.jpg" class="lc-class-avatar-img" alt=""> Caryn Shender</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Independent Sleep Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">12:00</div><div class="lc-class-time-dur">15 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Q&amp;A</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/caryn-shender.jpg" class="lc-class-avatar-img" alt=""> Caryn Shender</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thursday -->
+            <div class="lc-day-panel" id="day-thu">
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">08:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Mommy &amp; Baby Workout</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/ale-compean.jpg" class="lc-class-avatar-img" alt=""> Ale Compéan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Developmental Milestones Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">08:30</div><div class="lc-class-time-dur">30 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Rolling and Early Sitting</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/dr-mercedes.jpg" class="lc-class-avatar-img" alt=""> Dr. Mercedes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-group">
+                    <div class="lc-course-label">Developmental Milestones Course</div>
+                    <div class="lc-class-row">
+                        <div class="lc-class-time"><div class="lc-class-time-hm">09:00</div><div class="lc-class-time-dur">15 min</div></div>
+                        <div class="lc-class-info">
+                            <div class="lc-class-title">Q&amp;A</div>
+                            <div class="lc-class-meta">
+                                <span class="lc-class-meta-item">🌐 English</span>
+                                <span class="lc-class-meta-item"><img src="Features/experts/en/dr-mercedes.jpg" class="lc-class-avatar-img" alt=""> Dr. Mercedes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">10:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Food Choking Prevention</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/alicia-simpson.png" class="lc-class-avatar-img" alt=""> Alicia Simpson</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="lc-day-panel" id="day-fri">
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">08:30</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Baby Sign Language: Action Words in Motion</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/lee-ann-steyns.png" class="lc-class-avatar-img" alt=""> Lee Ann Steyns</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lc-class-row">
+                    <div class="lc-class-time"><div class="lc-class-time-hm">11:00</div><div class="lc-class-time-dur">30 min</div></div>
+                    <div class="lc-class-info">
+                        <div class="lc-class-title">Musical Stimulation: Songs That Embrace</div>
+                        <div class="lc-class-meta">
+                            <span class="lc-class-meta-item">🌐 English</span>
+                            <span class="lc-class-meta-item"><img src="Features/experts/en/delia-herrera.png" class="lc-class-avatar-img" alt=""> Delia Herrera</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div style="text-align:center;margin-top:36px;">
                 <a href="https://app.kinedu.com/dha2/?swc=dha2" class="btn-hero-primary" id="cta-upcoming" data-track="LiveClasses_Upcoming">
                     <span class="btn-bg"></span>
-                    <span class="btn-text">Save my spot — Start free trial</span>
+                    <span class="btn-text">Try it free for 7 days.</span>
                     <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
         </div>
     </section>
+    <script>
+        // Day tab switching
+        document.querySelectorAll('.lc-day-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.lc-day-tab').forEach(function(t) { t.classList.remove('active'); });
+                document.querySelectorAll('.lc-day-panel').forEach(function(p) { p.classList.remove('active'); });
+                tab.classList.add('active');
+                var panel = document.getElementById('day-' + tab.dataset.day);
+                if (panel) panel.classList.add('active');
+            });
+        });
+    </script>
 
     <!-- ══════════════════════════════════════════════════════════
          7. TESTIMONIALS
