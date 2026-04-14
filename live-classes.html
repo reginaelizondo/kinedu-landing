@@ -185,21 +185,29 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--r-xl);
-            padding: 28px 24px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .lc-expert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .lc-expert-photo {
-            width: 80px; height: 80px; border-radius: 50%;
-            background: var(--bg-soft-blue);
-            margin: 0 auto 16px;
             overflow: hidden;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex; flex-direction: column;
+        }
+        .lc-expert-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
+        .lc-expert-card-top {
+            padding: 32px 24px 20px;
+            background: var(--expert-bg, #EFF6FF);
+        }
+        .lc-expert-photo {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 0 auto 14px;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.8);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
         }
         .lc-expert-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .lc-expert-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
-        .lc-expert-cred { font-size: 0.78rem; color: var(--kinedu-blue); font-weight: 600; margin-bottom: 6px; }
-        .lc-expert-specialty { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.5; }
+        .lc-expert-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text-primary); margin-bottom: 2px; }
+        .lc-expert-cred { font-size: 0.75rem; color: var(--kinedu-blue); font-weight: 700; }
+        .lc-expert-card-body { padding: 16px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+        .lc-expert-specialty { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.55; flex: 1; }
         .lc-carousel-btn {
             flex-shrink: 0;
             width: 44px; height: 44px;
@@ -228,11 +236,11 @@
 
         /* See more button on card */
         .lc-expert-more {
-            margin-top: 14px;
+            margin-top: 12px;
             background: none;
             border: 1.5px solid var(--border);
             border-radius: var(--r-full);
-            padding: 6px 16px;
+            padding: 7px 18px;
             font-size: 0.78rem; font-weight: 600;
             color: var(--kinedu-blue);
             cursor: pointer;
@@ -1098,11 +1106,15 @@
                 ? '<img src="' + e.photo + '" alt="' + e.name + '" onerror="this.style.display=\'none\'">'
                 : '';
             return '<div class="lc-expert-card">' +
-                '<div class="lc-expert-photo" style="background:' + e.bg + ';">' + photoHtml + '</div>' +
+                '<div class="lc-expert-card-top" style="--expert-bg:' + e.bg + ';">' +
+                '<div class="lc-expert-photo">' + photoHtml + '</div>' +
                 '<div class="lc-expert-name">' + e.name + '</div>' +
                 '<div class="lc-expert-cred">' + e.cred + '</div>' +
+                '</div>' +
+                '<div class="lc-expert-card-body">' +
                 '<div class="lc-expert-specialty">' + e.specialty + '</div>' +
                 '<button class="lc-expert-more" data-idx="' + idx + '">See more ↓</button>' +
+                '</div>' +
                 '</div>';
         }
 
@@ -1178,47 +1190,47 @@
         setTimeout(function() { renderExperts(lang); }, 0);
 
         // ── Expert modal ─────────────────────────────────────────────
-        var modal = document.getElementById('expertModal');
-        var modalPhoto    = document.getElementById('modalPhoto');
-        var modalPhotoImg = document.getElementById('modalPhotoImg');
-        var modalName     = document.getElementById('modalName');
-        var modalCred     = document.getElementById('modalCred');
-        var modalClass    = document.getElementById('modalClass');
-        var modalBio      = document.getElementById('modalBio');
+        // Lazy init — modal HTML is parsed after this script runs
+        function getModalEls() {
+            return {
+                modal:    document.getElementById('expertModal'),
+                photo:    document.getElementById('modalPhoto'),
+                photoImg: document.getElementById('modalPhotoImg'),
+                name:     document.getElementById('modalName'),
+                cred:     document.getElementById('modalCred'),
+                cls:      document.getElementById('modalClass'),
+                bio:      document.getElementById('modalBio')
+            };
+        }
 
         function openExpertModal(idx) {
             var list = EXPERTS[expertsLang] || EXPERTS.en;
             var e = list[idx];
             if (!e) return;
-            modalPhoto.style.background = e.bg;
-            if (e.photo) {
-                modalPhotoImg.src = e.photo;
-                modalPhotoImg.style.display = 'block';
-            } else {
-                modalPhotoImg.style.display = 'none';
-            }
-            modalName.textContent  = e.name;
-            modalCred.textContent  = e.cred;
-            modalClass.textContent = '🎓 ' + e.classLabel;
-            modalBio.textContent   = e.bio;
-            modal.classList.add('open');
+            var m = getModalEls();
+            m.photo.style.background = e.bg;
+            m.photoImg.src = e.photo || '';
+            m.photoImg.style.display = e.photo ? 'block' : 'none';
+            m.name.textContent = e.name;
+            m.cred.textContent = e.cred;
+            m.cls.textContent  = '🎓 ' + e.classLabel;
+            m.bio.textContent  = e.bio;
+            m.modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
-        document.getElementById('modalClose').addEventListener('click', closeModal);
-        document.getElementById('modalBackdrop').addEventListener('click', closeModal);
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
-
         function closeModal() {
-            modal.classList.remove('open');
+            var m = document.getElementById('expertModal');
+            if (m) m.classList.remove('open');
             document.body.style.overflow = '';
         }
 
-        // Delegate click on "See more" buttons inside the track
-        document.getElementById('expertsTrack').addEventListener('click', function(e) {
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'modalClose' || e.target.id === 'modalBackdrop') closeModal();
             var btn = e.target.closest('.lc-expert-more');
             if (btn) openExpertModal(parseInt(btn.getAttribute('data-idx')));
         });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
         // ── FAQ accordion ────────────────────────────────────────────
         document.querySelectorAll('.faq-question').forEach(function (btn) {
