@@ -161,13 +161,27 @@
             border-radius: var(--r-md) 0 var(--r-md) var(--r-md);
         }
 
-        /* Experts grid */
-        .lc-experts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px; margin-top: 52px;
+        /* Experts carousel */
+        .lc-carousel-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 52px;
+        }
+        .lc-carousel-overflow {
+            overflow: hidden;
+            flex: 1;
+            border-radius: var(--r-xl);
+        }
+        .lc-carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
         }
         .lc-expert-card {
+            flex: 0 0 calc(33.333% - 14px);
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--r-xl);
@@ -180,22 +194,37 @@
             width: 80px; height: 80px; border-radius: 50%;
             background: var(--bg-soft-blue);
             margin: 0 auto 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem; color: var(--text-tertiary); text-align: center;
             overflow: hidden;
         }
-        .lc-expert-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .lc-expert-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .lc-expert-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
         .lc-expert-cred { font-size: 0.78rem; color: var(--kinedu-blue); font-weight: 600; margin-bottom: 6px; }
-        .lc-expert-specialty { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.5; margin-bottom: 14px; }
-        .lc-expert-next {
-            display: inline-block;
-            background: var(--bg-soft-green);
-            color: #16a34a;
-            border-radius: var(--r-full);
-            padding: 4px 12px;
-            font-size: 0.72rem; font-weight: 600;
+        .lc-expert-specialty { font-size: 0.8rem; color: var(--text-tertiary); line-height: 1.5; }
+        .lc-carousel-btn {
+            flex-shrink: 0;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
         }
+        .lc-carousel-btn:hover:not(:disabled) { background: var(--kinedu-blue); color: #fff; border-color: var(--kinedu-blue); }
+        .lc-carousel-btn:disabled { opacity: 0.25; cursor: default; }
+        .lc-carousel-dots {
+            display: flex; gap: 6px; justify-content: center;
+            margin-top: 20px;
+        }
+        .lc-carousel-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--border);
+            border: none; padding: 0; cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .lc-carousel-dot.active { background: var(--kinedu-blue); transform: scale(1.3); }
 
         /* How it works */
         .lc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 52px; }
@@ -343,7 +372,7 @@
         /* ── Mobile ──────────────────────────────────────────────── */
         @media (max-width: 900px) {
             .lc-problem-grid { grid-template-columns: 1fr; gap: 40px; }
-            .lc-experts-grid { grid-template-columns: repeat(2, 1fr); }
+            .lc-expert-card { flex: 0 0 calc(50% - 10px); }
             .lc-steps { grid-template-columns: 1fr; gap: 8px; }
             .lc-features-grid { grid-template-columns: repeat(2, 1fr); }
             .lc-testi-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -351,7 +380,8 @@
         @media (max-width: 600px) {
             .lc-hero { padding: 110px 20px 60px; }
             .lc-section { padding: 60px 0; }
-            .lc-experts-grid { grid-template-columns: 1fr; }
+            .lc-expert-card { flex: 0 0 80%; }
+            .lc-carousel-btn { width: 36px; height: 36px; }
             .lc-features-grid { grid-template-columns: 1fr; }
             .lc-hero-visual { grid-template-columns: 1fr; }
             .lc-hero-img.right { display: none; }
@@ -491,51 +521,18 @@
             <h2 class="lc-h2">The experts in your pocket.</h2>
             <p class="lc-body lc-body--center">Real certifications. Real experience. Available to every Kinedu member, live.</p>
 
-            <div class="lc-experts-grid">
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo"></div>
-                    <div class="lc-expert-name">Dr. Thanya Asse</div>
-                    <div class="lc-expert-cred">Pediatrician, MD</div>
-                    <div class="lc-expert-specialty">Newborn care, breastfeeding, early nutrition</div>
+            <div class="lc-carousel-wrap">
+                <button class="lc-carousel-btn" id="expertsPrev" aria-label="Previous">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="lc-carousel-overflow">
+                    <div class="lc-carousel-track" id="expertsTrack"></div>
                 </div>
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo" style="background:var(--bg-soft-green);"></div>
-                    <div class="lc-expert-name">Amaya Martínez</div>
-                    <div class="lc-expert-cred">Sleep Coach, Certified</div>
-                    <div class="lc-expert-specialty">Gentle sleep methods for infants through 6 years</div>
-                </div>
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo" style="background:var(--bg-soft-pink);"></div>
-                    <div class="lc-expert-name">Alicia Simpson</div>
-                    <div class="lc-expert-cred">Nutritionist & IBCLC, MS RD</div>
-                    <div class="lc-expert-specialty">Lactation consulting, pediatric nutrition</div>
-                </div>
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo" style="background:var(--bg-soft-purple);"></div>
-                    <div class="lc-expert-name">Caryn Shender</div>
-                    <div class="lc-expert-cred">Pediatric Sleep Consultant</div>
-                    <div class="lc-expert-specialty">Gentle, evidence-based sleep — no Cry It Out</div>
-                </div>
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo" style="background:var(--bg-soft-orange);"></div>
-                    <div class="lc-expert-name">Sarah Rappenhagen</div>
-                    <div class="lc-expert-cred">Occupational Therapist</div>
-                    <div class="lc-expert-specialty">Pediatric neurodevelopment, sensory processing</div>
-                </div>
-
-                <div class="lc-expert-card">
-                    <div class="lc-expert-photo" style="background:var(--bg-soft-teal);"></div>
-                    <div class="lc-expert-name">Delia Herrera</div>
-                    <div class="lc-expert-cred">Speech Pathologist</div>
-                    <div class="lc-expert-specialty">Language development, music and neuroeducation</div>
-                </div>
-
+                <button class="lc-carousel-btn" id="expertsNext" aria-label="Next">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
             </div>
+            <div class="lc-carousel-dots" id="expertsDots"></div>
         </div>
     </section>
 
@@ -965,6 +962,136 @@
         }
         var el = document.getElementById('nextClassDate');
         if (el) el.textContent = getNextClassDate();
+
+        // ── Experts carousel ─────────────────────────────────────────
+        var EXPERTS = {
+            en: [
+                { name: 'Dr. Thanya Asse',     cred: 'Pediatrician, MD',               specialty: 'Newborn care, breastfeeding, early nutrition',          photo: 'Features/experts/en/thanya-asse.jpg',        bg: '#EFF6FF' },
+                { name: 'Amaya Martínez',       cred: 'Sleep Coach, Certified',         specialty: 'Gentle sleep methods for infants through 6 years',     photo: 'Features/experts/en/amaya-martinez.jpg',     bg: '#F0FDF4' },
+                { name: 'Alicia Simpson',       cred: 'Nutritionist & IBCLC, MS RD',    specialty: 'Lactation consulting, pediatric nutrition',             photo: 'Features/experts/en/alicia-simpson.jpg',     bg: '#FDF2F8' },
+                { name: 'Caryn Shender',        cred: 'Pediatric Sleep Consultant',     specialty: 'Gentle, evidence-based sleep — no Cry It Out',          photo: 'Features/experts/en/caryn-shender.jpg',      bg: '#F5F3FF' },
+                { name: 'Sarah Rappenhagen',    cred: 'Occupational Therapist',         specialty: 'Pediatric neurodevelopment, sensory processing',        photo: 'Features/experts/en/sarah-rappenhagen.jpg',  bg: '#FFF7ED' },
+                { name: 'Delia Herrera',        cred: 'Speech Pathologist',             specialty: 'Language development, music and neuroeducation',        photo: 'Features/experts/en/delia-herrera.jpg',      bg: '#F0FDFA' },
+                { name: 'Lee Ann Steyns',       cred: 'Baby Sign Language Instructor',  specialty: 'Teaching families to communicate with their babies',    photo: 'Features/experts/en/lee-ann-steyns.jpg',     bg: '#FEFCE8' },
+                { name: 'Dra. Keyla Dguez',     cred: 'Physician, MD',                  specialty: 'Empowering parents with medical expertise',             photo: 'Features/experts/en/keyla-dguez.jpg',        bg: '#EFF6FF' },
+                { name: 'Juno',                 cred: 'Dance Instructor, Certified',    specialty: 'Hip hop and babywearing dance',                         photo: 'Features/experts/en/juno.jpg',               bg: '#F0FDF4' },
+                { name: 'Ale Conpeán',          cred: 'Fitness Coach',                  specialty: 'Pregnancy and postpartum wellness',                     photo: 'Features/experts/en/ale-compean.jpg',        bg: '#FDF2F8' },
+                { name: 'Dr. Mercedes',         cred: 'Pediatric Physical Therapist',   specialty: 'Personalized developmental support',                    photo: 'Features/experts/en/dr-mercedes.jpg',        bg: '#F5F3FF' },
+            ],
+            es: [
+                { name: 'Samantha Espino',      cred: 'Psicóloga Clínica',                          specialty: 'Sexualidad, necesidades especiales, salud mental',      photo: 'Features/experts/es/samantha-espino.jpg',    bg: '#EFF6FF' },
+                { name: 'Mireya Siller',        cred: 'Consultora de Lactancia y Nutricionista',    specialty: 'Apoyo perinatal integral',                              photo: 'Features/experts/es/mireya-siller.jpg',      bg: '#F0FDF4' },
+                { name: 'Gimena Salazar',       cred: 'Especialista en Lenguaje y Aprendizaje',     specialty: 'Arte, educación y desarrollo del lenguaje',             photo: 'Features/experts/es/gimena-salazar.jpg',     bg: '#FDF2F8' },
+                { name: 'Ángela Hernández',     cred: 'Psicóloga Clínica',                          specialty: 'Psicodiagnóstico infantil e intervención terapéutica',  photo: 'Features/experts/es/angela-hernandez.jpg',   bg: '#F5F3FF' },
+                { name: 'Dra. Stephane Fdz',    cred: 'Médico',                                     specialty: 'Educación del paciente para mejor calidad de vida',     photo: 'Features/experts/es/stephane-fdz.jpg',       bg: '#FFF7ED' },
+                { name: 'Evelyn Flores',        cred: 'Nutricionista, Maestría',                    specialty: 'Nutrición en embarazo, lactancia y pediatría',          photo: 'Features/experts/es/evelyn-flores.jpg',      bg: '#F0FDFA' },
+                { name: 'Alejandra Quintero',   cred: 'Educadora Musical',                          specialty: 'Pedagogías Waldorf y Pikler aplicadas a bebés',         photo: 'Features/experts/es/alejandra-quintero.jpg', bg: '#FEFCE8' },
+                { name: 'Catalina González',    cred: 'Instructora de Lengua de Señas',             specialty: 'Comunicación temprana bebé-adulto',                     photo: 'Features/experts/es/catalina-gonzalez.jpg',  bg: '#EFF6FF' },
+                { name: 'Isis Azcona',          cred: 'Fisioterapeuta',                             specialty: 'Estimulación temprana e integración sensorial',         photo: 'Features/experts/es/isis-azcona.jpg',        bg: '#F0FDF4' },
+                { name: 'Mily Saadia',          cred: 'Educadora y Psicopedagoga',                  specialty: 'Desarrollo psicomotor y el poder del juego',            photo: 'Features/experts/es/mily-saadia.jpg',        bg: '#FDF2F8' },
+            ],
+            pt: [
+                { name: 'Camila Blank',         cred: 'Especialista em Movimento',                      specialty: 'Desenvolvimento motor, cognitivo e dança',          photo: 'Features/experts/pt/camila-blank.jpg',       bg: '#EFF6FF' },
+                { name: 'Gabriella Demarque',   cred: 'Especialista em Massagem e Shantala',            specialty: 'Yoga para bebês e sono infantil',                   photo: 'Features/experts/pt/gabriella-demarque.jpg', bg: '#F0FDF4' },
+                { name: 'Jane del Corso',       cred: 'Enfermeira e Consultora de Amamentação',         specialty: 'Amamentação e suporte perinatal',                   photo: 'Features/experts/pt/jane-del-corso.jpg',     bg: '#FDF2F8' },
+                { name: 'Ester Alves',          cred: 'Especialista do Sono',                           specialty: 'Terapia do sono e aromaterapia',                    photo: 'Features/experts/pt/ester-alves.jpg',        bg: '#F5F3FF' },
+                { name: 'Micheane Cruz',        cred: 'Nutricionista Pediátrica',                       specialty: 'Nutrição infantil e alimentação seletiva',          photo: 'Features/experts/pt/micheane-cruz.jpg',      bg: '#FFF7ED' },
+                { name: 'Agda Ramos',           cred: 'Analista Comportamental e Coach',               specialty: 'Inteligência emocional e comportamento',            photo: 'Features/experts/pt/agda-ramos.jpg',         bg: '#F0FDFA' },
+                { name: 'Gabriela Azine',       cred: 'Psicóloga Perinatal e em Neurociência',         specialty: 'Parentalidade e desenvolvimento infantil',          photo: 'Features/experts/pt/gabriela-azine.jpg',     bg: '#FEFCE8' },
+                { name: 'Lúcia Souza',          cred: 'Pedagoga e Musicoterapeuta',                    specialty: 'Música e desenvolvimento da criança',               photo: 'Features/experts/pt/lucia-souza.jpg',        bg: '#EFF6FF' },
+            ]
+        };
+
+        var expertsIndex = 0;
+        var expertsLang = lang;
+        var expertsPerPage = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+
+        function getExpertsPerPage() {
+            var w = window.innerWidth || document.documentElement.clientWidth || 1280;
+            return w <= 600 ? 1 : w <= 900 ? 2 : 3;
+        }
+
+        function buildExpertCard(e) {
+            return '<div class="lc-expert-card">' +
+                '<div class="lc-expert-photo" style="background:' + e.bg + ';">' +
+                '<img src="' + e.photo + '" alt="' + e.name + '" onerror="this.style.display=\'none\'">' +
+                '</div>' +
+                '<div class="lc-expert-name">' + e.name + '</div>' +
+                '<div class="lc-expert-cred">' + e.cred + '</div>' +
+                '<div class="lc-expert-specialty">' + e.specialty + '</div>' +
+                '</div>';
+        }
+
+        function renderExperts(l) {
+            var track = document.getElementById('expertsTrack');
+            var dots = document.getElementById('expertsDots');
+            if (!track) return;
+            expertsLang = l || expertsLang;
+            expertsIndex = 0;
+            var list = EXPERTS[expertsLang] || EXPERTS.en;
+            track.innerHTML = list.map(buildExpertCard).join('');
+            expertsPerPage = getExpertsPerPage();
+            var totalDots = Math.ceil(list.length / expertsPerPage);
+            dots.innerHTML = Array.from({ length: totalDots }, function(_, i) {
+                return '<button class="lc-carousel-dot' + (i === 0 ? ' active' : '') + '" data-i="' + i + '" aria-label="Page ' + (i+1) + '"></button>';
+            }).join('');
+            dots.querySelectorAll('.lc-carousel-dot').forEach(function(dot) {
+                dot.addEventListener('click', function() { goToExpert(parseInt(dot.getAttribute('data-i')) * expertsPerPage); });
+            });
+            updateExpertsCarousel();
+        }
+
+        function goToExpert(i) {
+            var list = EXPERTS[expertsLang] || EXPERTS.en;
+            expertsPerPage = getExpertsPerPage();
+            expertsIndex = Math.max(0, Math.min(i, list.length - expertsPerPage));
+            updateExpertsCarousel();
+        }
+
+        function updateExpertsCarousel() {
+            var track = document.getElementById('expertsTrack');
+            var dots = document.getElementById('expertsDots');
+            var prev = document.getElementById('expertsPrev');
+            var next = document.getElementById('expertsNext');
+            if (!track) return;
+            var list = EXPERTS[expertsLang] || EXPERTS.en;
+            expertsPerPage = getExpertsPerPage();
+            var cardW = track.parentElement.offsetWidth / expertsPerPage;
+            var gap = 20;
+            var offset = expertsIndex * (cardW - gap / expertsPerPage + gap / expertsPerPage);
+            // Use card width from DOM
+            var cards = track.querySelectorAll('.lc-expert-card');
+            if (cards.length) {
+                var actualW = cards[0].offsetWidth + gap;
+                track.style.transform = 'translateX(-' + (expertsIndex * actualW) + 'px)';
+            }
+            prev.disabled = expertsIndex === 0;
+            next.disabled = expertsIndex >= list.length - expertsPerPage;
+            var activeDot = Math.floor(expertsIndex / expertsPerPage);
+            dots.querySelectorAll('.lc-carousel-dot').forEach(function(d, i) {
+                d.classList.toggle('active', i === activeDot);
+            });
+        }
+
+        document.getElementById('expertsPrev').addEventListener('click', function() {
+            goToExpert(expertsIndex - getExpertsPerPage());
+        });
+        document.getElementById('expertsNext').addEventListener('click', function() {
+            goToExpert(expertsIndex + getExpertsPerPage());
+        });
+
+        window.addEventListener('resize', function() { updateExpertsCarousel(); });
+
+        // Re-render when language changes
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var l = btn.getAttribute('data-lang');
+                if (l && EXPERTS[l]) renderExperts(l);
+            });
+        });
+
+        // Initial render — defer so layout is settled and innerWidth is correct
+        setTimeout(function() { renderExperts(lang); }, 0);
 
         // ── FAQ accordion ────────────────────────────────────────────
         document.querySelectorAll('.faq-question').forEach(function (btn) {
