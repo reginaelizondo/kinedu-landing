@@ -39,31 +39,39 @@
 
         /* Hero two-column layout with mockup */
         .lc-hero-grid {
-            max-width: 1120px;
+            max-width: 1060px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 52px;
             align-items: center;
             text-align: left;
         }
         .lc-hero-grid .lc-cta-group { align-items: flex-start; }
         .lc-hero-grid .lc-trust-bar { justify-content: flex-start; }
+
+        /* Gradient accent words in headline */
+        .lc-grad {
+            background: linear-gradient(90deg, #2B8BE4 0%, #34C989 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .lc-h1-sub {
             display: block;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-            font-weight: 500;
-            color: var(--text-tertiary);
-            margin-top: 6px;
-            letter-spacing: -0.01em;
+            font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            letter-spacing: -0.02em;
         }
         .lc-hero-mockup {
             display: flex; align-items: center; justify-content: center;
         }
         .lc-hero-mockup img {
-            width: 100%; max-width: 460px;
-            border-radius: 20px;
-            box-shadow: 0 24px 64px rgba(0,0,0,0.13);
+            width: 100%; max-width: 280px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
         }
         .lc-hero-badges {
             display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
@@ -71,12 +79,12 @@
         }
         .lc-hero-badges img { height: 40px; width: auto; border-radius: 7px; }
         @media (max-width: 900px) {
-            .lc-hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+            .lc-hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
             .lc-hero-grid .lc-cta-group { align-items: center; }
             .lc-hero-grid .lc-trust-bar { justify-content: center; }
             .lc-hero-badges { justify-content: center; }
             .lc-hero-mockup { order: -1; }
-            .lc-hero-mockup img { max-width: 320px; }
+            .lc-hero-mockup img { max-width: 220px; }
         }
 
         .lc-badge {
@@ -565,8 +573,8 @@
             <div class="lc-hero-text">
 
                 <h1 class="lc-h1">
-                    Real experts. Real answers. Real community.<br>
-                    <em>Every day — live.</em>
+                    Real <span class="lc-grad">experts</span>. Real <span class="lc-grad">answers</span>. Real <span class="lc-grad">community</span>.<br>
+                    <em>Every day — live classes.</em>
                     <span class="lc-h1-sub">Inside the Kinedu app.</span>
                 </h1>
 
