@@ -37,12 +37,12 @@
         }
         .lc-hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
 
-        /* Hero two-column layout with mockup */
+        /* Hero two-column layout — image left, text right */
         .lc-hero-grid {
-            max-width: 1060px;
+            max-width: 1120px;
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 52px;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 64px;
             align-items: center;
             text-align: left;
         }
@@ -70,8 +70,8 @@
             display: flex; align-items: center; justify-content: center;
         }
         .lc-hero-mockup img {
-            width: 100%; max-width: 280px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            width: 100%; max-width: 420px;
+            filter: drop-shadow(0 24px 48px rgba(0,0,0,0.13));
         }
         .lc-hero-badges {
             display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
@@ -84,7 +84,7 @@
             .lc-hero-grid .lc-trust-bar { justify-content: center; }
             .lc-hero-badges { justify-content: center; }
             .lc-hero-mockup { order: -1; }
-            .lc-hero-mockup img { max-width: 220px; }
+            .lc-hero-mockup img { max-width: 280px; }
         }
 
         .lc-badge {
@@ -569,13 +569,19 @@
     <section class="lc-hero">
         <div class="lc-hero-inner lc-hero-grid">
 
-            <!-- Text column -->
+            <!-- Image column (left) -->
+            <div class="lc-hero-mockup">
+                <img src="Features/EN/Calendar EN.png" id="lcHeroCalendar" alt="Live classes calendar in the Kinedu app" loading="eager">
+            </div>
+
+            <!-- Text column (right) -->
             <div class="lc-hero-text">
 
                 <h1 class="lc-h1">
-                    Real <span class="lc-grad">experts</span>. Real <span class="lc-grad">answers</span>. Real <span class="lc-grad">community</span>.<br>
-                    <em>Every day — live classes.</em>
-                    <span class="lc-h1-sub">Inside the Kinedu app.</span>
+                    Real <span class="lc-grad">experts</span>.<br>
+                    Real <span class="lc-grad">answers</span>.<br>
+                    Real <span class="lc-grad">community</span>.
+                    <span class="lc-h1-sub">Every day — live, inside the Kinedu app.</span>
                 </h1>
 
                 <p class="lc-sub">
@@ -609,11 +615,6 @@
                     Pediatrician recommended
                 </div>
 
-            </div>
-
-            <!-- Mockup column -->
-            <div class="lc-hero-mockup">
-                <img src="Features/EN/Calendar EN.png" id="lcHeroCalendar" alt="Live classes calendar in the Kinedu app" loading="eager">
             </div>
 
         </div>
