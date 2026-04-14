@@ -136,57 +136,20 @@
             .lc-hero-mockup img { max-width: 260px; }
             .lc-hero-text { display: flex; flex-direction: column; align-items: center; }
             .lc-spec-pills { justify-content: center; }
-            /* Fix headline: hide standalone "Real", prepend it per line */
-            .lc-h1-row { flex-direction: column; align-items: center; gap: 0; }
-            .lc-h1-real { display: none; }
-            .lc-h1-words { align-items: center; }
-            .lc-h1-line { text-align: center; }
-            .lc-h1-line::before {
-                content: 'Real ';
-                color: var(--text-primary);
-                -webkit-text-fill-color: var(--text-primary);
-            }
             .lc-next-class { display: none; }
             .lc-h1-sub { text-align: center; }
         }
 
         .lc-h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
             font-weight: 800;
+            line-height: 1.1;
             letter-spacing: -0.028em;
             color: var(--text-primary);
             margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
         }
         .lc-h1 em { font-style: normal; color: var(--kinedu-blue); }
-        /* "Real" + stacked words row */
-        .lc-h1-row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 0.55em;
-            line-height: 1;
-        }
-        .lc-h1-real {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -0.04em;
-            flex-shrink: 0;
-        }
-        .lc-h1-words {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.12;
-        }
-        .lc-h1-line {
-            display: block;
-            font-size: clamp(1.9rem, 4.4vw, 3.2rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
 
         .lc-cta-group { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 28px; }
 
@@ -317,7 +280,7 @@
             background: var(--expert-bg, #EFF6FF);
         }
         .lc-expert-photo {
-            width: 100px; height: 100px; border-radius: 50%;
+            width: 130px; height: 130px; border-radius: 50%;
             background: rgba(255,255,255,0.5);
             margin: 0 auto 14px;
             overflow: hidden;
@@ -436,19 +399,54 @@
         }
 
         /* How it works */
-        .lc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 52px; }
-        .lc-step { text-align: center; padding: 32px 24px; }
-        .lc-step-num {
-            width: 48px; height: 48px; border-radius: 50%;
-            background: var(--bg-soft-blue);
-            color: var(--kinedu-blue);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800; font-size: 1.2rem;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px;
+        .lc-steps {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; margin-top: 52px;
+            position: relative;
         }
-        .lc-step-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
-        .lc-step-body { font-size: 0.88rem; color: var(--text-tertiary); line-height: 1.6; }
+        .lc-steps::before {
+            content: '';
+            position: absolute;
+            top: 44px;
+            left: calc(16.666% + 16px);
+            right: calc(16.666% + 16px);
+            height: 2px;
+            background: linear-gradient(90deg, #2B8BE4 0%, #34C989 100%);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .lc-step {
+            background: white;
+            border-radius: 20px;
+            padding: 36px 24px 28px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lc-step:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.09); }
+        .lc-step-num {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(135deg, #2B8BE4, #34C989);
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px;
+            position: relative; z-index: 1;
+            box-shadow: 0 4px 12px rgba(43,139,228,0.3);
+        }
+        .lc-step-icon {
+            font-size: 2rem;
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, #EBF3FF, #EDF9F2);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .lc-step-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+        .lc-step-body { font-size: 0.88rem; color: var(--text-tertiary); line-height: 1.65; }
 
         /* What's inside */
         .lc-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
@@ -582,7 +580,8 @@
         @media (max-width: 900px) {
             .lc-problem-grid { grid-template-columns: 1fr; gap: 40px; }
             .lc-expert-card { flex: 0 0 calc(50% - 10px); }
-            .lc-steps { grid-template-columns: 1fr; gap: 8px; }
+            .lc-steps { grid-template-columns: 1fr; gap: 16px; }
+            .lc-steps::before { display: none; }
             .lc-features-grid { grid-template-columns: repeat(2, 1fr); }
             .lc-testi-grid { grid-template-columns: 1fr; gap: 16px; }
         }
@@ -653,14 +652,9 @@
                 </div>
 
                 <h1 class="lc-h1">
-                    <span class="lc-h1-row">
-                        <span class="lc-h1-real">Real</span>
-                        <span class="lc-h1-words">
-                            <span class="lc-h1-line"><span class="lc-grad">experts</span>.</span>
-                            <span class="lc-h1-line"><span class="lc-grad">answers</span>.</span>
-                            <span class="lc-h1-line"><span class="lc-grad">community</span>.</span>
-                        </span>
-                    </span>
+                    Real <span class="lc-grad">experts</span>.<br>
+                    Real <span class="lc-grad">answers</span>.<br>
+                    Real <span class="lc-grad">community</span>.
                     <span class="lc-h1-sub">Every day — live, included in Kinedu.</span>
                 </h1>
 
@@ -708,8 +702,7 @@
     ═══════════════════════════════════════════════════════════ -->
     <section class="lc-section lc-section--alt">
         <div class="lc-wrap lc-center">
-            <div class="sec-tag">The experts</div>
-            <h2 class="lc-h2">The experts in your pocket.</h2>
+            <h2 class="lc-h2">The <span class="lc-grad">experts</span> in your pocket.</h2>
             <p class="lc-body lc-body--center">Real certifications. Real experience. Available to every Kinedu member, live.</p>
 
             <div class="lc-carousel-wrap">
@@ -738,18 +731,21 @@
             <div class="lc-steps">
                 <div class="lc-step">
                     <div class="lc-step-num">1</div>
+                    <div class="lc-step-icon">📅</div>
                     <div class="lc-step-title">Join live</div>
-                    <div class="lc-step-body">A Zoom-style class every day, hosted by a certified expert. No prep needed — just show up with your questions.</div>
+                    <div class="lc-step-body">A certified expert hosts a live class every single day. No prep needed — just show up with your questions.</div>
                 </div>
                 <div class="lc-step">
-                    <div class="lc-step-num" style="background:var(--bg-soft-green);color:var(--kinedu-green);">2</div>
+                    <div class="lc-step-num">2</div>
+                    <div class="lc-step-icon">🙋</div>
                     <div class="lc-step-title">Ask anything</div>
-                    <div class="lc-step-body">Ask about your baby's specific situation, live. Not generic advice — answers for your baby, at their exact age and stage.</div>
+                    <div class="lc-step-body">Get answers for your baby's exact situation — not generic advice. Real experts, real-time responses.</div>
                 </div>
                 <div class="lc-step">
-                    <div class="lc-step-num" style="background:var(--bg-soft-pink);color:var(--kinedu-pink);">3</div>
-                    <div class="lc-step-title">Can't make it?</div>
-                    <div class="lc-step-body">Every class is recorded. Watch the full session — including all Q&As — anytime, on your schedule.</div>
+                    <div class="lc-step-num">3</div>
+                    <div class="lc-step-icon">🎬</div>
+                    <div class="lc-step-title">Watch the replay</div>
+                    <div class="lc-step-body">Can't make it live? Every session is recorded — watch the full class including all Q&As, anytime.</div>
                 </div>
             </div>
         </div>
