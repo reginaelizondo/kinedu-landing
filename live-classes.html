@@ -103,13 +103,41 @@
 
         .lc-h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-            font-weight: 800; line-height: 1.1;
+            font-weight: 800;
             letter-spacing: -0.028em;
             color: var(--text-primary);
             margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .lc-h1 em { font-style: normal; color: var(--kinedu-blue); }
+        /* "Real" + stacked words row */
+        .lc-h1-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.22em;
+            line-height: 1;
+        }
+        .lc-h1-real {
+            font-size: clamp(3.8rem, 9vw, 6.8rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            flex-shrink: 0;
+        }
+        .lc-h1-words {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.12;
+        }
+        .lc-h1-line {
+            display: block;
+            font-size: clamp(1.9rem, 4.4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
 
         .lc-sub {
             font-size: clamp(1rem, 2vw, 1.15rem);
@@ -578,9 +606,14 @@
             <div class="lc-hero-text">
 
                 <h1 class="lc-h1">
-                    Real <span class="lc-grad">experts</span>.<br>
-                    Real <span class="lc-grad">answers</span>.<br>
-                    Real <span class="lc-grad">community</span>.
+                    <span class="lc-h1-row">
+                        <span class="lc-h1-real">Real</span>
+                        <span class="lc-h1-words">
+                            <span class="lc-h1-line"><span class="lc-grad">experts</span>.</span>
+                            <span class="lc-h1-line"><span class="lc-grad">answers</span>.</span>
+                            <span class="lc-h1-line"><span class="lc-grad">community</span>.</span>
+                        </span>
+                    </span>
                     <span class="lc-h1-sub">Every day — live, inside the Kinedu app.</span>
                 </h1>
 
