@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const SUPPORTED = ['en', 'es', 'pt'];
 
         function getInitialLang() {
+            // Check URL path first: /es or /pt
+            const path = window.location.pathname;
+            if (path === '/es' || path.startsWith('/es/')) return 'es';
+            if (path === '/pt' || path.startsWith('/pt/')) return 'pt';
+            // Then check stored preference
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored && SUPPORTED.includes(stored)) return stored;
             return DEFAULT_LANG;
