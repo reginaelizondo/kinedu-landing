@@ -632,24 +632,88 @@
         .lc-store-row { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
         .lc-store-row img { height: 44px; width: 148px; object-fit: contain; border-radius: 8px; }
 
-        /* ── Mobile ──────────────────────────────────────────────── */
+        /* ── Tablet (≤900px) ─────────────────────────────────────── */
         @media (max-width: 900px) {
             .lc-problem-grid { grid-template-columns: 1fr; gap: 40px; }
             .lc-expert-card { flex: 0 0 calc(50% - 10px); }
             .lc-steps { grid-template-columns: 1fr; gap: 12px; }
             .lc-features-grid { grid-template-columns: repeat(2, 1fr); }
             .lc-testi-grid { grid-template-columns: 1fr; gap: 16px; }
+            .lc-pricing { padding: 72px 0; }
         }
+
+        /* ── Mobile (≤600px) ─────────────────────────────────────── */
         @media (max-width: 600px) {
-            .lc-hero { padding: 110px 20px 60px; }
-            .lc-section { padding: 60px 0; }
-            .lc-expert-card { flex: 0 0 80%; }
+
+            /* Hero */
+            .lc-hero { padding: 100px 20px 52px; }
+            .lc-hero-mockup img { max-width: 220px; }
+            .lc-h1 {
+                font-size: clamp(2rem, 9vw, 2.8rem);
+                margin-bottom: 14px;
+                text-align: center;
+            }
+            .lc-h1-sub {
+                font-size: 0.95rem;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .lc-coaches-row { margin-bottom: 20px; }
+            .lc-expert-stack { justify-content: center; }
+            .lc-coaches-label { font-size: 0.75rem; text-align: center; }
+            .lc-cta-group { gap: 10px; margin-bottom: 20px; width: 100%; }
+            /* Full-width button on mobile */
+            .btn-hero-primary { width: 100%; justify-content: center; }
+            .lc-hero-badges { justify-content: center; gap: 8px; }
+            .lc-hero-badges img { height: 36px; }
+            .lc-trust-bar { font-size: 0.75rem; gap: 5px; justify-content: center; }
+
+            /* Sections */
+            .lc-section { padding: 52px 0; }
+            .lc-wrap { padding: 0 18px; }
+            .lc-h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+            .lc-body { font-size: 0.95rem; }
+
+            /* Experts carousel */
+            .lc-carousel-wrap { gap: 8px; margin-top: 32px; }
+            .lc-expert-card { flex: 0 0 82%; }
             .lc-carousel-btn { width: 36px; height: 36px; }
-            .lc-features-grid { grid-template-columns: 1fr; }
-            .lc-hero-visual { grid-template-columns: 1fr; }
-            .lc-hero-img.right { display: none; }
-            .lc-class-row { flex-wrap: wrap; }
-            .lc-class-time { min-width: unset; }
+            .lc-expert-card-top { padding: 24px 20px 16px; }
+            .lc-expert-photo { width: 110px; height: 110px; }
+
+            /* How it works */
+            .lc-steps { margin-top: 32px; gap: 10px; }
+            .lc-step { padding: 24px 22px 22px; min-height: unset; }
+            .lc-step-icon { font-size: 2rem; margin-bottom: 10px; }
+            .lc-step-title { font-size: 1rem; }
+            .lc-step-body { font-size: 0.83rem; }
+            .lc-step::after { font-size: 5rem; }
+
+            /* What's inside */
+            .lc-features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 28px;
+            }
+            .lc-feature-item { padding: 22px 20px; flex-direction: row; gap: 16px; align-items: flex-start; }
+            .lc-feature-icon { margin-bottom: 0; flex-shrink: 0; }
+            .lc-feature-title { font-size: 0.88rem; }
+
+            /* Upcoming classes */
+            .lc-classes-list { margin-top: 24px; gap: 10px; }
+            .lc-class-row { flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
+            .lc-class-time { min-width: unset; width: 100%; }
+            .lc-class-info { width: 100%; }
+            .lc-live-dot { display: none; }
+
+            /* Testimonials */
+            .lc-testi-grid { margin-top: 28px; }
+            .lc-testi-card { padding: 20px; }
+            .lc-testi-quote { font-size: 0.85rem; }
+
+            /* Pricing CTA */
+            .lc-pricing { padding: 60px 0; }
+            .lc-store-row { flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
             .lc-store-row img { height: 40px; width: 135px; }
         }
     </style>
