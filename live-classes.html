@@ -510,12 +510,13 @@
         }
         .lc-feature-item:hover { transform: translateY(-2px); }
         .lc-feature-icon {
-            font-size: 1.6rem; flex-shrink: 0;
+            flex-shrink: 0;
             width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 14px;
             margin-bottom: 16px;
         }
+        .lc-feature-icon svg { width: 24px; height: 24px; }
         .lc-feature-item:nth-child(1) .lc-feature-icon { background: #EBF3FF; }
         .lc-feature-item:nth-child(2) .lc-feature-icon { background: #F0ECFF; }
         .lc-feature-item:nth-child(3) .lc-feature-icon { background: #FFF7EC; }
@@ -915,22 +916,52 @@
 
             <div class="lc-features-grid">
                 <div class="lc-feature-item">
-                    <div class="lc-feature-icon">📚</div>
+                    <div class="lc-feature-icon">
+                        <!-- Play / video icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#2B8BE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="3"/>
+                            <polygon points="10,8 16,11 10,14" fill="#2B8BE4" stroke="none"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
                     <div class="lc-feature-title">10+ recorded masterclasses</div>
                     <div class="lc-feature-desc">Watch expert-led sessions on every topic — anytime, in any language.</div>
                 </div>
                 <div class="lc-feature-item">
-                    <div class="lc-feature-icon">🎧</div>
+                    <div class="lc-feature-icon">
+                        <!-- Headphones icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#7C5CBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/>
+                            <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>
+                    </div>
                     <div class="lc-feature-title">Expert-led podcasts</div>
                     <div class="lc-feature-desc">Listen while you feed, rock, or walk. Real expert conversations on the go.</div>
                 </div>
                 <div class="lc-feature-item">
-                    <div class="lc-feature-icon">📖</div>
+                    <div class="lc-feature-icon">
+                        <!-- Article / file-text icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <line x1="10" y1="9" x2="8" y2="9"/>
+                        </svg>
+                    </div>
                     <div class="lc-feature-title">Vetted articles</div>
                     <div class="lc-feature-desc">Every article is reviewed by pediatricians. No random internet opinions.</div>
                 </div>
                 <div class="lc-feature-item">
-                    <div class="lc-feature-icon">👶</div>
+                    <div class="lc-feature-icon">
+                        <!-- Smartphone / app icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#34C989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="3"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="lc-feature-title">Full Kinedu app</div>
                     <div class="lc-feature-desc">Daily activities, milestone tracking, baby tracker — personalized for your baby's exact age.</div>
                 </div>
