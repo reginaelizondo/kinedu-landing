@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinedu Blog — Baby Development, Parenting Tips &amp; More</title>
+<meta name="description" content="Expert articles on baby development, sleep, milestones, feeding, and parenting from the Kinedu team.">
+<link rel="canonical" href="https://kinedu.com/blog">
+<!-- Open Graph -->
+<meta property="og:title" content="Kinedu Blog — Baby Development, Parenting Tips &amp; More">
+<meta property="og:description" content="Expert articles on baby development, sleep, milestones, feeding, and parenting from the Kinedu team.">
+<meta property="og:url" content="https://kinedu.com/blog">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kinedu">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/logo kinedu.png" type="image/png">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue: #2B8BE4; --green: #34C989;
+  --text-primary: #1A2233; --text-secondary: #4A5568; --text-tertiary: #718096;
+  --border: #E8EEF5; --bg: #F8FAFB; --white: #fff;
+  --r: 16px; --r-full: 999px;
+  --font: 'Plus Jakarta Sans', sans-serif;
+}
+body { font-family: var(--font); background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+/* NAV */
+.kn-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.kn-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.kn-logo img { height: 28px; display: block; }
+.kn-nav-links { display: flex; gap: 4px; align-items: center; }
+.kn-nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--text-tertiary); padding: 7px 14px; border-radius: var(--r-full); text-decoration: none; transition: color 0.2s, background 0.2s; }
+.kn-nav-links a:hover { color: var(--text-primary); background: rgba(43,139,228,0.06); }
+.kn-nav-links a.active { color: var(--blue); background: rgba(43,139,228,0.08); font-weight: 600; }
+.kn-nav-cta { background: linear-gradient(90deg, #2B8BE4, #34C989); color: #fff !important; padding: 9px 20px !important; border-radius: var(--r-full) !important; font-weight: 700 !important; font-size: 0.82rem !important; }
+.kn-nav-cta:hover { opacity: 0.9; background: linear-gradient(90deg, #2B8BE4, #34C989) !important; }
+
+/* FOOTER */
+.kn-footer { background: #1A2233; color: #718096; padding: 48px 24px 32px; margin-top: 80px; }
+.kn-footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+.kn-footer-logo img { height: 28px; filter: brightness(0) invert(1) opacity(0.6); }
+.kn-footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.kn-footer-links a { color: #718096; text-decoration: none; font-size: 0.82rem; }
+.kn-footer-links a:hover { color: #fff; }
+.kn-footer-copy { font-size: 0.75rem; color: #4A5568; }
+
+@media (max-width: 700px) {
+  .kn-nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="kn-nav">
+  <div class="kn-nav-inner">
+    <a href="/" class="kn-logo"><img src="/logo kinedu.png" alt="Kinedu"></a>
+    <div class="kn-nav-links">
+      <a href="/">Home</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kn-nav-cta">Try free</a>
+    </div>
+  </div>
+</nav>
+<style>
+.blog-hero {{ background: linear-gradient(135deg, #EBF3FF 0%, #EDFAF4 100%); padding: 72px 24px 60px; text-align: center; }}
+.blog-hero h1 {{ font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 12px; }}
+.blog-hero-grad {{ background: linear-gradient(90deg, #2B8BE4, #34C989); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }}
+.blog-hero p {{ font-size: 1.05rem; color: var(--text-secondary); max-width: 520px; margin: 0 auto; }}
+
+.blog-wrap {{ max-width: 1100px; margin: 0 auto; padding: 56px 24px 80px; }}
+.blog-filter {{ display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }}
+.blog-filter-btn {{ padding: 8px 18px; border-radius: var(--r-full); border: 1.5px solid var(--border); font-family: var(--font); font-size: 0.82rem; font-weight: 600; cursor: pointer; background: white; color: var(--text-secondary); transition: all 0.2s; }}
+.blog-filter-btn:hover, .blog-filter-btn.active {{ background: var(--blue); border-color: var(--blue); color: white; }}
+
+.blog-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }}
+
+.blog-card {{ background: white; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.25s, box-shadow 0.25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }}
+.blog-card:hover {{ transform: translateY(-3px); box-shadow: 0 12px 36px rgba(43,139,228,0.1); }}
+.blog-card-img {{ height: 180px; background: linear-gradient(135deg, #EBF3FF, #EDFAF4); display: flex; align-items: center; justify-content: center; font-size: 3rem; }}
+.blog-card-body {{ padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }}
+.blog-card-cat {{ font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }}
+.blog-card-title {{ font-size: 1rem; font-weight: 700; line-height: 1.4; color: var(--text-primary); margin-bottom: 10px; flex: 1; }}
+.blog-card-excerpt {{ font-size: 0.82rem; color: var(--text-tertiary); line-height: 1.55; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
+.blog-card-read {{ font-size: 0.8rem; font-weight: 700; color: var(--blue); }}
+
+/* Bottom CTA */
+.blog-cta {{ background: var(--text-primary); border-radius: 24px; padding: 48px 36px; text-align: center; margin-top: 64px; }}
+.blog-cta h2 {{ font-size: 1.6rem; font-weight: 800; color: white; margin-bottom: 12px; }}
+.blog-cta p {{ color: #A0AEC0; font-size: 0.9rem; margin-bottom: 28px; }}
+.blog-cta-btn {{ background: linear-gradient(90deg, #2B8BE4, #34C989); color: white; padding: 14px 32px; border-radius: var(--r-full); font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-block; }}
+
+@media (max-width: 900px) {{ .blog-grid {{ grid-template-columns: repeat(2,1fr); }} }}
+@media (max-width: 600px) {{ .blog-grid {{ grid-template-columns: 1fr; gap: 16px; }} .blog-hero {{ padding: 48px 16px 40px; }} .blog-wrap {{ padding: 32px 16px 60px; }} }}
+</style>
+
+<div class="blog-hero">
+  <h1>Kinedu <span class="blog-hero-grad">Blog</span></h1>
+  <p>Expert guides on baby development, sleep, milestones, feeding, and more — written for real parents.</p>
+</div>
+<main>
+<div class="blog-wrap">
+  <div class="blog-filter"><button class="blog-filter-btn active" data-filter="all">All</button><button class="blog-filter-btn" data-filter="activities">Activities</button><button class="blog-filter-btn" data-filter="feeding">Feeding</button><button class="blog-filter-btn" data-filter="health">Health</button><button class="blog-filter-btn" data-filter="milestones">Milestones</button><button class="blog-filter-btn" data-filter="newborn">Newborn</button><button class="blog-filter-btn" data-filter="sleep">Sleep</button></div>
+  <div class="blog-grid" id="blogGrid">
+<a href="/blog/when-do-babies-sleep-through-the-night" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">When Do Babies Sleep Through the Night</div>
+    <div class="blog-card-excerpt">If you’re reading this, chances are you’re dreaming of the day you can finally enjoy a full night of sleep. Don’t worry, that day is coming! It might feel...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/why-does-the-4-month-sleep-regression-happen" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">Why does the 4-Month Sleep Regression Happen?</div>
+    <div class="blog-card-excerpt">Key Points:
+
+Sleep cycles have developed and are now longer: 90 minutes. They also go through 4 sleep stages instead of just 2.Cognitive development:...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/why-does-the-6-month-sleep-regression-happen" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">Why does the 6-Month Sleep Regression Happen?\ufffc</div>
+    <div class="blog-card-excerpt">Key Points:
+
+More frequent night wakings, difficulty falling back asleep and difficulty falling asleep at bed time and nap timeMotor Development: rolling...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/why-does-the-8-10-month-sleep-regression-happen" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">Why does the 8-10 Month Sleep Regression Happen?</div>
+    <div class="blog-card-excerpt">Key Points:
+
+Motor Development: Crawling, pulling up to stand and first steps are the new skills keeping them up.Separation Anxiety: The awareness of object...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/why-does-the-12-month-sleep-regression-occur" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">Why does the 12-Month Sleep Regression Occur?\ufffc</div>
+    <div class="blog-card-excerpt">Key Points:
+
+Climbing, squatting and walking are new skills that keep them busy with practice and excitement!First words and more babbles make for busy...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/how-to-teach-your-baby-to-self-soothe" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">How to Teach Your Baby to Self-Soothe</div>
+    <div class="blog-card-excerpt">Have you rocked, fed, changed, burped, and sung to your baby, only to find they’re still fussy? Welcome to parenthood! Helping your baby learn to self-soothe...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/newborn-sleeps-all-day" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">My Newborn Sleeps All Day! Is It Normal?</div>
+    <div class="blog-card-excerpt">When welcoming a long-awaited baby home, many first-time mothers are faced with a common question: &quot;Is it normal that my newborn sleeps all day?&quot;. It&#x27;s...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/my-18-month-old-isnt-talking" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">My 18-Month-Old Isn\u2019t Talking</div>
+    <div class="blog-card-excerpt">Just like with a baby’s first steps, many parents eagerly anticipate their toddler&#x27;s first words. And when it doesn’t happen at the age you were told to...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/2-year-old-not-talking" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">My 2-Year-Old Is Not Talking! Is It Normal?</div>
+    <div class="blog-card-excerpt">As parents, it&#x27;s common to have questions about our children&#x27;s development. One question we often hear is, &#x27;My 2-year-old child is not talking, is it...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/when-do-babies-laugh" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">When Do Babies Laugh?</div>
+    <div class="blog-card-excerpt">Laughter is one of the sweetest sounds a baby can make, and it’s an exciting milestone for parents to witness. It’s also a significant way for babies to...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/your-babys-first-words" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">Your Baby&#x27;s First Words\ufffc</div>
+    <div class="blog-card-excerpt">A baby’s first word is one of the milestones parents most look forward to. But before a baby blurts out their first word, they will coo and babble since...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/milestones-overview-12-months" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">Milestones Overview: 12 Months</div>
+    <div class="blog-card-excerpt">At 12 months your baby has now been a part of your family for a whole year! It’s hard to grasp the fact that they’ve grown, learned and evolved so much in...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/how-does-your-babys-vision-develop" class="blog-card" data-cat="milestones">
+  <div class="blog-card-img">🌟</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#34C989">Milestones</span>
+    <div class="blog-card-title">How does your baby\u2019s vision develop?</div>
+    <div class="blog-card-excerpt">Your baby’s eyes are constantly changing during their first year of life from their birth until they are able to clearly distinguish colors and faces just...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/what-should-a-6-month-old-feeding-schedule-look-like" class="blog-card" data-cat="feeding">
+  <div class="blog-card-img">🍼</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#7C5CBF">Feeding</span>
+    <div class="blog-card-title">What Should a 6-Month Old Feeding Schedule Look Like?</div>
+    <div class="blog-card-excerpt">Introducing solid foods to a 6-month-old baby is an exciting milestone that opens up new textures and tastes for your little one. At this age, infants are...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/breastfeeding-diet-plan" class="blog-card" data-cat="feeding">
+  <div class="blog-card-img">🍼</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#7C5CBF">Feeding</span>
+    <div class="blog-card-title">Diet for Breastfeeding Moms</div>
+    <div class="blog-card-excerpt">For breastfeeding mothers, nutrition plays a crucial role in the health and well-being of both the mom and the baby. A balanced and nutritious diet is...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/when-to-see-a-lactation-consultant" class="blog-card" data-cat="feeding">
+  <div class="blog-card-img">🍼</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#7C5CBF">Feeding</span>
+    <div class="blog-card-title">When to See a Lactation Consultant</div>
+    <div class="blog-card-excerpt">The journey of breastfeeding is filled with both beauty and challenges, and a lactation consultant can be an invaluable resource in navigating these...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/how-to-burp-a-baby" class="blog-card" data-cat="newborn">
+  <div class="blog-card-img">👶</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#F59E0B">Newborn</span>
+    <div class="blog-card-title">How To Burp a Baby?</div>
+    <div class="blog-card-excerpt">Burping is an essential part of caring for a newborn, especially during and after feeding times. This guide will explore **how to burp your baby**...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/hiccups-in-newborns-and-babies" class="blog-card" data-cat="newborn">
+  <div class="blog-card-img">👶</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#F59E0B">Newborn</span>
+    <div class="blog-card-title">Hiccups in Newborns and Babies</div>
+    <div class="blog-card-excerpt">Hiccups happen when the diaphragm, the muscle responsible for breathing, experiences an involuntary spasm. This quick movement forces air into the lungs,...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/newborn-care-immediately-after-birth" class="blog-card" data-cat="newborn">
+  <div class="blog-card-img">👶</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#F59E0B">Newborn</span>
+    <div class="blog-card-title">Essential Newborn Care</div>
+    <div class="blog-card-excerpt">The birth of a baby is a moment of great emotion and joy for parents and, at the same time, a period of responsibility for health professionals. The care...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/signs-of-colic-in-babies" class="blog-card" data-cat="newborn">
+  <div class="blog-card-img">👶</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#F59E0B">Newborn</span>
+    <div class="blog-card-title">Signs of Colic in Babies</div>
+    <div class="blog-card-excerpt">Colic is a common disorder in babies, characterized by intense, prolonged crying for no apparent reason. This can be very frustrating for parents, as there...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/white-noise-for-babies" class="blog-card" data-cat="sleep">
+  <div class="blog-card-img">😴</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#2B8BE4">Sleep</span>
+    <div class="blog-card-title">White Noise For Babies: What Is It And How Does It Work?</div>
+    <div class="blog-card-excerpt">White noise is a technique often used by parents to help their baby sleep, as it creates a constant, soft sound that blocks out other noises that could...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/how-to-recover-after-a-c-section" class="blog-card" data-cat="health">
+  <div class="blog-card-img">❤️</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#E53935">Health</span>
+    <div class="blog-card-title">How to Recover After a C-Section</div>
+    <div class="blog-card-excerpt">Congratulations, mama! Whether your C-section was planned or unexpected, you’ve done something amazing: brought your baby into the world. Now it’s time to...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/what-causes-sids-and-how-can-i-prevent-it" class="blog-card" data-cat="health">
+  <div class="blog-card-img">❤️</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#E53935">Health</span>
+    <div class="blog-card-title">What Causes SIDS and How Can I Prevent It?</div>
+    <div class="blog-card-excerpt">Sudden Infant Death Syndrome (SIDS) is the unexplained, sudden death of an otherwise healthy baby, usually during sleep. Despite significant research, the...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/activities-for-2-year-olds-2" class="blog-card" data-cat="activities">
+  <div class="blog-card-img">🎨</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#16A34A">Activities</span>
+    <div class="blog-card-title">Activities for 2-Year-Olds</div>
+    <div class="blog-card-excerpt">Two-year-olds&#x27; play is exploratory, active and can get messy. Their attention span is still quite short, but if they engage with something they love, it can...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a>
+<a href="/blog/toys-for-1-year-old" class="blog-card" data-cat="activities">
+  <div class="blog-card-img">🎨</div>
+  <div class="blog-card-body">
+    <span class="blog-card-cat" style="color:#16A34A">Activities</span>
+    <div class="blog-card-title">Toys for 1-Year-Old</div>
+    <div class="blog-card-excerpt">Your baby is growing! Whether it’s holidays coming up or a birthday, choosing the right toys for a 1 year old is not an easy task! It’s a new world of toys...</div>
+    <span class="blog-card-read">Read article →</span>
+  </div>
+</a></div>
+  <div class="blog-cta">
+    <h2>Ready to support your baby's growth?</h2>
+    <p>Join 8M+ families using Kinedu — daily activities, expert live classes, milestone tracking.</p>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="blog-cta-btn">Try Kinedu free for 7 days →</a>
+  </div>
+</div>
+</main>
+<script>
+document.querySelectorAll('.blog-filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const f = this.dataset.filter;
+    document.querySelectorAll('.blog-card').forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+<footer class="kn-footer">
+  <div class="kn-footer-inner">
+    <div class="kn-footer-logo"><img src="/logo kinedu.png" alt="Kinedu"></div>
+    <div class="kn-footer-links">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/science.html">Science</a>
+    </div>
+    <p class="kn-footer-copy">© 2025 Kinedu. All rights reserved.</p>
+  </div>
+</footer>
+</body></html>
