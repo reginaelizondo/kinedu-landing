@@ -2321,11 +2321,13 @@ a {
         transform: translateX(100%);
         visibility: hidden;
         border-left: 1px solid rgba(0, 0, 0, 0.06);
+        pointer-events: none;
     }
 
     .nav-links.active {
         transform: translateX(0);
         visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-hamburger.active {
@@ -2345,6 +2347,12 @@ a {
         width: 100%;
         transition: all 0.2s ease;
         letter-spacing: -0.01em;
+        /* iOS Safari touch fix */
+        touch-action: manipulation;
+        cursor: pointer;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: rgba(43, 139, 228, 0.1);
+        display: block;
     }
 
     .nav-links a:hover {

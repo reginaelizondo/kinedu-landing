@@ -176,7 +176,26 @@ document.addEventListener('DOMContentLoaded', () => {
         backdrop.addEventListener('click', closeMenu);
 
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                    // Hash link — close immediately, smooth scroll will handle it
+                    closeMenu();
+                } else {
+                    // Page/external link — delay so Safari doesn't cancel navigation
+                    e.preventDefault();
+                    const target = this.getAttribute('target');
+                    const url = href;
+                    closeMenu();
+                    setTimeout(() => {
+                        if (target === '_blank') {
+                            window.open(url, '_blank');
+                        } else {
+                            window.location.href = url;
+                        }
+                    }, 50);
+                }
+            });
         });
     }
 
