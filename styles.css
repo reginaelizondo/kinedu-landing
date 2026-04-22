@@ -573,6 +573,7 @@ a {
     margin-bottom: 16px;
     animation: fadeUp 0.8s ease 0.45s forwards;
     opacity: 0;
+    align-self: center;
 }
 
 .store-badges {
