@@ -360,17 +360,18 @@ Climbing, squatting and walking are new skills that keep them busy with practice
 </div>
 </main>
 <script>
-document.querySelectorAll('.bf').forEach(b => b.addEventListener('click', function() {
-  document.querySelectorAll('.bf').forEach(x => x.classList.remove('active'));
-  this.classList.add('active');
-  const f = this.dataset.f;
-  document.querySelectorAll('.bc').forEach(c => {
-    c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+document.querySelectorAll('.bf').forEach(function(b) {
+  b.addEventListener('click', function() {
+    document.querySelectorAll('.bf').forEach(function(x) { x.classList.remove('active'); });
+    this.classList.add('active');
+    var f = this.getAttribute('data-f');
+    document.querySelectorAll('.bc').forEach(function(c) {
+      c.style.display = (f === 'all' || c.getAttribute('data-cat') === f) ? '' : 'none';
+    });
+    var visible = Array.prototype.slice.call(document.querySelectorAll('.bc')).filter(function(c) { return c.style.display !== 'none'; });
+    document.querySelectorAll('.bc-featured').forEach(function(c) { c.classList.remove('bc-featured'); });
+    if (visible.length > 0) visible[0].classList.add('bc-featured');
   });
-  // Re-handle featured on filter
-  const visible = [...document.querySelectorAll('.bc')].filter(c=>c.style.display!=='none');
-  document.querySelectorAll('.bc-featured').forEach(c=>c.classList.remove('bc-featured'));
-  if(visible.length>0) visible[0].classList.add('bc-featured');
 });
 </script>
 <footer class="kn-foot">
