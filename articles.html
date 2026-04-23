@@ -213,37 +213,97 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-author-bar .role { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .kb-author-bar .actions { display: flex; gap: 8px; }
 
-/* Responsive */
+/* ── Responsive ───────────────────────────────── */
+
+/* Tablet 960px */
 @media (max-width: 960px) {
-  .kb-hero-b-top { grid-template-columns: 1fr; }
-  .kb-hero-b-rail { max-width: 100%; justify-self: start; }
+  .kb-hero-b-top { grid-template-columns: 1fr; gap: 32px; }
+  .kb-hero-b-rail { max-width: 100%; justify-self: start; flex-direction: row; flex-wrap: wrap; }
+  .kb-hero-b-quote { flex: 1 1 300px; }
+  .kb-hero-b-stats { flex: 1 1 260px; }
   .kb-hero-b-title { font-size: 52px; }
   .kb-art-2col { grid-template-columns: 1fr; }
   .kb-art-toc { display: none; }
+  /* Featured overlay cards → 1 row 3 cols stays, handled below */
 }
+
+/* Small tablet 900px */
 @media (max-width: 900px) {
   .kb-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .kb-stage-row { grid-template-columns: repeat(3, 1fr); }
   .kb-age-row { grid-template-columns: repeat(3, 1fr); }
-  .kb-app-cta { grid-template-columns: 1fr; }
+  .kb-app-cta { grid-template-columns: 1fr; gap: 32px; }
   .kb-app-cta-stats { display: none; }
-  .kb-footer-grid { grid-template-columns: 1fr 1fr; }
+  .kb-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .kb-section-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Featured overlay cards → 2 cols */
+  .kb-featured-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* Mobile 640px */
 @media (max-width: 640px) {
-  .kb-wrap { padding: 0 20px; }
-  .kb-hero-b { padding: 48px 0 40px; }
-  .kb-hero-b-title { font-size: 40px; }
-  .kb-grid-3 { grid-template-columns: 1fr; }
-  .kb-stage-row { grid-template-columns: repeat(2, 1fr); }
+  .kb-wrap { padding: 0 16px; }
+  .kb-hero-b { padding: 40px 0 36px; }
+  .kb-hero-b-title { font-size: 36px; line-height: 1.0; letter-spacing: -0.035em; }
+  .kb-hero-b-top { gap: 24px; }
+  .kb-hero-b-rail { flex-direction: column; gap: 12px; }
+  .kb-hero-b-quote { padding: 18px 20px; }
+  .kb-hero-b-quote p { font-size: 14px; }
+  .kb-hero-b-stats { grid-template-columns: repeat(2, 1fr); }
+  .kb-hero-b-stats .n { font-size: 17px; }
+  .kb-hero-b-stats > div { padding: 12px 10px; }
+  /* Search bar */
+  .kb-search { padding: 5px 5px 5px 14px; border-radius: 12px; }
+  .kb-search input { font-size: 14px; }
+  .kb-search button { padding: 10px 14px; font-size: 13px; }
+  .btn-long { display: none; }
+  .btn-short { display: inline !important; }
+  /* Trending tags — wrap tighter */
+  .kb-hero-b-tags { gap: 8px; font-size: 12.5px; margin-top: 14px; }
+  /* Category pills — horizontal scroll */
+  .kb-pills { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .kb-pills::-webkit-scrollbar { display: none; }
+  .kb-pill { flex-shrink: 0; }
+  /* Grids */
+  .kb-grid-3 { grid-template-columns: 1fr; gap: 16px; }
+  .kb-featured-grid { grid-template-columns: 1fr !important; }
+  .kb-stage-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .kb-stage { height: 160px; }
+  .kb-stage h4 { font-size: 18px; }
+  .kb-age-row { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .kb-age { padding: 14px 12px; }
+  .kb-age .ico { width: 30px; height: 30px; font-size: 15px; }
+  .kb-age-label { font-size: 12.5px; }
+  .kb-age-sub { display: none; }
+  /* App CTA */
+  .kb-app-cta { padding: 32px 24px; margin: 40px 0; border-radius: 20px; }
+  .kb-app-cta h2 { font-size: 26px; }
+  .kb-app-cta p { font-size: 14.5px; margin-bottom: 20px; }
+  .kb-app-store-badge { padding: 9px 14px; }
+  /* Section headers */
+  .kb-section-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .kb-h2 { font-size: 26px; }
+  /* Footer */
+  .kb-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .kb-footer { padding: 40px 0 24px; }
+  .kb-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  /* Article page */
+  .kb-art-title { font-size: 30px; }
+  .kb-art-dek { font-size: 16px; }
+  .kb-art-body p { font-size: 16px; }
+  .kb-art-body h2 { font-size: 24px; }
+  .kb-art-wrap { padding: 0 16px; }
+  .kb-art-2col { padding: 0 16px; }
+  .kb-art-slim-cta { padding: 0 16px 60px; }
+  .kb-art-slim-cta-inner { flex-direction: column; padding: 24px; gap: 16px; }
+}
+
+/* Small phones 390px */
+@media (max-width: 390px) {
+  .kb-hero-b-title { font-size: 30px; }
+  .kb-hero-b-stats { grid-template-columns: repeat(2, 1fr); }
   .kb-age-row { grid-template-columns: repeat(2, 1fr); }
-  .kb-nav-links { display: none; }
-  .kb-nav-actions .kb-btn-ghost { display: none; }
-  .kb-art-title { font-size: 34px; }
-  .kb-art-wrap { padding: 0 20px; }
-  .kb-art-2col { padding: 0 20px; }
-  .kb-app-cta { padding: 36px 28px; }
-  .kb-footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .kb-hero-b-stats .n { font-size: 16px; }
+  .kb-app-cta h2 { font-size: 22px; }
 }
 
 </style>
@@ -318,7 +378,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="kb-search">
       <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
       <input placeholder="Try &ldquo;when do babies sleep through the night&rdquo;" id="blogSearch" type="search">
-      <button onclick="doSearch()">Search 2,400+ articles</button>
+      <button onclick="doSearch()"><span class="btn-long">Search 2,400+ articles</span><span class="btn-short" style="display:none">Search</span></button>
     </div>
     <div class="kb-hero-b-tags">
       <span class="label">Trending:</span>
@@ -343,7 +403,7 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
       <a href="/articles.html" class="kb-link" onclick="return false;" style="align-self:end;">See all articles →</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <div class="kb-featured-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       
 <a href="https://kinedu-landing.vercel.app/blog/when-do-babies-sleep-through-the-night" class="kb-card-over" style="--focus:55% 45%;">
   <img class="bg" src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-images-v1/newborn-sleeping.jpg" alt="When Do Babies Sleep Through the Night?" loading="lazy">
