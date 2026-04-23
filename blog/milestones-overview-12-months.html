@@ -3,166 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Milestones Overview: 12 Months | Kinedu Blog</title>
-<meta name="description" content="At 12 months your baby has now been a part of your family for a whole year! It’s hard to grasp the fact that they’ve grown, learned and evolved so much in...">
+<title>12-Month Milestones: Everything to Expect | Kinedu Blog</title>
+<meta name="description" content="At one year old, babies are changing fast. Here&#x27;s a complete overview of motor, language, cognitive, and social milestones.">
 <link rel="canonical" href="https://kinedu-landing.vercel.app/blog/milestones-overview-12-months">
-<meta property="og:title" content="Milestones Overview: 12 Months | Kinedu Blog">
-<meta property="og:description" content="At 12 months your baby has now been a part of your family for a whole year! It’s hard to grasp the fact that they’ve grown, learned and evolved so much in...">
+<meta property="og:title" content="12-Month Milestones: Everything to Expect | Kinedu Blog">
+<meta property="og:description" content="At one year old, babies are changing fast. Here&#x27;s a complete overview of motor, language, cognitive, and social milestones.">
 <meta property="og:type" content="article">
+<meta property="og:image" content="https://kinedu-landing.vercel.app/blog//blog/images/baby-standing.jpg">
 <meta property="og:site_name" content="Kinedu">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="/logo kinedu.png" type="image/png">
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --blue: #2B8BE4; --green: #34C989;
-  --tp: #1A2233; --ts: #4A5568; --tt: #718096;
-  --border: #E8EEF5; --bg: #F4F7FB; --white: #fff;
-  --r: 16px; --rf: 999px;
-  --font: 'Plus Jakarta Sans', sans-serif;
+  --blue: #2B8BE4; --blue-dark: #1E6FBD; --blue-soft: #EAF4FD; --blue-tint: #F4FAFE;
+  --green: #34C989; --green-dark: #1FA66E; --green-soft: #E6F8EF;
+  --ink: #0E1B2C; --ink-2: #2B3A4E; --muted: #5E6C80; --muted-2: #8A95A5;
+  --line: #E6EAF0; --line-2: #EEF1F5;
+  --bg: #FFFFFF; --bg-2: #F7F9FC; --bg-3: #FAFBFD;
+  --shadow-sm: 0 1px 2px rgba(14,27,44,.04), 0 1px 3px rgba(14,27,44,.04);
+  --shadow-md: 0 4px 16px rgba(14,27,44,.06), 0 2px 4px rgba(14,27,44,.04);
+  --shadow-lg: 0 20px 48px rgba(14,27,44,.10), 0 8px 16px rgba(14,27,44,.06);
+  --radius-sm: 10px; --radius: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
-body { font-family: var(--font); background: var(--bg); color: var(--tp); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { text-decoration: none; }
-/* NAV */
-.kn-nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-.kn-nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 28px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-.kn-logo img { height: 30px; display: block; }
-.kn-nav-links { display: flex; gap: 4px; align-items: center; }
-.kn-nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--tt); padding: 7px 14px; border-radius: var(--rf); transition: color .2s, background .2s; }
-.kn-nav-links a:hover { color: var(--tp); background: rgba(43,139,228,.06); }
-.kn-nav-links a.active { color: var(--blue); font-weight: 700; }
-.kn-cta { background: linear-gradient(90deg,#2B8BE4,#34C989) !important; color: #fff !important; font-weight: 700 !important; padding: 9px 20px !important; border-radius: var(--rf) !important; }
-/* FOOTER */
-.kn-foot { background: #1A2233; padding: 48px 28px 32px; margin-top: 96px; }
-.kn-foot-inner { max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
-.kn-foot-logo { height: 26px; filter: brightness(0) invert(1) opacity(.55); }
-.kn-foot-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-.kn-foot-links a { color: #718096; font-size: 0.82rem; transition: color .2s; }
-.kn-foot-links a:hover { color: #fff; }
-.kn-foot-copy { font-size: 0.75rem; color: #4A5568; }
-@media (max-width:680px) { .kn-nav-links { display: none; } }
+body { font-family: var(--font); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; font-feature-settings: 'ss01','cv11'; letter-spacing: -0.01em; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Nav */
+.kb-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); }
+.kb-nav-inner { max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 32px; }
+.kb-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 20px; letter-spacing: -0.03em; flex-shrink: 0; }
+.kb-logo-dot { width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); display: grid; place-items: center; color: white; font-weight: 900; font-size: 15px; flex-shrink: 0; }
+.kb-nav-links { display: flex; gap: 6px; font-size: 14.5px; font-weight: 500; color: var(--ink-2); margin-left: 8px; }
+.kb-nav-links a { padding: 8px 12px; border-radius: 8px; transition: background .15s, color .15s; white-space: nowrap; }
+.kb-nav-links a:hover { background: var(--bg-2); color: var(--ink); }
+.kb-nav-links a.active { color: var(--blue); background: var(--blue-soft); }
+.kb-nav-spacer { flex: 1; }
+.kb-nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.kb-lang { display: flex; gap: 2px; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--bg-2); border-radius: 8px; padding: 3px; }
+.kb-lang button { padding: 5px 9px; border-radius: 6px; color: var(--muted); font-weight: 600; transition: all .15s; }
+.kb-lang button.on { background: white; color: var(--ink); box-shadow: var(--shadow-sm); }
+.kb-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 14px; letter-spacing: -0.01em; transition: transform .12s, box-shadow .12s, background .15s; }
+.kb-btn-primary { background: var(--blue); color: white; }
+.kb-btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.kb-btn-ghost { background: transparent; color: var(--ink-2); }
+.kb-btn-ghost:hover { background: var(--bg-2); }
+.kb-btn-outline { background: white; color: var(--ink); border: 1px solid var(--line); }
+.kb-btn-outline:hover { background: var(--bg-2); border-color: var(--ink-2); }
+
+/* Wrap */
+.kb-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* Section headers */
+.kb-section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 24px; gap: 24px; }
+.kb-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+.kb-h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--ink); margin: 6px 0 0; }
+.kb-link { font-size: 14px; font-weight: 600; color: var(--blue); display: inline-flex; align-items: center; gap: 4px; }
+.kb-link:hover { color: var(--blue-dark); }
+
+/* Pills */
+.kb-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.kb-pill { padding: 9px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 600; background: var(--bg-2); color: var(--ink-2); border: 1px solid transparent; transition: all .15s; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.kb-pill:hover { background: white; border-color: var(--line); color: var(--ink); }
+.kb-pill.on { background: var(--ink); color: white; }
+.kb-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.kb-pill.on .kb-pill-dot { background: var(--green); }
+
+/* Classic card */
+.kb-card { display: flex; flex-direction: column; gap: 14px; cursor: pointer; text-decoration: none; }
+.kb-card-img { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
+.kb-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); transition: transform .3s ease; }
+.kb-card:hover .kb-card-img img { transform: scale(1.03); }
+.kb-card-cat { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 8px; font-size: 11.5px; font-weight: 700; color: var(--ink); }
+.kb-card-title { font-size: 19px; font-weight: 700; line-height: 1.25; letter-spacing: -0.025em; color: var(--ink); }
+.kb-card:hover .kb-card-title { color: var(--blue); }
+.kb-card-excerpt { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
+.kb-card-meta { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-2); font-weight: 500; }
+.kb-card-meta .dot { width: 3px; height: 3px; background: var(--muted-2); border-radius: 50%; }
+
+/* Overlay card */
+.kb-card-over { position: relative; aspect-ratio: 4/5; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; justify-content: end; padding: 24px; color: white; text-decoration: none; }
+.kb-card-over img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); z-index: 0; transition: transform .4s ease; }
+.kb-card-over:hover img.bg { transform: scale(1.04); }
+.kb-card-over::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 40%, rgba(14,27,44,.75) 100%); z-index: 1; }
+.kb-card-over > * { position: relative; z-index: 2; }
+.kb-card-over .kb-card-cat { position: absolute; top: 20px; left: 20px; }
+.kb-card-over h3 { font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -0.025em; }
+.kb-card-over .meta { font-size: 13px; opacity: .85; margin-top: 8px; font-weight: 500; }
+
+/* Grids */
+.kb-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
+
+/* Browse by stage */
+.kb-stage-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.kb-stage { position: relative; aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; cursor: pointer; color: white; display: flex; flex-direction: column; justify-content: end; padding: 20px; transition: transform .15s, box-shadow .15s; text-decoration: none; }
+.kb-stage:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.kb-stage img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); }
+.kb-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 30%, rgba(14,27,44,.8) 100%); }
+.kb-stage > * { position: relative; z-index: 2; }
+.kb-stage .age-range { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .85; margin-bottom: 6px; }
+.kb-stage h4 { font-size: 22px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+.kb-stage .count { font-size: 12.5px; opacity: .85; margin-top: 6px; font-weight: 500; }
+
+/* Browse by age */
+.kb-age-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.kb-age { display: flex; flex-direction: column; gap: 8px; padding: 18px 16px; border-radius: 14px; background: var(--bg-2); cursor: pointer; transition: all .15s; border: 1.5px solid transparent; text-decoration: none; }
+.kb-age:hover { background: white; border-color: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.kb-age .ico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-size: 18px; background: white; }
+.kb-age-label { font-size: 14px; font-weight: 700; letter-spacing: -0.015em; }
+.kb-age-sub { font-size: 12.5px; color: var(--muted); }
+
+/* App CTA */
+.kb-app-cta { margin: 64px 0; background: linear-gradient(135deg, var(--blue) 0%, #4A9FE8 100%); border-radius: var(--radius-xl); padding: 56px; color: white; position: relative; overflow: hidden; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.kb-app-cta::before { content: ''; position: absolute; top: -30%; right: -10%; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(52,201,137,.35) 0%, transparent 65%); pointer-events: none; }
+.kb-app-cta h2 { font-size: 38px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 14px; text-wrap: balance; }
+.kb-app-cta p { font-size: 16px; opacity: .94; max-width: 440px; margin-bottom: 24px; line-height: 1.5; }
+.kb-app-cta .stores { display: flex; gap: 12px; flex-wrap: wrap; }
+.kb-app-store-badge { display: flex; align-items: center; gap: 10px; background: var(--ink); padding: 10px 16px; border-radius: 12px; font-size: 13px; font-weight: 600; transition: opacity .15s; }
+.kb-app-store-badge:hover { opacity: .85; }
+.kb-app-store-badge small { display: block; font-size: 10.5px; opacity: .7; font-weight: 500; }
+.kb-app-cta-stats { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.kb-app-cta-stat { background: rgba(255,255,255,.14); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.2); border-radius: 16px; padding: 20px; }
+.kb-app-cta-stat .num { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+.kb-app-cta-stat .lbl { font-size: 12.5px; opacity: .9; margin-top: 4px; }
+
+/* Footer */
+.kb-footer { background: var(--ink); color: rgba(255,255,255,.7); padding: 56px 0 32px; }
+.kb-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 24px; }
+.kb-footer h5 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: white; margin-bottom: 14px; }
+.kb-footer a { display: block; font-size: 14px; padding: 4px 0; transition: color .15s; }
+.kb-footer a:hover { color: white; }
+.kb-footer-brand { font-weight: 800; font-size: 22px; color: white; letter-spacing: -0.03em; margin-bottom: 10px; }
+.kb-footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.kb-footer-logo-dot { width: 22px; height: 22px; border-radius: 7px; background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); display: inline-grid; place-items: center; color: white; font-weight: 900; font-size: 12px; vertical-align: middle; margin-right: 6px; }
+
+/* Hero B */
+.kb-hero-b { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
+.kb-hero-b-top { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: end; gap: 56px; margin-bottom: 48px; }
+.kb-hero-b-badge { display: inline-flex; align-items: center; gap: 8px; background: white; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 20px; letter-spacing: -0.005em; box-shadow: var(--shadow-sm); }
+.kb-hero-b-badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+.kb-hero-b-title { font-size: 72px; font-weight: 800; line-height: 0.95; letter-spacing: -0.045em; color: var(--ink); text-wrap: balance; }
+.kb-hero-b-title em { font-style: normal; color: var(--blue); }
+.kb-hero-b-rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; max-width: 460px; justify-self: end; width: 100%; }
+.kb-hero-b-quote { background: white; border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px 20px; box-shadow: var(--shadow-sm); }
+.kb-hero-b-quote p { font-size: 15.5px; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 16px; font-weight: 500; }
+.kb-hero-b-attr { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line-2); }
+.kb-hero-b-attr .avi { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%); flex-shrink: 0; }
+.kb-hero-b-attr .n { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.kb-hero-b-attr .r { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.kb-hero-b-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.kb-hero-b-stats > div { background: white; padding: 14px 10px; min-width: 0; }
+.kb-hero-b-stats .n { font-size: 20px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); line-height: 1; white-space: nowrap; }
+.kb-hero-b-stats .n span { color: var(--blue); font-weight: 700; }
+.kb-hero-b-stats .l { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 6px; }
+.kb-search { display: flex; align-items: center; gap: 10px; background: white; border: 1.5px solid var(--line); border-radius: 14px; padding: 6px 6px 6px 18px; transition: border-color .15s, box-shadow .15s; max-width: 720px; }
+.kb-search:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft); }
+.kb-search input { flex: 1; border: 0; outline: 0; font-family: inherit; font-size: 15px; color: var(--ink); background: transparent; padding: 10px 0; min-width: 0; }
+.kb-search input::placeholder { color: var(--muted-2); }
+.kb-search button { background: var(--ink); color: white; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 14px; white-space: nowrap; transition: background .15s; }
+.kb-search button:hover { background: var(--blue); }
+.kb-hero-b-tags { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); flex-wrap: wrap; margin-top: 20px; }
+.kb-hero-b-tags .label { font-weight: 600; color: var(--ink-2); }
+.kb-hero-b-tags a { color: var(--ink-2); font-weight: 500; transition: color .15s; }
+.kb-hero-b-tags a:hover { color: var(--blue); }
+.kb-hero-b-tags .sep { color: var(--line); }
+
+/* Article page */
+.kb-art-wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+.kb-art-head { padding: 48px 0 32px; }
+.kb-art-crumb { font-size: 13px; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.kb-art-crumb a:hover { color: var(--blue); }
+.kb-art-crumb .sep { color: var(--muted-2); }
+.kb-art-cat { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.kb-art-title { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 18px; text-wrap: balance; }
+.kb-art-dek { font-size: 19px; color: var(--muted); line-height: 1.5; }
+.kb-art-meta { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); margin: 28px 0; flex-wrap: wrap; }
+.kb-art-meta .avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--green)); flex-shrink: 0; }
+.kb-art-meta .author-name { font-weight: 700; color: var(--ink); font-size: 14px; }
+.kb-art-meta .author-role { font-size: 12px; color: var(--muted); }
+.kb-art-meta .spacer { flex: 1; }
+.kb-art-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted-2); }
+.kb-art-cover { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 32px; }
+.kb-art-cover img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); }
+.kb-art-2col { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 200px 1fr; gap: 60px; }
+.kb-art-toc { position: sticky; top: 88px; font-size: 13px; }
+.kb-art-toc h6 { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 14px; }
+.kb-art-toc a { display: block; padding: 6px 12px; border-left: 2px solid var(--line); color: var(--muted); margin-bottom: 2px; transition: all .15s; }
+.kb-art-toc a:hover { color: var(--ink); border-color: var(--ink-2); }
+.kb-art-toc a.on { color: var(--blue); border-color: var(--blue); font-weight: 600; }
+.kb-art-body p { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 24px; }
+.kb-art-body h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; margin: 40px 0 16px; color: var(--ink); }
+.kb-art-body h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.025em; margin: 32px 0 12px; color: var(--ink); }
+.kb-art-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
+.kb-art-body ul li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: var(--ink-2); line-height: 1.6; }
+.kb-art-body ul li::before { content: ''; position: absolute; left: 4px; top: 18px; width: 14px; height: 2px; border-radius: 2px; background: var(--green); }
+.kb-art-body blockquote { margin: 32px 0; padding: 24px 28px; border-left: 3px solid var(--blue); background: var(--blue-tint); border-radius: 4px 14px 14px 4px; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.45; letter-spacing: -0.015em; }
+.kb-art-callout { margin: 32px 0; padding: 24px; background: var(--green-soft); border-radius: var(--radius); border: 1px solid rgba(52,201,137,.2); }
+.kb-art-callout h4 { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .05em; }
+.kb-art-callout p { font-size: 15px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+.kb-art-slim-cta { margin: 48px auto 0; max-width: 760px; padding: 0 32px 80px; }
+.kb-art-slim-cta-inner { background: linear-gradient(135deg, var(--green-soft) 0%, var(--blue-soft) 100%); border-radius: var(--radius-lg); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.kb-art-slim-cta h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 6px; }
+.kb-art-slim-cta p { font-size: 14px; color: var(--muted); }
+
+/* Author bar */
+.kb-author-bar { max-width: 760px; margin: 48px auto 0; padding: 24px 32px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.kb-author-bar .avi { width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--green)); flex-shrink: 0; }
+.kb-author-bar .name { font-weight: 700; font-size: 16px; }
+.kb-author-bar .role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.kb-author-bar .actions { display: flex; gap: 8px; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .kb-hero-b-top { grid-template-columns: 1fr; }
+  .kb-hero-b-rail { max-width: 100%; justify-self: start; }
+  .kb-hero-b-title { font-size: 52px; }
+  .kb-art-2col { grid-template-columns: 1fr; }
+  .kb-art-toc { display: none; }
+}
+@media (max-width: 900px) {
+  .kb-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .kb-stage-row { grid-template-columns: repeat(3, 1fr); }
+  .kb-age-row { grid-template-columns: repeat(3, 1fr); }
+  .kb-app-cta { grid-template-columns: 1fr; }
+  .kb-app-cta-stats { display: none; }
+  .kb-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .kb-wrap { padding: 0 20px; }
+  .kb-hero-b { padding: 48px 0 40px; }
+  .kb-hero-b-title { font-size: 40px; }
+  .kb-grid-3 { grid-template-columns: 1fr; }
+  .kb-stage-row { grid-template-columns: repeat(2, 1fr); }
+  .kb-age-row { grid-template-columns: repeat(2, 1fr); }
+  .kb-nav-links { display: none; }
+  .kb-nav-actions .kb-btn-ghost { display: none; }
+  .kb-art-title { font-size: 34px; }
+  .kb-art-wrap { padding: 0 20px; }
+  .kb-art-2col { padding: 0 20px; }
+  .kb-app-cta { padding: 36px 28px; }
+  .kb-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .kb-hero-b-stats .n { font-size: 16px; }
+}
+
 </style>
 </head>
 <body>
-<nav class="kn-nav">
-  <div class="kn-nav-inner">
-    <a href="/" class="kn-logo"><img src="/logo kinedu.png" alt="Kinedu"></a>
-    <div class="kn-nav-links">
-      <a href="/">Home</a>
-      <a href="/blog" class="active">Blog</a>
-      <a href="/#pricing">Pricing</a>
-      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kn-cta">Try free</a>
+
+<nav class="kb-nav">
+  <div class="kb-nav-inner">
+    <a href="/" class="kb-logo">
+      <div class="kb-logo-dot">K</div>
+      kinedu
+    </a>
+    <div class="kb-nav-links">
+      <a href="https://kinedu-landing.vercel.app/science">Science</a>
+<a href="/blog" class="active">Blog</a>
+<a href="https://kinedu-landing.vercel.app/#schools">For Schools</a>
+<a href="https://kinedu-landing.vercel.app/founder">Founder</a>
+
+    </div>
+    <div class="kb-nav-spacer"></div>
+    <div class="kb-nav-actions">
+      <div class="kb-lang">
+        <button class="on">EN</button>
+        <button>ES</button>
+        <button>PT</button>
+      </div>
+      <a href="https://app.kinedu.com/login" class="kb-btn kb-btn-ghost">Log in</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try 7 days free</a>
     </div>
   </div>
 </nav>
-<style>
-.art-wrap { max-width:760px; margin:0 auto; padding:52px 28px 88px; }
-.art-bc { font-size:0.78rem; color:var(--tt); margin-bottom:28px; }
-.art-bc a { color:var(--blue); }
-.art-bc span { color:var(--tt); }
-.art-cat { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:var(--rf); font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:18px; background:#EDFAF4; color:#34C989; }
-h1.art-h1 { font-size:clamp(1.75rem,4.5vw,2.6rem); font-weight:800; line-height:1.15; letter-spacing:-.03em; color:var(--tp); margin-bottom:18px; }
-.art-meta { display:flex; align-items:center; gap:10px; font-size:0.8rem; color:var(--tt); padding-bottom:28px; border-bottom:1px solid var(--border); margin-bottom:36px; }
-.art-meta-dot { width:3px; height:3px; border-radius:50%; background:var(--border); }
-.art-badge { background:#EDFAF4; color:#34C989; font-size:0.7rem; font-weight:700; padding:3px 10px; border-radius:var(--rf); }
 
-/* Body typography */
-.art-body { font-size:1.05rem; line-height:1.82; color:#374151; }
-.art-body h2 { font-size:1.45rem; font-weight:800; color:var(--tp); margin:44px 0 16px; line-height:1.25; letter-spacing:-.02em; }
-.art-body h3 { font-size:1.15rem; font-weight:700; color:var(--tp); margin:32px 0 12px; }
-.art-body p { margin-bottom:22px; }
-.art-body ul, .art-body ol { margin:4px 0 22px 26px; }
-.art-body li { margin-bottom:9px; }
-.art-body strong { color:var(--tp); font-weight:700; }
-.art-body a { color:var(--blue); border-bottom:1px solid rgba(43,139,228,.25); }
-.art-body a:hover { border-bottom-color:var(--blue); }
-.art-body figure { margin:36px 0; }
-.art-body figure img { width:100%; border-radius:var(--r); display:block; }
-.art-body blockquote { border-left:4px solid var(--blue); padding:18px 22px; background:rgba(43,139,228,.04); border-radius:0 var(--r) var(--r) 0; margin:28px 0; }
-.art-body blockquote p { margin:0; font-style:italic; color:var(--ts); }
-
-/* Mid CTA */
-.art-cta-mid { background:linear-gradient(135deg,#F0F7FF,#EAFAF3); border:1px solid #DCF0FF; border-radius:20px; padding:28px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px; margin:44px 0; flex-wrap:wrap; }
-.art-cta-mid-tag { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#34C989; margin-bottom:6px; }
-.art-cta-mid-h { font-size:1.05rem; font-weight:800; color:var(--tp); margin-bottom:6px; line-height:1.3; }
-.art-cta-mid-p { font-size:0.82rem; color:var(--ts); }
-.art-cta-mid-btn { background:linear-gradient(90deg,#2B8BE4,#34C989); color:#fff; padding:12px 24px; border-radius:var(--rf); font-weight:700; font-size:0.85rem; white-space:nowrap; flex-shrink:0; }
-.art-cta-mid-btn:hover { opacity:.9; }
-
-/* End CTA */
-.art-cta-end { background:#1A2233; border-radius:24px; padding:48px 40px; text-align:center; margin-top:72px; }
-.art-cta-end h3 { font-size:1.5rem; font-weight:800; color:white; margin-bottom:14px; line-height:1.3; }
-.art-cta-end p { font-size:0.9rem; color:#94A3B8; margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto; }
-.art-cta-end a { background:linear-gradient(90deg,#2B8BE4,#34C989); color:white; padding:14px 36px; border-radius:var(--rf); font-weight:700; font-size:0.95rem; display:inline-block; }
-.art-cta-end a:hover { opacity:.9; }
-
-@media (max-width:600px) {
-  .art-wrap { padding:32px 16px 64px; }
-  .art-body { font-size:0.98rem; line-height:1.75; }
-  h1.art-h1 { font-size:1.75rem; }
-  .art-cta-mid { padding:22px 20px; flex-direction:column; }
-  .art-cta-mid-btn { width:100%; text-align:center; }
-  .art-cta-end { padding:32px 20px; }
-  .art-cta-end h3 { font-size:1.25rem; }
-}
-</style>
-
-<main>
-<div class="art-wrap">
-  <div class="art-bc"><a href="/">Kinedu</a> <span>›</span> <a href="/blog">Blog</a> <span>›</span> <span>Milestones</span></div>
-  <span class="art-cat">Milestones</span>
-  <h1 class="art-h1">Milestones Overview: 12 Months</h1>
-  <div class="art-meta">
-    <span>Kinedu Editorial Team</span>
-    <span class="art-meta-dot"></span>
-    <span>Baby development</span>
-    <span class="art-meta-dot"></span>
-    <span class="art-badge">Reviewed by experts</span>
+<article>
+  <div class="kb-art-wrap">
+    <div class="kb-art-head">
+      <div class="kb-art-crumb">
+        <a href="/">Home</a>
+        <span class="sep">/</span>
+        <a href="/blog">Blog</a>
+        <span class="sep">/</span>
+        <a href="/blog" style="color:var(--blue);">Child Development</a>
+      </div>
+      <div class="kb-art-cat">Child Development</div>
+      <h1 class="kb-art-title">12-Month Milestones: Everything to Expect</h1>
+      <p class="kb-art-dek">At one year old, babies are changing fast. Here&#x27;s a complete overview of motor, language, cognitive, and social milestones.</p>
+      <div class="kb-art-meta">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="author-name">Kinedu Editors</div>
+          <div class="author-role">Kinedu editorial team</div>
+        </div>
+        <div class="spacer"></div>
+        <span>Oct 22, 2024</span>
+        <span class="dot"></span>
+        <span>8 min read</span>
+      </div>
+    </div>
   </div>
-  <div class="art-body">
-<p>At 12 months your baby has now been a part of your family for a whole year! It’s hard to grasp the fact that they’ve grown, learned and evolved so much in such a short time. Now your baby will take a big step into toddlerhood, which comes with increased mobility and communication, paving the way for more social interactions and exploration!</p>
 
-<div class="art-cta-mid">
-  <div class="art-cta-mid-left">
-    <p class="art-cta-mid-tag">KINEDU APP</p>
-    <h4 class="art-cta-mid-h">Track every milestone — free for 7 days.</h4>
-    <p class="art-cta-mid-p">Join 8M+ families using Kinedu to understand their baby's development.</p>
+  <div class="kb-art-wrap">
+    <div class="kb-art-cover">
+      <img src="/blog/images/baby-standing.jpg" alt="12-Month Milestones: Everything to Expect" style="--focus:50% 50%;">
+    </div>
   </div>
-  <a href="https://app.kinedu.com/dha2/?swc=dha2" class="art-cta-mid-btn">Try it free →</a>
-</div><h2><strong>Independent explorers</strong></h2>
+
+  <div class="kb-art-2col">
+    <aside>
+      <nav class="kb-art-toc"><h6>In this article</h6>
+<a href="#s1" class="on">Independent explorers</a>
+<a href="#s2">Exploring the senses</a>
+<a href="#s3">Words have meaning!</a>
+<a href="#s4">Here’s how to tell if it’s a word or not:&amp;nbsp;</a>
+<a href="#s5">12 Month Milestones List:</a>
+<a href="#s6">Play activities from our catalog to help your baby</a>
+</nav>
+    </aside>
+    <div class="kb-art-body">
+      <p>At 12 months your baby has now been a part of your family for a whole year! It’s hard to grasp the fact that they’ve grown, learned and evolved so much in such a short time. Now your baby will take a big step into toddlerhood, which comes with increased mobility and communication, paving the way for more social interactions and exploration!</p>
+
+<h2 id="s1">Independent explorers</h2>
 
 <p>At 12 months old, your baby is using all their mobility to explore every corner of your house or the playground, even attempting to <strong>crawl up stairs</strong>! They are not so shy about experimenting and exploring anymore and will try out all the different ways of accomplishing their goals. Here’s a likely scenario: they crawl up to a purse on the couch, put their hand in to pull things out one-by-one, followed by pulling things out with a handful, finishing off with standing up, purse in hand to turn it over and completely dump all the contents onto the floor. Their fine motor skills and gross motor skills will begin to work in sync. They <strong>can now stand, squat, stand, cruise along a couple steps and do it all over again, while transferring a small object between their fingertips!</strong> Make sure you give them plenty of opportunities to practice transferring from one container to another <a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=7270">(like shown in this activity)</a> on low surfaces like a coffee table.</p>
 
-<h2><strong>Exploring the senses</strong></h2>
+<h2 id="s2">Exploring the senses</h2>
 
 <p>They are curious about exploring with their senses too! They will <strong>show preferences for some textures, smells and flavors, and rejection or timidness to others</strong>. You might have given them the opportunity to explore with sensory play before the twelve month mark, and now that they are mobile they’ll be eager to explore these textures by their own means, maybe pulling up to stand and digging their hand into the tree pot, or up to your pet’s water and food bowl to splash and spill it all over. Eating time has probably gotten more successful with your child willing to squish and taste all the food you offer. <a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=7249">Try out this sensory play activity with chia!</a></p>
 
 <p>You might also notice them exploring with sound! Since they started babbling, they are <strong>aware of their vocal attempts and may try different vocalizations like a shout, a string of babbles that sound like talking</strong>, or a kind of sing-song. You might notice some days your baby is \u2018talking’ in their crib before they call you to get them. They will also be busy exploring how objects sound when banging or tapping them. <a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=958">Check out this fun idea to motivate your child to practice their “talking” skills</a>.</p>
 
-<h2><strong>Words have meaning!</strong></h2>
+<h2 id="s3">Words have meaning!</h2>
 
 <p>These new verbalizations come hand in hand with trying to<strong> imitate sounds or syllables you say like \u2018pa’ or \u2018ta’.</strong> Their language comprehension has now reached another level: if the word \u2018no’ would just be followed by a quick pause to then continue what they were doing, now it might be followed with tears of frustration because they fully understand the concept of prohibition. They will also get excited when they hear you talk about \u2018food’ or \u2018bath’, and maybe walk towards their bookshelf when they hear the word \u2018bedtime’. Every baby is different and some might have a more notorious reaction than others to specific words or sentences. They will also <strong>begin to understand three word phrases and common commands</strong> like \u2018Sit down, please’ or \u2018pass the ball!’. How do you know they understand it? because they’ll sit down or hand you the ball! <a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=153">Check out this activity for more guidance.</a></p>
 
-<p></p>
+
 
 <p>If your baby hasn’t said their first word yet, they might do so at 12 months.&nbsp;</p>
 
-<p></p>
 
-<h2><strong>Here’s how to tell if it’s a word or not:&nbsp;</strong></h2>
+
+<h2 id="s4">Here’s how to tell if it’s a word or not:&nbsp;</h2>
 
 <ol><li>They said the same thing to mean something specific.</li><li>They said it on their own without having to directly copy someone.</li><li>They said the word 3 times or more.</li></ol>
 
-<p></p>
+
 
 <p>Once you can confirm all 3 statements, then it’s most definitely an official word in their soon-to-grow vocabulary.<strong> </strong><a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=7215">Check out this activity for some great tips to help them master their words!</a></p>
 
-<h2><strong>12 Month Milestones List:</strong></h2>
+<h2 id="s5">12 Month Milestones List:</h2>
 
 <ul><li>Crawls up stairs</li><li>Extends arm or leg to help when being dressed</li><li>Goes from standing up to squatting</li><li>Stays balanced while standing up and playing with an object</li><li>Moves small objects from one container to another using their forefinger and thumb</li><li>Stops a rolling ball with their hands or body</li><li>Tries to imitate words you say</li><li>Imitates a syllable pronounced by someone else (says “pa” after you do)</li><li>Understands three-word phrases, such as “Look, the dog!”</li><li>Gives you an object when you ask for it</li></ul>
 
-<h2><strong>Play activities from our catalog to help your baby master their new skills:</strong></h2>
+<h2 id="s6">Play activities from our catalog to help your baby master their new skills:</h2>
 
 <p><a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=3149">Upstairs</a></p>
 
@@ -181,21 +378,201 @@ h1.art-h1 { font-size:clamp(1.75rem,4.5vw,2.6rem); font-weight:800; line-height:
 <p><a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=153">Hand me the toy</a></p>
 
 <p><a href="https://kinedu.com/catalog?section=open_activity&amp;activity_id=7215">Development tip: mastering words</a></p>
-  </div>
-<div class="art-cta-end">
-  <h3>Kinedu helps you understand your baby — every step of the way.</h3>
-  <p>Daily activities, expert live classes, milestone tracking — all in one app. Try free for 7 days, no commitment.</p>
-  <a href="https://app.kinedu.com/dha2/?swc=dha2">Start your free trial →</a>
-</div>
-</div>
-</main>
-<footer class="kn-foot">
-  <div class="kn-foot-inner">
-    <img src="/logo kinedu.png" alt="Kinedu" class="kn-foot-logo">
-    <div class="kn-foot-links">
-      <a href="/">Home</a><a href="/blog">Blog</a><a href="/#pricing">Pricing</a><a href="/science.html">Science</a>
     </div>
-    <p class="kn-foot-copy">© 2025 Kinedu. All rights reserved.</p>
+  </div>
+</article>
+
+<!-- Author bar -->
+<div class="kb-author-bar">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div class="avi" aria-hidden="true"></div>
+    <div>
+      <div class="name">Kinedu Editors</div>
+      <div class="role">Kinedu editorial team · Pediatric development</div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="kb-btn kb-btn-outline" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href).then(function(){alert('Link copied!')})">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M8.5 1.5L13.5 6.5M13.5 6.5L8.5 11.5M13.5 6.5H5.5C3.84 6.5 2.5 7.84 2.5 9.5V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Share
+    </button>
+  </div>
+</div>
+
+<!-- Slim CTA -->
+<div class="kb-art-slim-cta">
+  <div class="kb-art-slim-cta-inner">
+    <div>
+      <h3>Track every milestone with Kinedu</h3>
+      <p>Personalized activities, expert articles, and daily insights — all tailored to your baby's exact age.</p>
+    </div>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary" style="flex-shrink:0;">Try Kinedu free →</a>
+  </div>
+</div>
+
+
+<section style="padding:56px 0;">
+  <div class="kb-wrap">
+    <div class="kb-section-head">
+      <div>
+        <div class="kb-eyebrow">Keep reading</div>
+        <h2 class="kb-h2">More on Child Development</h2>
+      </div>
+      <a href="/blog" class="kb-link" style="align-self:end;">All articles →</a>
+    </div>
+    <div class="kb-grid-3">
+<a href="/blog/my-18-month-old-isnt-talking" class="kb-card" data-cat="child-development">
+  <div class="kb-card-img">
+    <img src="/blog/images/baby-walking.jpg" alt="My 18-Month-Old Isn&#x27;t Talking — Should I Worry?" loading="lazy" style="--focus:50% 50%;">
+    <div class="kb-card-cat">Child Development</div>
+  </div>
+  <div class="kb-card-title">My 18-Month-Old Isn&#x27;t Talking — Should I Worry?</div>
+  <div class="kb-card-excerpt">First words come on wildly different timelines. Here&#x27;s how to tell when to wait and when to check in.</div>
+  <div class="kb-card-meta">
+    <span>Dr. Mariana Cruz</span>
+    <span class="dot"></span>
+    <span>Nov 29, 2024</span>
+    <span class="dot"></span>
+    <span>10 min</span>
+  </div>
+</a>
+
+<a href="/blog/2-year-old-not-talking" class="kb-card" data-cat="child-development">
+  <div class="kb-card-img">
+    <img src="/blog/images/baby-walking.jpg" alt="My 2-Year-Old Is Not Talking — Is It Normal?" loading="lazy" style="--focus:50% 45%;">
+    <div class="kb-card-cat">Child Development</div>
+  </div>
+  <div class="kb-card-title">My 2-Year-Old Is Not Talking — Is It Normal?</div>
+  <div class="kb-card-excerpt">Speech timelines vary more than you think. Here&#x27;s when it&#x27;s typical, when to get an evaluation, and how to support language at home.</div>
+  <div class="kb-card-meta">
+    <span>Dr. Mariana Cruz</span>
+    <span class="dot"></span>
+    <span>Jul 15, 2024</span>
+    <span class="dot"></span>
+    <span>9 min</span>
+  </div>
+</a>
+
+<a href="/blog/when-do-babies-laugh" class="kb-card" data-cat="child-development">
+  <div class="kb-card-img">
+    <img src="/blog/images/baby-playing.jpg" alt="When Do Babies Laugh?" loading="lazy" style="--focus:50% 60%;">
+    <div class="kb-card-cat">Child Development</div>
+  </div>
+  <div class="kb-card-title">When Do Babies Laugh?</div>
+  <div class="kb-card-excerpt">That first laugh is one of the best moments of early parenthood. Here&#x27;s exactly when to expect it and how to encourage it.</div>
+  <div class="kb-card-meta">
+    <span>Kinedu Editors</span>
+    <span class="dot"></span>
+    <span>Aug 10, 2024</span>
+    <span class="dot"></span>
+    <span>5 min</span>
+  </div>
+</a></div>
+  </div>
+</section>
+
+
+<section style="padding:0 0 8px;">
+  <div class="kb-wrap">
+    <div class="kb-app-cta">
+      <div>
+        <h2>The app that grows with your baby</h2>
+        <p>Personalized activities, milestone tracking, live expert classes, and a library of 2,400+ articles — all in one place.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" class="kb-app-store-badge" style="color:white;">
+            <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M14.5 11.5c-.02-2.6 2.1-3.85 2.2-3.92-1.2-1.76-3.06-2-3.72-2.03-1.58-.16-3.1.93-3.9.93-.8 0-2.02-.9-3.33-.88C4.02 5.63 2.3 6.67 1.36 8.27-.6 11.5.8 16.2 2.7 18.7c.94 1.38 2.08 2.9 3.55 2.86 1.43-.06 1.97-.92 3.7-.92 1.72 0 2.22.92 3.73.89 1.54-.03 2.5-1.38 3.44-2.77a12.8 12.8 0 001.56-3.22c-.04-.01-2.98-1.14-3.02-4.54M11.97 3.5C12.76 2.55 13.3 1.2 13.14 0c-1.14.05-2.6.76-3.44 1.7-.74.84-1.42 2.2-1.24 3.47 1.26.1 2.6-.65 3.5-1.67" fill="currentColor"/></svg>
+            <div><small>Download on the</small>App Store</div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.kinedu.kineduapp" class="kb-app-store-badge" style="color:white;">
+            <svg width="18" height="20" viewBox="0 0 18 20" fill="none"><path d="M1.14.82 9.83 9.5.84 19.18C.5 18.9.3 18.4.3 17.8V2.2c0-.6.2-1.1.54-1.38zm4.18 5.15L3.1 3.75l9.14 5.27L10 11.25 5.32 5.97zM14.5 6.7l1.66.96c.9.52.9 1.36 0 1.88L14.5 10.5l-2.26-1.27 2.26-2.53zm-2.36 5.78l2.22 1.28L5.22 19l2.22-2.21 4.7-4.31z" fill="currentColor"/></svg>
+            <div><small>Get it on</small>Google Play</div>
+          </a>
+        </div>
+      </div>
+      <div class="kb-app-cta-stats">
+        <div class="kb-app-cta-stat">
+          <div class="num">8M+</div>
+          <div class="lbl">Parents worldwide</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">2,400+</div>
+          <div class="lbl">Expert articles</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">140+</div>
+          <div class="lbl">Pediatric experts</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">4.8 ★</div>
+          <div class="lbl">App Store rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="kb-footer">
+  <div class="kb-wrap">
+    <div class="kb-footer-grid">
+      <div>
+        <div class="kb-footer-brand"><span class="kb-footer-logo-dot">K</span>kinedu</div>
+        <p style="font-size:14px;line-height:1.6;max-width:280px;margin-bottom:20px;">Real guidance for real parents — backed by pediatric science and 10 years of helping families thrive.</p>
+        <div style="display:flex;gap:12px;">
+          <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" style="background:rgba(255,255,255,.1);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;color:white;">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.kinedu.kineduapp" style="background:rgba(255,255,255,.1);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;color:white;">Google Play</a>
+        </div>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="https://kinedu-landing.vercel.app/science">Science</a>
+        <a href="https://kinedu-landing.vercel.app/founder">Founder</a>
+        <a href="https://kinedu-landing.vercel.app/#schools">For Schools</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div>
+        <h5>Topics</h5>
+        <a href="/blog">Sleep</a>
+        <a href="/blog">Child Development</a>
+        <a href="/blog">Feeding</a>
+        <a href="/blog">Health</a>
+        <a href="/blog">Prenatal</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="https://kinedu-landing.vercel.app">Help Center</a>
+        <a href="https://kinedu-landing.vercel.app">Privacy Policy</a>
+        <a href="https://kinedu-landing.vercel.app">Terms of Use</a>
+        <a href="mailto:hello@kinedu.com">Contact Us</a>
+      </div>
+    </div>
+    <div class="kb-footer-bottom">
+      <span>© 2025 Kinedu Inc. All rights reserved.</span>
+      <span>Made with ♥ for parents everywhere</span>
+    </div>
   </div>
 </footer>
-</body></html>
+
+
+<script>
+(function() {
+  var ids = ["s1", "s2", "s3", "s4", "s5", "s6"];
+  var links = {};
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) links[id] = el;
+  });
+  window.addEventListener('scroll', function() {
+    var scrollY = window.pageYOffset + 120;
+    var current = ids[0];
+    ids.forEach(function(id) {
+      if (links[id] && links[id].offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('.kb-art-toc a').forEach(function(a) {
+      a.classList.toggle('on', a.getAttribute('href') === '#' + current);
+    });
+  }, {passive: true});
+})();
+</script>
+</body>
+</html>
