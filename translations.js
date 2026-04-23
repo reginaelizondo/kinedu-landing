@@ -10,8 +10,14 @@ window.TRANSLATIONS = {
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
     'nav.founder': 'Founder',
+    'nav.blog': 'Blog',
     'nav.forSchools': 'For Schools',
     'nav.tryFree': 'Try free',
+
+    // BLOG TEASER
+    'blog.headline': 'Real guidance for real parents',
+    'blog.sub': 'Expert-backed articles on sleep, development, feeding, and more — written like a friend who happens to be a pediatrician.',
+    'blog.seeAll': 'See all articles →',
 
     // HERO
     'hero.headline': '<span class="line">Know <span class="gradient-shift">exactly</span> what to</span><span class="line">do with your baby,</span><span class="line"><span class="gradient-shift-alt">every single day.</span></span>',
@@ -241,8 +247,14 @@ window.TRANSLATIONS = {
     'nav.pricing': 'Precios',
     'nav.faq': 'FAQ',
     'nav.founder': 'Fundador',
+    'nav.blog': 'Blog',
     'nav.forSchools': 'Para Escuelas',
     'nav.tryFree': 'Prueba gratis',
+
+    // BLOG TEASER
+    'blog.headline': 'Guía real para padres reales',
+    'blog.sub': 'Artículos respaldados por expertos sobre sueño, desarrollo, alimentación y más — escritos como un amigo que resulta ser pediatra.',
+    'blog.seeAll': 'Ver todos los artículos →',
 
     // HERO
     'hero.headline': '<span class="line">Descubre <span class="gradient-shift">exactamente</span></span><span class="line">qué hacer con tu</span><span class="line">bebé, <span class="gradient-shift-alt">cada día.</span></span>',
@@ -471,8 +483,14 @@ window.TRANSLATIONS = {
     'nav.pricing': 'Preços',
     'nav.faq': 'FAQ',
     'nav.founder': 'Fundador',
+    'nav.blog': 'Blog',
     'nav.forSchools': 'Para Escolas',
     'nav.tryFree': 'Teste grátis',
+
+    // BLOG TEASER
+    'blog.headline': 'Orientação real para pais reais',
+    'blog.sub': 'Artigos respaldados por especialistas sobre sono, desenvolvimento, alimentação e mais — escritos como um amigo que é pediatra.',
+    'blog.seeAll': 'Ver todos os artigos →',
 
     // HERO
     'hero.headline': '<span class="line">Descubra <span class="gradient-shift">exatamente</span> o que</span><span class="line">fazer com o seu bebê,</span><span class="line"><span class="gradient-shift-alt">todos os dias.</span></span>',
