@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kinedu Educators – Teachers’ Manual — Kinedu Blog</title>
+<meta name="description" content="What is Kinedu Educators? Kinedu Educators is a planning tool for educators, aimed at boosting your students’ academic development, both at school and at home, ">
+<link rel="canonical" href="https://www.kinedu.com/blog/kinedu-educators-teachers-manual">
+<meta property="og:title" content="Kinedu Educators – Teachers’ Manual">
+<meta property="og:description" content="What is Kinedu Educators? Kinedu Educators is a planning tool for educators, aimed at boosting your students’ academic development, both at school and at home, ">
+<meta property="og:type" content="article">
+<link rel="icon" href="/logo kinedu.png" type="image/png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#2B8BE4;--blue-dark:#1E6FBD;--blue-soft:#EAF4FD;--blue-tint:#F4FAFE;--green:#34C989;--green-dark:#1FA66E;--green-soft:#E6F8EF;--ink:#0E1B2C;--ink-2:#2B3A4E;--muted:#5E6C80;--muted-2:#8A95A5;--line:#E6EAF0;--line-2:#EEF1F5;--bg:#FFFFFF;--bg-2:#F7F9FC;--bg-3:#FAFBFD;--shadow-sm:0 1px 2px rgba(14,27,44,.04),0 1px 3px rgba(14,27,44,.04);--shadow-md:0 4px 16px rgba(14,27,44,.06),0 2px 4px rgba(14,27,44,.04);--font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+body{font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.01em;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+img{display:block;max-width:100%;height:auto}
+.kb-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.kb-nav-inner{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:32px}
+.kb-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.03em;flex-shrink:0}
+.kb-logo-dot{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;color:white;font-weight:900;font-size:15px}
+.kb-nav-links{display:flex;gap:6px;font-size:14px;font-weight:500;color:var(--ink-2);margin-left:8px}
+.kb-nav-links a{padding:8px 12px;border-radius:8px;transition:background .15s,color .15s}
+.kb-nav-links a:hover{background:var(--bg-2);color:var(--ink)}
+.kb-nav-links a.active{color:var(--blue);background:var(--blue-soft)}
+.kb-nav-spacer{flex:1}
+.kb-nav-actions{display:flex;align-items:center;gap:8px}
+.kb-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;transition:transform .12s,box-shadow .12s,background .15s}
+.kb-btn-primary{background:var(--blue);color:white}
+.kb-btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.kb-btn-ghost{color:var(--ink-2)}
+.kb-btn-ghost:hover{background:var(--bg-2)}
+.kb-btn-outline{background:white;color:var(--ink);border:1px solid var(--line)}
+.kb-wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.kb-art-wrap{max-width:760px;margin:0 auto;padding:0 32px}
+.kb-cat-crumb{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.kb-art-title{font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1.08;margin:12px 0 18px;text-wrap:balance}
+.kb-art-dek{font-size:19px;color:var(--muted);line-height:1.5;margin-bottom:24px}
+.kb-art-meta{display:flex;align-items:center;gap:14px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px;color:var(--muted);margin-bottom:32px;flex-wrap:wrap}
+.kb-art-meta .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));flex-shrink:0}
+.kb-art-meta .name{font-weight:700;color:var(--ink);font-size:14px}
+.kb-art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted-2)}
+.kb-art-cover{width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;margin-bottom:40px}
+.kb-art-cover img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,center)}
+.kb-art-2col{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:200px 1fr;gap:60px}
+.kb-art-toc{position:sticky;top:80px;font-size:13px}
+.kb-art-toc h6{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+.kb-art-toc a{display:block;padding:6px 12px;border-left:2px solid var(--line);color:var(--muted);margin-bottom:2px;transition:all .15s}
+.kb-art-toc a:hover{color:var(--ink);border-color:var(--ink-2)}
+.kb-art-toc a.on{color:var(--blue);border-color:var(--blue);font-weight:600}
+.kb-art-body p{font-size:17px;line-height:1.75;color:var(--ink-2);margin:0 0 22px}
+.kb-art-body h2{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:40px 0 14px;color:var(--ink)}
+.kb-art-body h3{font-size:21px;font-weight:700;margin:28px 0 10px;color:var(--ink)}
+.kb-art-body ul,.kb-art-body ol{padding-left:0;list-style:none;margin:0 0 22px}
+.kb-art-body ul li{padding:7px 0 7px 28px;position:relative;font-size:17px;color:var(--ink-2);line-height:1.6}
+.kb-art-body ul li::before{content:'';position:absolute;left:4px;top:17px;width:12px;height:2px;border-radius:2px;background:var(--green)}
+.kb-art-body ol{counter-reset:li;list-style:none}
+.kb-art-body ol li{counter-increment:li;padding:7px 0 7px 36px;position:relative;font-size:17px;color:var(--ink-2);line-height:1.6}
+.kb-art-body ol li::before{content:counter(li);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;display:grid;place-items:center}
+.kb-art-body blockquote{margin:28px 0;padding:20px 24px;border-left:3px solid var(--blue);background:var(--blue-tint);border-radius:4px 14px 14px 4px;font-size:18px;font-weight:500;color:var(--ink);line-height:1.45}
+.kb-art-callout{margin:28px 0;padding:22px;background:var(--green-soft);border-radius:16px;border:1px solid rgba(52,201,137,.2)}
+.kb-art-callout h4{font-size:13px;font-weight:700;color:var(--green-dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.kb-art-callout p{font-size:15px;color:var(--ink-2);margin:0;line-height:1.55}
+.kb-slim-cta{margin:48px auto;max-width:760px;padding:0 32px 80px}
+.kb-slim-cta-inner{background:linear-gradient(135deg,var(--green-soft),var(--blue-soft));border-radius:24px;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.kb-slim-cta h3{font-size:20px;font-weight:800;letter-spacing:-.025em;margin-bottom:6px}
+.kb-slim-cta p{font-size:14px;color:var(--muted)}
+.kb-related{padding:56px 0 80px}
+.kb-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.kb-card{border-radius:20px;overflow:hidden;background:white;box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+.kb-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(14,27,44,.1)}
+.kb-card-img{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden}
+.kb-card-img img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,center);transition:transform .35s}
+.kb-card:hover .kb-card-img img{transform:scale(1.04)}
+.kb-card-cat-chip{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);padding:5px 10px;border-radius:8px;font-size:11.5px;font-weight:700}
+.kb-card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kb-card-title{font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.02em;transition:color .15s}
+.kb-card:hover .kb-card-title{color:var(--blue)}
+.kb-card-excerpt{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1}
+.kb-card-meta{font-size:12px;color:var(--muted-2);font-weight:500}
+.kb-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:48px 0 28px}
+.kb-footer-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.kb-footer-brand{font-weight:800;font-size:18px;color:white;letter-spacing:-.03em}
+.kb-footer-links{display:flex;gap:24px;font-size:13px}
+.kb-footer-links a:hover{color:white}
+.kb-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.kb-h2{font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1.05;color:var(--ink)}
+.kb-section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:16px}
+.kb-link{font-size:14px;font-weight:600;color:var(--blue)}
+@media(max-width:960px){.kb-art-2col{grid-template-columns:1fr}.kb-art-toc{display:none}.kb-grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.kb-wrap,.kb-art-wrap,.kb-art-2col,.kb-slim-cta{padding:0 16px}.kb-art-title{font-size:32px}.kb-art-dek{font-size:16px}.kb-art-body p{font-size:16px}.kb-art-body h2{font-size:22px}.kb-grid-3{grid-template-columns:1fr}.kb-nav-links{display:none}.kb-slim-cta-inner{flex-direction:column;padding:24px}}
+</style>
+</head>
+<body>
+<nav class="kb-nav">
+<div class="kb-nav-inner">
+  <a href="/" class="kb-logo"><div class="kb-logo-dot">K</div>kinedu</a>
+  <div class="kb-nav-links">
+    <a href="/science.html">Science</a>
+    <a href="/articles.html" class="active">Blog</a>
+    <a href="/founder.html">Founder</a>
+  </div>
+  <div class="kb-nav-spacer"></div>
+  <div class="kb-nav-actions">
+    <a href="https://app.kinedu.com/login" class="kb-btn kb-btn-ghost">Log in</a>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try free →</a>
+  </div>
+</div>
+</nav>
+<article>
+  <div class="kb-art-wrap">
+    <div style="padding:40px 0 28px">
+      <div class="kb-cat-crumb">
+        <a href="/articles.html">Blog</a>
+        <span style="color:var(--muted-2)">/</span>
+        <a href="/articles.html">Kinedu</a>
+      </div>
+      <div class="kb-eyebrow">Kinedu</div>
+      <h1 class="kb-art-title">Kinedu Educators – Teachers’ Manual</h1>
+      <p class="kb-art-dek">What is Kinedu Educators? Kinedu Educators is a planning tool for educators, aimed at boosting your students’ academic development, both at school and at home, through: An adaptable curriculum that al</p>
+      <div class="kb-art-meta">
+        <div class="avatar"></div>
+        <div>
+          <div class="name">Kinedu Editors</div>
+          <div style="font-size:12px;color:var(--muted)">Child development specialists</div>
+        </div>
+        <span style="flex:1"></span>
+        <span class="dot"></span>
+        <span>Oct 06, 2020</span>
+        <span class="dot"></span>
+        <span>25 min read</span>
+      </div>
+    </div>
+  </div>
+  <div class="kb-art-wrap">
+    <div class="kb-art-cover">
+      <img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-images-v1/newborn-sleeping.jpg" alt="Kinedu Educators – Teachers’ Manual" loading="lazy">
+    </div>
+  </div>
+  <div class="kb-art-2col">
+    <aside><nav class="kb-art-toc">
+<h6>In this article</h6>
+<a href="#s1" class="on">What is Kinedu Educators?</a>
+<a href="#s2">How does it work?</a>
+<a href="#s3">Accessing Kinedu Educators</a>
+<a href="#s4">Accepting your school’s invitation&nbsp;</a>
+<a href="#s5">Create your profile</a>
+<a href="#s6">School, classrooms, and students</a>
+</nav></aside>
+    <div class="kb-art-body">
+      <h2 id="s1"><strong>What is Kinedu Educators?</strong></h2>
+
+<p>Kinedu Educators is a planning tool for educators, aimed at boosting your students’ academic development, both at school and at home, through:</p>
+
+<ul><li>An adaptable curriculum that allows you to <strong>plan weekly activities in seconds, </strong>and modify them to suit your students’ abilities and interests.&nbsp;</li><li>A catalog with <strong>more than 2,000 educational resources</strong> created by experts for each age and stage. You’ll always have <strong>new options and ideas</strong>!</li><li>Tools to <strong>coordinate with parents and families</strong>, that will allow you to share activities, messages, and events.</li><li>Tools to <strong>share your students’ progress</strong> with their family, so you can work as a team.</li><li><strong>Simple and efficient evaluations</strong> that will allow you to <strong>follow the progress</strong> of each student through different developmental milestones.</li><li><strong>Adherence to local and state norms</strong> in each Kinedu activity.&nbsp;</li></ul>
+
+<h2 id="s2"><strong>How does it work?</strong></h2>
+
+<p>Kinedu uses <strong>artificial intelligence</strong> to create <strong>personalized plans</strong> for each classroom according to the progress and development of the students.<br></p>
+
+<p>The progress of each student is measured through many <strong>developmental milestones</strong>, which are based on the<strong> four key areas of development</strong>: <strong>physical, cognitive, linguistic, and social and emotional.&nbsp;</strong><br></p>
+
+<p>Taking these milestones into account, our algorithm creates plans that adapt to the developmental levels of each of your students. These plans are made using activities that will help them develop in each area in a comprehensive and integral way.&nbsp;&nbsp;</p>
+
+<p><em>To read more about our model, you can read this article:&nbsp;</em></p>
+
+<h2 id="s3"><strong>Accessing Kinedu Educators</strong></h2>
+
+<h2 id="s4"><strong>Accepting your school’s invitation&nbsp;</strong></h2>
+
+<p>Check your inbox for an email from “Kinedu Classrooms Team” with an invitation from your school.</p>
+
+<p>Click on “Create an account” and you’ll be redirected to Kinedu Educators.</p>
+
+<h4><strong>What should I do if I can’t find the invitation from my school?</strong></h4>
+
+<ul><li>Check that you’re using the same email you gave your school.</li><li>Look for the invitation in your Spam folder.<ul><li>If you find the email there, make sure you add Kinedu as a safe contact.&nbsp;</li></ul></li></ul>
+
+<p>If you can’t find the invitation after following these steps, write to us at <a href="mailto:hello.classrooms@kinedu.com"><strong>hello.classrooms@kinedu.com</strong></a><strong>. </strong>We’ll be glad to help out!<br></p>
+
+<h2 id="s5"><strong>Create your profile</strong></h2>
+
+<p>Once you are on the Kinedu Educators page you only need to create a password, and you’ll be good to go! You will be able to access your school’s page. <strong>Make sure to enter your password on this page.</strong><br></p>
+
+<h4><strong>Your user and profile</strong></h4>
+
+<p>As an educator, you’ll have access to your own personal information, which you can modify at any time. This includes your profile picture, name, last name, and the language you want to use on the platform. You will also have access to your assigned classrooms. This means that you will only be able to access the information of the students that are in these classrooms. If you think you need access to other students or classrooms, ask your school’s director or administrator to give you access to them.&nbsp;</p>
+
+<h2 id="s6"><strong>School, classrooms, and students</strong></h2>
+
+<p>On the homepage, you’ll be able to see your organization, your school, classrooms, and students.</p>
+
+<p>To change from one classroom to another (in case you have more than one) select the drop-down menu on the upper part of the student list.</p>
+
+<h2 id="s7"><strong>Inviting parents and adding students </strong></h2>
+
+<p>If you want to add new students, you can do it directly on the homepage by clicking on the “Add Student” button.<br></p>
+
+<ol><li>Enter the email address of the parent you want to add.<ul><li><em>If the parent already has a Kinedu account, our system will automatically recognize the email address and add the family’s information.</em></li></ul></li><li>All done! An invitation with a code will be sent to the student’s parents. </li></ol>
+
+<p>It’s important to remember that you will only be able to invite one parent per student. For another parent to have access to a student’s profile, the parent you sent the invitation to will have to invite their partner through the application (Kinedu).</p>
+
+<p><strong>IMPORTANT NOTE</strong>: Make sure you have your director or coordinator’s permission before inviting a new student, since your school will be charged for license use.</p>
+
+<p><em>To find out more about the steps that parents need to follow, you can read the parents’ manual <a href="https://blog.kinedu.com/kinedu-parents-manual/">here</a>.&nbsp;</em><br></p>
+
+<h2 id="s8"><strong>Student profiles</strong></h2>
+
+<p>You can access your students’ profiles by clicking on one of the students’ icons on the homepage or from the classroom list on the Settings section. All the student’s information will appear on the screen.&nbsp;&nbsp;</p>
+
+<p>You will be able to see a “Publications” tab, where you’ll have access to the history of shared materials and communications with the student&#8217;s parents.&nbsp; You will also see a “Portfolio” tab, where you can check the evidence sent by the parents.&nbsp;</p>
+
+<p>What the user in Educators can see on this section is an exact replica of what the parents see on the Kinedu app, and it’s merely informative. This is what will automatically appear when sharing with parents: &nbsp;</p>
+
+<ol><li>Shared weekly plans</li><li>Assigned activities (both personalized and Kinedu activities)</li><li>Completed activities(both personalized and Kinedu activities)</li><li>Shared resources (all kinds of resources)</li></ol>
+
+<h2 id="s9"><strong>Deleting student profiles</strong></h2>
+
+<p>To delete a student’s profile go to their profile page, where you’ll see a button that says “Delete student”. Click on the button and confirm your action. Both directors and teachers can delete a student’s profile, but teachers can only delete profiles that belong to their classroom (Available on August 30th).</p>
+
+<p><strong>IMPORTANT NOTE</strong>: If you don’t see the delete option in your student’s profile, talk to your administrator about your permits. Make sure you have your director or coordinator’s permission before deleting a student’s profile.</p>
+
+<h2 id="s10"><strong>Activity plans&nbsp;</strong></h2>
+
+<h2 id="s11"><strong>Creating an activity plan&nbsp;</strong></h2>
+
+<p><strong>The Kinedu algorithm makes educational planning easy and simple.</strong> We take the developmental milestones of each student into account and suggest modifications based on their progress.&nbsp;</p>
+
+<p><strong>As you advance through the activities, make sure you mark them as “completed” </strong>for each student that participates. This will help us create a personalized activity plan based on the unique developmental progress of each student.</p>
+
+<p><strong>Creating a new activity plan</strong></p>
+
+<ol><li>Make sure your students are registered in the classroom.</li><li>Click on “Create plan” (You can create a plan from the Home page, or from the “My Plans” section).</li><li>Select the starting date for your plan (If you choose a week for which a plan already exists, it will be marked as an error and you won’t be able to create a new plan. The same thing will happen if you choose a day of the week when plans aren’t assigned to start by your center’s settings, so you’ll have to select the correct day to create a plan).</li><li>Select the theme for the week and how long you want to spend on this topic (You can also choose your own collections, or you can do a plan without a particular theme). (The duration will define how many weeks you’ll be reviewing a specific theme. For example, if you select “Animals” and a time frame of two weeks, we’ll suggest activities related to animals for a period of two weeks.)</li><li>You’re all set! Your plan will be created with the necessary considerations to propose daily activities that will be relevant to your students’ development levels.</li></ol>
+
+<p>Select the theme for the week and how long you want to spend on this topic. (You can also choose your own collections, or you can do a plan without a particular theme.) (The duration will define how many weeks you’ll be reviewing a specific theme. For example, if you select “Animals” and a time frame of two weeks, we’ll suggest activities related to animals for a period of two weeks.)</p>
+
+<ol><li>You’re all set! Your plan will be created with the necessary considerations to propose daily activities that will be relevant to your students’ development levels.</li></ol>
+
+<h2 id="s12"><strong>Seeing your plan</strong></h2>
+
+<p>Your plan will appear in the Home section, showing you the recommended activities for the day. You’ll be able to:</p>
+
+<ul><li>Browse the activities of the coming or previous days</li><li>Consult the materials you’ll need for the coming week</li><li>See plans programmed for the next few weeks&nbsp;&nbsp;</li></ul>
+
+<p>It’s possible that you can’t see the option of an activity plan when accessing your account. This might have to do with the configuration and kind of plan that your institution selected. It’s important that you take your school’s configuration into account since they can choose specific activity plan settings. For example, they can decide that activities are meant to start on Monday and finish on Friday. This means that if you access the platform over the weekend, you won’t have any suggested activities. To know more about your school’s activity plan and how many activities Kinedu will suggest every day, we recommend you contact your school’s director or administrator.&nbsp;</p>
+
+<h2 id="s13"><strong>Weekly Activity Plan</strong></h2>
+
+<p>You will be able to find the daily activity plan on the main menu of the home page. All the students that are listed in your groups and linked to a classroom will be able to see the weekly plan automatically in their Kinedu app, without you having to share it with each of them. </p>
+
+<p>Any changes made to the weekly plan will automatically be reflected on the parents’ app. They will also be able to see future and past plans. It will no longer be necessary to share the plan with them every week, all the parents linked to your classroom will be able to see the planned activities.&nbsp; </p>
+
+<p>To see your current, past and future plans, which the parents will also have access to:</p>
+
+<ol><li>Select “My plans” on the home page</li><li>Done! You’ll see three tabs where you can visualize present, future and past activities.&nbsp;</li></ol>
+
+<h2 id="s14"><strong>Sharing plans with parents</strong></h2>
+
+<p>You’ll be able to share the activity plan with the parents so your students can keep learning at home. Parents will be able to visualize the recommended activities on Kinedu.&nbsp;</p>
+
+<p>You only need to click on “Share plan” and then select “Share through email”. Parents will receive a PDF with a weekly calendar showing the activities planned for each day of the week. This PDF will also appear on their feed in the Kinedu app, where they’ll be able to access it as well.</p>
+
+<h2 id="s15">“My plans” section</h2>
+
+<p>In this section you’ll be able to view your current plan, future plans, and past plans. They are divided in tabs:&nbsp;</p>
+
+<ol><li>Current: The plan you are currently completing&nbsp;</li><li>Future: When you create plans for the coming weeks, you’ll be able to see them here in chronological order.&nbsp;</li><li>Past: All the plans that you’ve already completed will be available in this tab in chronological order. </li></ol>
+
+<h4>Deleting a plan</h4>
+
+<p>If you need to delete a plan, either past, current, or future, you’ll have the option of deleting it by selecting the “X” button in the upper right corner of each plan.</p>
+
+<p>For example: If you want to create a plan for a specific week, but there already is a plan scheduled for that week, you can delete that plan to create a new one.</p>
+
+<h2 id="s16"><strong>Marking an activity as “Completed”</strong></h2>
+
+<p>It’s very important to mark activities once they’ve been completed, so the algorithm can know which activities have been done and which haven’t.</p>
+
+<p>To do this, select the “Complete” button. A panel will pop open on the right side of the screen where you can fill out the information about the completion of the activity. These are the steps you need to follow:</p>
+
+<ol><li>Select the students that completed this activity.</li><li>Fill out the milestones for each individual student. Each activity has three stages of development:&nbsp;</li></ol>
+
+<p>1.<strong> Introduced:</strong> This stage is the first time a student has been introduced to a skill or milestone, and the ability to complete the activity is only just developing.</p>
+
+<p>2. <strong>In process: </strong>On this stage the student has shown hints of getting a grasp of the milestone, maybe achieving it once or showing positive progress. The focus of this stage is reinforcing the milestone through repetition and practice.</p>
+
+<p>3. <strong>Mastered: </strong>The milestone is considered as mastered when the student achieves it in most circumstances and recurrently.</p>
+
+<ol><li>&nbsp;All done! Once you fill out the information for each student, the activity will be marked as “Completed”.</li></ol>
+
+<h4><strong>Should parents also mark activities as completed?&nbsp;</strong></h4>
+
+<p>If you’re sending activities to parents, either as a PDF or as an individual message to a specific parent, it’s important that they also mark the activities as completed. This way, they’ll be able to help you mark the milestones related to the activity.&nbsp;</p>
+
+<p>It’s quite easy for them to do this since they just have to mark “yes” or “no” if their child achieved the milestone. This will help you keep track of each student’s progress, both at school and at home.&nbsp;</p>
+
+<h2 id="s17"><strong>Comments on the activities</strong></h2>
+
+<p>After all the information you need to know about every activity, you’ll find a comments section. The comments section at the bottom of the activity will allow you to document opinions and suggestions. These comments will only be seen by your organization, which means that if your school is part of a larger group of centers, everyone with access to the activity will be able to see your comments, and you’ll see theirs.&nbsp;</p>
+
+<p>In this section, you can write down any type of information or note that you (or someone from your institution) might find useful later on. We recommend that you leave comments that can help your peers improve or modify the activity, that way everyone can keep improving!&nbsp;</p>
+
+<h2 id="s18"><strong>Assigning activities to parents&nbsp;</strong></h2>
+
+<p>Apart from sending parents a calendar of activities, you can also send individual activities to several parents, or to just one, so your students can keep working on their skills at home.&nbsp;</p>
+
+<p>To do this, click on the “Share activity” button on the activity card. A list of students will pop up, so you can choose who you want to send the activity to. Select the students you wish to share the activity with and you’ll be all set! The parents will get an email with the activity and the instructions to perform it, and it will also appear on their Kinedu app.</p>
+
+<h2 id="s19"><strong>Activity catalog</strong></h2>
+
+<h2 id="s20"><strong>Searching activities</strong></h2>
+
+<p>The activity catalog includes more than 1,400 activities for all ages, related to all kinds of themes and styles. To access the catalog just click on the “Catalog” button on the left of the screen.</p>
+
+<p>There you’ll find activities divided into three subsections:&nbsp;</p>
+
+<ul><li><strong>Areas</strong></li></ul>
+
+<p>Here you’ll find activities filtered by the four areas of development: physical, cognitive, linguistic, and social and emotional. Clicking on any of these categories will show you the available activities related to each area.</p>
+
+<ul><li><strong>Themes</strong></li></ul>
+
+<p>Searching for activities by theme will show you all the activities related to a specific topic. The themes shown are predetermined.</p>
+
+<ul><li><strong>Your Center</strong></li></ul>
+
+<p>The activities on the section that has your institution’s name are activities added by a member of your school or center.&nbsp;</p>
+
+<h2 id="s21"><strong>Adapting activities (by theme and level of development)</strong></h2>
+
+<p><em>*This feature can only be applied to Kinedu activities</em></p>
+
+<p>Activities can be easily adapted to fit the relevant themes and your students’ level of development. To adapt them, you only have to click on the activity shown on the weekly plan, and a window with details and adaptation options will appear.</p>
+
+<p>Here, you’ll see an option to “Adjust activities by theme”, and another to “Personalize by stage of development”. You can use these tools to adjust activities so that they fit the purpose of your class and your students’ skills. (It’s important to note that not all the activities are adapted to a theme.)</p>
+
+<p>The “Personalize by stage of development” option will allow you to adapt the activity for those students who need either more advanced or easier versions of the activity. Keep in mind that not all activities have this option.&nbsp;</p>
+
+<p>If the “Personalize by stage of development” option is unavailable, this means your students are too young for this activity, so we suggest you look for another one that’s more appropriate for their age.&nbsp;&nbsp;</p>
+
+<h4><strong>Filtering activities</strong></h4>
+
+<p>Another simple way of finding activities is using the search bar and filters within the catalog.&nbsp;&nbsp;</p>
+
+<p>On the search bar you’ll be able to filter by:&nbsp;</p>
+
+<ul><li>All activities and collections&nbsp;</li><li>Kinedu activities and collections</li><li>Personalized activities, collections and subcollections&nbsp;</li><li>Age (0 -72 months)</li></ul>
+
+<p>Within the filter you’ll be able to choose:&nbsp;</p>
+
+<ul><li>Tags</li><li>Multiple areas</li><li>Skills (directly related to the areas)</li><li>Multiple themes&nbsp;</li></ul>
+
+<p>The benefit of using the filters is that you’ll be able to choose any combination of features to tailor search results to your specific needs.&nbsp;&nbsp;</p>
+
+<h4><strong>Creating collections</strong></h4>
+
+<p>Now you’ll be able to create collections from your center’s tab in a quicker way.&nbsp;</p>
+
+<ol><li>Enter your center’s tab&nbsp;</li><li>Select the “Add” button</li><li>Select the “Collection” option</li><li>Enter the name of the collection</li><li>Choose who you want to share it with</li><li>Choose or assign up to three tags&nbsp;<ol><li>You can use tags created by someone else&nbsp;</li><li>You can create and edit your own tags (color and name)</li><li>You can delete tags</li></ol></li><li>Click on “Create”</li><li>Done! Your collection has been created.&nbsp;</li></ol>
+
+<h4>Uploading your own activities </h4>
+
+<p>You can take advantage of this feature if your school or center has its own activities that you want to upload and add to the weekly plans.&nbsp;</p>
+
+<p>Follow these steps to upload an activity:</p>
+
+<ol><li>Select your center’s name in the catalog section</li><li>Click on the “Add” button</li><li>Select the “Activity” option</li><li>Select the collection and subcollection that you want to add this activity to, or if it’s necessary, create a new collection and subcollection </li><li>Fill out all the information, like title, description and images to illustrate what the activity is about</li><li>Fill out the pedagogical information (this only applies  for Developmental Activities)</li><li>Establish the access permits for the activity </li><li>Done! You’ve added a new personalized activity to the catalog</li></ol>
+
+<h2 id="s22"><strong>Subcollection</strong></h2>
+
+<p>In the Catalog section, you’ll be able to add subcollections inside of your collections, so you can organize activities better.&nbsp;</p>
+
+<h4><strong>Creating a subcollection&nbsp;</strong></h4>
+
+<ol><li>Enter a collection</li><li>Click on the “Add subcollection” button</li><li>Write the name of the new subcollection</li><li>Choose or assign up to three tags, then click Next</li><li>Enable or disable the “Share subcollection with parents” option</li><li>In case of enabling the option:<ul><li>Personalize the card that parents will see on the App by choosing a color and an image </li><li>Choose the centers that you want to share the subcollection with </li><li>Select the classrooms that you want to share the subcollection with </li><li>Click on the “Create” button, and you’ll be done!</li></ul></li></ol>
+
+<p>7. If you don’t enable the option, just click “Create” to finish.</p>
+
+<h4><strong>Edit a subcollection</strong></h4>
+
+<ol><li>Enter the subcollection&nbsp;</li><li>Click on the three dots (&#8230;) on the right and choose “edit”</li><li>Modify the information you wish to edit</li><li>Click “Save”&nbsp;</li></ol>
+
+<h4><strong>Upload activities to your subcollections</strong></h4>
+
+<ol><li>Click on the “Upload activity” button</li><li>Fill out the corresponding information:<ol><li>Collections and subcollections</li><li>General information</li><li>Indicators</li><li>Community</li></ol></li><li>Click on the upload button, and you’re done!</li></ol>
+
+<h4><strong>Deleting a subcollection</strong></h4>
+
+<ol><li>Enter the subcollection&nbsp;</li><li>Click on the three dots (&#8230;) on the right and choose “delete”</li><li>Confirm that you want to delete</li></ol>
+
+<h2 id="s23"><strong>Privacy</strong></h2>
+
+<p>The activities you upload can have different visibility settings for the Organization, Center, and Classrooms.&nbsp;&nbsp;</p>
+
+<p><strong>	</strong><strong>Organization: </strong>When you choose the visibility to be at the Organizational level, it means that every school in your organization will have access to the activity.&nbsp;</p>
+
+<p><strong>	</strong><strong>Center:</strong> If you choose the Center level, only the teachers from your school will be able to access the activity.&nbsp;</p>
+
+<p><strong>	</strong><strong>Classroom: </strong>If you choose this level, the activity will only be available to your classroom, and only the teachers with access to your classroom will be able to see it.&nbsp;</p>
+
+<h4><strong>Editing or deleting activities</strong></h4>
+
+<p>Currently, we don’t have an option to edit your personal activities, so we recommend that you delete them and upload them again.&nbsp;</p>
+
+<p>To delete an activity, just go to the collection it is saved in and click on it to open it. Once you’re in the activity’s description, click on the three dots […] on the right side. You’ll be shown a “Delete” option, just click on it and confirm the action.&nbsp;</p>
+
+<p>Remember that other teachers and parents won’t be able to access an activity after it’s been deleted.</p>
+
+<h2 id="s24"><strong>Adding an activity from the catalog to my plan</strong></h2>
+
+<p>You can add activities from the catalog to an already existing weekly plan. Just follow these steps:&nbsp;</p>
+
+<ol><li>Head to “Catalog”.</li><li>Look for the activity, and select “Schedule” on the activity view.&nbsp;</li><li>You’ll have to fill out some information about what classrooms and what days you’d like to add the activity to.&nbsp;&nbsp;</li></ol>
+
+<ul><li>You can decide if the activity will be mandatory within the weekly plan, which means teachers won’t be able to delete it from their schedules. If it isn’t mandatory, teachers can delete it from their plan.&nbsp;</li></ul>
+
+<h2 id="s25"><strong>Communication</strong></h2>
+
+<h2 id="s26"><strong>Publishing announcements and sending messages</strong></h2>
+
+<p>Notices and announcements are messages that you send to every parent in your classroom. To send out a notice select the “Messages” section on the left-hand menu.&nbsp;</p>
+
+<p>Select the recipient you want to send the notice or message to, choose a subject, and write the message. You can attach documents (PDFs, images, etc. that weigh up to 10MB) and include links in your messages.&nbsp;</p>
+
+<p>You can use the “Announcements” feature to send out information about homework, important notices, general messages, class cancelations, etc.&nbsp;</p>
+
+<p>Parents will receive a new message on the Kinedu app, where they’ll be able to check and answer notices, announcements, and messages.</p>
+
+<h2 id="s27"><strong>Deleting announcements</strong></h2>
+
+<p>If you want to delete a notice or message you can do it by clicking on the three dots that appear on the upper right corner of the message, where the “Delete” option will appear.</p>
+
+<h2 id="s28"><strong>Starting a new chat</strong></h2>
+
+<p>The chat option will allow you to have a more direct and personal conversation with your students’ parents. To send out a new message click on the “New chat” option at the top of the “Chat” page. Select the name of the student whose parents you want to contact and write your message. You can also send links and documents of up to 10MB through the chat.&nbsp;</p>
+
+<h4><strong>Who can see the chat?</strong></h4>
+
+<p>Anyone related to the student in question has access to the chat:</p>
+
+<ul><li>Parents</li><li>Teachers assigned to the student’s classroom</li><li>Center administrators&nbsp;</li></ul>
+
+<p>All these users can see and send messages on the chat.</p>
+
+<h4><strong>Deleting a chat</strong></h4>
+
+<p>Just like with the announcements, you can delete a chat message by clicking on the three dots on the upper right corner. When you delete a message, it will be replaced by a notice that says “This message has been deleted”.</p>
+
+<h4><strong>Seeing the messages history&nbsp;</strong></h4>
+
+<p>The message history of every student will be saved on the student&#8217;s chat page. There, you’ll be able to consult all the sent and received messages. Deleted messages will be replaced by a notice that says “This message has been deleted”.</p>
+
+<h4><strong>Forums</strong></h4>
+
+<p>On the “Chats” tab of the messages section, you will find a button called “Forums”, which will allow you to create forums with parents and collaborators from your institution. Parents will be able to join from the Kinedu app.&nbsp;<br></p>
+
+<p>In this section you will find the forums to which you’ve been added, and the forums you’ve created.  </p>
+
+<p><strong>Creating a new forum</strong></p>
+
+<ol><li>Click on the “+ Add forum” button</li><li>Enter the name and description of the forum, then click next&nbsp;</li><li>Select the audience that will be able to view and join the forum (this part is optional)</li><li>Add the collaborators you want to include, and assign who will be the moderators (this step is optional as long as you don’t deselect yourself)&nbsp;</li><li>Add the students that you want to include in the forum initially (all the family members related to the students will be added to the forum, this step is also optional)</li><li>Done! You’ve created a new forum</li></ol>
+
+<p>All the forums you create will include you automatically, but you can choose to get out and assign another moderator. </p>
+
+<p><strong>Editing a forum/adding people</strong><br></p>
+
+<ol><li>Click on the (i) on the upper right corner of the forum</li><li>Consult the members of the forum</li><li>Click on “Edit forum”</li><li>You can edit the name and description of the forum&nbsp;</li><li>You can edit the forum audience, if necessary&nbsp;</li><li>You can edit, add and assign moderators (you can delete and add new ones)&nbsp;</li><li>Pick the students you want to add to the forum (all the family members related to the students will be added to the forum and will have access to the chat)</li><li>Done! You’ve edited the forum</li></ol>
+
+<p>You can also add members using the “+ Add people” button.<br></p>
+
+<p><strong>Deleting a forum </strong></p>
+
+<p>Note: You can only delete a forum if you created it or if you’re a moderator. </p>
+
+<ol><li>Click on the (i) on the upper right corner o the forum</li><li>Click on the “Delete forum” option at the bottom of the list </li><li>Confirm the action by clicking “Yes” </li></ol>
+
+<h2 id="s29"><strong>Calendar</strong></h2>
+
+<p>The calendar will allow you to schedule center or school activities. Here, you’ll be able to schedule everything from virtual meetings to school events.&nbsp;</p>
+
+<h2 id="s30"><strong>Creating a new event</strong></h2>
+
+<p>To create a new event click on the “Create event” option. Select who the event will be addressed to and fill out the mandatory information.</p>
+
+<p>The event can be addressed to:&nbsp;</p>
+
+<ul><li><strong>Centers:</strong> Selecting this option will allow you to send an announcement to all the parents that belong to a specific center. Only administrators who have access to all the centers or schools will be able to use this option.&nbsp;</li><li><strong>Classrooms: </strong>Selecting this option will allow you to choose a specific classroom, and you’ll be sending the event to all the parents who belong to that classroom.</li><li><strong>Students:</strong> This option will allow you to choose one or more specific students whose parents you want to send an event to.&nbsp;</li></ul>
+
+<p><strong>Mandatory information:</strong></p>
+
+<ul><li>Name of the event</li><li>Participants</li><li>Date and time of the event</li></ul>
+
+<p>The event will be added automatically to the calendars of the involved parents and teachers. Teachers will be able to consult events from their Kinedu Educators account, and the parents will be able to see them on the Kinedu app.&nbsp;</p>
+
+<h2 id="s31"><strong>Creating a recurring event </strong></h2>
+
+<p>When you create an event, you’ll have the option of making it a recurrent event. You will have three predetermined options (daily, weekly, and Monday to Friday), and you will also have the option of creating a personalized recurrence.&nbsp;<br></p>
+
+<h2 id="s32"><strong>Editing or deleting an event</strong></h2>
+
+<p>If you wish to edit or delete an event, select the desired event on your calendar. A window describing the event will pop up, and you’ll be able to see three dots on the top right corner. Click on the dots and select if you want to edit or delete the event. If you delete an event, it will also be deleted from the other teachers and parents’ calendars.</p>
+
+<p>If you want to delete a recurring event, you’ll be given three options:&nbsp;</p>
+
+<ul><li>This event</li><li>This event and all coming events</li><li>All events</li></ul>
+
+<p>Choose the one that best suits your needs and click accept. <br>&nbsp;&nbsp;</p>
+
+<h2 id="s33"><strong>Portfolio </strong></h2>
+
+<p>This new section contains the evidence handed in by parents, so the teacher can see it easily and quickly. Information will be divided into two tabs:</p>
+
+<p><strong>Submissions</strong></p>
+
+<p>There are 2 drop down menus on this section that will work as filters to view the evidence:&nbsp;</p>
+
+<ol><li>Choose the classroom you want to visualize</li><li>Select the week and month you want to view</li><li>Select the day of the week from the list under the drop down menus</li></ol>
+
+<p>The activities will be organized chronologically, with the oldest ones on top.&nbsp;</p>
+
+<p><strong>Students</strong></p>
+
+<p>When you select the students tab you’ll see a drop down menu with all the classrooms. To access the content:&nbsp;</p>
+
+<ol><li>Choose a classroom from the menu</li><li>Select a student</li><li>On the right side you’ll be able to see all the activities divided according to the date they were handed in through the app.</li></ol>
+
+<h2 id="s34"><strong>Educational resources</strong></h2>
+
+<p>The educational resources are files that you can save on Kinedu Educators and add to your activity plans to make the educational process easier. These files can be images, PDFs, or links.</p>
+
+<h2 id="s35"><strong>Browsing resources</strong></h2>
+
+<h4><strong>Types of resources</strong></h4>
+
+<p>Kinedu Educators allows you to access pre-recorded resources, as well as uploading your own. To differentiate between your resources and those provided by Kinedu you only need to identify the folder they’re saved in:&nbsp;</p>
+
+<p><strong>Blue folders:</strong> Resources provided by Kinedu Educators</p>
+
+<p><strong>Yellow folders: </strong>Your own uploaded resources</p>
+
+<h2 id="s36"><strong>Resource organization</strong></h2>
+
+<p>Resources are saved in three different sections: resources for educators, resources for parents, and resources for students. These categories will allow you to organize the resources in a way that is easier to access.</p>
+
+<h4><strong>Categories and subcategories</strong></h4>
+
+<p>Each section is divided into categories; there are some pre-established ones and you can also add your own. These categories are the generalized way of viewing your resources.&nbsp;</p>
+
+<p>Inside each category, there are folders that represent <strong><em>subcategories</em></strong>, where files are sorted into more specific groups. You’ll be able to see all the files and resources by clicking on the subcategory folders.&nbsp;</p>
+
+<p>When linking resources to activities, you will be able to search activities by collection and by activity name.</p>
+
+<h2 id="s37"><strong>Adding your own resources</strong></h2>
+
+<p>To add resources, first, you need to create a category and subcategory.&nbsp;</p>
+
+<ol><li>Create a new category or make sure there’s already a category folder created by the school (a yellow folder).&nbsp;</li><li>Create a&nbsp; new subcategory or make sure there’s already a subcategory created by the school (a yellow folder).</li><li>Click on the “Upload resource” button.</li><li>Fill out the resource information, so that whoever has access to it knows what the resource is about.&nbsp;</li></ol>
+
+<h2 id="s38"><strong>Sharing resources with parents</strong></h2>
+
+<p>Sharing resources with parents is very easy. Once you’re in the subcategory folder, you’ll be able to see the information of every available resource. Click on the three dots on the right-hand corner of the resource, and then select “Share with parents”. Then, just follow the instructions to select the recipient.</p>
+
+<h2 id="s39"><strong>Settings</strong></h2>
+
+<p>On the Settings section you can visualize all your assigned classrooms and the students in each classroom.&nbsp;</p>
+
+<p>You will also be able to visualize your school &#8216;s directors and administrators, and invite new students.&nbsp;</p>
+
+<p>If you have any special permits (which are assigned by the director), you will be able to add new teachers, and give them special permits, etc. Talk to your director or administrator if you need access to special permits. </p>
+
+<h2 id="s40"><strong>Kinedu for parents</strong></h2>
+
+<p>Click <strong>here</strong> to see the <strong><a href="https://blog.kinedu.com/kinedu-parents-manual/">Parents’ Guide</a></strong></p>
+    </div>
+  </div>
+</article>
+<div class="kb-slim-cta">
+  <div class="kb-slim-cta-inner">
+    <div>
+      <h3>Turn reading into doing.</h3>
+      <p>Get a personalized daily activity plan built around your baby's exact age.</p>
+    </div>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try Kinedu free →</a>
+  </div>
+</div>
+<footer class="kb-footer">
+<div class="kb-footer-inner">
+  <div class="kb-footer-brand">kinedu</div>
+  <div class="kb-footer-links">
+    <a href="/articles.html">Blog</a>
+    <a href="/science.html">Science</a>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2">Try free</a>
+    <a href="https://blog.kinedu.com/privacy-policy/">Privacy</a>
+  </div>
+</div>
+</footer>
+<script>
+(function(){
+  var ids=[];
+  document.querySelectorAll('.kb-art-body h2[id]').forEach(function(h){ids.push(h.id)});
+  if(!ids.length) return;
+  window.addEventListener('scroll',function(){
+    var y=window.pageYOffset+120,cur=ids[0];
+    ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
+    document.querySelectorAll('.kb-art-toc a').forEach(function(a){
+      a.classList.toggle('on',a.getAttribute('href')==='#'+cur);
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

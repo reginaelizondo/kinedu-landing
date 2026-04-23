@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mindfulness 101 — Kinedu Blog</title>
+<meta name="description" content="Key points: 1. Parents’ emotional state affects children, who absorb emotions from an early age. 2. Practicing mindfulness enhances awareness of the present mom">
+<link rel="canonical" href="https://www.kinedu.com/blog/mindfulness-101">
+<meta property="og:title" content="Mindfulness 101">
+<meta property="og:description" content="Key points: 1. Parents’ emotional state affects children, who absorb emotions from an early age. 2. Practicing mindfulness enhances awareness of the present mom">
+<meta property="og:type" content="article">
+<link rel="icon" href="/logo kinedu.png" type="image/png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#2B8BE4;--blue-dark:#1E6FBD;--blue-soft:#EAF4FD;--blue-tint:#F4FAFE;--green:#34C989;--green-dark:#1FA66E;--green-soft:#E6F8EF;--ink:#0E1B2C;--ink-2:#2B3A4E;--muted:#5E6C80;--muted-2:#8A95A5;--line:#E6EAF0;--line-2:#EEF1F5;--bg:#FFFFFF;--bg-2:#F7F9FC;--bg-3:#FAFBFD;--shadow-sm:0 1px 2px rgba(14,27,44,.04),0 1px 3px rgba(14,27,44,.04);--shadow-md:0 4px 16px rgba(14,27,44,.06),0 2px 4px rgba(14,27,44,.04);--font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,system-ui,sans-serif}
+body{font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;letter-spacing:-.01em;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+img{display:block;max-width:100%;height:auto}
+.kb-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.kb-nav-inner{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:32px}
+.kb-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.03em;flex-shrink:0}
+.kb-logo-dot{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;color:white;font-weight:900;font-size:15px}
+.kb-nav-links{display:flex;gap:6px;font-size:14px;font-weight:500;color:var(--ink-2);margin-left:8px}
+.kb-nav-links a{padding:8px 12px;border-radius:8px;transition:background .15s,color .15s}
+.kb-nav-links a:hover{background:var(--bg-2);color:var(--ink)}
+.kb-nav-links a.active{color:var(--blue);background:var(--blue-soft)}
+.kb-nav-spacer{flex:1}
+.kb-nav-actions{display:flex;align-items:center;gap:8px}
+.kb-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;transition:transform .12s,box-shadow .12s,background .15s}
+.kb-btn-primary{background:var(--blue);color:white}
+.kb-btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px)}
+.kb-btn-ghost{color:var(--ink-2)}
+.kb-btn-ghost:hover{background:var(--bg-2)}
+.kb-btn-outline{background:white;color:var(--ink);border:1px solid var(--line)}
+.kb-wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.kb-art-wrap{max-width:760px;margin:0 auto;padding:0 32px}
+.kb-cat-crumb{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.kb-art-title{font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1.08;margin:12px 0 18px;text-wrap:balance}
+.kb-art-dek{font-size:19px;color:var(--muted);line-height:1.5;margin-bottom:24px}
+.kb-art-meta{display:flex;align-items:center;gap:14px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px;color:var(--muted);margin-bottom:32px;flex-wrap:wrap}
+.kb-art-meta .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));flex-shrink:0}
+.kb-art-meta .name{font-weight:700;color:var(--ink);font-size:14px}
+.kb-art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted-2)}
+.kb-art-cover{width:100%;aspect-ratio:16/9;border-radius:24px;overflow:hidden;margin-bottom:40px}
+.kb-art-cover img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,center)}
+.kb-art-2col{max-width:1100px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:200px 1fr;gap:60px}
+.kb-art-toc{position:sticky;top:80px;font-size:13px}
+.kb-art-toc h6{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+.kb-art-toc a{display:block;padding:6px 12px;border-left:2px solid var(--line);color:var(--muted);margin-bottom:2px;transition:all .15s}
+.kb-art-toc a:hover{color:var(--ink);border-color:var(--ink-2)}
+.kb-art-toc a.on{color:var(--blue);border-color:var(--blue);font-weight:600}
+.kb-art-body p{font-size:17px;line-height:1.75;color:var(--ink-2);margin:0 0 22px}
+.kb-art-body h2{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:40px 0 14px;color:var(--ink)}
+.kb-art-body h3{font-size:21px;font-weight:700;margin:28px 0 10px;color:var(--ink)}
+.kb-art-body ul,.kb-art-body ol{padding-left:0;list-style:none;margin:0 0 22px}
+.kb-art-body ul li{padding:7px 0 7px 28px;position:relative;font-size:17px;color:var(--ink-2);line-height:1.6}
+.kb-art-body ul li::before{content:'';position:absolute;left:4px;top:17px;width:12px;height:2px;border-radius:2px;background:var(--green)}
+.kb-art-body ol{counter-reset:li;list-style:none}
+.kb-art-body ol li{counter-increment:li;padding:7px 0 7px 36px;position:relative;font-size:17px;color:var(--ink-2);line-height:1.6}
+.kb-art-body ol li::before{content:counter(li);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;display:grid;place-items:center}
+.kb-art-body blockquote{margin:28px 0;padding:20px 24px;border-left:3px solid var(--blue);background:var(--blue-tint);border-radius:4px 14px 14px 4px;font-size:18px;font-weight:500;color:var(--ink);line-height:1.45}
+.kb-art-callout{margin:28px 0;padding:22px;background:var(--green-soft);border-radius:16px;border:1px solid rgba(52,201,137,.2)}
+.kb-art-callout h4{font-size:13px;font-weight:700;color:var(--green-dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.kb-art-callout p{font-size:15px;color:var(--ink-2);margin:0;line-height:1.55}
+.kb-slim-cta{margin:48px auto;max-width:760px;padding:0 32px 80px}
+.kb-slim-cta-inner{background:linear-gradient(135deg,var(--green-soft),var(--blue-soft));border-radius:24px;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.kb-slim-cta h3{font-size:20px;font-weight:800;letter-spacing:-.025em;margin-bottom:6px}
+.kb-slim-cta p{font-size:14px;color:var(--muted)}
+.kb-related{padding:56px 0 80px}
+.kb-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.kb-card{border-radius:20px;overflow:hidden;background:white;box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+.kb-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(14,27,44,.1)}
+.kb-card-img{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden}
+.kb-card-img img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,center);transition:transform .35s}
+.kb-card:hover .kb-card-img img{transform:scale(1.04)}
+.kb-card-cat-chip{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);padding:5px 10px;border-radius:8px;font-size:11.5px;font-weight:700}
+.kb-card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kb-card-title{font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.02em;transition:color .15s}
+.kb-card:hover .kb-card-title{color:var(--blue)}
+.kb-card-excerpt{font-size:13.5px;color:var(--muted);line-height:1.55;flex:1}
+.kb-card-meta{font-size:12px;color:var(--muted-2);font-weight:500}
+.kb-footer{background:var(--ink);color:rgba(255,255,255,.7);padding:48px 0 28px}
+.kb-footer-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.kb-footer-brand{font-weight:800;font-size:18px;color:white;letter-spacing:-.03em}
+.kb-footer-links{display:flex;gap:24px;font-size:13px}
+.kb-footer-links a:hover{color:white}
+.kb-eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.kb-h2{font-size:32px;font-weight:800;letter-spacing:-.035em;line-height:1.05;color:var(--ink)}
+.kb-section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:16px}
+.kb-link{font-size:14px;font-weight:600;color:var(--blue)}
+@media(max-width:960px){.kb-art-2col{grid-template-columns:1fr}.kb-art-toc{display:none}.kb-grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.kb-wrap,.kb-art-wrap,.kb-art-2col,.kb-slim-cta{padding:0 16px}.kb-art-title{font-size:32px}.kb-art-dek{font-size:16px}.kb-art-body p{font-size:16px}.kb-art-body h2{font-size:22px}.kb-grid-3{grid-template-columns:1fr}.kb-nav-links{display:none}.kb-slim-cta-inner{flex-direction:column;padding:24px}}
+</style>
+</head>
+<body>
+<nav class="kb-nav">
+<div class="kb-nav-inner">
+  <a href="/" class="kb-logo"><div class="kb-logo-dot">K</div>kinedu</a>
+  <div class="kb-nav-links">
+    <a href="/science.html">Science</a>
+    <a href="/articles.html" class="active">Blog</a>
+    <a href="/founder.html">Founder</a>
+  </div>
+  <div class="kb-nav-spacer"></div>
+  <div class="kb-nav-actions">
+    <a href="https://app.kinedu.com/login" class="kb-btn kb-btn-ghost">Log in</a>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try free →</a>
+  </div>
+</div>
+</nav>
+<article>
+  <div class="kb-art-wrap">
+    <div style="padding:40px 0 28px">
+      <div class="kb-cat-crumb">
+        <a href="/articles.html">Blog</a>
+        <span style="color:var(--muted-2)">/</span>
+        <a href="/articles.html">Social &amp; Emotional</a>
+      </div>
+      <div class="kb-eyebrow">Social &amp; Emotional</div>
+      <h1 class="kb-art-title">Mindfulness 101</h1>
+      <p class="kb-art-dek">Key points: 1. Parents’ emotional state affects children, who absorb emotions from an early age. 2. Practicing mindfulness enhances awareness of the present moment, reducing stress and improving</p>
+      <div class="kb-art-meta">
+        <div class="avatar"></div>
+        <div>
+          <div class="name">Kinedu Editors</div>
+          <div style="font-size:12px;color:var(--muted)">Child development specialists</div>
+        </div>
+        <span style="flex:1"></span>
+        <span class="dot"></span>
+        <span>Jun 20, 2018</span>
+        <span class="dot"></span>
+        <span>4 min read</span>
+      </div>
+    </div>
+  </div>
+  <div class="kb-art-wrap">
+    <div class="kb-art-cover">
+      <img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-images-v1/toddler-eating.jpg" alt="Mindfulness 101" loading="lazy">
+    </div>
+  </div>
+  <div class="kb-art-2col">
+    <aside></aside>
+    <div class="kb-art-body">
+      <p><strong>Key points:<br />
+1. Parents&#8217; emotional state affects children, who absorb emotions from an early age.<br />
+2. Practicing mindfulness enhances awareness of the present moment, reducing stress and improving well-being.<br />
+3. Mindfulness is not just meditation; it&#8217;s about being present and observing thoughts without judgment.<br />
+4. Mindfulness benefits include improved focus, better relationships, reduced stress, and increased positive emotions.</strong></p>
+<blockquote><p>As parents, we are always looking for the best for our children; we want them to be happy and develop their full potential. But what happens when we do not live in the best way possible? By being stressed, worried, and hurried in our daily life, we ​​set this example to our children. Kids are like sponges, and they can perceive emotions even from within the mother&#8217;s womb. This means they’re much more capable of absorbing and perceiving things after they are born. So, how can we be better with ourselves and transmit the best to them? Continue reading to learn more…</p></blockquote>
+<p>Have you ever gotten home and don’t remember what you saw on the road? Left home for work and don’t remember if you locked the door on your way out?</p>
+<p>We live with routines both at home and at work where we do things on autopilot without really paying attention to what we are doing. We call it “lunchtime”, but is really lunch if we are thinking about the pending errands we have to run, or we are answering mails or texts on the phone?</p>
+<p>As human beings we have the ability to think about the past, present, and future. Which is a true blessing, but we often let our minds wander to the meeting board of last week, we think about what we’ll do over the holidays, or what you have to get from the store. Usually the most recurrent thoughts in our minds come from obsessing about the past or worrying about the future. So, <em>what happens to the present?</em><br />
+</p>
+<p>Have you thought about the room or space in which you are now? How’s the temperature? What does it smell like? How does your body feel? Is it relaxed? Do you feel any discomfort? Does your stomach feel empty or full? All these thoughts, sensations, or stimuli are situated in the present. By living in the present we practice &#8220;mindfulness&#8221;, being aware of the here and now.</p>
+<p>Many people think that mindfulness can only be practiced through meditation. With that point of view and a life filled with errands and activities, we think that we don’t have time to meditate. That is not true. Yes, one way to practice mindfulness is through meditation, but it is not the only way. The goal of mindfulness is to increase our awareness of our surroundings and make us more conscious of what is happening in that moment. So, it can start off as an exercise we practice during the day and then the goal would be to turn it into a new way of thinking. Only then, we can observe our thoughts without judgment and accept what is happening now.</p>
+<p>Numerous studies of national institutes of health and universities, including Harvard, have proven that practicing &#8220;mindfulness&#8221; helps us feel more satisfied and happy with our lives. By being well with ourselves and happy with our lives, we can spread and share this with those around us.</p>
+<p><strong>Experts state that mindfulness:</strong></p>
+<ul>
+<li>Enhances the neurological process of the executive functions.</li>
+<li>Improves the relationship with yourself and with others.</li>
+<li>Increase concentration, creativity, and clarity.</li>
+<li>Increase positive emotions.</li>
+<li>Reduces stress.</li>
+<li>Improves sleep and rest.</li>
+<li>Reduce muscle aches.</li>
+<li>Reduce anxiety, worries, and fears.</li>
+<li>Increases mental flexibility.</li>
+</ul>
+<p>As parents, practicing mindfulness can improve our relationship with our partner and children. Furthermore, we can gradually introduce mindfulness to them, so we can all live a more conscious and happy life.</p>
+<p><strong>How can I start practicing mindfulness?</strong></p>
+<p>The simplest way to start is by getting in touch with your senses. Think about the activities that you do on a daily basis in order to get in touch with your senses when performing them. Be aware of them.</p>
+<p><u>Simple guides:</u></p>
+<ul>
+<li>Brush your teeth. What does the toothpaste taste like?</li>
+<li>Have breakfast. What colors do you see on your plate?</li>
+<li>Drive to work. What sounds can you hear outside?</li>
+<li>Take a shower. How does the soap feel on your hands?</li>
+<li>Do your laundry.  What do the clothes smell like?</li>
+</ul>
+<p>These are some examples of activities that you can do on a daily basis to practice being mindful. These activities are something we can do ourselves and with our kids. Make it a game! See who can see more colors on their food, listen to what kind of animals you can hear outside, and how many colors can you see in the sunset.</p>
+<p>As mindful parents, we are able to have an awareness of ourselves and be attuned to our children. What activities do you often do where you could begin to be more aware of your actions? What activities do you do with your kids where they could have fun being aware of what they are experiencing?</p>
+<p><strong>Mindful children:</strong></p>
+<ul>
+<li>Are able to focus and concentrate better.</li>
+<li>Experience calmness rather than anxiety.</li>
+<li>Are more empathic and understanding with others.</li>
+<li>Have skillful ways to respond to emotions and better resolution skills.</li>
+</ul>
+<blockquote><p><b>Let&#8217;s put the autopilot aside and </b><span>start</span><b> having a more conscious way of living!</b></p></blockquote>
+    </div>
+  </div>
+</article>
+<div class="kb-slim-cta">
+  <div class="kb-slim-cta-inner">
+    <div>
+      <h3>Turn reading into doing.</h3>
+      <p>Get a personalized daily activity plan built around your baby's exact age.</p>
+    </div>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try Kinedu free →</a>
+  </div>
+</div>
+<footer class="kb-footer">
+<div class="kb-footer-inner">
+  <div class="kb-footer-brand">kinedu</div>
+  <div class="kb-footer-links">
+    <a href="/articles.html">Blog</a>
+    <a href="/science.html">Science</a>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2">Try free</a>
+    <a href="https://blog.kinedu.com/privacy-policy/">Privacy</a>
+  </div>
+</div>
+</footer>
+<script>
+(function(){
+  var ids=[];
+  document.querySelectorAll('.kb-art-body h2[id]').forEach(function(h){ids.push(h.id)});
+  if(!ids.length) return;
+  window.addEventListener('scroll',function(){
+    var y=window.pageYOffset+120,cur=ids[0];
+    ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=y)cur=id;});
+    document.querySelectorAll('.kb-art-toc a').forEach(function(a){
+      a.classList.toggle('on',a.getAttribute('href')==='#'+cur);
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
