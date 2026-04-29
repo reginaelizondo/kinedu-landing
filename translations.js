@@ -6,6 +6,7 @@ window.TRANSLATIONS = {
 
     // NAV
     'nav.howItWorks': 'How It Works',
+    'nav.learn': 'Learn',
     'nav.science': 'Science',
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
@@ -243,6 +244,7 @@ window.TRANSLATIONS = {
 
     // NAV
     'nav.howItWorks': 'Cómo Funciona',
+    'nav.learn': 'Aprende',
     'nav.science': 'Ciencia',
     'nav.pricing': 'Precios',
     'nav.faq': 'FAQ',
@@ -479,6 +481,7 @@ window.TRANSLATIONS = {
 
     // NAV
     'nav.howItWorks': 'Como Funciona',
+    'nav.learn': 'Aprenda',
     'nav.science': 'Ciência',
     'nav.pricing': 'Preços',
     'nav.faq': 'FAQ',
