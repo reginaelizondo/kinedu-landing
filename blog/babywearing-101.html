@@ -93,22 +93,46 @@ img{display:block;max-width:100%;height:auto}
 @media(max-width:960px){.kb-art-2col{grid-template-columns:1fr}.kb-art-toc{display:none}.kb-grid-3{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.kb-wrap,.kb-art-wrap,.kb-art-2col,.kb-slim-cta{padding:0 16px}.kb-art-title{font-size:32px}.kb-art-dek{font-size:16px}.kb-art-body p{font-size:16px}.kb-art-body h2{font-size:22px}.kb-grid-3{grid-template-columns:1fr}.kb-nav-links{display:none}.kb-slim-cta-inner{flex-direction:column;padding:24px}}
 </style>
+<link rel="stylesheet" href="/styles.css">
+<style>
+
+/* Spacing for fixed site navbar */
+body { padding-top: 88px; }
+@media (max-width: 768px) { body { padding-top: 76px; } }
+.kb-art-head { padding-top: 24px !important; }
+</style>
 </head>
 <body>
-<nav class="kb-nav">
-<div class="kb-nav-inner">
-  <a href="/" class="kb-logo"><div class="kb-logo-dot">K</div>kinedu</a>
-  <div class="kb-nav-links">
-    <a href="/science.html">Science</a>
-    <a href="/articles.html" class="active">Blog</a>
-    <a href="/founder.html">Founder</a>
+<nav class="navbar" id="navbar">
+  <div class="nav-pill">
+    <a href="/" class="nav-logo"><img src="/logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/live-classes.html" data-i18n="nav.learn">Learn</a>
+      <a href="/science.html" data-i18n="nav.science">Science</a>
+      <a href="/#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="/founder.html" data-i18n="nav.founder">Founder</a>
+      <a href="/articles.html" data-i18n="nav.blog" class="active">Blog</a>
+      <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+      <div class="lang-toggle lang-toggle--mobile">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+      <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <div class="kb-nav-spacer"></div>
-  <div class="kb-nav-actions">
-    <a href="https://app.kinedu.com/login" class="kb-btn kb-btn-ghost">Log in</a>
-    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try free →</a>
-  </div>
-</div>
 </nav>
 <article>
   <div class="kb-art-wrap">
@@ -220,5 +244,7 @@ img{display:block;max-width:100%;height:auto}
   },{passive:true});
 })();
 </script>
+<script src="/translations.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>

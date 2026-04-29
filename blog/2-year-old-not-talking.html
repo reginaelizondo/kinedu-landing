@@ -251,32 +251,46 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 </style>
+<link rel="stylesheet" href="/styles.css">
+<style>
+
+/* Spacing for fixed site navbar */
+body { padding-top: 88px; }
+@media (max-width: 768px) { body { padding-top: 76px; } }
+.kb-art-head { padding-top: 24px !important; }
+</style>
 </head>
 <body>
 
-<nav class="kb-nav">
-  <div class="kb-nav-inner">
-    <a href="/" class="kb-logo">
-      <div class="kb-logo-dot">K</div>
-      kinedu
-    </a>
-    <div class="kb-nav-links">
-      <a href="https://kinedu-landing.vercel.app/science">Science</a>
-<a href="/blog" class="active">Blog</a>
-<a href="https://kinedu-landing.vercel.app/#schools">For Schools</a>
-<a href="https://kinedu-landing.vercel.app/founder">Founder</a>
-
-    </div>
-    <div class="kb-nav-spacer"></div>
-    <div class="kb-nav-actions">
-      <div class="kb-lang">
-        <button class="on">EN</button>
-        <button>ES</button>
-        <button>PT</button>
+<nav class="navbar" id="navbar">
+  <div class="nav-pill">
+    <a href="/" class="nav-logo"><img src="/logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/live-classes.html" data-i18n="nav.learn">Learn</a>
+      <a href="/science.html" data-i18n="nav.science">Science</a>
+      <a href="/#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="/founder.html" data-i18n="nav.founder">Founder</a>
+      <a href="/articles.html" data-i18n="nav.blog" class="active">Blog</a>
+      <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+      <div class="lang-toggle lang-toggle--mobile">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
       </div>
-      <a href="https://app.kinedu.com/login" class="kb-btn kb-btn-ghost">Log in</a>
-      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary">Try 7 days free</a>
     </div>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+      <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -286,9 +300,9 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="kb-art-crumb">
         <a href="/">Home</a>
         <span class="sep">/</span>
-        <a href="/blog">Blog</a>
+        <a href="/articles.html">Blog</a>
         <span class="sep">/</span>
-        <a href="/blog" style="color:var(--blue);">Child Development</a>
+        <a href="/articles.html" style="color:var(--blue);">Child Development</a>
       </div>
       <div class="kb-art-cat">Child Development</div>
       <h1 class="kb-art-title">My 2-Year-Old Is Not Talking — Is It Normal?</h1>
@@ -423,7 +437,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="kb-eyebrow">Keep reading</div>
         <h2 class="kb-h2">More on Child Development</h2>
       </div>
-      <a href="/blog" class="kb-link" style="align-self:end;">All articles →</a>
+      <a href="/articles.html" class="kb-link" style="align-self:end;">All articles →</a>
     </div>
     <div class="kb-grid-3">
 <a href="/blog/my-18-month-old-isnt-talking" class="kb-card" data-cat="child-development">
@@ -530,18 +544,18 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
       <div>
         <h5>Company</h5>
-        <a href="https://kinedu-landing.vercel.app/science">Science</a>
-        <a href="https://kinedu-landing.vercel.app/founder">Founder</a>
-        <a href="https://kinedu-landing.vercel.app/#schools">For Schools</a>
-        <a href="/blog">Blog</a>
+        <a href="/science.html">Science</a>
+        <a href="/founder.html">Founder</a>
+        <a href="https://kinedu-classrooms.vercel.app/">For Schools</a>
+        <a href="/articles.html">Blog</a>
       </div>
       <div>
         <h5>Topics</h5>
-        <a href="/blog">Sleep</a>
-        <a href="/blog">Child Development</a>
-        <a href="/blog">Feeding</a>
-        <a href="/blog">Health</a>
-        <a href="/blog">Prenatal</a>
+        <a href="/articles.html">Sleep</a>
+        <a href="/articles.html">Child Development</a>
+        <a href="/articles.html">Feeding</a>
+        <a href="/articles.html">Health</a>
+        <a href="/articles.html">Prenatal</a>
       </div>
       <div>
         <h5>Support</h5>
@@ -579,5 +593,7 @@ img { display: block; max-width: 100%; height: auto; }
   }, {passive: true});
 })();
 </script>
+<script src="/translations.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
