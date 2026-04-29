@@ -573,9 +573,22 @@ function normalizeQ(s) {
 function scoreBrowseCard(card, words, phrase) {
   var title = (card.querySelector('.kb-tc-title') || {}).textContent || '';
   var tN = normalizeQ(title);
+
+  // Also score against section name + description
+  var sec = card.closest('.kb-topic-section');
+  var sName = sec ? normalizeQ((sec.querySelector('.kb-topic-h2') || {}).textContent || '') : '';
+  var sDesc = sec ? normalizeQ((sec.querySelector('.kb-topic-desc') || {}).textContent || '') : '';
+
   var score = 0;
+  // Article title (strongest signal)
   if (tN.includes(phrase)) score += 50;
   words.forEach(function(w) { if (tN.includes(w)) score += 15; });
+  // Section name (medium signal — e.g. "nutr" hits "Feeding & Nutrition")
+  if (sName.includes(phrase)) score += 30;
+  words.forEach(function(w) { if (sName.includes(w)) score += 10; });
+  // Section description (weaker signal)
+  if (sDesc.includes(phrase)) score += 8;
+  words.forEach(function(w) { if (sDesc.includes(w)) score += 3; });
   return score;
 }
 
@@ -665,11 +678,19 @@ function runBrowseSearch() {
   // Also filter sections below
   var totalVisible = 0;
   sections.forEach(function(sec) {
+    // Check if the section name or description itself matches
+    var sName = normalizeQ((sec.querySelector('.kb-topic-h2') || {}).textContent || '');
+    var sDesc = normalizeQ((sec.querySelector('.kb-topic-desc') || {}).textContent || '');
+    var sectionHit = sName.includes(phrase) || sDesc.includes(phrase)
+      || words.some(function(w) { return sName.includes(w) || sDesc.includes(w); });
+
     var cards = sec.querySelectorAll('.kb-tc');
     var secVisible = 0;
     cards.forEach(function(card) {
       var text = normalizeQ(card.textContent);
-      var show = text.includes(phrase) || words.some(function(w) { return text.includes(w); });
+      var cardHit = text.includes(phrase) || words.some(function(w) { return text.includes(w); });
+      // Show card if the card itself matches OR the whole section matches the query
+      var show = cardHit || sectionHit;
       card.classList.toggle('hidden', !show);
       if (show) secVisible++;
     });
