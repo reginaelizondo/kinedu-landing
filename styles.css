@@ -207,6 +207,9 @@ a {
     pointer-events: none;
 }
 
+/* Prevent the sticky navbar from covering anchor targets when jumping to #faq, #pricing, etc. */
+section[id], div[id] { scroll-margin-top: 96px; }
+
 .navbar.scrolled {
     padding: 8px 32px;
 }

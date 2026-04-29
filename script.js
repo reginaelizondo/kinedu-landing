@@ -215,6 +215,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- HASH ON LOAD (cross-page nav like science.html → /#faq) ---
+    // The browser's native anchor jump doesn't account for the sticky navbar,
+    // so re-scroll with proper offset once the page has rendered.
+    if (window.location.hash) {
+        const adjust = () => {
+            const target = document.querySelector(window.location.hash);
+            if (!target) return;
+            const offset = navbar.offsetHeight - 10;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        };
+        // Wait for layout (images may shift content) then nudge into place.
+        setTimeout(adjust, 50);
+        window.addEventListener('load', () => setTimeout(adjust, 50));
+    }
+
     // --- ACTIVE NAV LINK ON SCROLL ---
     const navLinkItems = document.querySelectorAll('.nav-links a[href^="#"]');
     const sections = [];
