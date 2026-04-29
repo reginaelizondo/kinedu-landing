@@ -2918,25 +2918,25 @@ a {
         width: calc(50% - 5px);
         min-width: calc(50% - 5px);
         max-width: calc(50% - 5px);
-        padding: 12px 10px;
+        padding: 14px 12px;
     }
 
     .review-card__body {
-        font-size: 0.72rem;
-        line-height: 1.5;
-        -webkit-line-clamp: 4;
+        font-size: 0.78rem;
+        line-height: 1.55;
+        -webkit-line-clamp: 5;
     }
 
     .review-card__stars {
-        font-size: 0.62rem;
+        font-size: 0.7rem;
     }
 
     .review-card__source {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
     }
 
     .review-card__name {
-        font-size: 0.65rem;
+        font-size: 0.72rem;
     }
 
     .review-card__author {
@@ -3181,4 +3181,132 @@ a {
     .blog-teaser-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   COMPREHENSIVE MOBILE POLISH (≤ 600px and ≤ 380px)
+   Cubre: live-classes, science, founder, articles, browse, index
+   ========================================= */
+
+/* ── ≤600px: tablet/large mobile fixes ── */
+@media (max-width: 600px) {
+    /* Global section padding */
+    :root { --section-pad: 36px; }
+
+    /* Prevent horizontal overflow anywhere */
+    html, body { overflow-x: hidden; }
+
+    /* Sticky nav: keep pill clear of edges */
+    .nav-pill { margin: 0 12px; max-width: calc(100vw - 24px); }
+
+    /* Store badges row — stack on very small */
+    .store-row { flex-wrap: wrap; justify-content: center; }
+    .store-badge img { height: 38px; width: auto; }
+
+    /* ── LIVE-CLASSES ── */
+    .lc-hero-grid { gap: 24px !important; }
+    .lc-expert-card { flex: 0 0 88% !important; min-width: 0; }
+    .lc-expert-stack { flex-wrap: wrap; gap: 6px; }
+    .lc-expert-stack-avatar { width: 38px !important; height: 38px !important; }
+    .lc-compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .lc-compare { min-width: 480px; }
+    .lc-compare th, .lc-compare td { padding: 12px 14px !important; font-size: 0.85rem; }
+    .lc-class-time { min-width: 54px !important; font-size: 0.78rem; }
+    .lc-class-title { font-size: 0.85rem !important; line-height: 1.35; }
+    .lc-class-row { padding: 10px 12px !important; }
+    .lc-store-row img { height: 38px !important; width: auto !important; }
+    .lc-cta-sm { padding: 10px 18px !important; font-size: 0.85rem; }
+    .lc-steps { gap: 12px !important; }
+    .lc-step { padding: 18px 16px !important; }
+
+    /* ── SCIENCE ── */
+    .science-img-wrapper { max-width: 280px; margin: 0 auto; }
+    .partners-grid { grid-template-columns: 1fr !important; gap: 14px; }
+    .domain-card { padding: 22px 16px 18px; }
+    .info-card { padding: 28px 20px; }
+    .catalyst-features { gap: 14px; }
+
+    /* ── ARTICLES (blog) ── */
+    .kb-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 20px; }
+    .kb-search-panel { left: 0 !important; right: 0 !important; max-width: 100%; }
+    .kb-stage-row { grid-template-columns: repeat(2, 1fr) !important; }
+    .kb-pills { -webkit-overflow-scrolling: touch; padding-left: 16px; padding-right: 16px; }
+
+    /* ── FOUNDER ── */
+    .founder-hero { padding: 100px 0 56px !important; }
+    .founder-photo-wrapper { width: clamp(140px, 42vw, 200px) !important; height: auto !important; }
+    .founder-photo-wrapper img { width: 100% !important; height: auto !important; }
+    .founder-quote-inner { padding: 28px 22px !important; }
+    .founder-name { font-size: 1.1rem !important; }
+    .founder-title { font-size: 0.85rem !important; }
+
+    /* ── INDEX (extra polish) ── */
+    .features-stack { padding: 0 4px; }
+    .stat-card { padding: 18px 14px !important; }
+    .pricing-card { padding: 24px 18px !important; }
+    .pricing-features li { font-size: 0.86rem; }
+
+    /* ── BROWSE (extra polish — already has rules) ── */
+    .kb-browse-main { padding: 0 16px !important; }
+    .kb-topic-section { padding: 36px 0 !important; }
+    .kb-topic-h2 { font-size: 22px !important; }
+    .kb-topic-icon { width: 40px !important; height: 40px !important; border-radius: 12px; }
+    .kb-topic-icon svg { width: 20px; height: 20px; }
+    .kb-topic-desc { margin-left: 0 !important; font-size: 13.5px; }
+    .kb-topic-see-all { font-size: 12.5px !important; padding: 6px 12px !important; }
+
+    /* Logos marquee — slower scroll feel */
+    .logos-track { gap: 28px; }
+    .logo-item { font-size: 0.85rem; }
+}
+
+/* ── ≤380px: small mobile precision fixes ── */
+@media (max-width: 380px) {
+    /* Hamburger menu: shouldn't be 300px wide on tiny phones */
+    .nav-links { width: calc(100vw - 32px) !important; max-width: 320px; padding: 72px 18px 32px !important; }
+
+    /* Reviews go single column on smallest screens */
+    .review-card {
+        width: calc(100% - 5px) !important;
+        min-width: calc(100% - 5px) !important;
+        max-width: calc(100% - 5px) !important;
+        padding: 16px 14px !important;
+    }
+    .review-card__body { font-size: 0.85rem !important; -webkit-line-clamp: unset !important; }
+
+    /* Hero typography — slightly tighter */
+    .hero-headline { font-size: 1.5rem !important; }
+    .hero-sub { font-size: 0.82rem !important; max-width: 280px; }
+    .btn-hero-primary { min-width: 200px !important; padding: 13px 28px !important; font-size: 0.9rem !important; }
+
+    /* Section titles tighter */
+    .sec-title { font-size: 1.35rem !important; }
+
+    /* Footer single column on tiny */
+    .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .ksf-cols { flex-direction: column !important; gap: 28px !important; }
+
+    /* Live-classes coach cards full width */
+    .lc-expert-card { flex: 0 0 92% !important; }
+    .lc-section-title { font-size: 1.4rem !important; }
+    .lc-hero-headline { font-size: 1.7rem !important; }
+
+    /* Founder hero compact */
+    .founder-hero { padding: 88px 0 48px !important; }
+    .founder-grid { gap: 20px !important; padding: 0 18px !important; }
+
+    /* Browse hero & search */
+    .kb-browse-hero { padding: 32px 0 28px !important; }
+    .kb-browse-hero h1 { font-size: 28px !important; }
+    .kb-browse-hero p { font-size: 14.5px !important; }
+    .kb-browse-search { padding: 6px 6px 6px 14px !important; }
+    .kb-browse-search button { padding: 9px 14px !important; font-size: 13px !important; }
+    .kb-browse-search input { font-size: 14px !important; }
+
+    /* Articles hero */
+    .kb-hero-center { max-width: 100% !important; padding: 0 4px; }
+
+    /* Science hero & cards */
+    .science-hero h1 { font-size: 1.85rem !important; }
+    .stat-big-num { font-size: 2.4rem !important; }
 }

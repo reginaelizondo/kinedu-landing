@@ -186,6 +186,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ── CLASSIC CARD ───────────────────────────────────────────── */
 .kb-card { background: white; border: 1px solid var(--line-2); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; cursor: pointer; text-decoration: none; transition: box-shadow .2s, transform .2s; }
+.kb-card[data-dummy="1"] { display: none !important; }
 .kb-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 .kb-card-img { position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden; background: var(--bg-2); }
 .kb-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); transition: transform .4s ease; }
@@ -428,7 +429,7 @@ img { display: block; max-width: 100%; height: auto; }
       <div class="kb-search">
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
         <input placeholder="Try &ldquo;when do babies sleep through the night&rdquo;" id="blogSearch" type="search" autocomplete="off">
-        <button onclick="doSearch()"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
+        <button onclick="submitSearch()"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
       </div>
       <div id="searchPanel" class="kb-search-panel" style="display:none;"></div>
     </div>
@@ -4238,63 +4239,63 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2014/06/8904595414_b4d6ca25c4_z-600x256.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Kinedu</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Welcome to our blog</div><div class="kb-card-excerpt">Hi! And welcome to the Kinedu blog! We’re glad you’ve visited! For those of you not familiar with Kinedu, Kinedu is an app dedicated to improving kids</div><div class="kb-card-meta">Jun 13, 2014 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/sample-page" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="922" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/sample-page" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="922" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Sample Page</div><div class="kb-card-excerpt">This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). </div><div class="kb-card-meta">Apr 30, 2014 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/news-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="923" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/news-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="923" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item2.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">News- Corporate site template</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 23, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/flaty-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="924" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/flaty-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="924" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item1.png" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">flaty- Corporate site template</div><div class="kb-card-excerpt">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit</div><div class="kb-card-meta">Sep 23, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/theme-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="925" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/theme-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="925" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Theme Development</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare consectetur sodales. Nulla luctus cursus mauris at dapibus. Cras ac felis et neq</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/widget-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="926" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/widget-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="926" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Widget Development</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare consectetur sodales. Nulla luctus cursus mauris at dapibus. Cras ac felis et neq</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/plugin-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="927" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/plugin-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="927" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Plugin Development</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare consectetur sodales. Nulla luctus cursus mauris at dapibus. Cras ac felis et neq</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/tab" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="928" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/tab" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="928" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Tab</div><div class="kb-card-excerpt">[zee_tab category=’0′]   [zee_columns][zee_column size=’6′ id=’column1′] [zee_tab category=’19’][/zee_column][zee_column size=’6′ id=&amp;#</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/mobile" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="929" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/mobile" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="929" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Mobile</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare consectetur sodales. Nulla luctus cursus mauris at dapibus. Cras ac felis et neq</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/video-aps" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="930" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/video-aps" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="930" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Video Aps</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare consectetur sodales. Nulla luctus cursus mauris at dapibus. Cras ac felis et neq</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/testimonial" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="931" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/testimonial" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="931" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Testimonial</div><div class="kb-card-excerpt">[zee_testimonial count=’4′]</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/columns" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="932" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/columns" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="932" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Columns</div><div class="kb-card-excerpt">[zee_columns][zee_column size=’4′ id=’column1′]If the site is set to display the Blog Posts Index as the Front Page, then this text should not be visi</div><div class="kb-card-meta">Sep 19, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/dropcap" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="933" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/dropcap" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="933" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Dropcap</div><div class="kb-card-excerpt">[zee_dropcap]This is a Magazine Style Drop Cap. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore e</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/button" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="934" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/button" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="934" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Button</div><div class="kb-card-excerpt">[zee_button size=” type=’default’ url=’#’ text=’Button’ icon=”]     [zee_button size=” type=’success’ url=’#’ text=’</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/blocknumber" class="kb-card" data-stage="preschool" data-index="935" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/blocknumber" class="kb-card" data-stage="preschool" data-index="935" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Blocknumber</div><div class="kb-card-excerpt">[zee_columns][zee_column size=’4′ id=’column1′][zee_blocknumber number=’01’ color=’#fff’ background=’#34BCF5′ borderradius=”]Lorem ips</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/block" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="936" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/block" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="936" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Block</div><div class="kb-card-excerpt">[zee_columns][zee_column size=’4′ id=’column1′] [zee_block background=’#34495E’ color=’#fff’ borderradius=” padding=’15px’]Lorem ipsum</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
@@ -4314,23 +4315,23 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Basic</div><div class="kb-card-excerpt">5GB Storage 1GB RAM 400GB Bandwidth 10 Email Address Forum Support</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-4" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="941" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-4" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="941" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-3" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="942" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-3" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="942" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="943" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="943" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Lorem ipsum dolor sit amet, consectetuer adipiscing</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-2" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="944" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-2" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="944" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">consectetuer ipsum dolor sit amet</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="945" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="945" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, t</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
@@ -4346,27 +4347,27 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Creative Designer</div><div class="kb-card-excerpt">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dol</div><div class="kb-card-meta">Sep 18, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/services" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="949" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/services" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="949" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Services</div><div class="kb-card-excerpt">What we do Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.     [zee_service category=’11’ column=’3′ num</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/seo-services" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="950" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/seo-services" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="950" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">SEO Services</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/graphic-design" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="951" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/graphic-design" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="951" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Graphic Design</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/linux-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="952" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/linux-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="952" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Linux Development</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/ios-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="953" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/ios-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="953" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">iOS Development</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/windows-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="954" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/windows-development" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="954" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/what-are-baby-growth-charts.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Windows Development</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
@@ -4390,15 +4391,15 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2021/05/apps-to-track-baby-development-600x400.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">About Kinedu</div><div class="kb-card-excerpt">About Kinedu Kinedu is dedicated to improving kids’ outcomes by providing you – mom and dad – with the tools to be a better caregiver. Our toolbox cur</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/powerful-and-responsive-web-design" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="960" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/powerful-and-responsive-web-design" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="960" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Powerful and Responsive Web Design</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/clean-crisp-powerful-and-responsie-web-design-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="961" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/clean-crisp-powerful-and-responsie-web-design-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="961" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Clean, Crisp, Powerful and Responsie Web Design Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.  </div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/powerful-and-responsive-web-design-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="962" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/powerful-and-responsive-web-design-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="962" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Powerful and Responsive Web Design Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
@@ -4406,55 +4407,55 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Blog</div><div class="kb-card-excerpt"></div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/testimonial-4" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="964" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/testimonial-4" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="964" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Testimonial 4</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/testimonial-3" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="965" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/testimonial-3" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="965" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Testimonial 3</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/testimonial-2" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="966" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/testimonial-2" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="966" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Testimonial 2</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/testimonial-1" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="967" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/testimonial-1" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="967" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Testimonial 1</div><div class="kb-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/maxima-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="968" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/maxima-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="968" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item2.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">maxima Theme – Business Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus e</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/sportson-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="969" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/sportson-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="969" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Sporty Theme – Business Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus e</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/appico-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="970" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/appico-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="970" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item1.png" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Appico Theme – Business Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus e</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/flat-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="971" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/flat-theme-business-theme" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="971" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item2.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Flat Theme – Business Theme</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus e</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/nova-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="972" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/nova-corporate-site-template" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="972" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2013/09/item1.png" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Nova – Corporate site template</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.Pellentesque habit</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/google-plus-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="973" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/google-plus-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="973" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Google Plus Marketing</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/facebook-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="974" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/facebook-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="974" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/family-lifestyle.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Facebook Marketing</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/twitter-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="975" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/twitter-marketing" class="kb-card" data-stage="baby newborn prenatal preschool toddler" data-index="975" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://github.com/reginaelizondo/kinedu-landing/releases/download/blog-photos-v2/tips-to-develop-emotional-intelligence-in-children.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Twitter Marketing</div><div class="kb-card-excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
-<a href="https://kinedu-landing.vercel.app/blog/sample-page-2" class="kb-card" data-stage="preschool" data-index="976" data-cat="parenting">
+<a href="https://kinedu-landing.vercel.app/blog/sample-page-2" class="kb-card" data-stage="preschool" data-index="976" data-cat="parenting" data-dummy="1">
   <div class="kb-card-img"><img src="https://blog.kinedu.com/wp-content/uploads/2014/06/590low-600x400.jpg" alt="" loading="lazy"><span class="kb-card-cat-chip">Parenting</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Frontpage</div><div class="kb-card-excerpt">[zee_container class=’emerald’ id=’services’] [zee_service category=’0′ column=’3′ number=’3′][/zee_container]   [zee_container class=&amp;</div><div class="kb-card-meta">Sep 17, 2013 · 3 min read</div></div>
 </a>
@@ -4542,39 +4543,82 @@ img { display: block; max-width: 100%; height: auto; }
 </footer>
 
 <script>
-// Category filter
+// ─── Category filter helpers ──────────────────────────────────────────────────
+function applyCategoryFilter(cats, displayLabel) {
+  // cats: array of strings (data-cat values), or null for "all"
+  // Clear stage filter
+  _activeStage = null;
+  document.querySelectorAll('.kb-stage').forEach(function(c) { c.classList.remove('active'); });
+  var banner = document.getElementById('stageBanner');
+  if (banner) banner.style.display = 'none';
+  // Clear search box
+  var si = document.getElementById('blogSearch');
+  if (si) si.value = '';
+  if (typeof closePanel === 'function') closePanel();
+
+  var cards = document.querySelectorAll('#articleGrid .kb-card');
+  var count = 0;
+
+  if (!cats || cats.length === 0 || cats.indexOf('all') > -1) {
+    // Restore limited view
+    _allShown = false;
+    applyLimit();
+    return;
+  }
+
+  _allShown = true;
+  var wrap = document.getElementById('showAllWrap');
+  if (wrap) wrap.style.display = 'none';
+
+  cards.forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') { card.style.display = 'none'; return; }
+    var c = card.getAttribute('data-cat');
+    var show = cats.indexOf(c) > -1;
+    card.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+
+  document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
+
+  // Show category banner with count
+  if (displayLabel) {
+    var grid = document.getElementById('articleGrid');
+    var b = document.getElementById('stageBanner');
+    if (!b) {
+      b = document.createElement('div');
+      b.id = 'stageBanner';
+      b.className = 'kb-stage-filter-banner';
+      grid.parentElement.insertBefore(b, grid);
+    }
+    b.innerHTML = '<span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>Showing ' + count + ' articles in <strong>' + displayLabel + '</strong></span>' +
+      '<button onclick="clearCategoryFilter()">Clear filter</button>';
+    b.style.display = 'flex';
+  }
+}
+
+function clearCategoryFilter() {
+  document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
+  var allPill = document.querySelector('#catPills .kb-pill[data-cat="all"]');
+  if (allPill) allPill.classList.add('on');
+  var banner = document.getElementById('stageBanner');
+  if (banner) banner.style.display = 'none';
+  _allShown = false;
+  applyLimit();
+  document.getElementById('noResults').style.display = 'none';
+}
+
+// Category filter (pill click)
 document.querySelectorAll('#catPills .kb-pill').forEach(function(pill) {
   pill.addEventListener('click', function() {
     var cat = this.getAttribute('data-cat');
     document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
     this.classList.add('on');
-    // Clear stage filter
-    _activeStage = null;
-    document.querySelectorAll('.kb-stage').forEach(function(c) { c.classList.remove('active'); });
-    var banner = document.getElementById('stageBanner');
-    if (banner) banner.style.display = 'none';
-    // Clear search box
-    var si = document.getElementById('blogSearch');
-    if (si) si.value = '';
-    var cards = document.querySelectorAll('#articleGrid .kb-card');
-    var count = 0;
     if (cat === 'all') {
-      // Restore limited view
-      _allShown = false;
-      applyLimit();
-      count = 6;
+      applyCategoryFilter(null);
     } else {
-      // Show all matching category cards (no limit)
-      _allShown = true;
-      var wrap = document.getElementById('showAllWrap');
-      if (wrap) wrap.style.display = 'none';
-      cards.forEach(function(card) {
-        var show = card.getAttribute('data-cat') === cat;
-        card.style.display = show ? '' : 'none';
-        if (show) count++;
-      });
+      var label = this.textContent.trim();
+      applyCategoryFilter([cat], label);
     }
-    document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
   });
 });
 
@@ -4583,6 +4627,7 @@ var _allShown = false;
 function applyLimit() {
   if (_allShown) return;
   document.querySelectorAll('#articleGrid .kb-card').forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') { card.style.display = 'none'; return; }
     var idx = parseInt(card.getAttribute('data-index'), 10);
     card.style.display = idx < 6 ? '' : 'none';
   });
@@ -4592,6 +4637,7 @@ function applyLimit() {
 function showAllCards() {
   _allShown = true;
   document.querySelectorAll('#articleGrid .kb-card').forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') { card.style.display = 'none'; return; }
     card.style.display = '';
   });
   var wrap = document.getElementById('showAllWrap');
@@ -4600,6 +4646,62 @@ function showAllCards() {
 
 // Apply limit on load
 applyLimit();
+
+// ─── URL param handler: ?cat=X, ?cats=X,Y, ?stage=X ─────────────────────────
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  var cats = params.get('cats');
+  var stage = params.get('stage');
+
+  // Friendly labels
+  var labels = {
+    'sleep': 'Sleep', 'child-development': 'Child Development', 'feeding': 'Feeding',
+    'health': 'Health & Safety', 'parenting': 'Parenting', 'breastfeeding': 'Breastfeeding',
+    'nutrition': 'Nutrition', 'safety': 'Safety', 'cognitive': 'Cognitive',
+    'physical': 'Physical', 'linguistic': 'Linguistic', 'socialandemotional': 'Social & Emotional',
+    'scientificedge': 'Science & Research', 'key-milestones': 'Key Milestones'
+  };
+  var stageLabels = { prenatal: 'Prenatal', newborn: 'Newborn (0–3m)', baby: 'Baby (3–12m)', toddler: 'Toddler (1–3y)', preschool: 'Preschool (3–5y)' };
+
+  function topicLabelFor(cats) {
+    // Pretty topic names for common multi-cat URLs from browse.html
+    var key = cats.slice().sort().join(',');
+    var topics = {
+      'bottlefeeding,breastfeeding,feeding,nutrition': 'Feeding & Nutrition',
+      'health,health-guide,health-pregnancy,healthyhabits,safety': 'Health & Safety',
+      'cognitive,linguistic,physical,socialandemotional': 'Play & Activities',
+      'key-milestones,scientificedge': 'Science & Research'
+    };
+    return topics[key] || cats.map(function(c){return labels[c]||c;}).join(' + ');
+  }
+
+  setTimeout(function() {
+    if (cats) {
+      var arr = cats.split(',').map(function(s){return s.trim();}).filter(Boolean);
+      if (arr.length) {
+        document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
+        applyCategoryFilter(arr, topicLabelFor(arr));
+        var grid = document.getElementById('articleGrid');
+        if (grid) { var navH = (document.getElementById('navbar') || {offsetHeight:72}).offsetHeight || 72; window.scrollTo({top: grid.getBoundingClientRect().top + window.pageYOffset - navH - 24, behavior: 'smooth'}); }
+      }
+    } else if (cat) {
+      document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
+      var pill = document.querySelector('#catPills .kb-pill[data-cat="' + cat + '"]');
+      if (pill) pill.classList.add('on');
+      applyCategoryFilter([cat], labels[cat] || cat.replace(/-/g,' '));
+      var g = document.getElementById('articleGrid');
+      if (g) { var nh = (document.getElementById('navbar') || {offsetHeight:72}).offsetHeight || 72; window.scrollTo({top: g.getBoundingClientRect().top + window.pageYOffset - nh - 24, behavior: 'smooth'}); }
+    } else if (stage) {
+      // Trigger stage filter
+      var stageCard = document.querySelector('.kb-stage[data-stage="' + stage + '"]');
+      if (stageCard) {
+        var fakeEvt = { preventDefault: function() {} };
+        filterByStage(fakeEvt, stageCard);
+      }
+    }
+  }, 50);
+})();
 
 // ── Stage filter ─────────────────────────────────────────────────────────────
 var _activeStage = null;
@@ -4638,6 +4740,7 @@ function filterByStage(e, el) {
   var stageLabel = el.querySelector('h4') ? el.querySelector('h4').textContent : stage;
   var count = 0;
   document.querySelectorAll('#articleGrid .kb-card').forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') { card.style.display = 'none'; return; }
     var ds = card.getAttribute('data-stage') || '';
     var show = ds.split(' ').indexOf(stage) > -1;
     card.style.display = show ? '' : 'none';
@@ -4653,8 +4756,8 @@ function filterByStage(e, el) {
     banner.className = 'kb-stage-filter-banner';
     grid.parentElement.insertBefore(banner, grid);
   }
-  banner.innerHTML = '<span>📌 Mostrando ' + count + ' artículos de <strong>' + stageLabel + '</strong></span>' +
-    '<button onclick="clearStageFilter()">✕ Ver todos</button>';
+  banner.innerHTML = '<span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>Showing ' + count + ' articles for <strong>' + stageLabel + '</strong></span>' +
+    '<button onclick="clearStageFilter()">Clear filter</button>';
   banner.style.display = 'flex';
 
   document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
@@ -4711,13 +4814,13 @@ function highlightText(text, words) {
 function renderPanel(scored, words, phrase, totalMatches) {
   if (!scored.length) {
     searchPanel.innerHTML =
-      '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Sin resultados para "<em>' + phrase + '</em>"</div>' +
-      '<div class="kb-sp-empty"><strong>No encontramos artículos para esa búsqueda.</strong>Prueba con otras palabras como "sueño", "alimentación" o "desarrollo".</div>';
+      '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> No results for "<em>' + phrase + '</em>"</div>' +
+      '<div class="kb-sp-empty"><strong>We couldn\'t find articles for that search.</strong>Try different keywords like "sleep", "feeding" or "development".</div>';
     searchPanel.style.display = '';
     return;
   }
   var top = scored.slice(0, 4);
-  var html = '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Mejores resultados para "<em>' + phrase + '</em>"</div>';
+  var html = '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Top results for "<em>' + phrase + '</em>"</div>';
   top.forEach(function(item) {
     var card  = item.card;
     var href  = card.getAttribute('href');
@@ -4738,8 +4841,8 @@ function renderPanel(scored, words, phrase, totalMatches) {
     html += '</a>';
   });
   var moreCount = totalMatches - top.length;
-  html += '<div class="kb-sp-footer"><span>' + totalMatches + ' artículo' + (totalMatches !== 1 ? 's' : '') + ' encontrado' + (totalMatches !== 1 ? 's' : '') + '</span>';
-  if (moreCount > 0) html += '<a href="#articleGrid" onclick="scrollToGrid(event)">Ver los ' + totalMatches + ' resultados ↓</a>';
+  html += '<div class="kb-sp-footer"><span>' + totalMatches + ' article' + (totalMatches !== 1 ? 's' : '') + ' found</span>';
+  if (moreCount > 0) html += '<a href="#articleGrid" onclick="scrollToGrid(event)">See all ' + totalMatches + ' results ↓</a>';
   html += '</div>';
   searchPanel.innerHTML = html;
   searchPanel.style.display = '';
@@ -4753,6 +4856,19 @@ function scrollToGrid(e) {
 }
 
 function closePanel() { searchPanel.style.display = 'none'; }
+
+// Submit search: run the filter and scroll user to the article grid
+function submitSearch() {
+  doSearch();
+  closePanel();
+  var grid = document.getElementById('articleGrid');
+  if (grid) {
+    var navH = (document.getElementById('navbar') || {offsetHeight: 72}).offsetHeight || 72;
+    var target = grid.getBoundingClientRect().top + window.pageYOffset - navH - 24;
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  }
+  if (searchInput) searchInput.blur();
+}
 
 function doSearch() {
   var raw = searchInput.value;
@@ -4774,9 +4890,10 @@ function doSearch() {
   var phrase = normalizeQ(q);
   var words  = phrase.split(' ').filter(function(w){ return w.length > 1; });
 
-  // Score all cards
+  // Score all cards (skip dummies)
   var scored = [];
   cards.forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') return;
     var s = scoreCard(card, words, phrase);
     if (s > 0) scored.push({ card: card, score: s });
   });
@@ -4793,6 +4910,7 @@ function doSearch() {
   var matchSet = new Set(scored.map(function(i){ return i.card; }));
   // Also show partial word matches (existing broader search)
   cards.forEach(function(card) {
+    if (card.getAttribute('data-dummy') === '1') return;
     var text = normalizeQ(card.textContent);
     var anyWord = words.some(function(w){ return text.includes(w); });
     if (anyWord && !matchSet.has(card)) {
@@ -4812,7 +4930,19 @@ function doSearch() {
 
 searchInput.addEventListener('input', doSearch);
 searchInput.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    doSearch();
+    closePanel();
+    // Scroll to results grid so the user can see ALL matched articles
+    var grid = document.getElementById('articleGrid');
+    if (grid) {
+      var navH = (document.getElementById('navbar') || {offsetHeight: 72}).offsetHeight || 72;
+      var target = grid.getBoundingClientRect().top + window.pageYOffset - navH - 24;
+      window.scrollTo({ top: target, behavior: 'smooth' });
+    }
+    searchInput.blur();
+  }
   if (e.key === 'Escape') { searchInput.value = ''; doSearch(); }
 });
 

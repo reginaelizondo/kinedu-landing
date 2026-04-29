@@ -55,10 +55,12 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 .kb-browse-search button:hover { background: var(--blue-dark); }
 
 /* ── TOPIC PILLS (mobile scroll row) ── */
-.kb-topic-pills { display: flex; gap: 8px; overflow-x: auto; padding: 16px 32px; border-bottom: 1px solid var(--line-2); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.kb-topic-pills { display: flex; gap: 8px; overflow-x: auto; padding: 14px 32px; background: var(--bg-2); border-bottom: 1px solid var(--line-2); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .kb-topic-pills::-webkit-scrollbar { display: none; }
-.kb-topic-pill { display: flex; align-items: center; gap: 6px; white-space: nowrap; background: white; border: 1.5px solid var(--line); border-radius: 100px; padding: 7px 14px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; transition: border-color .12s, background .12s, color .12s; flex-shrink: 0; }
-.kb-topic-pill:hover, .kb-topic-pill.active { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+.kb-topic-pill { display: flex; align-items: center; gap: 6px; white-space: nowrap; background: white; border: 1.5px solid var(--line); border-radius: 100px; padding: 7px 15px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; transition: border-color .15s, background .15s, color .15s, box-shadow .15s; flex-shrink: 0; box-shadow: 0 1px 2px rgba(14,27,44,.04); }
+.kb-topic-pill:hover { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+.kb-topic-pill.active { background: var(--blue); color: white; border-color: var(--blue); box-shadow: 0 2px 10px rgba(43,139,228,.30); }
+.kb-topic-pill.active .kb-topic-pill-count { color: rgba(255,255,255,.72); }
 .kb-topic-pill-count { font-size: 11px; color: var(--muted-2); font-weight: 500; }
 
 /* ── LAYOUT ── */
@@ -148,6 +150,12 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 @media (max-width: 600px) {
   .kb-tc-grid { grid-template-columns: 1fr; }
   .kb-browse-hero { padding: 40px 0 32px; }
+  .kb-topic-pills { padding: 12px 20px; }
+  .kb-age-filter-row { padding: 10px 20px; gap: 10px; }
+  .kb-age-seg { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .kb-age-seg::-webkit-scrollbar { display: none; }
+  .kb-age-pill { padding: 6px 11px; font-size: 12px; }
+  .kb-age-pill-range { display: none; }
 }
 
 /* ── KINEDU.COM FOOTER ── */
@@ -172,12 +180,14 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 }
 
 /* ── AGE FILTER ── */
-.kb-age-filter-row { padding: 14px 32px; background: white; border-bottom: 1px solid var(--line-2); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.kb-age-filter-label { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted-2); white-space: nowrap; margin-right: 4px; }
-.kb-age-pill { display: inline-flex; align-items: center; gap: 7px; padding: 7px 15px; border-radius: 100px; background: var(--bg-2); border: 1.5px solid var(--line); font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: all .15s; white-space: nowrap; font-family: inherit; }
-.kb-age-pill:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-soft); }
-.kb-age-pill.active { background: var(--blue); color: white; border-color: var(--blue); }
-.kb-age-pill-range { font-size: 11px; opacity: .72; font-weight: 400; }
+.kb-age-filter-row { padding: 12px 32px; background: var(--bg-2); border-bottom: 1px solid var(--line-2); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.kb-age-filter-label { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-2); white-space: nowrap; }
+.kb-age-seg { display: inline-flex; align-items: center; background: white; border: 1.5px solid var(--line); border-radius: 100px; padding: 3px; gap: 2px; box-shadow: 0 1px 4px rgba(14,27,44,.06); }
+.kb-age-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border-radius: 100px; background: transparent; border: none; font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: background .15s, color .15s, box-shadow .15s; white-space: nowrap; font-family: inherit; line-height: 1; }
+.kb-age-pill:hover:not(.active) { background: var(--bg-2); color: var(--blue); }
+.kb-age-pill.active { background: var(--blue); color: white; box-shadow: 0 2px 8px rgba(43,139,228,.32); }
+.kb-age-pill.active .kb-age-pill-range { opacity: .78; }
+.kb-age-pill-range { font-size: 11px; opacity: .58; font-weight: 400; }
 .kb-age-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--blue-soft); border: 1.5px solid rgba(43,139,228,.2); border-radius: 12px; padding: 10px 18px; margin-bottom: 24px; font-size: 13.5px; font-weight: 600; color: #1E6FBD; }
 .kb-age-banner button { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; font-weight: 600; padding: 4px 8px; border-radius: 8px; transition: background .12s; font-family: inherit; }
 .kb-age-banner button:hover { background: rgba(43,139,228,.1); color: var(--blue); }
@@ -221,7 +231,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
       <div class="kb-browse-search">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;color:var(--muted-2)"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 11.5l2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         <input id="browseSearch" placeholder='Search articles...' type="search" autocomplete="off">
-        <button onclick="runBrowseSearch()">Search</button>
+        <button onclick="submitBrowseSearch()">Search</button>
       </div>
       <div id="browseSearchPanel" class="kb-sp" style="display:none;"></div>
     </div>
@@ -242,31 +252,33 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 
 <!-- AGE FILTER -->
 <div class="kb-age-filter-row">
-  <span class="kb-age-filter-label">By age:</span>
-  <button class="kb-age-pill active" data-age="all" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    All ages
-  </button>
-  <button class="kb-age-pill" data-age="prenatal" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-    Prenatal <span class="kb-age-pill-range">Pregnancy</span>
-  </button>
-  <button class="kb-age-pill" data-age="newborn" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-    Newborn <span class="kb-age-pill-range">0–3m</span>
-  </button>
-  <button class="kb-age-pill" data-age="baby" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-    Baby <span class="kb-age-pill-range">3–12m</span>
-  </button>
-  <button class="kb-age-pill" data-age="toddler" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    Toddler <span class="kb-age-pill-range">1–3y</span>
-  </button>
-  <button class="kb-age-pill" data-age="preschool" onclick="filterByAge(this)">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-    Preschool <span class="kb-age-pill-range">3–5y</span>
-  </button>
+  <span class="kb-age-filter-label">By age</span>
+  <div class="kb-age-seg">
+    <button class="kb-age-pill active" data-age="all" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      All ages
+    </button>
+    <button class="kb-age-pill" data-age="prenatal" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+      Prenatal <span class="kb-age-pill-range">Pregnancy</span>
+    </button>
+    <button class="kb-age-pill" data-age="newborn" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      Newborn <span class="kb-age-pill-range">0–3m</span>
+    </button>
+    <button class="kb-age-pill" data-age="baby" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+      Baby <span class="kb-age-pill-range">3–12m</span>
+    </button>
+    <button class="kb-age-pill" data-age="toddler" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Toddler <span class="kb-age-pill-range">1–3y</span>
+    </button>
+    <button class="kb-age-pill" data-age="preschool" onclick="filterByAge(this)">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Preschool <span class="kb-age-pill-range">3–5y</span>
+    </button>
+  </div>
 </div>
 
 <!-- LAYOUT -->
@@ -341,7 +353,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Child Development</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=development" class="kb-topic-see-all">See all 446 →</a>
+    <a href="/articles.html?cat=child-development" class="kb-topic-see-all">See all 446 →</a>
   </div>
   <p class="kb-topic-desc">Milestones in cognitive, social, physical and language development.</p>
   <div class="kb-tc-grid">
@@ -378,7 +390,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Feeding & Nutrition</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=feeding" class="kb-topic-see-all">See all 103 →</a>
+    <a href="/articles.html?cats=feeding,breastfeeding,bottlefeeding,nutrition" class="kb-topic-see-all">See all 103 →</a>
   </div>
   <p class="kb-topic-desc">Breastfeeding, bottle feeding, solid foods and nutrition.</p>
   <div class="kb-tc-grid">
@@ -415,7 +427,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Health & Safety</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=health" class="kb-topic-see-all">See all 117 →</a>
+    <a href="/articles.html?cats=health,safety,healthyhabits,health-guide,health-pregnancy" class="kb-topic-see-all">See all 117 →</a>
   </div>
   <p class="kb-topic-desc">Common illnesses, vaccines, baby-proofing and keeping your child safe.</p>
   <div class="kb-tc-grid">
@@ -489,7 +501,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Pregnancy</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=pregnancy" class="kb-topic-see-all">See all 13 →</a>
+    <a href="/articles.html?stage=prenatal" class="kb-topic-see-all">See all 13 →</a>
   </div>
   <p class="kb-topic-desc">What to expect during pregnancy, labor, postpartum and newborn care.</p>
   <div class="kb-tc-grid">
@@ -526,7 +538,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Play & Activities</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=activity" class="kb-topic-see-all">See all 22 →</a>
+    <a href="/articles.html?cats=cognitive,physical,linguistic,socialandemotional" class="kb-topic-see-all">See all 22 →</a>
   </div>
   <p class="kb-topic-desc">Age-appropriate activities, toys and exercises to boost development.</p>
   <div class="kb-tc-grid">
@@ -563,7 +575,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Science & Research</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=science" class="kb-topic-see-all">See all 35 →</a>
+    <a href="/articles.html?cats=scientificedge,key-milestones" class="kb-topic-see-all">See all 35 →</a>
   </div>
   <p class="kb-topic-desc">Pediatric research, expert insights and the science of child development.</p>
   <div class="kb-tc-grid">
@@ -792,8 +804,31 @@ document.addEventListener('keydown', function(e) {
 
 document.getElementById('browseSearch').addEventListener('input', runBrowseSearch);
 document.getElementById('browseSearch').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { e.preventDefault(); runBrowseSearch(); }
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    runBrowseSearch();
+    submitBrowseSearch();
+  }
 });
+
+// Submit: close the AI panel and scroll to first visible section so the user sees all matched articles
+function submitBrowseSearch() {
+  runBrowseSearch();
+  var panel = document.getElementById('browseSearchPanel');
+  if (panel) panel.style.display = 'none';
+  // Find first visible section
+  var firstVisible = null;
+  document.querySelectorAll('.kb-topic-section').forEach(function(s) {
+    if (!firstVisible && s.style.display !== 'none') firstVisible = s;
+  });
+  var target = firstVisible || document.querySelector('.kb-browse-layout');
+  if (target) {
+    var navH = (document.getElementById('navbar') || {offsetHeight: 72}).offsetHeight || 72;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - navH - 24;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+  document.getElementById('browseSearch').blur();
+}
 // Re-open panel on focus if there's already a value
 document.getElementById('browseSearch').addEventListener('focus', function() {
   if (this.value.trim().length >= 2) runBrowseSearch();
