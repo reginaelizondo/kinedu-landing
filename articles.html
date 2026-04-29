@@ -4644,9 +4644,10 @@ function filterByStage(e, el) {
 
   document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
 
-  // Smooth scroll to article grid
-  var top = grid.getBoundingClientRect().top + window.pageYOffset - 90;
-  window.scrollTo({ top: top, behavior: 'smooth' });
+  // Smooth scroll to banner (above the grid), accounting for sticky navbar
+  var navH = (document.getElementById('navbar') || {offsetHeight: 72}).offsetHeight || 72;
+  var scrollTarget = banner.getBoundingClientRect().top + window.pageYOffset - navH - 16;
+  window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
 }
 
 function clearStageFilter() {
