@@ -228,18 +228,18 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-stage-filter-banner button:hover { background: rgba(43,139,228,.1); color: var(--blue); }
 
 /* ── APP CTA ───────────────────────────────────────────────── */
-.kb-app-cta { margin: 64px 0; background: linear-gradient(135deg, var(--blue) 0%, #4A9FE8 100%); border-radius: var(--radius-xl); padding: 56px; color: white; position: relative; overflow: hidden; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
-.kb-app-cta::before { content: ''; position: absolute; top: -30%; right: -10%; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(52,201,137,.35) 0%, transparent 65%); pointer-events: none; }
-.kb-app-cta h2 { font-size: 38px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 14px; text-wrap: balance; }
-.kb-app-cta p { font-size: 16px; opacity: .94; max-width: 440px; margin-bottom: 24px; line-height: 1.5; }
+.kb-app-cta { margin: 64px 0; background: linear-gradient(120deg, #2F7BE0 0%, #4A9FE8 55%, #5BB5F0 100%); border-radius: 28px; padding: 52px 56px; color: white; position: relative; overflow: hidden; display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+.kb-app-cta::before { content: ''; position: absolute; top: -40%; right: -5%; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 60%); pointer-events: none; }
+.kb-app-cta h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px; text-wrap: balance; color: #0E1B2C; }
+.kb-app-cta p { font-size: 15.5px; color: rgba(14,27,44,.75); max-width: 420px; margin-bottom: 28px; line-height: 1.6; }
 .kb-app-cta .stores { display: flex; gap: 12px; flex-wrap: wrap; }
-.kb-app-store-badge { display: flex; align-items: center; gap: 10px; background: var(--ink); padding: 10px 16px; border-radius: 12px; font-size: 13px; font-weight: 600; transition: opacity .15s; }
-.kb-app-store-badge:hover { opacity: .85; }
-.kb-app-store-badge small { display: block; font-size: 10.5px; opacity: .7; font-weight: 500; }
-.kb-app-cta-stats { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.kb-app-cta-stat { background: rgba(255,255,255,.14); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.2); border-radius: 16px; padding: 20px; }
-.kb-app-cta-stat .num { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
-.kb-app-cta-stat .lbl { font-size: 12.5px; opacity: .9; margin-top: 4px; }
+.kb-app-store-badge { display: flex; align-items: center; gap: 10px; background: #0E1B2C; padding: 11px 18px; border-radius: 12px; font-size: 14px; font-weight: 700; color: white; transition: opacity .15s, transform .1s; letter-spacing: -0.01em; }
+.kb-app-store-badge:hover { opacity: .88; transform: translateY(-1px); }
+.kb-app-store-badge small { display: block; font-size: 10px; opacity: .65; font-weight: 500; letter-spacing: 0; }
+.kb-app-cta-stats { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.kb-app-cta-stat { background: rgba(255,255,255,.18); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.28); border-radius: 18px; padding: 22px 20px; }
+.kb-app-cta-stat .num { font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: white; }
+.kb-app-cta-stat .lbl { font-size: 13px; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 500; }
 
 /* ── FOOTER ────────────────────────────────────────────────── */
 .kb-footer { background: var(--ink); color: rgba(255,255,255,.7); padding: 56px 0 32px; }
@@ -333,7 +333,7 @@ img { display: block; max-width: 100%; height: auto; }
   .kb-featured-grid { grid-template-columns: 1fr !important; }
   .kb-stage-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .kb-stage h4 { font-size: 17px; }
-  .kb-app-cta { padding: 32px 24px; margin: 40px 0; border-radius: 20px; }
+  .kb-app-cta { padding: 32px 24px; margin: 40px 0; border-radius: 22px; }
   .kb-app-cta h2 { font-size: 26px; }
   .kb-app-cta p { font-size: 14.5px; margin-bottom: 20px; }
   .kb-section-head { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -4500,7 +4500,7 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="lbl">Pediatric experts</div>
         </div>
         <div class="kb-app-cta-stat">
-          <div class="num">4.8 ★</div>
+          <div class="num" style="display:flex;align-items:center;gap:6px;">4.8 <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFD700" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <div class="lbl">App Store rating</div>
         </div>
       </div>
