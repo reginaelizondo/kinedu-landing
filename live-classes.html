@@ -746,35 +746,35 @@
         @media (max-width: 600px) {
 
             /* Hero */
-            .lc-hero { padding: 84px 18px 40px; }
+            .lc-hero { padding: 96px 22px 56px; }
             .lc-hero-mockup img {
-                max-width: 290px;
+                max-width: 280px;
                 filter: drop-shadow(0 18px 42px rgba(43,139,228,0.18));
             }
-            .lc-hero-mockup { margin-bottom: 4px; }
+            .lc-hero-mockup { margin-bottom: 18px; }
             .lc-h1 {
                 font-size: clamp(1.6rem, 7.2vw, 2.2rem);
-                margin-bottom: 14px;
+                margin-bottom: 18px;
                 text-align: center;
             }
             .lc-h1-sub {
                 font-size: 0.95rem;
                 text-align: center;
-                margin-top: 10px;
+                margin-top: 14px;
             }
-            .lc-coaches-row { margin-bottom: 20px; }
+            .lc-coaches-row { margin-bottom: 28px; margin-top: 4px; }
             .lc-expert-stack { justify-content: center; }
             .lc-coaches-label { font-size: 0.75rem; text-align: center; }
-            .lc-cta-group { gap: 10px; margin-bottom: 20px; width: 100%; }
+            .lc-cta-group { gap: 14px; margin-bottom: 28px; width: 100%; margin-top: 8px; }
             /* Full-width button on mobile */
             .btn-hero-primary { width: 100%; justify-content: center; }
-            .lc-hero-badges { justify-content: center; gap: 8px; }
-            .lc-hero-badges img { height: 36px; }
-            .lc-trust-bar { font-size: 0.75rem; gap: 5px; justify-content: center; }
+            .lc-hero-badges { justify-content: center; gap: 10px; margin-top: 6px; }
+            .lc-hero-badges img { height: 38px; }
+            .lc-trust-bar { font-size: 0.75rem; gap: 5px; justify-content: center; margin-top: 14px; }
 
-            /* Sections */
-            .lc-section { padding: 52px 0; }
-            .lc-wrap { padding: 0 18px; }
+            /* Sections — more breathing room */
+            .lc-section { padding: 64px 0; }
+            .lc-wrap { padding: 0 22px; }
             .lc-h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
             .lc-body { font-size: 0.95rem; }
 
@@ -967,63 +967,63 @@
         @media (max-width: 760px) {
             .lc-vs {
                 grid-template-columns: 1fr;
-                margin: 32px 16px 0;
-                border-radius: 22px;
+                margin: 44px 6px 0;
+                border-radius: 24px;
                 overflow: visible;
             }
             .lc-vs-divider { display: none; }
-            .lc-vs-col { padding: 22px 18px; }
+            .lc-vs-col { padding: 32px 24px; }
             .lc-vs-col--bad {
                 border-bottom: 1px solid var(--border);
-                border-radius: 22px 22px 0 0;
+                border-radius: 24px 24px 0 0;
             }
             .lc-vs-col--good {
                 background: linear-gradient(165deg, #F4FAFE 0%, #EFF8F4 100%);
                 position: relative;
-                border-radius: 0 0 22px 22px;
+                border-radius: 0 0 24px 24px;
             }
             .lc-vs-col--good::before {
                 content: 'VS';
                 position: absolute;
-                top: -16px; left: 50%; transform: translateX(-50%);
+                top: -18px; left: 50%; transform: translateX(-50%);
                 background: white;
                 border: 1.5px solid var(--border);
                 border-radius: 999px;
-                padding: 6px 14px;
-                font-size: 0.7rem;
+                padding: 7px 16px;
+                font-size: 0.72rem;
                 font-weight: 800;
                 letter-spacing: 0.14em;
                 color: var(--text-tertiary);
-                box-shadow: 0 4px 12px rgba(14,27,44,0.08);
+                box-shadow: 0 6px 16px rgba(14,27,44,0.10);
                 z-index: 2;
             }
-            .lc-vs-label { font-size: 0.68rem; margin-bottom: 14px; }
-            .lc-vs-list { margin-bottom: 14px; }
+            .lc-vs-label { font-size: 0.7rem; margin-bottom: 22px; }
+            .lc-vs-list { margin-bottom: 22px; }
             .lc-vs-list li {
-                padding: 9px 0;
-                font-size: 0.86rem;
-                gap: 12px;
+                padding: 14px 0;
+                font-size: 0.9rem;
+                gap: 14px;
             }
             .lc-vs-col--bad .lc-vs-list li .lc-vs-price {
-                font-size: 0.78rem;
+                font-size: 0.82rem;
                 font-weight: 700;
             }
             .lc-vs-total {
-                margin-top: 14px;
-                padding-top: 14px;
+                margin-top: 22px;
+                padding-top: 22px;
             }
-            .lc-vs-total-label { font-size: 0.66rem; margin-bottom: 2px; }
-            .lc-vs-total-num { font-size: 1.85rem; line-height: 1; }
-            .lc-vs-total-sub { font-size: 0.72rem; }
+            .lc-vs-total-label { font-size: 0.7rem; margin-bottom: 6px; }
+            .lc-vs-total-num { font-size: 2rem; line-height: 1; }
+            .lc-vs-total-sub { font-size: 0.78rem; margin-top: 6px; }
         }
 
-        /* ≤480px — even tighter for small phones */
-        @media (max-width: 480px) {
-            .lc-vs { margin: 28px 14px 0; }
-            .lc-vs-col { padding: 20px 16px; }
-            .lc-vs-list li { font-size: 0.82rem; padding: 8px 0; gap: 10px; }
-            .lc-vs-col--bad .lc-vs-list li .lc-vs-price { font-size: 0.74rem; }
-            .lc-vs-total-num { font-size: 1.75rem; }
+        /* ≤420px — slight tighten for very small phones, still breathable */
+        @media (max-width: 420px) {
+            .lc-vs { margin: 40px 4px 0; }
+            .lc-vs-col { padding: 28px 20px; }
+            .lc-vs-list li { font-size: 0.86rem; padding: 12px 0; gap: 12px; }
+            .lc-vs-col--bad .lc-vs-list li .lc-vs-price { font-size: 0.78rem; }
+            .lc-vs-total-num { font-size: 1.85rem; }
         }
     </style>
 </head>
