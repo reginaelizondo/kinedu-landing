@@ -170,6 +170,17 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   .ksf-cols { gap: 40px; }
   .ksf-bottom { padding: 20px; }
 }
+
+/* ── AGE FILTER ── */
+.kb-age-filter-row { padding: 14px 32px; background: white; border-bottom: 1px solid var(--line-2); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.kb-age-filter-label { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted-2); white-space: nowrap; margin-right: 4px; }
+.kb-age-pill { display: inline-flex; align-items: center; gap: 7px; padding: 7px 15px; border-radius: 100px; background: var(--bg-2); border: 1.5px solid var(--line); font-size: 13px; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: all .15s; white-space: nowrap; font-family: inherit; }
+.kb-age-pill:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-soft); }
+.kb-age-pill.active { background: var(--blue); color: white; border-color: var(--blue); }
+.kb-age-pill-range { font-size: 11px; opacity: .72; font-weight: 400; }
+.kb-age-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--blue-soft); border: 1.5px solid rgba(43,139,228,.2); border-radius: 12px; padding: 10px 18px; margin-bottom: 24px; font-size: 13.5px; font-weight: 600; color: #1E6FBD; }
+.kb-age-banner button { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; font-weight: 600; padding: 4px 8px; border-radius: 8px; transition: background .12s; font-family: inherit; }
+.kb-age-banner button:hover { background: rgba(43,139,228,.1); color: var(--blue); }
 </style>
 </head>
 <body class="no-fouc">
@@ -229,6 +240,35 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   <a href="#topic-science" class="kb-topic-pill" data-topic="science"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg> Science & Research <span class="kb-topic-pill-count">35</span></a>
 </div>
 
+<!-- AGE FILTER -->
+<div class="kb-age-filter-row">
+  <span class="kb-age-filter-label">By age:</span>
+  <button class="kb-age-pill active" data-age="all" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    All ages
+  </button>
+  <button class="kb-age-pill" data-age="prenatal" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+    Prenatal <span class="kb-age-pill-range">Pregnancy</span>
+  </button>
+  <button class="kb-age-pill" data-age="newborn" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    Newborn <span class="kb-age-pill-range">0–3m</span>
+  </button>
+  <button class="kb-age-pill" data-age="baby" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+    Baby <span class="kb-age-pill-range">3–12m</span>
+  </button>
+  <button class="kb-age-pill" data-age="toddler" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Toddler <span class="kb-age-pill-range">1–3y</span>
+  </button>
+  <button class="kb-age-pill" data-age="preschool" onclick="filterByAge(this)">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Preschool <span class="kb-age-pill-range">3–5y</span>
+  </button>
+</div>
+
 <!-- LAYOUT -->
 <div class="kb-browse-layout">
 
@@ -249,6 +289,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 
   <!-- MAIN -->
   <main class="kb-browse-main">
+    <div id="ageBanner" class="kb-age-banner" style="display:none;"></div>
     <div id="browseNoResults" class="kb-no-results">
       <strong style="display:block;font-size:18px;margin-bottom:6px;">No articles found</strong>
       Try different keywords like "sleep", "feeding" or "toddler"
@@ -267,21 +308,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Sleep regressions, training, nap schedules and bedtime routines.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/when-do-babies-sleep-through-the-night" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/when-do-babies-sleep-through-the-night" class="kb-tc" data-age="baby toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/baby_sleeps_all_night_long-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">When Do Babies Sleep Through the Night</div>
           <div class="kb-tc-meta">Nov 28, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/how-to-survive-sleepless-nights" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-to-survive-sleepless-nights" class="kb-tc" data-age="newborn baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/tired-mom-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How to Survive Sleepless Nights</div>
           <div class="kb-tc-meta">Nov 26, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/white-noise-for-babies" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/white-noise-for-babies" class="kb-tc" data-age="newborn baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/10/ruido-blanco-bebe-600x400.jpeg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">White Noise For Babies: What Is It And How Does It Work?</div>
@@ -304,21 +345,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Milestones in cognitive, social, physical and language development.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/toys-for-1-year-old" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/toys-for-1-year-old" class="kb-tc" data-age="toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/cute-happy-baby-boy-playing-toys-in-his-child-room-2024-10-30-22-54-58-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Toys for 1-Year-Old</div>
           <div class="kb-tc-meta">Nov 29, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/montessori-toys-for-toddlers" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/montessori-toys-for-toddlers" class="kb-tc" data-age="toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/busy-board-for-children-children-s-educational-to-2024-10-11-07-29-12-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Montessori Toys for Toddlers</div>
           <div class="kb-tc-meta">Nov 29, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/activities-for-2-year-olds-2" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/activities-for-2-year-olds-2" class="kb-tc" data-age="toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/20-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Activities for 2-Year-Olds</div>
@@ -341,21 +382,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Breastfeeding, bottle feeding, solid foods and nutrition.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/can-you-breastfeed-with-implants" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/can-you-breastfeed-with-implants" class="kb-tc" data-age="newborn baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/breastfeed_with_implants-600x400.png" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Can You Breastfeed With Implants?</div>
           <div class="kb-tc-meta">Nov 26, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/what-should-a-6-month-old-feeding-schedule-look-like" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/what-should-a-6-month-old-feeding-schedule-look-like" class="kb-tc" data-age="baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/feeding_schedule-600x400.png" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">What Should a 6-Month Old Feeding Schedule Look Like?</div>
           <div class="kb-tc-meta">Nov 25, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/how-to-burp-a-baby" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-to-burp-a-baby" class="kb-tc" data-age="newborn baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/mother-burping-baby-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How To Burp a Baby?</div>
@@ -378,21 +419,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Common illnesses, vaccines, baby-proofing and keeping your child safe.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/how-to-help-your-child-to-stop-wetting-the-bed" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-to-help-your-child-to-stop-wetting-the-bed" class="kb-tc" data-age="toddler preschool">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/bedwetting-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How to Help Your Child to Stop Wetting the Bed</div>
           <div class="kb-tc-meta">Nov 28, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/how-to-recover-after-a-c-section" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-to-recover-after-a-c-section" class="kb-tc" data-age="newborn">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/c-section_recovery-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How to Recover After a C-Section</div>
           <div class="kb-tc-meta">Nov 28, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/how-serious-is-postpartum-preeclampsia" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-serious-is-postpartum-preeclampsia" class="kb-tc" data-age="newborn">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/postpartum_preecalmpsia-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How Serious Is Postpartum Preeclampsia?</div>
@@ -415,21 +456,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Discipline, routines, screen time, relationships and family life.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/how-to-adjust-my-relationship-after-a-newborn" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/how-to-adjust-my-relationship-after-a-newborn" class="kb-tc" data-age="newborn">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/relationship_adjustments_after_newborn-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How to Adjust My Relationship After a Newborn?</div>
           <div class="kb-tc-meta">Nov 25, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/what-physical-milestones-is-my-13-15-month-old-developing" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/what-physical-milestones-is-my-13-15-month-old-developing" class="kb-tc" data-age="toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/10/mILESTONES12-1.jpeg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">What Physical Milestones is my 13-15 month-old developing?</div>
           <div class="kb-tc-meta">Oct 31, 2024 · 5 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/braxton-hicks-contractions" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/braxton-hicks-contractions" class="kb-tc" data-age="prenatal">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/07/pregnant-woman-s-belly-in-a-gynecological-office-2021-09-01-20-43-34-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Braxton Hicks Contractions: Everything You Need to Know About False Labor Pains</div>
@@ -452,21 +493,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">What to expect during pregnancy, labor, postpartum and newborn care.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/erythroblastosis-fetalis" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/erythroblastosis-fetalis" class="kb-tc" data-age="prenatal">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/10/pregnant-woman-and-doctor-explanation-with-fetus-2023-01-31-03-48-40-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Erythroblastosis Fetalis: What Is It, Symptoms, Prevention, and Treatment</div>
           <div class="kb-tc-meta">Oct 23, 2023 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/when-does-the-baby-drop" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/when-does-the-baby-drop" class="kb-tc" data-age="prenatal">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/09/pregnant-woman-showing-her-belly-2021-09-02-10-31-09-utc-600x400.jpeg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">When Does the Baby Drop?</div>
           <div class="kb-tc-meta">Sep 13, 2023 · 4 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/nipt-test" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/nipt-test" class="kb-tc" data-age="prenatal">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/08/cropped-image-of-pregnant-woman-visiting-doctor-2022-02-14-15-25-34-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">NIPT Test: What it is and How it Works</div>
@@ -489,21 +530,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Age-appropriate activities, toys and exercises to boost development.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/exercise-and-body-care-during-postpartum-taking-care-of-you" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/exercise-and-body-care-during-postpartum-taking-care-of-you" class="kb-tc" data-age="newborn">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2024/11/mom_exercising_yoga-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Exercise and Body Care During Postpartum: Taking Care of You</div>
           <div class="kb-tc-meta">Nov 26, 2024 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/5-things-to-keep-in-mind-when-starting-potty-training" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/5-things-to-keep-in-mind-when-starting-potty-training" class="kb-tc" data-age="toddler">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2017/04/shutterstock_150845006-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">What should you keep in mind when starting potty training?</div>
           <div class="kb-tc-meta">Apr 26, 2017 · 4 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/benefits-of-dancing-during-pregnancy" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/benefits-of-dancing-during-pregnancy" class="kb-tc" data-age="prenatal">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2017/03/ART_PRE_ID_52-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">What are the benefits of dancing?</div>
@@ -526,21 +567,21 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   </div>
   <p class="kb-topic-desc">Pediatric research, expert insights and the science of child development.</p>
   <div class="kb-tc-grid">
-      <a href="https://kinedu-landing.vercel.app/blog/multiple-intelligences" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/multiple-intelligences" class="kb-tc" data-age="baby toddler preschool">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2023/09/baby-boy-sitting-on-picnic-blanket-playing-with-cu-2022-10-17-01-15-19-utc-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Multiple Intelligences: What they are and How to encourage them</div>
           <div class="kb-tc-meta">Sep 08, 2023 · 4 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/challenging-conventional-approaches-to-early-childhood-development" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/challenging-conventional-approaches-to-early-childhood-development" class="kb-tc" data-age="baby toddler preschool">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2020/03/3227-kinedu_challenging-ECD-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">Why does each child develop at their own pace?</div>
           <div class="kb-tc-meta">Mar 02, 2020 · 3 min read</div>
         </div>
       </a>
-      <a href="https://kinedu-landing.vercel.app/blog/building-serve-and-return-interactions-with-your-little-one" class="kb-tc">
+      <a href="https://kinedu-landing.vercel.app/blog/building-serve-and-return-interactions-with-your-little-one" class="kb-tc" data-age="newborn baby">
         <div class="kb-tc-img"><img src="https://blog.kinedu.com/wp-content/uploads/2019/10/3214-ORIGINAL-shutterstock_1465282637-600x400.jpg" alt="" loading="lazy"></div>
         <div class="kb-tc-body">
           <div class="kb-tc-title">How to foster serve and return interactions with your baby</div>
@@ -757,6 +798,63 @@ document.getElementById('browseSearch').addEventListener('keydown', function(e) 
 document.getElementById('browseSearch').addEventListener('focus', function() {
   if (this.value.trim().length >= 2) runBrowseSearch();
 });
+
+// ── Age filter ──
+var _activeAge = 'all';
+var ageLabels = { prenatal:'Prenatal', newborn:'Newborn (0–3m)', baby:'Baby (3–12m)', toddler:'Toddler (1–3y)', preschool:'Preschool (3–5y)' };
+
+function filterByAge(btn) {
+  var age = btn.getAttribute('data-age');
+  if (age === _activeAge) return;
+  _activeAge = age;
+
+  // Update pill active state
+  document.querySelectorAll('.kb-age-pill').forEach(function(p) {
+    p.classList.toggle('active', p.getAttribute('data-age') === age);
+  });
+
+  var banner = document.getElementById('ageBanner');
+
+  if (age === 'all') {
+    // Reset
+    document.querySelectorAll('.kb-tc').forEach(function(c) { c.classList.remove('hidden'); });
+    sections.forEach(function(s) { s.style.display = ''; });
+    banner.style.display = 'none';
+    return;
+  }
+
+  // Show banner
+  var matchCount = 0;
+  document.querySelectorAll('.kb-tc[data-age]').forEach(function(c) {
+    var stages = (c.getAttribute('data-age') || '').split(' ');
+    if (stages.indexOf(age) > -1) matchCount++;
+  });
+  banner.innerHTML = '📌 Showing <strong>' + matchCount + ' articles</strong> for <strong>' + ageLabels[age] + '</strong> <button onclick="resetAgeFilter()">✕ Show all</button>';
+  banner.style.display = 'flex';
+
+  // Filter cards + sections
+  sections.forEach(function(sec) {
+    var cards = sec.querySelectorAll('.kb-tc');
+    var visible = 0;
+    cards.forEach(function(card) {
+      var stages = (card.getAttribute('data-age') || '').split(' ');
+      var show = stages.indexOf(age) > -1;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    sec.style.display = visible === 0 ? 'none' : '';
+  });
+}
+
+function resetAgeFilter() {
+  _activeAge = 'all';
+  document.querySelectorAll('.kb-age-pill').forEach(function(p) {
+    p.classList.toggle('active', p.getAttribute('data-age') === 'all');
+  });
+  document.querySelectorAll('.kb-tc').forEach(function(c) { c.classList.remove('hidden'); });
+  sections.forEach(function(s) { s.style.display = ''; });
+  document.getElementById('ageBanner').style.display = 'none';
+}
 
 // ── Hamburger menu ──
 (function() {
