@@ -591,12 +591,74 @@
         }
 
         /* Testimonials */
-        .lc-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+        /* ── Testimonials carousel ────────────────────────────────────── */
+        .lc-testi-wrap {
+            position: relative;
+            max-width: 1180px;
+            margin: 52px auto 0;
+        }
+        .lc-testi-viewport {
+            overflow: hidden;
+        }
+        .lc-testi-track {
+            display: flex;
+            gap: 24px;
+            transition: transform .5s cubic-bezier(.32,.72,0,1);
+            will-change: transform;
+        }
         .lc-testi-card {
+            flex: 0 0 calc((100% - 48px) / 3); /* 3 visible, 24px gap */
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--r-xl);
             padding: 28px;
+            min-width: 0;
+        }
+        .lc-testi-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .lc-testi-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: white;
+            border: 1.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: background .15s, border-color .15s, transform .15s, opacity .15s;
+            font-family: inherit;
+        }
+        .lc-testi-btn:hover:not(:disabled) {
+            border-color: var(--kinedu-blue);
+            color: var(--kinedu-blue);
+            transform: translateY(-1px);
+        }
+        .lc-testi-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        .lc-testi-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .lc-testi-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background .2s, width .2s;
+        }
+        .lc-testi-dot.active {
+            background: var(--kinedu-blue);
+            width: 22px;
+            border-radius: 6px;
         }
         .lc-testi-stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
         .lc-testi-quote { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
@@ -674,7 +736,7 @@
             .lc-expert-card { flex: 0 0 calc(50% - 10px); }
             .lc-steps { grid-template-columns: 1fr; gap: 12px; }
             .lc-features-grid { grid-template-columns: repeat(2, 1fr); }
-            .lc-testi-grid { grid-template-columns: 1fr; gap: 16px; }
+            .lc-testi-card { flex: 0 0 calc((100% - 24px) / 2); } /* 2 visible on tablet */
             .lc-pricing { padding: 72px 0; }
         }
 
@@ -743,10 +805,19 @@
             .lc-class-title { font-size: 0.85rem; }
             .lc-class-info { padding: 12px 12px; }
 
-            /* Testimonials */
-            .lc-testi-grid { margin-top: 28px; }
-            .lc-testi-card { padding: 20px; }
-            .lc-testi-quote { font-size: 0.85rem; }
+            /* Testimonials — show 2 cards on small mobile via tighter sizing */
+            .lc-testi-wrap { margin-top: 32px; }
+            .lc-testi-track { gap: 14px; }
+            .lc-testi-card { flex: 0 0 calc((100% - 14px) / 2); padding: 18px 16px; }
+            .lc-testi-quote { font-size: 0.83rem; line-height: 1.6; margin-bottom: 14px; }
+            .lc-testi-stars { font-size: 0.8rem; margin-bottom: 10px; }
+            .lc-testi-name { font-size: 0.78rem; }
+            .lc-testi-meta { font-size: 0.7rem; }
+            .lc-testi-author { gap: 8px; }
+            .lc-testi-avatar { width: 32px; height: 32px; }
+            .lc-testi-avatar svg { width: 16px; height: 16px; }
+            .lc-testi-btn { width: 38px; height: 38px; }
+            .lc-testi-nav { gap: 10px; margin-top: 20px; }
 
             /* Pricing CTA */
             .lc-pricing { padding: 60px 0; }
@@ -1474,7 +1545,9 @@
 
             <p class="lc-body lc-body--center" style="max-width:560px;margin-bottom:0;">Real reviews from real Kinedu families on the App Store and Google Play.</p>
 
-            <div class="lc-testi-grid">
+            <div class="lc-testi-wrap" id="testiWrap">
+              <div class="lc-testi-viewport">
+                <div class="lc-testi-track" id="testiTrack">
 
                 <div class="lc-testi-card">
                     <div class="lc-testi-stars">★★★★★</div>
@@ -1560,6 +1633,18 @@
                     </div>
                 </div>
 
+                </div><!-- /.lc-testi-track -->
+              </div><!-- /.lc-testi-viewport -->
+
+              <div class="lc-testi-nav">
+                <button class="lc-testi-btn" id="testiPrev" aria-label="Previous testimonials">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="lc-testi-dots" id="testiDots"></div>
+                <button class="lc-testi-btn" id="testiNext" aria-label="Next testimonials">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
             </div>
         </div>
     </section>
@@ -1975,6 +2060,84 @@
         document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
         if (!isOpen) item.classList.add('open');
     });
+    </script>
+
+    <!-- ── Testimonials carousel ────────────────────────────────────────── -->
+    <script>
+    (function () {
+        var track = document.getElementById('testiTrack');
+        var prev = document.getElementById('testiPrev');
+        var next = document.getElementById('testiNext');
+        var dotsBox = document.getElementById('testiDots');
+        if (!track || !prev || !next || !dotsBox) return;
+
+        var cards = track.querySelectorAll('.lc-testi-card');
+        var total = cards.length;
+        var page = 0;
+
+        function perPage() {
+            var w = window.innerWidth || document.documentElement.clientWidth || 1280;
+            if (w <= 900) return 2;
+            return 3;
+        }
+
+        function totalPages() {
+            return Math.max(1, Math.ceil(total / perPage()));
+        }
+
+        function buildDots() {
+            dotsBox.innerHTML = '';
+            var n = totalPages();
+            for (var i = 0; i < n; i++) {
+                var d = document.createElement('button');
+                d.className = 'lc-testi-dot' + (i === page ? ' active' : '');
+                d.setAttribute('aria-label', 'Go to page ' + (i + 1));
+                d.dataset.page = i;
+                dotsBox.appendChild(d);
+            }
+        }
+
+        function update() {
+            var pp = perPage();
+            var pages = totalPages();
+            if (page > pages - 1) page = pages - 1;
+            if (page < 0) page = 0;
+
+            // Translate by exactly one viewport-width per page (cards + gap fit one viewport).
+            var viewport = track.parentElement;
+            var gap = parseFloat(getComputedStyle(track).gap || getComputedStyle(track).columnGap || '0') || 0;
+            var step = viewport.offsetWidth + gap;
+            track.style.transform = 'translateX(' + (-step * page) + 'px)';
+
+            prev.disabled = page === 0;
+            next.disabled = page >= pages - 1;
+
+            dotsBox.querySelectorAll('.lc-testi-dot').forEach(function (d, i) {
+                d.classList.toggle('active', i === page);
+            });
+        }
+
+        prev.addEventListener('click', function () { page--; update(); });
+        next.addEventListener('click', function () { page++; update(); });
+        dotsBox.addEventListener('click', function (e) {
+            var d = e.target.closest('.lc-testi-dot');
+            if (!d) return;
+            page = parseInt(d.dataset.page, 10) || 0;
+            update();
+        });
+
+        var resizeT;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeT);
+            resizeT = setTimeout(function () {
+                buildDots();
+                update();
+            }, 120);
+        });
+
+        buildDots();
+        update();
+    })();
     </script>
 
 </body>
