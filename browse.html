@@ -75,11 +75,11 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 .kb-topic-section:last-child { border-bottom: 0; }
 .kb-topic-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 6px; gap: 16px; }
 .kb-topic-title-row { display: flex; align-items: center; gap: 14px; }
-.kb-topic-icon { font-size: 32px; line-height: 1; flex-shrink: 0; }
+.kb-topic-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .kb-topic-h2 { font-size: 26px; font-weight: 800; letter-spacing: -.025em; line-height: 1.1; }
 .kb-topic-see-all { white-space: nowrap; font-size: 13.5px; font-weight: 700; color: var(--blue); text-decoration: none; padding: 8px 16px; border: 1.5px solid rgba(43,139,228,.3); border-radius: 10px; transition: background .12s; margin-top: 4px; flex-shrink: 0; }
 .kb-topic-see-all:hover { background: var(--blue-soft); }
-.kb-topic-desc { font-size: 14px; color: var(--muted); margin: 6px 0 24px 46px; line-height: 1.6; max-width: 600px; }
+.kb-topic-desc { font-size: 14px; color: var(--muted); margin: 6px 0 24px 62px; line-height: 1.6; max-width: 600px; }
 
 /* ── TOPIC CARDS ── */
 .kb-tc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -181,14 +181,14 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 
 <!-- TOPIC PILLS (mobile) -->
 <div class="kb-topic-pills" id="topicPills">
-  <a href="#topic-sleep" class="kb-topic-pill" data-topic="sleep">😴 Sleep <span class="kb-topic-pill-count">42</span></a>
-  <a href="#topic-development" class="kb-topic-pill" data-topic="development">🧠 Child Development <span class="kb-topic-pill-count">446</span></a>
-  <a href="#topic-feeding" class="kb-topic-pill" data-topic="feeding">🍼 Feeding & Nutrition <span class="kb-topic-pill-count">103</span></a>
-  <a href="#topic-health" class="kb-topic-pill" data-topic="health">❤️‍🩹 Health & Safety <span class="kb-topic-pill-count">117</span></a>
-  <a href="#topic-parenting" class="kb-topic-pill" data-topic="parenting">🏡 Parenting <span class="kb-topic-pill-count">115</span></a>
-  <a href="#topic-pregnancy" class="kb-topic-pill" data-topic="pregnancy">🤰 Pregnancy <span class="kb-topic-pill-count">13</span></a>
-  <a href="#topic-activity" class="kb-topic-pill" data-topic="activity">🎯 Play & Activities <span class="kb-topic-pill-count">22</span></a>
-  <a href="#topic-science" class="kb-topic-pill" data-topic="science">🔬 Science & Research <span class="kb-topic-pill-count">35</span></a>
+  <a href="#topic-sleep" class="kb-topic-pill" data-topic="sleep"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Sleep <span class="kb-topic-pill-count">42</span></a>
+  <a href="#topic-development" class="kb-topic-pill" data-topic="development"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Child Development <span class="kb-topic-pill-count">446</span></a>
+  <a href="#topic-feeding" class="kb-topic-pill" data-topic="feeding"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Feeding & Nutrition <span class="kb-topic-pill-count">103</span></a>
+  <a href="#topic-health" class="kb-topic-pill" data-topic="health"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Health & Safety <span class="kb-topic-pill-count">117</span></a>
+  <a href="#topic-parenting" class="kb-topic-pill" data-topic="parenting"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Parenting <span class="kb-topic-pill-count">115</span></a>
+  <a href="#topic-pregnancy" class="kb-topic-pill" data-topic="pregnancy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg> Pregnancy <span class="kb-topic-pill-count">13</span></a>
+  <a href="#topic-activity" class="kb-topic-pill" data-topic="activity"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Play & Activities <span class="kb-topic-pill-count">22</span></a>
+  <a href="#topic-science" class="kb-topic-pill" data-topic="science"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg> Science & Research <span class="kb-topic-pill-count">35</span></a>
 </div>
 
 <!-- LAYOUT -->
@@ -198,14 +198,14 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
   <aside class="kb-sidebar">
     <div class="kb-sidebar-inner">
       <div class="kb-sidebar-label">Browse by topic</div>
-    <a href="#topic-sleep" class="kb-nav-item" data-topic="sleep">😴 Sleep <span class="kb-nav-count">42</span></a>
-    <a href="#topic-development" class="kb-nav-item" data-topic="development">🧠 Child Development <span class="kb-nav-count">446</span></a>
-    <a href="#topic-feeding" class="kb-nav-item" data-topic="feeding">🍼 Feeding & Nutrition <span class="kb-nav-count">103</span></a>
-    <a href="#topic-health" class="kb-nav-item" data-topic="health">❤️‍🩹 Health & Safety <span class="kb-nav-count">117</span></a>
-    <a href="#topic-parenting" class="kb-nav-item" data-topic="parenting">🏡 Parenting <span class="kb-nav-count">115</span></a>
-    <a href="#topic-pregnancy" class="kb-nav-item" data-topic="pregnancy">🤰 Pregnancy <span class="kb-nav-count">13</span></a>
-    <a href="#topic-activity" class="kb-nav-item" data-topic="activity">🎯 Play & Activities <span class="kb-nav-count">22</span></a>
-    <a href="#topic-science" class="kb-nav-item" data-topic="science">🔬 Science & Research <span class="kb-nav-count">35</span></a>
+    <a href="#topic-sleep" class="kb-nav-item" data-topic="sleep"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg> Sleep <span class="kb-nav-count">42</span></a>
+    <a href="#topic-development" class="kb-nav-item" data-topic="development"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Child Development <span class="kb-nav-count">446</span></a>
+    <a href="#topic-feeding" class="kb-nav-item" data-topic="feeding"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Feeding & Nutrition <span class="kb-nav-count">103</span></a>
+    <a href="#topic-health" class="kb-nav-item" data-topic="health"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Health & Safety <span class="kb-nav-count">117</span></a>
+    <a href="#topic-parenting" class="kb-nav-item" data-topic="parenting"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Parenting <span class="kb-nav-count">115</span></a>
+    <a href="#topic-pregnancy" class="kb-nav-item" data-topic="pregnancy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg> Pregnancy <span class="kb-nav-count">13</span></a>
+    <a href="#topic-activity" class="kb-nav-item" data-topic="activity"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Play & Activities <span class="kb-nav-count">22</span></a>
+    <a href="#topic-science" class="kb-nav-item" data-topic="science"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg> Science & Research <span class="kb-nav-count">35</span></a>
     </div>
   </aside>
 
@@ -219,7 +219,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-sleep">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">😴</span>
+      <div class="kb-topic-icon" style="background:#EEF0FF;color:#6366F1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">42 articles</div>
         <h2 class="kb-topic-h2">Sleep</h2>
@@ -256,7 +256,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-development">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🧠</span>
+      <div class="kb-topic-icon" style="background:#EAF4FD;color:#2B8BE4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">446 articles</div>
         <h2 class="kb-topic-h2">Child Development</h2>
@@ -293,7 +293,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-feeding">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🍼</span>
+      <div class="kb-topic-icon" style="background:#E6F8EF;color:#1FA66E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">103 articles</div>
         <h2 class="kb-topic-h2">Feeding & Nutrition</h2>
@@ -330,7 +330,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-health">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">❤️‍🩹</span>
+      <div class="kb-topic-icon" style="background:#FFF0F0;color:#E53E3E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">117 articles</div>
         <h2 class="kb-topic-h2">Health & Safety</h2>
@@ -367,7 +367,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-parenting">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🏡</span>
+      <div class="kb-topic-icon" style="background:#FFF4E6;color:#D97706"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">115 articles</div>
         <h2 class="kb-topic-h2">Parenting</h2>
@@ -404,7 +404,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-pregnancy">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🤰</span>
+      <div class="kb-topic-icon" style="background:#FDF4FF;color:#9333EA"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">13 articles</div>
         <h2 class="kb-topic-h2">Pregnancy</h2>
@@ -441,7 +441,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-activity">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🎯</span>
+      <div class="kb-topic-icon" style="background:#FFFBEB;color:#D97706"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">22 articles</div>
         <h2 class="kb-topic-h2">Play & Activities</h2>
@@ -478,7 +478,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <section class="kb-topic-section" id="topic-science">
   <div class="kb-topic-head">
     <div class="kb-topic-title-row">
-      <span class="kb-topic-icon">🔬</span>
+      <div class="kb-topic-icon" style="background:#E0F7FA;color:#0891B2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45L14 9.31V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg></div>
       <div>
         <div class="kb-eyebrow" style="margin-bottom:2px;">35 articles</div>
         <h2 class="kb-topic-h2">Science & Research</h2>
