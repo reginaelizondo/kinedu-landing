@@ -166,6 +166,8 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-hero-b-tags a { color: var(--ink-2); font-weight: 500; transition: color .15s; border-bottom: 1px solid transparent; }
 .kb-hero-b-tags a:hover { color: var(--blue); border-color: var(--blue); }
 .kb-hero-b-tags .sep { color: var(--line); }
+.kb-browse-topic-pill { background: var(--blue-soft); color: var(--blue) !important; font-weight: 700 !important; padding: 5px 13px; border-radius: 99px; border-bottom: 0 !important; display: inline-flex; align-items: center; gap: 5px; transition: background .15s, color .15s; }
+.kb-browse-topic-pill:hover { background: var(--blue) !important; color: white !important; }
 
 /* ── SECTION HEADERS ──────────────────────────────────────────── */
 .kb-section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 28px; gap: 24px; }
@@ -418,6 +420,8 @@ img { display: block; max-width: 100%; height: auto; }
       <a href="https://kinedu-landing.vercel.app/blog/my-18-month-old-isnt-talking">Speech milestones</a>
       <span class="sep">•</span>
       <a href="https://kinedu-landing.vercel.app/blog/when-do-babies-sleep-through-the-night">Sleep training</a>
+      <span class="sep">•</span>
+      <a href="/browse.html" class="kb-browse-topic-pill">📚 Browse all topics →</a>
     </div>
   </div>
 </section>
@@ -431,6 +435,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="kb-eyebrow">Browse by stage</div>
         <h2 class="kb-h2">Every age, covered</h2>
       </div>
+      <a href="/browse.html" class="kb-link">📚 Browse by topic →</a>
     </div>
     <div class="kb-stage-row">
   <a href="#articleGrid" class="kb-stage" data-stage="prenatal" style="--focus:50% 30%;" onclick="filterByStage(event,this)">
