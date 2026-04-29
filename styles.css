@@ -3313,3 +3313,41 @@ section[id], div[id] { scroll-margin-top: 96px; }
     .science-hero h1 { font-size: 1.85rem !important; }
     .stat-big-num { font-size: 2.4rem !important; }
 }
+
+
+/* =========================================
+   KINEDU.COM FOOTER (.ksf) — shared across blog articles + landing pages
+   ========================================= */
+.ksf { background: #4376D0; color: rgba(255,255,255,.85); font-family: var(--font, 'Plus Jakarta Sans', sans-serif); }
+.ksf-inner { max-width: 1200px; margin: 0 auto; padding: 56px 40px 44px; display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,.15); }
+.ksf-brand { max-width: 320px; }
+.ksf-logo { height: 34px; margin-bottom: 16px; filter: brightness(0) invert(1); }
+.ksf-tagline { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,.78); margin-bottom: 24px; }
+.ksf-social { display: flex; gap: 10px; }
+.ksf-social-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.35); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85); transition: background .15s, border-color .15s; text-decoration: none; }
+.ksf-social-btn:hover { background: rgba(255,255,255,.18); border-color: white; color: white; }
+.ksf-cols { display: flex; gap: 72px; }
+.ksf-col h5 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: white; margin-bottom: 16px; }
+.ksf-col a { display: block; font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; padding: 5px 0; transition: color .15s; }
+.ksf-col a:hover { color: white; }
+.ksf-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 40px; text-align: center; font-size: 13px; color: rgba(255,255,255,.5); }
+@media (max-width: 760px) {
+  .ksf-inner { flex-direction: column; padding: 40px 20px 32px; gap: 36px; }
+  .ksf-brand { max-width: 100%; }
+  .ksf-cols { gap: 40px; }
+  .ksf-bottom { padding: 20px; }
+}
+
+/* Article page back-to-blog link */
+.kb-art-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: #2B8BE4;
+  text-decoration: none;
+  margin-bottom: 18px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 99px;
+  background: rgba(43,139,228,.08);
+  transition: background .15s, transform .15s;
+}
+.kb-art-back:hover { background: rgba(43,139,228,.15); transform: translateX(-2px); }
+.kb-art-back svg { width: 14px; height: 14px; flex-shrink: 0; }
