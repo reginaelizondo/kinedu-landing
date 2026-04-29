@@ -171,13 +171,22 @@
         .lc-hero-badges img { height: 40px; width: auto; border-radius: 7px; }
 
         @media (max-width: 900px) {
-            .lc-hero-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-            .lc-hero-grid .lc-cta-group { align-items: center; }
-            .lc-hero-grid .lc-trust-bar { justify-content: center; }
-            .lc-hero-badges { justify-content: center; }
-            .lc-hero-mockup { order: -1; }
+            .lc-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+                justify-items: center;
+            }
+            /* Make .lc-hero-text transparent so its children join the grid order */
+            .lc-hero-text { display: contents; }
+            /* Mobile order: headline → phone → avatars → CTA → trust bar */
+            .lc-h1          { order: 1; }
+            .lc-hero-mockup { order: 2; margin-top: 4px; }
+            .lc-coaches-row { order: 3; }
+            .lc-cta-group   { order: 4; align-items: center; width: 100%; }
+            .lc-trust-bar   { order: 5; justify-content: center; }
             .lc-hero-mockup img { max-width: 260px; }
-            .lc-hero-text { display: flex; flex-direction: column; align-items: center; }
+            .lc-hero-badges { justify-content: center; }
             .lc-spec-pills { justify-content: center; }
             .lc-next-class { display: none; }
             .lc-h1-sub { text-align: center; }
