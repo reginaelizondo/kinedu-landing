@@ -546,6 +546,7 @@
         }
         .lc-day-tab:hover:not(.active) { border-color: #2B8BE4; color: #2B8BE4; }
         .lc-day-tab.active { background: #2B8BE4; border-color: #2B8BE4; color: white; }
+        .lc-day-short { display: none; }
         .lc-day-panel { display: none; flex-direction: column; gap: 10px; }
         .lc-day-panel.active { display: flex; }
 
@@ -803,13 +804,40 @@
             .lc-feature-icon { margin-bottom: 0; flex-shrink: 0; }
             .lc-feature-title { font-size: 0.88rem; }
 
-            /* Upcoming classes */
-            .lc-day-tabs { margin: 24px 0 16px; gap: 6px; }
-            .lc-day-tab { padding: 7px 16px; font-size: 0.8rem; }
-            .lc-class-time { padding: 12px 10px 12px 12px; min-width: 60px; }
-            .lc-class-time-hm { font-size: 0.82rem; }
-            .lc-class-title { font-size: 0.85rem; }
-            .lc-class-info { padding: 12px 12px; }
+            /* Upcoming classes — fits all 5 days on a 375px viewport */
+            .lc-day-tabs {
+                margin: 28px 0 22px;
+                gap: 6px;
+                justify-content: center;
+                padding: 0 4px;
+            }
+            .lc-day-tab { padding: 9px 0; flex: 1 1 0; font-size: 0.82rem; min-width: 0; }
+            .lc-day-full { display: none; }
+            .lc-day-short { display: inline; }
+
+            .lc-classes-list { gap: 12px; }
+            .lc-class-row { border-radius: 14px; }
+            .lc-class-time {
+                padding: 14px 10px 14px 14px;
+                min-width: 64px;
+            }
+            .lc-class-time-hm { font-size: 0.95rem; font-weight: 800; }
+            .lc-class-time-dur { font-size: 0.68rem; margin-top: 2px; }
+            .lc-class-info {
+                padding: 14px 16px 14px 14px;
+                border-left-width: 3px;
+            }
+            .lc-class-title {
+                font-size: 0.92rem;
+                line-height: 1.32;
+                margin-bottom: 8px;
+            }
+            .lc-class-meta {
+                font-size: 0.74rem;
+                gap: 10px;
+                row-gap: 4px;
+            }
+            .lc-class-avatar-img { width: 20px; height: 20px; }
 
             /* Testimonials — show 2 cards on small mobile via tighter sizing */
             .lc-testi-wrap { margin-top: 32px; }
@@ -1307,11 +1335,11 @@
 
             <!-- Day tabs -->
             <div class="lc-day-tabs" role="tablist">
-                <button class="lc-day-tab active" data-day="mon" role="tab">Monday</button>
-                <button class="lc-day-tab" data-day="tue" role="tab">Tuesday</button>
-                <button class="lc-day-tab" data-day="wed" role="tab">Wednesday</button>
-                <button class="lc-day-tab" data-day="thu" role="tab">Thursday</button>
-                <button class="lc-day-tab" data-day="fri" role="tab">Friday</button>
+                <button class="lc-day-tab active" data-day="mon" role="tab"><span class="lc-day-full">Monday</span><span class="lc-day-short">Mon</span></button>
+                <button class="lc-day-tab" data-day="tue" role="tab"><span class="lc-day-full">Tuesday</span><span class="lc-day-short">Tue</span></button>
+                <button class="lc-day-tab" data-day="wed" role="tab"><span class="lc-day-full">Wednesday</span><span class="lc-day-short">Wed</span></button>
+                <button class="lc-day-tab" data-day="thu" role="tab"><span class="lc-day-full">Thursday</span><span class="lc-day-short">Thu</span></button>
+                <button class="lc-day-tab" data-day="fri" role="tab"><span class="lc-day-full">Friday</span><span class="lc-day-short">Fri</span></button>
             </div>
 
             <!-- Monday -->
