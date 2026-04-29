@@ -103,6 +103,55 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-search input::placeholder { color: var(--muted-2); }
 .kb-search button { background: var(--blue); color: white; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; white-space: nowrap; transition: background .15s, transform .1s; letter-spacing: -0.01em; }
 .kb-search button:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+/* ---- AI Search Panel ---- */
+.kb-search-wrap { position: relative; max-width: 660px; margin: 0 auto; }
+.kb-search-wrap .kb-search { max-width: 100%; margin: 0; }
+.kb-search-panel {
+  position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 200;
+  background: white; border-radius: 20px;
+  border: 1.5px solid var(--line);
+  box-shadow: 0 16px 48px rgba(14,27,44,.13), 0 4px 12px rgba(14,27,44,.07);
+  overflow: hidden;
+  animation: spPop .18s ease-out;
+}
+@keyframes spPop { from { opacity:0; transform:translateY(-6px) scale(.98); } to { opacity:1; transform:none; } }
+.kb-sp-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 18px 10px;
+  font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--muted); border-bottom: 1px solid var(--line-2);
+}
+.kb-sp-header svg { flex-shrink: 0; }
+.kb-sp-header em { font-style: normal; color: var(--ink); }
+.kb-sp-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 18px; text-decoration: none; color: inherit;
+  transition: background .12s;
+  border-bottom: 1px solid var(--line-2);
+}
+.kb-sp-item:last-child { border-bottom: 0; }
+.kb-sp-item:hover { background: var(--bg-2); }
+.kb-sp-thumb {
+  width: 62px; height: 50px; border-radius: 10px;
+  object-fit: cover; flex-shrink: 0;
+  background: var(--line-2);
+}
+.kb-sp-text { flex: 1; min-width: 0; }
+.kb-sp-cat { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+.kb-sp-title { font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kb-sp-title mark { background: transparent; color: var(--blue); font-weight: 800; }
+.kb-sp-excerpt { font-size: 12.5px; color: var(--muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.kb-sp-arrow { color: var(--muted-2); flex-shrink: 0; }
+.kb-sp-footer {
+  padding: 10px 18px; font-size: 12.5px; color: var(--muted);
+  background: var(--bg-2); display: flex; align-items: center; justify-content: space-between;
+}
+.kb-sp-footer a { color: var(--blue); font-weight: 600; text-decoration: none; }
+.kb-sp-footer a:hover { text-decoration: underline; }
+.kb-sp-empty { padding: 24px 18px; text-align: center; color: var(--muted); font-size: 14px; }
+.kb-sp-empty strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+
 .kb-hero-b-tags {
   display: flex;
   align-items: center;
@@ -347,10 +396,13 @@ img { display: block; max-width: 100%; height: auto; }
       <h1 class="kb-hero-b-title">The questions parents<br>really ask, <em>answered<br>by experts.</em></h1>
       <p class="kb-hero-sub">977 articles written by pediatricians, sleep coaches, and development specialists — for every stage of your child's first 6 years.</p>
     </div>
-    <div class="kb-search">
-      <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-      <input placeholder="Try &ldquo;when do babies sleep through the night&rdquo;" id="blogSearch" type="search">
-      <button onclick="doSearch()"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
+    <div class="kb-search-wrap">
+      <div class="kb-search">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <input placeholder="Try &ldquo;when do babies sleep through the night&rdquo;" id="blogSearch" type="search" autocomplete="off">
+        <button onclick="doSearch()"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
+      </div>
+      <div id="searchPanel" class="kb-search-panel" style="display:none;"></div>
     </div>
     <div class="kb-hero-b-tags">
       <span class="label">Trending:</span>
@@ -4524,41 +4576,150 @@ function showAllCards() {
 // Apply limit on load
 applyLimit();
 
-// Search
+// ── AI-style Search ──────────────────────────────────────────────────────────
+var searchInput = document.getElementById('blogSearch');
+var searchPanel = document.getElementById('searchPanel');
+
+function normalizeQ(s) { return s.toLowerCase().replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim(); }
+
+function scoreCard(card, words, phrase) {
+  var title   = (card.querySelector('.kb-card-title')   || {}).textContent || '';
+  var excerpt = (card.querySelector('.kb-card-excerpt') || {}).textContent || '';
+  var tN = normalizeQ(title), eN = normalizeQ(excerpt);
+  var score = 0;
+  // Exact phrase
+  if (tN.includes(phrase)) score += 50;
+  if (eN.includes(phrase)) score += 12;
+  // Individual words
+  words.forEach(function(w) {
+    if (tN.includes(w)) score += 15;
+    if (eN.includes(w)) score += 5;
+  });
+  return score;
+}
+
+function highlightText(text, words) {
+  var safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  words.forEach(function(w) {
+    if (!w) return;
+    var re = new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+    safe = safe.replace(re, '<mark>$1</mark>');
+  });
+  return safe;
+}
+
+function renderPanel(scored, words, phrase, totalMatches) {
+  if (!scored.length) {
+    searchPanel.innerHTML =
+      '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Sin resultados para "<em>' + phrase + '</em>"</div>' +
+      '<div class="kb-sp-empty"><strong>No encontramos artículos para esa búsqueda.</strong>Prueba con otras palabras como "sueño", "alimentación" o "desarrollo".</div>';
+    searchPanel.style.display = '';
+    return;
+  }
+  var top = scored.slice(0, 4);
+  var html = '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Mejores resultados para "<em>' + phrase + '</em>"</div>';
+  top.forEach(function(item) {
+    var card  = item.card;
+    var href  = card.getAttribute('href');
+    var img   = (card.querySelector('.kb-card-img img') || {}).src || '';
+    var cat   = (card.querySelector('.kb-card-cat-chip') || {}).textContent || '';
+    var title = (card.querySelector('.kb-card-title')   || {}).textContent || '';
+    var exc   = (card.querySelector('.kb-card-excerpt') || {}).textContent || '';
+    // Trim excerpt to ~90 chars around first match
+    var excTrimmed = exc.length > 100 ? exc.slice(0,97) + '…' : exc;
+    html += '<a href="' + href + '" class="kb-sp-item">';
+    if (img) html += '<img class="kb-sp-thumb" src="' + img + '" loading="lazy" alt="">';
+    html += '<div class="kb-sp-text">';
+    if (cat) html += '<div class="kb-sp-cat">' + cat + '</div>';
+    html += '<div class="kb-sp-title">' + highlightText(title, words) + '</div>';
+    html += '<div class="kb-sp-excerpt">' + highlightText(excTrimmed, words) + '</div>';
+    html += '</div>';
+    html += '<svg class="kb-sp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    html += '</a>';
+  });
+  var moreCount = totalMatches - top.length;
+  html += '<div class="kb-sp-footer"><span>' + totalMatches + ' artículo' + (totalMatches !== 1 ? 's' : '') + ' encontrado' + (totalMatches !== 1 ? 's' : '') + '</span>';
+  if (moreCount > 0) html += '<a href="#articleGrid" onclick="scrollToGrid(event)">Ver los ' + totalMatches + ' resultados ↓</a>';
+  html += '</div>';
+  searchPanel.innerHTML = html;
+  searchPanel.style.display = '';
+}
+
+function scrollToGrid(e) {
+  e.preventDefault();
+  var grid = document.getElementById('articleGrid');
+  if (grid) { var top = grid.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({top: top, behavior:'smooth'}); }
+  closePanel();
+}
+
+function closePanel() { searchPanel.style.display = 'none'; }
+
 function doSearch() {
-  var q = document.getElementById('blogSearch').value.toLowerCase().trim();
+  var raw = searchInput.value;
+  var q   = raw.toLowerCase().trim();
   var cards = document.querySelectorAll('#articleGrid .kb-card');
   var count = 0;
+
   if (!q) {
-    // Empty query → restore limited view and "All" pill
+    closePanel();
     _allShown = false;
     applyLimit();
-    cards.forEach(function(card) { if (parseInt(card.getAttribute('data-index'),10) < 6) count++; });
     document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
     var allPill = document.querySelector('#catPills .kb-pill[data-cat="all"]');
     if (allPill) allPill.classList.add('on');
     document.getElementById('noResults').style.display = 'none';
     return;
   }
-  // Search → show all matching results (ignore limit)
+
+  var phrase = normalizeQ(q);
+  var words  = phrase.split(' ').filter(function(w){ return w.length > 1; });
+
+  // Score all cards
+  var scored = [];
+  cards.forEach(function(card) {
+    var s = scoreCard(card, words, phrase);
+    if (s > 0) scored.push({ card: card, score: s });
+  });
+  scored.sort(function(a,b){ return b.score - a.score; });
+
+  // Show ALL matching cards in grid (sorted by score via reordering)
   _allShown = true;
   var wrap = document.getElementById('showAllWrap');
   if (wrap) wrap.style.display = 'none';
-  var qNorm = q.replace(/[-–—]/g, ' ').replace(/\s+/g, ' ');
+
+  // Hide non-matching, show matching in score order
+  var grid = document.getElementById('articleGrid');
+  cards.forEach(function(card) { card.style.display = 'none'; });
+  var matchSet = new Set(scored.map(function(i){ return i.card; }));
+  // Also show partial word matches (existing broader search)
   cards.forEach(function(card) {
-    var text = card.textContent.toLowerCase();
-    var textNorm = text.replace(/[-–—]/g, ' ').replace(/\s+/g, ' ');
-    var show = text.includes(q) || textNorm.includes(qNorm);
-    card.style.display = show ? '' : 'none';
-    if (show) count++;
+    var text = normalizeQ(card.textContent);
+    var anyWord = words.some(function(w){ return text.includes(w); });
+    if (anyWord && !matchSet.has(card)) {
+      scored.push({ card: card, score: 1 });
+      matchSet.add(card);
+    }
   });
+  scored.sort(function(a,b){ return b.score - a.score; });
+  scored.forEach(function(item) { item.card.style.display = ''; count++; });
+
+  // Render inline panel with top results
+  renderPanel(scored, words, raw.trim(), count);
+
   document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
   document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
 }
-var searchInput = document.getElementById('blogSearch');
+
 searchInput.addEventListener('input', doSearch);
 searchInput.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+  if (e.key === 'Escape') { searchInput.value = ''; doSearch(); }
+});
+
+// Close panel when clicking outside
+document.addEventListener('click', function(e) {
+  var wrap = document.querySelector('.kb-search-wrap');
+  if (wrap && !wrap.contains(e.target)) closePanel();
 });
 </script>
 <script src="/translations.js"></script>
