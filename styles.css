@@ -3515,3 +3515,105 @@ section[id], div[id] { scroll-margin-top: 96px; }
   .kb-app-store-badge small { font-size: 9px; }
   .kb-app-store-badge div > *:last-child { font-size: 14.5px; }
 }
+
+
+/* =========================================
+   BLOG ARTICLE PAGE — MOBILE POLISH
+   Applies to /blog/*.html (all 978 articles)
+   ========================================= */
+
+/* ── ≤768px: tablet/mobile general ───────────────────────────── */
+@media (max-width: 768px) {
+  .kb-art-wrap { padding: 0 20px !important; max-width: 100% !important; }
+  .kb-art-head { padding: 20px 0 24px !important; }
+  .kb-art-cat { font-size: 11px; margin-bottom: 10px; }
+
+  /* Title — stronger downscale than the existing 640px rule */
+  .kb-art-title { font-size: 30px !important; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .kb-art-dek { font-size: 16px !important; line-height: 1.5; }
+
+  /* Author meta — stack instead of single overflowing row */
+  .kb-art-meta {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 16px 0;
+    margin: 22px 0;
+    font-size: 13px;
+  }
+  .kb-art-meta .spacer { display: none; }
+  .kb-art-meta > span { font-size: 12.5px; }
+  .kb-art-meta .author-name { font-size: 13.5px; }
+  .kb-art-meta .author-role { font-size: 12px; }
+  .kb-art-meta .avatar { width: 34px; height: 34px; }
+
+  /* Cover image — smaller margin, slightly less round */
+  .kb-art-cover { aspect-ratio: 4/3; border-radius: 16px; margin-bottom: 22px; }
+
+  /* Body typography */
+  .kb-art-body p { font-size: 16px !important; line-height: 1.65 !important; margin: 0 0 18px !important; }
+  .kb-art-body h2 { font-size: 22px !important; margin: 28px 0 12px !important; line-height: 1.2; }
+  .kb-art-body h3 { font-size: 18px !important; margin: 22px 0 10px !important; line-height: 1.25; }
+  .kb-art-body ul { margin: 0 0 18px !important; }
+  .kb-art-body ul li { font-size: 15.5px !important; padding: 6px 0 6px 26px !important; line-height: 1.55 !important; }
+  .kb-art-body ul li::before { left: 2px; top: 15px; width: 12px; }
+  .kb-art-body ol { padding-left: 22px !important; margin: 0 0 18px !important; }
+  .kb-art-body ol li { font-size: 15.5px !important; padding: 4px 0; line-height: 1.55; }
+  .kb-art-body blockquote {
+    margin: 24px 0 !important;
+    padding: 18px 20px !important;
+    font-size: 16.5px !important;
+    line-height: 1.5 !important;
+    border-radius: 4px 12px 12px 4px;
+  }
+  .kb-art-body img,
+  .kb-art-body figure img {
+    border-radius: 14px;
+    margin: 18px 0 !important;
+  }
+  .kb-art-body figure figcaption,
+  .kb-art-body .caption { font-size: 13px !important; }
+  .kb-art-body strong, .kb-art-body b { font-weight: 700; }
+  .kb-art-body a { word-break: break-word; }
+  .kb-art-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  .kb-art-body iframe,
+  .kb-art-body video { width: 100% !important; max-width: 100% !important; border-radius: 14px; }
+
+  /* 2-col layout already collapses to 1 at 960px — tighten padding */
+  .kb-art-2col { padding: 0 20px !important; gap: 0 !important; }
+  .kb-art-toc { display: none !important; }
+
+  /* Slim CTA — if used */
+  .kb-art-slim-cta { padding: 0 20px 40px !important; }
+  .kb-art-slim-cta-inner { flex-direction: column !important; padding: 22px !important; gap: 14px !important; text-align: center; }
+}
+
+/* ── ≤480px: small phone — tighter still ─────────────────────── */
+@media (max-width: 480px) {
+  .kb-art-wrap { padding: 0 16px !important; }
+  .kb-art-2col { padding: 0 16px !important; }
+  .kb-art-title { font-size: 26px !important; }
+  .kb-art-dek { font-size: 15px !important; }
+
+  .kb-art-meta {
+    gap: 8px 12px;
+    margin: 18px 0;
+  }
+  .kb-art-meta .avatar { width: 32px; height: 32px; }
+  .kb-art-meta .author-name { font-size: 13px; }
+  .kb-art-meta .author-role { font-size: 11.5px; }
+
+  .kb-art-cover { border-radius: 14px; margin-bottom: 18px; }
+
+  .kb-art-body p { font-size: 15.5px !important; margin: 0 0 16px !important; }
+  .kb-art-body h2 { font-size: 20px !important; margin: 24px 0 10px !important; }
+  .kb-art-body h3 { font-size: 17px !important; margin: 20px 0 8px !important; }
+  .kb-art-body ul li { font-size: 15px !important; padding: 5px 0 5px 24px !important; }
+  .kb-art-body blockquote {
+    padding: 16px 18px !important;
+    font-size: 15.5px !important;
+  }
+
+  /* Back-to-blog button — tighter */
+  .kb-art-back { font-size: 13px; padding: 5px 12px 5px 9px; margin-bottom: 14px; }
+  .kb-art-back svg { width: 13px; height: 13px; }
+}
