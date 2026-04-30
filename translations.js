@@ -247,9 +247,16 @@ window.TRANSLATIONS = {
     'lc.hero.trustHarvard': 'Harvard-backed',
     'lc.hero.trustPedi': 'Pediatrician recommended',
 
-    // PAS — Problem · Agitate · Solve
-    'lc.pas.title': 'It\'s 2am. Your baby won\'t latch. Google has <em>23 different answers</em>.',
-    'lc.pas.body': 'You\'re not alone. Every Kinedu member has live, daily access to certified experts — pediatricians, IBCLCs, sleep coaches, psychologists. Ask your exact question. Get an answer for <em>your</em> baby.',
+    // PAS — Problem · Agitate (3 pain cards)
+    'lc.pas.eyebrow': 'If this sounds like you…',
+    'lc.pas.title': 'You shouldn\'t have to <span class="lc-highlight">raise a baby with a Google tab open at 2am</span>.',
+    'lc.pas.body': 'Most new parents end up piecing it together. A forum here, a TikTok there, a $300 sleep package when nights fall apart. None of it is for your baby specifically. All of it costs you sleep — and money.',
+    'lc.pas.card1.title': 'Generic advice that doesn\'t fit',
+    'lc.pas.card1.body': '"Wake windows" articles written for someone else\'s baby. The advice never matches your kid.',
+    'lc.pas.card2.title': '$300 for one sleep call. $200 for one latch.',
+    'lc.pas.card2.body': 'Each specialist charges separately. By month 12, most families have spent over $1,000 stitching together help.',
+    'lc.pas.card3.title': 'Doubt creeping in every night',
+    'lc.pas.card3.body': '"Am I doing this right?" is the most expensive question in parenthood. You shouldn\'t have to ask it alone.',
 
     // Meet the experts
     'lc.experts.title': 'The <span class="lc-grad">experts</span> in your pocket.',
@@ -608,9 +615,16 @@ window.TRANSLATIONS = {
     'lc.hero.trustHarvard': 'Respaldado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
-    // PAS — Problem · Agitate · Solve
-    'lc.pas.title': 'Son las 2am. Tu bebé no se prende al pecho. Google te da <em>23 respuestas distintas</em>.',
-    'lc.pas.body': 'No estás sola. Cada miembro de Kinedu accede en vivo, todos los días, a expertos certificados — pediatras, asesoras de lactancia, coaches de sueño, psicólogas. Haz tu pregunta exacta. Recibe una respuesta para <em>tu</em> bebé.',
+    // PAS — Problem · Agitate (3 pain cards)
+    'lc.pas.eyebrow': 'Si esto te suena…',
+    'lc.pas.title': 'No deberías tener que <span class="lc-highlight">criar a tu bebé con una pestaña de Google abierta a las 2am</span>.',
+    'lc.pas.body': 'La mayoría de los papás nuevos terminan armando la respuesta a pedacitos. Un foro aquí, un TikTok allá, un paquete de sueño de $300 cuando las noches se vienen abajo. Nada de eso está pensado para tu bebé específicamente. Y todo te cuesta sueño — y dinero.',
+    'lc.pas.card1.title': 'Consejos genéricos que no encajan',
+    'lc.pas.card1.body': 'Artículos de "ventanas de sueño" escritos para el bebé de alguien más. El consejo nunca le queda al tuyo.',
+    'lc.pas.card2.title': '$300 por una asesoría de sueño. $200 por una de lactancia.',
+    'lc.pas.card2.body': 'Cada especialista cobra por separado. Para el mes 12, la mayoría de las familias ha gastado más de $1,000 armando ayuda por su cuenta.',
+    'lc.pas.card3.title': 'La duda que aparece cada noche',
+    'lc.pas.card3.body': '"¿Lo estaré haciendo bien?" es la pregunta más cara de la maternidad. No deberías tener que hacértela sola.',
 
     // Meet the experts
     'lc.experts.title': 'Los <span class="lc-grad">expertos</span> en tu bolsillo.',
@@ -969,9 +983,16 @@ window.TRANSLATIONS = {
     'lc.hero.trustHarvard': 'Apoiado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
-    // PAS — Problem · Agitate · Solve
-    'lc.pas.title': 'São 2 da manhã. Seu bebê não pega o peito. O Google dá <em>23 respostas diferentes</em>.',
-    'lc.pas.body': 'Você não está sozinha. Todo membro Kinedu tem acesso ao vivo, todos os dias, a especialistas certificados — pediatras, consultoras IBCLC, coaches do sono, psicólogas. Faça sua pergunta exata. Receba uma resposta para <em>o seu</em> bebê.',
+    // PAS — Problem · Agitate (3 pain cards)
+    'lc.pas.eyebrow': 'Se isso se parece com você…',
+    'lc.pas.title': 'Você não deveria ter que <span class="lc-highlight">criar um bebê com uma aba do Google aberta às 2 da manhã</span>.',
+    'lc.pas.body': 'A maioria dos pais novos acaba juntando as respostas em pedaços. Um fórum aqui, um TikTok ali, um pacote de sono de R$ 1.500 quando as noites desabam. Nada disso é pensado para o seu bebê. E tudo custa sono — e dinheiro.',
+    'lc.pas.card1.title': 'Conselhos genéricos que não servem',
+    'lc.pas.card1.body': 'Artigos de "janelas de sono" escritos para o bebê de outra pessoa. O conselho nunca encaixa no seu.',
+    'lc.pas.card2.title': 'R$ 600 por uma consulta de sono. R$ 400 por uma de amamentação.',
+    'lc.pas.card2.body': 'Cada especialista cobra à parte. Até o 12º mês, a maioria das famílias já gastou mais de R$ 3.000 montando ajuda por conta própria.',
+    'lc.pas.card3.title': 'A dúvida que volta toda noite',
+    'lc.pas.card3.body': '"Será que estou fazendo certo?" é a pergunta mais cara da maternidade. Você não deveria ter que fazê-la sozinha.',
 
     // Meet the experts
     'lc.experts.title': 'Os <span class="lc-grad">especialistas</span> no seu bolso.',

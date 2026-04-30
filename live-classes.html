@@ -270,20 +270,75 @@
         }
         .lc-body--center { margin: 0 auto; text-align: center; }
 
-        /* PAS section — emotional pause between hero and experts */
-        .lc-pas { padding: 96px 0 88px; }
+        /* PAS section — Problem · Agitate (with 3 pain cards) */
+        .lc-pas {
+            padding: 96px 0 104px;
+            background: var(--bg-secondary);
+        }
+        .lc-pas-eyebrow { margin-bottom: 24px; }
         .lc-pas-title {
-            font-size: clamp(1.85rem, 4.4vw, 3rem);
-            max-width: 880px; margin-left: auto; margin-right: auto;
-            margin-bottom: 22px;
+            font-size: clamp(2rem, 4.6vw, 3.2rem);
+            max-width: 880px;
+            margin-bottom: 24px;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
         }
         .lc-pas-body {
-            max-width: 640px; font-size: 1.1rem;
+            max-width: 620px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0;
         }
-        .lc-pas-body em { font-style: italic; color: var(--kinedu-blue); font-weight: 600; }
+        .lc-highlight {
+            background-image: linear-gradient(180deg, transparent 55%, rgba(43,139,228,0.22) 55%, rgba(76,217,100,0.22) 100%);
+            padding: 0 0.06em;
+            border-radius: 2px;
+        }
+
+        .lc-pas-cards {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+            margin-top: 56px;
+        }
+        .lc-pas-card {
+            background: #FFFFFF;
+            border-radius: var(--r-lg);
+            padding: 32px 28px;
+            border: 1px solid rgba(43,139,228,0.08);
+            box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 8px 24px rgba(43,139,228,0.05);
+            display: flex; flex-direction: column; gap: 12px;
+            text-align: left;
+            transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s;
+        }
+        .lc-pas-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 14px 32px rgba(43,139,228,0.10);
+        }
+        .lc-pas-card-emoji {
+            font-size: 2rem; line-height: 1;
+            margin-bottom: 4px;
+        }
+        .lc-pas-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem; font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+            letter-spacing: -0.012em;
+            margin: 0;
+        }
+        .lc-pas-card-body {
+            font-size: 0.94rem; line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .lc-pas-cards { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
+        }
         @media (max-width: 640px) {
-            .lc-pas { padding: 64px 0 56px; }
+            .lc-pas { padding: 64px 0 72px; }
             .lc-pas-body { font-size: 0.98rem; }
+            .lc-pas-card { padding: 24px 22px; }
         }
 
         /* Problem */
@@ -1197,12 +1252,31 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════════
-         2.5 PAS — Problem · Agitate · Solve
+         2.5 PAS — Problem · Agitate (3 dolor cards)
     ═══════════════════════════════════════════════════════════ -->
     <section class="lc-section lc-pas">
-        <div class="lc-wrap lc-center">
-            <h2 class="lc-h2 lc-pas-title" data-i18n="lc.pas.title" data-i18n-html>It's 2am. Your baby won't latch. Google has <em>23 different answers</em>.</h2>
-            <p class="lc-body lc-body--center lc-pas-body" data-i18n="lc.pas.body" data-i18n-html>You're not alone. Every Kinedu member has live, daily access to certified experts — pediatricians, IBCLCs, sleep coaches, psychologists. Ask your exact question. Get an answer for <em>your</em> baby.</p>
+        <div class="lc-wrap">
+            <div class="sec-tag lc-pas-eyebrow" data-i18n="lc.pas.eyebrow">If this sounds like you…</div>
+            <h2 class="lc-h2 lc-pas-title" data-i18n="lc.pas.title" data-i18n-html>You shouldn't have to <span class="lc-highlight">raise a baby with a Google tab open at 2am</span>.</h2>
+            <p class="lc-body lc-pas-body" data-i18n="lc.pas.body">Most new parents end up piecing it together. A forum here, a TikTok there, a $300 sleep package when nights fall apart. None of it is for your baby specifically. All of it costs you sleep — and money.</p>
+
+            <div class="lc-pas-cards">
+                <div class="lc-pas-card">
+                    <div class="lc-pas-card-emoji" aria-hidden="true">🌙</div>
+                    <h3 class="lc-pas-card-title" data-i18n="lc.pas.card1.title">Generic advice that doesn't fit</h3>
+                    <p class="lc-pas-card-body" data-i18n="lc.pas.card1.body">"Wake windows" articles written for someone else's baby. The advice never matches your kid.</p>
+                </div>
+                <div class="lc-pas-card">
+                    <div class="lc-pas-card-emoji" aria-hidden="true">💸</div>
+                    <h3 class="lc-pas-card-title" data-i18n="lc.pas.card2.title">$300 for one sleep call. $200 for one latch.</h3>
+                    <p class="lc-pas-card-body" data-i18n="lc.pas.card2.body">Each specialist charges separately. By month 12, most families have spent over $1,000 stitching together help.</p>
+                </div>
+                <div class="lc-pas-card">
+                    <div class="lc-pas-card-emoji" aria-hidden="true">😞</div>
+                    <h3 class="lc-pas-card-title" data-i18n="lc.pas.card3.title">Doubt creeping in every night</h3>
+                    <p class="lc-pas-card-body" data-i18n="lc.pas.card3.body">"Am I doing this right?" is the most expensive question in parenthood. You shouldn't have to ask it alone.</p>
+                </div>
+            </div>
         </div>
     </section>
 
