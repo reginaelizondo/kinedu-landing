@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kinedu Educadores | Manual de director/admin | Kinedu Blog</title>
+<meta name="description" content="¿Qué es Kinedu Classrooms? Kinedu Classrooms impulsa el desarrollo de tus alumnos en la escuela y en casa. Es una herramienta de planeación para educadores que te permite: Planear fácilmente tus actividades semanales utilizando un plan generado específicamente según las necesidad">
+<link rel="canonical" href="https://kinedu-landing.vercel.app/es/blog/como-funciona-kinedu-educadores">
+<meta property="og:title" content="Kinedu Educadores | Manual de director/admin | Kinedu Blog">
+<meta property="og:description" content="¿Qué es Kinedu Classrooms? Kinedu Classrooms impulsa el desarrollo de tus alumnos en la escuela y en casa. Es una herramienta de planeación para educadores que te permite: Planear fácilmente tus actividades semanales utilizando un plan generado específicamente según las necesidad">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://blog-es.kinedu.com/wp-content/uploads/2020/08/Banner-Kinedu-Educadores-1.png">
+<meta property="og:locale" content="es_LA">
+<meta property="og:site_name" content="Kinedu">
+<link rel="icon" href="/logo kinedu.png" type="image/png">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue: #2B8BE4; --blue-dark: #1E6FBD; --blue-soft: #EAF4FD; --blue-tint: #F4FAFE;
+  --green: #34C989; --green-dark: #1FA66E; --green-soft: #E6F8EF;
+  --ink: #0E1B2C; --ink-2: #2B3A4E; --muted: #5E6C80; --muted-2: #8A95A5;
+  --line: #E6EAF0; --line-2: #EEF1F5;
+  --bg: #FFFFFF; --bg-2: #F7F9FC; --bg-3: #FAFBFD;
+  --shadow-sm: 0 1px 2px rgba(14,27,44,.04), 0 1px 3px rgba(14,27,44,.04);
+  --shadow-md: 0 4px 16px rgba(14,27,44,.06), 0 2px 4px rgba(14,27,44,.04);
+  --shadow-lg: 0 20px 48px rgba(14,27,44,.10), 0 8px 16px rgba(14,27,44,.06);
+  --radius-sm: 10px; --radius: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+body { font-family: var(--font); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; font-feature-settings: 'ss01','cv11'; letter-spacing: -0.01em; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Nav */
+.kb-nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); }
+.kb-nav-inner { max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 32px; }
+.kb-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 20px; letter-spacing: -0.03em; flex-shrink: 0; }
+.kb-logo-dot { width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); display: grid; place-items: center; color: white; font-weight: 900; font-size: 15px; flex-shrink: 0; }
+.kb-nav-links { display: flex; gap: 6px; font-size: 14.5px; font-weight: 500; color: var(--ink-2); margin-left: 8px; }
+.kb-nav-links a { padding: 8px 12px; border-radius: 8px; transition: background .15s, color .15s; white-space: nowrap; }
+.kb-nav-links a:hover { background: var(--bg-2); color: var(--ink); }
+.kb-nav-links a.active { color: var(--blue); background: var(--blue-soft); }
+.kb-nav-spacer { flex: 1; }
+.kb-nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.kb-lang { display: flex; gap: 2px; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--bg-2); border-radius: 8px; padding: 3px; }
+.kb-lang button { padding: 5px 9px; border-radius: 6px; color: var(--muted); font-weight: 600; transition: all .15s; }
+.kb-lang button.on { background: white; color: var(--ink); box-shadow: var(--shadow-sm); }
+.kb-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 14px; letter-spacing: -0.01em; transition: transform .12s, box-shadow .12s, background .15s; }
+.kb-btn-primary { background: var(--blue); color: white; }
+.kb-btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.kb-btn-ghost { background: transparent; color: var(--ink-2); }
+.kb-btn-ghost:hover { background: var(--bg-2); }
+.kb-btn-outline { background: white; color: var(--ink); border: 1px solid var(--line); }
+.kb-btn-outline:hover { background: var(--bg-2); border-color: var(--ink-2); }
+
+/* Wrap */
+.kb-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* Section headers */
+.kb-section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 24px; gap: 24px; }
+.kb-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+.kb-h2 { font-size: 36px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--ink); margin: 6px 0 0; }
+.kb-link { font-size: 14px; font-weight: 600; color: var(--blue); display: inline-flex; align-items: center; gap: 4px; }
+.kb-link:hover { color: var(--blue-dark); }
+
+/* Pills */
+.kb-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.kb-pill { padding: 9px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 600; background: var(--bg-2); color: var(--ink-2); border: 1px solid transparent; transition: all .15s; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.kb-pill:hover { background: white; border-color: var(--line); color: var(--ink); }
+.kb-pill.on { background: var(--ink); color: white; }
+.kb-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.kb-pill.on .kb-pill-dot { background: var(--green); }
+
+/* Classic card */
+.kb-card { display: flex; flex-direction: column; gap: 14px; cursor: pointer; text-decoration: none; }
+.kb-card-img { position: relative; width: 100%; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
+.kb-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); transition: transform .3s ease; }
+.kb-card:hover .kb-card-img img { transform: scale(1.03); }
+.kb-card-cat { position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); padding: 5px 10px; border-radius: 8px; font-size: 11.5px; font-weight: 700; color: var(--ink); }
+.kb-card-title { font-size: 19px; font-weight: 700; line-height: 1.25; letter-spacing: -0.025em; color: var(--ink); }
+.kb-card:hover .kb-card-title { color: var(--blue); }
+.kb-card-excerpt { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
+.kb-card-meta { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted-2); font-weight: 500; }
+.kb-card-meta .dot { width: 3px; height: 3px; background: var(--muted-2); border-radius: 50%; }
+
+/* Overlay card */
+.kb-card-over { position: relative; aspect-ratio: 4/5; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; justify-content: end; padding: 24px; color: white; text-decoration: none; }
+.kb-card-over img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); z-index: 0; transition: transform .4s ease; }
+.kb-card-over:hover img.bg { transform: scale(1.04); }
+.kb-card-over::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 40%, rgba(14,27,44,.75) 100%); z-index: 1; }
+.kb-card-over > * { position: relative; z-index: 2; }
+.kb-card-over .kb-card-cat { position: absolute; top: 20px; left: 20px; }
+.kb-card-over h3 { font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -0.025em; }
+.kb-card-over .meta { font-size: 13px; opacity: .85; margin-top: 8px; font-weight: 500; }
+
+/* Grids */
+.kb-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
+
+/* Browse by stage */
+.kb-stage-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.kb-stage { position: relative; aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; cursor: pointer; color: white; display: flex; flex-direction: column; justify-content: end; padding: 20px; transition: transform .15s, box-shadow .15s; text-decoration: none; }
+.kb-stage:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.kb-stage img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); }
+.kb-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 30%, rgba(14,27,44,.8) 100%); }
+.kb-stage > * { position: relative; z-index: 2; }
+.kb-stage .age-range { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .85; margin-bottom: 6px; }
+.kb-stage h4 { font-size: 22px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+.kb-stage .count { font-size: 12.5px; opacity: .85; margin-top: 6px; font-weight: 500; }
+
+/* Browse by age */
+.kb-age-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.kb-age { display: flex; flex-direction: column; gap: 8px; padding: 18px 16px; border-radius: 14px; background: var(--bg-2); cursor: pointer; transition: all .15s; border: 1.5px solid transparent; text-decoration: none; }
+.kb-age:hover { background: white; border-color: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.kb-age .ico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-size: 18px; background: white; }
+.kb-age-label { font-size: 14px; font-weight: 700; letter-spacing: -0.015em; }
+.kb-age-sub { font-size: 12.5px; color: var(--muted); }
+
+/* App CTA */
+/* ── App CTA (improved) ───────────────────────────────────────── */
+/* ── App CTA (improved) ───────────────────────────────────────── */
+.kb-app-cta {
+  margin: 64px 0;
+  background: linear-gradient(135deg, #2B8BE4 0%, #5BB5F0 50%, #5DD0A5 100%);
+  border-radius: 32px;
+  padding: 56px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: center;
+  box-shadow: 0 20px 60px rgba(43,139,228,0.25), 0 8px 20px rgba(43,139,228,0.12);
+}
+.kb-app-cta::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.kb-app-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(93,208,165,0.30) 0%, transparent 65%);
+  pointer-events: none;
+}
+.kb-app-cta-content { position: relative; z-index: 1; }
+.kb-app-cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  padding: 6px 14px;
+  border-radius: 99px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(8px);
+}
+.kb-app-cta-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #5DD0A5;
+  box-shadow: 0 0 0 3px rgba(93,208,165,0.35);
+}
+.kb-app-cta h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: 14px;
+  text-wrap: balance;
+  color: white;
+}
+.kb-app-cta p {
+  font-size: 16px;
+  opacity: 0.95;
+  max-width: 460px;
+  margin-bottom: 28px;
+  line-height: 1.55;
+  color: white;
+}
+.kb-app-cta .stores { display: flex; gap: 12px; flex-wrap: wrap; }
+.kb-app-store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
+  background: #0E1B2C;
+  border-radius: 12px;
+  color: white !important;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 14px rgba(14,27,44,0.25);
+}
+.kb-app-store-badge:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(14,27,44,0.35); }
+.kb-app-store-badge svg { flex-shrink: 0; }
+.kb-app-store-badge div { display: flex; flex-direction: column; line-height: 1.1; }
+.kb-app-store-badge small {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-bottom: 1px;
+}
+.kb-app-store-badge div > *:last-child {
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.kb-app-cta-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.kb-app-cta-stat {
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 18px;
+  padding: 22px 20px;
+  transition: transform .2s, background .2s;
+}
+.kb-app-cta-stat:hover { transform: translateY(-2px); background: rgba(255,255,255,0.22); }
+.kb-app-cta-stat .num {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: white;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.kb-app-cta-stat .num span.star { color: #FFD93D; font-size: 22px; }
+.kb-app-cta-stat .lbl {
+  font-size: 12.5px;
+  opacity: 0.92;
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .kb-app-cta { grid-template-columns: 1fr; gap: 32px; padding: 44px 36px; }
+  .kb-app-cta h2 { font-size: 30px; }
+}
+@media (max-width: 600px) {
+  .kb-app-cta { margin: 40px 0; padding: 36px 24px; border-radius: 26px; }
+  .kb-app-cta h2 { font-size: 26px; }
+  .kb-app-cta p { font-size: 14.5px; margin-bottom: 22px; }
+  .kb-app-cta-stats { gap: 10px; }
+  .kb-app-cta-stat { padding: 16px 14px; }
+  .kb-app-cta-stat .num { font-size: 26px; }
+  .kb-app-cta-stat .lbl { font-size: 11.5px; margin-top: 6px; }
+  .kb-app-store-badge { padding: 9px 14px; }
+  .kb-app-store-badge small { font-size: 9px; }
+  .kb-app-store-badge div > *:last-child { font-size: 14.5px; }
+}
+
+@media (max-width: 900px) {
+  .kb-app-cta { grid-template-columns: 1fr; gap: 32px; padding: 44px 36px; }
+  .kb-app-cta h2 { font-size: 30px; }
+}
+@media (max-width: 600px) {
+  .kb-app-cta { margin: 40px 0; padding: 36px 24px; border-radius: 26px; }
+  .kb-app-cta h2 { font-size: 26px; }
+  .kb-app-cta p { font-size: 14.5px; margin-bottom: 22px; }
+  .kb-app-cta-stats { gap: 10px; }
+  .kb-app-cta-stat { padding: 16px 14px; }
+  .kb-app-cta-stat .num { font-size: 26px; }
+  .kb-app-cta-stat .lbl { font-size: 11.5px; margin-top: 6px; }
+  .kb-app-store-badge { padding: 9px 14px; }
+  .kb-app-store-badge small { font-size: 9px; }
+  .kb-app-store-badge div > *:last-child { font-size: 14.5px; }
+}
+
+/* Footer */
+.kb-footer { background: var(--ink); color: rgba(255,255,255,.7); padding: 56px 0 32px; }
+.kb-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 24px; }
+.kb-footer h5 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: white; margin-bottom: 14px; }
+.kb-footer a { display: block; font-size: 14px; padding: 4px 0; transition: color .15s; }
+.kb-footer a:hover { color: white; }
+.kb-footer-brand { font-weight: 800; font-size: 22px; color: white; letter-spacing: -0.03em; margin-bottom: 10px; }
+.kb-footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.kb-footer-logo-dot { width: 22px; height: 22px; border-radius: 7px; background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%); display: inline-grid; place-items: center; color: white; font-weight: 900; font-size: 12px; vertical-align: middle; margin-right: 6px; }
+
+/* Hero B */
+.kb-hero-b { padding: 80px 0 56px; border-bottom: 1px solid var(--line); }
+.kb-hero-b-top { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: end; gap: 56px; margin-bottom: 48px; }
+.kb-hero-b-badge { display: inline-flex; align-items: center; gap: 8px; background: white; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--blue); margin-bottom: 20px; letter-spacing: -0.005em; box-shadow: var(--shadow-sm); }
+.kb-hero-b-badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+.kb-hero-b-title { font-size: 72px; font-weight: 800; line-height: 0.95; letter-spacing: -0.045em; color: var(--ink); text-wrap: balance; }
+.kb-hero-b-title em { font-style: normal; color: var(--blue); }
+.kb-hero-b-rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; max-width: 460px; justify-self: end; width: 100%; }
+.kb-hero-b-quote { background: white; border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px 20px; box-shadow: var(--shadow-sm); }
+.kb-hero-b-quote p { font-size: 15.5px; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 16px; font-weight: 500; }
+.kb-hero-b-attr { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line-2); }
+.kb-hero-b-attr .avi { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%); flex-shrink: 0; }
+.kb-hero-b-attr .n { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.kb-hero-b-attr .r { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.kb-hero-b-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+.kb-hero-b-stats > div { background: white; padding: 14px 10px; min-width: 0; }
+.kb-hero-b-stats .n { font-size: 20px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); line-height: 1; white-space: nowrap; }
+.kb-hero-b-stats .n span { color: var(--blue); font-weight: 700; }
+.kb-hero-b-stats .l { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 6px; }
+.kb-search { display: flex; align-items: center; gap: 10px; background: white; border: 1.5px solid var(--line); border-radius: 14px; padding: 6px 6px 6px 18px; transition: border-color .15s, box-shadow .15s; max-width: 720px; }
+.kb-search:focus-within { border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft); }
+.kb-search input { flex: 1; border: 0; outline: 0; font-family: inherit; font-size: 15px; color: var(--ink); background: transparent; padding: 10px 0; min-width: 0; }
+.kb-search input::placeholder { color: var(--muted-2); }
+.kb-search button { background: var(--ink); color: white; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 14px; white-space: nowrap; transition: background .15s; }
+.kb-search button:hover { background: var(--blue); }
+.kb-hero-b-tags { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); flex-wrap: wrap; margin-top: 20px; }
+.kb-hero-b-tags .label { font-weight: 600; color: var(--ink-2); }
+.kb-hero-b-tags a { color: var(--ink-2); font-weight: 500; transition: color .15s; }
+.kb-hero-b-tags a:hover { color: var(--blue); }
+.kb-hero-b-tags .sep { color: var(--line); }
+
+/* Article page */
+.kb-art-wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+.kb-art-head { padding: 48px 0 32px; }
+.kb-art-crumb { font-size: 13px; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.kb-art-crumb a:hover { color: var(--blue); }
+.kb-art-crumb .sep { color: var(--muted-2); }
+.kb-art-cat { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.kb-art-title { font-size: 48px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 18px; text-wrap: balance; }
+.kb-art-dek { font-size: 19px; color: var(--muted); line-height: 1.5; }
+.kb-art-meta { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); margin: 28px 0; flex-wrap: wrap; }
+.kb-art-meta .avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--green)); flex-shrink: 0; }
+.kb-art-meta .author-name { font-weight: 700; color: var(--ink); font-size: 14px; }
+.kb-art-meta .author-role { font-size: 12px; color: var(--muted); }
+.kb-art-meta .spacer { flex: 1; }
+.kb-art-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted-2); }
+.kb-art-cover { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 32px; }
+.kb-art-cover img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); }
+.kb-art-2col { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 200px 1fr; gap: 60px; }
+.kb-art-toc { position: sticky; top: 88px; font-size: 13px; }
+.kb-art-toc h6 { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 14px; }
+.kb-art-toc a { display: block; padding: 6px 12px; border-left: 2px solid var(--line); color: var(--muted); margin-bottom: 2px; transition: all .15s; }
+.kb-art-toc a:hover { color: var(--ink); border-color: var(--ink-2); }
+.kb-art-toc a.on { color: var(--blue); border-color: var(--blue); font-weight: 600; }
+.kb-art-body p { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 24px; }
+.kb-art-body h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; margin: 40px 0 16px; color: var(--ink); }
+.kb-art-body h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.025em; margin: 32px 0 12px; color: var(--ink); }
+.kb-art-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
+.kb-art-body ul li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: var(--ink-2); line-height: 1.6; }
+.kb-art-body ul li::before { content: ''; position: absolute; left: 4px; top: 18px; width: 14px; height: 2px; border-radius: 2px; background: var(--green); }
+.kb-art-body blockquote { margin: 32px 0; padding: 24px 28px; border-left: 3px solid var(--blue); background: var(--blue-tint); border-radius: 4px 14px 14px 4px; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.45; letter-spacing: -0.015em; }
+.kb-art-callout { margin: 32px 0; padding: 24px; background: var(--green-soft); border-radius: var(--radius); border: 1px solid rgba(52,201,137,.2); }
+.kb-art-callout h4 { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .05em; }
+.kb-art-callout p { font-size: 15px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+.kb-art-slim-cta { margin: 48px auto 0; max-width: 760px; padding: 0 32px 80px; }
+.kb-art-slim-cta-inner { background: linear-gradient(135deg, var(--green-soft) 0%, var(--blue-soft) 100%); border-radius: var(--radius-lg); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.kb-art-slim-cta h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 6px; }
+.kb-art-slim-cta p { font-size: 14px; color: var(--muted); }
+
+/* Author bar */
+.kb-author-bar { max-width: 760px; margin: 48px auto 0; padding: 24px 32px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.kb-author-bar .avi { width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--green)); flex-shrink: 0; }
+.kb-author-bar .name { font-weight: 700; font-size: 16px; }
+.kb-author-bar .role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.kb-author-bar .actions { display: flex; gap: 8px; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .kb-hero-b-top { grid-template-columns: 1fr; }
+  .kb-hero-b-rail { max-width: 100%; justify-self: start; }
+  .kb-hero-b-title { font-size: 52px; }
+  .kb-art-2col { grid-template-columns: 1fr; }
+  .kb-art-toc { display: none; }
+}
+@media (max-width: 900px) {
+  .kb-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .kb-stage-row { grid-template-columns: repeat(3, 1fr); }
+  .kb-age-row { grid-template-columns: repeat(3, 1fr); }
+  .kb-app-cta { grid-template-columns: 1fr; }
+  .kb-app-cta-stats { display: none; }
+  .kb-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .kb-wrap { padding: 0 20px; }
+  .kb-hero-b { padding: 48px 0 40px; }
+  .kb-hero-b-title { font-size: 40px; }
+  .kb-grid-3 { grid-template-columns: 1fr; }
+  .kb-stage-row { grid-template-columns: repeat(2, 1fr); }
+  .kb-age-row { grid-template-columns: repeat(2, 1fr); }
+  .kb-nav-links { display: none; }
+  .kb-nav-actions .kb-btn-ghost { display: none; }
+  .kb-art-title { font-size: 34px; }
+  .kb-art-wrap { padding: 0 20px; }
+  .kb-art-2col { padding: 0 20px; }
+  .kb-app-cta { padding: 36px 28px; }
+  .kb-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .kb-hero-b-stats .n { font-size: 16px; }
+}
+
+</style>
+<link rel="stylesheet" href="/styles.css">
+<style>
+
+/* Spacing for fixed site navbar */
+body { padding-top: 88px; }
+@media (max-width: 768px) { body { padding-top: 76px; } }
+.kb-art-head { padding-top: 24px !important; }
+</style>
+<script>localStorage.setItem('kinedu-lang','es');document.documentElement.lang='es';</script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-pill">
+    <a href="/" class="nav-logo"><img src="/logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/live-classes.html" data-i18n="nav.learn">Learn</a>
+      <a href="/science.html" data-i18n="nav.science">Science</a>
+      <a href="/#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="/founder.html" data-i18n="nav.founder">Founder</a>
+      <a href="/es/articles.html" class="active">Blog</a>
+      <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+      <div class="lang-toggle lang-toggle--mobile">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+      <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+      <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<article>
+  <div class="kb-art-wrap">
+    <div class="kb-art-head">
+      <a href="/es/articles.html" class="kb-art-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+        Volver al Blog
+      </a>
+      <div class="kb-art-cat">Educadores</div>
+      <h1 class="kb-art-title">Kinedu Educadores | Manual de director/admin</h1>
+      <p class="kb-art-dek">¿Qué es Kinedu Classrooms? Kinedu Classrooms impulsa el desarrollo de tus alumnos en la escuela y en casa. Es una herramienta de planeación para educadores que te permite: Planear fácilmente tus actividades semanales utilizando un plan generado específicamente según las necesidad</p>
+      <div class="kb-art-meta">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="author-name">Equipo editorial Kinedu</div>
+          <div class="author-role">Pediatría &amp; desarrollo infantil</div>
+        </div>
+        <div class="spacer"></div>
+        <span>3 de ago de 2020</span>
+        <span class="dot"></span>
+        <span>21 min de lectura</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kb-art-wrap">
+    <div class="kb-art-cover">
+      <img src="https://blog-es.kinedu.com/wp-content/uploads/2020/08/Banner-Kinedu-Educadores-1.png" alt="Kinedu Educadores | Manual de director/admin" style="--focus:50% 50%;">
+    </div>
+  </div>
+
+  <div class="kb-art-2col">
+    <div class="kb-art-body">
+      <div id="ez-toc-container" class="ez-toc-v2_0_27 counter-hierarchy counter-decimal ez-toc-light-blue">
+<div class="ez-toc-title-container">
+<p class="ez-toc-title">Tabla de contenidos</p>
+<span class="ez-toc-title-toggle"><a href="#" class="ez-toc-pull-right ez-toc-btn ez-toc-btn-xs ez-toc-btn-default ez-toc-toggle" style="display: none;"><label for="item" aria-label="Table of Content"><i class="ez-toc-glyphicon ez-toc-icon-toggle"></i></label><input type="checkbox" id="item"></a></span></div>
+<nav><ul class="ez-toc-list ez-toc-list-level-1"><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#%C2%BFQue_es_Kinedu_Classrooms" title="¿Qué es Kinedu Classrooms?">¿Qué es Kinedu Classrooms?</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-2" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#%C2%BFComo_funciona" title="¿Cómo funciona? ">¿Cómo funciona? </a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-3" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Ingresar_a_Kinedu_Classrooms" title="Ingresar a Kinedu Classrooms">Ingresar a Kinedu Classrooms</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-4" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crear_tu_perfil" title="Crear tu perfil">Crear tu perfil</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-5" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Personalizar_el_plan_de_actividades" title="Personalizar el plan de actividades">Personalizar el plan de actividades</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-6" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Completar_la_configuracion_de_tu_organizacion" title="Completar la configuración de tu organización">Completar la configuración de tu organización</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-7" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Estructura_de_tu_organizacion" title="Estructura de tu organización">Estructura de tu organización</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-8" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Administracion_de_salones" title="Administración de salones">Administración de salones</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-9" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_salones" title="Agregar salones">Agregar salones</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-10" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_colaboradores" title="Agregar colaboradores">Agregar colaboradores</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-11" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Permisos_de_colaboradores" title="Permisos de colaboradores">Permisos de colaboradores</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-12" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_administradores" title="Agregar administradores">Agregar administradores</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-13" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_directores" title="Agregar directores ">Agregar directores </a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-14" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_maestros" title="Agregar maestros">Agregar maestros</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-15" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Editar_colaboradores" title="Editar colaboradores">Editar colaboradores</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-16" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Editar_administradores_y_directores" title="Editar administradores y directores">Editar administradores y directores</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-17" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Editar_directores_y_maestros" title="Editar directores y maestros">Editar directores y maestros</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-18" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Mover_colaboradores" title="Mover colaboradores">Mover colaboradores</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-19" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Administracion_de_alumnos" title="Administración de alumnos">Administración de alumnos</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-20" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Invitar_a_papas" title="Invitar a papás">Invitar a papás</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-21" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Perfiles_de_alumnos" title="Perfiles de alumnos">Perfiles de alumnos</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-22" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Eliminar_perfiles_de_alumnos" title="Eliminar perfiles de alumnos">Eliminar perfiles de alumnos</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-23" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Plan_de_Actividades" title="Plan de Actividades">Plan de Actividades</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-24" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Comunicacion" title="Comunicación">Comunicación</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-25" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Avisos" title="Avisos">Avisos</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-26" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Eliminar_un_aviso" title="Eliminar un aviso">Eliminar un aviso</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-27" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Mensajes_Privados_Chats" title="Mensajes Privados (Chats)">Mensajes Privados (Chats)</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-28" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Eliminar_un_mensaje_privado" title="Eliminar un mensaje privado">Eliminar un mensaje privado</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-29" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Ver_historial_de_mensajes" title="Ver historial de mensajes">Ver historial de mensajes</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-30" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Foros" title="Foros">Foros</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-31" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crea_un_nuevo_foro" title="Crea un nuevo foro">Crea un nuevo foro</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-32" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Editar_un_foroagregar_personas" title="Editar un foro/agregar personas">Editar un foro/agregar personas</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-33" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Elimina_un_foro" title="Elimina un foro">Elimina un foro</a></li></ul></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-34" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Catalogo_de_Actividades" title="Catálogo de Actividades">Catálogo de Actividades</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-35" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Buscar_actividades" title="Buscar actividades">Buscar actividades</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-36" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Adaptaciones" title="Adaptaciones">Adaptaciones</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-37" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Filtrar_actividades" title="Filtrar actividades">Filtrar actividades</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-38" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crear_colecciones" title="Crear colecciones">Crear colecciones</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-39" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Subir_mis_propias_actividades" title="Subir mis propias actividades">Subir mis propias actividades</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-40" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Subcoleccion" title="Subcolección ">Subcolección </a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-41" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crea_una_subcoleccion" title="Crea una subcolección">Crea una subcolección</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-42" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Edita_una_subcoleccion" title="Edita una subcolección">Edita una subcolección</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-43" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Sube_actividades_a_tus_subcolecciones" title="Sube actividades a tus subcolecciones">Sube actividades a tus subcolecciones</a></li><li class="ez-toc-page-1 ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-44" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Elimina_una_subcoleccion" title="Elimina una subcolección">Elimina una subcolección</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-45" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Privacidad" title="Privacidad">Privacidad</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-46" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_una_actividad_del_catalogo_a_mi_plan" title="Agregar una actividad del catálogo a mi plan">Agregar una actividad del catálogo a mi plan</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-47" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Calendario" title="Calendario">Calendario</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-48" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crear_un_evento_nuevo" title="Crear un evento nuevo">Crear un evento nuevo</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-49" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Crear_un_evento_recurrente" title="Crear un evento recurrente">Crear un evento recurrente</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-50" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Editar_o_eliminar_un_evento" title="Editar o eliminar un evento">Editar o eliminar un evento</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-51" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Portafolio_de_evidencias" title="Portafolio de evidencias">Portafolio de evidencias</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-52" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Entregas" title="Entregas">Entregas</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-53" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Alumnos" title="Alumnos">Alumnos</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-54" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Recursos_educativos" title="Recursos educativos">Recursos educativos</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-55" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Explorar_recursos" title="Explorar recursos">Explorar recursos</a><ul class="ez-toc-list-level-4"><li class="ez-toc-heading-level-4"><a class="ez-toc-link ez-toc-heading-56" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Tipos_de_recursos" title="Tipos de recursos">Tipos de recursos</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-57" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Almacenamiento_de_recursos" title="Almacenamiento de recursos">Almacenamiento de recursos</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-58" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Categorias_y_Subcategorias" title="Categorías y Subcategorías">Categorías y Subcategorías</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-59" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Agregar_mi_propio_recurso" title="Agregar mi propio recurso">Agregar mi propio recurso</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-60" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Compartir_recursos_con_papas" title="Compartir recursos con papás">Compartir recursos con papás</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-61" href="https://blog-es.kinedu.com/como-funciona-kinedu-educadores/#Aplicacion_para_papas" title="Aplicación para papás">Aplicación para papás</a></li></ul></nav></div>
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="%C2%BFQue_es_Kinedu_Classrooms"></span><strong>¿Qué es Kinedu Classrooms?</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Kinedu Classrooms <strong>impulsa el desarrollo de tus alumnos en la escuela y en casa</strong>.&nbsp;&nbsp;</p>
+
+
+
+<p>Es una <strong>herramienta de planeación</strong> para educadores que te permite:</p>
+
+
+
+<ul><li><strong>Planear </strong>fácilmente tus actividades semanales utilizando un plan generado específicamente según las necesidades de tus alumnos.</li><li><strong>Acceder a más de 2,000 recursos</strong> educativos creados por expertos para cada edad y etapa.</li><li><strong>Seguir el progreso </strong>de cada alumno a través de distintos indicadores del desarrollo.</li><li><strong>Compartir </strong>mensajes, actividades, y el progreso de tus alumnos con sus familias.</li></ul>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="%C2%BFComo_funciona"></span><strong>¿Cómo funciona?</strong> <span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>La tecnología de <strong>inteligencia artificial</strong> de Kinedu nos permite crear <strong>planes personalizados</strong> para cada salón de clases de acuerdo a la etapa de desarrollo de los alumnos.&nbsp;</p>
+
+
+
+<p>El progreso de cada alumno se mide a través de varios <strong>indicadores de desarrollo </strong>basados en habilidades dentro de las<strong> cuatro áreas de desarrollo</strong> clave: <strong>física, cognitiva, lingüística o socio afectiva</strong>.&nbsp;<br></p>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Ingresar_a_Kinedu_Classrooms"></span><strong>Ingresar a Kinedu Classrooms</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Crear_tu_perfil"></span><strong>Crear tu perfil</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Para crear tu perfil (si tu escuela todavía no tiene una cuenta creada):</p>
+
+
+
+<ol><li>Ingresa a <a href="http://classrooms.kinedu.com">edu.kinedu.com</a> en tu navegador (Chrome de preferencia).</li><li>Para acceder, ingresa tu correo (que vas a estar utilizando para ingresar) y una contraseña (también podrás ingresar utilizando tu correo de Gmail, dándole clic a “Iniciar sesión con Google”).</li><li>Una vez creada tu cuenta te pediremos llenar algunos datos generales incluidos tu rol y el nombre de tu centro educativo. Al ser la persona que crea la cuenta tendrás acceso de «dueño» a todas las escuelas y salones que ingreses a la plataforma. El nombre que definas en este paso nos permitirá personalizar los correos que se envíen a los padres de familia.</li></ol>
+
+
+
+<figure class="wp-block-image is-resized"><img decoding="async" loading="lazy" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO.png" alt="" class="wp-image-12404" width="574" height="259" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO.png 1355w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO-768x348.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO-500x227.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/SIGN-UP-ACTUALIZADO-760x344.png 760w" sizes="(max-width: 574px) 100vw, 574px" /></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1342" height="614" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN.png" alt="" class="wp-image-12406" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN.png 1342w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN-768x351.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN-300x137.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN-500x229.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/EDUCADORES-LOG-IN-760x348.png 760w" sizes="(max-width: 1342px) 100vw, 1342px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Personalizar_el_plan_de_actividades"></span><strong>Personalizar el plan de actividades</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Después de haber creado tu perfil, te pediremos que configures tu plan de actividades de tu organización. Con estas 4 preguntas: </p>
+
+
+
+<ol><li>¿En qué día de la semana quieres comenzar tu plan de actividades?</li><li>¿Cuántos días de la semana estarás usando el plan de actividades?</li><li>¿Cuántas actividades de desarrollo quieres realizar por día?</li><li>¿Cuántas veces quieres llenar la evaluación del desarrollo de cada niño? </li></ol>
+
+
+
+<ul><li>El número de actividades que escojas para realizar por día es importante porque te definen cuántas actividades te sugeriría nuestro algoritmo por día.</li></ul>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1353" height="615" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS.png" alt="" class="wp-image-12408" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS.png 1353w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS-768x349.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS-500x227.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PREGUNTAS-760x345.png 760w" sizes="(max-width: 1353px) 100vw, 1353px" /></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Completar_la_configuracion_de_tu_organizacion"></span><strong>Completar la configuración de tu organización</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Estructura_de_tu_organizacion"></span><strong>Estructura de tu organización</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Dentro de Classrooms, puedes gestionar tu organización completa, incluyendo varias escuelas.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1330" height="601" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO.png" alt="" class="wp-image-12409" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO.png 1330w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO-768x347.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO-500x226.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/HOME-ACTUALIZADO-760x343.png 760w" sizes="(max-width: 1330px) 100vw, 1330px" /></figure>
+
+
+
+<p>Tu organización puede tener múltiples escuelas, para acceder a ellas y ver su contenido debes hacer clic en el menú desplegable «Escuela actual» el cual se encuentra en la parte inferior del menú principal.<br></p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Administracion_de_salones"></span><strong>Administración de salones</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Una vez que hayas ingresado a tu cuenta, podrás terminar de configurar tu escuela. Para comenzar, puedes agregar salones:</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="600" height="304" src="https://blog-es.kinedu.com/wp-content/uploads/2021/01/c1.gif" alt="" class="wp-image-11322"/></figure>
+
+
+
+<p>Los salones de tu centro tendrán asignados maestros que tendrán acceso a toda la información de los alumnos en él. Un salón puede tener más de 1 maestro asignado.</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_salones"></span><strong>Agregar salones</strong><span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Para agregar salones, da clic en el botón que dice “Agregar salón”. Ingresa el nombre del salón que deseas agregar, y presiona “Guardar”.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1348" height="614" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-20-at-5.37.05-p.-m..gif" alt="" class="wp-image-12476"/><figcaption> Ej. Añadir salones desde la página de Inicio.  </figcaption></figure>
+
+
+
+<p>También puedes agregar salones desde la sección de Configuración:</p>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración” en el menú del lado izquierdo.</li><li>Selecciona la pestaña de “Escuelas».</li><li>Selecciona el centro donde quieras agregar un salón.</li><li>Selecciona el botón de “Agregar salón».</li><li>Ingresa el nombre del salón y listo, verás el salón agregado en el centro.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1344" height="620" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-20-at-5.43.41-p.-m.-2.gif" alt="" class="wp-image-12486"/><figcaption>  Ej. Añadir salones desde configuración.  </figcaption></figure>
+
+
+
+<p>Para mover alumnos de salones, hay dos formas de hacerlo:</p>
+
+
+
+<ol><li>Entrando al perfil del alumno y moviéndolo de salón dentro del mismo centro.</li><li>Entrando al salón desde configuración y seleccionando uno o más alumnos y moverlos a otro centro y salón o a un salón dentro del mismo centro.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1342" height="612" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-20-at-5.53.51-p.-m.-2.gif" alt="" class="wp-image-12488"/><figcaption>  Ej. Mover al alumno desde el perfil del alumno.  </figcaption></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1354" height="600" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-1.41.09-p.-m..gif" alt="" class="wp-image-12490"/><figcaption>  Ej. Mover alumno(s) desde vista de salón (configuración).</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_colaboradores"></span><strong>Agregar colaboradores</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Para invitar a colaboradores a tu centro, primero tendrás que entender los tipos de colaboradores que puedes tener:</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Permisos_de_colaboradores"></span><strong>Permisos de colaboradores</strong><span class="ez-toc-section-end"></span></h4>
+
+
+
+<ul><li><strong>Administradores: </strong>Son aquellos colaboradores que manejan toda la operación de una organización (puede ser una sola escuela, o múltiples escuelas dentro de la organización).</li><li><strong>Directores: </strong>Son aquellos colaboradores que manejan generalmente la operación de una sola escuela, y por ello, su visibilidad es solamente de la escuela que tienen asignada (a diferencia de los administradores, los directores no podrán ver todas las escuelas de la organización).</li><li><strong>Maestros:</strong> Los maestros son aquellos que están asignados a ciertos salones. Estos colaboradores pueden estar asignados a 1 o más salones a la vez y ellos solamente tendrán visibilidad de los alumnos que estén asignados a su salón.</li></ul>
+
+
+
+<p>Ya entendiendo los diferentes tipos de colaboradores, podrás agregar colaboradores nuevos a continuación:</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_administradores"></span>Agregar administradores<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración” en el menú del lado izquierdo.</li><li>Selecciona la pestaña de “Administradores».</li><li>Selecciona «Agregar colaborador».</li><li>Ingresa la información del colaborador.</li><li>Selecciona si es un Administrador o Director.</li><li>Puedes cambiar el nombre del puesto y listo. Le llegará un correo de invitación al colaborador que hayas invitado para pertenecer a tu centro.&nbsp;</li></ol>
+
+
+
+<p><strong>Importante: Se debe crear la cuenta desde el correo que le llegó al colaborador para no crear cuentas duplicadas del centro</strong>.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1340" height="600" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-1.37.55-p.-m..gif" alt="" class="wp-image-12492"/><figcaption>  Ej. Agregar un administrador.  </figcaption></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_directores"></span>Agregar directores <span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Existen dos formas distintas de agregar directores, una desde la pestaña de administradores y la otra desde la pestaña de escuelas en la configuración:&nbsp;<br></p>
+
+
+
+<p><strong>Pestaña «Administradores»:</strong></p>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración” en el menú del lado izquierdo.</li><li>Selecciona la pestaña de “Administradores».</li><li>Selecciona «Agregar colaborador».</li><li>Ingresa la información del colaborador.</li><li>Selecciona si es un Administrador o Director (puedes cambiar el nombre del puesto). </li><li>Selecciona los permisos especiales.</li><li>Selecciona las escuelas a las que estará asignado y listo. Le llegará un correo de invitación al colaborador que hayas invitado para pertenecer a tu centro. </li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1340" height="596" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.06.09-p.-m..gif" alt="" class="wp-image-12495"/><figcaption> Ej. Agregar directores desde la pestaña de administradores.  </figcaption></figure>
+
+
+
+<p><strong>Pestaña «Escuelas»:</strong></p>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración” en el menú del lado izquierdo.</li><li>Ingresa a la escuela donde quieres agregar al director.</li><li>Selecciona la pestaña de «Directores».</li><li>Selecciona «Agregar directores».</li><li>Ingresa la información del director (puedes cambiar el nombre del puesto).</li><li>Selecciona los permisos especiales</li><li>Selecciona las escuelas a las que estará asignado y listo. Le llegará un correo de invitación al colaborador que hayas invitado para pertenecer a tu centro.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1354" height="596" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.09.31-p.-m..gif" alt="" class="wp-image-12497"/><figcaption> Ej. Agregar directores desde la pestaña de escuelas.  </figcaption></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_maestros"></span>Agregar maestros<span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Hay dos maneras de agregar maestros:</p>
+
+
+
+<p><strong>Pestaña «Maestros» &#8211; dentro de un centro:</strong></p>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración”  del lado izquierdo del menú.</li><li>Ingresa a la escuela donde quieres agregar al maestro.</li><li>Selecciona la pestaña de «Maestros».</li><li>Selecciona el botón de «Agregar maestro».</li><li>Ingresa la información del maestro.</li><li>Puedes cambiar el nombre del puesto y seleccionar permisos especiales </li><li>Selecciona el centro y salones a los que quieras asignar al maestro y listo. Le llegará un correo de invitación al maestro que hayas invitado para pertenecer a tu centro.&nbsp;</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1360" height="616" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.14.27-p.-m..gif" alt="" class="wp-image-12499"/><figcaption>Ej. Agregar maestro desde un centro.</figcaption></figure>
+
+
+
+<p><strong>Pestaña «Maestros» &#8211; dentro de un salón:</strong></p>
+
+
+
+<ol><li>Dirígete a la sección de “Configuración” en el menú del lado izquierdo.</li><li>Ingresa a la escuela donde quieres agregar al maestro.</li><li>Selecciona el salón donde quieres agregar al maestro.</li><li>Selecciona la pestaña de «Maestros».</li><li>Selecciona el botón de «Agregar maestro».</li><li>Ingresa la información del maestro.</li><li>Puedes cambiar el nombre del puesto y seleccionar permisos especiales.</li><li>Selecciona el centro y salones a los que quieras asignar al maestro y listo. Le llegará un correo de invitación al maestro que hayas invitado para pertenecer a tu centro.&nbsp;</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1350" height="608" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.18.56-p.-m..gif" alt="" class="wp-image-12501"/><figcaption>  Ej. Agregar un maestro desde un salón.  </figcaption></figure>
+
+
+
+<p><strong> Importante: Se debe crear la cuenta desde el correo que le llegó al colaborador para no crear cuentas duplicadas del centro</strong>.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Editar_colaboradores"></span>Editar colaboradores<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Una vez creado el usuario, ya sea administrador, director o maestro, se puede editar la información de cualquiera de los tres tipos de colaboradores. En cuanto a directores y maestros se puede editar la información, los salones/centros a los que están asignados, y los permisos especiales que tienen. </p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Editar_administradores_y_directores"></span>Editar administradores y directores<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Entra a Configuración.</li><li>Selecciona la pestaña de Administradores.</li><li>Selecciona el administrador o director que quieras editar.</li><li>Se abrirá el perfil del administrador o director.</li><li>En el caso del administrador puedes editar la información del colaborador en el perfil y ver los permisos predeterminados en la pestaña de Configuración.</li><li>En el caso del director puedes editar la información, los centros a los que esta asignado y los permisos especiales.</li><li>Selecciona «Guardar» y listo. Verás los cambios aplicados.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1338" height="612" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.42.42-p.-m..gif" alt="" class="wp-image-12507"/></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Editar_directores_y_maestros"></span>Editar directores y maestros<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Entra a Configuración.</li><li>Selecciona la escuela a la que pertenece el director o maestro.</li><li>Selecciona la pestaña de Directores o Maestros.</li><li>Selecciona el director o maestro que quieres editar.</li><li>Se abrirá el perfil del director o maestro.</li><li>Puedes editar la información del colaborador y sus centros/salones. </li><li>Puedes ir a la pestaña de Configuración dentro del perfil y editar los permisos especiales.</li><li>Selecciona «Guardar» y listo. Verás los cambios aplicados.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1356" height="610" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.36.39-p.-m..gif" alt="" class="wp-image-12503"/></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Mover_colaboradores"></span>Mover colaboradores<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Tienes la opción de mover colaboradores de centro si son directores y de centro y salón si son maestros. Puedes mover uno o múltiples colaboradores a la vez.</p>
+
+
+
+<ol><li>Entra a Configuración.</li><li>Selecciona la escuela a la que pertenecen los colaboradores a mover.</li><li>Selecciona la pestaña de Directores o Maestros.</li><li>Selecciona los colaboradores que quieres mover.</li><li>Selecciona a qué centros/salones quieres mover al director o maestro.</li><li>¡Listo! Los colaboradores aparecerán en la(s) nuevas escuelas que hayas seleccionado.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1340" height="610" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-2.50.12-p.-m..gif" alt="" class="wp-image-12511"/></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Administracion_de_alumnos"></span><strong>Administración de alumnos</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Invitar_a_papas"></span><strong>Invitar a papás</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Cuando quieras agregar alumnos nuevos, lo puedes hacer directamente desde la página de inicio haciendo clic en el botón “Agregar estudiante”.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1311" height="604" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO.png" alt="" class="wp-image-12413" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO.png 1311w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO-768x354.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO-300x138.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO-500x230.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/AGREGAR-ALUMNO-760x350.png 760w" sizes="(max-width: 1311px) 100vw, 1311px" /></figure>
+
+
+
+<ol><li>Ingresa el correo de uno de los papás del alumno que deseas agregar.<ul><li><em>Si el papá/mamá ya tiene una cuenta de Kinedu, nuestro sistema automáticamente reconocerá que ese correo ya existe y tomará la información de esa familia.</em></li></ul></li><li>¡Listo! Se enviará una invitación con un código al papá/mamá de ese alumno.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1347" height="608" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA.png" alt="" class="wp-image-12415" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA.png 1347w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA-768x347.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA-300x135.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA-500x226.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/PAMELA-760x343.png 760w" sizes="(max-width: 1347px) 100vw, 1347px" /></figure>
+
+
+
+<p>Es importante saber que solamente podrás invitar a un papá por alumno. Para que el otro padre tenga acceso al perfil de su hijo, la invitación la tendrá que hacer el papá invitado por tu escuela a través de la aplicación de papás (Kinedu).&nbsp;</p>
+
+
+
+<p>NOTA IMPORTANTE: Asegúrate de tener el permiso de tu directora o coordinadora antes de dar de alta a un alumno, ya que al invitarlo se cobrará una licencia por su uso. </p>
+
+
+
+<p><em>Para consultar los pasos que el papá debe seguir en su aplicación Kinedu, dirígete al manual de padres de familia dándole clic <a href="https://blog-es.kinedu.com/kinedumanual-de-papas/">aquí</a>.</em><br></p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Perfiles_de_alumnos"></span>Perfiles de alumnos<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Puedes acceder al perfil de cada uno de tus alumnos dando clic al ícono de un alumno desde la pantalla de inicio o desde el salón dentro de Configuración. Se abrirá una pantalla nueva mostrando la información del alumno.</p>
+
+
+
+<p>Además, se puede visualizar una pestaña de «Publicaciones» donde se podrá acceder a todo el historial de lo compartido con el padre del alumno. También se podrá visualizar una pestaña de»Portafolio» dónde se pueden revisar las evidencias enviadas por el padre del alumno.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="892" height="789" src="https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28.png" alt="" class="wp-image-11411" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28.png 892w, https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28-768x679.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28-300x265.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28-500x442.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-15.56.28-760x672.png 760w" sizes="(max-width: 892px) 100vw, 892px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Eliminar_perfiles_de_alumnos"></span><strong>Eliminar perfiles de alumnos</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Para eliminar el perfil de un alumno, dirígete a su perfil, y en la parte de abajo da clic a «Eliminar alumno». Tanto administradores como directores pueden eliminar perfiles de alumnos, sin embargo los maestros solamente pueden eliminar alumnos que pertenezcan a sus salones y siempre y cuando tengan el permiso especial habilitado.<br></p>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Plan_de_Actividades"></span><strong>Plan de Actividades</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>En el menú principal en la sección inicio podrás encontrar el plan de trabajo del día.  Los alumnos que estén enlistados en tus grupos y   ligados a un salón de clases, podrán ver el plan de actividad semanal actual de manera automática en su aplicación Kinedu, sin necesidad de compartirlo con ellos.</p>
+
+
+
+<p>Los cambios que hagas en el plan semanal, también se verán reflejados de manera automática en la app Kinedu de los padres de familia. Además los planes futuros y pasados también los podrán ver de manera sencilla y automática. Ya no es necesario compartir el plan de actividades semana con semana. Todos los padres de familia ligados a tu salón podrán ver todas las planificaciones realizadas.&nbsp;</p>
+
+
+
+<p>Para ver tus planes actuales, pasados y futuros que los padres podrán visualizar:</p>
+
+
+
+<ol><li>Selecciona mis planes en la pantalla de inicio.</li><li>¡Listo! Podrás seleccionar actuales, pasados o futuros para visualizarlos.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1340" height="596" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.00.00-p.-m..gif" alt="" class="wp-image-12514"/></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Comunicacion"></span><strong>Comunicación</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1090" height="548" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN.png" alt="" class="wp-image-12421" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN.png 1090w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN-768x386.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN-300x151.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN-500x251.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/COMUNICACIÓN-760x382.png 760w" sizes="(max-width: 1090px) 100vw, 1090px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Avisos"></span><strong>Avisos</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Los avisos son mensajes que se envían de forma general a los papás de los alumnos. Para enviar un aviso, selecciona la sección de Mensajes en el menú del lado izquierdo.<br></p>
+
+
+
+<p>Selecciona a quién quieres dirigir tu aviso, y redacta la información. Puedes adjuntar archivos (PDF’s, imágenes, etc) e incluir ligas.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="698" height="363" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/ANUNCIO.png" alt="" class="wp-image-12424" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/ANUNCIO.png 698w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ANUNCIO-300x156.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ANUNCIO-500x260.png 500w" sizes="(max-width: 698px) 100vw, 698px" /></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Eliminar_un_aviso"></span><strong>Eliminar un aviso</strong><span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Si quisieras borrar un aviso ya enviado, puedes hacerlo dándole clic a los 3 puntitos que se encuentra en la esquina superior derecha del aviso.</p>
+
+
+
+<p>El administrador podrá eliminar avisos que han mandado otros colaboradores de tu centro, pero ellos solo podrán borrar los que ellos hayan creado.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1345" height="602" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO.png" alt="" class="wp-image-12516" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO.png 1345w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO-768x344.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO-300x134.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO-500x224.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CHAT-PRIVADO-760x340.png 760w" sizes="(max-width: 1345px) 100vw, 1345px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Mensajes_Privados_Chats"></span><strong>Mensajes Privados (Chats)</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>El chat sirve para tener mensajes privados con los papás de tus alumnos. Para enviar un mensaje nuevo, da clic en “Nuevo chat”, selecciona al alumno que deseas contactar y automáticamente se te abrirá un chat con sus papás. Ahí podrás redactar mensajes e incluir archivos adjuntos y ligas electrónicas.</p>
+
+
+
+<p>Todos los colaboradores y cuidadores del alumno tienen acceso al chat personal:</p>
+
+
+
+<ul><li>Papá y mamá</li><li>Maestros asignados</li><li>Administradores y Directores que pertenecen al centro</li></ul>
+
+
+
+<p>Todos ellos podrán enviar mensajes en ese chat y ver los mensajes que se han enviado.&nbsp;</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Eliminar_un_mensaje_privado"></span><strong>Eliminar un mensaje privado</strong><span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>De la misma manera que se elimina un aviso, un chat se elimina dándole clic a los tres puntitos en la esquina superior derecha del mensaje dentro del chat.</p>
+
+
+
+<p>Si se elimina un mensaje, aparecerá un texto que dice “Este mensaje ha sido eliminado” y quedará eliminado también para el papá.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Ver_historial_de_mensajes"></span><strong>Ver historial de mensajes</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>El historial de mensajes de cada alumno es guardado en el chat privado. Ahí puedes consultar todos los mensajes y archivos enviados, recibidos y eliminados.&nbsp;</p>
+
+
+
+<p>Es importante saber que los mensajes los pueden ver todas las personas relacionadas con el alumno (sus papás, maestros de su salón, directores y administradores de la escuela).</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Foros"></span><strong>Foros</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lh3.googleusercontent.com/rWZwneR-FB_ai95z3fq9SZZlQte7NCiIiL1Tw_RhTaZVPVIBNQu-jMm7jXAVTOqZAY7c9wTrfVM7ZW-UzQnAhzmvbWee0AaDQ87angd6MAyMtgff4kOXCcwpEO-6wFb32QYKy67o" alt=""/></figure>
+
+
+
+<p>En la sección mensajes, en la pestaña de “Chats” encontrarás un nuevo botón llamado “Foros” que te llevará a una sección donde&nbsp; podrás crear foros con padres de familia y colaboradores de tu organización. Los padres de familia se podrán unir desde la app Kinedu.&nbsp;<br></p>
+
+
+
+<p>En esta sección verás los foros a los que has sido agregado por otros colaboradores y los que tú has creado.<br></p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Crea_un_nuevo_foro"></span>Crea un nuevo foro<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Selecciona el botón “+ Agregar foro”.</li><li>Ingresa el nombre del foro y la descripción, da clic en siguiente</li><li>Selecciona la audiencia que podrá visualizar y unirse a este foro (este paso es opcional).</li><li>Agrega a los colaboradores que quieras incluir en el foro y también los moderadores que quieras asignar (este paso es opcional, siempre y cuando no te deselecciones a ti mismo, ya que siempre tiene que haber un moderador presente en el foro).</li><li>Agrega a los alumnos que quieres incluir al foro inicialmente (se agregaran todos los miembros de la familia del alumno y todos tendrán acceso al chat, este paso también es opcional).</li><li>¡Listo, has creado un nuevo foro!</li></ol>
+
+
+
+<p>Todos los foros que crees te incluyen de manera automática, pero puedes decidir no estar en ellos y asignar a otro moderador.</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Editar_un_foroagregar_personas"></span>Editar un foro/agregar personas<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Selecciona la parte de arriba del foro (i).</li><li>Consulta los miembros del foro.</li><li>Da clic en “Editar el foro”.</li><li>Puedes editar el nombre y descripción del foro.</li><li>Edita la audiencia del foro en caso de ser necesario.</li><li>Agrega a los colaboradores/asigna moderadores (puedes quitar a los actuales y agregar nuevos).</li><li>¡Listo, has editado tu foro!</li></ol>
+
+
+
+<p>También puedes agregar miembros de tu organización y padres de familia con el botón de “+ Agregar personas”.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="884" height="444" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.07.39-p.-m..gif" alt="" class="wp-image-12518"/></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Elimina_un_foro"></span>Elimina un foro<span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Nota: Sólo puedes eliminar los foros que tu creaste o si eres un moderador del foro.</p>
+
+
+
+<ol><li>Selecciona la parte de arriba del foro (i).</li><li>Elige la opción “Eliminar foro”.</li><li>Confirma la eliminación del foro en el modal.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1032" height="510" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.10.04-p.-m..gif" alt="" class="wp-image-12520"/></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Catalogo_de_Actividades"></span><strong>Catálogo de Actividades</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1344" height="605" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act.png" alt="" class="wp-image-12437" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act.png 1344w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act-768x346.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act-300x135.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act-500x225.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/catalogo-act-760x342.png 760w" sizes="(max-width: 1344px) 100vw, 1344px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Buscar_actividades"></span><strong>Buscar actividades</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>El catálogo de actividades incluye más de 1,400 actividades de todo tipo de temas, edades, y estilos. Para acceder al catálogo, da clic en “Catálogo” en el menú del lado izquierdo de tu pantalla.</p>
+
+
+
+<p>Ahí encontrarás 3 pestañas que organizan las actividades por:</p>
+
+
+
+<ul><li><strong>Áreas</strong></li></ul>
+
+
+
+<p>Las 4 áreas del desarrollo incluyen actividades físicas, cognitivas, lingüísticas y socio-afectivas. Dándole clic a cualquiera de las áreas te desplegará las actividades disponibles que cumplan con ese requisito.</p>
+
+
+
+<ul><li><strong>Temas</strong></li></ul>
+
+
+
+<p>Al buscar actividades por tema, se te mostrarán todas las actividades que entren al tema de interés. Los temas que se muestran son predeterminados.</p>
+
+
+
+<ul><li><strong>Tu Centro</strong></li></ul>
+
+
+
+<p>Finalmente, las actividades que se muestran dentro de la pestaña con el nombre de tu escuela son actividades que han sido agregadas por alguien de tu escuela.<strong>&nbsp;</strong><br></p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Adaptaciones"></span><strong>Adaptaciones</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Algunas actividades se pueden adaptar para tomar en cuenta los diferentes niveles de desarrollo en los que cada alumno puede estar. Las adaptaciones sirven para asegurar que una actividad sea suficientemente retadora (o sencilla) y evalúe al alumno adecuadamente.<br></p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Filtrar_actividades"></span><strong>Filtrar actividades</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1144" height="574" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.12.51-p.-m..gif" alt="" class="wp-image-12521"/></figure>
+
+
+
+<p>Otra forma sencilla de encontrar actividades es utilizando el buscador y filtros dentro del catálogo.</p>
+
+
+
+<p>En el buscador podrás filtrar por:</p>
+
+
+
+<ul><li>Todas las actividades y colecciones</li><li>Actividades y colecciones Kinedu</li><li>Actividades, colecciones y subcolecciones personalizadas</li><li> Edad (0 -72 meses)</li></ul>
+
+
+
+<p>En el filtro podrás filtrar por:</p>
+
+
+
+<ul><li>Etiquetas</li><li>Áreas múltiples</li><li>Habilidades (directamente relacionadas con las áreas)</li><li>Temas múltiples</li></ul>
+
+
+
+<p>El beneficio de utilizar el filtro es que podrás tomar una combinación de características para asegurar que te muestre actividades específicas para lo que buscas.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Crear_colecciones"></span>Crear colecciones<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Ahora podrás crear colecciones desde la pestaña de tu centro de manera más rápida.</p>
+
+
+
+<ol><li>Ingresa a la pestaña de tu centro</li><li>Selecciona el botón de “Agregar”</li><li>Selecciona la opción “Colección</li><li>Ingresa el nombre de tu colección</li><li>Elige con quién se comparte</li><li>Elige o asigna hasta tres etiquetas&nbsp;<ul><li>Puedes usar etiquetas que alguien más haya creado</li><li>Puedes editar tus propias etiquetas (cambiar color y nombre)</li><li>Puedes eliminar etiquetas</li></ul></li><li>Da click en “Crear”</li><li>¡Listo, tu colección ha sido creada!</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1340" height="614" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.15.56-p.-m..gif" alt="" class="wp-image-12522"/></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Subir_mis_propias_actividades"></span><strong>Subir mis propias actividades</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1332" height="564" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia.png" alt="" class="wp-image-12440" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia.png 1332w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia-768x325.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia-300x127.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia-500x212.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/actividad-propia-760x322.png 760w" sizes="(max-width: 1332px) 100vw, 1332px" /></figure>
+
+
+
+<p>Si tu escuela ya tiene actividades diseñadas que quieren aprovechar, estas también las puedes subir y agregar a los planes semanales.</p>
+
+
+
+<p>Para hacer esto, sigue los siguientes pasos:</p>
+
+
+
+<ol><li>En la sección de «Catálogo» selecciona el nombre de tu centro o escuela.</li><li>Ahí, da clic al botón de “Agregar”.</li><li>Selecciona la opción de “Actividad”.</li><li>El primer paso es seleccionar la colección y subcolección a la que se va a agregar esta actividad, si es necesario, agrega una nueva colección y subcolección.</li><li>El segundo paso, habrá que llenar toda la información de la actividad incluyendo tipo de actividad, título, descripción y fotos para dar entender de qué trata esta actividad.</li><li>Después, llenaremos la información pedagógica (este paso aplica solamente para el tipo de actividad “Actividad de desarrollo”).</li><li>Finalmente configuraremos los permisos de dicha actividad.</li><li>¡Listo ya quedó una actividad nueva en tu catálogo!</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1042" height="516" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.20.43-p.-m.-1.gif" alt="" class="wp-image-12524"/></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Subcoleccion"></span>Subcolección <span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Ahora en la sección de Catálogo, podrás agregar subcolecciones dentro de cada colección para que puedas tener una mejor organización de tus actividades.</p>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Crea_una_subcoleccion"></span>Crea una subcolección<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Entra a una colección.</li><li>Seleccionar el botón de “Agregar subcolección”.</li><li>Escribe el nombre.</li><li>Elige o asigna hasta tres etiquetas.</li><li>Selecciona siguiente:</li><li>Habilita o deshabilita la opción de compartir con los padres:<ul><li>En caso de habilitar la opción<ul><li>Personaliza la tarjeta que los padres van a ver en la aplicación de Kinedu eligiendo un color y una imagen.</li><li>Elige los centros con los que quieres compartir la subcolección y su contenido.</li><li>Selecciona los salones de los centros con los que quieres compartir la subcolección y su contenido.</li></ul></li></ul></li><li>¡Listo!, selecciona el botón de crear.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="549" height="507" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/subcollecion.png" alt="" class="wp-image-12443" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/subcollecion.png 549w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/subcollecion-300x277.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/subcollecion-500x462.png 500w" sizes="(max-width: 549px) 100vw, 549px" /></figure>
+
+
+
+<ul><li>En caso de deshabilitar la opción:<ul><li>Selecciona el botón de crear.</li></ul></li></ul>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="558" height="196" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/crear.png" alt="" class="wp-image-12447" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/crear.png 558w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/crear-300x105.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/crear-500x176.png 500w" sizes="(max-width: 558px) 100vw, 558px" /></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Edita_una_subcoleccion"></span>Edita una subcolección<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Entra a la subcolección.</li><li>Seleccionar del lado derecho el menú de los tres puntos (&#8230;) y elegir editar.</li><li>Modificar la información deseada.</li><li>¡Listo! Selecciona guardar.</li></ol>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Sube_actividades_a_tus_subcolecciones"></span>Sube actividades a tus subcolecciones<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Selecciona el botón de “Subir actividad”.</li><li>Llena la información de cada paso:<ul><li>Colecciones y subcolecciones</li><li>Información General</li><li>Indicadores</li><li>Comunidad</li></ul></li><li>¡Listo! Selecciona el botón de subir.</li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1350" height="604" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.49.57-p.-m..gif" alt="" class="wp-image-12527"/></figure>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Elimina_una_subcoleccion"></span>Elimina una subcolección<span class="ez-toc-section-end"></span></h4>
+
+
+
+<ol><li>Entra a la subcolección.&nbsp;</li><li>Seleccionar del lado derecho el menú de los tres puntos (&#8230;) y elegir borrar.</li><li>Confirma la eliminación de la subcolección.</li><li>¡Listo! Tu subcolección ha sido eliminada.</li></ol>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Privacidad"></span><strong>Privacidad</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Las actividades que subas podrán tener diferentes permisos de visibilidad, a nivel Organización, Centro y Salones. Podrás manejar permisos también a nivel colección, definiendo qué colecciones son accesibles para los miembros de tu organización.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1348" height="603" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS.png" alt="" class="wp-image-12452" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS.png 1348w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS-768x344.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS-300x134.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS-500x224.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATALOGOOOOOOOS-760x340.png 760w" sizes="(max-width: 1348px) 100vw, 1348px" /></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="477" height="927" src="https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-16.29.52.png" alt="" class="wp-image-11420" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-16.29.52.png 477w, https://blog-es.kinedu.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-02-at-16.29.52-300x583.png 300w" sizes="(max-width: 477px) 100vw, 477px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_una_actividad_del_catalogo_a_mi_plan"></span><strong>Agregar una actividad del catálogo a mi plan</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Podrás agregar actividades del catálogo a tus planes semanales ya existentes. Para esto:</p>
+
+
+
+<ol><li>Dirígete al Catálogo.</li><li>En la vista de la actividad que quieres agregar, selecciona “Agendar”.</li><li>Te aparecerá un flujo para que administres en qué salones y días te gustaría que apareciera esta actividad. Como administrador puedes decidir si deseas hacer que la actividad sea obligatoria dentro del plan semanal.</li></ol>
+
+
+
+<p>Si la actividad la marcas como mandatoria, esto quitará la posibilidad de que una maestra la pueda eliminar de su plan.</p>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Calendario"></span><strong>Calendario</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1359" height="622" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO.png" alt="" class="wp-image-12453" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO.png 1359w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO-768x352.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO-300x137.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO-500x229.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CALENDARIO-ACTUALIZADO-760x348.png 760w" sizes="(max-width: 1359px) 100vw, 1359px" /></figure>
+
+
+
+<p>El calendario funciona para agendar eventos de la escuela. Aquí podrás agendar tanto llamadas virtuales como eventos presenciales en la escuela.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Crear_un_evento_nuevo"></span><strong>Crear un evento nuevo</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1348" height="602" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO.png" alt="" class="wp-image-12455" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO.png 1348w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO-768x343.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO-300x134.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO-500x223.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CREAR-EVENTO-760x339.png 760w" sizes="(max-width: 1348px) 100vw, 1348px" /></figure>
+
+
+
+<p>Para crear un evento nuevo, da clic en “Crear evento”. Selecciona a quién va dirigido el evento, y completa la información.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1359" height="616" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO.png" alt="" class="wp-image-12457" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO.png 1359w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO-768x348.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO-500x227.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/DETALLES-EVENTO-760x344.png 760w" sizes="(max-width: 1359px) 100vw, 1359px" /></figure>
+
+
+
+<p>El evento se les agendará de manera automática a los papás y maestros de los alumnos invitados, y podrán ver toda la información.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Crear_un_evento_recurrente"></span>Crear un evento recurrente<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Al crear un evento tienes la opción de crear una recurrencia. Tienes 3 opciones predeterminadas (diario, semanal y todos los días de la semana hábil &#8211; Lunes a Viernes) y además puedes crear tu recurrencia personalizada. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1342" height="606" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-3.52.46-p.-m..gif" alt="" class="wp-image-12528"/><figcaption>  Ej. Evento con recurrencia diaria (predeterminada). </figcaption></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1360" height="616" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-4.00.13-p.-m..gif" alt="" class="wp-image-12529"/><figcaption>  Ej. Evento con recurrencia cada 3 días (personalizada). </figcaption></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Editar_o_eliminar_un_evento"></span><strong>Editar o eliminar un evento</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Si deseas editar o eliminar un evento, selecciona el evento desde tu calendario. Te aparecerá una ventana con la descripción del evento, y en la esquina superior del lado derecho tres puntitos. Selecciona los puntitos para decidir si editar o eliminar el evento.</p>
+
+
+
+<p>Si quieres eliminar un evento con una recurrencia, te dará tres opciones para eliminar:</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="943" height="604" src="https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1.png" alt="" class="wp-image-10487" srcset="https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1.png 943w, https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1-768x492.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1-300x192.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1-500x320.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-29-at-12.01.53-PM-1-760x487.png 760w" sizes="(max-width: 943px) 100vw, 943px" /></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Portafolio_de_evidencias"></span>Portafolio de evidencias<span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1366" height="616" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio.png" alt="" class="wp-image-12461" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio.png 1366w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio-768x346.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio-300x135.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio-500x225.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/portafolio-760x343.png 760w" sizes="(max-width: 1366px) 100vw, 1366px" /></figure>
+
+
+
+<p>Esta nueva sección contiene todas las evidencias entregadas por los padres, con el objetivo de que la maestra pueda visualizarlas de una manera más rápida y sencilla. Aquí encontrarás 2 pestañas que organizan las actividades por:</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Entregas"></span><strong>Entregas</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>En esta sección hay 2 menús desplegables que sirven como filtros para visualizar las evidencias entregadas deseadas:</p>
+
+
+
+<ol><li>Elige el salón.</li><li>Selecciona la semana del mes que quieres visualizar.</li><li>Debajo del menú se muestran los 7 días de la semana, elige el día deseado para visualizar las evidencias.</li><li>¡Listo! Podrás visualizar todas las evidencias del salón enviadas en ese día.</li></ol>
+
+
+
+<p>Las actividades están organizadas de una manera cronológica, en la cual, las más antiguas están arriba y conforme los padres entreguen nuevas actividades se irán mostrando una debajo de la otra.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Alumnos"></span>Alumnos<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Al seleccionar la pestaña de alumnos encontrarás un menú desplegable con todos los salones. Para acceder a su contenido:</p>
+
+
+
+<ol><li>Hacer clic en un salón.</li><li>Se mostrarán todos los alumnos de dicho salón.&nbsp;</li><li>Seleccionar a un alumno.</li><li>Del lado derecho podrás ver todas las actividades divididas por fechas que se han entregado mediante la app de Kinedu. </li></ol>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1348" height="604" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/Screen-Recording-2021-09-21-at-4.03.08-p.-m..gif" alt="" class="wp-image-12531"/><figcaption>  Ej. Cómo acceder al portafolio de evidencias.  </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Recursos_educativos"></span><strong>Recursos educativos</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Los recursos educativos son archivos que puedes guardar dentro de Classrooms para agregar a tus planes y compartirlos con los padres de familia para facilitar la educación.</p>
+
+
+
+<p>Estos pueden ser archivos de tipo PDF, imágen o liga electrónica.&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Explorar_recursos"></span><strong>Explorar recursos</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<h4 class="wp-block-heading"><span class="ez-toc-section" id="Tipos_de_recursos"></span><strong>Tipos de recursos</strong><span class="ez-toc-section-end"></span></h4>
+
+
+
+<p>Classrooms te permite accesar recursos pre-grabados por el equipo de aprendizaje de Kinedu, así como subir tu propio repertorio de recursos. Para poder diferenciar los recursos que son tuyos y los que son de Classrooms, solamente identifica la carpeta en la que están guardados.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1345" height="611" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS.png" alt="" class="wp-image-12465" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS.png 1345w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS-768x349.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS-500x227.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/RECURSOS-760x345.png 760w" sizes="(max-width: 1345px) 100vw, 1345px" /></figure>
+
+
+
+<p>	<strong>Carpeta Azul:</strong> Recurso de Classrooms</p>
+
+
+
+<p>	<strong>Carpeta Amarilla: </strong>Recurso propio</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Almacenamiento_de_recursos"></span><strong>Almacenamiento de recursos</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Los recursos están guardados en tres diferentes secciones: Para educadores, para papás y para alumnos. Estas secciones te permiten organizar el almacenamiento para encontrar de forma fácil la variedad de recursos ofrecidos.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1348" height="290" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS.png" alt="" class="wp-image-12467" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS.png 1348w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS-768x165.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS-300x65.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS-500x108.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/CATEGORIAS-760x164.png 760w" sizes="(max-width: 1348px) 100vw, 1348px" /></figure>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Categorias_y_Subcategorias"></span><strong>Categorías y Subcategorías</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<figure class="wp-block-image"><img decoding="async" loading="lazy" width="1346" height="610" src="https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad.png" alt="" class="wp-image-12469" srcset="https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad.png 1346w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad-768x348.png 768w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad-300x136.png 300w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad-500x227.png 500w, https://blog-es.kinedu.com/wp-content/uploads/2021/09/ligar-actividad-760x344.png 760w" sizes="(max-width: 1346px) 100vw, 1346px" /></figure>
+
+
+
+<p>Dentro de cada sección, existen categorías tanto creadas por tí, como pre-definidas por Classrooms. Estas categorías son la vista general.</p>
+
+
+
+<p>Dentro de cada categoría existen carpetas <strong><em>subcategorías</em>, </strong>que te permiten categorizar la información dentro de la categoría. Finalmente, dándole clic a la carpeta de una subcategoría, podrás encontrar todos los recursos añadidos ahí.&nbsp;</p>
+
+
+
+<p>A la hora de ligar un recurso a una actividad, podrás filtrar por búsqueda tanto las categorías de actividades así como las actividades mismas.</p>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Agregar_mi_propio_recurso"></span><strong>Agregar mi propio recurso</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Para poder agregar recursos, tienes que asegurarte de tener por lo menos una categoría y una subcategoría creadas para poder empezar a subir tu recurso.</p>
+
+
+
+<ol><li>Crea una categoría nueva (o asegúrate ya tener una categoría creada por tu escuela, siendo una carpeta amarilla).</li><li>Crea una subcategoría nueva (o asegúrate ya tener una subcategoría creada por tu escuela dentro de la categoría, siendo otra carpeta amarilla).</li><li>Da clic al botón que dice “Cargar recurso”.</li><li>Llena la información del recurso que vas a subir, asegurándote de poner suficiente información (descripción) para entender qué es el recurso.</li></ol>
+
+
+
+<h3 class="wp-block-heading"><span class="ez-toc-section" id="Compartir_recursos_con_papas"></span><strong>Compartir recursos con papás</strong><span class="ez-toc-section-end"></span></h3>
+
+
+
+<p>Compartir un recurso con los papás es fácil. Dentro de la subcategoría, verás la información de cada recurso que hay disponible:</p>
+
+
+
+<ol><li>Dale clic a los tres puntitos dentro del recurso que deseas compartir.</li><li>Selecciona “Compartir con papás”.</li><li>Sigue el flujo para determinar a quién le deseas compartir el recurso.</li></ol>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Aplicacion_para_papas"></span><strong>Aplicación para papás</strong><span class="ez-toc-section-end"></span></h2>
+
+
+
+<p>Haz clic <strong><a href="https://blog-es.kinedu.com/kinedumanual-de-papas/">aquí </a></strong>para ver la <strong>Guía para Padres de Familia</strong>.</p>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>
+    </div>
+  </div>
+</article>
+
+<!-- Author bar -->
+<div class="kb-author-bar">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <div class="avi" aria-hidden="true"></div>
+    <div>
+      <div class="name">Dr. Mariana Cruz</div>
+      <div class="role">Kinedu editorial team · Pediatric development</div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="kb-btn kb-btn-outline" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href).then(function(){alert('Link copied!')})">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M8.5 1.5L13.5 6.5M13.5 6.5L8.5 11.5M13.5 6.5H5.5C3.84 6.5 2.5 7.84 2.5 9.5V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Share
+    </button>
+  </div>
+</div>
+
+<!-- Slim CTA -->
+<div class="kb-art-slim-cta">
+  <div class="kb-art-slim-cta-inner">
+    <div>
+      <h3>Track every milestone with Kinedu</h3>
+      <p>Personalized activities, expert articles, and daily insights — all tailored to your baby's exact age.</p>
+    </div>
+    <a href="https://app.kinedu.com/dha2/?swc=dha2" class="kb-btn kb-btn-primary" style="flex-shrink:0;">Try Kinedu free →</a>
+  </div>
+</div>
+
+
+<section style="padding:56px 0;">
+  <div class="kb-wrap">
+    <div class="kb-section-head">
+      <div>
+        <div class="kb-eyebrow">Sigue leyendo</div>
+        <h2 class="kb-h2">Más sobre Educadores</h2>
+      </div>
+      <a href="/articles.html" class="kb-link" style="align-self:end;">Todos los artículos →</a>
+    </div>
+    <div style="text-align:center;padding:32px 0;">
+      <a href="/es/articles.html" class="kb-btn kb-btn-primary" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--blue,#2B8BE4);color:white;border-radius:99px;font-weight:600;text-decoration:none;">Ver todos los artículos →</a>
+    </div>
+  </div>
+</section>
+
+
+<section style="padding:0 0 8px;">
+  <div class="kb-wrap">
+    <div class="kb-app-cta">
+      <div class="kb-app-cta-content">
+        <span class="kb-app-cta-tag">Prueba gratis 7 días</span>
+        <h2>Lleva esta guía contigo, todos los días.</h2>
+        <p>Actividades personalizadas, seguimiento de hitos, clases en vivo con expertos y más de 2,400 artículos — todo según la edad exacta de tu bebé.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" class="kb-app-store-badge">
+            <svg width="22" height="26" viewBox="0 0 18 22" fill="none"><path d="M14.5 11.5c-.02-2.6 2.1-3.85 2.2-3.92-1.2-1.76-3.06-2-3.72-2.03-1.58-.16-3.1.93-3.9.93-.8 0-2.02-.9-3.33-.88C4.02 5.63 2.3 6.67 1.36 8.27-.6 11.5.8 16.2 2.7 18.7c.94 1.38 2.08 2.9 3.55 2.86 1.43-.06 1.97-.92 3.7-.92 1.72 0 2.22.92 3.73.89 1.54-.03 2.5-1.38 3.44-2.77a12.8 12.8 0 001.56-3.22c-.04-.01-2.98-1.14-3.02-4.54M11.97 3.5C12.76 2.55 13.3 1.2 13.14 0c-1.14.05-2.6.76-3.44 1.7-.74.84-1.42 2.2-1.24 3.47 1.26.1 2.6-.65 3.5-1.67" fill="currentColor"/></svg>
+            <div><small>Download on the</small><span>App Store</span></div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.kinedu.kineduapp" class="kb-app-store-badge">
+            <svg width="22" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 2.5L13.5 12L3 21.5C2.5 21 2 20.5 2 19.5V4.5C2 3.5 2.5 3 3 2.5Z" fill="#34A853"/><path d="M3 2.5L17 10L13.5 12L3 2.5Z" fill="#FBBC04"/><path d="M3 21.5L13.5 12L17 14L3 21.5Z" fill="#EA4335"/><path d="M17 10L21 12L17 14L13.5 12L17 10Z" fill="#4285F4"/></svg>
+            <div><small>Get it on</small><span>Google Play</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="kb-app-cta-stats">
+        <div class="kb-app-cta-stat">
+          <div class="num">8M+</div>
+          <div class="lbl">Padres en el mundo</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">2,400+</div>
+          <div class="lbl">Artículos de expertos</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">140+</div>
+          <div class="lbl">Expertos pediátricos</div>
+        </div>
+        <div class="kb-app-cta-stat">
+          <div class="num">4.8<span class="star">★</span></div>
+          <div class="lbl">Calificación App Store</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="ksf">
+  <div class="ksf-inner">
+    <div class="ksf-brand">
+      <img src="/logo kinedu.png" alt="Kinedu" class="ksf-logo">
+      <p class="ksf-tagline">Recomendado por pediatras. Amado por padres. Hecho para tu bebé — exactamente como es ahora.</p>
+      <div class="ksf-social">
+        <a href="https://www.facebook.com/kineducom/?locale=es_LA" class="ksf-social-btn" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/kinedu/" class="ksf-social-btn" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw" class="ksf-social-btn" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="rgba(255,255,255,.9)"/></svg></a>
+        <a href="https://www.tiktok.com/@kineduapp" class="ksf-social-btn" aria-label="TikTok"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.56V6.8a4.84 4.84 0 0 1-1.07-.11z"/></svg></a>
+      </div>
+    </div>
+    <div class="ksf-cols">
+      <div class="ksf-col">
+        <h5>Compañía</h5>
+        <a href="/founder.html">Sobre nosotros</a>
+        <a href="/science.html">La ciencia</a>
+        <a href="/articles.html">Blog</a>
+      </div>
+      <div class="ksf-col">
+        <h5>Soporte</h5>
+        <a href="mailto:hello@kinedu.com">Contáctanos</a>
+        <a href="https://blog.kinedu.com/privacy-policy/">Terms & Conditions</a>
+        <a href="https://blog.kinedu.com/privacy-policy-2/">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+  <div class="ksf-bottom">© 2026 Kinedu. Todos los derechos reservados.</div>
+</footer>
+
+
+<script>
+(function() {
+  var ids = ["s1", "s2", "s3", "s4", "s5"];
+  var links = {};
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) links[id] = el;
+  });
+  window.addEventListener('scroll', function() {
+    var scrollY = window.pageYOffset + 120;
+    var current = ids[0];
+    ids.forEach(function(id) {
+      if (links[id] && links[id].offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('.kb-art-toc a').forEach(function(a) {
+      a.classList.toggle('on', a.getAttribute('href') === '#' + current);
+    });
+  }, {passive: true});
+})();
+</script>
+<script src="/translations.js"></script>
+<script src="/script.js"></script>
+</body>
+</html>

@@ -123,9 +123,33 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.getAttribute('data-lang');
-                if (lang !== currentLang) {
-                    applyTranslations(lang);
+                if (lang === currentLang) return;
+
+                // For blog articles & blog index, the content is hardcoded HTML — we
+                // can't translate client-side. Navigate to the equivalent page in the
+                // chosen language instead.
+                const path = window.location.pathname;
+                const isBlogArticle = path.startsWith('/blog/') || path.startsWith('/es/blog/');
+                const isBlogIndex = path === '/articles.html' || path === '/articles' ||
+                                    path === '/es/articles.html' || path === '/es/articles';
+
+                if (isBlogArticle || isBlogIndex) {
+                    localStorage.setItem(STORAGE_KEY, lang);
+                    if (lang === 'es') {
+                        // Going to ES — land on the Spanish blog index for now (article
+                        // mapping is a Phase 2 enhancement).
+                        window.location.href = '/es/articles';
+                    } else if (lang === 'pt') {
+                        // PT not yet generated — fallback to PT homepage (will be /pt/articles when built).
+                        window.location.href = '/pt';
+                    } else {
+                        // Going to EN — land on the English blog index.
+                        window.location.href = '/articles.html';
+                    }
+                    return;
                 }
+
+                applyTranslations(lang);
             });
         });
 
