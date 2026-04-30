@@ -129,21 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 // can't translate client-side. Navigate to the equivalent page in the
                 // chosen language instead.
                 const path = window.location.pathname;
-                const isBlogArticle = path.startsWith('/blog/') || path.startsWith('/es/blog/');
+                const isBlogArticle = path.startsWith('/blog/') ||
+                                      path.startsWith('/es/blog/') ||
+                                      path.startsWith('/pt/blog/');
                 const isBlogIndex = path === '/articles.html' || path === '/articles' ||
-                                    path === '/es/articles.html' || path === '/es/articles';
+                                    path === '/es/articles.html' || path === '/es/articles' ||
+                                    path === '/pt/articles.html' || path === '/pt/articles';
 
                 if (isBlogArticle || isBlogIndex) {
                     localStorage.setItem(STORAGE_KEY, lang);
                     if (lang === 'es') {
-                        // Going to ES — land on the Spanish blog index for now (article
-                        // mapping is a Phase 2 enhancement).
                         window.location.href = '/es/articles';
                     } else if (lang === 'pt') {
-                        // PT not yet generated — fallback to PT homepage (will be /pt/articles when built).
-                        window.location.href = '/pt';
+                        window.location.href = '/pt/articles';
                     } else {
-                        // Going to EN — land on the English blog index.
                         window.location.href = '/articles.html';
                     }
                     return;
