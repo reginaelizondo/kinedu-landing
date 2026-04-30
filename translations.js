@@ -241,8 +241,9 @@ window.TRANSLATIONS = {
     'lc.hero.headline': 'You don\'t need to know <span class="lc-grad">everything</span>.<br><span class="lc-h1-line2">You just need <span class="lc-grad">who to ask</span>.</span>',
     'lc.hero.subhead': 'Pediatricians, IBCLCs, sleep coaches, feeding therapists, psychologists — live every single day inside Kinedu. Bring your question, leave with an answer.',
     'lc.hero.liveNow': 'Live now',
-    'lc.hero.cta': 'Try it free for 7 days.',
-    'lc.hero.trustFamilies': '8M families',
+    'lc.hero.cta': 'Get every expert free for 7 days',
+    'lc.hero.ctaSub': 'No credit card for the first 3 days · Cancel in 2 taps',
+    'lc.hero.trustFamilies': 'Loved by 8M+ families',
     'lc.hero.trustHarvard': 'Harvard-backed',
     'lc.hero.trustPedi': 'Pediatrician recommended',
 
@@ -311,7 +312,7 @@ window.TRANSLATIONS = {
     'lc.week.friShort': 'Fri',
     'lc.week.courseSleep': 'Independent Sleep Course',
     'lc.week.courseMilestones': 'Developmental Milestones Course',
-    'lc.week.cta': 'Try it free for 7 days.',
+    'lc.week.cta': 'Join this week’s classes — free for 7 days',
 
     // Testimonials
     'lc.testi.title': 'What <span class="lc-grad">parents</span> are saying',
@@ -335,7 +336,7 @@ window.TRANSLATIONS = {
     'lc.pricing.tag': 'Try it risk-free',
     'lc.pricing.title': 'Try every live class free for 7 days.',
     'lc.pricing.price': 'Full access. Cancel anytime. Then $7/month.',
-    'lc.pricing.cta': 'Start free trial',
+    'lc.pricing.cta': 'Start your 7-day free trial',
 
     // FAQ
     'lc.faq.tag': 'Questions',
@@ -597,8 +598,9 @@ window.TRANSLATIONS = {
     'lc.hero.headline': 'No necesitas saberlo <span class="lc-grad">todo</span>.<br><span class="lc-h1-line2">Solo necesitas saber <span class="lc-grad">a quién preguntarle</span>.</span>',
     'lc.hero.subhead': 'Pediatras, IBCLCs, coaches de sueño, terapeutas de alimentación, psicólogas — en vivo todos los días dentro de Kinedu. Trae tu pregunta, vete con la respuesta.',
     'lc.hero.liveNow': 'En vivo',
-    'lc.hero.cta': 'Pruébalo gratis 7 días.',
-    'lc.hero.trustFamilies': '8M de familias',
+    'lc.hero.cta': 'Habla con todos los expertos — 7 días gratis',
+    'lc.hero.ctaSub': 'Sin tarjeta los primeros 3 días · Cancela en 2 toques',
+    'lc.hero.trustFamilies': '8M+ familias confían en nosotros',
     'lc.hero.trustHarvard': 'Respaldado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
@@ -667,7 +669,7 @@ window.TRANSLATIONS = {
     'lc.week.friShort': 'Vie',
     'lc.week.courseSleep': 'Curso de Sueño Independiente',
     'lc.week.courseMilestones': 'Curso de Hitos del Desarrollo',
-    'lc.week.cta': 'Pruébalo gratis 7 días.',
+    'lc.week.cta': 'Únete a las clases de esta semana — 7 días gratis',
 
     // Testimonials
     'lc.testi.title': 'Lo que dicen <span class="lc-grad">los papás</span>',
@@ -691,7 +693,7 @@ window.TRANSLATIONS = {
     'lc.pricing.tag': 'Pruébalo sin riesgo',
     'lc.pricing.title': 'Prueba todas las clases en vivo gratis 7 días.',
     'lc.pricing.price': 'Acceso completo. Cancela cuando quieras. Después $7/mes.',
-    'lc.pricing.cta': 'Empezar prueba gratis',
+    'lc.pricing.cta': 'Empieza tu prueba de 7 días gratis',
 
     // FAQ
     'lc.faq.tag': 'Preguntas',
@@ -953,8 +955,9 @@ window.TRANSLATIONS = {
     'lc.hero.headline': 'Você não precisa saber <span class="lc-grad">tudo</span>.<br><span class="lc-h1-line2">Só precisa saber <span class="lc-grad">a quem perguntar</span>.</span>',
     'lc.hero.subhead': 'Pediatras, IBCLCs, coaches do sono, terapeutas de alimentação, psicólogas — ao vivo todos os dias dentro do Kinedu. Traga sua pergunta, saia com a resposta.',
     'lc.hero.liveNow': 'Ao vivo',
-    'lc.hero.cta': 'Teste grátis por 7 dias.',
-    'lc.hero.trustFamilies': '8M de famílias',
+    'lc.hero.cta': 'Fale com todos os especialistas — 7 dias grátis',
+    'lc.hero.ctaSub': 'Sem cartão nos primeiros 3 dias · Cancele em 2 toques',
+    'lc.hero.trustFamilies': '8M+ famílias confiam na Kinedu',
     'lc.hero.trustHarvard': 'Apoiado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
@@ -1023,7 +1026,7 @@ window.TRANSLATIONS = {
     'lc.week.friShort': 'Sex',
     'lc.week.courseSleep': 'Curso de Sono Independente',
     'lc.week.courseMilestones': 'Curso de Marcos do Desenvolvimento',
-    'lc.week.cta': 'Teste grátis por 7 dias.',
+    'lc.week.cta': 'Entre nas aulas desta semana — 7 dias grátis',
 
     // Testimonials
     'lc.testi.title': 'O que <span class="lc-grad">os pais</span> estão dizendo',
@@ -1047,7 +1050,7 @@ window.TRANSLATIONS = {
     'lc.pricing.tag': 'Teste sem risco',
     'lc.pricing.title': 'Teste todas as aulas ao vivo grátis por 7 dias.',
     'lc.pricing.price': 'Acesso completo. Cancele quando quiser. Depois $7/mês.',
-    'lc.pricing.cta': 'Começar teste grátis',
+    'lc.pricing.cta': 'Comece seu teste grátis de 7 dias',
 
     // FAQ
     'lc.faq.tag': 'Perguntas',
