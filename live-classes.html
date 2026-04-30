@@ -270,6 +270,22 @@
         }
         .lc-body--center { margin: 0 auto; text-align: center; }
 
+        /* PAS section — emotional pause between hero and experts */
+        .lc-pas { padding: 96px 0 88px; }
+        .lc-pas-title {
+            font-size: clamp(1.85rem, 4.4vw, 3rem);
+            max-width: 880px; margin-left: auto; margin-right: auto;
+            margin-bottom: 22px;
+        }
+        .lc-pas-body {
+            max-width: 640px; font-size: 1.1rem;
+        }
+        .lc-pas-body em { font-style: italic; color: var(--kinedu-blue); font-weight: 600; }
+        @media (max-width: 640px) {
+            .lc-pas { padding: 64px 0 56px; }
+            .lc-pas-body { font-size: 0.98rem; }
+        }
+
         /* Problem */
         .lc-problem-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
@@ -1177,6 +1193,16 @@
 
             </div>
 
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         2.5 PAS — Problem · Agitate · Solve
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="lc-section lc-pas">
+        <div class="lc-wrap lc-center">
+            <h2 class="lc-h2 lc-pas-title" data-i18n="lc.pas.title" data-i18n-html>It's 2am. Your baby won't latch. Google has <em>23 different answers</em>.</h2>
+            <p class="lc-body lc-body--center lc-pas-body" data-i18n="lc.pas.body" data-i18n-html>You're not alone. Every Kinedu member has live, daily access to certified experts — pediatricians, IBCLCs, sleep coaches, psychologists. Ask your exact question. Get an answer for <em>your</em> baby.</p>
         </div>
     </section>
 

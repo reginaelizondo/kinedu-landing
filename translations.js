@@ -247,6 +247,10 @@ window.TRANSLATIONS = {
     'lc.hero.trustHarvard': 'Harvard-backed',
     'lc.hero.trustPedi': 'Pediatrician recommended',
 
+    // PAS — Problem · Agitate · Solve
+    'lc.pas.title': 'It\'s 2am. Your baby won\'t latch. Google has <em>23 different answers</em>.',
+    'lc.pas.body': 'You\'re not alone. Every Kinedu member has live, daily access to certified experts — pediatricians, IBCLCs, sleep coaches, psychologists. Ask your exact question. Get an answer for <em>your</em> baby.',
+
     // Meet the experts
     'lc.experts.title': 'The <span class="lc-grad">experts</span> in your pocket.',
     'lc.experts.body': 'Real certifications. Real experience. Available to every Kinedu member, live.',
@@ -604,6 +608,10 @@ window.TRANSLATIONS = {
     'lc.hero.trustHarvard': 'Respaldado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
+    // PAS — Problem · Agitate · Solve
+    'lc.pas.title': 'Son las 2am. Tu bebé no se prende al pecho. Google te da <em>23 respuestas distintas</em>.',
+    'lc.pas.body': 'No estás sola. Cada miembro de Kinedu accede en vivo, todos los días, a expertos certificados — pediatras, asesoras de lactancia, coaches de sueño, psicólogas. Haz tu pregunta exacta. Recibe una respuesta para <em>tu</em> bebé.',
+
     // Meet the experts
     'lc.experts.title': 'Los <span class="lc-grad">expertos</span> en tu bolsillo.',
     'lc.experts.body': 'Certificaciones reales. Experiencia real. Disponibles para cada miembro de Kinedu, en vivo.',
@@ -960,6 +968,10 @@ window.TRANSLATIONS = {
     'lc.hero.trustFamilies': '8M+ famílias confiam na Kinedu',
     'lc.hero.trustHarvard': 'Apoiado por Harvard',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
+
+    // PAS — Problem · Agitate · Solve
+    'lc.pas.title': 'São 2 da manhã. Seu bebê não pega o peito. O Google dá <em>23 respostas diferentes</em>.',
+    'lc.pas.body': 'Você não está sozinha. Todo membro Kinedu tem acesso ao vivo, todos os dias, a especialistas certificados — pediatras, consultoras IBCLC, coaches do sono, psicólogas. Faça sua pergunta exata. Receba uma resposta para <em>o seu</em> bebê.',
 
     // Meet the experts
     'lc.experts.title': 'Os <span class="lc-grad">especialistas</span> no seu bolso.',
