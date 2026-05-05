@@ -776,6 +776,95 @@
         .lc-testi-store { background: #0E1B2C; color: white; }
         .lc-testi-store--play { background: white; border: 1.5px solid var(--border); }
 
+        /* ── Variant B: Live Classes Schedule Card ──────────────────── */
+        .lc-hero-card {
+            width: 100%; max-width: 420px;
+            background: #FAF8F5;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.13);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .lhc-live-badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(229,115,115,0.12);
+            border: 1px solid rgba(229,115,115,0.25);
+            color: #C62828;
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .lhc-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #E53935;
+            animation: lhcPulse 1.6s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes lhcPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.75); }
+        }
+        .lhc-featured-title {
+            font-size: 1.15rem; font-weight: 700; color: #0E1B2C;
+            line-height: 1.4; margin: 0 0 6px;
+        }
+        .lhc-featured-expert {
+            font-size: 0.8rem; color: #64748B; margin: 0 0 14px;
+        }
+        .lhc-avatar-row {
+            display: flex; align-items: center;
+        }
+        .lhc-av {
+            width: 30px; height: 30px; border-radius: 50%;
+            border: 2px solid #FAF8F5;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem; font-weight: 700;
+            margin-right: -8px; flex-shrink: 0;
+        }
+        .lhc-av--pink   { background: #FECDD3; color: #9F1239; }
+        .lhc-av--yellow { background: #FEF08A; color: #854D0E; }
+        .lhc-av--green  { background: #BBF7D0; color: #14532D; }
+        .lhc-av--blue   { background: #BFDBFE; color: #1E40AF; }
+        .lhc-av-count {
+            margin-left: 18px; font-size: 0.78rem; font-weight: 600;
+            color: #64748B;
+        }
+        .lhc-schedule {
+            background: white; border-radius: 16px;
+            padding: 4px 16px; margin-top: 16px;
+        }
+        .lhc-item {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+        .lhc-item:last-child { border-bottom: none; }
+        .lhc-item-info { flex: 1; min-width: 0; }
+        .lhc-item-title-row {
+            display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+        }
+        .lhc-item-title {
+            font-size: 0.82rem; font-weight: 700; color: #0E1B2C; line-height: 1.3;
+        }
+        .lhc-item-live-tag {
+            background: #E53935; color: white;
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
+            padding: 2px 7px; border-radius: 4px;
+            flex-shrink: 0; text-transform: uppercase;
+        }
+        .lhc-item-expert { font-size: 0.73rem; color: #94A3B8; margin-top: 3px; }
+        .lhc-item-time {
+            font-size: 0.82rem; font-weight: 700; color: #0E1B2C;
+            white-space: nowrap; flex-shrink: 0;
+        }
+        @media (max-width: 900px) {
+            .lc-hero-card { max-width: 320px; }
+            .lhc-featured-title { font-size: 1rem; }
+        }
+
         /* Comparison table */
         .lc-compare-wrap { max-width: 700px; margin: 52px auto 0; }
         .lc-compare {
@@ -1204,6 +1293,50 @@
             <!-- Image column (left) -->
             <div class="lc-hero-mockup">
                 <img src="Features/EN/Liveclasses EN.png" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager">
+
+                <!-- Variant B: live schedule card (shown via A/B test JS) -->
+                <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
+                    <div class="lhc-live-badge"><span class="lhc-dot"></span> LIVE TODAY</div>
+                    <h3 class="lhc-featured-title">Effective Strategies to Lengthen and Improve Naps</h3>
+                    <p class="lhc-featured-expert">With Caryn Shender · Pediatric Sleep Consultant</p>
+                    <div class="lhc-avatar-row">
+                        <span class="lhc-av lhc-av--pink">M</span>
+                        <span class="lhc-av lhc-av--yellow">A</span>
+                        <span class="lhc-av lhc-av--green">J</span>
+                        <span class="lhc-av lhc-av--blue">S</span>
+                        <span class="lhc-av-count">+612 joined today</span>
+                    </div>
+                    <div class="lhc-schedule">
+                        <div class="lhc-item">
+                            <div class="lhc-item-info">
+                                <div class="lhc-item-title-row">
+                                    <span class="lhc-item-title">Basics for Giving First Aid at Home</span>
+                                    <span class="lhc-item-live-tag">LIVE</span>
+                                </div>
+                                <div class="lhc-item-expert">Dr. Thanya Asse · Pediatrician, MD</div>
+                            </div>
+                            <div class="lhc-item-time">9:00 AM</div>
+                        </div>
+                        <div class="lhc-item">
+                            <div class="lhc-item-info">
+                                <div class="lhc-item-title-row">
+                                    <span class="lhc-item-title">Language Stimulation: Playing by Categories</span>
+                                </div>
+                                <div class="lhc-item-expert">Delia Herrera · Speech Therapist</div>
+                            </div>
+                            <div class="lhc-item-time">11:00 AM</div>
+                        </div>
+                        <div class="lhc-item">
+                            <div class="lhc-item-info">
+                                <div class="lhc-item-title-row">
+                                    <span class="lhc-item-title">Effective Strategies to Lengthen Naps</span>
+                                </div>
+                                <div class="lhc-item-expert">Caryn Shender · Sleep Consultant</div>
+                            </div>
+                            <div class="lhc-item-time">11:45 AM</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Text column (right) -->
@@ -2263,6 +2396,31 @@
 
         buildDots();
         update();
+    })();
+    </script>
+
+    <!-- ── A/B test: Hero visual ──────────────────────────────────────────
+         Variant A = app screenshot image (default)
+         Variant B = live schedule card
+         Force with ?v=a or ?v=b. Otherwise 50/50 random, persisted per session.
+    ──────────────────────────────────────────────────────────────────────── -->
+    <script>
+    (function () {
+        var param = new URLSearchParams(window.location.search).get('v');
+        var stored = sessionStorage.getItem('lc_hero_ab');
+        var variant = param || stored || (Math.random() < 0.5 ? 'a' : 'b');
+        if (!param) sessionStorage.setItem('lc_hero_ab', variant);
+
+        if (variant === 'b') {
+            var img  = document.getElementById('lcHeroCalendar');
+            var card = document.getElementById('lcHeroCard');
+            if (img)  img.style.display  = 'none';
+            if (card) card.style.display = 'block';
+        }
+
+        // Expose for analytics (window.lcHeroVariant → 'a' or 'b')
+        window.lcHeroVariant = variant;
+        document.documentElement.setAttribute('data-hero-variant', variant);
     })();
     </script>
 
