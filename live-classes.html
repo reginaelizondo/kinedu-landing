@@ -56,7 +56,7 @@
         .lc-hero-grid .lc-cta-group { align-items: stretch; max-width: 500px; }
         .lc-hero-grid .lc-cta-group .btn-hero-primary { width: 100%; justify-content: center; padding: 22px 40px; }
         .lc-hero-grid .lc-cta-group .btn-hero-primary .btn-text { white-space: nowrap; }
-        .lc-hero-grid .lc-trust-bar { justify-content: flex-start; }
+        .lc-hero-grid .lc-trust-bar { text-align: center; }
 
         /* Gradient accent words in headline */
         .lc-grad {
@@ -700,6 +700,7 @@
         .lc-testi-track {
             display: flex;
             gap: 24px;
+            align-items: stretch;
             transition: transform .5s cubic-bezier(.32,.72,0,1);
             will-change: transform;
         }
@@ -708,8 +709,10 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--r-xl);
-            padding: 28px;
+            padding: 32px 28px 28px;
             min-width: 0;
+            display: flex;
+            flex-direction: column;
         }
         .lc-testi-nav {
             display: flex;
@@ -757,9 +760,9 @@
             width: 22px;
             border-radius: 6px;
         }
-        .lc-testi-stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 14px; letter-spacing: 2px; }
-        .lc-testi-quote { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-        .lc-testi-author { display: flex; align-items: center; gap: 12px; }
+        .lc-testi-stars { color: #fbbf24; font-size: 1.1rem; margin-bottom: 12px; letter-spacing: 3px; }
+        .lc-testi-quote { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px; font-style: italic; flex: 1; }
+        .lc-testi-author { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
         .lc-testi-avatar {
             width: 40px; height: 40px; border-radius: 50%;
             background: var(--bg-soft-pink);
