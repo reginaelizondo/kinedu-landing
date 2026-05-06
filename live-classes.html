@@ -780,67 +780,110 @@
             background: #fff;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 24px 64px rgba(14,27,44,0.18), 0 6px 20px rgba(14,27,44,0.08);
+            box-shadow: 0 28px 72px rgba(14,27,44,0.22), 0 8px 24px rgba(14,27,44,0.10);
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Dark header with featured class */
+        /* Gradient header */
         .lhc-header {
-            background: linear-gradient(135deg, #0D1B2E 0%, #173352 100%);
-            padding: 22px 22px 18px;
+            background: linear-gradient(145deg, #1756A9 0%, #2B8BE0 55%, #22C58B 100%);
+            padding: 24px 24px 22px;
             position: relative;
+        }
+
+        /* Live badge row */
+        .lhc-top-row {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px;
         }
         .lhc-live-badge {
             display: inline-flex; align-items: center; gap: 7px;
-            background: rgba(229,57,53,0.22);
-            border: 1px solid rgba(229,57,53,0.45);
-            color: #FF7070;
+            background: rgba(255,255,255,0.18);
+            border: 1.5px solid rgba(255,255,255,0.4);
+            color: #fff;
             border-radius: 100px;
             padding: 5px 14px;
-            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 0.09em;
             text-transform: uppercase;
-            margin-bottom: 14px;
         }
         .lhc-dot {
-            width: 7px; height: 7px; border-radius: 50%;
-            background: #FF5252;
-            animation: lhcPulse 1.6s ease-in-out infinite;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #FF4444;
+            box-shadow: 0 0 0 0 rgba(255,68,68,0.5);
+            animation: lhcPulseRing 1.8s ease-out infinite;
             flex-shrink: 0;
         }
-        @keyframes lhcPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(0.65); }
+        @keyframes lhcPulseRing {
+            0%   { box-shadow: 0 0 0 0 rgba(255,68,68,0.6); }
+            70%  { box-shadow: 0 0 0 8px rgba(255,68,68,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,68,68,0); }
         }
+        .lhc-viewer-count {
+            font-size: 0.72rem; font-weight: 700;
+            color: rgba(255,255,255,0.85);
+            display: flex; align-items: center; gap: 5px;
+        }
+        .lhc-viewer-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #4ADE80;
+            animation: lhcViewerPulse 2s ease-in-out infinite;
+        }
+        @keyframes lhcViewerPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
         .lhc-featured-title {
-            font-size: 1.05rem; font-weight: 800; color: #fff;
-            line-height: 1.35; margin: 0 0 6px;
+            font-size: 1.1rem; font-weight: 800; color: #fff;
+            line-height: 1.35; margin: 0 0 8px;
         }
         .lhc-featured-expert {
-            font-size: 0.76rem; color: rgba(255,255,255,0.55); margin: 0 0 16px;
+            font-size: 0.77rem; color: rgba(255,255,255,0.72); margin: 0 0 16px;
+        }
+
+        /* Avatar row + join CTA */
+        .lhc-bottom-row {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
         }
         .lhc-avatar-row { display: flex; align-items: center; }
         .lhc-av {
-            width: 28px; height: 28px; border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.25);
+            width: 30px; height: 30px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.5);
             display: flex; align-items: center; justify-content: center;
-            font-size: 0.62rem; font-weight: 700;
-            margin-right: -8px; flex-shrink: 0;
+            font-size: 0.62rem; font-weight: 800;
+            margin-right: -9px; flex-shrink: 0;
         }
-        .lhc-av--pink   { background: #FF9EAA; color: #5C0011; }
-        .lhc-av--yellow { background: #FFD55A; color: #5C3A00; }
-        .lhc-av--green  { background: #6EE7A0; color: #064E2E; }
-        .lhc-av--blue   { background: #7EC8F7; color: #0C2D5A; }
+        .lhc-av--pink   { background: #FF6B8A; color: #fff; }
+        .lhc-av--yellow { background: #FFD060; color: #5C3A00; }
+        .lhc-av--green  { background: #4ADE80; color: #064E2E; }
+        .lhc-av--blue   { background: #60B4FF; color: #0C2D5A; }
         .lhc-av-count {
-            margin-left: 18px; font-size: 0.73rem; font-weight: 600;
-            color: rgba(255,255,255,0.65);
+            margin-left: 18px; font-size: 0.72rem; font-weight: 600;
+            color: rgba(255,255,255,0.75);
+            white-space: nowrap;
+        }
+        .lhc-join-btn {
+            background: #fff;
+            color: #1756A9;
+            border: none; border-radius: 100px;
+            padding: 8px 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem; font-weight: 800;
+            cursor: pointer; white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* Schedule list */
-        .lhc-schedule { padding: 6px 20px 8px; }
+        .lhc-schedule { padding: 4px 22px 10px; }
+        .lhc-schedule-label {
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; color: #A0ABBA;
+            padding: 12px 0 4px;
+        }
         .lhc-item {
             display: flex; align-items: center;
             justify-content: space-between; gap: 12px;
-            padding: 13px 0;
+            padding: 11px 0;
             border-bottom: 1px solid #F0F2F5;
         }
         .lhc-item:last-child { border-bottom: none; }
@@ -868,7 +911,7 @@
             html[data-hero-variant="b"] .lc-hero-mockup { order: 2; }
             html[data-hero-variant="b"] .lc-hero-text   { order: 1; }
             .lc-hero-card { max-width: 340px; }
-            .lhc-featured-title { font-size: 0.95rem; }
+            .lhc-featured-title { font-size: 0.97rem; }
         }
 
         /* Comparison table */
@@ -1306,18 +1349,25 @@
                 <!-- Variant B: live schedule card (shown via A/B test JS) -->
                 <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
                     <div class="lhc-header">
-                        <div class="lhc-live-badge"><span class="lhc-dot"></span> LIVE NOW</div>
+                        <div class="lhc-top-row">
+                            <div class="lhc-live-badge"><span class="lhc-dot"></span> LIVE NOW</div>
+                            <div class="lhc-viewer-count"><span class="lhc-viewer-dot"></span> 847 watching</div>
+                        </div>
                         <h3 class="lhc-featured-title">Effective Strategies to Lengthen and Improve Naps</h3>
                         <p class="lhc-featured-expert">With Caryn Shender · Pediatric Sleep Consultant</p>
-                        <div class="lhc-avatar-row">
-                            <span class="lhc-av lhc-av--pink">M</span>
-                            <span class="lhc-av lhc-av--yellow">A</span>
-                            <span class="lhc-av lhc-av--green">J</span>
-                            <span class="lhc-av lhc-av--blue">S</span>
-                            <span class="lhc-av-count">+612 joined today</span>
+                        <div class="lhc-bottom-row">
+                            <div class="lhc-avatar-row">
+                                <span class="lhc-av lhc-av--pink">M</span>
+                                <span class="lhc-av lhc-av--yellow">A</span>
+                                <span class="lhc-av lhc-av--green">J</span>
+                                <span class="lhc-av lhc-av--blue">S</span>
+                                <span class="lhc-av-count">+612 joined</span>
+                            </div>
+                            <button class="lhc-join-btn">Join free →</button>
                         </div>
                     </div>
                     <div class="lhc-schedule">
+                        <div class="lhc-schedule-label">Today's classes</div>
                         <div class="lhc-item">
                             <div class="lhc-item-info">
                                 <div class="lhc-item-title-row">
