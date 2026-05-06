@@ -285,6 +285,89 @@ section[id], div[id] { scroll-margin-top: 96px; }
     font-weight: 600;
 }
 
+/* ── Nav dropdown (Learn submenu) ───────────────────────────── */
+.nav-dropdown { position: relative; }
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    padding: 7px 14px;
+    border-radius: var(--r-full);
+    transition: color 0.2s, background 0.2s;
+}
+.nav-dropdown-toggle:hover { color: var(--text-primary); }
+.nav-dropdown-toggle.active {
+    color: var(--kinedu-blue);
+    background: rgba(43,139,228,0.08);
+    font-weight: 600;
+}
+.nav-chevron {
+    width: 14px; height: 14px;
+    transition: transform 0.22s ease;
+    flex-shrink: 0;
+    color: currentColor;
+}
+.nav-dropdown.open .nav-chevron { transform: rotate(180deg); }
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: #fff;
+    border-radius: 18px;
+    padding: 8px;
+    box-shadow: 0 16px 48px rgba(14,27,44,0.14), 0 2px 8px rgba(14,27,44,0.06);
+    border: 1px solid rgba(0,0,0,0.07);
+    min-width: 210px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 1001;
+}
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+.nd-item {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px !important;
+    border-radius: 12px !important;
+    font-size: 0.83rem !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: background 0.15s !important;
+    transform: none !important;
+}
+.nd-item:hover {
+    background: var(--bg-soft) !important;
+    color: var(--kinedu-blue) !important;
+    transform: none !important;
+}
+.nd-icon {
+    font-size: 0.95rem;
+    width: 28px; height: 28px;
+    background: var(--bg-soft);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -2401,6 +2484,57 @@ section[id], div[id] { scroll-margin-top: 96px; }
         margin-top: 20px;
         justify-content: center;
     }
+
+    /* Mobile nav dropdown — inline expandable */
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-toggle {
+        width: 100%;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        color: var(--text-primary) !important;
+        padding: 14px 20px !important;
+        border-radius: 14px !important;
+        justify-content: space-between;
+    }
+    .nav-dropdown-toggle.active {
+        color: var(--kinedu-blue) !important;
+        background: linear-gradient(135deg, rgba(43,139,228,0.1), rgba(76,217,100,0.05)) !important;
+    }
+    .nav-dropdown-menu {
+        position: static;
+        transform: none !important;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid rgba(43,139,228,0.2);
+        border-radius: 0;
+        background: transparent;
+        padding: 4px 0 4px 12px;
+        margin: 0 0 4px 20px;
+        min-width: 0;
+        opacity: 1;
+        pointer-events: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.2s;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+        pointer-events: auto;
+        max-height: 400px;
+        opacity: 1;
+        transform: none !important;
+    }
+    .nd-item {
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        color: var(--text-secondary) !important;
+        padding: 10px 14px !important;
+        border-radius: 10px !important;
+    }
+    .nd-item:hover {
+        background: rgba(43,139,228,0.06) !important;
+        transform: none !important;
+    }
+    .nd-icon { background: rgba(43,139,228,0.08); }
 
     /* --- HERO MOBILE — Opal-style clean layout --- */
     .hero {

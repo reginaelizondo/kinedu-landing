@@ -223,6 +223,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- LEARN DROPDOWN ---
+    (function () {
+        var dropdown = document.getElementById('learnDropdown');
+        var toggle = document.getElementById('learnToggle');
+        if (!dropdown || !toggle) return;
+
+        function openDropdown() {
+            dropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+        }
+        function closeDropdown() {
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+        });
+
+        // Close when clicking a menu item (mobile: also close sidebar)
+        dropdown.querySelectorAll('.nd-item').forEach(function (item) {
+            item.addEventListener('click', function () {
+                closeDropdown();
+                // Also close mobile sidebar if open
+                var navLinks = document.getElementById('navLinks');
+                var hbg = document.getElementById('hamburger');
+                var pill = document.querySelector('.nav-pill');
+                var bd = document.querySelector('.nav-menu-backdrop');
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (hbg) hbg.classList.remove('active');
+                    if (pill) pill.classList.remove('menu-open');
+                    if (bd) bd.classList.remove('visible');
+                }
+            });
+        });
+
+        // Close on outside click (desktop)
+        document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) closeDropdown();
+        });
+    })();
+
     // --- SMOOTH SCROLL ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

@@ -1309,7 +1309,32 @@
         <div class="nav-pill">
             <a href="/" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
-                <a href="live-classes.html" class="active" data-i18n="nav.learn">Learn</a>
+                <div class="nav-dropdown" id="learnDropdown">
+                    <button class="nav-dropdown-toggle active" id="learnToggle" aria-expanded="false" aria-haspopup="true">
+                        <span data-i18n="nav.learn">Learn</span>
+                        <svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu" id="learnMenu" role="menu">
+                        <a href="#classes" class="nd-item" role="menuitem">
+                            <span class="nd-icon">📅</span><span data-i18n="nav.sub.classes">Weekly Classes</span>
+                        </a>
+                        <a href="#coaches" class="nd-item" role="menuitem">
+                            <span class="nd-icon">👩‍⚕️</span><span data-i18n="nav.sub.coaches">Coaches</span>
+                        </a>
+                        <a href="#how-it-works" class="nd-item" role="menuitem">
+                            <span class="nd-icon">⚙️</span><span data-i18n="nav.sub.howItWorks">How it works</span>
+                        </a>
+                        <a href="#reviews" class="nd-item" role="menuitem">
+                            <span class="nd-icon">⭐</span><span data-i18n="nav.sub.reviews">Reviews</span>
+                        </a>
+                        <a href="#pricing" class="nd-item" role="menuitem">
+                            <span class="nd-icon">💳</span><span data-i18n="nav.sub.pricing">Pricing</span>
+                        </a>
+                        <a href="#faq" class="nd-item" role="menuitem">
+                            <span class="nd-icon">❓</span><span data-i18n="nav.sub.faq">FAQ</span>
+                        </a>
+                    </div>
+                </div>
                 <a href="science.html" data-i18n="nav.science">Science</a>
                 <a href="#faq" data-i18n="nav.faq">FAQ</a>
                 <a href="founder.html" data-i18n="nav.founder">Founder</a>
@@ -1480,7 +1505,7 @@
     <!-- ══════════════════════════════════════════════════════════
          3. MEET THE EXPERTS
     ═══════════════════════════════════════════════════════════ -->
-    <section class="lc-section lc-section--alt">
+    <section class="lc-section lc-section--alt" id="coaches">
         <div class="lc-wrap lc-center">
             <h2 class="lc-h2" data-i18n="lc.experts.title" data-i18n-html>The <span class="lc-grad">experts</span> in your pocket.</h2>
             <p class="lc-body lc-body--center" data-i18n="lc.experts.body">Real certifications. Real experience. Available to every Kinedu member, live.</p>
@@ -1503,7 +1528,7 @@
     <!-- ══════════════════════════════════════════════════════════
          4. HOW IT WORKS
     ═══════════════════════════════════════════════════════════ -->
-    <section class="lc-section">
+    <section class="lc-section" id="how-it-works">
         <div class="lc-wrap lc-center">
             <h2 class="lc-h2" data-i18n="lc.howItWorks.title" data-i18n-html>How it <span class="lc-grad">works</span></h2>
 
@@ -1653,7 +1678,7 @@
     <!-- ══════════════════════════════════════════════════════════
          6. UPCOMING CLASSES
     ═══════════════════════════════════════════════════════════ -->
-    <section class="lc-section">
+    <section class="lc-section" id="classes">
         <div class="lc-wrap">
             <div class="lc-center" style="margin-bottom:0;">
                 <h2 class="lc-h2" data-i18n="lc.week.title" data-i18n-html>This <span class="lc-grad">week's</span> live classes</h2>
@@ -1861,7 +1886,7 @@
     <!-- ══════════════════════════════════════════════════════════
          7. TESTIMONIALS
     ═══════════════════════════════════════════════════════════ -->
-    <section class="lc-section lc-section--alt">
+    <section class="lc-section lc-section--alt" id="reviews">
         <div class="lc-wrap lc-center">
             <h2 class="lc-h2" data-i18n="lc.testi.title" data-i18n-html>What <span class="lc-grad">parents</span> are saying</h2>
 

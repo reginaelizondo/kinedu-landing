@@ -14,6 +14,12 @@ window.TRANSLATIONS = {
     'nav.blog': 'Blog',
     'nav.forSchools': 'For Schools',
     'nav.tryFree': 'Try free',
+    'nav.sub.classes': 'Weekly Classes',
+    'nav.sub.coaches': 'Coaches',
+    'nav.sub.howItWorks': 'How it works',
+    'nav.sub.reviews': 'Reviews',
+    'nav.sub.pricing': 'Pricing',
+    'nav.sub.faq': 'FAQ',
 
     // BLOG TEASER
     'blog.headline': 'Real guidance for real parents',
@@ -383,6 +389,12 @@ window.TRANSLATIONS = {
     'nav.blog': 'Blog',
     'nav.forSchools': 'Para Escuelas',
     'nav.tryFree': 'Prueba gratis',
+    'nav.sub.classes': 'Clases semanales',
+    'nav.sub.coaches': 'Coaches',
+    'nav.sub.howItWorks': 'Cómo funciona',
+    'nav.sub.reviews': 'Reseñas',
+    'nav.sub.pricing': 'Precios',
+    'nav.sub.faq': 'FAQ',
 
     // BLOG TEASER
     'blog.headline': 'Guía real para padres reales',
@@ -751,6 +763,12 @@ window.TRANSLATIONS = {
     'nav.blog': 'Blog',
     'nav.forSchools': 'Para Escolas',
     'nav.tryFree': 'Teste grátis',
+    'nav.sub.classes': 'Aulas semanais',
+    'nav.sub.coaches': 'Coaches',
+    'nav.sub.howItWorks': 'Como funciona',
+    'nav.sub.reviews': 'Avaliações',
+    'nav.sub.pricing': 'Preços',
+    'nav.sub.faq': 'FAQ',
 
     // BLOG TEASER
     'blog.headline': 'Orientação real para pais reais',
