@@ -274,7 +274,7 @@ window.TRANSLATIONS = {
 
     // Comparison
     'lc.compare.tag': 'The math',
-    'lc.compare.title': '$1,000+ in expert help. <em>Or less than $80 for all of it.</em>',
+    'lc.compare.title': '$1,000+ in expert help.<br><em>Or less than $80 for all of it.</em>',
     'lc.compare.bad.label': 'Piece by piece',
     'lc.compare.bad.item1': 'Sleep consultant package',
     'lc.compare.bad.item2': 'Online sleep course',
@@ -642,7 +642,7 @@ window.TRANSLATIONS = {
 
     // Comparison
     'lc.compare.tag': 'Saca cuentas',
-    'lc.compare.title': '$1,000+ en ayuda especializada. <em>O $80 por todo.</em>',
+    'lc.compare.title': '$1,000+ en ayuda especializada.<br><em>O $80 por todo.</em>',
     'lc.compare.bad.label': 'Por separado',
     'lc.compare.bad.item1': 'Paquete con coach de sueño',
     'lc.compare.bad.item2': 'Curso de sueño en línea',
@@ -1010,7 +1010,7 @@ window.TRANSLATIONS = {
 
     // Comparison
     'lc.compare.tag': 'A conta',
-    'lc.compare.title': '$1.000+ em ajuda especializada. <em>Ou $80 por tudo.</em>',
+    'lc.compare.title': '$1.000+ em ajuda especializada.<br><em>Ou $80 por tudo.</em>',
     'lc.compare.bad.label': 'Separado',
     'lc.compare.bad.item1': 'Pacote com consultora do sono',
     'lc.compare.bad.item2': 'Curso de sono online',
