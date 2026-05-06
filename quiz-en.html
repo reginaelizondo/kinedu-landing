@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What does your baby need? — Kinedu</title>
+<meta name="description" content="Find out which live classes are perfect for your baby. Answer 3 questions and get your free personalized plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --blue:        #2B8BE4;
+    --blue-dark:   #1E6FBD;
+    --blue-soft:   #EAF4FD;
+    --blue-tint:   #F4FAFE;
+    --green:       #34C989;
+    --ink:         #0E1B2C;
+    --ink-2:       #2B3A4E;
+    --muted:       #5E6C80;
+    --muted-2:     #8A95A5;
+    --line:        #E6EAF0;
+    --bg:          #FFFFFF;
+    --bg-2:        #F7F9FC;
+    --r-md:        14px;
+    --r-lg:        20px;
+    --r-xl:        28px;
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --shadow-card: 0 4px 24px rgba(14,27,44,.08), 0 1px 4px rgba(14,27,44,.04);
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font);
+    background: #EEF5FF;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.qf-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 64px;
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+.qf-progress-wrap {
+    width: 100%;
+    max-width: 520px;
+    margin-top: 0;
+    display: flex;
+    gap: 6px;
+}
+
+.qf-progress-seg {
+    flex: 1;
+    height: 4px;
+    border-radius: 99px;
+    background: var(--line);
+    transition: background 0.4s ease;
+}
+
+.qf-progress-seg.done   { background: var(--blue); }
+.qf-progress-seg.active { background: linear-gradient(90deg, var(--blue), #6BB8F4); }
+
+/* ── Card ────────────────────────────────────────────────────── */
+.qf-card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--bg);
+    border-radius: var(--r-xl);
+    padding: 36px 32px 32px;
+    margin-top: 20px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+}
+
+@media (max-width: 480px) {
+    .qf-page { padding: 20px 16px 60px; }
+    .qf-card { padding: 28px 20px 28px; border-radius: 22px; min-height: unset; }
+}
+
+/* ── Steps container ─────────────────────────────────────────── */
+.qf-step {
+    display: none;
+}
+
+.qf-step.active {
+    display: block;
+    animation: stepIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.qf-step.exit {
+    display: block;
+    animation: stepOut 0.28s ease forwards;
+}
+
+@keyframes stepIn {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes stepOut {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(-28px); }
+}
+
+@keyframes stepInBack {
+    from { opacity: 0; transform: translateX(-28px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.qf-step.active.back {
+    animation: stepInBack 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Step header ─────────────────────────────────────────────── */
+.qf-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.qf-question {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.qf-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ── Options ─────────────────────────────────────────────────── */
+.qf-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qf-opt {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--bg);
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    font-family: var(--font);
+    text-align: left;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.qf-opt:hover {
+    border-color: #A8CEFA;
+    background: var(--blue-tint);
+    transform: translateY(-1px);
+}
+
+.qf-opt:active { transform: translateY(0); }
+
+.qf-opt.selected {
+    border-color: var(--blue);
+    background: var(--blue-soft);
+}
+
+.qf-opt-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    line-height: 1;
+    width: 32px;
+    text-align: center;
+}
+
+.qf-opt-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+}
+
+.qf-opt-sublabel {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 1px;
+}
+
+.qf-opt-check {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.18s, background 0.18s;
+}
+
+.qf-opt.selected .qf-opt-check {
+    border-color: var(--blue);
+    background: var(--blue);
+}
+
+.qf-opt.selected .qf-opt-check::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+}
+
+/* ── Back button ─────────────────────────────────────────────── */
+.qf-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+    padding: 0;
+    margin-bottom: 20px;
+    transition: color 0.15s;
+}
+
+.qf-back:hover { color: var(--ink); }
+
+/* ── Loading screen ──────────────────────────────────────────── */
+.qf-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 0;
+    text-align: center;
+}
+
+.qf-loading-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(43,139,228,0.25); }
+    50%       { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(43,139,228,0); }
+}
+
+.qf-loading-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.qf-loading-sub {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+.qf-loading-bar-wrap {
+    width: 200px;
+    height: 4px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.qf-loading-bar {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    animation: loadBar 1.8s ease-in-out forwards;
+    width: 0;
+}
+
+@keyframes loadBar {
+    0%   { width: 0%; }
+    40%  { width: 60%; }
+    80%  { width: 85%; }
+    100% { width: 100%; }
+}
+
+/* ── Result screen ───────────────────────────────────────────── */
+#stepResult { position: relative; }
+
+/* ── Result hero block ───────────────────────────────────────── */
+.qf-result-hero {
+    background: linear-gradient(140deg, #EAF4FD 0%, #ECF9F2 100%);
+    border: 1px solid rgba(43,139,228,0.14);
+    border-radius: 18px;
+    padding: 22px 20px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.qf-result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(120deg, var(--blue) 0%, var(--green) 100%);
+    color: #fff;
+    border-radius: 99px;
+    padding: 7px 18px;
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 14px rgba(43,139,228,0.28);
+}
+
+.qf-result-headline {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.qf-result-sub {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* ── Classes section label ───────────────────────────────────── */
+.qf-classes-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* ── Class cards ─────────────────────────────────────────────── */
+.qf-classes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.qf-class-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--line);
+    border-left: 3.5px solid var(--blue);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
+    transition: box-shadow 0.15s;
+}
+.qf-class-card:hover {
+    box-shadow: 0 4px 16px rgba(14,27,44,0.08);
+}
+.qf-class-card--live { border-left-color: #E53935; }
+.qf-class-card--soon { border-left-color: #EA580C; }
+.qf-class-card--week { border-left-color: var(--blue); }
+
+.qf-class-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--line);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+}
+
+.qf-class-info { flex: 1; min-width: 0; }
+
+.qf-class-title {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 3px;
+}
+
+.qf-class-expert {
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+/* Badges */
+.qf-class-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 4px 9px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.qf-class-badge--live {
+    background: rgba(229,57,53,0.09);
+    color: #C62828;
+    border: 1px solid rgba(229,57,53,0.22);
+}
+
+.qf-badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #E53935;
+    flex-shrink: 0;
+    animation: liveDot 1.5s ease-in-out infinite;
+}
+
+@keyframes liveDot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+}
+
+.qf-class-badge--soon {
+    background: #FFF7ED;
+    color: #9A3412;
+    border: 1px solid #FED7AA;
+}
+
+.qf-class-badge--week {
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+    border: 1px solid #C4E0F9;
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.qf-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+    color: var(--muted-2);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.qf-divider::before, .qf-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line));
+}
+.qf-divider::after {
+    background: linear-gradient(90deg, var(--line), transparent);
+}
+
+/* ── Trust bar ───────────────────────────────────────────────── */
+.qf-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.73rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.qf-trust-stars {
+    color: #F59E0B;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.qf-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: var(--r-md);
+    background: linear-gradient(120deg, #2B8BE4 0%, #34C989 100%);
+    color: white;
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.18s;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(43,139,228,0.30);
+}
+
+.qf-cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    animation: shimmer 2.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%   { left: -100%; }
+    60%  { left: 150%; }
+    100% { left: 150%; }
+}
+
+.qf-cta-btn span { position: relative; }
+.qf-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(43,139,228,0.38); }
+.qf-cta-btn:active { transform: scale(0.98); box-shadow: none; }
+
+.qf-cta-sub {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--muted-2);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.qf-cta-sub::before, .qf-cta-sub::after {
+    content: '·';
+    color: var(--line);
+}
+
+/* ── Store badges ────────────────────────────────────────────── */
+.qf-stores {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.qf-stores img {
+    height: 36px;
+    width: auto;
+    border-radius: 7px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+}
+.qf-stores img:hover { opacity: 1; }
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.qf-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.73rem;
+    color: var(--muted-2);
+}
+
+.qf-footer a { color: var(--blue); text-decoration: none; }
+
+/* ── Chips ───────────────────────────────────────────────────── */
+.qf-persona-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+.qf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.qf-chip--age {
+    background: var(--blue-soft);
+    border: 1px solid #C4E0F9;
+    color: var(--blue-dark);
+}
+
+.qf-chip--sleep       { background: #EDE9FE; border: 1px solid #C4B5FD; color: #5B21B6; }
+.qf-chip--feeding     { background: #FFF1F2; border: 1px solid #FECDD3; color: #9F1239; }
+.qf-chip--development { background: #F0FDF4; border: 1px solid #BBF7D0; color: #14532D; }
+.qf-chip--stimulation { background: #FFF7ED; border: 1px solid #FED7AA; color: #9A3412; }
+.qf-chip--overwhelmed { background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="qf-page">
+
+    <!-- Progress -->
+    <div class="qf-progress-wrap">
+        <div class="qf-progress-seg active" id="seg0"></div>
+        <div class="qf-progress-seg" id="seg1"></div>
+        <div class="qf-progress-seg" id="seg2"></div>
+    </div>
+
+    <!-- Card -->
+    <div class="qf-card" id="quizCard">
+
+        <!-- ─── STEP 1: Age ────────────────────────────────────── -->
+        <div class="qf-step active" id="step0">
+            <div class="qf-eyebrow">Your Baby</div>
+            <h1 class="qf-question">How old is your baby?</h1>
+            <p class="qf-sub">Each stage has its own challenges — this helps us personalize your plan.</p>
+            <div class="qf-options">
+                <button class="qf-opt" data-step="0" data-value="newborn" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🐣</span>
+                    <span><div class="qf-opt-label">0 – 3 months</div><div class="qf-opt-sublabel">Newborn</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="0" data-value="early" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🌱</span>
+                    <span><div class="qf-opt-label">3 – 6 months</div><div class="qf-opt-sublabel">First smiles & leaps</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="0" data-value="baby" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🧸</span>
+                    <span><div class="qf-opt-label">7 – 12 months</div><div class="qf-opt-sublabel">Crawling, solids, first words</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="0" data-value="toddler1" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">👟</span>
+                    <span><div class="qf-opt-label">1 – 2 years</div><div class="qf-opt-sublabel">First steps, language</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="0" data-value="toddler2" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🎨</span>
+                    <span><div class="qf-opt-label">2 – 4 years</div><div class="qf-opt-sublabel">Independence, emotions, play</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ─── STEP 2: Concern ───────────────────────────────── -->
+        <div class="qf-step" id="step1">
+            <button class="qf-back" onclick="goBack()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Back
+            </button>
+            <div class="qf-eyebrow">Your Biggest Challenge</div>
+            <h2 class="qf-question">What's worrying you most right now?</h2>
+            <p class="qf-sub">Pick what's keeping you up at night — literally or figuratively.</p>
+            <div class="qf-options">
+                <button class="qf-opt" data-step="1" data-value="sleep" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">😴</span>
+                    <span><div class="qf-opt-label">Sleep</div><div class="qf-opt-sublabel">Night wakings, short naps, regressions</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="1" data-value="feeding" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🍼</span>
+                    <span><div class="qf-opt-label">Feeding / Breastfeeding</div><div class="qf-opt-sublabel">Breast, formula, solids, nutrition</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="1" data-value="development" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🧠</span>
+                    <span><div class="qf-opt-label">Development</div><div class="qf-opt-sublabel">Milestones, motor skills, language — is this normal?</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="1" data-value="stimulation" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🎯</span>
+                    <span><div class="qf-opt-label">Stimulation</div><div class="qf-opt-sublabel">Play, music, sign language, activities</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="1" data-value="overwhelmed" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">😮‍💨</span>
+                    <span><div class="qf-opt-label">Honestly, it's all overwhelming</div><div class="qf-opt-sublabel">I don't know where to start</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ─── STEP 3: Info source ───────────────────────────── -->
+        <div class="qf-step" id="step2">
+            <button class="qf-back" onclick="goBack()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Back
+            </button>
+            <div class="qf-eyebrow">One Last Thing</div>
+            <h2 class="qf-question">Where do you usually look for answers?</h2>
+            <p class="qf-sub">No judgment — we just want to understand how to help you best.</p>
+            <div class="qf-options">
+                <button class="qf-opt" data-step="2" data-value="google" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🔍</span>
+                    <span><div class="qf-opt-label">Google</div><div class="qf-opt-sublabel">I search articles, forums, blogs</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="2" data-value="tiktok" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">📱</span>
+                    <span><div class="qf-opt-label">TikTok / Social Media</div><div class="qf-opt-sublabel">Influencers, moms on Instagram</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="2" data-value="pediatra" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">👩‍⚕️</span>
+                    <span><div class="qf-opt-label">My pediatrician</div><div class="qf-opt-sublabel">I wait for the appointment and ask everything</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="2" data-value="amigas" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">👭</span>
+                    <span><div class="qf-opt-label">Friends or family</div><div class="qf-opt-sublabel">I ask other moms who've been through it</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ─── LOADING ────────────────────────────────────────── -->
+        <div class="qf-step" id="stepLoading">
+            <div class="qf-loading">
+                <div class="qf-loading-icon">✨</div>
+                <div class="qf-loading-title">Building your personalized plan...</div>
+                <div class="qf-loading-sub">Checking classes available this week</div>
+                <div class="qf-loading-bar-wrap">
+                    <div class="qf-loading-bar" id="loadBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── RESULT ─────────────────────────────────────────── -->
+        <div class="qf-step" id="stepResult">
+            <div class="qf-result-hero">
+                <div class="qf-result-badge">✦ Your personalized plan</div>
+                <div class="qf-persona-chips" id="personaChips"></div>
+                <h2 class="qf-result-headline" id="resultHeadline"></h2>
+                <p class="qf-result-sub" id="resultSub"></p>
+            </div>
+
+            <div class="qf-classes-label">Recommended classes for you</div>
+            <div class="qf-classes" id="classesList"></div>
+
+            <div class="qf-divider">included in your free trial</div>
+
+            <div class="qf-trust">
+                <span class="qf-trust-stars">★★★★★</span>
+                <strong>+8M families</strong>
+                <span>·</span>
+                <span>Harvard-backed</span>
+                <span>·</span>
+                <span>Pediatrician recommended</span>
+            </div>
+
+            <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel_en" class="qf-cta-btn" id="ctaBtn">
+                <span>Start free 7-day trial →</span>
+            </a>
+            <p class="qf-cta-sub">No credit card for the first 3 days · Cancel in 2 taps</p>
+
+            <div class="qf-stores">
+                <img src="Features/stores/app-store-badge-final.png" alt="Download on the App Store">
+                <img src="Features/stores/google-play-badge.png" alt="Get it on Google Play">
+            </div>
+        </div>
+
+    </div><!-- /qf-card -->
+
+    <p class="qf-footer">
+        Already have an account? <a href="https://app.kinedu.com">Log in</a>
+    </p>
+
+</div><!-- /qf-page -->
+
+<script>
+// ── State ─────────────────────────────────────────────────────
+var answers = { age: null, concern: null, source: null };
+var currentStep = 0;
+var goingBack = false;
+
+// ── Content data ──────────────────────────────────────────────
+var AGE_LABELS = {
+    newborn:  '0–3 months',
+    early:    '3–6 months',
+    baby:     '7–12 months',
+    toddler1: '1–2 years',
+    toddler2: '2–4 years'
+};
+
+var CONCERN_LABELS = {
+    sleep:       'Sleep',
+    feeding:     'Feeding',
+    development: 'Development',
+    stimulation: 'Stimulation',
+    overwhelmed: 'Everything at once'
+};
+
+var CONCERN_ICONS = {
+    sleep: '😴', feeding: '🍼', development: '🧠',
+    stimulation: '🎯', overwhelmed: '😮‍💨'
+};
+
+// Expert avatar paths
+var EXPERTS = {
+    caryn:   { photo: 'Features/experts/en/caryn-shender.jpg',   name: 'Caryn Shender',     cred: 'Pediatric Sleep Consultant' },
+    alicia:  { photo: 'Features/experts/en/alicia-simpson.png',  name: 'Alicia Simpson',    cred: 'Nutritionist & IBCLC' },
+    thanya:  { photo: 'Features/experts/en/thanya-asse.jpg',     name: 'Dr. Thanya Asse',   cred: 'Pediatrician, MD' },
+    delia:   { photo: 'Features/experts/en/delia-herrera.png',   name: 'Delia Herrera',     cred: 'Speech Therapist' },
+    keyla:   { photo: 'Features/experts/en/keyla-dguez.jpg',     name: 'Dr. Keyla Dguez',   cred: 'Developmental Specialist' },
+    mercedes:{ photo: 'Features/experts/en/dr-mercedes.jpg',     name: 'Dr. Mercedes',      cred: 'Physiotherapist' },
+    lee:     { photo: 'Features/experts/en/lee-ann-steyns.png',  name: 'Lee Ann Steyns',    cred: 'ASL Instructor, 10+ years' },
+    juno:    { photo: 'Features/experts/en/juno.webp',           name: 'Juno',              cred: 'Music & Movement Specialist' },
+    samantha:{ photo: 'Features/experts/es/samantha-espino.png', name: 'Samantha Espino',   cred: 'Child Psychologist' }
+};
+
+// Classes by concern (3 per concern)
+var CLASSES = {
+    sleep: [
+        { title: 'Effective Strategies to Lengthen and Improve Naps', expert: 'caryn', badge: 'live',  badgeLabel: '🔴 Live' },
+        { title: 'Handling Nighttime Feeds',                          expert: 'caryn', badge: 'soon',  badgeLabel: 'Today 11:30' },
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla', badge: 'week',  badgeLabel: 'This week' }
+    ],
+    feeding: [
+        { title: 'Healthy Snacks for Breastfeeding Moms',            expert: 'alicia', badge: 'live', badgeLabel: '🔴 Live' },
+        { title: 'Food Choking Prevention',                           expert: 'alicia', badge: 'soon', badgeLabel: 'Today 10:00' },
+        { title: 'Basics for Giving First Aid at Home',               expert: 'thanya', badge: 'week', badgeLabel: 'This week' }
+    ],
+    development: [
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla',    badge: 'live', badgeLabel: '🔴 Live' },
+        { title: 'Rolling and Early Sitting',                         expert: 'mercedes', badge: 'soon', badgeLabel: 'Today 8:30' },
+        { title: 'Language Stimulation: Playing by Categories',       expert: 'delia',    badge: 'week', badgeLabel: 'This week' }
+    ],
+    stimulation: [
+        { title: 'Baby Sign Language: Action Words in Motion',        expert: 'lee',  badge: 'live', badgeLabel: '🔴 Live' },
+        { title: 'Dancing: Baby & Me',                                expert: 'juno', badge: 'soon', badgeLabel: 'Today 8:30' },
+        { title: 'Musical Stimulation: Songs That Embrace',           expert: 'delia',badge: 'week', badgeLabel: 'This week' }
+    ],
+    overwhelmed: [
+        { title: 'Basics for Giving First Aid at Home',               expert: 'thanya', badge: 'live', badgeLabel: '🔴 Live' },
+        { title: 'Effective Strategies to Lengthen Naps',             expert: 'caryn',  badge: 'soon', badgeLabel: 'Today 11:45' },
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla',  badge: 'week', badgeLabel: 'This week' }
+    ]
+};
+
+// Headlines by age × concern
+var HEADLINES = {
+    sleep: {
+        newborn:  'Night wakings in the first months are normal — and there\'s a way through.',
+        early:    'The 4-month sleep regression is real. And there\'s a way out.',
+        baby:     'Your 7–12 month old can learn to sleep better. Starting this week.',
+        toddler1: 'Sleep at 1–2 years has its secrets. Learn them with a live specialist.',
+        toddler2: 'Sleep between 2 and 4 years gets better with the right approach.'
+    },
+    feeding: {
+        newborn:  'Breastfeeding has a learning curve. A live IBCLC can help you today.',
+        early:    'Questions about nursing or solids? We have a live specialist this week.',
+        baby:     'Starting solids is a whole world. Alicia, our IBCLC & nutritionist, guides you step by step.',
+        toddler1: 'Getting your 1–2 year old to eat well is a skill. There\'s a class exactly for that.',
+        toddler2: 'Feeding preschoolers has its tricks. Learn from our specialists.'
+    },
+    development: {
+        newborn:  'Every week your baby achieves something new. Learn to read their signals and support their milestones.',
+        early:    'The 3–6 month leaps are the most intense. We\'ll explain everything, live.',
+        baby:     'Crawling, first words, motor skills — this week there are classes for all of it.',
+        toddler1: 'From 1 to 2, your baby\'s brain grows at an incredible pace. Make the most of it.',
+        toddler2: 'Language and thinking between 2–4 years are shaped by the right stimulation.'
+    },
+    stimulation: {
+        newborn:  'The first 90 days are golden for sensory stimulation. Here\'s how to do it right.',
+        early:    'Between 3–6 months your baby is already actively interacting. 3 perfect classes for this stage.',
+        baby:     'Sign language, music, movement — 3 classes this week designed for 7–12 months.',
+        toddler1: 'At 1–2 years, play is learning. We have the classes to supercharge it at home.',
+        toddler2: 'Stimulation between 2 and 4 shapes the brain. Learn how to do it through play.'
+    },
+    overwhelmed: {
+        newborn:  'Welcome. Being a newborn mom is intense. We have everything in one place.',
+        early:    'You don\'t have to know it all. You just need someone to ask — and here they are.',
+        baby:     'The 7–12 month stage has a lot going on. Live experts to guide you every step of the way.',
+        toddler1: 'Between 1 and 2, too many things happen at once. We have the support you need.',
+        toddler2: 'Parenting 2–4 year olds: so many questions, so few answers. Until now.'
+    }
+};
+
+// Sub-messages by info source
+var SOURCE_SUBS = {
+    google:   'No more 2am searches. Real experts who answer your specific questions, live.',
+    tiktok:   'No more scrolling hoping to find something relevant. Certified specialists for your situation.',
+    pediatra: 'Your pediatrician has 15 minutes. Our specialists have the time to answer exactly what you need.',
+    amigas:   'Friends\' support is valuable — but a certified specialist can go straight to your specific case.'
+};
+
+// ── Navigation ────────────────────────────────────────────────
+function getStepEl(index) {
+    return document.getElementById(['step0','step1','step2','stepLoading','stepResult'][index]);
+}
+
+function showStep(nextIndex, backwards) {
+    var currentEl = getStepEl(currentStep);
+    var nextEl    = getStepEl(nextIndex);
+
+    currentEl.classList.add('exit');
+    currentEl.classList.remove('active');
+
+    setTimeout(function() {
+        currentEl.classList.remove('exit');
+        nextEl.classList.add('active');
+        if (backwards) nextEl.classList.add('back');
+        setTimeout(function() { nextEl.classList.remove('back'); }, 400);
+        currentStep = nextIndex;
+        updateProgress();
+    }, 280);
+}
+
+function updateProgress() {
+    var stepMap = { 0: 0, 1: 1, 2: 2, 3: 2, 4: 2 };
+    var prog = stepMap[currentStep];
+    for (var i = 0; i < 3; i++) {
+        var seg = document.getElementById('seg' + i);
+        seg.className = 'qf-progress-seg';
+        if (i < prog)       seg.classList.add('done');
+        else if (i === prog) seg.classList.add('active');
+    }
+}
+
+function goBack() {
+    if (currentStep > 0 && currentStep < 3) {
+        showStep(currentStep - 1, true);
+    }
+}
+
+// ── Option selection ──────────────────────────────────────────
+function selectOption(btn) {
+    var step  = parseInt(btn.getAttribute('data-step'));
+    var value = btn.getAttribute('data-value');
+    var keys  = ['age', 'concern', 'source'];
+    answers[keys[step]] = value;
+
+    var opts = btn.parentElement.querySelectorAll('.qf-opt');
+    opts.forEach(function(o) { o.classList.remove('selected'); });
+    btn.classList.add('selected');
+
+    setTimeout(function() {
+        if (step === 2) {
+            showStep(3, false);
+            startLoading();
+        } else {
+            showStep(step + 1, false);
+        }
+    }, 320);
+}
+
+// ── Loading ───────────────────────────────────────────────────
+function startLoading() {
+    var bar = document.getElementById('loadBar');
+    bar.style.animation = 'none';
+    bar.offsetHeight;
+    bar.style.animation = '';
+
+    setTimeout(function() {
+        buildResult();
+        showStep(4, false);
+    }, 2000);
+}
+
+// ── Build result ──────────────────────────────────────────────
+function buildResult() {
+    var age     = answers.age     || 'baby';
+    var concern = answers.concern || 'sleep';
+    var source  = answers.source  || 'google';
+
+    var chips = document.getElementById('personaChips');
+    chips.innerHTML =
+        '<span class="qf-chip qf-chip--age">' + (AGE_LABELS[age] || age) + '</span>' +
+        '<span class="qf-chip qf-chip--' + concern + '">' + (CONCERN_ICONS[concern] || '') + ' ' + (CONCERN_LABELS[concern] || concern) + '</span>';
+
+    var headlineData = HEADLINES[concern] || HEADLINES['overwhelmed'];
+    document.getElementById('resultHeadline').textContent =
+        headlineData[age] || headlineData['baby'];
+
+    document.getElementById('resultSub').textContent =
+        SOURCE_SUBS[source] || SOURCE_SUBS['google'];
+
+    var classData = CLASSES[concern] || CLASSES['overwhelmed'];
+    var list = document.getElementById('classesList');
+    list.innerHTML = classData.map(function(cls) {
+        var ex = EXPERTS[cls.expert] || {};
+        var badgeClass = {
+            live: 'qf-class-badge--live',
+            soon: 'qf-class-badge--soon',
+            week: 'qf-class-badge--week'
+        }[cls.badge] || 'qf-class-badge--week';
+
+        var dotHtml = cls.badge === 'live' ? '<span class="qf-badge-dot"></span>' : '';
+        return '<div class="qf-class-card qf-class-card--' + cls.badge + '">' +
+            '<img class="qf-class-avatar" src="' + (ex.photo || '') + '" alt="' + (ex.name || '') + '" ' +
+            'onerror="this.style.display=\'none\'">' +
+            '<div class="qf-class-info">' +
+                '<div class="qf-class-title">' + cls.title + '</div>' +
+                '<div class="qf-class-expert">' + (ex.name || '') + ' · ' + (ex.cred || '') + '</div>' +
+            '</div>' +
+            '<span class="qf-class-badge ' + badgeClass + '">' + dotHtml + cls.badgeLabel + '</span>' +
+        '</div>';
+    }).join('');
+}
+
+// ── Init ──────────────────────────────────────────────────────
+updateProgress();
+</script>
+</body>
+</html>

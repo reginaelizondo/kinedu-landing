@@ -629,7 +629,7 @@ window.TRANSLATIONS = {
 
     // PAS — Problem · Agitate (3 pain cards)
     'lc.pas.eyebrow': 'Si esto te suena conocido…',
-    'lc.pas.title': 'Criar a tu bebé no debería ser <span class="lc-highlight">resolver dudas con Google a las 2 a.m.</span>',
+    'lc.pas.title': 'Acompañar a tu bebé no debería ser <span class="lc-highlight">resolver dudas con Google a las 2 a.m.</span>',
     'lc.pas.body': 'La mayoría de las mamás primerizas terminamos armando las respuestas a pedacitos. Un foro por aquí, un TikTok por allá, un paquete de sueño de $300 cuando ya no aguantas las noches. Nada de eso está pensado para tu bebé. Y todo te cuesta sueño — y dinero.',
     'lc.pas.card1.title': 'Consejos que no le quedan a tu bebé',
     'lc.pas.card1.body': 'Artículos de "ventanas de sueño" escritos pensando en otro bebé. Nunca terminan de aplicarle al tuyo.',

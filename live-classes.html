@@ -341,25 +341,42 @@
             .lc-pas-cards {
                 grid-template-columns: 1fr;
                 margin-top: 20px;
-                gap: 8px;
+                gap: 10px;
             }
             .lc-pas-card {
-                padding: 14px 18px;
-                flex-direction: row;
-                align-items: center;
-                gap: 14px;
-                border-radius: 14px;
+                padding: 18px 20px;
+                flex-direction: column;
+                gap: 10px;
+                border-radius: 16px;
                 box-shadow: none;
                 border: 1px solid rgba(43,139,228,0.1);
+                border-left: 3px solid var(--blue);
+                background: rgba(43,139,228,0.03);
+            }
+            .lc-pas-card:nth-child(2) {
+                border-left-color: #4CD964;
+                background: rgba(76,217,100,0.04);
+            }
+            .lc-pas-card:nth-child(3) {
+                border-left-color: #7B5CE8;
+                background: rgba(123,92,232,0.04);
             }
             .lc-pas-card-emoji {
-                font-size: 1.6rem;
+                font-size: 1.3rem;
                 margin-bottom: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(43,139,228,0.1);
+                border-radius: 10px;
                 flex-shrink: 0;
             }
-            .lc-pas-card-title { font-size: 0.9rem; margin: 0; }
-            /* Hide card descriptions on mobile — emoji + title is enough */
-            .lc-pas-card-body { display: none; }
+            .lc-pas-card:nth-child(2) .lc-pas-card-emoji { background: rgba(76,217,100,0.15); }
+            .lc-pas-card:nth-child(3) .lc-pas-card-emoji { background: rgba(123,92,232,0.12); }
+            .lc-pas-card-title { font-size: 0.88rem; margin: 0; line-height: 1.35; }
+            .lc-pas-card-body { font-size: 0.79rem; line-height: 1.55; color: var(--text-secondary); margin: 0; }
         }
 
         /* Problem */
@@ -796,18 +813,18 @@
         html[data-hero-variant="b"] .lc-hero-text   { order: 2; }
 
         .lc-hero-card {
-            width: 100%; max-width: 390px;
+            width: 100%; max-width: 340px;
             background: #fff;
-            border-radius: 24px;
+            border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 28px 72px rgba(14,27,44,0.22), 0 8px 24px rgba(14,27,44,0.10);
+            box-shadow: 0 20px 56px rgba(14,27,44,0.16), 0 6px 18px rgba(14,27,44,0.08);
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         /* Gradient header */
         .lhc-header {
-            background: linear-gradient(145deg, #1756A9 0%, #2B8BE0 55%, #22C58B 100%);
-            padding: 24px 24px 22px;
+            background: linear-gradient(145deg, #5AABF0 0%, #6EC5F5 55%, #4DDDB4 100%);
+            padding: 18px 20px 16px;
             position: relative;
         }
 
@@ -884,11 +901,11 @@
         }
         .lhc-join-btn {
             background: #fff;
-            color: #1756A9;
+            color: #2B8BE4;
             border: none; border-radius: 100px;
-            padding: 8px 16px;
+            padding: 7px 14px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.75rem; font-weight: 800;
+            font-size: 0.73rem; font-weight: 800;
             cursor: pointer; white-space: nowrap;
             flex-shrink: 0;
         }
