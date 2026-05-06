@@ -875,7 +875,7 @@
             line-height: 1.35; margin: 0 0 8px;
         }
         .lhc-featured-expert {
-            font-size: 0.77rem; color: rgba(255,255,255,0.72); margin: 0 0 16px;
+            font-size: 0.77rem; color: rgba(255,255,255,0.72); margin: 0 0 8px;
         }
 
         /* Avatar row + join CTA */
@@ -935,13 +935,18 @@
             font-size: 0.58rem; font-weight: 800; letter-spacing: 0.07em;
             padding: 2px 8px; border-radius: 5px;
             flex-shrink: 0; text-transform: uppercase;
+            display: inline-block;
         }
         .lhc-item-expert {
             font-size: 0.71rem; color: #8A96A3; margin-top: 2px;
         }
         .lhc-item-time {
             font-size: 0.82rem; font-weight: 800; color: #0D1B2E;
-            white-space: nowrap; flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .lhc-item-time-col {
+            display: flex; flex-direction: column; align-items: flex-end;
+            gap: 4px; flex-shrink: 0;
         }
         @media (max-width: 900px) {
             html[data-hero-variant="b"] .lc-hero-grid { grid-template-columns: 1fr; }
@@ -1449,49 +1454,51 @@
                 <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
                     <div class="lhc-header">
                         <div class="lhc-top-row">
-                            <div class="lhc-live-badge"><span class="lhc-dot"></span> LIVE NOW</div>
-                            <div class="lhc-viewer-count"><span class="lhc-viewer-dot"></span> 847 watching</div>
+                            <div class="lhc-live-badge"><span class="lhc-dot"></span> <span data-i18n="lc.hero.liveNow">LIVE NOW</span></div>
+                            <div class="lhc-viewer-count"><span class="lhc-viewer-dot"></span> <span data-i18n="lc.hero.watching">847 watching</span></div>
                         </div>
-                        <h3 class="lhc-featured-title">Effective Strategies to Lengthen and Improve Naps</h3>
-                        <p class="lhc-featured-expert">With Caryn Shender · Pediatric Sleep Consultant</p>
+                        <h3 class="lhc-featured-title" data-i18n="lc.hero.featuredTitle">Effective Strategies to Lengthen and Improve Naps</h3>
+                        <p class="lhc-featured-expert" data-i18n="lc.hero.featuredExpert">With Caryn Shender · Pediatric Sleep Consultant</p>
                         <div class="lhc-bottom-row">
                             <div class="lhc-avatar-row">
                                 <span class="lhc-av lhc-av--pink">M</span>
                                 <span class="lhc-av lhc-av--yellow">A</span>
                                 <span class="lhc-av lhc-av--green">J</span>
                                 <span class="lhc-av lhc-av--blue">S</span>
-                                <span class="lhc-av-count">+612 joined</span>
+                                <span class="lhc-av-count" data-i18n="lc.hero.joined">+612 joined</span>
                             </div>
-                            <button class="lhc-join-btn">Join free →</button>
+                            <button class="lhc-join-btn" data-i18n="lc.hero.joinBtn">Join free →</button>
                         </div>
                     </div>
                     <div class="lhc-schedule">
-                        <div class="lhc-schedule-label">Today's classes</div>
+                        <div class="lhc-schedule-label" data-i18n="lc.hero.todaysClasses">Today's classes</div>
                         <div class="lhc-item">
                             <div class="lhc-item-info">
                                 <div class="lhc-item-title-row">
-                                    <span class="lhc-item-title">Basics for Giving First Aid at Home</span>
-                                    <span class="lhc-item-live-tag">LIVE</span>
+                                    <span class="lhc-item-title" data-i18n="lc.hero.class1.title">Basics for Giving First Aid at Home</span>
                                 </div>
-                                <div class="lhc-item-expert">Dr. Thanya Asse · Pediatrician, MD</div>
+                                <div class="lhc-item-expert" data-i18n="lc.hero.class1.expert">Dr. Thanya Asse · Pediatrician, MD</div>
                             </div>
-                            <div class="lhc-item-time">9:00 AM</div>
+                            <div class="lhc-item-time-col">
+                                <div class="lhc-item-time">9:00 AM</div>
+                                <span class="lhc-item-live-tag">LIVE</span>
+                            </div>
                         </div>
                         <div class="lhc-item">
                             <div class="lhc-item-info">
                                 <div class="lhc-item-title-row">
-                                    <span class="lhc-item-title">Language Stimulation: Playing by Categories</span>
+                                    <span class="lhc-item-title" data-i18n="lc.hero.class2.title">Language Stimulation: Playing by Categories</span>
                                 </div>
-                                <div class="lhc-item-expert">Delia Herrera · Speech Therapist</div>
+                                <div class="lhc-item-expert" data-i18n="lc.hero.class2.expert">Delia Herrera · Speech Therapist</div>
                             </div>
                             <div class="lhc-item-time">11:00 AM</div>
                         </div>
                         <div class="lhc-item">
                             <div class="lhc-item-info">
                                 <div class="lhc-item-title-row">
-                                    <span class="lhc-item-title">Effective Strategies to Lengthen Naps</span>
+                                    <span class="lhc-item-title" data-i18n="lc.hero.class3.title">Effective Strategies to Lengthen Naps</span>
                                 </div>
-                                <div class="lhc-item-expert">Caryn Shender · Sleep Consultant</div>
+                                <div class="lhc-item-expert" data-i18n="lc.hero.class3.expert">Caryn Shender · Sleep Consultant</div>
                             </div>
                             <div class="lhc-item-time">11:45 AM</div>
                         </div>
