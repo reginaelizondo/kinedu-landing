@@ -336,10 +336,30 @@
             .lc-pas-cards { grid-template-columns: 1fr; gap: 14px; margin-top: 40px; }
         }
         @media (max-width: 640px) {
-            .lc-pas { padding: 36px 0 44px; }
-            .lc-pas-body { font-size: 0.93rem; }
-            .lc-pas-card { padding: 20px 18px; }
-            .lc-pas-cards { margin-top: 28px; gap: 12px; }
+            .lc-pas { padding: 36px 0 40px; }
+            .lc-pas-body { display: none; }
+            .lc-pas-cards {
+                grid-template-columns: 1fr;
+                margin-top: 20px;
+                gap: 8px;
+            }
+            .lc-pas-card {
+                padding: 14px 18px;
+                flex-direction: row;
+                align-items: center;
+                gap: 14px;
+                border-radius: 14px;
+                box-shadow: none;
+                border: 1px solid rgba(43,139,228,0.1);
+            }
+            .lc-pas-card-emoji {
+                font-size: 1.6rem;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            .lc-pas-card-title { font-size: 0.9rem; margin: 0; }
+            /* Hide card descriptions on mobile — emoji + title is enough */
+            .lc-pas-card-body { display: none; }
         }
 
         /* Problem */
@@ -1038,15 +1058,27 @@
             .lc-step-body { font-size: 0.83rem; }
             .lc-step::after { font-size: 5rem; }
 
-            /* What's inside */
+            /* What's inside — 2 columns on mobile */
             .lc-features-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                margin-top: 28px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-top: 24px;
             }
-            .lc-feature-item { padding: 22px 20px; flex-direction: row; gap: 16px; align-items: flex-start; }
-            .lc-feature-icon { margin-bottom: 0; flex-shrink: 0; }
-            .lc-feature-title { font-size: 0.88rem; }
+            .lc-feature-item {
+                padding: 18px 16px;
+                flex-direction: column;
+                gap: 10px;
+                border-radius: 16px;
+            }
+            .lc-feature-icon {
+                width: 40px; height: 40px;
+                border-radius: 11px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            .lc-feature-icon svg { width: 20px; height: 20px; }
+            .lc-feature-title { font-size: 0.82rem; line-height: 1.3; }
+            .lc-feature-desc { font-size: 0.75rem; }
 
             /* Upcoming classes — fits all 5 days on a 375px viewport */
             .lc-day-tabs {
