@@ -20,7 +20,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>¿Qué necesita tu bebé?&mdash;Kinedu</title>
+<title>¿Qué necesita tu bebé? — Kinedu</title>
 <meta name="description" content="Descubre qué clases en vivo son perfectas para tu bebé. Responde 3 preguntas y obtén tu plan personalizado gratis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,14 +63,32 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 32px 16px 64px;
+    padding: 0 16px 48px;
+}
+
+.qf-header {
+    width: 100%;
+    max-width: 520px;
+    padding: 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.qf-logo { height: 32px; width: auto; display: block; }
+
+.qf-step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted-2);
+    letter-spacing: 0.04em;
 }
 
 /* ── Progress bar ────────────────────────────────────────────── */
 .qf-progress-wrap {
     width: 100%;
     max-width: 520px;
-    margin-top: 0;
+    margin-top: 20px;
     display: flex;
     gap: 6px;
 }
@@ -101,17 +119,13 @@ html, body {
 }
 
 @media (max-width: 480px) {
-    .qf-page { padding: 16px 12px 48px; }
-    .qf-card {
-        padding: 22px 16px 22px;
-        border-radius: 20px;
-        min-height: unset;
-        margin-top: 14px;
-    }
+    .qf-card { padding: 28px 20px 24px; border-radius: 22px; }
 }
 
 /* ── Steps container ─────────────────────────────────────────── */
-.qf-step { display: none; }
+.qf-step {
+    display: none;
+}
 
 .qf-step.active {
     display: block;
@@ -150,7 +164,6 @@ html, body {
     text-transform: uppercase;
     color: var(--blue);
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .qf-question {
@@ -159,20 +172,13 @@ html, body {
     line-height: 1.3;
     color: var(--ink);
     margin-bottom: 6px;
-    text-align: center;
 }
 
 .qf-sub {
     font-size: 0.85rem;
     color: var(--muted);
     margin-bottom: 28px;
-    text-align: center;
     line-height: 1.5;
-}
-
-@media (max-width: 480px) {
-    .qf-question { font-size: 1.2rem; line-height: 1.28; }
-    .qf-sub      { font-size: 0.8rem; margin-bottom: 20px; }
 }
 
 /* ── Options ─────────────────────────────────────────────────── */
@@ -232,13 +238,6 @@ html, body {
     font-weight: 400;
     color: var(--muted);
     margin-top: 1px;
-}
-
-@media (max-width: 480px) {
-    .qf-opt { padding: 12px 14px; gap: 11px; }
-    .qf-opt-icon { font-size: 1.25rem; width: 26px; }
-    .qf-opt-label { font-size: 0.86rem; }
-    .qf-opt-sublabel { font-size: 0.72rem; }
 }
 
 .qf-opt-check {
@@ -353,159 +352,117 @@ html, body {
     100% { width: 100%; }
 }
 
-/* ── Result hero ─────────────────────────────────────────────── */
-#stepResult { position: relative; }
-
-.qf-result-hero {
-    background: linear-gradient(140deg, #EAF4FD 0%, #ECF9F2 100%);
-    border: 1px solid rgba(43,139,228,0.14);
-    border-radius: 18px;
-    padding: 20px 18px 18px;
-    margin-bottom: 20px;
-    text-align: center;
+/* ── Result screen ───────────────────────────────────────────── */
+/* ── Result screen ───────────────────────────────────────────── */
+/* Gradient accent bar at top of result card */
+#stepResult {
+    position: relative;
+}
+#stepResult::before {
+    content: '';
+    position: absolute;
+    top: -28px; left: -32px; right: -32px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%);
+    border-radius: 0 0 4px 4px;
+}
+@media (max-width: 480px) {
+    #stepResult::before { top: -24px; left: -20px; right: -20px; }
 }
 
 .qf-result-badge {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: linear-gradient(120deg, var(--blue) 0%, var(--green) 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #EAF4FD 0%, #E6F9F1 100%);
+    border: 1px solid #C4E0F9;
+    color: var(--blue-dark);
     border-radius: 99px;
     padding: 6px 16px;
-    font-size: 0.66rem;
-    font-weight: 800;
-    letter-spacing: 0.09em;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 14px rgba(43,139,228,0.28);
+    margin-bottom: 14px;
 }
 
 .qf-result-headline {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.3;
     color: var(--ink);
     margin-bottom: 10px;
-    text-align: center;
-    letter-spacing: -0.01em;
 }
 
 .qf-result-sub {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: var(--muted);
-    line-height: 1.55;
-    margin-bottom: 0;
-    text-align: center;
-}
-
-@media (max-width: 480px) {
-    .qf-result-hero { padding: 14px 12px 12px; margin-bottom: 14px; }
-    .qf-result-badge { font-size: 0.58rem; padding: 5px 12px; margin-bottom: 8px; }
-    .qf-persona-chips { margin-bottom: 10px; }
-    .qf-result-headline { font-size: 1.02rem; line-height: 1.25; margin-bottom: 6px; letter-spacing: -0.015em; }
-    .qf-result-sub { font-size: 0.72rem; line-height: 1.45; }
-}
-
-/* ── Classes section label ───────────────────────────────────── */
-.qf-classes-label {
-    font-size: 0.66rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted-2);
-    margin-bottom: 10px;
-    text-align: center;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
 }
 
 /* ── Class cards ─────────────────────────────────────────────── */
 .qf-classes {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 18px;
+    gap: 10px;
+    margin-bottom: 22px;
 }
 
 .qf-class-card {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     background: white;
     border: 1px solid var(--line);
-    border-left: 3px solid var(--blue);
-    border-radius: 12px;
-    padding: 11px 12px;
+    border-left: 3.5px solid var(--blue);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
     transition: box-shadow 0.15s;
 }
-.qf-class-card:hover { box-shadow: 0 4px 16px rgba(14,27,44,0.08); }
+.qf-class-card:hover {
+    box-shadow: 0 4px 16px rgba(14,27,44,0.08);
+}
 .qf-class-card--live { border-left-color: #E53935; }
 .qf-class-card--soon { border-left-color: #EA580C; }
 .qf-class-card--week { border-left-color: var(--blue); }
 
 .qf-class-avatar {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    background: linear-gradient(135deg, var(--blue-soft), var(--blue-tint));
-    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
-}
-
-.qf-class-avatar-fallback {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: linear-gradient(135deg, var(--blue), #6BB8F4);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.85rem;
+    background: var(--line);
     box-shadow: 0 2px 6px rgba(0,0,0,0.10);
 }
 
 .qf-class-info { flex: 1; min-width: 0; }
 
 .qf-class-title {
-    font-size: 0.82rem;
+    font-size: 0.83rem;
     font-weight: 700;
     color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 2px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    line-height: 1.35;
+    margin-bottom: 3px;
 }
 
 .qf-class-expert {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: var(--muted);
-    line-height: 1.3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-    .qf-class-card { gap: 10px; padding: 10px; }
-    .qf-class-avatar, .qf-class-avatar-fallback { width: 36px; height: 36px; font-size: 0.78rem; }
-    .qf-class-title { font-size: 0.78rem; }
-    .qf-class-expert { font-size: 0.66rem; }
 }
 
 /* Badges */
 .qf-class-badge {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    font-size: 0.6rem;
+    gap: 5px;
+    font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
-    padding: 4px 8px;
+    letter-spacing: 0.04em;
+    padding: 4px 9px;
     border-radius: 6px;
     flex-shrink: 0;
     white-space: nowrap;
@@ -518,7 +475,7 @@ html, body {
 }
 
 .qf-badge-dot {
-    width: 5px; height: 5px; border-radius: 50%;
+    width: 6px; height: 6px; border-radius: 50%;
     background: #E53935;
     flex-shrink: 0;
     animation: liveDot 1.5s ease-in-out infinite;
@@ -541,53 +498,14 @@ html, body {
     border: 1px solid #C4E0F9;
 }
 
-@media (max-width: 480px) {
-    .qf-class-badge { font-size: 0.56rem; padding: 3px 7px; }
-}
-
-/* ── Testimonial ─────────────────────────────────────────────── */
-.qf-testimonial {
-    background: var(--bg-2);
-    border-radius: 14px;
-    padding: 14px 14px 12px;
-    margin-bottom: 18px;
-    border: 1px solid var(--line);
-}
-
-.qf-testimonial-stars {
-    color: #F59E0B;
-    font-size: 0.78rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 6px;
-}
-
-.qf-testimonial-quote {
-    font-size: 0.82rem;
-    color: var(--ink-2);
-    line-height: 1.5;
-    margin-bottom: 8px;
-    font-style: italic;
-}
-
-.qf-testimonial-author {
-    font-size: 0.7rem;
-    color: var(--muted);
-    font-weight: 600;
-}
-
-@media (max-width: 480px) {
-    .qf-testimonial { padding: 12px 12px 10px; margin-bottom: 14px; }
-    .qf-testimonial-quote { font-size: 0.78rem; }
-}
-
 /* ── Divider ─────────────────────────────────────────────────── */
 .qf-divider {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin: 0 0 14px;
+    margin: 0 0 18px;
     color: var(--muted-2);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.02em;
 }
@@ -608,22 +526,18 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    font-size: 0.72rem;
+    font-size: 0.73rem;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     flex-wrap: wrap;
     text-align: center;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .qf-trust-stars {
     color: #F59E0B;
     letter-spacing: 1px;
-    font-size: 0.82rem;
-}
-
-@media (max-width: 480px) {
-    .qf-trust { font-size: 0.68rem; gap: 4px; }
+    font-size: 0.85rem;
 }
 
 /* ── CTA ─────────────────────────────────────────────────────── */
@@ -633,7 +547,7 @@ html, body {
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 16px 24px;
+    padding: 18px 24px;
     border-radius: var(--r-md);
     background: linear-gradient(120deg, #2B8BE4 0%, #34C989 100%);
     color: white;
@@ -644,7 +558,7 @@ html, body {
     border: none;
     cursor: pointer;
     transition: transform 0.12s, box-shadow 0.18s;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(43,139,228,0.30);
@@ -669,112 +583,38 @@ html, body {
 .qf-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(43,139,228,0.38); }
 .qf-cta-btn:active { transform: scale(0.98); box-shadow: none; }
 
-@media (max-width: 480px) {
-    .qf-cta-btn { padding: 15px 20px; font-size: 0.95rem; }
-}
-
-/* ── Sticky CTA (mobile) ─────────────────────────────────────── */
-.qf-sticky-cta {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 50;
-    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-top: 1px solid var(--line);
-    box-shadow: 0 -4px 20px rgba(14,27,44,0.08);
-    animation: stickySlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes stickySlideUp {
-    from { transform: translateY(100%); }
-    to   { transform: translateY(0); }
-}
-
-.qf-sticky-cta.visible { display: block; }
-
-.qf-sticky-cta .qf-cta-btn {
-    margin-bottom: 4px;
-    padding: 14px 20px;
-    font-size: 0.92rem;
-    box-shadow: 0 4px 14px rgba(43,139,228,0.32);
-}
-
-.qf-sticky-cta-microcopy {
-    text-align: center;
-    font-size: 0.62rem;
-    color: var(--muted-2);
-    line-height: 1.4;
-    margin: 0;
-}
-
-@media (max-width: 480px) {
-    #stepResult .qf-cta-btn-inline { display: none; }
-    #stepResult .qf-cta-sub-inline  { display: none; }
-    #stepResult { padding-bottom: 8px; }
-    .qf-page { padding-bottom: 110px; }
-}
-
 .qf-cta-sub {
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: var(--muted-2);
-    margin-bottom: 16px;
-    line-height: 1.5;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.qf-cta-sub::before, .qf-cta-sub::after {
+    content: '·';
+    color: var(--line);
 }
 
-/* ── Store buttons ───────────────────────────────────────────── */
+/* ── Store badges ────────────────────────────────────────────── */
 .qf-stores {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 }
 
-.qf-store-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--ink);
-    color: white;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 10px;
-    transition: transform 0.12s, background 0.18s;
-    border: 1px solid var(--ink);
-}
-
-.qf-store-btn:hover { transform: translateY(-1px); background: var(--ink-2); }
-.qf-store-btn svg { flex-shrink: 0; }
-
-.qf-store-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-    text-align: left;
-}
-
-.qf-store-eyebrow {
-    font-size: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+.qf-stores img {
+    height: 36px;
+    width: auto;
+    border-radius: 7px;
+    object-fit: contain;
     opacity: 0.85;
-    text-transform: uppercase;
+    transition: opacity 0.15s;
 }
-
-.qf-store-name {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-}
-
-@media (max-width: 480px) {
-    .qf-store-btn { padding: 7px 12px; gap: 7px; }
-    .qf-store-name { font-size: 0.78rem; }
-    .qf-store-eyebrow { font-size: 0.52rem; }
-}
+.qf-stores img:hover { opacity: 1; }
 
 /* ── Footer ──────────────────────────────────────────────────── */
 .qf-footer {
@@ -790,9 +630,8 @@ html, body {
 .qf-persona-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 12px;
-    justify-content: center;
+    gap: 7px;
+    margin-bottom: 14px;
 }
 
 .qf-chip {
@@ -800,71 +639,82 @@ html, body {
     align-items: center;
     gap: 5px;
     border-radius: 99px;
-    padding: 5px 12px;
+    padding: 5px 13px;
     font-size: 0.72rem;
-    font-weight: 700;
-    white-space: nowrap;
+    font-weight: 600;
 }
 
-@media (max-width: 480px) {
-    .qf-chip { font-size: 0.68rem; padding: 4px 10px; }
+.qf-chip--age {
+    background: var(--blue-soft);
+    border: 1px solid #C4E0F9;
+    color: var(--blue-dark);
 }
 
-.qf-chip--age        { background: var(--blue-soft); border: 1px solid #C4E0F9; color: var(--blue-dark); }
-.qf-chip--sleep      { background: #EDE9FE; border: 1px solid #C4B5FD; color: #5B21B6; }
-.qf-chip--feeding    { background: #FFF1F2; border: 1px solid #FECDD3; color: #9F1239; }
-.qf-chip--development{ background: #F0FDF4; border: 1px solid #BBF7D0; color: #14532D; }
-.qf-chip--stimulation{ background: #FFF7ED; border: 1px solid #FED7AA; color: #9A3412; }
-.qf-chip--overwhelmed{ background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
+.qf-chip--sleep       { background: #EDE9FE; border: 1px solid #C4B5FD; color: #5B21B6; }
+.qf-chip--feeding     { background: #FFF1F2; border: 1px solid #FECDD3; color: #9F1239; }
+.qf-chip--development { background: #F0FDF4; border: 1px solid #BBF7D0; color: #14532D; }
+.qf-chip--stimulation { background: #FFF7ED; border: 1px solid #FED7AA; color: #9A3412; }
+.qf-chip--overwhelmed { background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
+
 </style>
 </head>
 <body>
 
 <div class="qf-page">
 
+    <!-- Header -->
+    <header class="qf-header">
+        <a href="live-classes.html">
+            <img src="logo kinedu.png" alt="Kinedu" class="qf-logo">
+        </a>
+        <span class="qf-step-label" id="stepLabel">Paso 1 de 3</span>
+    </header>
+
+    <!-- Progress -->
     <div class="qf-progress-wrap">
         <div class="qf-progress-seg active" id="seg0"></div>
         <div class="qf-progress-seg" id="seg1"></div>
         <div class="qf-progress-seg" id="seg2"></div>
     </div>
 
+    <!-- Card -->
     <div class="qf-card" id="quizCard">
 
-        <!-- STEP 1: Edad -->
+        <!-- ─── STEP 1: Age ────────────────────────────────────── -->
         <div class="qf-step active" id="step0">
             <div class="qf-eyebrow">Tu bebé</div>
             <h1 class="qf-question">¿Cuántos meses tiene tu bebé?</h1>
-            <p class="qf-sub">Cada etapa tiene retos distintos &mdash; esto nos ayuda a personalizar tu plan.</p>
+            <p class="qf-sub">Cada etapa tiene retos distintos — esto nos ayuda a personalizar tu plan.</p>
             <div class="qf-options">
                 <button class="qf-opt" data-step="0" data-value="newborn" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🐣</span>
-                    <span><div class="qf-opt-label">0 &ndash; 3 meses</div><div class="qf-opt-sublabel">Recién nacido</div></span>
+                    <span><div class="qf-opt-label">0 – 3 meses</div><div class="qf-opt-sublabel">Recién nacido</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="0" data-value="early" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🌱</span>
-                    <span><div class="qf-opt-label">3 &ndash; 6 meses</div><div class="qf-opt-sublabel">Primeras sonrisas y leaps</div></span>
+                    <span><div class="qf-opt-label">3 – 6 meses</div><div class="qf-opt-sublabel">Primeras sonrisas y leaps</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="0" data-value="baby" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🧸</span>
-                    <span><div class="qf-opt-label">7 &ndash; 12 meses</div><div class="qf-opt-sublabel">Gateo, sólidos, primeras palabras</div></span>
+                    <span><div class="qf-opt-label">7 – 12 meses</div><div class="qf-opt-sublabel">Gateo, sólidos, primeras palabras</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="0" data-value="toddler1" onclick="selectOption(this)">
                     <span class="qf-opt-icon">👟</span>
-                    <span><div class="qf-opt-label">1 &ndash; 2 años</div><div class="qf-opt-sublabel">Primeros pasos, lenguaje</div></span>
+                    <span><div class="qf-opt-label">1 – 2 años</div><div class="qf-opt-sublabel">Primeros pasos, lenguaje</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="0" data-value="toddler2" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🎨</span>
-                    <span><div class="qf-opt-label">2 &ndash; 4 años</div><div class="qf-opt-sublabel">Autonomía, emociones, juego</div></span>
+                    <span><div class="qf-opt-label">2 – 4 años</div><div class="qf-opt-sublabel">Autonomía, emociones, juego</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
             </div>
         </div>
 
-        <!-- STEP 2: Preocupación -->
+        <!-- ─── STEP 2: Concern ───────────────────────────────── -->
         <div class="qf-step" id="step1">
             <button class="qf-back" onclick="goBack()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -872,7 +722,7 @@ html, body {
             </button>
             <div class="qf-eyebrow">Tu mayor reto</div>
             <h2 class="qf-question">¿Qué te preocupa más ahorita?</h2>
-            <p class="qf-sub">Elige el tema que más te quita el sueño&mdash;literal o figurado.</p>
+            <p class="qf-sub">Elige el tema que más te quita el sueño — literal o figurado.</p>
             <div class="qf-options">
                 <button class="qf-opt" data-step="1" data-value="sleep" onclick="selectOption(this)">
                     <span class="qf-opt-icon">😴</span>
@@ -902,7 +752,7 @@ html, body {
             </div>
         </div>
 
-        <!-- STEP 3: Fuente de info -->
+        <!-- ─── STEP 3: Info source ───────────────────────────── -->
         <div class="qf-step" id="step2">
             <button class="qf-back" onclick="goBack()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -910,7 +760,7 @@ html, body {
             </button>
             <div class="qf-eyebrow">Una última cosa</div>
             <h2 class="qf-question">¿Cómo sueles buscar información?</h2>
-            <p class="qf-sub">Sin juicio&mdash;queremos entender cómo te podemos ayudar mejor.</p>
+            <p class="qf-sub">Sin juicio — queremos entender cómo te podemos ayudar mejor.</p>
             <div class="qf-options">
                 <button class="qf-opt" data-step="2" data-value="google" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🔍</span>
@@ -935,7 +785,7 @@ html, body {
             </div>
         </div>
 
-        <!-- LOADING -->
+        <!-- ─── LOADING ────────────────────────────────────────── -->
         <div class="qf-step" id="stepLoading">
             <div class="qf-loading">
                 <div class="qf-loading-icon">✨</div>
@@ -947,23 +797,14 @@ html, body {
             </div>
         </div>
 
-        <!-- RESULT -->
+        <!-- ─── RESULT ─────────────────────────────────────────── -->
         <div class="qf-step" id="stepResult">
-            <div class="qf-result-hero">
-                <div class="qf-result-badge">✦ Tu plan personalizado</div>
-                <div class="qf-persona-chips" id="personaChips"></div>
-                <h2 class="qf-result-headline" id="resultHeadline"></h2>
-                <p class="qf-result-sub" id="resultSub"></p>
-            </div>
+            <div class="qf-result-badge">✦ Tu plan personalizado</div>
+            <div class="qf-persona-chips" id="personaChips"></div>
+            <h2 class="qf-result-headline" id="resultHeadline"></h2>
+            <p class="qf-result-sub" id="resultSub"></p>
 
-            <div class="qf-classes-label">Clases recomendadas para ti</div>
             <div class="qf-classes" id="classesList"></div>
-
-            <div class="qf-testimonial" id="testimonialBlock">
-                <div class="qf-testimonial-stars">★★★★★</div>
-                <div class="qf-testimonial-quote" id="testimonialQuote"></div>
-                <div class="qf-testimonial-author" id="testimonialAuthor"></div>
-            </div>
 
             <div class="qf-divider">incluido en tu prueba gratis</div>
 
@@ -976,33 +817,14 @@ html, body {
                 <span>Recomendado por pediatras</span>
             </div>
 
-            <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel" class="qf-cta-btn qf-cta-btn-inline" id="ctaBtn">
+            <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel" class="qf-cta-btn" id="ctaBtn">
                 <span>Prueba gratis 7 días →</span>
             </a>
-            <p class="qf-cta-sub qf-cta-sub-inline">Sin tarjeta de crédito los primeros 3 días · Cancela en 2 toques</p>
+            <p class="qf-cta-sub">Sin tarjeta de crédito los primeros 3 días · Cancela en 2 toques</p>
 
             <div class="qf-stores">
-                <a href="#" class="qf-store-btn" aria-label="Descargar en App Store">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.48-1.94-.2-3.79 1.14-4.78 1.14-.99 0-2.51-1.11-4.13-1.08-2.13.03-4.09 1.24-5.18 3.13-2.21 3.83-.57 9.5 1.59 12.62 1.06 1.53 2.32 3.24 3.97 3.18 1.6-.06 2.2-1.03 4.13-1.03 1.93 0 2.47 1.03 4.16.99 1.72-.03 2.81-1.55 3.86-3.09 1.22-1.77 1.72-3.49 1.74-3.58-.04-.02-3.34-1.28-3.37-5.07zM13.95 2.79c.88-1.07 1.47-2.55 1.31-4.04-1.27.05-2.81.85-3.71 1.91-.81.94-1.52 2.45-1.33 3.91 1.42.11 2.86-.72 3.73-1.78z"/>
-                    </svg>
-                    <div class="qf-store-text">
-                        <span class="qf-store-eyebrow">Descargar en</span>
-                        <span class="qf-store-name">App Store</span>
-                    </div>
-                </a>
-                <a href="#" class="qf-store-btn" aria-label="Descargar en Google Play">
-                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92z" fill="#2B8BE4"/>
-                        <path d="M16.61 15.235l-2.404-2.404 2.404-2.404 3.034 1.736c.978.56.978 1.376 0 1.936l-3.034 1.136z" fill="#34C989"/>
-                        <path d="M14.206 12.831l2.404 2.404L4.83 21.875a1.001 1.001 0 0 1-1.22-.058l10.596-8.986z" fill="#E53935"/>
-                        <path d="M3.61 2.183a1.001 1.001 0 0 1 1.22-.058l11.78 6.704-2.404 2.404L3.61 2.183z" fill="#F59E0B"/>
-                    </svg>
-                    <div class="qf-store-text">
-                        <span class="qf-store-eyebrow">Descargar en</span>
-                        <span class="qf-store-name">Google Play</span>
-                    </div>
-                </a>
+                <img src="Features/stores/app-store-badge-final.png" alt="Descargar en App Store">
+                <img src="Features/stores/google-play-badge.png" alt="Descargar en Google Play">
             </div>
         </div>
 
@@ -1014,24 +836,19 @@ html, body {
 
 </div><!-- /qf-page -->
 
-<!-- Sticky CTA mobile -->
-<div class="qf-sticky-cta" id="stickyCta">
-    <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel" class="qf-cta-btn">
-        <span>Prueba gratis 7 días →</span>
-    </a>
-    <p class="qf-sticky-cta-microcopy">Sin tarjeta de crédito los primeros 3 días · Cancela en 2 toques</p>
-</div>
-
 <script>
+// ── State ─────────────────────────────────────────────────────
 var answers = { age: null, concern: null, source: null };
 var currentStep = 0;
+var goingBack = false;
 
+// ── Content data ──────────────────────────────────────────────
 var AGE_LABELS = {
-    newborn:  '0\u20133 meses',
-    early:    '3\u20136 meses',
-    baby:     '7\u201312 meses',
-    toddler1: '1\u20132 años',
-    toddler2: '2\u20134 años'
+    newborn:  '0–3 meses',
+    early:    '3–6 meses',
+    baby:     '7–12 meses',
+    toddler1: '1–2 años',
+    toddler2: '2–4 años'
 };
 
 var CONCERN_LABELS = {
@@ -1047,114 +864,96 @@ var CONCERN_ICONS = {
     stimulation: '🎯', overwhelmed: '😮‍💨'
 };
 
+// Expert avatar paths
 var EXPERTS = {
-    caryn:   { photo: 'Features/experts/en/caryn-shender.jpg',   name: 'Caryn Shender',        cred: 'Especialista en sueño infantil',      initials: 'CS' },
-    alicia:  { photo: 'Features/experts/en/alicia-simpson.png',  name: 'Alicia Simpson',       cred: 'Nutrióloga e IBCLC',                  initials: 'AS' },
-    thanya:  { photo: 'Features/experts/en/thanya-asse.jpg',     name: 'Dra. Thanya Asse',     cred: 'Pediatra',                            initials: 'TA' },
-    delia:   { photo: 'Features/experts/en/delia-herrera.png',   name: 'Delia Herrera',        cred: 'Terapeuta de lenguaje',               initials: 'DH' },
-    keyla:   { photo: 'Features/experts/en/keyla-dguez.jpg',     name: 'Dra. Keyla Domínguez', cred: 'Especialista en desarrollo',          initials: 'KD' },
-    mercedes:{ photo: 'Features/experts/en/dr-mercedes.jpg',     name: 'Dra. Mercedes',        cred: 'Fisioterapeuta',                      initials: 'DM' },
-    lee:     { photo: 'Features/experts/en/lee-ann-steyns.png',  name: 'Lee Ann Steyns',       cred: 'Instructora de señas, +10 años',      initials: 'LS' },
-    juno:    { photo: 'Features/experts/en/juno.webp',           name: 'Juno',                 cred: 'Especialista en música y movimiento', initials: 'JU' },
-    samantha:{ photo: 'Features/experts/es/samantha-espino.png', name: 'Samantha Espino',      cred: 'Psicóloga infantil',                  initials: 'SE' }
+    caryn:   { photo: 'Features/experts/en/caryn-shender.jpg',   name: 'Caryn Shender',     cred: 'Pediatric Sleep Consultant' },
+    alicia:  { photo: 'Features/experts/en/alicia-simpson.png',  name: 'Alicia Simpson',    cred: 'Nutritionist & IBCLC' },
+    thanya:  { photo: 'Features/experts/en/thanya-asse.jpg',     name: 'Dr. Thanya Asse',   cred: 'Pediatrician, MD' },
+    delia:   { photo: 'Features/experts/en/delia-herrera.png',   name: 'Delia Herrera',     cred: 'Speech Therapist' },
+    keyla:   { photo: 'Features/experts/en/keyla-dguez.jpg',     name: 'Dr. Keyla Dguez',   cred: 'Developmental Specialist' },
+    mercedes:{ photo: 'Features/experts/en/dr-mercedes.jpg',     name: 'Dr. Mercedes',      cred: 'Physiotherapist' },
+    lee:     { photo: 'Features/experts/en/lee-ann-steyns.png',  name: 'Lee Ann Steyns',    cred: 'ASL Instructor, 10+ years' },
+    juno:    { photo: 'Features/experts/en/juno.webp',           name: 'Juno',              cred: 'Music & Movement Specialist' },
+    samantha:{ photo: 'Features/experts/es/samantha-espino.png', name: 'Samantha Espino',   cred: 'Child Psychologist' }
 };
 
+// Classes by concern (3 per concern)
 var CLASSES = {
     sleep: [
-        { title: 'Estrategias para alargar y mejorar las siestas', expert: 'caryn',  badge: 'live', badgeLabel: 'En vivo' },
-        { title: 'Cómo manejar las tomas nocturnas',               expert: 'caryn',  badge: 'soon', badgeLabel: 'Hoy 11:30' },
-        { title: 'Saltos de desarrollo: todo lo que debes saber',  expert: 'keyla',  badge: 'week', badgeLabel: 'Esta semana' }
+        { title: 'Effective Strategies to Lengthen and Improve Naps', expert: 'caryn', badge: 'live',  badgeLabel: '🔴 En vivo' },
+        { title: 'Handling Nighttime Feeds',                          expert: 'caryn', badge: 'soon',  badgeLabel: 'Hoy 11:30' },
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla', badge: 'week',  badgeLabel: 'Esta semana' }
     ],
     feeding: [
-        { title: 'Snacks saludables para mamás lactantes',         expert: 'alicia', badge: 'live', badgeLabel: 'En vivo' },
-        { title: 'Cómo prevenir el atragantamiento',               expert: 'alicia', badge: 'soon', badgeLabel: 'Hoy 10:00' },
-        { title: 'Primeros auxilios básicos en casa',              expert: 'thanya', badge: 'week', badgeLabel: 'Esta semana' }
+        { title: 'Healthy Snacks for Breastfeeding Moms',            expert: 'alicia', badge: 'live', badgeLabel: '🔴 En vivo' },
+        { title: 'Food Choking Prevention',                           expert: 'alicia', badge: 'soon', badgeLabel: 'Hoy 10:00' },
+        { title: 'Basics for Giving First Aid at Home',               expert: 'thanya', badge: 'week', badgeLabel: 'Esta semana' }
     ],
     development: [
-        { title: 'Saltos de desarrollo: todo lo que debes saber',  expert: 'keyla',    badge: 'live', badgeLabel: 'En vivo' },
-        { title: 'Volteo y sentado temprano',                      expert: 'mercedes', badge: 'soon', badgeLabel: 'Hoy 8:30' },
-        { title: 'Estimulación del lenguaje: jugar por categorías',expert: 'delia',    badge: 'week', badgeLabel: 'Esta semana' }
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla',    badge: 'live', badgeLabel: '🔴 En vivo' },
+        { title: 'Rolling and Early Sitting',                         expert: 'mercedes', badge: 'soon', badgeLabel: 'Hoy 8:30' },
+        { title: 'Language Stimulation: Playing by Categories',       expert: 'delia',    badge: 'week', badgeLabel: 'Esta semana' }
     ],
     stimulation: [
-        { title: 'Señas para bebés: palabras de acción en movimiento', expert: 'lee',   badge: 'live', badgeLabel: 'En vivo' },
-        { title: 'A bailar con mi bebé',                               expert: 'juno',  badge: 'soon', badgeLabel: 'Hoy 8:30' },
-        { title: 'Estimulación musical: canciones que abrazan',        expert: 'delia', badge: 'week', badgeLabel: 'Esta semana' }
+        { title: 'Baby Sign Language: Action Words in Motion',        expert: 'lee',  badge: 'live', badgeLabel: '🔴 En vivo' },
+        { title: 'Dancing: Baby & Me',                                expert: 'juno', badge: 'soon', badgeLabel: 'Hoy 8:30' },
+        { title: 'Musical Stimulation: Songs That Embrace',           expert: 'delia',badge: 'week', badgeLabel: 'Esta semana' }
     ],
     overwhelmed: [
-        { title: 'Primeros auxilios básicos en casa',              expert: 'thanya', badge: 'live', badgeLabel: 'En vivo' },
-        { title: 'Estrategias para alargar las siestas',           expert: 'caryn',  badge: 'soon', badgeLabel: 'Hoy 11:45' },
-        { title: 'Saltos de desarrollo: todo lo que debes saber',  expert: 'keyla',  badge: 'week', badgeLabel: 'Esta semana' }
+        { title: 'Basics for Giving First Aid at Home',               expert: 'thanya', badge: 'live', badgeLabel: '🔴 En vivo' },
+        { title: 'Effective Strategies to Lengthen Naps',             expert: 'caryn',  badge: 'soon', badgeLabel: 'Hoy 11:45' },
+        { title: 'Developmental Leaps: Everything You Need to Know',  expert: 'keyla',  badge: 'week', badgeLabel: 'Esta semana' }
     ]
 };
 
+// Headlines by age × concern
 var HEADLINES = {
     sleep: {
-        newborn:  'Los despertares de los primeros meses son normales \u2014 y tienen solución.',
+        newborn:  'Los despertares de los primeros meses son normales — y tienen solución.',
         early:    'La regresión de sueño de los 4 meses es real. Y tiene salida.',
-        baby:     'Tu bebé puede aprender a dormir mejor. Esta semana.',
-        toddler1: 'El sueño a los 1\u20132 años tiene sus secretos. Aprende con una especialista.',
+        baby:     'Tu bebé de 7–12 meses puede aprender a dormir mejor. Esta semana.',
+        toddler1: 'El sueño a los 1–2 años tiene sus secretos. Aprende con una especialista en vivo.',
         toddler2: 'El sueño entre los 2 y 4 años mejora con el método correcto.'
     },
     feeding: {
-        newborn:  'La lactancia tiene curva de aprendizaje. Una IBCLC en vivo puede ayudarte hoy.',
-        early:    '¿Dudas sobre lactancia o sólidos? Tenemos especialista en vivo esta semana.',
-        baby:     'Iniciar sólidos es todo un mundo. Te guiamos paso a paso.',
-        toddler1: 'Que tu hijo coma bien a los 1\u20132 años se aprende. Hay clase para eso.',
-        toddler2: 'La alimentación en preescolares tiene sus trucos. Aprende con expertas.'
+        newborn:  'La lactancia tiene una curva de aprendizaje. Una IBCLC live puede ayudarte hoy.',
+        early:    '¿Dudas sobre lactancia o sólidos? Tenemos una especialista en vivo esta semana.',
+        baby:     'Iniciar sólidos es todo un mundo. Alicia, nuestra IBCLC y nutrióloga, te guía paso a paso.',
+        toddler1: 'Que tu hijo coma bien a los 1–2 años se aprende. Hay una clase justo para eso.',
+        toddler2: 'La alimentación en preescolares tiene sus trucos. Aprende con nuestros especialistas.'
     },
     development: {
-        newborn:  'Cada semana tu bebé logra algo nuevo. Aprende a leer sus señales.',
-        early:    'Los leaps de los 3\u20136 meses son los más intensos. Aquí te explicamos todo.',
-        baby:     'Gateo, primeras palabras, motricidad \u2014 esta semana hay clases para todo eso.',
-        toddler1: 'De 1 a 2 años, el cerebro crece a una velocidad increíble. Aprovéchalo.',
-        toddler2: 'El lenguaje y el pensamiento de los 2\u20134 años se moldean con los estímulos correctos.'
+        newborn:  'Cada semana tu bebé logra algo nuevo. Aprende a leer sus señales y acompañar sus hitos.',
+        early:    'Los leaps de los 3–6 meses son los más intensos. Aquí te explicamos todo, en vivo.',
+        baby:     'Gateo, primeras palabras, habilidades motoras — esta semana hay clases para todo eso.',
+        toddler1: 'De 1 a 2 años, el cerebro de tu bebé crece a una velocidad increíble. Aprovéchalo.',
+        toddler2: 'El lenguaje y el pensamiento de los 2–4 años se moldean con los estímulos correctos.'
     },
     stimulation: {
-        newborn:  'Los primeros 90 días son de oro para la estimulación sensorial.',
-        early:    'Entre los 3\u20136 meses tu bebé ya interactúa. 3 clases perfectas para esta etapa.',
-        baby:     'Señas, música, movimiento \u2014 3 clases diseñadas para los 7\u201312 meses.',
-        toddler1: 'A los 1\u20132 años el juego es aprendizaje. Tenemos las clases para potenciarlo.',
-        toddler2: 'La estimulación entre 2 y 4 años moldea el cerebro. Aprende cómo, jugando.'
+        newborn:  'Los primeros 90 días son de oro para la estimulación sensorial. Aquí te decimos cómo.',
+        early:    'Entre los 3–6 meses el bebé ya interactúa activamente. Hay 3 clases perfectas para esta etapa.',
+        baby:     'Señas, música, movimiento — hay 3 clases esta semana diseñadas para los 7–12 meses.',
+        toddler1: 'A los 1–2 años el juego es aprendizaje. Tenemos las clases para potenciarlo en casa.',
+        toddler2: 'La estimulación entre 2 y 4 años moldea el cerebro. Aprende cómo hacerlo jugando.'
     },
     overwhelmed: {
         newborn:  'Bienvenida. Ser mamá de recién nacido es intenso. Tenemos todo en un solo lugar.',
-        early:    'No tienes que saberlo todo. Solo necesitas a quién preguntarle \u2014 y aquí están.',
-        baby:     'La etapa de los 7\u201312 meses tiene mucho. Expertas en vivo te guían en cada paso.',
-        toddler1: 'Entre 1 y 2 años pasan demasiadas cosas a la vez. Aquí está el acompañamiento.',
+        early:    'No tienes que saberlo todo. Solo necesitas a quién preguntarle — y aquí están.',
+        baby:     'La etapa de los 7–12 meses tiene mucho. Tenemos expertas en vivo para guiarte en cada paso.',
+        toddler1: 'Entre los 1 y 2 años pasan demasiadas cosas a la vez. Tenemos el acompañamiento que necesitas.',
         toddler2: 'Crianza de 2 a 4 años: tantas preguntas, tan pocas respuestas. Hasta hoy.'
     }
 };
 
+// Sub-messages by info source
 var SOURCE_SUBS = {
-    google:   'Sin más búsquedas a las 2am. Especialistas reales que responden tus dudas en vivo.',
-    tiktok:   'Sin más scrollear esperando algo relevante. Expertas certificadas para tu situación.',
-    pediatra: 'Tu pediatra tiene 15 minutos. Nuestras especialistas tienen el tiempo que necesitas.',
-    amigas:   'El apoyo de amigas es valioso \u2014 pero una especialista certificada va directo a tu caso.'
+    google:   'Sin más búsquedas a las 2am. Expertos reales que responden tus preguntas específicas, en vivo.',
+    tiktok:   'Sin más scrollear esperando encontrar algo relevante. Especialistas certificadas para tu situación.',
+    pediatra: 'Tu pediatra tiene 15 minutos. Nuestras especialistas tienen el tiempo para responder exactamente lo que necesitas.',
+    amigas:   'El apoyo de amigas es valioso — pero una especialista certificada puede ir directo a tu caso específico.'
 };
 
-var TESTIMONIALS = {
-    sleep: {
-        quote:  '"En 2 semanas mi bebé empezó a dormir 6 horas seguidas. La clase con Caryn me cambió la vida."',
-        author: '\u2014 Mariana G., mamá de Lucas (5 meses)'
-    },
-    feeding: {
-        quote:  '"Tenía mil dudas sobre el destete y los sólidos. Alicia respondió todo en una clase."',
-        author: '\u2014 Paola R., mamá de Sofía (8 meses)'
-    },
-    development: {
-        quote:  '"Saber que los saltos de desarrollo eran normales me dio una paz que no tenía hace meses."',
-        author: '\u2014 Andrea M., mamá de Diego (4 meses)'
-    },
-    stimulation: {
-        quote:  '"Las señas funcionaron desde la primera semana. Ahora me pide agua sin llorar."',
-        author: '\u2014 Valeria T., mamá de Emma (10 meses)'
-    },
-    overwhelmed: {
-        quote:  '"Por fin un lugar donde no tengo que adivinar. Las expertas saben de qué hablan."',
-        author: '\u2014 Laura S., mamá primeriza'
-    }
-};
-
+// ── Navigation ────────────────────────────────────────────────
 function getStepEl(index) {
     return document.getElementById(['step0','step1','step2','stepLoading','stepResult'][index]);
 }
@@ -1173,10 +972,6 @@ function showStep(nextIndex, backwards) {
         setTimeout(function() { nextEl.classList.remove('back'); }, 400);
         currentStep = nextIndex;
         updateProgress();
-
-        var sticky = document.getElementById('stickyCta');
-        if (nextIndex === 4) sticky.classList.add('visible');
-        else                 sticky.classList.remove('visible');
     }, 280);
 }
 
@@ -1186,66 +981,99 @@ function updateProgress() {
     for (var i = 0; i < 3; i++) {
         var seg = document.getElementById('seg' + i);
         seg.className = 'qf-progress-seg';
-        if (i < prog)        seg.classList.add('done');
+        if (i < prog)       seg.classList.add('done');
         else if (i === prog) seg.classList.add('active');
+    }
+
+    var label = document.getElementById('stepLabel');
+    if (currentStep < 3) {
+        label.textContent = 'Paso ' + (currentStep + 1) + ' de 3';
+    } else if (currentStep === 3) {
+        label.textContent = 'Creando tu plan…';
+    } else {
+        label.textContent = 'Tu plan está listo ✓';
     }
 }
 
 function goBack() {
-    if (currentStep > 0 && currentStep < 3) showStep(currentStep - 1, true);
+    if (currentStep > 0 && currentStep < 3) {
+        showStep(currentStep - 1, true);
+    }
 }
 
+// ── Option selection ──────────────────────────────────────────
 function selectOption(btn) {
     var step  = parseInt(btn.getAttribute('data-step'));
     var value = btn.getAttribute('data-value');
-    answers[['age','concern','source'][step]] = value;
+    var keys  = ['age', 'concern', 'source'];
+    answers[keys[step]] = value;
 
-    btn.parentElement.querySelectorAll('.qf-opt').forEach(function(o) { o.classList.remove('selected'); });
+    // Visual feedback first
+    var opts = btn.parentElement.querySelectorAll('.qf-opt');
+    opts.forEach(function(o) { o.classList.remove('selected'); });
     btn.classList.add('selected');
 
+    // Advance after short delay
     setTimeout(function() {
-        if (step === 2) { showStep(3, false); startLoading(); }
-        else            { showStep(step + 1, false); }
+        if (step === 2) {
+            showStep(3, false);      // go to loading
+            startLoading();
+        } else {
+            showStep(step + 1, false);
+        }
     }, 320);
 }
 
+// ── Loading ───────────────────────────────────────────────────
 function startLoading() {
+    // Reset bar animation
     var bar = document.getElementById('loadBar');
     bar.style.animation = 'none';
-    bar.offsetHeight;
+    bar.offsetHeight; // reflow
     bar.style.animation = '';
-    setTimeout(function() { buildResult(); showStep(4, false); }, 2000);
+
+    setTimeout(function() {
+        buildResult();
+        showStep(4, false);
+    }, 2000);
 }
 
+// ── Build result ──────────────────────────────────────────────
 function buildResult() {
     var age     = answers.age     || 'baby';
     var concern = answers.concern || 'sleep';
     var source  = answers.source  || 'google';
 
-    // Chips
-    document.getElementById('personaChips').innerHTML =
+    // Chips — color-coded by category
+    var chips = document.getElementById('personaChips');
+    chips.innerHTML =
         '<span class="qf-chip qf-chip--age">' + (AGE_LABELS[age] || age) + '</span>' +
         '<span class="qf-chip qf-chip--' + concern + '">' + (CONCERN_ICONS[concern] || '') + ' ' + (CONCERN_LABELS[concern] || concern) + '</span>';
 
-    // Headline personalizado por edad × preocupación
+    // Headline
     var headlineData = HEADLINES[concern] || HEADLINES['overwhelmed'];
-    document.getElementById('resultHeadline').textContent = headlineData[age] || headlineData['baby'];
+    document.getElementById('resultHeadline').textContent =
+        headlineData[age] || headlineData['baby'];
 
-    // Sub personalizado por fuente
-    document.getElementById('resultSub').textContent = SOURCE_SUBS[source] || SOURCE_SUBS['google'];
+    // Sub
+    document.getElementById('resultSub').textContent =
+        SOURCE_SUBS[source] || SOURCE_SUBS['google'];
 
-    // Clases recomendadas por preocupación
+    // Classes
     var classData = CLASSES[concern] || CLASSES['overwhelmed'];
-    document.getElementById('classesList').innerHTML = classData.map(function(cls) {
+    var list = document.getElementById('classesList');
+    list.innerHTML = classData.map(function(cls) {
         var ex = EXPERTS[cls.expert] || {};
-        var badgeClass = { live: 'qf-class-badge--live', soon: 'qf-class-badge--soon', week: 'qf-class-badge--week' }[cls.badge] || 'qf-class-badge--week';
-        var dotHtml = cls.badge === 'live' ? '<span class="qf-badge-dot"></span>' : '';
-        var avatarHtml = ex.photo
-            ? '<img class="qf-class-avatar" src="' + ex.photo + '" alt="' + (ex.name || '') + '" onerror="this.outerHTML=\'<div class=\\\'qf-class-avatar-fallback\\\'>' + (ex.initials || '?') + '</div>\'">'
-            : '<div class="qf-class-avatar-fallback">' + (ex.initials || '?') + '</div>';
+        var badgeClass = {
+            live: 'qf-class-badge--live',
+            soon: 'qf-class-badge--soon',
+            week: 'qf-class-badge--week'
+        }[cls.badge] || 'qf-class-badge--week';
 
+        var dotHtml = cls.badge === 'live' ? '<span class="qf-badge-dot"></span>' : '';
         return '<div class="qf-class-card qf-class-card--' + cls.badge + '">' +
-            avatarHtml +
+            '<img class="qf-class-avatar" src="' + (ex.photo || '') + '" alt="' + (ex.name || '') + '" ' +
+            'onerror="this.style.display=\'none\'">' +
             '<div class="qf-class-info">' +
                 '<div class="qf-class-title">' + cls.title + '</div>' +
                 '<div class="qf-class-expert">' + (ex.name || '') + ' · ' + (ex.cred || '') + '</div>' +
@@ -1253,13 +1081,9 @@ function buildResult() {
             '<span class="qf-class-badge ' + badgeClass + '">' + dotHtml + cls.badgeLabel + '</span>' +
         '</div>';
     }).join('');
-
-    // Testimonio por preocupación
-    var t = TESTIMONIALS[concern] || TESTIMONIALS['overwhelmed'];
-    document.getElementById('testimonialQuote').textContent  = t.quote;
-    document.getElementById('testimonialAuthor').textContent = t.author;
 }
 
+// ── Init ──────────────────────────────────────────────────────
 updateProgress();
 </script>
 </body>
