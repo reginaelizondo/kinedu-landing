@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu plan está listo — Kinedu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #2B8BE4;
+    --blue-light: #EEF5FF;
+    --blue-mid: #D0E8FF;
+    --green: #4CD964;
+    --text: #0D1B2E;
+    --text-2: #4A5568;
+    --text-3: #8A96A3;
+    --border: #E8EDF3;
+    --r: 16px;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #F4F7FB;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 0 60px;
+  }
+
+  .screen {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Progress bar (continuación del quiz) ── */
+  .quiz-progress {
+    padding: 16px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .quiz-step-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .quiz-step-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--blue);
+  }
+  .quiz-step-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+  }
+
+  /* ── Header ── */
+  .header {
+    padding: 20px 24px 0;
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #E8F4FF;
+    color: var(--blue);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 99px;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before { content: '✦'; font-size: 0.65rem; }
+
+  h1 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  h1 .hl { color: var(--blue); }
+
+  .subhead {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.6;
+    max-width: 320px;
+    margin: 0 auto 22px;
+  }
+  .subhead strong { color: var(--blue); font-weight: 700; }
+
+  /* ── Locked classes preview ── */
+  .classes-preview {
+    margin: 0 20px 22px;
+    background: var(--blue-light);
+    border-radius: var(--r);
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .classes-preview-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .class-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--blue-mid);
+  }
+  .class-row:last-child { border-bottom: none; }
+  .class-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .class-info { flex: 1; min-width: 0; }
+  .class-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .class-expert { font-size: 0.68rem; color: var(--text-3); margin-top: 1px; }
+  .class-time {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* blur overlay */
+  .classes-blur {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #EEF5FF);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .lock-pill {
+    background: var(--blue);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* ── How it works timeline ── */
+  .timeline-wrap {
+    margin: 0 20px 22px;
+  }
+  .timeline-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    position: relative;
+  }
+  .timeline-icon-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 36px;
+  }
+  .t-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .t-icon.active { background: var(--blue); }
+  .t-icon.dim { background: #F0F2F5; }
+  .t-line {
+    width: 2px;
+    flex: 1;
+    min-height: 20px;
+    background: var(--border);
+    margin: 2px 0;
+  }
+  .t-content { padding: 6px 0 20px; }
+  .t-when {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+  }
+  .t-when.active { color: var(--blue); }
+  .t-when.dim { color: var(--text-3); }
+  .t-title { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .t-body { font-size: 0.74rem; color: var(--text-2); line-height: 1.5; }
+  .t-cancel { color: #E53935; font-weight: 600; }
+
+  /* ── Plan picker ── */
+  .plan-section {
+    margin: 0 20px 16px;
+  }
+  .plan-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-3);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .plan-card {
+    border: 2px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 10px;
+    position: relative;
+    background: #fff;
+  }
+  .plan-card.selected {
+    border-color: var(--blue);
+    background: var(--blue-light);
+  }
+  .radio {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .plan-card.selected .radio {
+    border-color: var(--blue);
+    background: var(--blue);
+  }
+  .radio-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .plan-card.selected .radio-dot { opacity: 1; }
+  .plan-info { flex: 1; }
+  .plan-name { font-size: 0.9rem; font-weight: 800; color: var(--text); }
+  .plan-sub { font-size: 0.7rem; color: var(--text-3); margin-top: 1px; }
+  .plan-price-col { text-align: right; }
+  .plan-price { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+  .plan-card.selected .plan-price { color: var(--blue); }
+  .plan-price-note { font-size: 0.65rem; color: var(--text-3); }
+  .badge-popular {
+    position: absolute;
+    top: -1px; right: 12px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  /* ── No payment note ── */
+  .no-pay {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-3);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .no-pay::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+  /* ── CTA ── */
+  .cta-wrap { margin: 0 20px; }
+  .cta-btn {
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 18px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 8px 24px rgba(43,139,228,0.3);
+  }
+  .cta-btn:hover { background: #1D7DD9; transform: translateY(-1px); }
+  .cta-sub {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-3);
+    margin-top: 10px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+
+  /* ── Footer links ── */
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 22px;
+    padding: 0 20px 30px;
+  }
+  .footer-links a {
+    font-size: 0.65rem;
+    color: var(--text-3);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="screen">
+
+  <!-- Quiz progress bar (feels like step 5 of the quiz) -->
+  <div class="quiz-progress">
+    <div class="quiz-step-bar"><div class="quiz-step-bar-fill" style="width:100%"></div></div>
+    <div class="quiz-step-bar"><div class="quiz-step-bar-fill" style="width:100%"></div></div>
+    <div class="quiz-step-bar"><div class="quiz-step-bar-fill" style="width:100%"></div></div>
+    <div class="quiz-step-bar"><div class="quiz-step-bar-fill" style="width:100%"></div></div>
+    <div class="quiz-step-bar"><div class="quiz-step-bar-fill" style="width:100%"></div></div>
+    <span class="quiz-step-label">Tu plan →</span>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="eyebrow">Tu plan está listo</div>
+    <h1>Tus expertas<br>te están <span class="hl">esperando.</span></h1>
+    <p class="subhead">
+      Encontramos <strong>3 clases en vivo esta semana</strong> diseñadas para el sueño de tu bebé. Empieza gratis y úsalas hoy.
+    </p>
+  </div>
+
+  <!-- Locked classes preview -->
+  <div class="classes-preview">
+    <div class="classes-preview-label">Esta semana para ti</div>
+
+    <div class="class-row">
+      <div class="class-dot">😴</div>
+      <div class="class-info">
+        <div class="class-title">Estrategias para alargar las siestas</div>
+        <div class="class-expert">Caryn Shender · Consultora de sueño</div>
+      </div>
+      <div class="class-time">11:45 AM</div>
+    </div>
+
+    <div class="class-row">
+      <div class="class-dot">🌙</div>
+      <div class="class-info">
+        <div class="class-title">La regresión de sueño de los 4 meses</div>
+        <div class="class-expert">Dra. Thanya Asse · Pediatra</div>
+      </div>
+      <div class="class-time">Jue 3 PM</div>
+    </div>
+
+    <div class="class-row" style="filter: blur(3px); pointer-events: none; user-select: none;">
+      <div class="class-dot">⭐</div>
+      <div class="class-info">
+        <div class="class-title">Rutinas de sueño que realmente funcionan</div>
+        <div class="class-expert">Ana Gómez · Especialista pediátrica</div>
+      </div>
+      <div class="class-time">Vie 10 AM</div>
+    </div>
+
+    <div class="classes-blur">
+      <div class="lock-pill">🔒 Desbloquea las 3 clases</div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline-wrap">
+    <div class="timeline-label">Cómo funciona tu prueba gratis</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-icon-col">
+          <div class="t-icon active">🎉</div>
+          <div class="t-line"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-when active">Hoy</div>
+          <div class="t-title">Accede a tus clases recomendadas</div>
+          <div class="t-body">Ve las 3 clases seleccionadas para ti — sin costo.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon-col">
+          <div class="t-icon dim">🔔</div>
+          <div class="t-line"></div>
+        </div>
+        <div class="t-content">
+          <div class="t-when dim">Día 5</div>
+          <div class="t-title">Te avisamos antes de que termine</div>
+          <div class="t-body">Te mandamos un recordatorio. Cancela cuando quieras, sin drama.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon-col">
+          <div class="t-icon dim">⭐</div>
+        </div>
+        <div class="t-content">
+          <div class="t-when dim">Día 7</div>
+          <div class="t-title">Membresía completa</div>
+          <div class="t-body">Clases ilimitadas, guías y plan semanal. <span class="t-cancel">Cancela antes del día 6 para no pagar.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Plan picker -->
+  <div class="plan-section">
+    <div class="plan-section-label">Elige cómo quieres empezar</div>
+
+    <div class="plan-card selected" onclick="selectPlan(this)">
+      <div class="badge-popular">Más popular</div>
+      <div class="radio"><div class="radio-dot"></div></div>
+      <div class="plan-info">
+        <div class="plan-name">7 días gratis</div>
+        <div class="plan-sub">Luego $59.99/año · $4.99/mes</div>
+      </div>
+      <div class="plan-price-col">
+        <div class="plan-price">$0.00</div>
+        <div class="plan-price-note">hoy</div>
+      </div>
+    </div>
+
+    <div class="plan-card" onclick="selectPlan(this)">
+      <div class="radio"><div class="radio-dot"></div></div>
+      <div class="plan-info">
+        <div class="plan-name">30 días de prueba</div>
+        <div class="plan-sub">Luego $79.99/año · $6.66/mes</div>
+      </div>
+      <div class="plan-price-col">
+        <div class="plan-price">$3.99</div>
+        <div class="plan-price-note">primeros 30 días</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No payment -->
+  <div class="no-pay">No se requiere pago hoy</div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <button class="cta-btn">Empieza gratis — 7 días →</button>
+    <p class="cta-sub">Acceso gratis por 7 días, luego $59.99/año.<br>Cancela en los ajustes de tu dispositivo antes del día 6.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-links">
+    <a href="#">Restaurar compra</a>
+    <a href="#">Términos</a>
+    <a href="#">Privacidad</a>
+  </div>
+
+</div>
+
+<script>
+function selectPlan(card) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  const isFree = card.querySelector('.plan-name').textContent.includes('gratis');
+  document.querySelector('.cta-btn').textContent = isFree
+    ? 'Empieza gratis — 7 días →'
+    : 'Empieza tu prueba de 30 días →';
+}
+</script>
+</body>
+</html>
