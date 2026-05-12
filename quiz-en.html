@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What does your baby need?&mdash;Kinedu</title>
+<meta name="description" content="Find out which live classes are perfect for your baby. Answer 3 questions and get your personalized plan for free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -18,13 +26,6 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What does your baby need?&mdash;Kinedu</title>
-<meta name="description" content="Discover which live classes are perfect for your baby. Answer 3 questions and get your personalized plan for free.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,7 +58,6 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── Layout ──────────────────────────────────────────────────── */
 .qf-page {
     min-height: 100vh;
     display: flex;
@@ -66,7 +66,6 @@ html, body {
     padding: 32px 16px 64px;
 }
 
-/* ── Progress bar ────────────────────────────────────────────── */
 .qf-progress-wrap {
     width: 100%;
     max-width: 520px;
@@ -86,7 +85,6 @@ html, body {
 .qf-progress-seg.done   { background: var(--blue); }
 .qf-progress-seg.active { background: linear-gradient(90deg, var(--blue), #6BB8F4); }
 
-/* ── Card ────────────────────────────────────────────────────── */
 .qf-card {
     width: 100%;
     max-width: 520px;
@@ -110,7 +108,6 @@ html, body {
     }
 }
 
-/* ── Steps container ─────────────────────────────────────────── */
 .qf-step { display: none; }
 
 .qf-step.active {
@@ -142,7 +139,6 @@ html, body {
     animation: stepInBack 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ── Step header ─────────────────────────────────────────────── */
 .qf-eyebrow {
     font-size: 0.72rem;
     font-weight: 700;
@@ -175,7 +171,6 @@ html, body {
     .qf-sub      { font-size: 0.8rem; margin-bottom: 20px; }
 }
 
-/* ── Options ─────────────────────────────────────────────────── */
 .qf-options {
     display: flex;
     flex-direction: column;
@@ -270,7 +265,6 @@ html, body {
     transform: rotate(45deg) translateY(-1px);
 }
 
-/* ── Back button ─────────────────────────────────────────────── */
 .qf-back {
     display: inline-flex;
     align-items: center;
@@ -289,7 +283,6 @@ html, body {
 
 .qf-back:hover { color: var(--ink); }
 
-/* ── Loading screen ──────────────────────────────────────────── */
 .qf-loading {
     display: flex;
     flex-direction: column;
@@ -353,7 +346,6 @@ html, body {
     100% { width: 100%; }
 }
 
-/* ── Result hero ─────────────────────────────────────────────── */
 #stepResult { position: relative; }
 
 .qf-result-hero {
@@ -407,7 +399,6 @@ html, body {
     .qf-result-sub { font-size: 0.72rem; line-height: 1.45; }
 }
 
-/* ── Classes section label ───────────────────────────────────── */
 .qf-classes-label {
     font-size: 0.66rem;
     font-weight: 800;
@@ -418,7 +409,6 @@ html, body {
     text-align: center;
 }
 
-/* ── Class cards ─────────────────────────────────────────────── */
 .qf-classes {
     display: flex;
     flex-direction: column;
@@ -497,7 +487,6 @@ html, body {
     .qf-class-expert { font-size: 0.66rem; }
 }
 
-/* Badges */
 .qf-class-badge {
     display: inline-flex;
     align-items: center;
@@ -545,7 +534,6 @@ html, body {
     .qf-class-badge { font-size: 0.56rem; padding: 3px 7px; }
 }
 
-/* ── Testimonial ─────────────────────────────────────────────── */
 .qf-testimonial {
     background: var(--bg-2);
     border-radius: 14px;
@@ -580,7 +568,6 @@ html, body {
     .qf-testimonial-quote { font-size: 0.78rem; }
 }
 
-/* ── Divider ─────────────────────────────────────────────────── */
 .qf-divider {
     display: flex;
     align-items: center;
@@ -602,7 +589,6 @@ html, body {
     background: linear-gradient(90deg, var(--line), transparent);
 }
 
-/* ── Trust bar ───────────────────────────────────────────────── */
 .qf-trust {
     display: flex;
     align-items: center;
@@ -626,7 +612,6 @@ html, body {
     .qf-trust { font-size: 0.68rem; gap: 4px; }
 }
 
-/* ── CTA ─────────────────────────────────────────────────────── */
 .qf-cta-btn {
     display: flex;
     align-items: center;
@@ -673,7 +658,6 @@ html, body {
     .qf-cta-btn { padding: 15px 20px; font-size: 0.95rem; }
 }
 
-/* ── Sticky CTA (mobile) ─────────────────────────────────────── */
 .qf-sticky-cta {
     display: none;
     position: fixed;
@@ -725,7 +709,6 @@ html, body {
     line-height: 1.5;
 }
 
-/* ── Store buttons ───────────────────────────────────────────── */
 .qf-stores {
     display: flex;
     gap: 8px;
@@ -776,7 +759,6 @@ html, body {
     .qf-store-eyebrow { font-size: 0.52rem; }
 }
 
-/* ── Footer ──────────────────────────────────────────────────── */
 .qf-footer {
     margin-top: 20px;
     text-align: center;
@@ -786,7 +768,6 @@ html, body {
 
 .qf-footer a { color: var(--blue); text-decoration: none; }
 
-/* ── Chips ───────────────────────────────────────────────────── */
 .qf-persona-chips {
     display: flex;
     flex-wrap: wrap;
@@ -814,7 +795,7 @@ html, body {
 .qf-chip--sleep      { background: #EDE9FE; border: 1px solid #C4B5FD; color: #5B21B6; }
 .qf-chip--feeding    { background: #FFF1F2; border: 1px solid #FECDD3; color: #9F1239; }
 .qf-chip--development{ background: #F0FDF4; border: 1px solid #BBF7D0; color: #14532D; }
-.qf-chip--behavior   { background: #FFF7ED; border: 1px solid #FED7AA; color: #9A3412; }
+.qf-chip--stimulation{ background: #FFF7ED; border: 1px solid #FED7AA; color: #9A3412; }
 .qf-chip--overwhelmed{ background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
 </style>
 </head>
@@ -834,7 +815,7 @@ html, body {
         <div class="qf-step active" id="step0">
             <div class="qf-eyebrow">Your baby</div>
             <h1 class="qf-question">How old is your baby?</h1>
-            <p class="qf-sub">Each stage has its own challenges &mdash; this helps us personalize your plan.</p>
+            <p class="qf-sub">Each stage has different challenges &mdash; this helps us personalize your plan.</p>
             <div class="qf-options">
                 <button class="qf-opt" data-step="0" data-value="newborn" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🐣</span>
@@ -843,7 +824,7 @@ html, body {
                 </button>
                 <button class="qf-opt" data-step="0" data-value="early" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🌱</span>
-                    <span><div class="qf-opt-label">4 &ndash; 6 months</div><div class="qf-opt-sublabel">First smiles and leaps</div></span>
+                    <span><div class="qf-opt-label">3 &ndash; 6 months</div><div class="qf-opt-sublabel">First smiles and leaps</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="0" data-value="baby" onclick="selectOption(this)">
@@ -871,65 +852,65 @@ html, body {
                 Back
             </button>
             <div class="qf-eyebrow">Your biggest challenge</div>
-            <h2 class="qf-question">What's your biggest concern right now?</h2>
-            <p class="qf-sub">Choose the topic that keeps you up at night&mdash;literally or figuratively.</p>
+            <h2 class="qf-question">What worries you most right now?</h2>
+            <p class="qf-sub">Pick the topic that keeps you up at night&mdash;literally or figuratively.</p>
             <div class="qf-options">
                 <button class="qf-opt" data-step="1" data-value="sleep" onclick="selectOption(this)">
                     <span class="qf-opt-icon">😴</span>
-                    <span><div class="qf-opt-label">Sleep</div><div class="qf-opt-sublabel">Night wakings, short naps, regressions</div></span>
+                    <span><div class="qf-opt-label">Sleep</div><div class="qf-opt-sublabel">Wake-ups, short naps, regressions</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="1" data-value="feeding" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🍼</span>
-                    <span><div class="qf-opt-label">Feeding &amp; Nutrition</div><div class="qf-opt-sublabel">Breastfeeding, formula, solids, nutrition</div></span>
+                    <span><div class="qf-opt-label">Feeding &amp; Breastfeeding</div><div class="qf-opt-sublabel">Breast, formula, solids, nutrition</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
                 <button class="qf-opt" data-step="1" data-value="development" onclick="selectOption(this)">
                     <span class="qf-opt-icon">🧠</span>
-                    <span><div class="qf-opt-label">Development</div><div class="qf-opt-sublabel">Milestones, motor skills, language &mdash; is my baby on track?</div></span>
+                    <span><div class="qf-opt-label">Development</div><div class="qf-opt-sublabel">Milestones, motor, language &mdash; is my baby on track?</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
-                <button class="qf-opt" data-step="1" data-value="behavior" onclick="selectOption(this)">
-                    <span class="qf-opt-icon">💛</span>
-                    <span><div class="qf-opt-label">Behavior &amp; Emotions</div><div class="qf-opt-sublabel">Tantrums, biting, big feelings</div></span>
+                <button class="qf-opt" data-step="1" data-value="stimulation" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🎯</span>
+                    <span><div class="qf-opt-label">Stimulation</div><div class="qf-opt-sublabel">Play, music, baby signs, activities</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="1" data-value="overwhelmed" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">😮‍💨</span>
+                    <span><div class="qf-opt-label">Honestly, it&rsquo;s all overwhelming</div><div class="qf-opt-sublabel">I don&rsquo;t know where to start</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
             </div>
         </div>
 
-        <!-- STEP 3: Source -->
+        <!-- STEP 3: Info source -->
         <div class="qf-step" id="step2">
             <button class="qf-back" onclick="goBack()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                 Back
             </button>
             <div class="qf-eyebrow">One last thing</div>
-            <h2 class="qf-question">How did you hear about us?</h2>
-            <p class="qf-sub">No judgment&mdash;we just want to understand how we can help you best.</p>
+            <h2 class="qf-question">How do you usually find information?</h2>
+            <p class="qf-sub">No judgment&mdash;we want to understand how we can help you best.</p>
             <div class="qf-options">
+                <button class="qf-opt" data-step="2" data-value="google" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">🔍</span>
+                    <span><div class="qf-opt-label">Google</div><div class="qf-opt-sublabel">I search articles, forums, blogs</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="2" data-value="tiktok" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">📱</span>
+                    <span><div class="qf-opt-label">TikTok / Social media</div><div class="qf-opt-sublabel">Influencers, moms on Instagram</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
+                <button class="qf-opt" data-step="2" data-value="pediatra" onclick="selectOption(this)">
+                    <span class="qf-opt-icon">👩‍⚕️</span>
+                    <span><div class="qf-opt-label">My pediatrician</div><div class="qf-opt-sublabel">I wait for the appointment and ask everything</div></span>
+                    <span class="qf-opt-check"></span>
+                </button>
                 <button class="qf-opt" data-step="2" data-value="amigas" onclick="selectOption(this)">
                     <span class="qf-opt-icon">👭</span>
-                    <span><div class="qf-opt-label">A friend recommended it</div><div class="qf-opt-sublabel">Word of mouth from another parent</div></span>
-                    <span class="qf-opt-check"></span>
-                </button>
-                <button class="qf-opt" data-step="2" data-value="redes" onclick="selectOption(this)">
-                    <span class="qf-opt-icon">📱</span>
-                    <span><div class="qf-opt-label">Social media</div><div class="qf-opt-sublabel">Instagram, TikTok, Facebook</div></span>
-                    <span class="qf-opt-check"></span>
-                </button>
-                <button class="qf-opt" data-step="2" data-value="busqueda" onclick="selectOption(this)">
-                    <span class="qf-opt-icon">🔍</span>
-                    <span><div class="qf-opt-label">Internet search</div><div class="qf-opt-sublabel">Google or another search engine</div></span>
-                    <span class="qf-opt-check"></span>
-                </button>
-                <button class="qf-opt" data-step="2" data-value="app" onclick="selectOption(this)">
-                    <span class="qf-opt-icon">📲</span>
-                    <span><div class="qf-opt-label">I already used the app</div><div class="qf-opt-sublabel">I know Kinedu and want to learn more</div></span>
-                    <span class="qf-opt-check"></span>
-                </button>
-                <button class="qf-opt" data-step="2" data-value="otro" onclick="selectOption(this)">
-                    <span class="qf-opt-icon">✨</span>
-                    <span><div class="qf-opt-label">Other</div><div class="qf-opt-sublabel">Another way</div></span>
+                    <span><div class="qf-opt-label">Friends or family</div><div class="qf-opt-sublabel">I ask other moms who&rsquo;ve been through it</div></span>
                     <span class="qf-opt-check"></span>
                 </button>
             </div>
@@ -939,7 +920,7 @@ html, body {
         <div class="qf-step" id="stepLoading">
             <div class="qf-loading">
                 <div class="qf-loading-icon">✨</div>
-                <div class="qf-loading-title">Building your personalized plan...</div>
+                <div class="qf-loading-title">Finding your personalized plan&hellip;</div>
                 <div class="qf-loading-sub">Checking classes available this week</div>
                 <div class="qf-loading-bar-wrap">
                     <div class="qf-loading-bar" id="loadBar"></div>
@@ -969,17 +950,17 @@ html, body {
 
             <div class="qf-trust">
                 <span class="qf-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                <strong>+8M families</strong>
+                <strong>8M+ families</strong>
                 <span>&middot;</span>
-                <span>Backed by Harvard</span>
+                <span>Harvard-backed</span>
                 <span>&middot;</span>
-                <span>Recommended by pediatricians</span>
+                <span>Pediatrician recommended</span>
             </div>
 
             <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel_en" class="qf-cta-btn qf-cta-btn-inline" id="ctaBtn">
                 <span>Try free for 7 days &rarr;</span>
             </a>
-            <p class="qf-cta-sub qf-cta-sub-inline">No credit card required for the first 3 days &middot; Cancel in 2 taps</p>
+            <p class="qf-cta-sub qf-cta-sub-inline">No credit card for the first 3 days &middot; Cancel in 2 taps</p>
 
             <div class="qf-stores">
                 <a href="#" class="qf-store-btn" aria-label="Download on the App Store">
@@ -1009,7 +990,7 @@ html, body {
     </div><!-- /qf-card -->
 
     <p class="qf-footer">
-        Already have an account? <a href="https://app.kinedu.com">Sign in</a>
+        Already have an account? <a href="https://app.kinedu.com">Log in</a>
     </p>
 
 </div><!-- /qf-page -->
@@ -1019,7 +1000,7 @@ html, body {
     <a href="https://app.kinedu.com/dha2/?swc=quiz_funnel_en" class="qf-cta-btn">
         <span>Try free for 7 days &rarr;</span>
     </a>
-    <p class="qf-sticky-cta-microcopy">No credit card required for the first 3 days &middot; Cancel in 2 taps</p>
+    <p class="qf-sticky-cta-microcopy">No credit card for the first 3 days &middot; Cancel in 2 taps</p>
 </div>
 
 <script>
@@ -1027,63 +1008,70 @@ var answers = { age: null, concern: null, source: null };
 var currentStep = 0;
 
 var AGE_LABELS = {
-    newborn:  '0–3 months',
-    early:    '4–6 months',
-    baby:     '7–12 months',
-    toddler1: '1–2 years',
-    toddler2: '2–4 years'
+    newborn:  '0\u20133 months',
+    early:    '3\u20136 months',
+    baby:     '7\u201312 months',
+    toddler1: '1\u20132 years',
+    toddler2: '2\u20134 years'
 };
 
 var CONCERN_LABELS = {
     sleep:       'Sleep',
-    feeding:     'Feeding & Nutrition',
+    feeding:     'Feeding',
     development: 'Development',
-    behavior:    'Behavior & Emotions'
+    stimulation: 'Stimulation',
+    overwhelmed: 'All of it'
 };
 
 var CONCERN_ICONS = {
-    sleep: '😴', feeding: '🍼', development: '🧠', behavior: '💛'
+    sleep: '😴', feeding: '🍼', development: '🧠',
+    stimulation: '🎯', overwhelmed: '😮‍💨'
 };
 
 var EXPERTS = {
-    caryn:   { photo: 'Features/experts/en/caryn-shender.jpg',   name: 'Caryn Shender',        cred: 'Infant Sleep Specialist',                initials: 'CS' },
-    alicia:  { photo: 'Features/experts/en/alicia-simpson.png',  name: 'Alicia Simpson',       cred: 'Nutritionist & IBCLC',                   initials: 'AS' },
-    thanya:  { photo: 'Features/experts/en/thanya-asse.jpg',     name: 'Dr. Thanya Asse',      cred: 'Pediatrician',                           initials: 'TA' },
-    delia:   { photo: 'Features/experts/en/delia-herrera.png',   name: 'Delia Herrera',        cred: 'Speech-Language Therapist',              initials: 'DH' },
-    keyla:   { photo: 'Features/experts/en/keyla-dguez.jpg',     name: 'Dr. Keyla Dominguez', cred: 'Development Specialist',                 initials: 'KD' },
-    mercedes:{ photo: 'Features/experts/en/dr-mercedes.jpg',     name: 'Dr. Mercedes',         cred: 'Physiotherapist',                        initials: 'DM' },
-    lee:     { photo: 'Features/experts/en/lee-ann-steyns.png',  name: 'Lee Ann Steyns',       cred: 'Baby Sign Language Instructor, 10+ yrs', initials: 'LS' },
-    juno:    { photo: 'Features/experts/en/juno.webp',           name: 'Juno',                 cred: 'Music & Movement Specialist',            initials: 'JU' },
-    samantha:{ photo: 'Features/experts/es/samantha-espino.png', name: 'Samantha Espino',      cred: 'Child Psychologist',                     initials: 'SE' }
+    caryn:   { photo: 'Features/experts/en/caryn-shender.jpg',   name: 'Caryn Shender',        cred: 'Infant Sleep Specialist',         initials: 'CS' },
+    alicia:  { photo: 'Features/experts/en/alicia-simpson.png',  name: 'Alicia Simpson',       cred: 'Nutritionist & IBCLC',            initials: 'AS' },
+    thanya:  { photo: 'Features/experts/en/thanya-asse.jpg',     name: 'Dr. Thanya Asse',      cred: 'Pediatrician',                    initials: 'TA' },
+    delia:   { photo: 'Features/experts/en/delia-herrera.png',   name: 'Delia Herrera',        cred: 'Speech Therapist',                initials: 'DH' },
+    keyla:   { photo: 'Features/experts/en/keyla-dguez.jpg',     name: 'Dr. Keyla Dominguez',  cred: 'Development Specialist',          initials: 'KD' },
+    mercedes:{ photo: 'Features/experts/en/dr-mercedes.jpg',     name: 'Dr. Mercedes',         cred: 'Physical Therapist',              initials: 'DM' },
+    lee:     { photo: 'Features/experts/en/lee-ann-steyns.png',  name: 'Lee Ann Steyns',       cred: 'Baby Signs Instructor, 10+ yrs',  initials: 'LS' },
+    juno:    { photo: 'Features/experts/en/juno.webp',           name: 'Juno',                 cred: 'Music & Movement Specialist',     initials: 'JU' },
+    samantha:{ photo: 'Features/experts/es/samantha-espino.png', name: 'Samantha Espino',      cred: 'Child Psychologist',              initials: 'SE' }
 };
 
 var CLASSES = {
     sleep: [
-        { title: 'Strategies to lengthen and improve naps',          expert: 'caryn',  badge: 'live', badgeLabel: 'Live now' },
-        { title: 'How to handle nighttime feedings',                  expert: 'caryn',  badge: 'soon', badgeLabel: 'Today 11:30' },
-        { title: 'Developmental leaps: everything you need to know', expert: 'keyla',  badge: 'week', badgeLabel: 'This week' }
+        { title: 'Strategies to lengthen and improve naps',       expert: 'caryn',  badge: 'live', badgeLabel: 'Live now' },
+        { title: 'How to manage nighttime feedings',              expert: 'caryn',  badge: 'soon', badgeLabel: 'Today 11:30' },
+        { title: 'Development leaps: everything you need to know',expert: 'keyla',  badge: 'week', badgeLabel: 'This week' }
     ],
     feeding: [
-        { title: 'Healthy snacks for breastfeeding moms',            expert: 'alicia', badge: 'live', badgeLabel: 'Live now' },
-        { title: 'How to prevent choking',                            expert: 'alicia', badge: 'soon', badgeLabel: 'Today 10:00' },
-        { title: 'Basic first aid at home',                           expert: 'thanya', badge: 'week', badgeLabel: 'This week' }
+        { title: 'Healthy snacks for breastfeeding moms',         expert: 'alicia', badge: 'live', badgeLabel: 'Live now' },
+        { title: 'How to prevent choking',                        expert: 'alicia', badge: 'soon', badgeLabel: 'Today 10:00' },
+        { title: 'Basic first aid at home',                       expert: 'thanya', badge: 'week', badgeLabel: 'This week' }
     ],
     development: [
-        { title: 'Developmental leaps: everything you need to know', expert: 'keyla',    badge: 'live', badgeLabel: 'Live now' },
-        { title: 'Rolling over and early sitting',                    expert: 'mercedes', badge: 'soon', badgeLabel: 'Today 8:30' },
-        { title: 'Language stimulation: play by categories',          expert: 'delia',    badge: 'week', badgeLabel: 'This week' }
+        { title: 'Development leaps: everything you need to know',expert: 'keyla',    badge: 'live', badgeLabel: 'Live now' },
+        { title: 'Early rolling and sitting',                     expert: 'mercedes', badge: 'soon', badgeLabel: 'Today 8:30' },
+        { title: 'Language stimulation: playing by categories',   expert: 'delia',    badge: 'week', badgeLabel: 'This week' }
     ],
-    behavior: [
-        { title: 'Understanding your baby\'s cries and signals',      expert: 'samantha', badge: 'live', badgeLabel: 'Live now' },
-        { title: 'Tantrums: why they happen and what to do',          expert: 'samantha', badge: 'soon', badgeLabel: 'Today 10:00' },
-        { title: 'Big emotions in little bodies: a practical guide',  expert: 'samantha', badge: 'week', badgeLabel: 'This week' }
+    stimulation: [
+        { title: 'Baby signs: action words in motion',            expert: 'lee',   badge: 'live', badgeLabel: 'Live now' },
+        { title: 'Dancing with my baby',                          expert: 'juno',  badge: 'soon', badgeLabel: 'Today 8:30' },
+        { title: 'Musical stimulation: songs that embrace',       expert: 'delia', badge: 'week', badgeLabel: 'This week' }
+    ],
+    overwhelmed: [
+        { title: 'Basic first aid at home',                       expert: 'thanya', badge: 'live', badgeLabel: 'Live now' },
+        { title: 'Strategies to lengthen naps',                   expert: 'caryn',  badge: 'soon', badgeLabel: 'Today 11:45' },
+        { title: 'Development leaps: everything you need to know',expert: 'keyla',  badge: 'week', badgeLabel: 'This week' }
     ]
 };
 
 var HEADLINES = {
     sleep: {
-        newborn:  'The first months’ wake-ups are normal — and they have a solution.',
-        early:    'The 4-month sleep regression is real. And there’s a way out.',
+        newborn:  "The first months\u2019 wake-ups are normal — and they have a solution.",
+        early:    "The 4-month sleep regression is real. And there\u2019s a way out.",
         baby:     'Your baby can learn to sleep better. This week.',
         toddler1: 'Sleep at 1–2 years has its secrets. Learn with a specialist.',
         toddler2: 'Sleep between 2 and 4 years improves with the right method.'
@@ -1092,49 +1080,59 @@ var HEADLINES = {
         newborn:  'Breastfeeding has a learning curve. A live IBCLC can help you today.',
         early:    'Questions about breastfeeding or solids? We have a live specialist this week.',
         baby:     'Starting solids is a whole world. We guide you step by step.',
-        toddler1: 'Helping your child eat well at 1–2 years is possible.',
-        toddler2: 'Picky eating at 2–4 years has solutions. A specialist can show you.'
+        toddler1: "Getting your 1–2 year old to eat well is something you learn. There\u2019s a class for that.",
+        toddler2: 'Feeding preschoolers has its tricks. Learn from the experts.'
     },
     development: {
-        newborn:  'In the first months, every interaction counts. Know what to do.',
-        early:    'Tummy time, stimulation, smiles — this week’s classes cover it all.',
+        newborn:  'Every week your baby achieves something new. Learn to read their signals.',
+        early:    'The leaps between 3–6 months are the most intense. We explain everything.',
         baby:     'Crawling, first words, motor skills — this week has classes for all of that.',
-        toddler1: 'Language, walking, tantrums — 1–2 years is intense. You’re not alone.',
-        toddler2: 'Between 2 and 4 years, the brain is a sponge. Make the most of it.'
+        toddler1: 'From 1 to 2 years, the brain grows at an incredible speed. Make the most of it.',
+        toddler2: 'Language and thinking at 2–4 years are shaped by the right stimulation.'
     },
-    behavior: {
-        newborn:  'Crying, fussiness, colic — understanding your newborn’s signals.',
-        early:    'Crying, colic, first smiles — what your baby is telling you.',
-        baby:     'Separation anxiety, frustration, biting — it’s all normal. And manageable.',
-        toddler1: 'Tantrums, biting, not listening — tools that actually work.',
-        toddler2: 'Big emotions in small bodies. A psychologist can help you navigate them.'
+    stimulation: {
+        newborn:  'The first 90 days are golden for sensory stimulation.',
+        early:    'Between 3–6 months your baby is already interacting. 3 perfect classes for this stage.',
+        baby:     'Signs, music, movement — 3 classes designed for 7–12 months.',
+        toddler1: 'At 1–2 years, play is learning. We have the classes to boost it.',
+        toddler2: 'Stimulation between 2 and 4 years shapes the brain. Learn how, through play.'
+    },
+    overwhelmed: {
+        newborn:  'Welcome. Being a newborn mom is intense. We have everything in one place.',
+        early:    "You don\u2019t have to know everything. You just need someone to ask — and they\u2019re here.",
+        baby:     'The 7–12 month stage has a lot going on. Live experts guide you every step.',
+        toddler1: "Between 1 and 2 years so many things happen at once. Here\u2019s the support.",
+        toddler2: 'Parenting 2–4 year olds: so many questions, so few answers. Until now.'
     }
 };
 
 var SOURCE_SUBS = {
-    amigas:   'A friend’s recommendation is valuable — but a certified specialist goes straight to your case.',
-    redes:    'You saw us on social media. Good call — over 8M families already trust Kinedu.',
-    busqueda: 'You searched and found us. The right call — certified specialists, live every day.',
-    app:      'You already know the app. Live classes are the next level of support.',
-    otro:     'Welcome to Kinedu. Certified specialists, live every day, for your baby.'
+    google:   'No more 2am searches. Real specialists who answer your questions live.',
+    tiktok:   'No more scrolling hoping for something relevant. Certified experts for your situation.',
+    pediatra: 'Your pediatrician has 15 minutes. Our specialists have all the time you need.',
+    amigas:   "Friends\u2019 support is valuable — but a certified specialist goes straight to your case."
 };
 
 var TESTIMONIALS = {
     sleep: {
-        quote:  '“In 2 weeks my baby started sleeping 6 hours straight. The class with Caryn changed my life.”',
+        quote:  '\u201CIn 2 weeks my baby started sleeping 6 hours straight. Caryn\u2019s class changed my life.\u201D',
         author: '— Mariana G., mom of Lucas (5 months)'
     },
     feeding: {
-        quote:  '“I had a thousand questions about weaning and solids. Alicia answered everything in one class.”',
-        author: '— Paola R., mom of Sofía (8 months)'
+        quote:  '\u201CI had so many questions about weaning and solids. Alicia answered everything in one class.\u201D',
+        author: '— Paola R., mom of Sofia (8 months)'
     },
     development: {
-        quote:  '“Knowing that developmental leaps were normal gave me a peace I hadn’t felt in months.”',
+        quote:  '\u201CKnowing that development leaps were normal gave me a peace I hadn\u2019t had in months.\u201D',
         author: '— Andrea M., mom of Diego (4 months)'
     },
-    behavior: {
-        quote:  '“I finally have real tools for the tantrums. The psychologist explained it so clearly.”',
+    stimulation: {
+        quote:  '\u201CThe signs worked from the first week. Now she asks for water without crying.\u201D',
         author: '— Valeria T., mom of Emma (10 months)'
+    },
+    overwhelmed: {
+        quote:  '\u201CFinally a place where I don\u2019t have to guess. The experts really know what they\u2019re talking about.\u201D',
+        author: '— Laura S., first-time mom'
     }
 };
 
@@ -1203,22 +1201,18 @@ function startLoading() {
 function buildResult() {
     var age     = answers.age     || 'baby';
     var concern = answers.concern || 'sleep';
-    var source  = answers.source  || 'busqueda';
+    var source  = answers.source  || 'google';
 
-    // Chips
     document.getElementById('personaChips').innerHTML =
         '<span class="qf-chip qf-chip--age">' + (AGE_LABELS[age] || age) + '</span>' +
         '<span class="qf-chip qf-chip--' + concern + '">' + (CONCERN_ICONS[concern] || '') + ' ' + (CONCERN_LABELS[concern] || concern) + '</span>';
 
-    // Personalized headline by age x concern
-    var headlineData = HEADLINES[concern] || HEADLINES['sleep'];
+    var headlineData = HEADLINES[concern] || HEADLINES['overwhelmed'];
     document.getElementById('resultHeadline').textContent = headlineData[age] || headlineData['baby'];
 
-    // Personalized sub by source
-    document.getElementById('resultSub').textContent = SOURCE_SUBS[source] || SOURCE_SUBS['otro'];
+    document.getElementById('resultSub').textContent = SOURCE_SUBS[source] || SOURCE_SUBS['google'];
 
-    // Recommended classes by concern
-    var classData = CLASSES[concern] || CLASSES['sleep'];
+    var classData = CLASSES[concern] || CLASSES['overwhelmed'];
     document.getElementById('classesList').innerHTML = classData.map(function(cls) {
         var ex = EXPERTS[cls.expert] || {};
         var badgeClass = { live: 'qf-class-badge--live', soon: 'qf-class-badge--soon', week: 'qf-class-badge--week' }[cls.badge] || 'qf-class-badge--week';
@@ -1231,14 +1225,13 @@ function buildResult() {
             avatarHtml +
             '<div class="qf-class-info">' +
                 '<div class="qf-class-title">' + cls.title + '</div>' +
-                '<div class="qf-class-expert">' + (ex.name || '') + ' · ' + (ex.cred || '') + '</div>' +
+                '<div class="qf-class-expert">' + (ex.name || '') + ' \xb7 ' + (ex.cred || '') + '</div>' +
             '</div>' +
             '<span class="qf-class-badge ' + badgeClass + '">' + dotHtml + cls.badgeLabel + '</span>' +
         '</div>';
     }).join('');
 
-    // Testimonial by concern
-    var t = TESTIMONIALS[concern] || TESTIMONIALS['sleep'];
+    var t = TESTIMONIALS[concern] || TESTIMONIALS['overwhelmed'];
     document.getElementById('testimonialQuote').textContent  = t.quote;
     document.getElementById('testimonialAuthor').textContent = t.author;
 }
