@@ -410,6 +410,133 @@
             .chart-container { height: 220px; }
             .top-bar-right { width: 100%; justify-content: flex-end; }
         }
+
+        /* ── LEARN SECTION ─────────────────────────────────────────── */
+        .learn-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 28px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+            border-top: 4px solid #2b8be4;
+        }
+        .learn-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .learn-icon { font-size: 28px; }
+        .learn-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; color: #111827; margin: 0; }
+        .learn-subtitle { font-size: 12px; color: #9ca3af; margin: 2px 0 0; }
+        .learn-link-btn {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: #f3f4f6; border: 1px solid #e5e7eb;
+            border-radius: 8px; padding: 5px 10px;
+            font-size: 12px; font-weight: 600; color: #374151;
+            text-decoration: none; transition: background .15s;
+        }
+        .learn-link-btn:hover { background: #e5e7eb; }
+
+        /* Lang cards */
+        .learn-lang-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 640px) { .learn-lang-grid { grid-template-columns: 1fr; } }
+        .learn-lang-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 18px 16px;
+        }
+        .llc-flag { font-size: 22px; margin-bottom: 4px; }
+        .llc-label { font-weight: 700; font-size: 14px; color: #111827; }
+        .llc-swc { font-size: 11px; color: #9ca3af; font-family: monospace; margin-bottom: 14px; }
+        .llc-stats { display: flex; gap: 0; border-top: 1px solid #e5e7eb; padding-top: 12px; }
+        .llc-stat { flex: 1; text-align: center; }
+        .llc-stat + .llc-stat { border-left: 1px solid #e5e7eb; }
+        .llc-val { display: block; font-size: 20px; font-weight: 700; color: #111827; }
+        .llc-key { display: block; font-size: 10px; color: #9ca3af; margin-top: 1px; }
+
+        /* A/B Panel */
+        .ab-panel {
+            background: linear-gradient(135deg, #fefce8 0%, #fffbf0 100%);
+            border: 1px solid #fde68a;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .ab-panel-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;
+        }
+        .ab-badge {
+            background: #f59e0b; color: #fff;
+            font-size: 10px; font-weight: 800; letter-spacing: .06em;
+            border-radius: 6px; padding: 3px 8px;
+        }
+        .ab-panel-header h3 { font-size: 15px; font-weight: 700; color: #111827; margin: 0; }
+        .ab-meta { font-size: 11px; color: #9ca3af; margin-left: auto; }
+        .ab-meta code { background: #f3f4f6; padding: 1px 5px; border-radius: 4px; font-size: 11px; }
+        .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        @media (max-width: 540px) { .ab-grid { grid-template-columns: 1fr; } }
+        .ab-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1.5px solid #e5e7eb;
+        }
+        .ab-card--a { border-color: #93c5fd; }
+        .ab-card--b { border-color: #6ee7b7; }
+        .ab-card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+        .ab-pill {
+            width: 28px; height: 28px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 14px; flex-shrink: 0;
+        }
+        .ab-pill--a { background: #dbeafe; color: #1d4ed8; }
+        .ab-pill--b { background: #d1fae5; color: #065f46; }
+        .ab-card-name { font-size: 13px; font-weight: 700; color: #111827; }
+        .ab-card-desc { font-size: 11px; color: #9ca3af; }
+        .ab-preview-link { font-size: 11px; color: #2b8be4; text-decoration: none; margin-left: auto; white-space: nowrap; }
+        .ab-metrics { display: flex; gap: 0; border-top: 1px solid #f3f4f6; padding-top: 12px; margin-bottom: 12px; }
+        .ab-metric { flex: 1; text-align: center; }
+        .ab-metric + .ab-metric { border-left: 1px solid #f3f4f6; }
+        .ab-mval { display: block; font-size: 18px; font-weight: 700; color: #111827; }
+        .ab-mkey { display: block; font-size: 10px; color: #9ca3af; }
+        .ab-bar-wrap { height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; }
+        .ab-bar { height: 100%; border-radius: 99px; transition: width .5s ease; }
+        .ab-bar--a { background: #3b82f6; }
+        .ab-bar--b { background: #10b981; }
+        /* Manual input */
+        .ab-manual { background: #fff; border-radius: 10px; padding: 14px; border: 1px dashed #d1d5db; }
+        .ab-manual-label { font-size: 12px; font-weight: 600; color: #6b7280; margin-bottom: 10px; }
+        .ab-inputs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+        @media (max-width: 600px) { .ab-inputs { grid-template-columns: 1fr 1fr; } }
+        .ab-input-group label { display: block; font-size: 10px; color: #9ca3af; margin-bottom: 3px; }
+        .ab-input-group input {
+            width: 100%; padding: 6px 8px; border: 1px solid #e5e7eb;
+            border-radius: 7px; font-size: 13px; font-family: inherit;
+            outline: none; transition: border-color .15s;
+        }
+        .ab-input-group input:focus { border-color: #2b8be4; }
+        .ab-winner {
+            font-size: 13px; font-weight: 700; color: #065f46;
+            min-height: 20px;
+        }
+        /* Quick links row */
+        .learn-links-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .learn-ext-link {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: #f9fafb; border: 1px solid #e5e7eb;
+            border-radius: 8px; padding: 6px 12px;
+            font-size: 12px; font-weight: 500; color: #374151;
+            text-decoration: none; transition: background .15s;
+        }
+        .learn-ext-link:hover { background: #e5e7eb; }
     </style>
 </head>
 <body>
@@ -503,6 +630,127 @@
             </h2>
             <div id="appleContent">
                 <div class="empty-state" style="padding:20px 0;">Loading App Store data...</div>
+            </div>
+        </div>
+
+        <!-- ══ LEARN ADS SECTION ══════════════════════════════════════ -->
+        <div class="learn-section">
+            <div class="learn-header">
+                <div class="learn-icon">🎓</div>
+                <div>
+                    <h2 class="learn-title">Learn — Ads Landings</h2>
+                    <p class="learn-subtitle">live-classes-ads · EN / ES / PT</p>
+                </div>
+                <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;">
+                    <a href="https://www.kinedu.com/live-classes-ads-en.html" target="_blank" class="learn-link-btn">🇺🇸 EN</a>
+                    <a href="https://www.kinedu.com/live-classes-ads-es.html" target="_blank" class="learn-link-btn">🇲🇽 ES</a>
+                    <a href="https://www.kinedu.com/live-classes-ads-pt.html" target="_blank" class="learn-link-btn">🇧🇷 PT</a>
+                </div>
+            </div>
+
+            <!-- Per-language stat cards -->
+            <div class="learn-lang-grid" id="learnLangGrid">
+                <div class="learn-lang-card" id="learnCard_en">
+                    <div class="llc-flag">🇺🇸</div>
+                    <div class="llc-label">English</div>
+                    <div class="llc-swc">swc: learn-ads</div>
+                    <div class="llc-stats">
+                        <div class="llc-stat"><span class="llc-val" id="lv_en">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lc_en">—</span><span class="llc-key">CTA Clicks</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lr_en">—</span><span class="llc-key">CTR</span></div>
+                    </div>
+                </div>
+                <div class="learn-lang-card" id="learnCard_es">
+                    <div class="llc-flag">🇲🇽</div>
+                    <div class="llc-label">Español</div>
+                    <div class="llc-swc">swc: learn-ads-es</div>
+                    <div class="llc-stats">
+                        <div class="llc-stat"><span class="llc-val" id="lv_es">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lc_es">—</span><span class="llc-key">CTA Clicks</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lr_es">—</span><span class="llc-key">CTR</span></div>
+                    </div>
+                </div>
+                <div class="learn-lang-card" id="learnCard_pt">
+                    <div class="llc-flag">🇧🇷</div>
+                    <div class="llc-label">Português</div>
+                    <div class="llc-swc">swc: learn-ads-pt</div>
+                    <div class="llc-stats">
+                        <div class="llc-stat"><span class="llc-val" id="lv_pt">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lc_pt">—</span><span class="llc-key">CTA Clicks</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lr_pt">—</span><span class="llc-key">CTR</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A/B Test panel -->
+            <div class="ab-panel">
+                <div class="ab-panel-header">
+                    <span class="ab-badge">A/B TEST</span>
+                    <h3>Hero Image — Variant A vs Variant B</h3>
+                    <span class="ab-meta">Tracked via Meta Pixel · <code>AdsHeroVariant</code></span>
+                </div>
+                <div class="ab-grid">
+                    <!-- Variant A -->
+                    <div class="ab-card ab-card--a">
+                        <div class="ab-card-header">
+                            <span class="ab-pill ab-pill--a">A</span>
+                            <div>
+                                <div class="ab-card-name">App screenshot</div>
+                                <div class="ab-card-desc">Static calendar image</div>
+                            </div>
+                            <a href="https://www.kinedu.com/live-classes-ads-en.html?v=a" target="_blank" class="ab-preview-link">Preview ↗</a>
+                        </div>
+                        <div class="ab-metrics">
+                            <div class="ab-metric"><span class="ab-mval" id="ab_a_views">—</span><span class="ab-mkey">Impressions</span></div>
+                            <div class="ab-metric"><span class="ab-mval" id="ab_a_clicks">—</span><span class="ab-mkey">CTA Clicks</span></div>
+                            <div class="ab-metric"><span class="ab-mval" id="ab_a_ctr">—</span><span class="ab-mkey">CTR</span></div>
+                        </div>
+                        <div class="ab-bar-wrap"><div class="ab-bar ab-bar--a" id="ab_a_bar" style="width:50%"></div></div>
+                    </div>
+                    <!-- Variant B -->
+                    <div class="ab-card ab-card--b">
+                        <div class="ab-card-header">
+                            <span class="ab-pill ab-pill--b">B</span>
+                            <div>
+                                <div class="ab-card-name">Live class card</div>
+                                <div class="ab-card-desc">Animated schedule mockup</div>
+                            </div>
+                            <a href="https://www.kinedu.com/live-classes-ads-en.html?v=b" target="_blank" class="ab-preview-link">Preview ↗</a>
+                        </div>
+                        <div class="ab-metrics">
+                            <div class="ab-metric"><span class="ab-mval" id="ab_b_views">—</span><span class="ab-mkey">Impressions</span></div>
+                            <div class="ab-metric"><span class="ab-mval" id="ab_b_clicks">—</span><span class="ab-mkey">CTA Clicks</span></div>
+                            <div class="ab-metric"><span class="ab-mval" id="ab_b_ctr">—</span><span class="ab-mkey">CTR</span></div>
+                        </div>
+                        <div class="ab-bar-wrap"><div class="ab-bar ab-bar--b" id="ab_b_bar" style="width:50%"></div></div>
+                    </div>
+                </div>
+                <!-- Manual input for Meta data -->
+                <div class="ab-manual">
+                    <div class="ab-manual-label">📊 Enter data from Meta Events Manager</div>
+                    <div class="ab-inputs">
+                        <div class="ab-input-group">
+                            <label>A — Impressions</label><input type="number" id="inp_a_views" placeholder="0" oninput="updateAB()">
+                        </div>
+                        <div class="ab-input-group">
+                            <label>A — CTA Clicks</label><input type="number" id="inp_a_clicks" placeholder="0" oninput="updateAB()">
+                        </div>
+                        <div class="ab-input-group">
+                            <label>B — Impressions</label><input type="number" id="inp_b_views" placeholder="0" oninput="updateAB()">
+                        </div>
+                        <div class="ab-input-group">
+                            <label>B — CTA Clicks</label><input type="number" id="inp_b_clicks" placeholder="0" oninput="updateAB()">
+                        </div>
+                    </div>
+                    <div class="ab-winner" id="ab_winner"></div>
+                </div>
+            </div>
+
+            <!-- Quick links -->
+            <div class="learn-links-row">
+                <a href="https://www.facebook.com/events_manager" target="_blank" class="learn-ext-link">📈 Meta Events Manager</a>
+                <a href="https://vercel.com/analytics" target="_blank" class="learn-ext-link">▲ Vercel Analytics</a>
+                <a href="https://www.kinedu.com/live-classes.html" target="_blank" class="learn-ext-link">🔗 Original landing</a>
             </div>
         </div>
 
@@ -741,7 +989,93 @@
         renderTable('topPagesBody', data.topPages, formatPageName);
         renderTable('topRefBody', data.topReferrers);
         renderTable('topLangBody', data.topLanguages, formatLangName);
+        renderLearnSection(data);
     }
+
+    // ── LEARN SECTION ────────────────────────────────────────────────
+    var LEARN_PAGES = {
+        en: ['live-classes-ads-en', '/live-classes-ads-en', '/live-classes-ads-en.html'],
+        es: ['live-classes-ads-es', '/live-classes-ads-es', '/live-classes-ads-es.html'],
+        pt: ['live-classes-ads-pt', '/live-classes-ads-pt', '/live-classes-ads-pt.html'],
+    };
+    var LEARN_CTA_KEYS = {
+        en: ['Ads_LiveClasses_Hero', 'Ads_LiveClasses_Comparison', 'Ads_LiveClasses_Upcoming', 'Ads_LiveClasses_Pricing', 'Ads_LiveClasses_FAQ'],
+        es: ['Ads_ES_LiveClasses_Hero', 'Ads_ES_LiveClasses_Comparison', 'Ads_ES_LiveClasses_Upcoming', 'Ads_ES_LiveClasses_Pricing', 'Ads_ES_LiveClasses_FAQ'],
+        pt: ['Ads_PT_LiveClasses_Hero', 'Ads_PT_LiveClasses_Comparison', 'Ads_PT_LiveClasses_Upcoming', 'Ads_PT_LiveClasses_Pricing', 'Ads_PT_LiveClasses_FAQ'],
+    };
+
+    function renderLearnSection(data) {
+        var pages  = data.topPages  || [];
+        var ctas   = data.topCTAs   || [];
+
+        ['en','es','pt'].forEach(function(lang) {
+            // Sum views for this ads page
+            var views = pages
+                .filter(function(p) { return LEARN_PAGES[lang].indexOf(p[0]) > -1; })
+                .reduce(function(sum, p) { return sum + p[1]; }, 0);
+
+            // Sum CTA clicks for this lang
+            var clicks = ctas
+                .filter(function(c) { return LEARN_CTA_KEYS[lang].indexOf(c[0]) > -1; })
+                .reduce(function(sum, c) { return sum + c[1]; }, 0);
+
+            var ctr = views > 0 ? ((clicks / views) * 100).toFixed(1) + '%' : '—';
+
+            document.getElementById('lv_' + lang).textContent = views > 0 ? formatNum(views) : '—';
+            document.getElementById('lc_' + lang).textContent = clicks > 0 ? formatNum(clicks) : '—';
+            document.getElementById('lr_' + lang).textContent = views > 0 ? ctr : '—';
+
+            // Highlight card if it has traffic
+            if (views > 0) {
+                var card = document.getElementById('learnCard_' + lang);
+                if (card) card.style.borderColor = '#2b8be4';
+            }
+        });
+    }
+
+    // A/B test manual input updater
+    window.updateAB = function() {
+        var aViews  = parseInt(document.getElementById('inp_a_views').value)  || 0;
+        var aClicks = parseInt(document.getElementById('inp_a_clicks').value) || 0;
+        var bViews  = parseInt(document.getElementById('inp_b_views').value)  || 0;
+        var bClicks = parseInt(document.getElementById('inp_b_clicks').value) || 0;
+        var total   = aViews + bViews || 1;
+
+        var aCTR = aViews > 0 ? ((aClicks / aViews) * 100).toFixed(1) : '—';
+        var bCTR = bViews > 0 ? ((bClicks / bViews) * 100).toFixed(1) : '—';
+
+        document.getElementById('ab_a_views').textContent  = aViews  > 0 ? formatNum(aViews)  : '—';
+        document.getElementById('ab_a_clicks').textContent = aClicks > 0 ? formatNum(aClicks) : '—';
+        document.getElementById('ab_a_ctr').textContent    = aCTR + (aCTR !== '—' ? '%' : '');
+        document.getElementById('ab_b_views').textContent  = bViews  > 0 ? formatNum(bViews)  : '—';
+        document.getElementById('ab_b_clicks').textContent = bClicks > 0 ? formatNum(bClicks) : '—';
+        document.getElementById('ab_b_ctr').textContent    = bCTR + (bCTR !== '—' ? '%' : '');
+
+        var aW = Math.round((aViews / total) * 100);
+        var bW = 100 - aW;
+        document.getElementById('ab_a_bar').style.width = aW + '%';
+        document.getElementById('ab_b_bar').style.width = bW + '%';
+
+        // Winner
+        var winner = document.getElementById('ab_winner');
+        if (aViews > 0 && bViews > 0 && aCTR !== '—' && bCTR !== '—') {
+            var aCTRn = parseFloat(aCTR), bCTRn = parseFloat(bCTR);
+            if (aCTRn === bCTRn) {
+                winner.textContent = '🤝 Tied — need more data';
+                winner.style.color = '#6b7280';
+            } else if (aCTRn > bCTRn) {
+                var lift = (((aCTRn - bCTRn) / bCTRn) * 100).toFixed(0);
+                winner.innerHTML = '🏆 <strong>Variant A wins</strong> — +' + lift + '% higher CTR vs B';
+                winner.style.color = '#1d4ed8';
+            } else {
+                var lift = (((bCTRn - aCTRn) / aCTRn) * 100).toFixed(0);
+                winner.innerHTML = '🏆 <strong>Variant B wins</strong> — +' + lift + '% higher CTR vs A';
+                winner.style.color = '#065f46';
+            }
+        } else {
+            winner.textContent = '';
+        }
+    };
 
     function renderCTAs(entries, totalVisitors) {
         var grid = document.getElementById('ctaGrid');
