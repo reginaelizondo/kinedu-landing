@@ -4640,21 +4640,118 @@ function clearStageFilter() {
 var searchInput = document.getElementById('blogSearch');
 var searchPanel = document.getElementById('searchPanel');
 
-function normalizeQ(s) { return s.toLowerCase().replace(/[-–—]/g,' ').replace(/\s+/g,' ').trim(); }
+function deaccent(s) { return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g,'') : s; }
+function normalizeQ(s) { return deaccent(s.toLowerCase()).replace(/[-–—']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
 
-function scoreCard(card, words, phrase) {
+// Stopwords: dropped from queries so "when do babies crawl" matches "crawl"
+var STOPW = new Set(['a','an','the','is','are','was','do','does','did','my','your','our','his','her','their','when','how','what','why','who','which','to','for','of','in','on','at','can','could','should','would','i','me','we','you','it','its','that','this','these','with','about','from','will','be','been','and','or','not','no','if','too','very']);
+
+// Domain synonym groups — each word expands to its group
+var SYN_GROUPS = [
+  ['sleep','sleeping','nap','naps','bedtime','night','rest','drowsy'],
+  ['crawl','crawling','tummy'],
+  ['walk','walking','steps','step','cruising'],
+  ['talk','talking','speech','language','words','babble','babbling'],
+  ['eat','eating','feed','feeding','food','solids','mealtime','meals'],
+  ['breastfeeding','breastfeed','nursing','milk','formula','bottle','lactation','latch'],
+  ['diaper','diapers','poop','stool','constipation'],
+  ['cry','crying','colic','fussy','soothe'],
+  ['teething','teeth','tooth'],
+  ['potty','toilet'],
+  ['milestone','milestones','development','developmental'],
+  ['pregnancy','pregnant','prenatal','trimester','postpartum'],
+  ['fever','sick','illness','cold','flu'],
+  ['bath','bathing'],
+  ['play','playing','activities','activity','games','toys'],
+  ['tantrum','tantrums','behavior','discipline'],
+  ['twins','multiples'],
+  ['premature','preemie','preterm'],
+  ['autism','asd','sensory'],
+  ['separation','anxiety','clingy'],
+  ['regression','regressions']
+];
+var SYN = {};
+SYN_GROUPS.forEach(function(g){ g.forEach(function(w){ SYN[w] = g.filter(function(x){ return x !== w; }); }); });
+
+function stem(w) { return w.length > 4 ? w.replace(/(ing|ed|es|s)$/,'') : w.replace(/s$/,''); }
+
+// Levenshtein distance with early exit (typo tolerance)
+function lev(a, b, max) {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  var prev = [], cur = [];
+  for (var j = 0; j <= b.length; j++) prev[j] = j;
+  for (var i = 1; i <= a.length; i++) {
+    cur[0] = i; var rowMin = i;
+    for (var jj = 1; jj <= b.length; jj++) {
+      cur[jj] = Math.min(prev[jj] + 1, cur[jj-1] + 1, prev[jj-1] + (a[i-1] === b[jj-1] ? 0 : 1));
+      if (cur[jj] < rowMin) rowMin = cur[jj];
+    }
+    if (rowMin > max) return max + 1;
+    prev = cur.slice();
+  }
+  return prev[b.length];
+}
+
+// Build expanded query: {primary:[...], extra:[...synonyms+stems...]}
+var _primarySet = new Set();
+function expandQuery(phrase) {
+  var raw = phrase.split(' ').filter(function(w){ return w.length > 1; });
+  var primary = raw.filter(function(w){ return !STOPW.has(w); });
+  if (!primary.length) primary = raw;
+  var extra = [];
+  primary.forEach(function(w) {
+    (SYN[w] || []).forEach(function(syn){ if (primary.indexOf(syn) < 0 && extra.indexOf(syn) < 0) extra.push(syn); });
+    var st = stem(w);
+    if (st !== w && st.length > 2 && extra.indexOf(st) < 0) extra.push(st);
+  });
+  _primarySet = new Set(primary);
+  return primary.concat(extra);
+}
+
+// Token cache per card for fast fuzzy scoring
+var _cardIndex = null;
+function cardTokens(card) {
+  if (!_cardIndex) _cardIndex = new WeakMap();
+  var c = _cardIndex.get(card);
+  if (c) return c;
   var title   = (card.querySelector('.kb-card-title')   || {}).textContent || '';
   var excerpt = (card.querySelector('.kb-card-excerpt') || {}).textContent || '';
-  var tN = normalizeQ(title), eN = normalizeQ(excerpt);
+  c = { tN: normalizeQ(title), eN: normalizeQ(excerpt) };
+  c.tT = c.tN.split(' '); c.eT = c.eN.split(' ');
+  _cardIndex.set(card, c);
+  return c;
+}
+
+// Fuzzy word-in-tokens: exact=1, prefix/stem=.8, typo(lev)=.65
+function wordHit(w, tokens) {
+  var st = stem(w);
+  var maxD = w.length >= 8 ? 2 : (w.length >= 5 ? 1 : 0);
+  var best = 0;
+  for (var i = 0; i < tokens.length; i++) {
+    var t = tokens[i];
+    if (t === w) return 1;
+    if (best < 0.8 && (t.indexOf(st) === 0 || w.indexOf(t) === 0) && Math.min(t.length, st.length) > 2) best = 0.8;
+    else if (best < 0.65 && maxD && Math.abs(t.length - w.length) <= maxD && lev(w, t, maxD) <= maxD) best = 0.65;
+  }
+  return best;
+}
+
+function scoreCard(card, words, phrase) {
+  var c = cardTokens(card);
   var score = 0;
-  // Exact phrase
-  if (tN.includes(phrase)) score += 50;
-  if (eN.includes(phrase)) score += 12;
-  // Individual words
+  if (c.tN.includes(phrase)) score += 60;
+  else if (c.eN.includes(phrase)) score += 15;
+  var primaryHits = 0, primaryCount = 0;
   words.forEach(function(w) {
-    if (tN.includes(w)) score += 15;
-    if (eN.includes(w)) score += 5;
+    var isPrimary = _primarySet.has(w);
+    if (isPrimary) primaryCount++;
+    var th = wordHit(w, c.tT);
+    var eh = th >= 1 ? 0 : wordHit(w, c.eT);
+    var weight = isPrimary ? 1 : 0.45;
+    score += th * 18 * weight + eh * 6 * weight;
+    if (isPrimary && (th > 0 || eh > 0)) primaryHits++;
   });
+  if (primaryCount > 1 && primaryHits === primaryCount) score += 14; // all words matched
   return score;
 }
 
@@ -4745,14 +4842,14 @@ function doSearch() {
   }
 
   var phrase = normalizeQ(q);
-  var words  = phrase.split(' ').filter(function(w){ return w.length > 1; });
+  var words  = expandQuery(phrase);
 
   // Score all cards (skip dummies)
   var scored = [];
   cards.forEach(function(card) {
     if (card.getAttribute('data-dummy') === '1') return;
     var s = scoreCard(card, words, phrase);
-    if (s > 0) scored.push({ card: card, score: s });
+    if (s > 4) scored.push({ card: card, score: s });
   });
   scored.sort(function(a,b){ return b.score - a.score; });
 

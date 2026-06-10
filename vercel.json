@@ -15,6 +15,7 @@
     { "source": "/blog", "destination": "/articles.html" },
     { "source": "/es/blog", "destination": "/es/articles.html" },
     { "source": "/pt/blog", "destination": "/pt/articles.html" },
+    { "source": "/blog/category/:cat", "destination": "/blog/category/:cat.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
   ],
   "headers": [
