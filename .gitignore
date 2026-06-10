@@ -10,6 +10,7 @@ Thumbs.db
 # Documents (not needed for deployment)
 *.docx
 *.txt
+!robots.txt
 mockup.html
 
 # Unused source images
@@ -22,3 +23,5 @@ EN 5 Copia.jpg
 EN 6 Copia (1).jpg
 EN 7 Copia.jpg
 blog/images/
+.vercel
+.env*.local

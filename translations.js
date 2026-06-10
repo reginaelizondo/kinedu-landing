@@ -7,6 +7,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'How It Works',
     'nav.learn': 'Learn',
+    'nav.blog': 'Blog',
+    'nav.blogUrl': '/blog',
     'nav.science': 'Science',
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
@@ -31,7 +33,7 @@ window.TRANSLATIONS = {
     'hero.sub': 'Kinedu gives you a personalized daily plan, simple activities, milestone tracking, and real expert guidance, <strong>built around your baby\'s exact age and stage.</strong>',
     'hero.proof': 'Trusted by 8 million families. Recommended by pediatricians. Backed by Harvard.',
     'hero.ctaDesktop': 'Try 7 days for FREE',
-    'hero.ctaMobile': 'Download the App',
+    'hero.ctaMobile': 'Try 7 days for FREE',
     'hero.ctaSecondary': 'For Schools & Educators',
 
     // TRUST BAR
@@ -148,7 +150,7 @@ window.TRANSLATIONS = {
     'footer.aboutUs': 'About us',
     'footer.theScience': 'The science',
     'footer.blog': 'Blog',
-    'footer.blogUrl': 'https://blog.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
+    'footer.blogUrl': '/blog',
     'footer.support': 'Support',
     'footer.contactUs': 'Contact us',
     'footer.termsConditions': 'Terms & Conditions',
@@ -394,6 +396,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'Cómo Funciona',
     'nav.learn': 'Aprende',
+    'nav.blog': 'Blog',
+    'nav.blogUrl': '/es/blog',
     'nav.science': 'Ciencia',
     'nav.pricing': 'Precios',
     'nav.faq': 'FAQ',
@@ -418,7 +422,7 @@ window.TRANSLATIONS = {
     'hero.sub': 'Kinedu te da un plan diario personalizado, actividades fáciles, seguimiento de hitos y guía de expertos reales, <strong>todo pensado para la edad y etapa exacta de tu bebé.</strong>',
     'hero.proof': '8 millones de familias ya lo usan. Recomendado por pediatras. Respaldado por Harvard.',
     'hero.ctaDesktop': 'Prueba 7 días GRATIS',
-    'hero.ctaMobile': 'Descarga la App',
+    'hero.ctaMobile': 'Prueba 7 días GRATIS',
     'hero.ctaSecondary': 'Para Escuelas y Educadores',
 
     // TRUST BAR
@@ -534,7 +538,7 @@ window.TRANSLATIONS = {
     'footer.aboutUs': 'Nosotros',
     'footer.theScience': 'La ciencia',
     'footer.blog': 'Blog',
-    'footer.blogUrl': 'https://blog-es.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
+    'footer.blogUrl': '/es/blog',
     'footer.support': 'Soporte',
     'footer.contactUs': 'Contáctanos',
     'footer.termsConditions': 'Términos y Condiciones',
@@ -780,6 +784,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'Como Funciona',
     'nav.learn': 'Aprenda',
+    'nav.blog': 'Blog',
+    'nav.blogUrl': '/pt/blog',
     'nav.science': 'Ciência',
     'nav.pricing': 'Preços',
     'nav.faq': 'FAQ',
@@ -804,7 +810,7 @@ window.TRANSLATIONS = {
     'hero.sub': 'O Kinedu te dá um plano diário personalizado, atividades simples, acompanhamento de marcos e orientação de especialistas reais, <strong>tudo pensado para a idade e fase exata do seu bebê.</strong>',
     'hero.proof': '8 milhões de famílias já usam. Recomendado por pediatras. Apoiado por Harvard.',
     'hero.ctaDesktop': 'Teste 7 dias GRÁTIS',
-    'hero.ctaMobile': 'Baixe o App',
+    'hero.ctaMobile': 'Teste 7 dias GRÁTIS',
     'hero.ctaSecondary': 'Para Escolas e Educadores',
 
     // TRUST BAR
@@ -920,7 +926,7 @@ window.TRANSLATIONS = {
     'footer.aboutUs': 'Sobre nós',
     'footer.theScience': 'A ciência',
     'footer.blog': 'Blog',
-    'footer.blogUrl': 'https://blog-pt.kinedu.com/?utm_source=website&utm_medium=referral&utm_campaign=header',
+    'footer.blogUrl': '/pt/blog',
     'footer.support': 'Suporte',
     'footer.contactUs': 'Fale conosco',
     'footer.termsConditions': 'Termos e Condições',

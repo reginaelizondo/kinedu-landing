@@ -22,21 +22,23 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         <meta name="robots" content="noindex, nofollow">
     <meta name="page-type" content="ads-landing">
     <meta charset="UTF-8">
+    <meta name="apple-itunes-app" content="app-id=741277284">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Expert Classes for Your Baby — Kinedu</title>
     <meta name="description" content="Get real answers from pediatricians, sleep consultants, and child psychologists — live, every day. Ask your questions, watch the recordings. All included with Kinedu.">
     <meta property="og:title" content="Live Classes with Baby Experts — Kinedu">
     <meta property="og:description" content="Real experts. Real answers. Every day — live. Ask pediatricians, sleep consultants, and child psychologists anything about your baby.">
-    <meta property="og:image" content="https://kinedu.com/TAP/NEW/desktop EN.png">
+    <meta property="og:image" content="https://kinedu.com/TAP/NEW/desktop%20EN.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kinedu.com/live-classes-ads-en">
     <style>.no-fouc{opacity:0}.fouc-ready{opacity:1;transition:opacity .15s ease}</style>
-    <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc')})()</script>
+    <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc');setTimeout(function(){document.documentElement.classList.remove('no-fouc');document.documentElement.classList.add('fouc-ready')},1500)})()</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+
 
         /* ── Live Classes page-specific styles ─────────────────────── */
 
@@ -1045,7 +1047,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         @media (max-width: 600px) {
 
             /* Hero */
-            .lc-hero { padding: 88px 22px 36px; }
+            .lc-hero { padding: 22px 22px 36px; }
             .lc-hero-mockup img {
                 max-width: 230px;
                 filter: drop-shadow(0 16px 38px rgba(43,139,228,0.18));
@@ -1084,15 +1086,15 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             .lc-trust-bar { font-size: 0.75rem; gap: 5px; justify-content: center; margin-top: 14px; }
 
             /* Hero card — compact on mobile */
-            .lc-hero-card { border-radius: 16px; max-width: 290px; }
+            .lc-hero-card { border-radius: 16px; max-width: 310px; }
             .lhc-header { padding: 12px 14px 10px; }
             .lhc-live-badge { font-size: 0.65rem; padding: 3px 8px; }
             .lhc-viewer-count { font-size: 0.65rem; }
             .lhc-featured-title { font-size: 0.82rem; margin: 6px 0 3px; }
             .lhc-featured-expert { font-size: 0.7rem; }
-            .lhc-bottom-row { padding: 8px 14px 10px; }
+            .lhc-bottom-row { padding: 0; gap: 8px; }
             .lhc-av { width: 24px; height: 24px; font-size: 0.6rem; }
-            .lhc-av-count { font-size: 0.65rem; }
+            .lhc-av-count { display: none; }
             .lhc-join-btn { font-size: 0.7rem; padding: 6px 12px; }
             .lhc-schedule { padding: 2px 14px 8px; }
             .lhc-schedule-label { font-size: 0.6rem; padding: 6px 0 4px; }
@@ -1183,7 +1185,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             /* Testimonials — 1 card wide on mobile for legibility */
             .lc-testi-wrap { margin-top: 28px; }
             .lc-testi-track { gap: 14px; }
-            .lc-testi-card { flex: 0 0 85%; padding: 20px 18px; }
+            .lc-testi-card { flex: 0 0 92%; max-width: 92%; padding: 20px 18px; }
             .lc-testi-quote { font-size: 0.88rem; line-height: 1.65; margin-bottom: 14px; }
             .lc-testi-stars { font-size: 0.82rem; margin-bottom: 10px; }
             .lc-testi-name { font-size: 0.82rem; }
@@ -1398,8 +1400,11 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             .lc-vs-total-num { font-size: 1.85rem; }
         }
     </style>
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
-<body>
+<body style="background:#EBF3FF;">
+
 
     <!-- ══════════════════════════════════════════════════════════
          1. HERO
@@ -1412,7 +1417,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
             <!-- Image column (left) -->
             <div class="lc-hero-mockup">
-                <img src="Features/EN/Liveclasses EN.png" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager">
+                <img src="Features/EN/Liveclasses EN.webp" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager">
 
                 <!-- Variant B: live schedule card (shown via A/B test JS) -->
                 <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
@@ -1498,7 +1503,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 <div class="lc-cta-group">
                     <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" class="btn-hero-primary" id="cta-hero" data-track="Ads_LiveClasses_Hero">
                         <span class="btn-bg"></span>
-                        <span class="btn-text">Try it now</span>
+                        <span class="btn-text">Try 7 days free</span>
                         <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <div class="lc-cta-sub" data-i18n="lc.hero.ctaSub">Cancel in 2 taps</div>
@@ -1651,7 +1656,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
             <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" class="btn-hero-primary" data-track="Ads_LiveClasses_Comparison" style="margin-top:36px;">
                 <span class="btn-bg"></span>
-                <span class="btn-text">Try it now</span>
+                <span class="btn-text">Try 7 days free</span>
                 <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
@@ -1748,7 +1753,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             <div style="text-align:center;margin-top:36px;">
                 <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" class="btn-hero-primary" id="cta-upcoming" data-track="Ads_LiveClasses_Upcoming">
                     <span class="btn-bg"></span>
-                    <span class="btn-text">Try it now</span>
+                    <span class="btn-text">Try 7 days free</span>
                     <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -2052,16 +2057,16 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
             <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" class="btn-hero-primary" id="cta-pricing" data-track="Ads_LiveClasses_Pricing">
                 <span class="btn-bg"></span>
-                <span class="btn-text">Try it now</span>
+                <span class="btn-text">Try 7 days free</span>
                 <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
 
             <div class="lc-store-row">
                 <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" target="_blank" rel="noopener">
-                    <img src="Features/stores/app-store-badge-final.png" alt="Download on the App Store">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.kinedu.appkinedu&hl=es_419" target="_blank" rel="noopener">
-                    <img src="Features/stores/Google_Play_Store_badge_EN.svg.webp" alt="Get it on Google Play">
+                    <img src="google-play-badge.webp" alt="Get it on Google Play">
                 </a>
             </div>
         </div>
@@ -2145,7 +2150,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             <div style="text-align:center;margin-top:52px;">
                 <p style="font-size:0.9rem;color:var(--text-tertiary);margin-bottom:16px;" data-i18n="lc.faq.stillQuestions" data-i18n-html>Still have questions? Email us at <a href="mailto:hello@kinedu.com" style="color:var(--kinedu-blue);">hello@kinedu.com</a></p>
                 <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" class="lc-cta-sm" data-track="Ads_LiveClasses_FAQ">
-                    <span data-i18n="lc.faq.cta">Try it free for 7 days.</span>
+                    <span>Try 7 days free</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -2155,21 +2160,94 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <!-- ── FOOTER (identical to kinedu.com) ─────────────────────── -->
     
 
+    
+    <!-- ── Minimal footer (Meta Ads compliance) ─────────────────── -->
+    <footer style="background:#0D1B2E;padding:32px 24px;text-align:center;">
+        <img src="logo kinedu.png" alt="Kinedu" style="height:24px;filter:brightness(0) invert(1);opacity:.85;margin-bottom:14px;">
+        <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:.8rem;">
+            <a href="https://blog.kinedu.com/privacy-policy-2/" style="color:rgba(255,255,255,.7);text-decoration:none;" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://blog.kinedu.com/privacy-policy/" style="color:rgba(255,255,255,.7);text-decoration:none;" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+            <a href="mailto:hello@kinedu.com" style="color:rgba(255,255,255,.7);text-decoration:none;">hello@kinedu.com</a>
+        </div>
+        <p style="color:rgba(255,255,255,.4);font-size:.72rem;margin-top:14px;">© 2026 Kinedu. All rights reserved.</p>
+    </footer>
+
+    
+    <!-- ── Sticky mobile CTA bar ────────────────────────────────── -->
+    <style>
+        .lc-sticky-cta {
+            position: fixed; left: 0; right: 0; bottom: 0; z-index: 999;
+            background: rgba(255,255,255,0.96);
+            -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+            box-shadow: 0 -4px 24px rgba(13,27,46,0.12);
+            padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+            transform: translateY(110%);
+            transition: transform .3s ease;
+            display: none;
+        }
+        .lc-sticky-cta.visible { transform: translateY(0); }
+        .lc-sticky-cta a {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: linear-gradient(90deg, #2B8BE4 0%, #34A9E9 100%);
+            color: #fff; text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem; font-weight: 800;
+            border-radius: 100px; padding: 15px 24px;
+            box-shadow: 0 6px 18px rgba(43,139,228,0.35);
+        }
+        .lc-sticky-cta .lc-sticky-sub {
+            text-align: center; font-size: 0.7rem; color: #8A96A3;
+            margin: 6px 0 0; font-weight: 500;
+        }
+        @media (max-width: 600px) { .lc-sticky-cta { display: block; } }
+    </style>
+    <div class="lc-sticky-cta" id="lcStickyCta">
+        <a href="https://app.kinedu.com/learn-quiz-en-prod/?swc=learn-ads" data-track="Ads_LiveClasses_Sticky">Try 7 days free <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <p class="lc-sticky-sub">Cancel anytime</p>
+    </div>
+    <script>
+    (function () {
+        var bar = document.getElementById('lcStickyCta');
+        var heroCta = document.getElementById('cta-hero');
+        if (!bar || !heroCta) return;
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                bar.classList.toggle('visible', !entries[0].isIntersecting && window.scrollY > 200);
+            }, { threshold: 0 }).observe(heroCta);
+        } else {
+            window.addEventListener('scroll', function () {
+                bar.classList.toggle('visible', window.scrollY > 600);
+            }, { passive: true });
+        }
+    })();
+    </script>
+
     <script src="translations.js"></script>
     <script src="script.js"></script>
     <script>
     (function () {
         // ── Analytics tracking ──────────────────────────────────────
         var lang = localStorage.getItem('kinedu-lang') || 'en';
-        var page = '/live-classes';
+        var page = '/live-classes-ads-en';
         navigator.sendBeacon('/api/track', JSON.stringify({ page: page, referrer: document.referrer, lang: lang }));
 
         document.querySelectorAll('[data-track]').forEach(function (el) {
             el.addEventListener('click', function () {
+                var v = window.lcHeroVariant || 'a';
+                // Track in our analytics
                 navigator.sendBeacon('/api/track', JSON.stringify({
                     page: page, event: 'conversion',
-                    cta: el.getAttribute('data-track'), lang: lang
+                    cta: el.getAttribute('data-track'), lang: lang,
+                    variant: v
                 }));
+                // Track in Meta Pixel so Events Manager shows A vs B clicks
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'AdsCtaClick', {
+                        variant: v,
+                        cta: el.getAttribute('data-track'),
+                        page: 'live-classes-ads-en'
+                    });
+                }
             });
         });
 
@@ -2432,6 +2510,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
         function perPage() {
             var w = window.innerWidth || document.documentElement.clientWidth || 1280;
+            if (w <= 600) return 1;
             if (w <= 900) return 2;
             return 3;
         }
@@ -2516,6 +2595,11 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
         
         // Fire Pixel event for A/B variant tracking
+        // Track A/B view in our own analytics
+        var _abLang = localStorage.getItem('kinedu-lang') || 'en';
+        navigator.sendBeacon('/api/track', JSON.stringify({
+            page: '/live-classes-ads-en', event: 'ab_view', variant: variant, lang: _abLang
+        }));
         if (typeof fbq !== 'undefined') {
             fbq('trackCustom', 'AdsHeroVariant', { variant: variant, page: 'live-classes-ads-en' });
         }

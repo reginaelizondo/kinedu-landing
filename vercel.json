@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/articles.html", "destination": "/blog", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/es/articles", "destination": "/es/articles.html" },
     { "source": "/es/articles.html", "destination": "/es/articles.html" },
@@ -9,7 +12,34 @@
     { "source": "/es", "destination": "/index.html" },
     { "source": "/pt", "destination": "/index.html" },
     { "source": "/live-classes", "destination": "/live-classes.html" },
-    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/live-classes-ads-es", "destination": "/live-classes-ads-es.html" },
+    { "source": "/live-classes-ads-en", "destination": "/live-classes-ads-en.html" },
+    { "source": "/live-classes-ads-pt", "destination": "/live-classes-ads-pt.html" },
+    { "source": "/blog", "destination": "/articles.html" },
+    { "source": "/es/blog", "destination": "/es/articles.html" },
+    { "source": "/pt/blog", "destination": "/pt/articles.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|webp|svg|gif|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
   ]
 }

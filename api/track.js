@@ -48,6 +48,15 @@ module.exports = async function handler(req, res) {
       pipeline.push(['INCR', 'analytics:total:conv']);
       // Track individual CTA clicks: "page|cta_label"
       pipeline.push(['HINCRBY', `analytics:cta:${date}`, ctaLabel, 1]);
+      // Track A/B CTA clicks: "page|variant" → count
+      if (body.variant) {
+        pipeline.push(['HINCRBY', `analytics:ab_cta:${date}`, `${page}|${body.variant}`, 1]);
+      }
+    }
+
+    // Track A/B test views
+    if (event === 'ab_view' && body.variant) {
+      pipeline.push(['HINCRBY', `analytics:ab_view:${date}`, `${page}|${body.variant}`, 1]);
     }
 
     // Track referrers

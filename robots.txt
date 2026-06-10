@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /analytics.html
+Disallow: /paywall-reference.html
+Disallow: /live-classes-ads-en
+Disallow: /live-classes-ads-es
+Disallow: /live-classes-ads-pt
+Disallow: /api/
+
+Sitemap: https://www.kinedu.com/sitemap.xml

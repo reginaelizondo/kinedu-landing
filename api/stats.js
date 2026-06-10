@@ -42,6 +42,8 @@ module.exports = async function handler(req, res) {
       pipeline.push(['HGETALL', `analytics:ref:${date}`]);
       pipeline.push(['HGETALL', `analytics:lang:${date}`]);
       pipeline.push(['HGETALL', `analytics:cta:${date}`]);
+      pipeline.push(['HGETALL', `analytics:ab_view:${date}`]);
+      pipeline.push(['HGETALL', `analytics:ab_cta:${date}`]);
     }
     // Add totals
     pipeline.push(['GET', 'analytics:total:pv']);
@@ -59,14 +61,16 @@ module.exports = async function handler(req, res) {
     const results = await response.json();
 
     // Parse results into daily data
-    const fieldsPerDay = 6;
+    const fieldsPerDay = 8;
     const daily = dates.map((date, i) => {
-      const pvResult = results[i * fieldsPerDay];
-      const uvResult = results[i * fieldsPerDay + 1];
-      const convResult = results[i * fieldsPerDay + 2];
-      const refResult = results[i * fieldsPerDay + 3];
-      const langResult = results[i * fieldsPerDay + 4];
-      const ctaResult = results[i * fieldsPerDay + 5];
+      const pvResult     = results[i * fieldsPerDay];
+      const uvResult     = results[i * fieldsPerDay + 1];
+      const convResult   = results[i * fieldsPerDay + 2];
+      const refResult    = results[i * fieldsPerDay + 3];
+      const langResult   = results[i * fieldsPerDay + 4];
+      const ctaResult    = results[i * fieldsPerDay + 5];
+      const abViewResult = results[i * fieldsPerDay + 6];
+      const abCtaResult  = results[i * fieldsPerDay + 7];
 
       // Parse hash results (HGETALL returns flat array [key, val, key, val, ...])
       function parseHash(result) {
@@ -78,11 +82,13 @@ module.exports = async function handler(req, res) {
         return hash;
       }
 
-      const pages = parseHash(pvResult);
+      const pages     = parseHash(pvResult);
       const conversions = parseHash(convResult);
       const referrers = parseHash(refResult);
       const languages = parseHash(langResult);
       const ctaClicks = parseHash(ctaResult);
+      const abViews   = parseHash(abViewResult);
+      const abCta     = parseHash(abCtaResult);
 
       let totalPV = 0;
       for (const k in pages) totalPV += pages[k];
@@ -99,6 +105,8 @@ module.exports = async function handler(req, res) {
         referrers,
         languages,
         ctaClicks,
+        abViews,
+        abCta,
       };
     });
 
@@ -111,6 +119,8 @@ module.exports = async function handler(req, res) {
     const topReferrers = {};
     const topLanguages = {};
     const topCTAs = {};
+    const abViews = {};
+    const abCta   = {};
     let sumUV = 0;
     let sumPV = 0;
     let sumConv = 0;
@@ -119,10 +129,27 @@ module.exports = async function handler(req, res) {
       sumPV += day.pageViews;
       sumUV += day.uniqueVisitors;
       sumConv += day.conversions;
-      for (const p in day.pages) topPages[p] = (topPages[p] || 0) + day.pages[p];
-      for (const r in day.referrers) topReferrers[r] = (topReferrers[r] || 0) + day.referrers[r];
-      for (const l in day.languages) topLanguages[l] = (topLanguages[l] || 0) + day.languages[l];
-      for (const c in day.ctaClicks) topCTAs[c] = (topCTAs[c] || 0) + day.ctaClicks[c];
+      for (const p in day.pages)      topPages[p]     = (topPages[p]     || 0) + day.pages[p];
+      for (const r in day.referrers)  topReferrers[r] = (topReferrers[r] || 0) + day.referrers[r];
+      for (const l in day.languages)  topLanguages[l] = (topLanguages[l] || 0) + day.languages[l];
+      for (const c in day.ctaClicks)  topCTAs[c]      = (topCTAs[c]      || 0) + day.ctaClicks[c];
+      for (const k in day.abViews)    abViews[k]      = (abViews[k]      || 0) + day.abViews[k];
+      for (const k in day.abCta)      abCta[k]        = (abCta[k]        || 0) + day.abCta[k];
+    }
+
+    // Build A/B summary: { en: { a: {views, cta}, b: {views, cta} }, es: {...} }
+    const abSummary = {};
+    for (const [key, count] of Object.entries(abViews)) {
+      const [page, variant] = key.split('|');
+      const lang = page.includes('-en') ? 'en' : page.includes('-es') ? 'es' : page.includes('-pt') ? 'pt' : 'en';
+      if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } };
+      if (variant === 'a' || variant === 'b') abSummary[lang][variant].views += count;
+    }
+    for (const [key, count] of Object.entries(abCta)) {
+      const [page, variant] = key.split('|');
+      const lang = page.includes('-en') ? 'en' : page.includes('-es') ? 'es' : page.includes('-pt') ? 'pt' : 'en';
+      if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } };
+      if (variant === 'a' || variant === 'b') abSummary[lang][variant].cta += count;
     }
 
     res.status(200).json({
@@ -138,6 +165,7 @@ module.exports = async function handler(req, res) {
       topReferrers: Object.entries(topReferrers).sort((a, b) => b[1] - a[1]),
       topLanguages: Object.entries(topLanguages).sort((a, b) => b[1] - a[1]),
       topCTAs: Object.entries(topCTAs).sort((a, b) => b[1] - a[1]),
+      abSummary,
       allTimeTotals: { pageViews: totalPV, conversions: totalConv },
     });
   } catch (err) {

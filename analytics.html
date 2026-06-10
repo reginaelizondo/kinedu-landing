@@ -537,7 +537,94 @@
             text-decoration: none; transition: background .15s;
         }
         .learn-ext-link:hover { background: #e5e7eb; }
+
+        /* Meta Ads live row */
+        .meta-ads-row {
+            background: #fff;
+            border-radius: 14px;
+            border: 1.5px solid #e5e7eb;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+        .meta-ads-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .meta-logo {
+            font-size: 11px;
+            font-weight: 700;
+            background: #1877f2;
+            color: #fff;
+            padding: 3px 9px;
+            border-radius: 6px;
+            letter-spacing: .5px;
+        }
+        .meta-date-sel {
+            font-size: 12px;
+            padding: 4px 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            background: #f9fafb;
+            cursor: pointer;
+            color: #374151;
+        }
+        .meta-refresh-btn {
+            font-size: 12px;
+            padding: 4px 12px;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            cursor: pointer;
+            color: #374151;
+            font-weight: 600;
+        }
+        .meta-refresh-btn:hover { background: #e5e7eb; }
+        .meta-fetched-at { font-size: 11px; color: #9ca3af; margin-left: 4px; }
+        .meta-campaign-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media (max-width: 640px) { .meta-campaign-grid { grid-template-columns: 1fr; } }
+        .meta-camp-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .mcc-top {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 10px;
+        }
+        .mcc-flag { font-size: 18px; }
+        .mcc-name { font-size: 13px; font-weight: 700; color: #111827; flex: 1; }
+        .mcc-status {
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 20px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: 600;
+        }
+        .mcc-status.no-data { background: #fef9c3; color: #854d0e; }
+        .mcc-status.loading { background: #f3f4f6; color: #6b7280; }
+        .mcc-metrics {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+        }
+        @media (max-width: 900px) { .mcc-metrics { grid-template-columns: repeat(3, 1fr); } }
+        .mcc-metric { text-align: center; }
+        .mcc-val { display: block; font-size: 15px; font-weight: 700; color: #111827; }
+        .mcc-key { display: block; font-size: 10px; color: #9ca3af; margin-top: 2px; }
     </style>
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -648,6 +735,44 @@
                 </div>
             </div>
 
+                <!-- Meta Ads live data -->
+            <div class="meta-ads-row">
+                <div class="meta-ads-header">
+                    <span class="meta-logo">Meta Ads</span>
+                    <select id="metaDatePreset" onchange="fetchMetaData()" class="meta-date-sel">
+                        <option value="last_7d">Last 7 days</option>
+                        <option value="last_14d">Last 14 days</option>
+                        <option value="last_30d">Last 30 days</option>
+                        <option value="this_month">This month</option>
+                        <option value="today">Today</option>
+                    </select>
+                    <button onclick="fetchMetaData()" class="meta-refresh-btn" id="metaRefreshBtn">↻ Refresh</button>
+                    <span id="metaFetchedAt" class="meta-fetched-at"></span>
+                </div>
+                <div class="meta-campaign-grid" id="metaCampaignGrid">
+                    <div class="meta-camp-card" id="metaCard_en">
+                        <div class="mcc-top"><span class="mcc-flag">🇺🇸</span><span class="mcc-name">EN — US</span><span class="mcc-status" id="mcs_en">loading…</span></div>
+                        <div class="mcc-metrics">
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_imp">—</span><span class="mcc-key">Impressions</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_clicks">—</span><span class="mcc-key">Link Clicks</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_spend">—</span><span class="mcc-key">Spend (USD)</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_ctr">—</span><span class="mcc-key">CTR</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_cpc">—</span><span class="mcc-key">CPC</span></div>
+                        </div>
+                    </div>
+                    <div class="meta-camp-card" id="metaCard_es">
+                        <div class="mcc-top"><span class="mcc-flag">🇲🇽</span><span class="mcc-name">ES — MX</span><span class="mcc-status" id="mcs_es">loading…</span></div>
+                        <div class="mcc-metrics">
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_imp">—</span><span class="mcc-key">Impressions</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_clicks">—</span><span class="mcc-key">Link Clicks</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_spend">—</span><span class="mcc-key">Spend (USD)</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_ctr">—</span><span class="mcc-key">CTR</span></div>
+                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_cpc">—</span><span class="mcc-key">CPC</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Per-language stat cards -->
             <div class="learn-lang-grid" id="learnLangGrid">
                 <div class="learn-lang-card" id="learnCard_en">
@@ -655,7 +780,7 @@
                     <div class="llc-label">English</div>
                     <div class="llc-swc">swc: learn-ads</div>
                     <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_en">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lv_en">—</span><span class="llc-key">Landing Views</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lc_en">—</span><span class="llc-key">CTA Clicks</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lr_en">—</span><span class="llc-key">CTR</span></div>
                     </div>
@@ -663,9 +788,9 @@
                 <div class="learn-lang-card" id="learnCard_es">
                     <div class="llc-flag">🇲🇽</div>
                     <div class="llc-label">Español</div>
-                    <div class="llc-swc">swc: learn-ads-es</div>
+                    <div class="llc-swc">swc: learn-ads</div>
                     <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_es">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lv_es">—</span><span class="llc-key">Landing Views</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lc_es">—</span><span class="llc-key">CTA Clicks</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lr_es">—</span><span class="llc-key">CTR</span></div>
                     </div>
@@ -673,9 +798,9 @@
                 <div class="learn-lang-card" id="learnCard_pt">
                     <div class="llc-flag">🇧🇷</div>
                     <div class="llc-label">Português</div>
-                    <div class="llc-swc">swc: learn-ads-pt</div>
+                    <div class="llc-swc">swc: learn-ads</div>
                     <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_pt">—</span><span class="llc-key">Views</span></div>
+                        <div class="llc-stat"><span class="llc-val" id="lv_pt">—</span><span class="llc-key">Landing Views</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lc_pt">—</span><span class="llc-key">CTA Clicks</span></div>
                         <div class="llc-stat"><span class="llc-val" id="lr_pt">—</span><span class="llc-key">CTR</span></div>
                     </div>
@@ -687,7 +812,7 @@
                 <div class="ab-panel-header">
                     <span class="ab-badge">A/B TEST</span>
                     <h3>Hero Image — Variant A vs Variant B</h3>
-                    <span class="ab-meta">Tracked via Meta Pixel · <code>AdsHeroVariant</code></span>
+                    <span class="ab-meta">Auto-tracked · <code>ab_view</code> + <code>ab_cta</code></span>
                 </div>
                 <div class="ab-grid">
                     <!-- Variant A -->
@@ -727,7 +852,7 @@
                 </div>
                 <!-- Manual input for Meta data -->
                 <div class="ab-manual">
-                    <div class="ab-manual-label">📊 Enter data from Meta Events Manager</div>
+                    <div class="ab-manual-label">📊 Override manual (optional — leave blank to use auto data)</div>
                     <div class="ab-inputs">
                         <div class="ab-input-group">
                             <label>A — Impressions</label><input type="number" id="inp_a_views" placeholder="0" oninput="updateAB()">
@@ -990,6 +1115,7 @@
         renderTable('topRefBody', data.topReferrers);
         renderTable('topLangBody', data.topLanguages, formatLangName);
         renderLearnSection(data);
+        renderABSection(data);
     }
 
     // ── LEARN SECTION ────────────────────────────────────────────────
@@ -1033,30 +1159,97 @@
         });
     }
 
-    // A/B test manual input updater
-    window.updateAB = function() {
-        var aViews  = parseInt(document.getElementById('inp_a_views').value)  || 0;
-        var aClicks = parseInt(document.getElementById('inp_a_clicks').value) || 0;
-        var bViews  = parseInt(document.getElementById('inp_b_views').value)  || 0;
-        var bClicks = parseInt(document.getElementById('inp_b_clicks').value) || 0;
-        var total   = aViews + bViews || 1;
+    // ── META ADS LIVE DATA ──────────────────────────────────────────────
+    window.fetchMetaData = function() {
+        var preset = document.getElementById('metaDatePreset').value;
+        var btn = document.getElementById('metaRefreshBtn');
+        btn.textContent = '↻ Loading…';
+        btn.disabled = true;
 
+        ['en','es'].forEach(function(lang) {
+            document.getElementById('mcs_' + lang).textContent = 'loading…';
+            document.getElementById('mcs_' + lang).className = 'mcc-status loading';
+            ['imp','clicks','spend','ctr','cpc'].forEach(function(m) {
+                document.getElementById('mm_' + lang + '_' + m).textContent = '—';
+            });
+        });
+
+        fetch('/api/meta-analytics?date_preset=' + preset)
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                btn.textContent = '↻ Refresh';
+                btn.disabled = false;
+                if (data.error) {
+                    document.getElementById('metaFetchedAt').textContent = '⚠ ' + data.error;
+                    return;
+                }
+                var ts = new Date(data.fetched_at);
+                document.getElementById('metaFetchedAt').textContent = 'Updated ' + ts.toLocaleTimeString();
+
+                ['en','es'].forEach(function(lang) {
+                    var c = data.campaigns && data.campaigns[lang];
+                    var statusEl = document.getElementById('mcs_' + lang);
+                    if (!c || !c.has_data) {
+                        statusEl.textContent = 'No data yet';
+                        statusEl.className = 'mcc-status no-data';
+                        return;
+                    }
+                    statusEl.textContent = 'ACTIVE';
+                    statusEl.className = 'mcc-status';
+                    document.getElementById('mm_' + lang + '_imp').textContent    = formatNum(c.impressions);
+                    document.getElementById('mm_' + lang + '_clicks').textContent = formatNum(c.clicks);
+                    document.getElementById('mm_' + lang + '_spend').textContent  = '$' + c.spend.toFixed(2);
+                    document.getElementById('mm_' + lang + '_ctr').textContent    = c.ctr.toFixed(2) + '%';
+                    document.getElementById('mm_' + lang + '_cpc').textContent    = c.cpc > 0 ? '$' + c.cpc.toFixed(2) : '—';
+                });
+            })
+            .catch(function(err) {
+                btn.textContent = '↻ Refresh';
+                btn.disabled = false;
+                document.getElementById('metaFetchedAt').textContent = '⚠ ' + err.message;
+                ['en','es'].forEach(function(lang) {
+                    var statusEl = document.getElementById('mcs_' + lang);
+                    statusEl.textContent = 'Error';
+                    statusEl.className = 'mcc-status no-data';
+                });
+            });
+    };
+
+    // Auto-fetch Meta data on load
+    fetchMetaData();
+
+    // ── A/B TEST — auto from stats API ──────────────────────────────
+    function renderABSection(data) {
+        var ab = data.abSummary || {};
+        // Aggregate across all languages (EN + ES + PT)
+        var aViews = 0, aClicks = 0, bViews = 0, bClicks = 0;
+        ['en','es','pt'].forEach(function(lang) {
+            if (ab[lang]) {
+                aViews  += ab[lang].a.views || 0;
+                aClicks += ab[lang].a.cta   || 0;
+                bViews  += ab[lang].b.views || 0;
+                bClicks += ab[lang].b.cta   || 0;
+            }
+        });
+        _renderAB(aViews, aClicks, bViews, bClicks);
+    }
+
+    function _renderAB(aViews, aClicks, bViews, bClicks) {
+        var total = aViews + bViews || 1;
         var aCTR = aViews > 0 ? ((aClicks / aViews) * 100).toFixed(1) : '—';
         var bCTR = bViews > 0 ? ((bClicks / bViews) * 100).toFixed(1) : '—';
 
         document.getElementById('ab_a_views').textContent  = aViews  > 0 ? formatNum(aViews)  : '—';
         document.getElementById('ab_a_clicks').textContent = aClicks > 0 ? formatNum(aClicks) : '—';
-        document.getElementById('ab_a_ctr').textContent    = aCTR + (aCTR !== '—' ? '%' : '');
+        document.getElementById('ab_a_ctr').textContent    = aCTR !== '—' ? aCTR + '%' : '—';
         document.getElementById('ab_b_views').textContent  = bViews  > 0 ? formatNum(bViews)  : '—';
         document.getElementById('ab_b_clicks').textContent = bClicks > 0 ? formatNum(bClicks) : '—';
-        document.getElementById('ab_b_ctr').textContent    = bCTR + (bCTR !== '—' ? '%' : '');
+        document.getElementById('ab_b_ctr').textContent    = bCTR !== '—' ? bCTR + '%' : '—';
 
         var aW = Math.round((aViews / total) * 100);
-        var bW = 100 - aW;
         document.getElementById('ab_a_bar').style.width = aW + '%';
-        document.getElementById('ab_b_bar').style.width = bW + '%';
+        document.getElementById('ab_b_bar').style.width = (100 - aW) + '%';
 
-        // Winner
         var winner = document.getElementById('ab_winner');
         if (aViews > 0 && bViews > 0 && aCTR !== '—' && bCTR !== '—') {
             var aCTRn = parseFloat(aCTR), bCTRn = parseFloat(bCTR);
@@ -1073,8 +1266,17 @@
                 winner.style.color = '#065f46';
             }
         } else {
-            winner.textContent = '';
+            winner.textContent = aViews + bViews > 0 ? '⏳ Need more data to pick a winner' : '';
         }
+    }
+
+    // Keep manual input as override (hidden by default, shown if needed)
+    window.updateAB = function() {
+        var aViews  = parseInt(document.getElementById('inp_a_views').value)  || 0;
+        var aClicks = parseInt(document.getElementById('inp_a_clicks').value) || 0;
+        var bViews  = parseInt(document.getElementById('inp_b_views').value)  || 0;
+        var bClicks = parseInt(document.getElementById('inp_b_clicks').value) || 0;
+        if (aViews + bViews > 0) _renderAB(aViews, aClicks, bViews, bClicks);
     };
 
     function renderCTAs(entries, totalVisitors) {

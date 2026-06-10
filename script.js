@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const folder = imgMap[lang] || 'EN';
             const heroImg = document.getElementById('heroImg');
             const heroSource = document.getElementById('heroSourceMobile');
-            if (heroImg) heroImg.src = 'TAP/NEW/desktop ' + folder + '.png';
-            if (heroSource) heroSource.srcset = 'TAP/NEW/mobile ' + folder + '.png';
+            if (heroImg) heroImg.src = 'TAP/NEW/desktop ' + folder + '.webp';
+            if (heroSource) heroSource.srcset = 'TAP/NEW/mobile ' + folder + '.webp';
 
             // Swap feature images per language
             const featureImages = {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             for (const [id, name] of Object.entries(featureImages)) {
                 const el = document.getElementById(id);
-                if (el) el.src = 'Features/' + folder + '/' + name + ' ' + folder + '.png';
+                if (el) el.src = 'Features/' + folder + '/' + name + ' ' + folder + '.webp';
             }
 
             // Swap App Store link per language
@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     // --- LEARN DROPDOWN ---
     (function () {
         var dropdown = document.getElementById('learnDropdown');
@@ -327,23 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     updateActiveNav();
 
-    // --- PROGRESS BAR FILL ANIMATION ---
-    const barFills = document.querySelectorAll('.bar-fill');
-    const deviceObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                barFills.forEach((fill, i) => {
-                    setTimeout(() => {
-                        fill.style.width = fill.getAttribute('data-width');
-                    }, i * 200 + 300);
-                });
-                deviceObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    const heroDevice = document.querySelector('.hero-device');
-    if (heroDevice) deviceObserver.observe(heroDevice);
 
     // --- TRUST BAR — Staggered reveal + counting animation ---
     const trustItems = document.querySelectorAll('.trust-item');
@@ -496,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SCROLL REVEAL ---
     const revealElements = document.querySelectorAll(
-        '.feature-row, .step-item, .review-card, .trial-wrap, .stat-item, .faq-item'
+        '.feature-row, .review-card, .stat-item, .faq-item'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -526,15 +510,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        question.setAttribute('aria-expanded', 'false');
         question.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
 
             // Close all
-            faqItems.forEach(other => other.classList.remove('open'));
+            faqItems.forEach(other => {
+                other.classList.remove('open');
+                const q = other.querySelector('.faq-question');
+                if (q) q.setAttribute('aria-expanded', 'false');
+            });
 
             // Toggle clicked
             if (!isOpen) {
                 item.classList.add('open');
+                question.setAttribute('aria-expanded', 'true');
             }
         });
     });
