@@ -4236,6 +4236,37 @@ function esShowMore() {
 esApplyLimit();
 
 // Search filter
+var __STOP=new Set(['el','la','los','las','un','una','de','del','en','a','al','mi','mis','tu','tus','su','sus','que','como','cuando','cuándo','por','para','es','son','se','lo','le','y','o','u','con','sobre','debe','hacer','mas','más','ya','si','sí','está','esta','hay','bebe','bebes','bebé','bebés','nino','ninos','niño','niños','hijo','hija','pequeno','pequeño','meses','anos','años']);
+var __SYN={'dormir':['sueno','siesta','noche','despertares'],'sueno':['dormir','siesta','noche'],'siesta':['dormir','sueno'],'gatear':['gateo'],'caminar':['pasos','andar','caminata'],'hablar':['lenguaje','palabras','habla','balbuceo'],'lenguaje':['hablar','habla','palabras'],'comer':['alimentacion','comida','solidos','papillas'],'alimentacion':['comer','comida','solidos'],'lactancia':['amamantar','leche','pecho','formula','biberon'],'leche':['lactancia','formula','biberon','amamantar'],'amamantar':['lactancia','leche','pecho'],'panal':['popo','estrenimiento'],'llanto':['llorar','colicos','colico'],'llorar':['llanto','colicos'],'colico':['llanto','llorar','colicos'],'dientes':['denticion'],'denticion':['dientes'],'bano':['banar'],'jugar':['juegos','actividades','juguetes'],'juegos':['jugar','actividades','juguetes'],'berrinche':['berrinches','conducta','rabieta','disciplina'],'rabieta':['berrinche','berrinches','conducta'],'hitos':['desarrollo','logros'],'desarrollo':['hitos','etapas'],'embarazo':['embarazada','prenatal','trimestre'],'fiebre':['enfermo','gripe','resfriado'],'gemelos':['mellizos'],'prematuro':['prematuros'],'regresion':['regresiones']};
+
+// ── Smart search engine (accents, typos, synonyms, stems) ──
+function __deaccent(s){return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s}
+function __norm(s){return __deaccent(s.toLowerCase()).replace(/[-–—']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim()}
+function __lev(a,b,max){if(Math.abs(a.length-b.length)>max)return max+1;var p=[],c=[];for(var j=0;j<=b.length;j++)p[j]=j;for(var i=1;i<=a.length;i++){c[0]=i;var rm=i;for(var jj=1;jj<=b.length;jj++){c[jj]=Math.min(p[jj]+1,c[jj-1]+1,p[jj-1]+(a[i-1]===b[jj-1]?0:1));if(c[jj]<rm)rm=c[jj]}if(rm>max)return max+1;p=c.slice()}return p[b.length]}
+function __stem(w){return w.length>4?w.replace(/(mente|ciones|cion|coes|cao|ndo|nda|res|les|es|s|a|o)$/,''):w.replace(/s$/,'')}
+function __hit(w,tokens){var st=__stem(w);var maxD=w.length>=8?2:(w.length>=5?1:0);for(var i=0;i<tokens.length;i++){var t=tokens[i];if(t===w)return 1;if((t.indexOf(st)===0||w.indexOf(__stem(t))===0)&&Math.min(t.length,st.length)>2)return .8;if(maxD&&Math.abs(t.length-w.length)<=maxD&&__lev(w,t,maxD)<=maxD)return .65}return 0}
+function smartScore(title,exc,query){
+  var tN=__norm(title),tT=tN.split(' ');
+  var eN=__norm(exc),eT=eN.split(' ');
+  var phrase=__norm(query);
+  if(!phrase)return 0;
+  var words=phrase.split(' ').filter(function(w){return w.length>1&&!__STOP.has(w)});
+  if(!words.length)words=phrase.split(' ').filter(function(w){return w.length>1});
+  var expanded=words.slice();
+  words.forEach(function(w){(__SYN[w]||[]).forEach(function(x){if(expanded.indexOf(x)<0)expanded.push(x)})});
+  var score=0;
+  if(tN.includes(phrase))score+=60;else if(eN.includes(phrase))score+=15;
+  var hits=0;
+  expanded.forEach(function(w){
+    var prim=words.indexOf(w)>=0;
+    var th=__hit(w,tT), eh=th>=1?0:__hit(w,eT);
+    score+=th*18*(prim?1:.45)+eh*6*(prim?1:.45);
+    if(prim&&(th>0||eh>0))hits++;
+  });
+  if(words.length>1&&hits===words.length)score+=14;
+  return score;
+}
+
 function filterES() {
   var q = (document.getElementById('esBlogSearch').value || '').toLowerCase().trim();
   var cards = document.querySelectorAll('#esGrid .kb-card');
@@ -4246,11 +4277,16 @@ function filterES() {
     document.getElementById('esNoResults').style.display = 'none';
     return;
   }
+  var scored = [];
   cards.forEach(function(c) {
-    var match = c.textContent.toLowerCase().indexOf(q) > -1;
-    c.style.display = match ? '' : 'none';
-    if (match) count++;
+    var title = (c.querySelector('.kb-card-title')||{}).textContent || '';
+    var exc   = (c.querySelector('.kb-card-excerpt')||{}).textContent || '';
+    var sc = smartScore(title, exc, q);
+    if (sc > 4) scored.push({c: c, s: sc}); else c.style.display = 'none';
   });
+  scored.sort(function(a,b){ return b.s - a.s; });
+  var gridEl = document.querySelector('#esGrid');
+  scored.forEach(function(it){ it.c.style.display = ''; gridEl.appendChild(it.c); count++; });
   document.getElementById('esShowAll').style.display = 'none';
   document.getElementById('esNoResults').style.display = count === 0 ? 'block' : 'none';
 }

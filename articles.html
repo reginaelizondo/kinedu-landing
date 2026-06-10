@@ -4644,7 +4644,7 @@ function deaccent(s) { return s.normalize ? s.normalize('NFD').replace(/[\u0300-
 function normalizeQ(s) { return deaccent(s.toLowerCase()).replace(/[-–—']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
 
 // Stopwords: dropped from queries so "when do babies crawl" matches "crawl"
-var STOPW = new Set(['a','an','the','is','are','was','do','does','did','my','your','our','his','her','their','when','how','what','why','who','which','to','for','of','in','on','at','can','could','should','would','i','me','we','you','it','its','that','this','these','with','about','from','will','be','been','and','or','not','no','if','too','very']);
+var STOPW = new Set(['a','an','the','is','are','was','do','does','did','my','your','our','his','her','their','when','how','what','why','who','which','to','for','of','in','on','at','can','could','should','would','i','me','we','you','it','its','that','this','these','with','about','from','will','be','been','and','or','not','no','if','too','very','baby','babies','child','children','kid','kids','toddler','little','one','old']);
 
 // Domain synonym groups — each word expands to its group
 var SYN_GROUPS = [
@@ -4873,7 +4873,8 @@ function doSearch() {
     }
   });
   scored.sort(function(a,b){ return b.score - a.score; });
-  scored.forEach(function(item) { item.card.style.display = ''; count++; });
+  var gridEl = document.getElementById('articleGrid');
+  scored.forEach(function(item) { item.card.style.display = ''; gridEl.appendChild(item.card); count++; });
 
   // Render inline panel with top results
   renderPanel(scored, words, raw.trim(), count);
