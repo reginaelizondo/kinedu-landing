@@ -237,8 +237,8 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-card-over::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,.02) 30%, rgba(14,27,44,.82) 100%); z-index: 1; }
 .kb-card-over > * { position: relative; z-index: 2; }
 .kb-card-over .kb-card-cat { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.3); padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .01em; }
-.kb-card-over h3 { font-size: 18px; font-weight: 800; line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 6px; }
-.kb-card-over .meta { font-size: 12px; opacity: .8; font-weight: 500; }
+.kb-card-over h3 { color: #fff; font-size: 18px; font-weight: 800; line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 6px; }
+.kb-card-over .meta { color: #fff; font-size: 12px; opacity: .85; font-weight: 500; }
 
 /* ── GRIDS ────────────────────────────────────────────────── */
 .kb-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -250,7 +250,7 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-stage img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); transition: transform .4s; }
 .kb-stage:hover img.bg { transform: scale(1.04); }
 .kb-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 25%, rgba(14,27,44,.85) 100%); }
-.kb-stage > * { position: relative; z-index: 2; }
+.kb-stage > * { position: relative; z-index: 2; color: #fff; }
 .kb-stage .age-range { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
 .kb-stage h4 { font-size: 20px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
 .kb-stage .count { font-size: 12px; opacity: .75; margin-top: 4px; font-weight: 500; }
@@ -332,6 +332,7 @@ img { display: block; max-width: 100%; height: auto; }
   .kb-hero-b-title { font-size: 56px; }
 }
 @media (max-width: 900px) {
+  .kb-hero-b { padding-top: 108px !important; }
   .kb-wrap { padding: 0 24px; }
   .kb-hero-b { padding: 64px 0 48px; }
   .kb-hero-b-title { font-size: 46px; }
@@ -408,6 +409,13 @@ img { display: block; max-width: 100%; height: auto; }
   .ksf-cols { gap: 40px; }
   .ksf-bottom { padding: 20px; }
 }
+
+@media (max-width: 640px) {
+  .kb-hero-b-tags { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 6px; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
+  .kb-hero-b-tags::-webkit-scrollbar { display: none; }
+  .kb-hero-b-tags .label { flex-shrink: 0; }
+  .kb-trend-chip { flex-shrink: 0; }
+}
 </style>
 <link rel="alternate" type="application/rss+xml" title="Kinedu Blog" href="https://www.kinedu.com/feed.xml">
 </head>
@@ -456,7 +464,7 @@ img { display: block; max-width: 100%; height: auto; }
         Expert-backed parenting guidance
       </div>
       <h1 class="kb-hero-b-title">The questions parents<br>really ask, <em>answered<br>by experts.</em></h1>
-      <p class="kb-hero-sub">977 articles written by pediatricians, sleep coaches, and development specialists — for every stage of your child's first 6 years.</p>
+      <p class="kb-hero-sub">900+ articles written by pediatricians, sleep coaches, and development specialists — for every stage of your child's first 6 years.</p>
     </div>
     <div class="kb-search-wrap">
       <div class="kb-search">
@@ -468,12 +476,12 @@ img { display: block; max-width: 100%; height: auto; }
     </div>
     <div class="kb-hero-b-tags">
       <span class="label">Trending:</span>
-      <a href="/blog?q=sleep%20regression" class="kb-trend-chip" data-q="sleep regression">🌙 Sleep regressions</a>
-      <a href="/blog?q=solid%20foods" class="kb-trend-chip" data-q="solid foods">🥣 Solid foods</a>
-      <a href="/blog?q=speech%20milestones" class="kb-trend-chip" data-q="speech milestones">💬 Speech milestones</a>
-      <a href="/blog?q=sleep%20training" class="kb-trend-chip" data-q="sleep training">😴 Sleep training</a>
-      <a href="/blog?q=tantrums" class="kb-trend-chip" data-q="tantrums">🌋 Tantrums</a>
-      <a href="/browse" class="kb-trend-chip kb-trend-chip--all">📚 All topics →</a>
+      <a href="/blog?q=sleep%20regression" class="kb-trend-chip" data-q="sleep regression">Sleep regressions</a>
+      <a href="/blog?q=solid%20foods" class="kb-trend-chip" data-q="solid foods">Solid foods</a>
+      <a href="/blog?q=speech%20milestones" class="kb-trend-chip" data-q="speech milestones">Speech milestones</a>
+      <a href="/blog?q=sleep%20training" class="kb-trend-chip" data-q="sleep training">Sleep training</a>
+      <a href="/blog?q=tantrums" class="kb-trend-chip" data-q="tantrums">Tantrums</a>
+      <a href="/browse" class="kb-trend-chip kb-trend-chip--all">All topics →</a>
     </div>
   </div>
 </section>
@@ -487,7 +495,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="kb-eyebrow">Browse by stage</div>
         <h2 class="kb-h2">Every age, covered</h2>
       </div>
-      <a href="/browse" class="kb-link">📚 Browse by topic →</a>
+      <a href="/browse" class="kb-link">Browse by topic →</a>
     </div>
     <div class="kb-stage-row">
   <a href="#articleGrid" class="kb-stage" data-stage="prenatal" style="--focus:50% 30%;" onclick="filterByStage(event,this)">
@@ -4341,7 +4349,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="kb-app-cta">
       <div>
         <h2>The app that grows with your baby</h2>
-        <p>Personalized activities, milestone tracking, live expert classes, and a library of 2,400+ articles — all in one place.</p>
+        <p>Personalized activities, milestone tracking, live expert classes, and a library of 900+ articles — all in one place.</p>
         <div class="stores">
           <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" class="kb-app-store-badge" style="color:white;">
             <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M14.5 11.5c-.02-2.6 2.1-3.85 2.2-3.92-1.2-1.76-3.06-2-3.72-2.03-1.58-.16-3.1.93-3.9.93-.8 0-2.02-.9-3.33-.88C4.02 5.63 2.3 6.67 1.36 8.27-.6 11.5.8 16.2 2.7 18.7c.94 1.38 2.08 2.9 3.55 2.86 1.43-.06 1.97-.92 3.7-.92 1.72 0 2.22.92 3.73.89 1.54-.03 2.5-1.38 3.44-2.77a12.8 12.8 0 001.56-3.22c-.04-.01-2.98-1.14-3.02-4.54M11.97 3.5C12.76 2.55 13.3 1.2 13.14 0c-1.14.05-2.6.76-3.44 1.7-.74.84-1.42 2.2-1.24 3.47 1.26.1 2.6-.65 3.5-1.67" fill="currentColor"/></svg>
@@ -4359,7 +4367,7 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="lbl">Parents worldwide</div>
         </div>
         <div class="kb-app-cta-stat">
-          <div class="num">2,400+</div>
+          <div class="num">900+</div>
           <div class="lbl">Expert articles</div>
         </div>
         <div class="kb-app-cta-stat">
