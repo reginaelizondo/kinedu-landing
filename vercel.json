@@ -1,47 +1,282 @@
 {
   "rewrites": [
-    { "source": "/es/articles", "destination": "/es/articles.html" },
-    { "source": "/es/articles.html", "destination": "/es/articles.html" },
-    { "source": "/es/blog/:slug", "destination": "/es/blog/:slug.html" },
-    { "source": "/pt/articles", "destination": "/pt/articles.html" },
-    { "source": "/pt/articles.html", "destination": "/pt/articles.html" },
-    { "source": "/pt/blog/:slug", "destination": "/pt/blog/:slug.html" },
-    { "source": "/es", "destination": "/index.html" },
-    { "source": "/pt", "destination": "/index.html" },
-    { "source": "/browse", "destination": "/browse.html" },
-    { "source": "/gift", "destination": "/gift.html" },
-    { "source": "/live-classes", "destination": "/live-classes.html" },
-    { "source": "/live-classes-ads-es", "destination": "/live-classes-ads-es.html" },
-    { "source": "/live-classes-ads-en", "destination": "/live-classes-ads-en.html" },
-    { "source": "/live-classes-ads-pt", "destination": "/live-classes-ads-pt.html" },
-    { "source": "/blog", "destination": "/articles.html" },
-    { "source": "/es/blog", "destination": "/es/articles.html" },
-    { "source": "/pt/blog", "destination": "/pt/articles.html" },
-    { "source": "/blog/category/:cat", "destination": "/blog/category/:cat.html" },
-    { "source": "/es/blog/category/:cat", "destination": "/es/blog/category/:cat.html" },
-    { "source": "/pt/blog/category/:cat", "destination": "/pt/blog/category/:cat.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+    {
+      "source": "/es/articles",
+      "destination": "/es/articles.html"
+    },
+    {
+      "source": "/es/articles.html",
+      "destination": "/es/articles.html"
+    },
+    {
+      "source": "/es/blog/:slug",
+      "destination": "/es/blog/:slug.html"
+    },
+    {
+      "source": "/pt/articles",
+      "destination": "/pt/articles.html"
+    },
+    {
+      "source": "/pt/articles.html",
+      "destination": "/pt/articles.html"
+    },
+    {
+      "source": "/pt/blog/:slug",
+      "destination": "/pt/blog/:slug.html"
+    },
+    {
+      "source": "/es",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/pt",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/browse",
+      "destination": "/browse.html"
+    },
+    {
+      "source": "/gift",
+      "destination": "/gift.html"
+    },
+    {
+      "source": "/live-classes",
+      "destination": "/live-classes.html"
+    },
+    {
+      "source": "/live-classes-ads-es",
+      "destination": "/live-classes-ads-es.html"
+    },
+    {
+      "source": "/live-classes-ads-en",
+      "destination": "/live-classes-ads-en.html"
+    },
+    {
+      "source": "/live-classes-ads-pt",
+      "destination": "/live-classes-ads-pt.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/articles.html"
+    },
+    {
+      "source": "/es/blog",
+      "destination": "/es/articles.html"
+    },
+    {
+      "source": "/pt/blog",
+      "destination": "/pt/articles.html"
+    },
+    {
+      "source": "/blog/category/:cat",
+      "destination": "/blog/category/:cat.html"
+    },
+    {
+      "source": "/es/blog/category/:cat",
+      "destination": "/es/blog/category/:cat.html"
+    },
+    {
+      "source": "/pt/blog/category/:cat",
+      "destination": "/pt/blog/category/:cat.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)\\.(png|jpg|jpeg|webp|svg|gif|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/kinedu-gets-a-new-look-and-features",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-learn-thrive",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-learn",
+      "destination": "/live-classes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-online",
+      "destination": "/live-classes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/initial-assessment",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/coming-soon-kinedu-2-0-is-better-than-ever",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/coming-soon-to-kinedu",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/about-kinedu-why-we-do-what-we-do",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/about-kinedu-part-2-the-time-is-right-to-innovate",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/welcome-to-our-blog",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/about-us",
+      "destination": "/founder.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/speech-therapy-activities-betterspeech",
+      "destination": "/blog/language-delay",
+      "permanent": true
+    },
+    {
+      "source": "/blog/baby-hiccups",
+      "destination": "/blog/hiccups-in-newborns-and-babies",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hand-foot-and-mouth-disease",
+      "destination": "/blog/hand-foot-and-mouth-disease-what-every-parent-should-know",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tongue-tied-baby",
+      "destination": "/blog/what-is-tongue-tie-in-a-baby",
+      "permanent": true
+    },
+    {
+      "source": "/blog/finger-dexterity-developing-the-pincer-grasp",
+      "destination": "/blog/pincer-grasp-two-tiny-fingers",
+      "permanent": true
+    },
+    {
+      "source": "/blog/baby-growth-spurts",
+      "destination": "/blog/what-are-baby-growth-spurts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/soft-spot-baby-head",
+      "destination": "/blog/whats-normal-for-a-babys-soft-spot",
+      "permanent": true
+    },
+    {
+      "source": "/blog/braxton-hicks",
+      "destination": "/blog/braxton-hicks-contractions",
+      "permanent": true
+    },
+    {
+      "source": "/blog/4-month-sleep-regression",
+      "destination": "/blog/why-does-the-4-month-sleep-regression-happen",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-burp-newborn",
+      "destination": "/blog/how-to-burp-a-baby",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lactation-consultant",
+      "destination": "/blog/when-to-see-a-lactation-consultant",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-bottle",
+      "destination": "/blog/best-bottle-for-my-baby",
+      "permanent": true
+    },
+    {
+      "source": "/blog/plagicephaly-syndrome",
+      "destination": "/blog/can-a-babys-flat-head-be-corrected",
+      "permanent": true
+    },
+    {
+      "source": "/blog/activities-for-2-year-olds",
+      "destination": "/blog/activities-for-2-year-olds-2",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-importance-of-tummy-time",
+      "destination": "/blog/when-to-start-tummy-time",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bring-some-fun-to-tummy-time",
+      "destination": "/blog/when-to-start-tummy-time",
+      "permanent": true
+    },
+    {
+      "source": "/blog/apps-to-track-baby-development",
+      "destination": "/blog/the-baby-development-tracker-app",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-educators-admin-directors-manual",
+      "destination": "/docs/kinedu-educators-admin-directors-manual.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-educators-teachers-manual",
+      "destination": "/docs/kinedu-educators-teachers-manual.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu-parents-manual",
+      "destination": "/docs/kinedu-parents-manual.html",
+      "permanent": true
     }
   ]
 }
