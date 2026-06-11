@@ -124,17 +124,6 @@
   ],
   "redirects": [
     {
-      "source": "/__hosttest",
-      "has": [
-        {
-          "type": "host",
-          "value": "kinedu-landing.vercel.app"
-        }
-      ],
-      "destination": "https://www.kinedu.com/",
-      "permanent": false
-    },
-    {
       "source": "/blog/kinedu-gets-a-new-look-and-features",
       "destination": "/",
       "permanent": true
