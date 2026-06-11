@@ -189,6 +189,12 @@ img { display: block; max-width: 100%; height: auto; }
   margin-top: 20px;
 }
 .kb-hero-b-tags .label { font-weight: 600; color: var(--ink-2); }
+.kb-trend-chip { display:inline-flex; align-items:center; gap:5px; background:white; border:1.5px solid var(--line); border-radius:100px; padding:6px 14px; font-size:13px; font-weight:600; color:var(--ink-2); text-decoration:none; transition:all .15s; box-shadow:0 1px 3px rgba(14,27,44,.05); }
+.kb-trend-chip:hover { border-color:var(--blue); background:var(--blue-soft); color:var(--blue); transform:translateY(-1px); box-shadow:0 4px 12px rgba(43,139,228,.15); }
+.kb-trend-chip--all { background:var(--blue); color:white; border-color:var(--blue); }
+.kb-trend-chip--all:hover { background:var(--blue-dark); color:white; }
+.kb-hero-b-tags { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+
 .kb-hero-b-tags a { color: var(--ink-2); font-weight: 500; transition: color .15s; border-bottom: 1px solid transparent; }
 .kb-hero-b-tags a:hover { color: var(--blue); border-color: var(--blue); }
 .kb-hero-b-tags .sep { color: var(--line); }
@@ -463,15 +469,12 @@ img { display: block; max-width: 100%; height: auto; }
     </div>
     <div class="kb-hero-b-tags">
       <span class="label">Trending:</span>
-      <a href="https://www.kinedu.com/blog/why-does-the-4-month-sleep-regression-happen">Sleep regressions</a>
-      <span class="sep">•</span>
-      <a href="https://www.kinedu.com/blog/what-should-a-6-month-old-feeding-schedule-look-like">Solid foods</a>
-      <span class="sep">•</span>
-      <a href="https://www.kinedu.com/blog/my-18-month-old-isnt-talking">Speech milestones</a>
-      <span class="sep">•</span>
-      <a href="https://www.kinedu.com/blog/when-do-babies-sleep-through-the-night">Sleep training</a>
-      <span class="sep">•</span>
-      <a href="/browse.html" class="kb-browse-topic-pill">📚 Browse all topics →</a>
+      <a href="/blog?q=sleep%20regression" class="kb-trend-chip" data-q="sleep regression">🌙 Sleep regressions</a>
+      <a href="/blog?q=solid%20foods" class="kb-trend-chip" data-q="solid foods">🥣 Solid foods</a>
+      <a href="/blog?q=speech%20milestones" class="kb-trend-chip" data-q="speech milestones">💬 Speech milestones</a>
+      <a href="/blog?q=sleep%20training" class="kb-trend-chip" data-q="sleep training">😴 Sleep training</a>
+      <a href="/blog?q=tantrums" class="kb-trend-chip" data-q="tantrums">🌋 Tantrums</a>
+      <a href="/browse" class="kb-trend-chip kb-trend-chip--all">📚 All topics →</a>
     </div>
   </div>
 </section>
@@ -4891,6 +4894,20 @@ function doSearch() {
 }
 
 searchInput.addEventListener('input', doSearch);
+
+// Trending chips: ejecutan la búsqueda AI en vivo (sin recargar)
+document.querySelectorAll('.kb-trend-chip[data-q]').forEach(function(chip) {
+  chip.addEventListener('click', function(e) {
+    e.preventDefault();
+    searchInput.value = chip.getAttribute('data-q');
+    doSearch();
+    closePanel();
+    var grid = document.getElementById('articleGrid');
+    if (grid) window.scrollTo({ top: grid.getBoundingClientRect().top + window.pageYOffset - 96, behavior: 'smooth' });
+    history.replaceState(null, '', '/blog?q=' + encodeURIComponent(chip.getAttribute('data-q')));
+  });
+});
+
 
 // Soporte para llegar con búsqueda desde otra página: /blog?q=... (param 'q')
 (function(){
