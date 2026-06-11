@@ -59,8 +59,10 @@ img{max-width:100%;display:block}
 /* ── GIFT CARD MOCK ── */
 .cardsec{padding:84px 0;background:#fff}
 .cardsec .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.giftcard{position:relative;border-radius:24px;padding:34px 34px 30px;background:linear-gradient(135deg,#2B8BE4 0%,#4DA9EE 55%,#34C989 100%);color:#fff;box-shadow:0 30px 70px rgba(43,139,228,.35);overflow:hidden;transform:rotate(-2deg);transition:transform .3s}
-.giftcard:hover{transform:rotate(0deg) scale(1.02)}
+.gc-wrap{perspective:1000px}
+.giftcard{position:relative;border-radius:24px;padding:34px 34px 30px;background:linear-gradient(135deg,#2B8BE4 0%,#4DA9EE 55%,#34C989 100%);color:#fff;box-shadow:0 30px 70px rgba(43,139,228,.35);overflow:hidden;transform:rotate(-2deg);transition:transform .25s ease,box-shadow .25s ease;will-change:transform}
+.gc-ribbon{position:absolute;top:18px;right:-38px;background:rgba(255,255,255,.95);color:var(--pink);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 44px;transform:rotate(38deg);box-shadow:0 2px 10px rgba(14,27,44,.18)}
+.gc-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.5px,transparent 1.5px);background-size:22px 22px;pointer-events:none}
 .giftcard::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);animation:shine 4.5s ease-in-out infinite}
 @keyframes shine{0%,60%{left:-80%}100%{left:130%}}
 .gc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px}
@@ -83,7 +85,9 @@ img{max-width:100%;display:block}
 .sec-eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);padding:6px 16px;border-radius:100px;margin-bottom:16px}
 .how h2,.plans h2,.faq h2{font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.025em;margin-bottom:14px}
 .how-sub{color:var(--muted);max-width:480px;margin:0 auto 48px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto;position:relative}
+.steps::before{content:'';position:absolute;top:60px;left:18%;right:18%;border-top:2px dashed rgba(43,139,228,.3);z-index:0}
+.step{z-index:1}
 .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 26px;position:relative;transition:transform .2s,box-shadow .2s}
 .step:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,27,44,.08)}
 .step-n{position:absolute;top:18px;right:22px;font-size:3rem;font-weight:800;color:var(--line);line-height:1}
@@ -114,9 +118,18 @@ img{max-width:100%;display:block}
 .plan--hot .plan-btn{background:linear-gradient(90deg,var(--blue),#34A9E9)}
 .plan--hot .plan-btn:hover{filter:brightness(1.08)}
 .plans-note{font-size:.8rem;color:var(--muted2);margin-top:26px}
+.plan-feats{list-style:none;text-align:left;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.plan-feats li{position:relative;padding-left:24px;font-size:.84rem;color:var(--ink2);line-height:1.45}
+.plan-feats li::before{content:'';position:absolute;left:0;top:3px;width:15px;height:15px;border-radius:50%;background:var(--green-soft) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2334C989" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center/9px no-repeat}
+.save-pill{display:inline-block;background:var(--green-soft);color:#1FA66E;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:100px;margin-right:6px}
+.save-pill--soft{background:var(--bg2);color:var(--muted)}
 
 /* ── PROOF ── */
-.proof{padding:64px 0;background:linear-gradient(160deg,#EBF3FF,#EDFAF4);text-align:center}
+.proof{padding:72px 0 64px;background:linear-gradient(160deg,#EBF3FF,#EDFAF4);text-align:center;position:relative;overflow:hidden}
+.proof-mark{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-size:13rem;font-weight:800;color:rgba(43,139,228,.09);line-height:1;pointer-events:none}
+.proof blockquote em{font-style:normal;color:var(--blue)}
+.who{display:flex;align-items:center;justify-content:center;gap:9px}
+.who-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;font-weight:800;font-size:.8rem;display:inline-flex;align-items:center;justify-content:center}
 .proof blockquote{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:700;letter-spacing:-.015em;max-width:680px;margin:0 auto 18px;line-height:1.45}
 .proof .stars{color:var(--yellow);font-size:1.2rem;letter-spacing:3px;margin-bottom:14px}
 .proof .who{font-size:.85rem;color:var(--muted)}
@@ -134,7 +147,10 @@ img{max-width:100%;display:block}
 .faq-item.open .faq-a{max-height:240px}
 
 /* ── FINAL CTA ── */
-.final{padding:80px 24px;text-align:center;background:var(--ink);color:#fff}
+.final{padding:90px 24px;text-align:center;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(43,139,228,.25),transparent 70%);top:-160px;left:-120px;filter:blur(40px)}
+.final::after{content:'';position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(52,201,137,.2),transparent 70%);bottom:-140px;right:-100px;filter:blur(40px)}
+.final>*{position:relative;z-index:1}
 .final h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.025em;margin-bottom:12px}
 .final p{color:rgba(255,255,255,.65);margin-bottom:30px;font-size:.98rem}
 .final .btn-main{box-shadow:0 10px 36px rgba(43,139,228,.5)}
@@ -155,6 +171,9 @@ footer a{color:rgba(255,255,255,.65)}
   .giftcard{padding:26px 24px 24px}
   .gc-title{font-size:1.35rem}
 }
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.giftcard{transition:none}}
 </style>
 </head>
 <body>
@@ -191,7 +210,9 @@ footer a{color:rgba(255,255,255,.65)}
 <section class="cardsec">
   <div class="wrap">
     <div>
-      <div class="giftcard">
+      <div class="gc-wrap"><div class="giftcard" id="giftCard">
+        <span class="gc-dots"></span>
+        <span class="gc-ribbon">For you</span>
         <div class="gc-top">
           <span class="gc-logo"><img src="/logo kinedu.png" alt="Kinedu"></span>
           <span class="gc-tag">Gift Card</span>
@@ -203,7 +224,7 @@ footer a{color:rgba(255,255,255,.65)}
           <div><b>From</b> Grandma Rosa</div>
           <div><b>Arrives</b> On her shower</div>
         </div>
-      </div>
+      </div></div>
     </div>
     <div>
       <span class="sec-eyebrow">Why it's the perfect gift</span>
@@ -246,6 +267,11 @@ footer a{color:rgba(255,255,255,.65)}
         <div class="plan-dur">3 months of Kinedu</div>
         <div class="plan-price">$29<span> USD</span></div>
         <div class="plan-per">~$9.67/month</div>
+        <ul class="plan-feats">
+          <li>Daily personalized activity plans</li>
+          <li>All live expert classes</li>
+          <li>Milestone tracking</li>
+        </ul>
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%203%20months">Gift 3 months</a>
       </div>
       <div class="plan plan--hot">
@@ -254,7 +280,13 @@ footer a{color:rgba(255,255,255,.65)}
         <h3>The Full First Year</h3>
         <div class="plan-dur">12 months of Kinedu</div>
         <div class="plan-price">$79<span> USD</span></div>
-        <div class="plan-per">~$6.58/month — save 21%</div>
+        <div class="plan-per"><span class="save-pill">Save 21%</span> ~$6.58/month</div>
+        <ul class="plan-feats">
+          <li><b>Everything in Kinedu, all year</b></li>
+          <li>From newborn naps to first steps</li>
+          <li>Gift card with your message</li>
+          <li>Schedule delivery for the big day</li>
+        </ul>
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%2012%20months">Gift a full year</a>
       </div>
       <div class="plan">
@@ -262,7 +294,12 @@ footer a{color:rgba(255,255,255,.65)}
         <h3>The Half Year</h3>
         <div class="plan-dur">6 months of Kinedu</div>
         <div class="plan-price">$49<span> USD</span></div>
-        <div class="plan-per">~$8.17/month</div>
+        <div class="plan-per"><span class="save-pill save-pill--soft">Save 16%</span> ~$8.17/month</div>
+        <ul class="plan-feats">
+          <li>Daily personalized activity plans</li>
+          <li>All live expert classes</li>
+          <li>Milestone tracking</li>
+        </ul>
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%206%20months">Gift 6 months</a>
       </div>
     </div>
@@ -273,9 +310,10 @@ footer a{color:rgba(255,255,255,.65)}
 <!-- PROOF -->
 <section class="proof">
   <div class="wrap">
+    <div class="proof-mark">“</div>
     <div class="stars">★★★★★</div>
-    <blockquote>"I was gifted the subscription and I use it EVERY single day. It's excellent for those first months."</blockquote>
-    <div class="who">Paulina V. — App Store review</div>
+    <blockquote>I was gifted the subscription and I use it <em>EVERY single day</em>. It's excellent for those first months.</blockquote>
+    <div class="who"><span class="who-avatar">P</span> Paulina V. · App Store review</div>
     <div class="trust"><span>8M+ families</span><span>·</span><span>180+ countries</span><span>·</span><span>25K+ five-star reviews</span><span>·</span><span>Recommended by pediatricians</span></div>
   </div>
 </section>
@@ -314,6 +352,27 @@ footer a{color:rgba(255,255,255,.65)}
 <footer>© 2026 Kinedu · <a href="https://blog.kinedu.com/privacy-policy-2/">Privacy</a> · <a href="https://blog.kinedu.com/privacy-policy/">Terms</a> · hello@kinedu.com</footer>
 
 <script>
+// Scroll reveal
+var revealEls = document.querySelectorAll('.step, .plan, .giftcard, .checks .check, .cardsec h2, .faq-item');
+revealEls.forEach(function(el){ el.classList.add('reveal'); });
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+revealEls.forEach(function(el){ io.observe(el); });
+
+// 3D tilt en la gift card
+var gc = document.getElementById('giftCard');
+if (gc && matchMedia('(pointer:fine)').matches) {
+  var wrap = gc.parentElement;
+  wrap.addEventListener('mousemove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - .5;
+    var y = (e.clientY - r.top) / r.height - .5;
+    gc.style.transform = 'rotate(0deg) rotateY(' + (x*10) + 'deg) rotateX(' + (-y*10) + 'deg) scale(1.02)';
+  });
+  wrap.addEventListener('mouseleave', function(){ gc.style.transform = 'rotate(-2deg)'; });
+}
+
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){
     var item=q.parentElement;
