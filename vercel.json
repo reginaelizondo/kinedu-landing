@@ -9,6 +9,7 @@
     { "source": "/es", "destination": "/index.html" },
     { "source": "/pt", "destination": "/index.html" },
     { "source": "/browse", "destination": "/browse.html" },
+    { "source": "/gift", "destination": "/gift.html" },
     { "source": "/live-classes", "destination": "/live-classes.html" },
     { "source": "/live-classes-ads-es", "destination": "/live-classes-ads-es.html" },
     { "source": "/live-classes-ads-en", "destination": "/live-classes-ads-en.html" },
