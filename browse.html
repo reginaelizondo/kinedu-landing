@@ -20,9 +20,15 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Browse All Articles — Kinedu Blog</title>
-<meta name="description" content="Browse all 977 expert-backed parenting articles organized by topic — sleep, development, feeding, health, and more.">
+<title>Browse All Articles by Topic — Kinedu Blog</title>
+<meta name="description" content="Browse 900+ expert-backed parenting articles organized by topic — baby sleep, child development, feeding, health, pregnancy, and more.">
 <link rel="canonical" href="https://www.kinedu.com/browse">
+<meta property="og:title" content="Browse All Articles by Topic — Kinedu Blog">
+<meta property="og:description" content="900+ expert-backed parenting articles organized by topic — sleep, development, feeding, health, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kinedu.com/browse">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Browse All Articles by Topic","url":"https://www.kinedu.com/browse","isPartOf":{"@type":"Blog","name":"Kinedu Blog","url":"https://www.kinedu.com/blog"}}</script>
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc');setTimeout(function(){document.documentElement.classList.remove('no-fouc');document.documentElement.classList.add('fouc-ready')},1500)})()</script>
@@ -238,7 +244,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
 <!-- HERO -->
 <section class="kb-browse-hero">
   <div class="kb-wrap">
-    <a href="/articles.html" class="kb-browse-back">
+    <a href="/blog" class="kb-browse-back">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
       Back to Blog
     </a>
@@ -322,7 +328,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
     <div id="ageBanner" class="kb-age-banner" style="display:none;"></div>
     <div id="browseNoResults" class="kb-no-results">
       <strong style="display:block;font-size:18px;margin-bottom:6px;">No articles found</strong>
-      Try different keywords like "sleep", "feeding" or "toddler"
+      Try different keywords — or <a id="searchAllLink" href="/blog" style="color:var(--blue);font-weight:700;">search all 900+ articles →</a>
     </div>
 
 <section class="kb-topic-section" id="topic-sleep">
@@ -334,7 +340,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Sleep</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=sleep" class="kb-topic-see-all">See all 42 →</a>
+    <a href="/blog?cat=sleep" class="kb-topic-see-all">See all 42 →</a>
   </div>
   <p class="kb-topic-desc">Sleep regressions, training, nap schedules and bedtime routines.</p>
   <div class="kb-tc-grid">
@@ -371,7 +377,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Child Development</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=child-development" class="kb-topic-see-all">See all 446 →</a>
+    <a href="/blog?cat=child-development" class="kb-topic-see-all">See all 446 →</a>
   </div>
   <p class="kb-topic-desc">Milestones in cognitive, social, physical and language development.</p>
   <div class="kb-tc-grid">
@@ -482,7 +488,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Parenting</h2>
       </div>
     </div>
-    <a href="/articles.html?cat=parenting" class="kb-topic-see-all">See all 115 →</a>
+    <a href="/blog?cat=parenting" class="kb-topic-see-all">See all 115 →</a>
   </div>
   <p class="kb-topic-desc">Discipline, routines, screen time, relationships and family life.</p>
   <div class="kb-tc-grid">
@@ -519,7 +525,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--bg); -webk
         <h2 class="kb-topic-h2">Pregnancy</h2>
       </div>
     </div>
-    <a href="/articles.html?stage=prenatal" class="kb-topic-see-all">See all 13 →</a>
+    <a href="/blog?stage=prenatal" class="kb-topic-see-all">See all 13 →</a>
   </div>
   <p class="kb-topic-desc">What to expect during pregnancy, labor, postpartum and newborn care.</p>
   <div class="kb-tc-grid">
@@ -673,8 +679,24 @@ window.addEventListener('scroll', updateActiveNav, { passive: true });
 updateActiveNav();
 
 // ── AI Search ──
+function deacc(s){return s.normalize?s.normalize('NFD').replace(/[\u0300-\u036f]/g,''):s}
 function normalizeQ(s) {
-  return s.toLowerCase().replace(/[''',.\-!?]/g,'').replace(/\s+/g,' ').trim();
+  return deacc(s.toLowerCase()).replace(/[-\u2013\u2014']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+}
+var BR_STOP = new Set(['a','an','the','is','are','do','does','did','my','your','when','how','what','why','to','for','of','in','on','at','can','i','we','it','that','this','with','about','will','be','and','or','not','no','if','baby','babies','child','children','kid','kids','toddler','little','one','old','start','starts']);
+function brLev(a,b,max){if(Math.abs(a.length-b.length)>max)return max+1;var p=[],c=[];for(var j=0;j<=b.length;j++)p[j]=j;for(var i=1;i<=a.length;i++){c[0]=i;var rm=i;for(var jj=1;jj<=b.length;jj++){c[jj]=Math.min(p[jj]+1,c[jj-1]+1,p[jj-1]+(a[i-1]===b[jj-1]?0:1));if(c[jj]<rm)rm=c[jj]}if(rm>max)return max+1;p=c.slice()}return p[b.length]}
+function brStem(w){return w.length>4?w.replace(/(ing|ed|es|s)$/,''):w.replace(/s$/,'')}
+function brHit(w, text){
+  if(text.includes(w))return 1;
+  var tokens=text.split(' ');var st=brStem(w);var maxD=w.length>=8?2:(w.length>=5?1:0);
+  for(var i=0;i<tokens.length;i++){var t=tokens[i];
+    if((t.indexOf(st)===0||w.indexOf(brStem(t))===0)&&Math.min(t.length,st.length)>2)return .8;
+    if(maxD&&Math.abs(t.length-w.length)<=maxD&&brLev(w,t,maxD)<=maxD)return .65}
+  return 0;
+}
+function brFilterWords(words){
+  var f=words.filter(function(w){return !BR_STOP.has(w)});
+  return f.length?f:words;
 }
 
 function scoreBrowseCard(card, words, phrase) {
@@ -687,15 +709,14 @@ function scoreBrowseCard(card, words, phrase) {
   var sDesc = sec ? normalizeQ((sec.querySelector('.kb-topic-desc') || {}).textContent || '') : '';
 
   var score = 0;
-  // Article title (strongest signal)
+  var ws = brFilterWords(words);
   if (tN.includes(phrase)) score += 50;
-  words.forEach(function(w) { if (tN.includes(w)) score += 15; });
-  // Section name (medium signal — e.g. "nutr" hits "Feeding & Nutrition")
-  if (sName.includes(phrase)) score += 30;
-  words.forEach(function(w) { if (sName.includes(w)) score += 10; });
-  // Section description (weaker signal)
-  if (sDesc.includes(phrase)) score += 8;
-  words.forEach(function(w) { if (sDesc.includes(w)) score += 3; });
+  var hits = 0;
+  ws.forEach(function(w) { var h = brHit(w, tN); score += h * 16; if (h > 0) hits++; });
+  if (ws.length > 1 && hits === ws.length) score += 14;
+  if (sName.includes(phrase)) score += 25;
+  ws.forEach(function(w) { score += brHit(w, sName) * 7; });
+  ws.forEach(function(w) { score += brHit(w, sDesc) * 2; });
   return score;
 }
 
@@ -768,14 +789,14 @@ function runBrowseSearch() {
   }
 
   var phrase = normalizeQ(rawQ);
-  var words = phrase.split(' ').filter(function(w) { return w.length > 1; });
+  var words = brFilterWords(phrase.split(' ').filter(function(w) { return w.length > 1; }));
 
   // Score all cards
   var allCards = document.querySelectorAll('.kb-tc');
   var scored = [];
   allCards.forEach(function(card) {
     var s = scoreBrowseCard(card, words, phrase);
-    if (s > 0) scored.push({ card: card, score: s });
+    if (s > 6) scored.push({ card: card, score: s });
   });
   scored.sort(function(a, b) { return b.score - a.score; });
 
@@ -804,6 +825,9 @@ function runBrowseSearch() {
     sec.style.display = secVisible === 0 ? 'none' : '';
     totalVisible += secVisible;
   });
+  
+  var sa = document.getElementById('searchAllLink');
+  if (sa) sa.href = '/blog?q=' + encodeURIComponent(rawQ);
   if (noRes) noRes.style.display = totalVisible === 0 ? 'block' : 'none';
 }
 

@@ -4884,6 +4884,22 @@ function doSearch() {
 }
 
 searchInput.addEventListener('input', doSearch);
+
+// Soporte para llegar con búsqueda desde otra página: /blog?q=... (param 'q')
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('q');
+    if (q && searchInput) {
+      searchInput.value = q;
+      doSearch();
+      setTimeout(function(){
+        var grid = document.getElementById('articleGrid');
+        if (grid) window.scrollTo({ top: grid.getBoundingClientRect().top + window.pageYOffset - 96, behavior: 'smooth' });
+      }, 150);
+    }
+  } catch(e) {}
+})();
+
 searchInput.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
     e.preventDefault();
