@@ -33,19 +33,20 @@ img{max-width:100%;display:block}
 .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
 .nav img{height:28px}
-.nav-cta{background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:10px 22px;border-radius:100px;transition:background .15s}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:10px 22px;border-radius:100px;transition:background .15s}
 .nav-cta:hover{background:var(--blue-dark)}
 
 /* ── HERO ── */
 .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#EBF3FF 0%,#F6FAFF 45%,#FDEDF5 100%);padding:76px 0 90px;text-align:center}
-.hero-deco{position:absolute;font-size:28px;opacity:.85;animation:float 6s ease-in-out infinite;pointer-events:none}
-.hero-deco:nth-child(1){top:14%;left:9%;animation-delay:0s}
-.hero-deco:nth-child(2){top:24%;right:11%;animation-delay:1.2s;font-size:34px}
-.hero-deco:nth-child(3){bottom:20%;left:14%;animation-delay:2.1s;font-size:22px}
-.hero-deco:nth-child(4){bottom:30%;right:8%;animation-delay:.7s}
-.hero-deco:nth-child(5){top:55%;left:4%;animation-delay:3s;font-size:20px}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(5deg)}}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(232,67,147,.25);color:var(--pink);border-radius:100px;padding:7px 18px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px;box-shadow:0 2px 12px rgba(232,67,147,.12)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none;animation:float 9s ease-in-out infinite}
+.hero-orb--1{width:340px;height:340px;background:radial-gradient(circle,rgba(43,139,228,.35),transparent 70%);top:-80px;left:-60px}
+.hero-orb--2{width:300px;height:300px;background:radial-gradient(circle,rgba(232,67,147,.22),transparent 70%);bottom:-70px;right:-40px;animation-delay:2s}
+.hero-orb--3{width:240px;height:240px;background:radial-gradient(circle,rgba(52,201,137,.28),transparent 70%);top:40%;right:14%;animation-delay:4s}
+.hero-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(43,139,228,.18);pointer-events:none;animation:float 7s ease-in-out infinite}
+.hero-ring--1{width:120px;height:120px;top:20%;left:10%}
+.hero-ring--2{width:64px;height:64px;bottom:24%;right:9%;border-color:rgba(52,201,137,.25);animation-delay:1.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid rgba(232,67,147,.25);color:var(--pink);border-radius:100px;padding:7px 18px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px;box-shadow:0 2px 12px rgba(232,67,147,.12)}
 .hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;max-width:760px;margin:0 auto 18px}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero p{font-size:1.08rem;color:var(--muted);max-width:560px;margin:0 auto 34px;line-height:1.65}
@@ -86,7 +87,10 @@ img{max-width:100%;display:block}
 .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 26px;position:relative;transition:transform .2s,box-shadow .2s}
 .step:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,27,44,.08)}
 .step-n{position:absolute;top:18px;right:22px;font-size:3rem;font-weight:800;color:var(--line);line-height:1}
-.step-ico{font-size:2.2rem;margin-bottom:14px}
+.step-ico{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step-ico--blue{background:var(--blue-soft);color:var(--blue)}
+.step-ico--pink{background:var(--pink-soft);color:var(--pink)}
+.step-ico--green{background:var(--green-soft);color:var(--green)}
 .step h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
 .step p{font-size:.88rem;color:var(--muted);line-height:1.6}
 
@@ -98,7 +102,8 @@ img{max-width:100%;display:block}
 .plan:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(14,27,44,.09)}
 .plan--hot{border-color:var(--blue);box-shadow:0 14px 44px rgba(43,139,228,.18)}
 .plan-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--green));color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 18px;border-radius:100px;white-space:nowrap}
-.plan-emoji{font-size:2rem;margin-bottom:10px}
+.plan-accent{width:44px;height:5px;border-radius:100px;margin:0 auto 18px;background:var(--line)}
+.plan--hot .plan-accent{background:linear-gradient(90deg,var(--blue),var(--green))}
 .plan h3{font-size:1.05rem;font-weight:800;margin-bottom:4px}
 .plan-dur{font-size:.8rem;color:var(--muted2);margin-bottom:18px}
 .plan-price{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;margin-bottom:2px}
@@ -156,28 +161,28 @@ footer a{color:rgba(255,255,255,.65)}
 
 <nav class="nav"><div class="wrap">
   <a href="/"><img src="/logo kinedu.png" alt="Kinedu"></a>
-  <a href="#plans" class="nav-cta">🎁 Gift Kinedu</a>
+  <a href="#plans" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Gift Kinedu</a>
 </div></nav>
 
 <!-- HERO -->
 <header class="hero">
-  <span class="hero-deco">🎁</span>
-  <span class="hero-deco">🧸</span>
-  <span class="hero-deco">✨</span>
-  <span class="hero-deco">🍼</span>
-  <span class="hero-deco">💛</span>
+  <span class="hero-orb hero-orb--1"></span>
+  <span class="hero-orb hero-orb--2"></span>
+  <span class="hero-orb hero-orb--3"></span>
+  <span class="hero-ring hero-ring--1"></span>
+  <span class="hero-ring hero-ring--2"></span>
   <div class="wrap">
-    <div class="hero-badge">🎁 The Kinedu Gift</div>
+    <div class="hero-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> The Kinedu Gift</div>
     <h1>They'll forget the onesies.<br>They'll <em>use this every day.</em></h1>
     <p>Give a new parent a year of knowing exactly what to do — daily activity plans, live classes with pediatricians and sleep experts, and milestone tracking for their baby.</p>
     <a href="#plans" class="btn-main">Give the gift <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     <div class="hero-sub">Delivered by email · Schedule it for the big day</div>
     <div class="occasions">
-      <span class="occ">🍼 Baby showers</span>
-      <span class="occ">👶 New arrivals</span>
-      <span class="occ">🎄 Holidays</span>
-      <span class="occ">❤️ From grandparents</span>
-      <span class="occ">🎂 First birthdays</span>
+      <span class="occ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2B8BE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/></svg> Baby showers</span>
+      <span class="occ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84393" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> New arrivals</span>
+      <span class="occ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34C989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><circle cx="12" cy="14" r="6"/></svg> Holidays</span>
+      <span class="occ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E84393" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> From grandparents</span>
+      <span class="occ"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3M12 8v3M17 8v3"/><path d="M7 4h.01M12 4h.01M17 4h.01"/></svg> First birthdays</span>
     </div>
   </div>
 </header>
@@ -191,12 +196,12 @@ footer a{color:rgba(255,255,255,.65)}
           <span class="gc-logo"><img src="/logo kinedu.png" alt="Kinedu"></span>
           <span class="gc-tag">Gift Card</span>
         </div>
-        <div class="gc-title">One year of Kinedu 🎉</div>
+        <div class="gc-title">One year of Kinedu</div>
         <div class="gc-sub">Every expert, every class, every milestone — unlocked.</div>
         <div class="gc-meta">
           <div><b>To</b> Sarah &amp; baby Emma</div>
           <div><b>From</b> Grandma Rosa</div>
-          <div><b>Arrives</b> On her shower 🍼</div>
+          <div><b>Arrives</b> On her shower</div>
         </div>
       </div>
     </div>
@@ -221,9 +226,9 @@ footer a{color:rgba(255,255,255,.65)}
     <h2>Three steps. Two minutes.</h2>
     <p class="how-sub">No wrapping paper required.</p>
     <div class="steps">
-      <div class="step"><span class="step-n">1</span><div class="step-ico">🎁</div><h3>Pick the gift</h3><p>Choose 3, 6 or 12 months of full Kinedu access — every class, every expert, everything.</p></div>
-      <div class="step"><span class="step-n">2</span><div class="step-ico">💌</div><h3>Make it personal</h3><p>Add their name, your message, and pick the delivery date — instantly or on the big day.</p></div>
-      <div class="step"><span class="step-n">3</span><div class="step-ico">🎉</div><h3>They unwrap it by email</h3><p>A beautiful gift card lands in their inbox with one tap to activate. That's it.</p></div>
+      <div class="step"><span class="step-n">1</span><div class="step-ico step-ico--blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><h3>Pick the gift</h3><p>Choose 3, 6 or 12 months of full Kinedu access — every class, every expert, everything.</p></div>
+      <div class="step"><span class="step-n">2</span><div class="step-ico step-ico--pink"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5 13 13"/><path d="M21.5 4.5 16 21l-3.5-8L4 9.5z"/></svg></div><h3>Make it personal</h3><p>Add their name, your message, and pick the delivery date — instantly or on the big day.</p></div>
+      <div class="step"><span class="step-n">3</span><div class="step-ico step-ico--green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="m2 8 10 6 10-6"/></svg></div><h3>They unwrap it by email</h3><p>A beautiful gift card lands in their inbox with one tap to activate. That's it.</p></div>
     </div>
   </div>
 </section>
@@ -236,7 +241,7 @@ footer a{color:rgba(255,255,255,.65)}
     <p class="plans-sub">One payment. No subscription for you, no charges for them. Ever.</p>
     <div class="plan-grid">
       <div class="plan">
-        <div class="plan-emoji">🌱</div>
+        <div class="plan-accent"></div>
         <h3>The Starter</h3>
         <div class="plan-dur">3 months of Kinedu</div>
         <div class="plan-price">$29<span> USD</span></div>
@@ -244,8 +249,8 @@ footer a{color:rgba(255,255,255,.65)}
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%203%20months">Gift 3 months</a>
       </div>
       <div class="plan plan--hot">
-        <div class="plan-flag">⭐ Most gifted</div>
-        <div class="plan-emoji">🎂</div>
+        <div class="plan-flag">Most gifted</div>
+        <div class="plan-accent"></div>
         <h3>The Full First Year</h3>
         <div class="plan-dur">12 months of Kinedu</div>
         <div class="plan-price">$79<span> USD</span></div>
@@ -253,7 +258,7 @@ footer a{color:rgba(255,255,255,.65)}
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%2012%20months">Gift a full year</a>
       </div>
       <div class="plan">
-        <div class="plan-emoji">🌟</div>
+        <div class="plan-accent"></div>
         <h3>The Half Year</h3>
         <div class="plan-dur">6 months of Kinedu</div>
         <div class="plan-price">$49<span> USD</span></div>
@@ -261,7 +266,7 @@ footer a{color:rgba(255,255,255,.65)}
         <a class="plan-btn" href="mailto:hello@kinedu.com?subject=Gift%20Kinedu%20—%206%20months">Gift 6 months</a>
       </div>
     </div>
-    <p class="plans-note">🔒 Secure checkout · Gift cards never expire before activation · Questions? hello@kinedu.com</p>
+    <p class="plans-note">Secure checkout · Gift cards never expire before activation · Questions? hello@kinedu.com</p>
   </div>
 </section>
 
@@ -304,7 +309,7 @@ footer a{color:rgba(255,255,255,.65)}
 <section class="final">
   <h2>Be the gift they talk about<br>at every playdate.</h2>
   <p>Two minutes now. A year of confidence for them.</p>
-  <a href="#plans" class="btn-main">🎁 Give Kinedu</a>
+  <a href="#plans" class="btn-main"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg> Give Kinedu</a>
 </section>
 <footer>© 2026 Kinedu · <a href="https://blog.kinedu.com/privacy-policy-2/">Privacy</a> · <a href="https://blog.kinedu.com/privacy-policy/">Terms</a> · hello@kinedu.com</footer>
 
