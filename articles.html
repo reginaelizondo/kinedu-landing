@@ -418,11 +418,10 @@ img { display: block; max-width: 100%; height: auto; }
             <a href="/" class="nav-logo"><img src="/logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
                 <a href="/live-classes.html" data-i18n="nav.learn">Learn</a>
-                <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
                 <a href="/science.html" data-i18n="nav.science">Science</a>
                 <a href="/#faq" data-i18n="nav.faq">FAQ</a>
                 <a href="/founder.html" data-i18n="nav.founder">Founder</a>
-                <a href="/articles.html" data-i18n="nav.blog" class="active">Blog</a>
+                <a href="/blog" data-i18n="nav.blog" class="active">Blog</a>
                 <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
                 <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
                 <div class="lang-toggle lang-toggle--mobile">
@@ -488,7 +487,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="kb-eyebrow">Browse by stage</div>
         <h2 class="kb-h2">Every age, covered</h2>
       </div>
-      <a href="/browse.html" class="kb-link">📚 Browse by topic →</a>
+      <a href="/browse" class="kb-link">📚 Browse by topic →</a>
     </div>
     <div class="kb-stage-row">
   <a href="#articleGrid" class="kb-stage" data-stage="prenatal" style="--focus:50% 30%;" onclick="filterByStage(event,this)">
@@ -534,7 +533,7 @@ img { display: block; max-width: 100%; height: auto; }
         <div class="kb-eyebrow">Featured this week</div>
         <h2 class="kb-h2">Hand-picked by our editors</h2>
       </div>
-      <a href="/articles.html" class="kb-link" onclick="return false;" style="align-self:end;">See all articles →</a>
+      <a href="#articleGrid" class="kb-link" onclick="showAllCards();return true;" style="align-self:end;">See all articles →</a>
     </div>
     <div class="kb-featured-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
       
@@ -4330,7 +4329,7 @@ img { display: block; max-width: 100%; height: auto; }
 <div id="noResults" style="display:none;text-align:center;padding:60px 0;color:var(--muted);font-size:16px;">No articles found in this category yet.</div>
 <div id="showAllWrap" style="text-align:center;margin-top:40px;">
   <button id="showAllBtn" onclick="showAllCards()" style="background:var(--ink);color:white;padding:14px 36px;border-radius:12px;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='var(--blue)'" onmouseout="this.style.background='var(--ink)'">
-    See all 977 articles →
+    See all 900+ articles →
   </button>
 </div>
   </div>
@@ -4396,7 +4395,7 @@ img { display: block; max-width: 100%; height: auto; }
         <h5>Company</h5>
         <a href="/founder.html">About us</a>
         <a href="/science.html">The science</a>
-        <a href="/articles.html">Blog</a>
+        <a href="/blog">Blog</a>
       </div>
       <div class="ksf-col">
         <h5>Support</h5>
@@ -4894,6 +4893,20 @@ function doSearch() {
 }
 
 searchInput.addEventListener('input', doSearch);
+
+// En el blog, cambiar idioma = ir a la versión del blog en ese idioma
+document.querySelectorAll('.lang-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    var lang = btn.getAttribute('data-lang');
+    var dest = { en: '/blog', es: '/es/blog', pt: '/pt/blog' }[lang];
+    if (dest && !btn.classList.contains('active')) {
+      e.stopImmediatePropagation();
+      localStorage.setItem('kinedu-lang', lang);
+      location.href = dest;
+    }
+  }, true);
+});
+
 
 // Trending chips: ejecutan la búsqueda AI en vivo (sin recargar)
 document.querySelectorAll('.kb-trend-chip[data-q]').forEach(function(chip) {

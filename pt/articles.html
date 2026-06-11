@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Blog Kinedu — Orientação real para pais reais</title>
 <meta name="description" content="Mais de 1.000 artigos respaldados por especialistas sobre sono, desenvolvimento, alimentação, saúde e mais — escritos como um amigo que por acaso é pediatra.">
-<link rel="canonical" href="https://www.kinedu.com/pt/articles.html">
+<link rel="canonical" href="https://www.kinedu.com/pt/blog">
 <meta property="og:title" content="Blog Kinedu — Mais de 1.000 respostas de especialistas para pais">
 <meta property="og:description" content="As perguntas que os pais realmente fazem, respondidas por pediatras e especialistas em desenvolvimento infantil.">
 <meta property="og:image" content="https://www.kinedu.com/og-image.png">
@@ -4903,6 +4903,19 @@ function filterPT() {
   document.getElementById('ptNoResults').style.display = count === 0 ? 'block' : 'none';
 }
 document.getElementById('ptBlogSearch').addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); filterPT(); } });
+
+document.querySelectorAll('.lang-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    var lang = btn.getAttribute('data-lang');
+    var dest = { en: '/blog', es: '/es/blog', pt: '/pt/blog' }[lang];
+    if (dest && !btn.classList.contains('active')) {
+      e.stopImmediatePropagation();
+      localStorage.setItem('kinedu-lang', lang);
+      location.href = dest;
+    }
+  }, true);
+});
+
 document.getElementById('ptBlogSearch').addEventListener('input', function() { if (this.value === '') filterPT(); });
 </script>
 </body>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Blog Kinedu — Guía real para padres reales</title>
 <meta name="description" content="Más de 1,000 artículos respaldados por expertos sobre sueño, desarrollo, alimentación, salud y más — escritos como un amigo que resulta ser pediatra.">
-<link rel="canonical" href="https://www.kinedu.com/es/articles.html">
+<link rel="canonical" href="https://www.kinedu.com/es/blog">
 <meta property="og:title" content="Blog Kinedu — Más de 1,000 respuestas de expertas para padres">
 <meta property="og:description" content="Las preguntas que los papás realmente hacen, respondidas por pediatras y especialistas en desarrollo infantil.">
 <meta property="og:image" content="https://www.kinedu.com/og-image.png">
@@ -109,7 +109,7 @@ a { color: inherit; text-decoration: none; }
       <a href="/science.html" data-i18n="nav.science">Ciencia</a>
       <a href="/#faq" data-i18n="nav.faq">FAQ</a>
       <a href="/founder.html" data-i18n="nav.founder">Fundador</a>
-      <a href="/es/articles.html" class="active">Blog</a>
+      <a href="/es/blog" class="active">Blog</a>
       <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">Para Escuelas</a>
       <a href="https://app.kinedu.com/dha2/?swc=dha2" class="nav-cta mobile-only" data-i18n="nav.tryFree">Prueba gratis</a>
       <div class="lang-toggle lang-toggle--mobile">
@@ -4217,7 +4217,7 @@ a { color: inherit; text-decoration: none; }
         <h5>Compañía</h5>
         <a href="/founder.html">Sobre nosotros</a>
         <a href="/science.html">La ciencia</a>
-        <a href="/es/articles.html">Blog</a>
+        <a href="/es/blog">Blog</a>
       </div>
       <div class="ksf-col">
         <h5>Soporte</h5>
@@ -4305,6 +4305,19 @@ function filterES() {
 document.getElementById('esBlogSearch').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') { e.preventDefault(); filterES(); }
 });
+
+document.querySelectorAll('.lang-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    var lang = btn.getAttribute('data-lang');
+    var dest = { en: '/blog', es: '/es/blog', pt: '/pt/blog' }[lang];
+    if (dest && !btn.classList.contains('active')) {
+      e.stopImmediatePropagation();
+      localStorage.setItem('kinedu-lang', lang);
+      location.href = dest;
+    }
+  }, true);
+});
+
 document.getElementById('esBlogSearch').addEventListener('input', function() {
   if (this.value === '') filterES();
 });
