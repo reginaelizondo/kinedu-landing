@@ -265,8 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Desktop: abrir al pasar el cursor (patrón Wonder Weeks del doc)
         if (window.matchMedia('(hover: hover)').matches) {
-            dropdown.addEventListener('mouseenter', openDropdown);
-            dropdown.addEventListener('mouseleave', closeDropdown);
+            var closeTimer = null;
+            dropdown.addEventListener('mouseenter', function () {
+                if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+                openDropdown();
+            });
+            dropdown.addEventListener('mouseleave', function () {
+                closeTimer = setTimeout(closeDropdown, 300);
+            });
         }
     });
 
