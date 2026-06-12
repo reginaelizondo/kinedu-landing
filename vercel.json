@@ -9,6 +9,10 @@
       "destination": "/tools/milestone-checker/index.html"
     },
     {
+      "source": "/experts",
+      "destination": "/experts.html"
+    },
+    {
       "source": "/es/articles",
       "destination": "/es/articles.html"
     },

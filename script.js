@@ -224,11 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- LEARN DROPDOWN ---
-    (function () {
-        var dropdown = document.getElementById('learnDropdown');
-        var toggle = document.getElementById('learnToggle');
-        if (!dropdown || !toggle) return;
+    // --- NAV DROPDOWNS (Learn, Team, ...) ---
+    document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+        var toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        if (!toggle) return;
 
         function openDropdown() {
             dropdown.classList.add('open');
@@ -244,11 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
         });
 
-        // Close when clicking a menu item (mobile: also close sidebar)
         dropdown.querySelectorAll('.nd-item').forEach(function (item) {
             item.addEventListener('click', function () {
                 closeDropdown();
-                // Also close mobile sidebar if open
                 var navLinks = document.getElementById('navLinks');
                 var hbg = document.getElementById('hamburger');
                 var pill = document.querySelector('.nav-pill');
@@ -262,11 +259,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close on outside click (desktop)
         document.addEventListener('click', function (e) {
             if (!dropdown.contains(e.target)) closeDropdown();
         });
-    })();
+
+        // Desktop: abrir al pasar el cursor (patrón Wonder Weeks del doc)
+        if (window.matchMedia('(hover: hover)').matches) {
+            dropdown.addEventListener('mouseenter', openDropdown);
+            dropdown.addEventListener('mouseleave', closeDropdown);
+        }
+    });
 
     // --- SMOOTH SCROLL ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
