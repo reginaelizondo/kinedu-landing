@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/tools/milestone-checker",
+      "destination": "/tools/milestone-checker/index.html"
+    },
+    {
+      "source": "/tools/milestone-checker/:path*",
+      "destination": "/tools/milestone-checker/index.html"
+    },
+    {
       "source": "/es/articles",
       "destination": "/es/articles.html"
     },
