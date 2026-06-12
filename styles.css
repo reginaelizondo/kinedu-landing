@@ -3616,4 +3616,25 @@ section[id], div[id] { scroll-margin-top: 96px; }
   .assess .btn-hero-primary { width: 100%; justify-content: center; }
   .assess-report { max-width: 420px; margin: 0 auto; width: 100%; }
 }
+
+/* =========================================
+   ASSESSMENT MODAL (lightbox)
+   ========================================= */
+.amodal { position: fixed; inset: 0; z-index: 2000; display: none; }
+.amodal.open { display: block; }
+.amodal-backdrop { position: absolute; inset: 0; background: rgba(14,27,44,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity .25s ease; }
+.amodal.open .amodal-backdrop { opacity: 1; }
+.amodal-panel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(.96); width: min(480px, calc(100vw - 32px)); height: min(760px, calc(100vh - 48px)); background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 100px rgba(14,27,44,.4); opacity: 0; transition: opacity .25s ease, transform .25s ease; }
+.amodal.open .amodal-panel { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.amodal-close { position: absolute; top: 12px; right: 12px; z-index: 3; width: 36px; height: 36px; border-radius: 50%; background: rgba(14,27,44,.08); backdrop-filter: blur(8px); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: background .15s, transform .15s; }
+.amodal-close:hover { background: rgba(14,27,44,.16); transform: scale(1.06); }
+.amodal-frame { width: 100%; height: 100%; border: 0; display: block; }
+.amodal-loader { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 2; transition: opacity .3s; }
+.amodal-loader.hide { opacity: 0; pointer-events: none; }
+.amodal-spinner { width: 38px; height: 38px; border-radius: 50%; border: 3px solid var(--bg-secondary); border-top-color: var(--kinedu-blue); animation: amodalSpin .8s linear infinite; }
+@keyframes amodalSpin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .amodal-panel { width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; top: 0; left: 0; transform: none; }
+  .amodal.open .amodal-panel { transform: none; }
 }
+body.amodal-lock { overflow: hidden; }

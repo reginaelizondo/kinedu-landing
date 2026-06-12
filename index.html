@@ -44,7 +44,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="TAP/NEW/desktop EN.webp" media="(min-width: 769px)">
     <link rel="preload" as="image" href="TAP/NEW/mobile EN.webp" media="(max-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=0612a">
+    <link rel="stylesheet" href="styles.css?v=0612c">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
@@ -658,6 +658,19 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </footer>
 
+
+    <!-- ASSESSMENT MODAL -->
+    <div class="amodal" id="assessModal" role="dialog" aria-modal="true" aria-label="Free baby development assessment">
+        <div class="amodal-backdrop" data-amodal-close></div>
+        <div class="amodal-panel">
+            <button class="amodal-close" data-amodal-close aria-label="Close assessment">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="amodal-loader" id="assessLoader"><div class="amodal-spinner"></div></div>
+            <iframe class="amodal-frame" id="assessFrame" title="Kinedu Milestone Assessment" loading="lazy" allow="clipboard-write"></iframe>
+        </div>
+    </div>
+
     <script src="translations.js"></script>
     <script src="script.js"></script>
     <script>
@@ -696,5 +709,35 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         });
     })();
     </script>
+
+<script>
+(function () {
+    var modal = document.getElementById('assessModal');
+    var frame = document.getElementById('assessFrame');
+    var loader = document.getElementById('assessLoader');
+    var SRC = '/tools/milestone-checker/';
+
+    function openModal(e) {
+        if (e) e.preventDefault();
+        if (!frame.getAttribute('src')) {
+            frame.addEventListener('load', function () { loader.classList.add('hide'); }, { once: true });
+            frame.setAttribute('src', SRC);
+        }
+        modal.classList.add('open');
+        document.body.classList.add('amodal-lock');
+    }
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.classList.remove('amodal-lock');
+    }
+    document.querySelectorAll('a[href*="milestone-checker"]').forEach(function (a) {
+        a.addEventListener('click', openModal);
+    });
+    modal.querySelectorAll('[data-amodal-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+})();
+</script>
 </body>
 </html>
