@@ -63,8 +63,20 @@ fbq('track', 'PageView');
 .xp-cta .inner { max-width: 720px; margin: 0 auto; background: linear-gradient(150deg, #EBF3FF, #EDFAF4); border: 1px solid var(--border); border-radius: 26px; padding: 44px 32px; }
 .xp-cta h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; }
 .xp-cta p { color: var(--text-secondary); margin-bottom: 24px; }
-PLACEHOLDER_NOMATCH { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .xp-group { grid-template-columns: 1fr; padding-top: 28px; } .xp-hero { padding-top: 120px; } .xp-tab { padding: 9px 16px; font-size: .84rem; } }
+@media (max-width: 900px) { .xp-group { grid-template-columns: repeat(2, 1fr); } .xp-tabs { flex-wrap: wrap; } }
+@media (max-width: 600px) {
+  .xp-group { grid-template-columns: 1fr; padding: 28px 16px 48px; gap: 18px; }
+  .xp-hero { padding: 118px 20px 40px; }
+  .xp-hero p { font-size: .92rem; }
+  .xp-tabs { gap: 6px; padding: 28px 12px 0; }
+  .xp-tab { padding: 8px 13px; font-size: .8rem; gap: 6px; }
+  .xp-count { font-size: .64rem; padding: 2px 6px; }
+  .xp-photo { height: 200px; }
+  .xp-photo img { width: 150px; height: 150px; margin-bottom: -24px; }
+  .xp-body { padding: 38px 20px 22px; }
+  .xp-cta .inner { padding: 34px 22px; }
+  .xp-cta .btn-hero-primary { width: 100%; justify-content: center; }
+}
 </style>
 </head>
 <body>
