@@ -87,6 +87,11 @@ a { color: inherit; text-decoration: none; }
 .ksf-col a { display: block; font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; padding: 5px 0; }
 .ksf-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 40px; text-align: center; font-size: 13px; color: rgba(255,255,255,.5); }
 @media (max-width: 760px) { .ksf-inner { flex-direction: column; padding: 40px 20px 32px; gap: 36px; } }
+
+.kb-hero-b-tags{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin-top:18px}
+.kb-hero-b-tags .label{font-weight:600;color:var(--ink-2);font-size:13px}
+.kb-trend-chip{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--line);border-radius:100px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all .15s;box-shadow:0 1px 3px rgba(14,27,44,.05)}
+.kb-trend-chip:hover{border-color:var(--blue);background:var(--blue-soft);color:var(--blue);transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -139,6 +144,7 @@ a { color: inherit; text-decoration: none; }
       <input id="ptBlogSearch" type="search" placeholder='Buscar "regressão do sono", "introdução alimentar"...' autocomplete="off">
       <button onclick="filterPT()">Buscar</button>
     </div>
+    <div class="kb-hero-b-tags"><span class="label">Em alta:</span><button type="button" class="kb-trend-chip" data-q="regressão do sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Regressão do sono</button><button type="button" class="kb-trend-chip" data-q="introdução alimentar" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Introdução alimentar</button><button type="button" class="kb-trend-chip" data-q="fala" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Marcos da fala</button><button type="button" class="kb-trend-chip" data-q="sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Sono</button><button type="button" class="kb-trend-chip" data-q="birras" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Birras</button></div>
   </div>
 </section>
 
