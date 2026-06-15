@@ -54,6 +54,23 @@ a { color: inherit; text-decoration: none; }
 .kb-search input { flex: 1; border: 0; outline: 0; font-family: inherit; font-size: 15px; color: var(--ink); background: transparent; min-width: 0; }
 .kb-search input::placeholder { color: var(--muted-2); }
 .kb-search button { background: var(--blue); color: white; padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; white-space: nowrap; border: 0; cursor: pointer; }
+.kb-search-panel { position:absolute; top:calc(100% + 10px); left:0; right:0; z-index:200; background:white; border-radius:20px; border:1.5px solid var(--line); box-shadow:0 16px 48px rgba(14,27,44,.13),0 4px 12px rgba(14,27,44,.07); overflow:hidden; text-align:left; animation:spPop .18s ease-out; }
+@keyframes spPop { from{opacity:0;transform:translateY(-6px) scale(.98);} to{opacity:1;transform:none;} }
+.kb-sp-header { display:flex; align-items:center; gap:8px; padding:14px 18px 10px; font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--line-2); }
+.kb-sp-header svg { flex-shrink:0; } .kb-sp-header em { font-style:normal; color:var(--ink); }
+.kb-sp-item { display:flex; align-items:center; gap:14px; padding:12px 18px; text-decoration:none; color:inherit; transition:background .12s; border-bottom:1px solid var(--line-2); }
+.kb-sp-item:last-child { border-bottom:0; } .kb-sp-item:hover { background:var(--bg-2); }
+.kb-sp-thumb { width:62px; height:50px; border-radius:10px; object-fit:cover; flex-shrink:0; background:var(--line-2); }
+.kb-sp-text { flex:1; min-width:0; }
+.kb-sp-cat { font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); margin-bottom:3px; }
+.kb-sp-title { font-size:14.5px; font-weight:700; color:var(--ink); line-height:1.35; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.kb-sp-title mark { background:transparent; color:var(--blue); font-weight:800; }
+.kb-sp-excerpt { font-size:12.5px; color:var(--muted); line-height:1.45; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.kb-sp-arrow { color:var(--muted-2); flex-shrink:0; }
+.kb-sp-footer { padding:10px 18px; font-size:12.5px; color:var(--muted); background:var(--bg-2); display:flex; align-items:center; justify-content:space-between; }
+.kb-sp-footer a { color:var(--blue); font-weight:600; text-decoration:none; cursor:pointer; } .kb-sp-footer a:hover { text-decoration:underline; }
+.kb-sp-empty { padding:24px 18px; text-align:center; color:var(--muted); font-size:14px; }
+.kb-sp-empty strong { display:block; color:var(--ink); font-size:15px; margin-bottom:4px; }
 
 /* Grid */
 .kb-section { padding: 56px 0; }
@@ -152,9 +169,12 @@ a { color: inherit; text-decoration: none; }
     <div class="kb-eyebrow">Guía respaldada por expertos</div>
     <h1 class="kb-hero-b-title">Las preguntas que los padres<br>realmente hacen, <em>respondidas por expertos</em>.</h1>
     <p class="kb-hero-sub">1003 artículos escritos por pediatras, coaches del sueño y especialistas en desarrollo — para cada etapa de los primeros 6 años de tu hijo.</p>
-    <div class="kb-search">
+    <div class="kb-search-wrap" style="position:relative;max-width:520px;margin:0 auto;">
+    <div class="kb-search" style="max-width:100%;margin:0;">
       <input id="esBlogSearch" type="search" placeholder='Buscar "regresión del sueño", "alimentación complementaria"...' autocomplete="off">
-      <button onclick="filterES()">Buscar</button>
+      <button onclick="submitES()">Buscar</button>
+    </div>
+    <div id="esSearchPanel" class="kb-search-panel" style="display:none;"></div>
     </div>
     <div class="kb-hero-b-tags"><span class="label">Tendencias:</span><button type="button" class="kb-trend-chip" data-q="regresión del sueño" onclick="var i=document.getElementById('esBlogSearch');i.value=this.dataset.q;filterES();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Regresión del sueño</button><button type="button" class="kb-trend-chip" data-q="alimentación complementaria" onclick="var i=document.getElementById('esBlogSearch');i.value=this.dataset.q;filterES();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Alimentación complementaria</button><button type="button" class="kb-trend-chip" data-q="lenguaje" onclick="var i=document.getElementById('esBlogSearch');i.value=this.dataset.q;filterES();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Hitos del lenguaje</button><button type="button" class="kb-trend-chip" data-q="sueño" onclick="var i=document.getElementById('esBlogSearch');i.value=this.dataset.q;filterES();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Sueño</button><button type="button" class="kb-trend-chip" data-q="berrinches" onclick="var i=document.getElementById('esBlogSearch');i.value=this.dataset.q;filterES();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Berrinches</button></div>
   </div>
@@ -4248,7 +4268,7 @@ function __deaccent(s){return s.normalize?s.normalize('NFD').replace(/[\u0300-\u
 function __norm(s){return __deaccent(s.toLowerCase()).replace(/[-–—']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim()}
 function __lev(a,b,max){if(Math.abs(a.length-b.length)>max)return max+1;var p=[],c=[];for(var j=0;j<=b.length;j++)p[j]=j;for(var i=1;i<=a.length;i++){c[0]=i;var rm=i;for(var jj=1;jj<=b.length;jj++){c[jj]=Math.min(p[jj]+1,c[jj-1]+1,p[jj-1]+(a[i-1]===b[jj-1]?0:1));if(c[jj]<rm)rm=c[jj]}if(rm>max)return max+1;p=c.slice()}return p[b.length]}
 function __stem(w){return w.length>4?w.replace(/(mente|ciones|cion|coes|cao|ndo|nda|res|les|es|s|a|o)$/,''):w.replace(/s$/,'')}
-function __hit(w,tokens){var st=__stem(w);var maxD=w.length>=8?2:(w.length>=5?1:0);for(var i=0;i<tokens.length;i++){var t=tokens[i];if(t===w)return 1;if((t.indexOf(st)===0||w.indexOf(__stem(t))===0)&&Math.min(t.length,st.length)>2)return .8;if(maxD&&Math.abs(t.length-w.length)<=maxD&&__lev(w,t,maxD)<=maxD)return .65}return 0}
+function __hit(w,tokens){var st=__stem(w);var maxD=w.length>=8?2:(w.length>=5?1:0);var best=0;for(var i=0;i<tokens.length;i++){var t=tokens[i];if(!t)continue;if(t===w)return 1;if(best<0.8&&st.length>2&&Math.min(t.length,st.length)>2&&(t.indexOf(st)===0||w.indexOf(t)===0))best=0.8;else if(best<0.65&&maxD&&Math.abs(t.length-w.length)<=maxD&&__lev(w,t,maxD)<=maxD)best=0.65}return best}
 function smartScore(title,exc,query){
   var tN=__norm(title),tT=tN.split(' ');
   var eN=__norm(exc),eT=eN.split(' ');
@@ -4271,16 +4291,58 @@ function smartScore(title,exc,query){
   return score;
 }
 
+var esPanel = document.getElementById('esSearchPanel');
+function esHighlight(text, words){
+  var safe = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  words.forEach(function(w){ if(!w)return; var re=new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'); safe=safe.replace(re,'<mark>$1</mark>'); });
+  return safe;
+}
+function esClosePanel(){ if(esPanel) esPanel.style.display='none'; }
+function esScrollGrid(){ esClosePanel(); var g=document.getElementById('esGrid'); if(g){ var nav=(document.getElementById('navbar')||{offsetHeight:72}).offsetHeight||72; window.scrollTo({top:g.getBoundingClientRect().top+window.pageYOffset-nav-24,behavior:'smooth'}); } }
+function esRenderPanel(scored, words, phrase, total){
+  if(!esPanel) return;
+  if(!scored.length){
+    esPanel.innerHTML='<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Sin resultados para "<em>'+phrase+'</em>"</div><div class="kb-sp-empty"><strong>No encontramos artículos para esa búsqueda.</strong>Prueba con otras palabras como "sueño", "lactancia" o "desarrollo".</div>';
+    esPanel.style.display=''; return;
+  }
+  var top=scored.slice(0,4);
+  var html='<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Mejores resultados para "<em>'+phrase+'</em>"</div>';
+  top.forEach(function(it){
+    var card=it.c, href=card.getAttribute('href');
+    var img=(card.querySelector('.kb-card-img img')||{}).src||'';
+    var cat=(card.querySelector('.kb-card-cat-chip')||{}).textContent||'';
+    var title=(card.querySelector('.kb-card-title')||{}).textContent||'';
+    var exc=(card.querySelector('.kb-card-excerpt')||{}).textContent||'';
+    var excT=exc.length>100?exc.slice(0,97)+'…':exc;
+    html+='<a href="'+href+'" class="kb-sp-item">';
+    if(img) html+='<img class="kb-sp-thumb" src="'+img+'" loading="lazy" alt="">';
+    html+='<div class="kb-sp-text">';
+    if(cat) html+='<div class="kb-sp-cat">'+cat+'</div>';
+    html+='<div class="kb-sp-title">'+esHighlight(title,words)+'</div>';
+    html+='<div class="kb-sp-excerpt">'+esHighlight(excT,words)+'</div></div>';
+    html+='<svg class="kb-sp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>';
+  });
+  var more=total-top.length;
+  html+='<div class="kb-sp-footer"><span>'+total+(total!==1?' artículos encontrados':' artículo encontrado')+'</span>';
+  if(more>0) html+='<a onclick="esScrollGrid()">Ver los '+total+' resultados ↓</a>';
+  html+='</div>';
+  esPanel.innerHTML=html; esPanel.style.display='';
+}
+
 function filterES() {
   var q = (document.getElementById('esBlogSearch').value || '').toLowerCase().trim();
   var cards = document.querySelectorAll('#esGrid .kb-card');
   var count = 0;
   if (!q) {
+    esClosePanel();
     _esVisible = 12;
     esApplyLimit();
     document.getElementById('esNoResults').style.display = 'none';
     return;
   }
+  var phrase = __norm(q);
+  var words = phrase.split(' ').filter(function(w){ return w.length>1 && !__STOP.has(w); });
+  if (!words.length) words = phrase.split(' ').filter(function(w){ return w.length>1; });
   var scored = [];
   cards.forEach(function(c) {
     var title = (c.querySelector('.kb-card-title')||{}).textContent || '';
@@ -4293,9 +4355,18 @@ function filterES() {
   scored.forEach(function(it){ it.c.style.display = ''; gridEl.appendChild(it.c); count++; });
   document.getElementById('esShowAll').style.display = 'none';
   document.getElementById('esNoResults').style.display = count === 0 ? 'block' : 'none';
+  esRenderPanel(scored, words, q, count);
 }
+function submitES(){ filterES(); esClosePanel(); esScrollGrid(); var i=document.getElementById('esBlogSearch'); if(i) i.blur(); }
+
+document.getElementById('esBlogSearch').addEventListener('input', filterES);
 document.getElementById('esBlogSearch').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') { e.preventDefault(); filterES(); }
+  if (e.key === 'Enter') { e.preventDefault(); submitES(); }
+  if (e.key === 'Escape') { this.value=''; filterES(); this.blur(); }
+});
+document.addEventListener('click', function(e){
+  var wrap = document.querySelector('.kb-search-wrap');
+  if (wrap && !wrap.contains(e.target)) esClosePanel();
 });
 
 document.querySelectorAll('.lang-btn').forEach(function(btn) {
@@ -4308,10 +4379,6 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
       location.href = dest;
     }
   }, true);
-});
-
-document.getElementById('esBlogSearch').addEventListener('input', function() {
-  if (this.value === '') filterES();
 });
 </script>
 </body>
