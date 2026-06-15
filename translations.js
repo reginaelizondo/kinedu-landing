@@ -44,7 +44,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Know <span class="gradient-shift">exactly</span> what to</span><span class="line">do with your baby,</span><span class="line"><span class="gradient-shift-alt">every single day.</span></span>',
     'hero.sub': 'Kinedu gives you a personalized daily plan, simple activities, milestone tracking, and real expert guidance, <strong>built around your baby\'s exact age and stage.</strong>',
-    'hero.proof': 'Trusted by 8 million families. Recommended by pediatricians. Backed by Harvard.',
+    'hero.proof': 'Trusted by 8 million families. Recommended by pediatricians. Research-based.',
     'hero.ctaDesktop': 'Try 7 days for FREE',
     'hero.ctaMobile': 'Try 7 days for FREE',
     'hero.ctaSecondary': 'For Schools & Educators',
@@ -52,7 +52,7 @@ window.TRANSLATIONS = {
     // TRUST BAR
     'trust.families': 'families',
     'trust.countries': 'countries',
-    'trust.harvard': 'Backed by Harvard',
+    'trust.harvard': 'Research-based',
     'trust.reviews': '5-star reviews',
 
     // PROBLEM TEXT
@@ -80,7 +80,7 @@ window.TRANSLATIONS = {
       { t: 'the', a: false },
       { t: 'brain.', a: true }
     ],
-    'problem.source': '— Harvard Center on the Developing Child',
+    'problem.source': '— The science of early childhood development',
 
     // WHY NOW
     'whyNow.body': 'Every time you play with your baby, respond to them, or talk to them through a diaper change — you\'re doing something that matters more than most parents realize. You don\'t need a degree in child development. You just need to know what to do in those moments. That\'s what Kinedu is for.',
@@ -143,7 +143,7 @@ window.TRANSLATIONS = {
     // FAQ
     'faq.title': 'Questions you probably have',
     'faq.q1': 'What is Kinedu, exactly?',
-    'faq.a1': 'It\'s a baby development app built by child development experts and backed by Harvard research. It gives you a personalized daily plan of activities, tracks your baby\'s milestones, and connects you with real experts through live classes and courses. Think of it as having a pediatric development specialist in your pocket.',
+    'faq.a1': 'It\'s a baby development app built by child development experts and grounded in early childhood development science. It gives you a personalized daily plan of activities, tracks your baby\'s milestones, and connects you with real experts through live classes and courses. Think of it as having a pediatric development specialist in your pocket.',
     'faq.q2': 'How do I actually get the app?',
     'faq.a2': 'Sign up here, then check your email — you\'ll get a temporary password and download links for iPhone and Android. Takes about 2 minutes to be up and running.',
     'faq.q3': 'What if I have questions or need help?',
@@ -174,7 +174,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Back to home',
     'sci.hero.tag': 'Backed by Research',
     'sci.heroTitle': 'The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'We partnered with researchers from <strong>Harvard, Stanford, and MIT</strong> to build a parenting app grounded in the <strong>latest science on early childhood development</strong> — powered by millions of real data points.',
+    'sci.heroSub': 'We partnered with researchers from <strong>Stanford and MIT</strong> to build a parenting app grounded in the <strong>latest science on early childhood development</strong> — powered by millions of real data points.',
 
     'sci.bigbang.tag': 'The Big Bang of Development',
     'sci.bigbang.title': 'Your baby\'s brain is building itself <span class="gradient-shift">right now</span> — faster than it ever will again.',
@@ -184,7 +184,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'of the brain develops by age 3',
     'sci.stat.sub': 'That\'s why the first years matter so much. Early experiences literally shape brain architecture.',
-    'sci.bigbang.ref': 'Harvard Center on the Developing Child',
+    'sci.bigbang.ref': 'Early childhood development research',
 
     'sci.domains.tag': 'Interconnected Growth',
     'sci.domains.title': 'Four domains, <span class="gradient-shift">one universe</span>',
@@ -206,7 +206,7 @@ window.TRANSLATIONS = {
     'sci.serve.title': 'Serve and return: <span class="gradient-shift">how brains are built</span>',
     'sci.serve.p1': 'When a baby babbles, gestures, or cries, and an adult responds with eye contact, words, or a hug — that\'s called <strong>"serve and return."</strong> These back-and-forth interactions are the <strong>building blocks of brain architecture</strong>.',
     'sci.serve.p2': 'Every activity in Kinedu is designed to create these powerful serve-and-return moments. Our research with Stanford University found that Kinedu activities lead to <strong>real increases</strong> in parents\' verbal and non-verbal engagement with their children.',
-    'sci.serve.ref': 'Harvard CDCH · Stanford University',
+    'sci.serve.ref': 'Stanford University',
 
     'sci.skills.tag': 'Our Milestone Model',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">development reimagined</span>',
@@ -277,7 +277,7 @@ window.TRANSLATIONS = {
     'lc.hero.cta': 'Get every expert free for 7 days',
     'lc.hero.ctaSub': 'Cancel in 2 taps',
     'lc.hero.trustFamilies': 'Loved by 8M+ families',
-    'lc.hero.trustHarvard': 'Harvard-backed',
+    'lc.hero.trustHarvard': 'Research-based',
     'lc.hero.trustPedi': 'Pediatrician recommended',
 
     // PAS — Problem · Agitate (3 pain cards)
@@ -446,7 +446,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Descubre <span class="gradient-shift">exactamente</span></span><span class="line">qué hacer con tu</span><span class="line">bebé, <span class="gradient-shift-alt">cada día.</span></span>',
     'hero.sub': 'Kinedu te da un plan diario personalizado, actividades fáciles, seguimiento de hitos y guía de expertos reales, <strong>todo pensado para la edad y etapa exacta de tu bebé.</strong>',
-    'hero.proof': '8 millones de familias ya lo usan. Recomendado por pediatras. Respaldado por Harvard.',
+    'hero.proof': '8 millones de familias ya lo usan. Recomendado por pediatras. Basado en ciencia.',
     'hero.ctaDesktop': 'Prueba 7 días GRATIS',
     'hero.ctaMobile': 'Prueba 7 días GRATIS',
     'hero.ctaSecondary': 'Para Escuelas y Educadores',
@@ -454,7 +454,7 @@ window.TRANSLATIONS = {
     // TRUST BAR
     'trust.families': 'familias',
     'trust.countries': 'países',
-    'trust.harvard': 'Respaldado por Harvard',
+    'trust.harvard': 'Basado en ciencia',
     'trust.reviews': 'reseñas 5 estrellas',
 
     // PROBLEM TEXT
@@ -481,7 +481,7 @@ window.TRANSLATIONS = {
       { t: 'su', a: false },
       { t: 'cerebro.', a: true }
     ],
-    'problem.source': '— Centro de Desarrollo Infantil de Harvard',
+    'problem.source': '— La ciencia del desarrollo infantil',
 
     // WHY NOW
     'whyNow.body': 'Cada vez que juegas con tu bebé, le respondes o le hablas mientras lo cambias — estás haciendo algo que importa más de lo que crees. No necesitas ser experta en desarrollo infantil. Solo necesitas saber qué hacer en esos momentos. Para eso existe Kinedu.',
@@ -544,7 +544,7 @@ window.TRANSLATIONS = {
     // FAQ
     'faq.title': 'Preguntas que seguro tienes',
     'faq.q1': '¿Qué es Kinedu exactamente?',
-    'faq.a1': 'Es una app de desarrollo infantil creada por expertos y respaldada por Harvard. Te da un plan diario personalizado de actividades, da seguimiento a los hitos de tu bebé y te conecta con expertos reales en clases en vivo y cursos. Es como tener un especialista en desarrollo infantil en tu bolsillo.',
+    'faq.a1': 'Es una app de desarrollo infantil creada por expertos y basada en la ciencia del desarrollo infantil. Te da un plan diario personalizado de actividades, da seguimiento a los hitos de tu bebé y te conecta con expertos reales en clases en vivo y cursos. Es como tener un especialista en desarrollo infantil en tu bolsillo.',
     'faq.q2': '¿Cómo descargo la app?',
     'faq.a2': 'Regístrate aquí, revisa tu correo — recibirás una contraseña temporal y los links de descarga para iPhone y Android. En 2 minutos estás lista.',
     'faq.q3': '¿Qué pasa si tengo preguntas o necesito ayuda?',
@@ -575,7 +575,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Volver al inicio',
     'sci.hero.tag': 'Respaldado por la Ciencia',
     'sci.heroTitle': 'La <span class="gradient-shift">Ciencia</span> detrás de <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'Trabajamos con investigadores de <strong>Harvard, Stanford y MIT</strong> para crear una app de crianza basada en la <strong>ciencia más reciente sobre desarrollo infantil</strong> — impulsada por millones de datos reales.',
+    'sci.heroSub': 'Trabajamos con investigadores de <strong>Stanford y MIT</strong> para crear una app de crianza basada en la <strong>ciencia más reciente sobre desarrollo infantil</strong> — impulsada por millones de datos reales.',
 
     'sci.bigbang.tag': 'El Big Bang del Desarrollo',
     'sci.bigbang.title': 'El cerebro de tu bebé se está construyendo <span class="gradient-shift">ahora mismo</span> — más rápido de lo que jamás volverá a hacerlo.',
@@ -585,7 +585,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'del cerebro se desarrolla antes de los 3 años',
     'sci.stat.sub': 'Por eso los primeros años importan tanto. Las experiencias tempranas literalmente moldean la arquitectura del cerebro.',
-    'sci.bigbang.ref': 'Centro de Desarrollo Infantil de Harvard',
+    'sci.bigbang.ref': 'Investigación en desarrollo infantil',
 
     'sci.domains.tag': 'Crecimiento Conectado',
     'sci.domains.title': 'Cuatro áreas, <span class="gradient-shift">un solo universo</span>',
@@ -607,7 +607,7 @@ window.TRANSLATIONS = {
     'sci.serve.title': 'Servir y devolver: <span class="gradient-shift">así se construye el cerebro</span>',
     'sci.serve.p1': 'Cuando un bebé balbucea, señala o llora, y un adulto responde con contacto visual, palabras o un abrazo — eso se llama <strong>"servir y devolver."</strong> Estas interacciones son los <strong>bloques que construyen la arquitectura del cerebro</strong>.',
     'sci.serve.p2': 'Cada actividad en Kinedu está diseñada para crear estos poderosos momentos de servir y devolver. Nuestra investigación con Stanford demostró que las actividades de Kinedu generan <strong>aumentos reales</strong> en la interacción de los padres con sus hijos.',
-    'sci.serve.ref': 'Harvard CDCH · Stanford University',
+    'sci.serve.ref': 'Stanford University',
 
     'sci.skills.tag': 'Nuestro Modelo de Hitos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desarrollo reimaginado</span>',
@@ -678,7 +678,7 @@ window.TRANSLATIONS = {
     'lc.hero.cta': 'Habla con todas las expertas — 7 días gratis',
     'lc.hero.ctaSub': 'Cancelas en 2 toques',
     'lc.hero.trustFamilies': '+8M de familias ya confían en Kinedu',
-    'lc.hero.trustHarvard': 'Avalado por Harvard',
+    'lc.hero.trustHarvard': 'Basado en ciencia',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
     // PAS — Problem · Agitate (3 pain cards)
@@ -847,7 +847,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Descubra <span class="gradient-shift">exatamente</span> o que</span><span class="line">fazer com o seu bebê,</span><span class="line"><span class="gradient-shift-alt">todos os dias.</span></span>',
     'hero.sub': 'O Kinedu te dá um plano diário personalizado, atividades simples, acompanhamento de marcos e orientação de especialistas reais, <strong>tudo pensado para a idade e fase exata do seu bebê.</strong>',
-    'hero.proof': '8 milhões de famílias já usam. Recomendado por pediatras. Apoiado por Harvard.',
+    'hero.proof': '8 milhões de famílias já usam. Recomendado por pediatras. Baseado em ciência.',
     'hero.ctaDesktop': 'Teste 7 dias GRÁTIS',
     'hero.ctaMobile': 'Teste 7 dias GRÁTIS',
     'hero.ctaSecondary': 'Para Escolas e Educadores',
@@ -855,7 +855,7 @@ window.TRANSLATIONS = {
     // TRUST BAR
     'trust.families': 'famílias',
     'trust.countries': 'países',
-    'trust.harvard': 'Apoiado por Harvard',
+    'trust.harvard': 'Baseado em ciência',
     'trust.reviews': 'avaliações 5 estrelas',
 
     // PROBLEM TEXT
@@ -882,7 +882,7 @@ window.TRANSLATIONS = {
       { t: 'o', a: false },
       { t: 'cérebro.', a: true }
     ],
-    'problem.source': '— Centro de Desenvolvimento Infantil de Harvard',
+    'problem.source': '— A ciência do desenvolvimento infantil',
 
     // WHY NOW
     'whyNow.body': 'Cada vez que você brinca com seu bebê, responde a ele ou conversa durante a troca de fralda — você está fazendo algo que importa mais do que imagina. Você não precisa ser especialista em desenvolvimento infantil. Só precisa saber o que fazer nesses momentos. Para isso existe o Kinedu.',
@@ -945,7 +945,7 @@ window.TRANSLATIONS = {
     // FAQ
     'faq.title': 'Perguntas que você provavelmente tem',
     'faq.q1': 'O que é o Kinedu exatamente?',
-    'faq.a1': 'É um app de desenvolvimento infantil criado por especialistas e apoiado por Harvard. Te dá um plano diário personalizado de atividades, acompanha os marcos do seu bebê e te conecta com especialistas reais em aulas ao vivo e cursos. É como ter um especialista em desenvolvimento infantil no seu bolso.',
+    'faq.a1': 'É um app de desenvolvimento infantil criado por especialistas e baseado na ciência do desenvolvimento infantil. Te dá um plano diário personalizado de atividades, acompanha os marcos do seu bebê e te conecta com especialistas reais em aulas ao vivo e cursos. É como ter um especialista em desenvolvimento infantil no seu bolso.',
     'faq.q2': 'Como baixo o app?',
     'faq.a2': 'Cadastre-se aqui, confira seu e-mail — você vai receber uma senha temporária e os links para baixar no iPhone e Android. Em 2 minutos você está pronta.',
     'faq.q3': 'E se eu tiver dúvidas ou precisar de ajuda?',
@@ -976,7 +976,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Voltar ao início',
     'sci.hero.tag': 'Baseado em Pesquisa',
     'sci.heroTitle': 'A <span class="gradient-shift">Ciência</span> por trás do <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'Trabalhamos com pesquisadores de <strong>Harvard, Stanford e MIT</strong> para criar um app de criação baseado na <strong>ciência mais recente sobre desenvolvimento infantil</strong> — impulsionado por milhões de dados reais.',
+    'sci.heroSub': 'Trabalhamos com pesquisadores de <strong>Stanford e MIT</strong> para criar um app de criação baseado na <strong>ciência mais recente sobre desenvolvimento infantil</strong> — impulsionado por milhões de dados reais.',
 
     'sci.bigbang.tag': 'O Big Bang do Desenvolvimento',
     'sci.bigbang.title': 'O cérebro do seu bebê está se construindo <span class="gradient-shift">agora mesmo</span> — mais rápido do que jamais acontecerá novamente.',
@@ -986,7 +986,7 @@ window.TRANSLATIONS = {
     'sci.bigbang.stat': '80%',
     'sci.bigbang.statLabel': 'do cérebro se desenvolve até os 3 anos',
     'sci.stat.sub': 'Por isso os primeiros anos importam tanto. As experiências iniciais literalmente moldam a arquitetura do cérebro.',
-    'sci.bigbang.ref': 'Centro de Desenvolvimento Infantil de Harvard',
+    'sci.bigbang.ref': 'Pesquisa em desenvolvimento infantil',
 
     'sci.domains.tag': 'Crescimento Conectado',
     'sci.domains.title': 'Quatro áreas, <span class="gradient-shift">um só universo</span>',
@@ -1008,7 +1008,7 @@ window.TRANSLATIONS = {
     'sci.serve.title': 'Servir e devolver: <span class="gradient-shift">como o cérebro é construído</span>',
     'sci.serve.p1': 'Quando um bebê balbucia, aponta ou chora, e um adulto responde com contato visual, palavras ou um abraço — isso se chama <strong>"servir e devolver."</strong> Essas interações são os <strong>blocos que constroem a arquitetura do cérebro</strong>.',
     'sci.serve.p2': 'Cada atividade no Kinedu é projetada para criar esses poderosos momentos de servir e devolver. Nossa pesquisa com Stanford mostrou que as atividades do Kinedu geram <strong>aumentos reais</strong> na interação dos pais com seus filhos.',
-    'sci.serve.ref': 'Harvard CDCH · Stanford University',
+    'sci.serve.ref': 'Stanford University',
 
     'sci.skills.tag': 'Nosso Modelo de Marcos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desenvolvimento reimaginado</span>',
@@ -1079,7 +1079,7 @@ window.TRANSLATIONS = {
     'lc.hero.cta': 'Fale com todos os especialistas — 7 dias grátis',
     'lc.hero.ctaSub': 'Cancele em 2 toques',
     'lc.hero.trustFamilies': '8M+ famílias confiam na Kinedu',
-    'lc.hero.trustHarvard': 'Apoiado por Harvard',
+    'lc.hero.trustHarvard': 'Baseado em ciência',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
     // PAS — Problem · Agitate (3 pain cards)
