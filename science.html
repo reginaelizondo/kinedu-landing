@@ -36,7 +36,36 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <meta name="twitter:title" content="The Science Behind Kinedu — Research-Based Baby Development">
 <meta name="twitter:description" content="Kinedu is built on developmental research and validated with data from 8M+ families in 180+ countries.">
 <meta name="twitter:image" content="https://www.kinedu.com/og-image.png">
-    <style>.no-fouc{opacity:0}.fouc-ready{opacity:1;transition:opacity .15s ease}</style>
+    <style>.no-fouc{opacity:0}.fouc-ready{opacity:1;transition:opacity .15s ease}
+/* === REDESIGN: Five Forces === */
+.forces-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:8px}
+.force-card{background:#fff;border:1px solid rgba(14,27,44,.08);border-radius:20px;padding:26px 20px;transition:transform .2s,box-shadow .2s}
+.force-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,27,44,.08)}
+.force-num{font-size:12px;font-weight:800;color:var(--kinedu-blue);letter-spacing:.12em;margin-bottom:12px}
+.force-card h3{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px;color:var(--text-primary)}
+.force-card p{font-size:13.5px;line-height:1.55;color:var(--text-secondary)}
+@media(max-width:1024px){.forces-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.forces-grid{grid-template-columns:1fr}}
+/* === REDESIGN: Guided-play spectrum === */
+.spectrum-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+.spectrum-card{background:#fff;border:1px solid rgba(14,27,44,.08);border-radius:20px;padding:30px 26px;text-align:center;display:flex;flex-direction:column}
+.spectrum-card .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:10px}
+.spectrum-card h3{font-size:20px;font-weight:800;margin-bottom:10px;color:var(--text-primary)}
+.spectrum-card p{font-size:14px;line-height:1.55;color:var(--text-secondary)}
+.spectrum-card.best{border:2px solid var(--kinedu-blue);box-shadow:0 16px 48px rgba(43,139,228,.14);transform:scale(1.03)}
+.spectrum-card.best .lbl{color:var(--kinedu-blue)}
+.play-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:36px;margin-top:44px}
+.play-stat{text-align:center}
+.play-stat .num{font-size:40px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.play-stat .cap{font-size:13px;color:var(--text-secondary);max-width:180px;margin:8px auto 0;line-height:1.45}
+@media(max-width:680px){.spectrum-grid{grid-template-columns:1fr}.spectrum-card.best{transform:none}}
+/* === REDESIGN: Philosophy === */
+.philosophy-card{background:linear-gradient(135deg,rgba(43,139,228,.06),rgba(76,217,100,.06));border-radius:28px;padding:clamp(36px,5vw,64px) clamp(24px,5vw,56px);max-width:920px;margin:0 auto;text-align:center}
+.philosophy-card h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:14px 0 18px;color:var(--text-primary)}
+.philosophy-card p{font-size:17px;line-height:1.65;color:var(--text-secondary);max-width:700px;margin:0 auto 14px}
+.philosophy-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.philosophy-pills .pill{background:#fff;border:1px solid rgba(14,27,44,.08);border-radius:100px;padding:9px 18px;font-size:14px;font-weight:600;color:var(--text-primary)}
+</style>
     <script>(function(){var l=localStorage.getItem('kinedu-lang');if(l)document.documentElement.lang=l;document.documentElement.classList.add('no-fouc');setTimeout(function(){document.documentElement.classList.remove('no-fouc');document.documentElement.classList.add('fouc-ready')},1500)})()</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1013,6 +1042,24 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </section>
 
+    <!-- NEW: The Five Forces -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.forces.tag">The framework</span>
+                <h2 data-i18n="sci.forces.title" data-i18n-html>Five forces shape every child's <span class="gradient-shift">development</span></h2>
+                <p data-i18n="sci.forces.sub">For a century, each great theory captured just one of these — and treated the rest as background. Kinedu is built to honor all five at once.</p>
+            </div>
+            <div class="forces-grid">
+                <div class="force-card"><div class="force-num">01</div><h3 data-i18n="sci.forces.f1.title">Everything is connected</h3><p data-i18n="sci.forces.f1.desc">Early on, a gain in movement, language, thinking or emotion lifts the others. In the first months, every interaction touches everything at once.</p></div>
+                <div class="force-card"><div class="force-num">02</div><h3 data-i18n="sci.forces.f2.title">It builds in sequence</h3><p data-i18n="sci.forces.f2.desc">Each skill rests on the ones before it. Babbling precedes words; reaching precedes crawling. Development stacks, step by step.</p></div>
+                <div class="force-card"><div class="force-num">03</div><h3 data-i18n="sci.forces.f3.title">The range of normal is wide</h3><p data-i18n="sci.forces.f3.desc">Healthy children reach the same milestones on very different timelines. The sequence is universal; the timing is personal.</p></div>
+                <div class="force-card"><div class="force-num">04</div><h3 data-i18n="sci.forces.f4.title">Some windows matter more</h3><p data-i18n="sci.forces.f4.desc">At certain moments the brain is especially ready to learn a specific skill. Meeting those windows makes everyday moments count.</p></div>
+                <div class="force-card"><div class="force-num">05</div><h3 data-i18n="sci.forces.f5.title">Every child surprises us</h3><p data-i18n="sci.forces.f5.desc">No model predicts exactly how one child will unfold. The science gives you the map — your child draws the route.</p></div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 2: Four Connected Domains -->
     <section class="science-section alt-bg">
         <div class="section-wrap">
@@ -1079,6 +1126,33 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </section>
 
+    <!-- NEW: Guided Play -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.play.tag">What actually works</span>
+                <h2 data-i18n="sci.play.title" data-i18n-html>The sweet spot: <span class="gradient-shift">guided play</span></h2>
+                <p data-i18n="sci.play.sub">Decades of studies point to the same place: children learn most when an adult sets the stage and the child leads the play. Not rigid lessons. Not a free-for-all. The space in between.</p>
+            </div>
+            <div class="spectrum-grid">
+                <div class="spectrum-card"><div class="lbl" data-i18n="sci.play.free.lbl">Too little structure</div><h3 data-i18n="sci.play.free.title">Free play</h3><p data-i18n="sci.play.free.desc">All freedom, no direction. Joyful and essential — but the learning goal can get lost.</p></div>
+                <div class="spectrum-card best"><div class="lbl" data-i18n="sci.play.guided.lbl">Just right</div><h3 data-i18n="sci.play.guided.title">Guided play</h3><p data-i18n="sci.play.guided.desc">An adult sets a goal and offers gentle prompts; the child explores and leads. Engagement and direction, together.</p></div>
+                <div class="spectrum-card"><div class="lbl" data-i18n="sci.play.direct.lbl">Too much structure</div><h3 data-i18n="sci.play.direct.title">Direct instruction</h3><p data-i18n="sci.play.direct.desc">All direction, little agency. Efficient for facts — but it narrows curiosity and exploration.</p></div>
+            </div>
+            <div class="play-stats">
+                <div class="play-stat"><div class="num">0.63</div><div class="cap" data-i18n="sci.play.stat1.cap">Effect size of guided play vs. direct instruction on early concepts — medium-to-large (a typical program is ~0.20).</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.play.stat2.num">1 week+</div><div class="cap" data-i18n="sci.play.stat2.cap">The advantage held a week later — real learning, not a novelty effect.</div></div>
+                <div class="play-stat"><div class="num">4,000+</div><div class="cap" data-i18n="sci.play.stat3.cap">Children across 39 studies confirmed the pattern in a 2022 meta-analysis.</div></div>
+            </div>
+            <div style="text-align:center;margin-top:36px">
+                <span class="science-ref" style="display:inline-flex">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <span data-i18n="sci.play.ref">Guided-play meta-analysis · 39 studies, ~4,000 children</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 4: Kinedu Skills Model -->
     <section class="science-section alt-bg">
         <div class="section-wrap">
@@ -1102,29 +1176,33 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- SECTION 5: Sensitive Periods & Variability -->
+    <!-- NEW: Sleep -->
     <section class="science-section">
         <div class="section-wrap">
             <div class="science-section-header">
-                <h2 data-i18n="sci.sensitive.title" data-i18n-html>Every child's universe <span class="gradient-shift">is unique</span></h2>
-                <p data-i18n="sci.sensitive.sub">Development doesn't follow a single timeline. Kinedu understands this — and adapts to your child.</p>
+                <span class="sec-tag" data-i18n="sci.sleep.tag">While they rest</span>
+                <h2 data-i18n="sci.sleep.title" data-i18n-html>Sleep is <span class="gradient-shift">active learning</span></h2>
+                <p data-i18n="sci.sleep.sub">Naps aren't just downtime. During sleep the brain replays and locks in what your child learned while awake — rest is part of how they grow.</p>
             </div>
-            <div class="two-card-grid">
-                <div class="info-card">
-                    <div class="info-card-icon blue">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h3 data-i18n="sci.sensitive.card1.title">Sensitive periods</h3>
-                    <p data-i18n="sci.sensitive.card1.desc" data-i18n-html>At certain windows of time, children are <strong>especially ready to learn</strong> specific skills. Toddlers are primed for a <strong>language explosion</strong> around age 2, and preschoolers are eager to socialize.</p>
-                    <span class="info-highlight" data-i18n="sci.sensitive.card1.highlight">Kinedu targets these windows so you never miss them</span>
-                </div>
-                <div class="info-card">
-                    <div class="info-card-icon green">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    </div>
-                    <h3 data-i18n="sci.sensitive.card2.title">Every child is different</h3>
-                    <p data-i18n="sci.sensitive.card2.desc" data-i18n-html>Healthy babies take their first steps anywhere from <strong>8 to 17 months</strong> — a nine-month range, and every point in it is perfectly normal. The <strong>sequence</strong> of development is universal; the <strong>timing</strong> is personal.</p>
-                    <span class="info-highlight" data-i18n="sci.sensitive.card2.highlight">Kinedu adapts to your child's unique pace</span>
+            <div class="play-stats">
+                <div class="play-stat"><div class="num" data-i18n="sci.sleep.stat1.num">+10%</div><div class="cap" data-i18n="sci.sleep.stat1.cap">More learning retained by preschoolers who napped after a task — versus those who stayed awake.</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.sleep.stat2.num">Next day</div><div class="cap" data-i18n="sci.sleep.stat2.cap">The nap benefit lasted even after a full night's sleep — the gain was real and durable.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Philosophy -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="philosophy-card">
+                <span class="sec-tag" data-i18n="sci.phil.tag">Our point of view</span>
+                <h2 data-i18n="sci.phil.title">Not perfection. Presence.</h2>
+                <p data-i18n="sci.phil.p1">The science is reassuring: warm, responsive, "good enough" parenting produces secure, thriving children in the large majority of cases. You don't need to get every moment right.</p>
+                <p data-i18n="sci.phil.p2">What matters is being a present, intentional guide — combining warmth with structure, and responding to your child without fearing your own authority. That's the parent Kinedu is built for.</p>
+                <div class="philosophy-pills">
+                    <span class="pill" data-i18n="sci.phil.pill1">Warmth + structure</span>
+                    <span class="pill" data-i18n="sci.phil.pill2">Responsive, not permissive</span>
+                    <span class="pill" data-i18n="sci.phil.pill3">Consistency over perfection</span>
                 </div>
             </div>
         </div>
