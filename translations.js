@@ -204,8 +204,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Brain-Building Interactions',
     'sci.serve.title': 'Serve and return: <span class="gradient-shift">how brains are built</span>',
-    'sci.serve.p1': 'When your baby babbles, points, or cries and you respond — a look, a word, a hug — you complete a loop scientists call <strong>serve and return</strong>. These tiny back-and-forth exchanges are the literal building blocks of brain architecture.',
-    'sci.serve.p2': 'It\'s one of the most replicated findings in child development — and Kinedu is built around it. In a study with <strong>Stanford</strong>, parents who watched one short Kinedu activity video made <strong>69% more bids for joint attention</strong> and spoke <strong>35% more</strong> with their child.',
+    'sci.serve.p1': 'When your baby babbles or reaches out and you respond — a look, a word, a hug — you close the loop scientists call <strong>serve and return</strong>: the back-and-forth that literally builds the brain.',
+    'sci.serve.p2': 'It\'s one of the most replicated findings in child development, and Kinedu is built around it. In a study with <strong>Stanford</strong>, one short Kinedu activity video led parents to make <strong>69% more bids for joint attention</strong> and speak <strong>35% more</strong> with their child.',
     'sci.serve.ref': 'Stanford · Kinedu activity study',
 
     'sci.skills.tag': 'Our Milestone Model',
@@ -676,8 +676,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Interacciones que Construyen',
     'sci.serve.title': 'Servir y devolver: <span class="gradient-shift">así se construye el cerebro</span>',
-    'sci.serve.p1': 'Cuando tu bebé balbucea, señala o llora y tú respondes — una mirada, una palabra, un abrazo — completas un ciclo que los científicos llaman <strong>servir y devolver</strong>. Esos pequeños intercambios de ida y vuelta son, literalmente, los ladrillos de la arquitectura cerebral.',
-    'sci.serve.p2': 'Es uno de los hallazgos más replicados del desarrollo infantil — y Kinedu está construido en torno a él. En un estudio con <strong>Stanford</strong>, los padres que vieron un solo video corto de actividad de Kinedu hicieron <strong>69% más intentos de atención conjunta</strong> y hablaron <strong>35% más</strong> con su hijo.',
+    'sci.serve.p1': 'Cuando tu bebé balbucea o estira los brazos y tú respondes — una mirada, una palabra, un abrazo — cierras el ciclo que los científicos llaman <strong>servir y devolver</strong>: el ida y vuelta que, literalmente, construye el cerebro.',
+    'sci.serve.p2': 'Es uno de los hallazgos más replicados del desarrollo infantil, y Kinedu está construido en torno a él. En un estudio con <strong>Stanford</strong>, un solo video corto de actividad de Kinedu llevó a los padres a hacer <strong>69% más intentos de atención conjunta</strong> y hablar <strong>35% más</strong> con su hijo.',
     'sci.serve.ref': 'Stanford · Estudio de actividades Kinedu',
 
     'sci.skills.tag': 'Nuestro Modelo de Hitos',
@@ -1148,8 +1148,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Interações que Constroem',
     'sci.serve.title': 'Servir e devolver: <span class="gradient-shift">como o cérebro é construído</span>',
-    'sci.serve.p1': 'Quando o seu bebê balbucia, aponta ou chora e você responde — um olhar, uma palavra, um abraço — você completa um ciclo que os cientistas chamam de <strong>servir e devolver</strong>. Esses pequenos intercâmbios de ida e volta são, literalmente, os tijolos da arquitetura cerebral.',
-    'sci.serve.p2': 'É um dos achados mais replicados do desenvolvimento infantil — e a Kinedu é construída em torno dele. Em um estudo com <strong>Stanford</strong>, os pais que assistiram a um único vídeo curto de atividade da Kinedu fizeram <strong>69% mais tentativas de atenção compartilhada</strong> e falaram <strong>35% mais</strong> com o filho.',
+    'sci.serve.p1': 'Quando o seu bebê balbucia ou estende os bracinhos e você responde — um olhar, uma palavra, um abraço — você fecha o ciclo que os cientistas chamam de <strong>servir e devolver</strong>: a troca de ida e volta que, literalmente, constrói o cérebro.',
+    'sci.serve.p2': 'É um dos achados mais replicados do desenvolvimento infantil, e a Kinedu é construída em torno dele. Em um estudo com <strong>Stanford</strong>, um único vídeo curto de atividade da Kinedu levou os pais a fazer <strong>69% mais tentativas de atenção compartilhada</strong> e falar <strong>35% mais</strong> com o filho.',
     'sci.serve.ref': 'Stanford · Estudo de atividades Kinedu',
 
     'sci.skills.tag': 'Nosso Modelo de Marcos',
