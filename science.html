@@ -956,6 +956,13 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         .play-stat{transition:transform .25s ease}
         .play-stat:hover{transform:translateY(-3px)}
         .play-stat .num{line-height:1.05}
+    
+        /* Big Bang differentiation chart */
+        .bb-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:10px;font-size:12px;font-weight:600;color:var(--text-secondary)}
+        .bb-legend span{display:inline-flex;align-items:center;gap:6px}
+        .bb-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+        .bb-chart{display:block;width:100%;height:auto}
+        .bb-chart-cap{text-align:center;font-size:12.5px;color:var(--text-secondary);margin-top:12px;line-height:1.45;max-width:360px;margin-left:auto;margin-right:auto}
     </style>
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1058,8 +1065,31 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                     </span>
                 </div>
                 <div class="science-visual">
-                    <div class="science-img-wrapper">
-                        <img src="BIG BANG.png" alt="Brain development in early childhood" class="science-img">
+                    <div class="science-img-wrapper" style="padding:28px 26px">
+                        <div class="bb-legend">
+                            <span><i style="background:#2B8BE4"></i><span data-i18n="sci.domains.physical.title">Physical</span></span>
+                            <span><i style="background:#34C989"></i><span data-i18n="sci.domains.cognitive.title">Cognitive</span></span>
+                            <span><i style="background:#FF9F0A"></i><span data-i18n="sci.domains.language.title">Linguistic</span></span>
+                            <span><i style="background:#FF2D55"></i><span data-i18n="sci.domains.social.title">Social-Emotional</span></span>
+                        </div>
+                        <svg class="bb-chart" viewBox="0 0 500 300" role="img" aria-label="Developmental areas start bundled and differentiate with age">
+                            <g stroke="#E6EAF0" stroke-width="1">
+                                <line x1="50" y1="90" x2="480" y2="90"/><line x1="50" y1="150" x2="480" y2="150"/><line x1="50" y1="210" x2="480" y2="210"/>
+                            </g>
+                            <line x1="50" y1="30" x2="50" y2="262" stroke="#D5DAE2" stroke-width="1.5"/>
+                            <line x1="50" y1="262" x2="480" y2="262" stroke="#D5DAE2" stroke-width="1.5"/>
+                            <line x1="265" y1="40" x2="265" y2="262" stroke="#2B8BE4" stroke-width="1.3" stroke-dasharray="4 4" opacity=".5"/>
+                            <text x="265" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#2B8BE4" font-family="Plus Jakarta Sans,sans-serif">~12 mo</text>
+                            <path d="M50,246 C150,215 215,110 265,92 C360,76 430,72 480,70" fill="none" stroke="#2B8BE4" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,243 C150,212 215,120 265,98 C360,72 430,60 480,55" fill="none" stroke="#34C989" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,249 C160,240 220,198 265,172 C360,148 430,135 480,130" fill="none" stroke="#FF9F0A" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,247 C150,228 215,160 265,135 C370,115 430,108 480,105" fill="none" stroke="#FF2D55" stroke-width="3.2" stroke-linecap="round"/>
+                            <g fill="#8A95A5" font-size="11" font-family="Plus Jakarta Sans,sans-serif" text-anchor="middle">
+                                <text x="50" y="280">0</text><text x="158" y="280">6</text><text x="265" y="280">12</text><text x="373" y="280">18</text><text x="480" y="280">24</text>
+                                <text x="265" y="296" font-size="10.5">age (months)</text>
+                            </g>
+                        </svg>
+                        <div class="bb-chart-cap" data-i18n="sci.bb.chart">Each line is a developmental area — bundled early, then fanning apart with age.</div>
                     </div>
                 </div>
             </div>
