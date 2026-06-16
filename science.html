@@ -938,6 +938,23 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 padding: 48px 0;
             }
         }
+    
+        /* ===== VISUAL POLISH ===== */
+        .kc-reveal{opacity:0;transform:translateY(26px);transition:opacity .65s cubic-bezier(.16,.84,.44,1),transform .65s cubic-bezier(.16,.84,.44,1)}
+        .kc-reveal.kc-in{opacity:1;transform:none}
+        @media(prefers-reduced-motion:reduce){.kc-reveal{opacity:1 !important;transform:none !important;transition:none}}
+        /* Five-forces number -> gradient badge */
+        .force-num{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff !important;letter-spacing:0;margin-bottom:18px;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));box-shadow:0 6px 16px rgba(43,139,228,.22)}
+        /* Spectrum hover + premium accent on the winner */
+        .spectrum-card{transition:transform .25s ease,box-shadow .25s ease}
+        .spectrum-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,27,44,.08)}
+        .spectrum-card.best{position:relative;overflow:hidden}
+        .spectrum-card.best::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--kinedu-blue),var(--kinedu-green))}
+        .spectrum-card.best:hover{transform:scale(1.03) translateY(-4px)}
+        /* Stat numbers: tighter, lift on hover for the play/econ/neuro strips */
+        .play-stat{transition:transform .25s ease}
+        .play-stat:hover{transform:translateY(-3px)}
+        .play-stat .num{line-height:1.05}
     </style>
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1183,7 +1200,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     </section>
 
     <!-- SECTION 4: Kinedu Skills Model -->
-    <section class="science-section alt-bg">
+    <section class="science-section">
         <div class="section-wrap">
             <div class="science-grid">
                 <div class="science-text">
@@ -1206,7 +1223,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     </section>
 
     <!-- NEW: Sleep -->
-    <section class="science-section">
+    <section class="science-section alt-bg">
         <div class="section-wrap">
             <div class="science-section-header">
                 <span class="sec-tag" data-i18n="sci.sleep.tag">While they rest</span>
@@ -1260,7 +1277,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     </section>
 
     <!-- SECTION 6: Research Partners -->
-    <section class="science-section alt-bg">
+    <section class="science-section">
         <div class="section-wrap">
             <div class="science-section-header">
                 <span class="sec-tag" data-i18n="sci.partners.tag">Research Partners</span>
@@ -1386,6 +1403,31 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang}));
             });
         });
+    })();
+    </script>
+    <script>
+    (function(){
+      var sel='.science-section-header,.science-text,.science-visual,.force-card,.spectrum-card,.play-stat,.domain-card,.partner-card,.catalyst-card,.philosophy-card,.stat-banner-inner';
+      var els=[].slice.call(document.querySelectorAll(sel));
+      if(!els.length) return;
+      ['.forces-grid','.spectrum-grid','.play-stats','.domains-grid','.partners-grid'].forEach(function(s){
+        document.querySelectorAll(s).forEach(function(g){
+          [].slice.call(g.children).forEach(function(c,i){ c.style.transitionDelay=(i*70)+'ms'; });
+        });
+      });
+      var reveal=function(el){ el.classList.add('kc-in'); };
+      if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('kc-reveal');reveal(el);}); return; }
+      var io=new IntersectionObserver(function(ents){
+        ents.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } });
+      },{threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+      var vh=window.innerHeight||0;
+      els.forEach(function(el){
+        el.classList.add('kc-reveal');
+        if(vh && el.getBoundingClientRect().top < vh*0.95){ reveal(el); }
+        else { io.observe(el); }
+      });
+      /* failsafe: never leave content hidden if the observer doesn't fire */
+      setTimeout(function(){ els.forEach(reveal); }, 4000);
     })();
     </script>
 </body>
