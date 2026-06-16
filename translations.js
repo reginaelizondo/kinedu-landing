@@ -181,8 +181,8 @@ window.TRANSLATIONS = {
     'sci.bigbang.p1': 'In the beginning, everything grows at once. Physical, cognitive, language, and social-emotional development aren\'t separate tracks — early on they move together as one. Then, like a universe after the Big Bang, they expand into distinct but deeply connected abilities, each finding its own path around <strong>12 months</strong>.',
     'sci.bigbang.p2': 'And the pace is staggering — about <strong>50 milestones</strong> by 1 month, <strong>~300</strong> by age 2. We didn\'t borrow the metaphor; we measured it with <strong>Stanford</strong>: in the earliest months a baby\'s abilities are so tightly linked that progress in one pulls the others along.',
     'sci.bigbang.p3': 'This isn\'t a metaphor we borrowed — it\'s a pattern we measured. In research with <strong>Stanford</strong>, we analyzed <strong>21,861 children</strong> across <strong>177,934 observations</strong> of <strong>414 milestones</strong> and found exactly this: in the earliest months a baby\'s abilities are so tightly linked that progress in one pulls the others along — and by about 12 months they begin to specialize. Development really does start unified, then become beautifully complex.',
-    'sci.bigbang.stat': '1M+',
-    'sci.bigbang.statLabel': 'new brain connections form every second in the first years',
+    'sci.bigbang.stat': '1,000',
+    'sci.bigbang.statLabel': 'days shape a lifetime — from pregnancy through age 2',
     'sci.stat.sub': 'The architecture of a lifetime is assembled in early childhood — and your everyday interactions are what shape it.',
     'sci.bigbang.ref': 'Stanford · The Structure of Development',
 
@@ -204,8 +204,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Brain-Building Interactions',
     'sci.serve.title': 'Serve and return: <span class="gradient-shift">how brains are built</span>',
-    'sci.serve.p1': 'When your baby babbles, points, or cries and you respond — with eye contact, words, a smile, a hug — you complete a loop scientists call <strong>serve and return</strong>. These thousands of tiny back-and-forth exchanges are the literal building blocks of brain architecture: they\'re how neural connections form and grow strong.',
-    'sci.serve.p2': 'It\'s one of the most replicated findings in developmental science — and Kinedu is engineered around it. In a study with <strong>Stanford</strong>, parents who watched a single short Kinedu activity video made <strong>69% more bids for joint attention</strong> and spoke <strong>35% more</strong> with their child than parents who didn\'t. A few minutes of guidance measurably changed how they connected.',
+    'sci.serve.p1': 'When your baby babbles, points, or cries and you respond — a look, a word, a hug — you complete a loop scientists call <strong>serve and return</strong>. These tiny back-and-forth exchanges are the literal building blocks of brain architecture.',
+    'sci.serve.p2': 'It\'s one of the most replicated findings in child development — and Kinedu is built around it. In a study with <strong>Stanford</strong>, parents who watched one short Kinedu activity video made <strong>69% more bids for joint attention</strong> and spoke <strong>35% more</strong> with their child.',
     'sci.serve.ref': 'Stanford · Kinedu activity study',
 
     'sci.skills.tag': 'Our Milestone Model',
@@ -652,8 +652,8 @@ window.TRANSLATIONS = {
     'sci.bigbang.p1': 'Al principio, todo crece a la vez. El desarrollo físico, cognitivo, del lenguaje y socioemocional no son carriles separados: al inicio se mueven juntos como uno solo. Después, como un universo tras el Big Bang, se expanden en habilidades distintas pero profundamente conectadas, y cada una encuentra su propio camino alrededor de los <strong>12 meses</strong>.',
     'sci.bigbang.p2': 'Y el ritmo es asombroso: cerca de <strong>50 hitos</strong> al primer mes, <strong>~300</strong> a los 2 años. No tomamos prestada la metáfora; la medimos con <strong>Stanford</strong>: en los primeros meses las habilidades del bebé están tan ligadas que el avance en una arrastra a las demás.',
     'sci.bigbang.p3': 'No es una metáfora prestada: es un patrón que medimos. En una investigación con <strong>Stanford</strong> analizamos <strong>21,861 niños</strong> a lo largo de <strong>177,934 observaciones</strong> de <strong>414 hitos</strong>, y encontramos justo esto: en los primeros meses las habilidades del bebé están tan ligadas que el avance en una arrastra a las demás — y hacia los 12 meses empiezan a especializarse. El desarrollo realmente empieza unificado y luego se vuelve maravillosamente complejo.',
-    'sci.bigbang.stat': '1M+',
-    'sci.bigbang.statLabel': 'nuevas conexiones cerebrales se forman cada segundo en los primeros años',
+    'sci.bigbang.stat': '1.000',
+    'sci.bigbang.statLabel': 'días marcan toda una vida — del embarazo a los 2 años',
     'sci.stat.sub': 'La arquitectura de toda una vida se construye en los primeros años — y son tus interacciones cotidianas las que le dan forma.',
     'sci.bigbang.ref': 'Stanford · The Structure of Development',
 
@@ -675,8 +675,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Interacciones que Construyen',
     'sci.serve.title': 'Servir y devolver: <span class="gradient-shift">así se construye el cerebro</span>',
-    'sci.serve.p1': 'Cuando tu bebé balbucea, señala o llora y tú respondes — con la mirada, palabras, una sonrisa, un abrazo — completas un ciclo que los científicos llaman <strong>servir y devolver</strong>. Esos miles de pequeños intercambios de ida y vuelta son, literalmente, los ladrillos de la arquitectura cerebral: así se forman y se fortalecen las conexiones neuronales.',
-    'sci.serve.p2': 'Es uno de los hallazgos más replicados de la ciencia del desarrollo — y Kinedu está diseñado en torno a él. En un estudio con <strong>Stanford</strong>, los padres que vieron un solo video corto de actividad de Kinedu hicieron <strong>69% más intentos de atención conjunta</strong> y hablaron <strong>35% más</strong> con su hijo que quienes no lo vieron. Unos minutos de guía cambiaron de forma medible su manera de conectar.',
+    'sci.serve.p1': 'Cuando tu bebé balbucea, señala o llora y tú respondes — una mirada, una palabra, un abrazo — completas un ciclo que los científicos llaman <strong>servir y devolver</strong>. Esos pequeños intercambios de ida y vuelta son, literalmente, los ladrillos de la arquitectura cerebral.',
+    'sci.serve.p2': 'Es uno de los hallazgos más replicados del desarrollo infantil — y Kinedu está construido en torno a él. En un estudio con <strong>Stanford</strong>, los padres que vieron un solo video corto de actividad de Kinedu hicieron <strong>69% más intentos de atención conjunta</strong> y hablaron <strong>35% más</strong> con su hijo.',
     'sci.serve.ref': 'Stanford · Estudio de actividades Kinedu',
 
     'sci.skills.tag': 'Nuestro Modelo de Hitos',
@@ -1123,8 +1123,8 @@ window.TRANSLATIONS = {
     'sci.bigbang.p1': 'No começo, tudo cresce ao mesmo tempo. O desenvolvimento físico, cognitivo, da linguagem e socioemocional não são trilhas separadas: no início se movem juntos como um só. Depois, como um universo após o Big Bang, se expandem em habilidades distintas, mas profundamente conectadas, e cada uma encontra o seu próprio caminho por volta dos <strong>12 meses</strong>.',
     'sci.bigbang.p2': 'E o ritmo é impressionante: cerca de <strong>50 marcos</strong> no primeiro mês, <strong>~300</strong> aos 2 anos. Não pegamos a metáfora emprestada; nós a medimos com <strong>Stanford</strong>: nos primeiros meses as habilidades do bebê estão tão ligadas que o avanço em uma puxa as demais.',
     'sci.bigbang.p3': 'Não é uma metáfora emprestada: é um padrão que medimos. Em uma pesquisa com <strong>Stanford</strong>, analisamos <strong>21.861 crianças</strong> ao longo de <strong>177.934 observações</strong> de <strong>414 marcos</strong> e encontramos exatamente isto: nos primeiros meses as habilidades do bebê estão tão ligadas que o avanço em uma puxa as demais — e por volta dos 12 meses começam a se especializar. O desenvolvimento realmente começa unificado e depois se torna belamente complexo.',
-    'sci.bigbang.stat': '1M+',
-    'sci.bigbang.statLabel': 'novas conexões cerebrais se formam a cada segundo nos primeiros anos',
+    'sci.bigbang.stat': '1.000',
+    'sci.bigbang.statLabel': 'dias moldam uma vida inteira — da gravidez aos 2 anos',
     'sci.stat.sub': 'A arquitetura de uma vida inteira é construída nos primeiros anos — e são as suas interações do dia a dia que lhe dão forma.',
     'sci.bigbang.ref': 'Stanford · The Structure of Development',
 
@@ -1146,8 +1146,8 @@ window.TRANSLATIONS = {
 
     'sci.serve.tag': 'Interações que Constroem',
     'sci.serve.title': 'Servir e devolver: <span class="gradient-shift">como o cérebro é construído</span>',
-    'sci.serve.p1': 'Quando o seu bebê balbucia, aponta ou chora e você responde — com o olhar, palavras, um sorriso, um abraço — você completa um ciclo que os cientistas chamam de <strong>servir e devolver</strong>. Esses milhares de pequenos intercâmbios de ida e volta são, literalmente, os tijolos da arquitetura cerebral: é assim que as conexões neurais se formam e se fortalecem.',
-    'sci.serve.p2': 'É um dos achados mais replicados da ciência do desenvolvimento — e a Kinedu é projetada em torno dele. Em um estudo com <strong>Stanford</strong>, os pais que assistiram a um único vídeo curto de atividade da Kinedu fizeram <strong>69% mais tentativas de atenção compartilhada</strong> e falaram <strong>35% mais</strong> com o filho do que quem não assistiu. Poucos minutos de orientação mudaram de forma mensurável a maneira de se conectar.',
+    'sci.serve.p1': 'Quando o seu bebê balbucia, aponta ou chora e você responde — um olhar, uma palavra, um abraço — você completa um ciclo que os cientistas chamam de <strong>servir e devolver</strong>. Esses pequenos intercâmbios de ida e volta são, literalmente, os tijolos da arquitetura cerebral.',
+    'sci.serve.p2': 'É um dos achados mais replicados do desenvolvimento infantil — e a Kinedu é construída em torno dele. Em um estudo com <strong>Stanford</strong>, os pais que assistiram a um único vídeo curto de atividade da Kinedu fizeram <strong>69% mais tentativas de atenção compartilhada</strong> e falaram <strong>35% mais</strong> com o filho.',
     'sci.serve.ref': 'Stanford · Estudo de atividades Kinedu',
 
     'sci.skills.tag': 'Nosso Modelo de Marcos',
