@@ -322,7 +322,7 @@ window.TRANSLATIONS = {
     'sci.partners.mitDesc': 'Supporting the Kinedu Skills\u00ae Milestone Model — a new approach to tracking early childhood development.',
 
     'sci.catalyst.title': 'You are your baby\'s <span class="gradient-shift">most powerful catalyst</span>',
-    'sci.catalyst.body': 'Decades of science point to the same place: what matters most isn\'t perfection — it\'s a present, responsive, intentional guide. Kinedu turns that science into a <strong>daily plan built around your child</strong> — challenging enough to grow new skills, smart enough to reinforce what they\'ve learned, and simple enough to fit real family life.',
+    'sci.catalyst.body': 'You don\'t need fancy toys or a flawless routine — you need a plan. Kinedu turns the science on this page into a <strong>daily plan built around your child</strong>: challenging enough to grow new skills, smart enough to reinforce what they\'ve learned, and simple enough to fit real family life.',
     'sci.catalyst.f1': 'Personalized milestone tracking',
     'sci.catalyst.f2': 'A new activity every day, just for your baby',
     'sci.catalyst.f3': 'Adapts as your baby grows',
@@ -813,7 +813,7 @@ window.TRANSLATIONS = {
     'sci.partners.mitDesc': 'Apoyando el modelo Kinedu Skills\u00ae — un nuevo enfoque para dar seguimiento al desarrollo en la primera infancia.',
 
     'sci.catalyst.title': 'Tú eres el <span class="gradient-shift">catalizador más poderoso</span> de tu bebé',
-    'sci.catalyst.body': 'Décadas de ciencia apuntan al mismo lugar: lo que más importa no es la perfección, sino una guía presente, receptiva e intencional. Kinedu convierte esa ciencia en un <strong>plan diario hecho a la medida de tu hijo</strong> — lo bastante retador para desarrollar nuevas habilidades, lo bastante inteligente para reforzar lo aprendido y lo bastante simple para la vida real en familia.',
+    'sci.catalyst.body': 'No necesitas juguetes especiales ni una rutina perfecta — necesitas un plan. Kinedu convierte la ciencia de esta página en un <strong>plan diario hecho a la medida de tu hijo</strong>: lo bastante retador para desarrollar nuevas habilidades, lo bastante inteligente para reforzar lo aprendido y lo bastante simple para la vida real en familia.',
     'sci.catalyst.f1': 'Seguimiento personalizado de hitos',
     'sci.catalyst.f2': 'Una actividad nueva cada día, solo para tu bebé',
     'sci.catalyst.f3': 'Se adapta conforme tu bebé crece',
@@ -1304,7 +1304,7 @@ window.TRANSLATIONS = {
     'sci.partners.mitDesc': 'Apoiando o modelo Kinedu Skills\u00ae — uma nova abordagem para acompanhar o desenvolvimento na primeira infância.',
 
     'sci.catalyst.title': 'Você é o <span class="gradient-shift">catalisador mais poderoso</span> do seu bebê',
-    'sci.catalyst.body': 'Décadas de ciência apontam para o mesmo lugar: o que mais importa não é a perfeição, mas um guia presente, receptivo e intencional. A Kinedu transforma essa ciência em um <strong>plano diário feito sob medida para o seu filho</strong> — desafiador o suficiente para desenvolver novas habilidades, inteligente o suficiente para reforçar o aprendido e simples o suficiente para a vida real em família.',
+    'sci.catalyst.body': 'Você não precisa de brinquedos especiais nem de uma rotina perfeita — precisa de um plano. A Kinedu transforma a ciência desta página em um <strong>plano diário feito sob medida para o seu filho</strong>: desafiador o suficiente para desenvolver novas habilidades, inteligente o suficiente para reforçar o aprendido e simples o suficiente para a vida real em família.',
     'sci.catalyst.f1': 'Acompanhamento personalizado de marcos',
     'sci.catalyst.f2': 'Uma atividade nova por dia, só para o seu bebê',
     'sci.catalyst.f3': 'Se adapta conforme seu bebê cresce',
