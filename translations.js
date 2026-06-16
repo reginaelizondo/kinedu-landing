@@ -210,8 +210,8 @@ window.TRANSLATIONS = {
 
     'sci.skills.tag': 'Our Milestone Model',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">development reimagined</span>',
-    'sci.skills.p1': 'Traditional milestone checklists ask: "Has your baby done X yet?" Kinedu Skills® asks something different: <strong>"How is your baby\'s whole developmental universe unfolding</strong> — and what does that mean for what they\'re ready to learn next?"',
-    'sci.skills.p2': 'Developed with <strong>Prof. Michael Frank\'s lab at Stanford</strong> after analyzing millions of milestone observations, Kinedu Skills® maps <strong>414 milestones across 46 skills</strong> in four areas — showing you not just where your child is today, but what they\'re building toward next.',
+    'sci.skills.p1': 'Traditional checklists ask: "Has your baby done X yet?" Kinedu Skills® asks something better: how your baby\'s <strong>whole developmental universe</strong> is unfolding — and what they\'re ready to learn next.',
+    'sci.skills.p2': 'Built with <strong>Prof. Michael Frank\'s lab at Stanford</strong> from millions of milestone observations, it maps <strong>414 milestones across 46 skills</strong> — treating development the way the data shows it really works: <strong>multi-dimensional, interdependent, and always moving</strong>, never just pass/fail. Psychometrically validated (α = 0.996).',
     'sci.skills.p3': 'Unlike a checklist, it captures what the data actually shows: development is <strong>multi-dimensional</strong> (not a single "level"), <strong>interdependent</strong> (progress in one area unlocks others), and <strong>continuous</strong> (always moving, never just pass/fail). The underlying assessment is psychometrically validated — overall reliability α = 0.996.',
     'sci.skills.ref': 'MIT-Solve · Stanford · research preprint',
 
@@ -681,8 +681,8 @@ window.TRANSLATIONS = {
 
     'sci.skills.tag': 'Nuestro Modelo de Hitos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desarrollo reimaginado</span>',
-    'sci.skills.p1': 'Las listas de hitos tradicionales preguntan: "¿Tu bebé ya hizo X?" Kinedu Skills® pregunta algo diferente: <strong>"¿Cómo se está desplegando el universo de desarrollo de tu bebé</strong> — y qué significa eso para lo que está listo para aprender?"',
-    'sci.skills.p2': 'Desarrollado con el <strong>laboratorio del Prof. Michael Frank en Stanford</strong> tras analizar millones de observaciones de hitos, Kinedu Skills® mapea <strong>414 hitos en 46 habilidades</strong> en cuatro áreas — y te muestra no solo dónde está tu hijo hoy, sino hacia dónde se dirige.',
+    'sci.skills.p1': 'Las listas tradicionales preguntan: "¿Tu bebé ya hizo X?" Kinedu Skills® pregunta algo mejor: cómo se está desplegando <strong>todo el universo de desarrollo</strong> de tu bebé — y qué está listo para aprender a continuación.',
+    'sci.skills.p2': 'Creado con el <strong>laboratorio del Prof. Michael Frank en Stanford</strong> a partir de millones de observaciones de hitos, mapea <strong>414 hitos en 46 habilidades</strong> — entendiendo el desarrollo como realmente muestran los datos: <strong>multidimensional, interdependiente y siempre en movimiento</strong>, nunca solo aprobado/reprobado. Validado psicométricamente (α = 0.996).',
     'sci.skills.p3': 'A diferencia de una lista de verificación, captura lo que los datos realmente muestran: el desarrollo es <strong>multidimensional</strong> (no un solo "nivel"), <strong>interdependiente</strong> (el avance en un área desbloquea otras) y <strong>continuo</strong> (siempre en movimiento, nunca solo aprobado/reprobado). El instrumento está validado psicométricamente — confiabilidad global α = 0.996.',
     'sci.skills.ref': 'MIT-Solve · Stanford · preprint de investigación',
 
@@ -1152,8 +1152,8 @@ window.TRANSLATIONS = {
 
     'sci.skills.tag': 'Nosso Modelo de Marcos',
     'sci.skills.title': 'Kinedu Skills<sup>&reg;</sup>: <span class="gradient-shift">desenvolvimento reimaginado</span>',
-    'sci.skills.p1': 'As listas tradicionais perguntam: "Seu bebê já fez X?" O Kinedu Skills® pergunta algo diferente: <strong>"Como o universo de desenvolvimento do seu bebê está se desdobrando</strong> — e o que isso significa para o que ele está pronto para aprender?"',
-    'sci.skills.p2': 'Desenvolvido com o <strong>laboratório do Prof. Michael Frank em Stanford</strong> após analisar milhões de observações de marcos, o Kinedu Skills® mapeia <strong>414 marcos em 46 habilidades</strong> em quatro áreas — mostrando não apenas onde o seu filho está hoje, mas para onde ele está caminhando.',
+    'sci.skills.p1': 'As checklists tradicionais perguntam: "Seu bebê já fez X?" O Kinedu Skills® pergunta algo melhor: como está se desdobrando <strong>todo o universo de desenvolvimento</strong> do seu bebê — e o que ele está pronto para aprender a seguir.',
+    'sci.skills.p2': 'Criado com o <strong>laboratório do Prof. Michael Frank em Stanford</strong> a partir de milhões de observações de marcos, mapeia <strong>414 marcos em 46 habilidades</strong> — entendendo o desenvolvimento como os dados realmente mostram: <strong>multidimensional, interdependente e sempre em movimento</strong>, nunca apenas aprovado/reprovado. Validado psicometricamente (α = 0,996).',
     'sci.skills.p3': 'Diferente de uma checklist, ele capta o que os dados realmente mostram: o desenvolvimento é <strong>multidimensional</strong> (não um único "nível"), <strong>interdependente</strong> (o avanço em uma área desbloqueia outras) e <strong>contínuo</strong> (sempre em movimento, nunca apenas aprovado/reprovado). O instrumento é validado psicometricamente — confiabilidade geral α = 0,996.',
     'sci.skills.ref': 'MIT-Solve · Stanford · preprint de pesquisa',
 
