@@ -26,3 +26,5 @@ blog/images/
 .vercel
 .env*.local
 ilustraciones.svg
+blog-301-redirects.csv
+blog-301-migration-guide.md
