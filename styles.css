@@ -951,18 +951,30 @@ section[id], div[id] { scroll-margin-top: 96px; }
 }
 
 .why-now-cta {
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--kinedu-blue);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    transition: opacity 0.3s ease;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(43, 139, 228, 0.35);
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(43, 139, 228, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.why-now-cta strong {
+    font-weight: 800;
 }
 
 .why-now-cta:hover {
-    opacity: 0.7;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 24px rgba(43, 139, 228, 0.20);
+    border-color: var(--kinedu-blue);
+    background: var(--bg-soft-blue);
 }
 
 /* =========================================
