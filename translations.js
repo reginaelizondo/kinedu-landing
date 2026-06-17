@@ -174,8 +174,8 @@ window.TRANSLATIONS = {
 
     'sci.bigbang.tag': 'The Big Bang of Development',
     'sci.bigbang.title': 'Your baby\'s brain is building itself <span class="gradient-shift">right now</span> — faster than it ever will again.',
-    'sci.bigbang.p1': 'In the beginning, everything grows at once. Physical, cognitive, language, and social-emotional development aren\'t separate tracks — early on they move together as one. Then, like a universe after the Big Bang, they expand into distinct but deeply connected abilities, each finding its own path around <strong>12 months</strong>.',
-    'sci.bigbang.p2': 'And the pace is staggering — about <strong>50 milestones</strong> by 1 month, <strong>~300</strong> by age 2. We didn\'t borrow the metaphor; we measured it with <strong>Stanford</strong>: in the earliest months a baby\'s abilities are so tightly linked that progress in one pulls the others along.',
+    'sci.bigbang.p1': 'At first, everything grows at once — physical, cognitive, language and social-emotional skills move as one. Then, like a universe after the Big Bang, they expand into distinct but deeply connected abilities around <strong>12 months</strong>.',
+    'sci.bigbang.p2': 'And the pace is staggering: about <strong>50 milestones</strong> by 1 month, <strong>~300</strong> by age 2. We measured it with <strong>Stanford</strong> — early on, progress in one ability pulls the others along.',
     'sci.bigbang.p3': 'This isn\'t a metaphor we borrowed — it\'s a pattern we measured. In research with <strong>Stanford</strong>, we analyzed <strong>21,861 children</strong> across <strong>177,934 observations</strong> of <strong>414 milestones</strong> and found exactly this: in the earliest months a baby\'s abilities are so tightly linked that progress in one pulls the others along — and by about 12 months they begin to specialize. Development really does start unified, then become beautifully complex.',
     'sci.bigbang.stat': '1,000',
     'sci.bigbang.statLabel': 'days shape a lifetime — from pregnancy through age 2',
@@ -661,8 +661,8 @@ window.TRANSLATIONS = {
 
     'sci.bigbang.tag': 'El Big Bang del Desarrollo',
     'sci.bigbang.title': 'El cerebro de tu bebé se está construyendo <span class="gradient-shift">ahora mismo</span> — más rápido de lo que jamás volverá a hacerlo.',
-    'sci.bigbang.p1': 'Al principio, todo crece a la vez. El desarrollo físico, cognitivo, del lenguaje y socioemocional no son carriles separados: al inicio se mueven juntos como uno solo. Después, como un universo tras el Big Bang, se expanden en habilidades distintas pero profundamente conectadas, y cada una encuentra su propio camino alrededor de los <strong>12 meses</strong>.',
-    'sci.bigbang.p2': 'Y el ritmo es asombroso: cerca de <strong>50 hitos</strong> al primer mes, <strong>~300</strong> a los 2 años. No tomamos prestada la metáfora; la medimos con <strong>Stanford</strong>: en los primeros meses las habilidades del bebé están tan ligadas que el avance en una arrastra a las demás.',
+    'sci.bigbang.p1': 'Al principio, todo crece a la vez: lo físico, lo cognitivo, el lenguaje y lo socioemocional se mueven como uno solo. Después, como un universo tras el Big Bang, se expanden en habilidades distintas pero profundamente conectadas alrededor de los <strong>12 meses</strong>.',
+    'sci.bigbang.p2': 'Y el ritmo es asombroso: cerca de <strong>50 hitos</strong> al primer mes, <strong>~300</strong> a los 2 años. Lo medimos con <strong>Stanford</strong>: al inicio, el avance en una habilidad arrastra a las demás.',
     'sci.bigbang.p3': 'No es una metáfora prestada: es un patrón que medimos. En una investigación con <strong>Stanford</strong> analizamos <strong>21,861 niños</strong> a lo largo de <strong>177,934 observaciones</strong> de <strong>414 hitos</strong>, y encontramos justo esto: en los primeros meses las habilidades del bebé están tan ligadas que el avance en una arrastra a las demás — y hacia los 12 meses empiezan a especializarse. El desarrollo realmente empieza unificado y luego se vuelve maravillosamente complejo.',
     'sci.bigbang.stat': '1.000',
     'sci.bigbang.statLabel': 'días marcan toda una vida — del embarazo a los 2 años',
@@ -1147,8 +1147,8 @@ window.TRANSLATIONS = {
 
     'sci.bigbang.tag': 'O Big Bang do Desenvolvimento',
     'sci.bigbang.title': 'O cérebro do seu bebê está se construindo <span class="gradient-shift">agora mesmo</span> — mais rápido do que jamais acontecerá novamente.',
-    'sci.bigbang.p1': 'No começo, tudo cresce ao mesmo tempo. O desenvolvimento físico, cognitivo, da linguagem e socioemocional não são trilhas separadas: no início se movem juntos como um só. Depois, como um universo após o Big Bang, se expandem em habilidades distintas, mas profundamente conectadas, e cada uma encontra o seu próprio caminho por volta dos <strong>12 meses</strong>.',
-    'sci.bigbang.p2': 'E o ritmo é impressionante: cerca de <strong>50 marcos</strong> no primeiro mês, <strong>~300</strong> aos 2 anos. Não pegamos a metáfora emprestada; nós a medimos com <strong>Stanford</strong>: nos primeiros meses as habilidades do bebê estão tão ligadas que o avanço em uma puxa as demais.',
+    'sci.bigbang.p1': 'No começo, tudo cresce ao mesmo tempo: o físico, o cognitivo, a linguagem e o socioemocional se movem como um só. Depois, como um universo após o Big Bang, se expandem em habilidades distintas, mas profundamente conectadas, por volta dos <strong>12 meses</strong>.',
+    'sci.bigbang.p2': 'E o ritmo é impressionante: cerca de <strong>50 marcos</strong> no primeiro mês, <strong>~300</strong> aos 2 anos. Nós medimos com <strong>Stanford</strong>: no início, o avanço em uma habilidade puxa as demais.',
     'sci.bigbang.p3': 'Não é uma metáfora emprestada: é um padrão que medimos. Em uma pesquisa com <strong>Stanford</strong>, analisamos <strong>21.861 crianças</strong> ao longo de <strong>177.934 observações</strong> de <strong>414 marcos</strong> e encontramos exatamente isto: nos primeiros meses as habilidades do bebê estão tão ligadas que o avanço em uma puxa as demais — e por volta dos 12 meses começam a se especializar. O desenvolvimento realmente começa unificado e depois se torna belamente complexo.',
     'sci.bigbang.stat': '1.000',
     'sci.bigbang.statLabel': 'dias moldam uma vida inteira — da gravidez aos 2 anos',
