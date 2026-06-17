@@ -1220,7 +1220,10 @@ section[id], div[id] { scroll-margin-top: 96px; }
     font-weight: 900;
     line-height: 1;
     opacity: 1;
-    color: rgba(43, 139, 228, 0.22);
+    color: var(--kinedu-blue);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px rgba(43, 139, 228, 0.55);
+    text-stroke: 2px rgba(43, 139, 228, 0.55);
     letter-spacing: -0.04em;
     margin-bottom: -8px;
 }
