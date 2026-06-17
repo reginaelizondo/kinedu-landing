@@ -112,34 +112,17 @@ a {
 
 /* --- ANIMATED GRADIENT TEXT — Kinedu Brand --- */
 .gradient-shift {
-    background: linear-gradient(
-        135deg,
-        var(--kinedu-blue),
-        var(--accent-cyan),
-        var(--kinedu-green),
-        var(--kinedu-blue)
-    );
-    background-size: 300% 300%;
+    background: linear-gradient(120deg, var(--kinedu-blue), var(--kinedu-green));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 5s ease infinite;
 }
 
 .gradient-shift-alt {
-    background: linear-gradient(
-        135deg,
-        var(--kinedu-pink),
-        var(--kinedu-orange),
-        var(--accent-yellow),
-        var(--kinedu-green),
-        var(--kinedu-pink)
-    );
-    background-size: 300% 300%;
+    background: linear-gradient(120deg, var(--kinedu-green), var(--kinedu-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 5s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -623,15 +606,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 .btn-hero-primary .btn-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        var(--kinedu-blue),
-        #3AA0F0,
-        var(--kinedu-green),
-        var(--kinedu-blue)
-    );
-    background-size: 400% 400%;
-    animation: gradientShift 5s ease infinite;
+    background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
     z-index: -1;
     border-radius: inherit;
 }
@@ -1775,9 +1750,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
     border: none;
     text-decoration: none;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--kinedu-blue), #3AA0F0, var(--kinedu-green), var(--kinedu-blue));
-    background-size: 400% 400%;
-    animation: gradientShift 5s ease infinite;
+    background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
 }
 
 .btn-trial:hover {
@@ -2300,9 +2273,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
         text-align: center;
         justify-content: center;
         border-radius: 14px;
-        background: linear-gradient(135deg, var(--kinedu-blue), var(--accent-cyan), var(--kinedu-green));
-        background-size: 200% 200%;
-        animation: gradientShift 6s ease infinite;
+        background: linear-gradient(135deg, var(--kinedu-blue), var(--kinedu-green));
         color: #fff;
         font-weight: 700;
         letter-spacing: 0.02em;
