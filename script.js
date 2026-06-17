@@ -30,10 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.documentElement.lang = lang;
 
-            // Page title
-            const isScience = window.location.pathname.includes('science');
-            const titleKey = isScience ? 'meta.titleScience' : 'meta.title';
-            if (t[titleKey]) document.title = t[titleKey];
+            // Page title — only override on pages that have a dedicated translated title
+            // (home + science). Other pages (blog articles, live-classes, founder, etc.)
+            // keep their own static <title>; clobbering it with meta.title showed the
+            // home title everywhere and hurt SEO.
+            const _p = window.location.pathname;
+            const isScience = _p.includes('science');
+            const isHome = _p === '/' || _p === '/index.html' || _p === '/es' || _p === '/es/' || _p === '/pt' || _p === '/pt/';
+            const titleKey = isScience ? 'meta.titleScience' : (isHome ? 'meta.title' : null);
+            if (titleKey && t[titleKey]) document.title = t[titleKey];
 
             // Standard text replacements
             document.querySelectorAll('[data-i18n]').forEach(el => {
