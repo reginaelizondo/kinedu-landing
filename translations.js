@@ -73,7 +73,7 @@ window.TRANSLATIONS = {
       { t: 'their', a: true },
       { t: 'brain.', a: true }
     ],
-    'problem.source': '— The science of early childhood development',
+    'problem.source': '— Harvard Center on the Developing Child',
 
     // WHY NOW
     'whyNow.body': 'Every time you play with your baby, respond to them, or talk to them through a diaper change — you\'re doing something that matters more than most parents realize. You don\'t need a degree in child development. You just need to know what to do in those moments. That\'s what Kinedu is for.',
@@ -560,7 +560,7 @@ window.TRANSLATIONS = {
       { t: 'su', a: true },
       { t: 'cerebro.', a: true }
     ],
-    'problem.source': '— La ciencia del desarrollo infantil',
+    'problem.source': '— Harvard Center on the Developing Child',
 
     // WHY NOW
     'whyNow.body': 'Cada vez que juegas con tu bebé, le respondes o le hablas mientras lo cambias — estás haciendo algo que importa más de lo que crees. No necesitas ser experta en desarrollo infantil. Solo necesitas saber qué hacer en esos momentos. Para eso existe Kinedu.',
@@ -1046,7 +1046,7 @@ window.TRANSLATIONS = {
       { t: 'o', a: true },
       { t: 'cérebro.', a: true }
     ],
-    'problem.source': '— A ciência do desenvolvimento infantil',
+    'problem.source': '— Harvard Center on the Developing Child',
 
     // WHY NOW
     'whyNow.body': 'Cada vez que você brinca com seu bebê, responde a ele ou conversa durante a troca de fralda — você está fazendo algo que importa mais do que imagina. Você não precisa ser especialista em desenvolvimento infantil. Só precisa saber o que fazer nesses momentos. Para isso existe o Kinedu.',
