@@ -901,7 +901,9 @@ section[id], div[id] { scroll-margin-top: 96px; }
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--kinedu-blue);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
     transition: opacity 0.3s ease;
 }
 

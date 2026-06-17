@@ -44,7 +44,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Know <span class="gradient-shift">exactly</span> what to</span><span class="line">do with your baby,</span><span class="line"><span class="gradient-shift-alt">every single day.</span></span>',
     'hero.sub': 'Kinedu gives you a personalized daily plan, simple activities, milestone tracking, and real expert guidance, <strong>built around your baby\'s exact age and stage.</strong>',
-    'hero.proof': 'Trusted by 8 million families. Recommended by pediatricians. Research-based.',
+    'hero.proof': 'Trusted by 11 million families. Recommended by pediatricians. Research-based.',
     'hero.ctaDesktop': 'Try 7 days for FREE',
     'hero.ctaMobile': 'Try 7 days for FREE',
     'hero.ctaSecondary': 'For Schools & Educators',
@@ -344,7 +344,7 @@ window.TRANSLATIONS = {
     'founder.story.p3': 'If you\'re looking for a way to give your child the best start in life, Kinedu is here to help you every step of the way.',
     'founder.quote': 'Kinedu is your personalized guide to know exactly what to do with your baby, every single day.',
     'founder.cta.title': 'Start your journey with <span class="gradient-shift-alt">Kinedu.</span>',
-    'founder.cta.sub': 'Join 8 million families who already trust the science.',
+    'founder.cta.sub': 'Join 11 million families who already trust the science.',
     'founder.cta.btn': 'Start your free trial',
 
     // ── LIVE CLASSES PAGE ───────────────────────────────────────
@@ -366,7 +366,7 @@ window.TRANSLATIONS = {
     'lc.hero.class3.expert': 'Caryn Shender · Sleep Consultant',
     'lc.hero.cta': 'Get every expert free for 7 days',
     'lc.hero.ctaSub': 'Cancel in 2 taps',
-    'lc.hero.trustFamilies': 'Loved by 8M+ families',
+    'lc.hero.trustFamilies': 'Loved by 11M+ families',
     'lc.hero.trustHarvard': 'Research-based',
     'lc.hero.trustPedi': 'Pediatrician recommended',
 
@@ -536,7 +536,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Descubre <span class="gradient-shift">exactamente</span></span><span class="line">qué hacer con tu</span><span class="line">bebé, <span class="gradient-shift-alt">cada día.</span></span>',
     'hero.sub': 'Kinedu te da un plan diario personalizado, actividades fáciles, seguimiento de hitos y guía de expertos reales, <strong>todo pensado para la edad y etapa exacta de tu bebé.</strong>',
-    'hero.proof': '8 millones de familias ya lo usan. Recomendado por pediatras. Basado en ciencia.',
+    'hero.proof': '11 millones de familias ya lo usan. Recomendado por pediatras. Basado en ciencia.',
     'hero.ctaDesktop': 'Prueba 7 días GRATIS',
     'hero.ctaMobile': 'Prueba 7 días GRATIS',
     'hero.ctaSecondary': 'Para Escuelas y Educadores',
@@ -835,7 +835,7 @@ window.TRANSLATIONS = {
     'founder.story.p3': 'Si buscas una forma de darle a tu hijo el mejor comienzo en la vida, Kinedu está aquí para ayudarte en cada paso del camino.',
     'founder.quote': 'Kinedu es tu guía personalizada para saber exactamente qué hacer con tu bebé, cada día.',
     'founder.cta.title': 'Comienza tu camino con <span class="gradient-shift-alt">Kinedu.</span>',
-    'founder.cta.sub': 'Únete a 8 millones de familias que ya confían en la ciencia.',
+    'founder.cta.sub': 'Únete a 11 millones de familias que ya confían en la ciencia.',
     'founder.cta.btn': 'Comienza tu prueba gratis',
 
     // ── LIVE CLASSES PAGE ───────────────────────────────────────
@@ -857,7 +857,7 @@ window.TRANSLATIONS = {
     'lc.hero.class3.expert': 'Caryn Shender · Consultora de sueño',
     'lc.hero.cta': 'Habla con todas las expertas — 7 días gratis',
     'lc.hero.ctaSub': 'Cancelas en 2 toques',
-    'lc.hero.trustFamilies': '+8M de familias ya confían en Kinedu',
+    'lc.hero.trustFamilies': '+11M de familias ya confían en Kinedu',
     'lc.hero.trustHarvard': 'Basado en ciencia',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
@@ -1027,7 +1027,7 @@ window.TRANSLATIONS = {
     // HERO
     'hero.headline': '<span class="line">Descubra <span class="gradient-shift">exatamente</span> o que</span><span class="line">fazer com o seu bebê,</span><span class="line"><span class="gradient-shift-alt">todos os dias.</span></span>',
     'hero.sub': 'O Kinedu te dá um plano diário personalizado, atividades simples, acompanhamento de marcos e orientação de especialistas reais, <strong>tudo pensado para a idade e fase exata do seu bebê.</strong>',
-    'hero.proof': '8 milhões de famílias já usam. Recomendado por pediatras. Baseado em ciência.',
+    'hero.proof': '11 milhões de famílias já usam. Recomendado por pediatras. Baseado em ciência.',
     'hero.ctaDesktop': 'Teste 7 dias GRÁTIS',
     'hero.ctaMobile': 'Teste 7 dias GRÁTIS',
     'hero.ctaSecondary': 'Para Escolas e Educadores',
@@ -1326,7 +1326,7 @@ window.TRANSLATIONS = {
     'founder.story.p3': 'Se você está procurando uma forma de dar ao seu filho o melhor começo na vida, o Kinedu está aqui para te ajudar em cada passo do caminho.',
     'founder.quote': 'O Kinedu é o seu guia personalizado para saber exatamente o que fazer com o seu bebê, todos os dias.',
     'founder.cta.title': 'Comece sua jornada com o <span class="gradient-shift-alt">Kinedu.</span>',
-    'founder.cta.sub': 'Junte-se a 8 milhões de famílias que já confiam na ciência.',
+    'founder.cta.sub': 'Junte-se a 11 milhões de famílias que já confiam na ciência.',
     'founder.cta.btn': 'Comece seu teste grátis',
 
     // ── LIVE CLASSES PAGE ───────────────────────────────────────
@@ -1348,7 +1348,7 @@ window.TRANSLATIONS = {
     'lc.hero.class3.expert': 'Caryn Shender · Consultora de sono',
     'lc.hero.cta': 'Fale com todos os especialistas — 7 dias grátis',
     'lc.hero.ctaSub': 'Cancele em 2 toques',
-    'lc.hero.trustFamilies': '8M+ famílias confiam na Kinedu',
+    'lc.hero.trustFamilies': '11M+ famílias confiam na Kinedu',
     'lc.hero.trustHarvard': 'Baseado em ciência',
     'lc.hero.trustPedi': 'Recomendado por pediatras',
 
