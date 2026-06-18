@@ -145,6 +145,31 @@
   ],
   "redirects": [
     {
+      "source": "/privacy-policy-2",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/privacy-policy",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/privacy-policy",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/privacy-policy",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
       "source": "/blog/kinedu-gets-a-new-look-and-features",
       "destination": "/",
       "permanent": true
