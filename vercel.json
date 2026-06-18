@@ -145,6 +145,11 @@
   ],
   "redirects": [
     {
+      "source": "/es/blog/terminos-y-condiciones",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
       "source": "/privacy-policy-2",
       "destination": "https://www.kinedu.com/privacy",
       "permanent": true
