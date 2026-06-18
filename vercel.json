@@ -336,6 +336,28 @@
       "source": "/blog/kinedu-parents-manual",
       "destination": "/docs/kinedu-parents-manual.html",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "kinedu.com"
+        }
+      ],
+      "destination": "https://www.kinedu.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "kinedu-landing.vercel.app"
+        }
+      ],
+      "destination": "https://www.kinedu.com/:path*",
+      "permanent": true
     }
   ]
 }
