@@ -2,6 +2,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/pt/privacy",
+      "destination": "/pt/privacy.html"
+    },
+    {
+      "source": "/es/privacy",
+      "destination": "/es/privacy.html"
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy.html"
     },
@@ -146,7 +154,7 @@
   "redirects": [
     {
       "source": "/es/blog/terminos-y-condiciones",
-      "destination": "https://www.kinedu.com/privacy",
+      "destination": "https://www.kinedu.com/es/privacy",
       "permanent": true
     },
     {
@@ -161,12 +169,12 @@
     },
     {
       "source": "/pt/blog/privacy-policy",
-      "destination": "https://www.kinedu.com/privacy",
+      "destination": "https://www.kinedu.com/pt/privacy",
       "permanent": true
     },
     {
       "source": "/es/blog/privacy-policy",
-      "destination": "https://www.kinedu.com/privacy",
+      "destination": "https://www.kinedu.com/es/privacy",
       "permanent": true
     },
     {
