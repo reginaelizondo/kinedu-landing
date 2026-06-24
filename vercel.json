@@ -161,6 +161,41 @@
   ],
   "redirects": [
     {
+      "source": "/pt/blog/privacy-policy-2",
+      "destination": "https://www.kinedu.com/pt/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/aviso-de-privacidade",
+      "destination": "https://www.kinedu.com/pt/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/privacy-policy-2",
+      "destination": "https://www.kinedu.com/es/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/aviso-de-privacidad",
+      "destination": "https://www.kinedu.com/es/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/terms-of-use-kinedu-rewards",
+      "destination": "https://www.kinedu.com/terms",
+      "permanent": true
+    },
+    {
+      "source": "/blog/terms-of-use",
+      "destination": "https://www.kinedu.com/terms",
+      "permanent": true
+    },
+    {
+      "source": "/blog/privacy-policy-2",
+      "destination": "https://www.kinedu.com/privacy",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/category/uncategorized",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
