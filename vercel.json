@@ -161,6 +161,66 @@
   ],
   "redirects": [
     {
+      "source": "/pt/blog/espelho,-espelho-meu:-o-desejo-do-seu-filho-de-ser-como-voce",
+      "destination": "https://www.kinedu.com/pt/blog/espelho-espelho-meu-o-desejo-do-seu-filho-de-ser-como-voce",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/como-desenvolver-habitos-saudaveis-%E2%80%8B%E2%80%8Bde-sono",
+      "destination": "https://www.kinedu.com/pt/blog/como-desenvolver-habitos-saudaveis-de-sono",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/regresion-del-sueno-en-bebes",
+      "destination": "https://www.kinedu.com/es/blog/que-es-regresion-del-sueno-en-bebes",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/paso-a-paso-logra-que-tu-bebe-duerma-toda-la-noche",
+      "destination": "https://www.kinedu.com/es/blog/logra-que-tu-bebe-duerma-toda-la-noche",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/el-chupon-bueno-o-malo-para-los-bebes",
+      "destination": "https://www.kinedu.com/es/blog/el-chupon-bueno-o-malo",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/desarrollo-de-mi-bebe-de-2-meses",
+      "destination": "https://www.kinedu.com/es/blog/desarrollo-de-bebe-de-2-meses",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-does-my-baby-have-clenched-fists",
+      "destination": "https://www.kinedu.com/blog/baby-clenched-fists",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-do-i-do-if-my-baby-ate-dirt-or-sand",
+      "destination": "https://www.kinedu.com/blog/what-do-i-do-if-my-baby-ate-sand",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-best-way-to-read-with-your-2-year-old-2",
+      "destination": "https://www.kinedu.com/blog/the-best-way-to-read-with-your-2-year-old",
+      "permanent": true
+    },
+    {
+      "source": "/blog/my-baby-doesnt-wake-up-to-eat-during-the-night",
+      "destination": "https://www.kinedu.com/blog/baby-doesnt-eat-during-the-night",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mi-baby-starts-to-pay-attention",
+      "destination": "https://www.kinedu.com/blog/my-baby-starts-to-pay-attention",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-get-your-baby-to-sleep-through-the-night-pt-ii",
+      "destination": "https://www.kinedu.com/blog/how-to-get-your-baby-to-sleep-pt-ii",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/privacy-policy-2",
       "destination": "https://www.kinedu.com/pt/privacy",
       "permanent": true
