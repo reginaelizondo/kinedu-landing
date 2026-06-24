@@ -161,6 +161,301 @@
   ],
   "redirects": [
     {
+      "source": "/pt/blog/category/uncategorized",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/saude",
+      "destination": "https://www.kinedu.com/pt/blog/category/guia-de-saude",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/relaxamento",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/pre-natal",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/kinedu",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/gravidez",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/geral",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/destaque",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/desenvolvimento-infantil",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/alimentacao",
+      "destination": "https://www.kinedu.com/pt/blog/category/amamentacao",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/sueno",
+      "destination": "https://www.kinedu.com/es/blog/category/hora-de-dormir",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ser-mama",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/salud",
+      "destination": "https://www.kinedu.com/es/blog/category/guia-de-salud",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/prenatal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/embarazo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/educadores",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/alimentacion",
+      "destination": "https://www.kinedu.com/es/blog/category/leche-materna",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/uncategorized",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/scientificedge",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/pregnancy",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/health",
+      "destination": "https://www.kinedu.com/blog/category/health-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/feeding",
+      "destination": "https://www.kinedu.com/blog/category/breastfeeding",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/featured",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/:year(\\d{4})/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/:slug/feed",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/feed",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/author/:s*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/tag/:s*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/:year(\\d{4})/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/:slug/feed",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/feed",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/page/:n",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/author/:s*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/tag/:s*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:year(\\d{4})/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug/feed",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feed",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/author/:s*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tag/:s*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/windows-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/linux-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ios-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitter-marketing",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/google-plus-marketing",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/facebook-marketing",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-2",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sample-page",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sample-page-2",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/seo-services",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/services",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testimonial",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tab",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/columns",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/button",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/termos-e-condicoes",
       "destination": "https://www.kinedu.com/pt/terms",
       "permanent": true
