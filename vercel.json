@@ -161,16 +161,6 @@
   ],
   "redirects": [
     {
-      "source": "/pt/blog/espelho,-espelho-meu:-o-desejo-do-seu-filho-de-ser-como-voce",
-      "destination": "https://www.kinedu.com/pt/blog/espelho-espelho-meu-o-desejo-do-seu-filho-de-ser-como-voce",
-      "permanent": true
-    },
-    {
-      "source": "/pt/blog/como-desenvolver-habitos-saudaveis-%E2%80%8B%E2%80%8Bde-sono",
-      "destination": "https://www.kinedu.com/pt/blog/como-desenvolver-habitos-saudaveis-de-sono",
-      "permanent": true
-    },
-    {
       "source": "/es/blog/regresion-del-sueno-en-bebes",
       "destination": "https://www.kinedu.com/es/blog/que-es-regresion-del-sueno-en-bebes",
       "permanent": true
