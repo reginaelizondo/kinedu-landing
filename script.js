@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // keep their own static <title>; clobbering it with meta.title showed the
             // home title everywhere and hurt SEO.
             const _p = window.location.pathname;
-            const isScience = _p.includes('science');
+            const isScience = /^\/(es\/|pt\/)?science(\.html)?\/?$/.test(_p);
             const isHome = _p === '/' || _p === '/index.html' || _p === '/es' || _p === '/es/' || _p === '/pt' || _p === '/pt/';
             const titleKey = isScience ? 'meta.titleScience' : (isHome ? 'meta.title' : null);
             if (titleKey && t[titleKey]) document.title = t[titleKey];

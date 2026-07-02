@@ -161,6 +161,11 @@
   ],
   "redirects": [
     {
+      "source": "/pt/blog/como-fazer-o-meu-bebe-dormir-noite__trashed",
+      "destination": "https://www.kinedu.com/pt/blog/como-fazer-o-meu-bebe-dormir-noite",
+      "permanent": true
+    },
+    {
       "source": "/blog/category/areas-of-development/:rest*",
       "destination": "https://www.kinedu.com/blog",
       "permanent": true
