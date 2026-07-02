@@ -161,6 +161,401 @@
   ],
   "redirects": [
     {
+      "source": "/blog/what-is-the-witching-hour-",
+      "destination": "https://www.kinedu.com/blog/what-is-the-witching-hour",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-neuroscience-of-tummy-time",
+      "destination": "https://www.kinedu.com/blog/motor-milestones-why-tummy-time-is-so-important",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-music-benefits-your-childs-development",
+      "destination": "https://www.kinedu.com/blog/the-magnificent-benefits-of-music",
+      "permanent": true
+    },
+    {
+      "source": "/blog/helping-my-child-develop-self-awareness",
+      "destination": "https://www.kinedu.com/blog/developing-a-sense-of-self",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teaching-my-kid-how-to-get-dressed",
+      "destination": "https://www.kinedu.com/blog/teaching-my-toddler-how-to-get-dressed",
+      "permanent": true
+    },
+    {
+      "source": "/blog/preparing-your-babys-siblings",
+      "destination": "https://www.kinedu.com/blog/preparing-your-child-for-a-new-sibling-a-few-tips",
+      "permanent": true
+    },
+    {
+      "source": "/blog/10-month-old-baby",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/3-things-to-keep-in-mind-when-starting-potty-training",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/479",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/about-kinedu",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/about-us-3",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/accordions",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/adipiscing-ipsum-dolor-sit-amet-consectetuer",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/advanced",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alert",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/android-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/android",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/art-activities-for-kids",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/baby-growth-spurts-how-to-detect-them-and-what-to-do",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/choline-what-is-it-and-why-is-it-essential",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/close-to-your-heart-babywearing-101",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/contact-kinedu",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/contact-us",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/crying-baby-how-much-crying-is-normal-and-why-babies-cry",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/demo",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/expressing-breast-milk",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/featured",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feeding-your-1-3-year-old-a-few-guidelines",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feeding",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/five-key-ingredients-that-enhance-brain-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/foos-that-increase-milk-supply",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fornax-apps-site-template",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/health",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/home-2",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/home-3",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/home",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-often-should-i-sterilize-my-babys-bottles",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-the-best-growth-formula-out-there",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-find-age-appropriate-toys",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-get-your-baby-to-sleep-through-the-night",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-prevent-my-baby-from-choking-while-breastfeeding",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-your-baby-discovers-his-hands",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/importance-of-first-1000-days-of-nutrition",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/introducing-nestles-new-formula-nestle-excella-gold",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/making-2019-the-best-year-yet",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/making-everyday-moments-meaningful",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/my-toddler-was-born-a-scientist-ideas-for-fostering-discovery-at-home",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/not-set-in-stone-how-environment-shapes-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/object-manipulation-learning-how-the-world-works-part-1",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/organic-baby-food-is-it-worth-the-price",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/parallel-play-and-its-importance-for-social-and-emotional-skills",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/phospholipids-and-their-importance-for-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal-stimulation-the-tactile-technique",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/probiotics-prebiotics-and-their-benefits",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rhymes-and-tongue-twisters",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/should-i-give-my-baby-a-pacifier",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sign-in-or-sign-up",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sign-language-teaching-my-child-to-communicate-with-his-hands",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sleep",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stating-independence-at-the-table-tips-for-picky-eating",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tablets-and-smartphones-should-my-baby-use-them",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tea-time-is-it-safe-to-drink-tea-during-pregnancy",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/thanks",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-effects-of-added-sugar-on-complementary-nutrition",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-story-behind-dha-and-proper-stimulation",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tips-on-how-to-foster-good-parent-child-communication-research-done-by-academics-almudena-sevilla-of-the-university-of-london-and-cristina-borra-of-the-university-of-seville-has-shown-that-paren",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/uncategorized",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/vitamin-b-complex-and-their-benefits",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-dha-properties-benefits-and-where-to-find-it",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-object-permanence",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-should-i-look-for-in-a-childrens-formula",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-you-should-know-about-prenatal-and-postnatal-vitamins",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-formula-instead-of-cows-milk",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-fresh-baby-food-matters",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-iron-is-a-key-part-of-childrens-nutrition",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wp-login.php",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/como-fazer-o-meu-bebe-dormir-noite__trashed",
       "destination": "https://www.kinedu.com/pt/blog/como-fazer-o-meu-bebe-dormir-noite",
       "permanent": true
