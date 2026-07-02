@@ -161,6 +161,1026 @@
   ],
   "redirects": [
     {
+      "source": "/blog/category/areas-of-development/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/areas-of-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/baby-and-me/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/baby-and-me",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/bedtime/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/bedtime",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/bottlefeeding/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/bottlefeeding",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/child-development/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/child-development",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/cognitive/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/cognitive",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/developmental-edge/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/developmental-edge",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/diapers/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/diapers",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/feeding/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/fit_pregnancy/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/fit_pregnancy",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/general/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/general",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/health/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/health-corner/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/health-corner",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/health-guide/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/health-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/healthyhabits/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/healthyhabits",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/how-to/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/how-to",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu-2-0/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu-2-0",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu-news/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/kinedu-news",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/linguistic/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/linguistic",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/my_partner_and_i/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/my_partner_and_i",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/my_well-being/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/my_well-being",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/physical/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/physical",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/post-format-video/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/post-format-video",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/pottytraining/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/pottytraining",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/pregnancy/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal_nutrition/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal_nutrition",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal_stimulation/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/prenatal_stimulation",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/relax_and_de-stress/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/relax_and_de-stress",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/scientificedge/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/sleep/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/sleep",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/socialandemotional/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/socialandemotional",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/solid-foods/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/solid-foods",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/tech-corner/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/tech-corner",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/the-bookshelf/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/the-bookshelf",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/uncategorized/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/using-kinedu/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/using-kinedu",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/welcome/:rest*",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/welcome",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ablactacion/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ablactacion",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/adios-panal/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/adios-panal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/alimentacion/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/alimentacion_prenatal/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/alimentacion_prenatal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/areas-de-desarrollo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/areas-de-desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/bienvenido/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/bienvenido",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/desarrollo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/desarrollo-infantil/page/:n",
+      "destination": "https://www.kinedu.com/es/blog/category/desarrollo-infantil",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/developmental-edge/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/developmental-edge",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ejercicio_prenatal/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ejercicio_prenatal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/embarazo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/estimulacion_prenatal/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/estimulacion_prenatal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/formula/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/formula",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/general/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/general",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/habitos/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/habitos",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hallazgos/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hallazgos",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hallazgos-desarrollo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hallazgos-desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/health-corner/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/health-corner",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hitos-claves/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/hitos-claves",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/how-to/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/how-to",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/indicadores-clave/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/indicadores-clave",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu-2-0/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu-2-0",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu-news/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/kinedu-news",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/la-ciencia-detras/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/la-ciencia-detras",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/la-tecnologia-y-la-maternidad/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/la-tecnologia-y-la-maternidad",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/los-libros/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/los-libros",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mama-bloggera/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mama-bloggera",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi-bebe-y-yo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi-bebe-y-yo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi_bienestar/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi_bienestar",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi_pareja_y_yo/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/mi_pareja_y_yo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/milestones/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/milestones",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/panales/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/panales",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/paso-a-paso/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/paso-a-paso",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/prenatal/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/relajacion/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/relajacion",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/rincon-de-la-salud/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/rincon-de-la-salud",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/salud/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/seguridad/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/seguridad",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/ser-mama/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/sueno/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/uncategorized/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/uncategorized",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/usandokinedu/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/usandokinedu",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/using-kinedu/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/using-kinedu",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/welcome/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/welcome",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/words-about-words/:rest*",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/category/words-about-words",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/alimentacao/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/desenvolvimento-infantil/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/gravidez/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/kinedu/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/pre-natal/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/saude/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/sono/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/sono",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/uncategorized/:rest*",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/child-development",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/cognitive/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/cognitive",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/general/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/key-milestones/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/key-milestones",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/linguistic/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/linguistic",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/physical/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/physical",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/scientificedge/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/child-development/socialandemotional/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/socialandemotional",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feeding/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feeding/breastfeeding/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/breastfeeding",
+      "permanent": true
+    },
+    {
+      "source": "/blog/feeding/solid-foods/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/health/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/health/health-guide/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/health-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/health/healthyhabits/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/health/safety/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/safety",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kinedu/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/exercise/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/my-family/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/nutrition/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/relax_and_de-stress/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/stimulation/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prenatal/well-being/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sleep/page/:n",
+      "destination": "https://www.kinedu.com/blog/category/sleep",
+      "permanent": true
+    },
+    {
+      "source": "/blog/uncategorized/page/:n",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/alimentacao/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/alimentacao/amamentacao/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/amamentacao",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/alimentacao/mamadeira/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/ciencia/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/cognitivo/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/cognitivo",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/fisico/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/fisico",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/linguistico/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/linguistico",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/marcos-do-desenvolvimento/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvimento-infantil/socioafetivo/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/socioafetivo",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/kinedu/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/alimentacao-pre-natal/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/bem-estar/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/estimulacao/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/exercicio/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/relaxamento/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal/saude-pre-natal/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/saude/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/saude/guia-de-saude/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/guia-de-saude",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/saude/habitos-saudaveis/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/saude/seguranca/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/sono/page/:n",
+      "destination": "https://www.kinedu.com/pt/blog/category/sono",
+      "permanent": true
+    },
+    {
       "source": "/es/blog/regresion-del-sueno-en-bebes",
       "destination": "https://www.kinedu.com/es/blog/que-es-regresion-del-sueno-en-bebes",
       "permanent": true
