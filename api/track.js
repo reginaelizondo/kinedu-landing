@@ -31,6 +31,15 @@ module.exports = async function handler(req, res) {
     // Create visitor fingerprint from IP + User-Agent + date
     const ip = (req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || '0.0.0.0').split(',')[0].trim();
     const ua = req.headers['user-agent'] || '';
+
+    // Skip bots / crawlers / headless / programmatic clients so analytics reflects real humans.
+    // (Search/social crawlers render JS and fire this beacon too — without this they inflate pageviews,
+    //  e.g. the recrawl surge after deploys/sitemap pings.)
+    const BOT_RE = /bot\b|bot\/|crawl|spider|slurp|bingpreview|googlebot|bingbot|yandex|baidu|duckduck|applebot|facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegram|slack|discord|embedly|pinterest|redditbot|ahrefs|semrush|mj12|dotbot|petalbot|bytespider|gptbot|ccbot|claudebot|anthropic|perplexity|amazonbot|headless|phantom|puppeteer|playwright|selenium|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|curl|wget|python-requests|python-httpx|axios|node-fetch|go-http-client|java\/|okhttp|libwww|httpclient|scrapy|monitor/i;
+    if (!ua || BOT_RE.test(ua)) {
+      return res.status(200).json({ ok: true, skipped: 'bot' });
+    }
+
     const visitorHash = crypto.createHash('sha256').update(ip + ua + date).digest('hex').slice(0, 16);
 
     // Build Redis pipeline
