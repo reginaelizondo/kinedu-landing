@@ -161,6 +161,201 @@
   ],
   "redirects": [
     {
+      "source": "/blog/widget-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/web-developer",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/video-aps",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/theme-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testimonial-4",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testimonial-3",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testimonial-2",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testimonial-1",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/team-4",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/team-3",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/team-2",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/team-1",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/standard",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sportson-theme-business-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shortcodes",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/powerful-and-responsive-web-design-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/powerful-and-responsive-web-design",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/plugin-development",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nova-corporate-site-template",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/news-corporate-site-template",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mobile",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/maximum",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/maxima-theme-business-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/marketing-manager",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-4",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit-3",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing-elit",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lorem-ipsum-dolor-sit-amet-consectetuer-adipiscing",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/graphic-design",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/flaty-corporate-site-template",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/flat-theme-business-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dropcap",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creative-designer",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/clean-crisp-powerful-and-responsie-web-design-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/blog",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/blocknumber",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/block",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/basic",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/appico-theme-business-theme",
+      "destination": "https://www.kinedu.com/blog",
+      "permanent": true
+    },
+    {
       "source": "/blog/what-is-the-witching-hour-",
       "destination": "https://www.kinedu.com/blog/what-is-the-witching-hour",
       "permanent": true
