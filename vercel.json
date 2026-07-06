@@ -161,6 +161,266 @@
   ],
   "redirects": [
     {
+      "source": "/es/blog/tabletas-y-smartphones-las-debe-utilizar-mi-bebe",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/sobrekinedu",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/sobre-fosfolipidos-y-su-importancia-para-el-desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/sexo-durante-el-embarazo-dolor-y-molestia",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/sample-page-2",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/reflejos-del-recien-nacido",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/reconociendo-patrones-la-clave-para-evitar-conductas-indeseadas",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/que-es-el-dha-propiedades-beneficios-y-donde-encontrarlo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/que-el-2019-sea-el-mejor-ano-de-tu-vida",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/que-debo-de-buscar-en-una-formula-de-crecimiento-infantil",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/promoviendo-la-gratitud-en-familia",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/probioticos-y-prebioticos-y-sus-beneficios",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/por-que-mi-bebe-se-lleva-todo-a-la-boca",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/por-que-los-pequenos-necesitan-hierro",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/por-que-formula-de-crecimiento-en-vez-de-leche-de-vaca",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/obten-un-vistazo-exclusivo-de-nuestras-nuevas-actividades-del-dia-de-accion-de-gracias",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/nueva-formula-de-crecimiento-nestle-excella-gold",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/my-baby-has-swallowed-something-should-i-be-concerned",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/momentos-cotidianos-que-impulsan-el-desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/mi-hija-es-una-pequena-cientifica-ideas-para-fomentar-la-curiosidad-y-el-descubrimiento-en-casa",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/mi-bebe-no-duerme-regresiones-de-sueno",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/los-efectos-de-la-azucar-anadida-en-la-comida",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/le-puedo-dar-el-chupon-a-mi-bebe",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/la-relacion-entre-la-actividad-fisica-y-el-desarrollo-oseo-y-muscular-de-un-nino",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/la-importancia-del-juego-paralelo-en-las-habilidades-socioemocionales",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/la-historia-detras-del-dha",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/la-colina-que-es-y-porque-es-importante",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/kinedu-online",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/kinedu-2-0-programa-de-metas-ya-disponible-en-app-movil",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/kinedu-2-0-disfruta-de-nuestras-actividades-de-temporada",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/juegos-para-mi-bebe-de-un-ano",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/intoxicarse-durante-el-embarazo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/indicadores-del-desarrollo-la-importancia-de-pasar-tiempo-boca-abajo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/home",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/home-2",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/hitos-del-desarrollo",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/gracias",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/estimulacion-y-nutricion",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/escogiendo-la-formula-de-crecimiento-ideal",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/el-nuevo-plan-de-actividades-de-7-dias",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/el-desarrollo-linguistico-de-mi-bebe",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/el-complejo-de-vitamina-b-y-sus-beneficios",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/cuando-se-voltean-los-bebes",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/contact-us",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/conoce-el-nuevo-programa-de-metas-en-kinedu-2-0",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/como-se-desarrolla-el-equilibrio",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/cada-cuando-debo-esterilizar-su-equipo-de-biberon",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/ansiedad-en-el-tercer-trimester",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/alimentos-para-mi-nino",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/alimentacion-balanceada-1-3-anos",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/5-ingredientes-fundamentes-para-fortalecer-el-desarrollo-cerebral",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/3-errores-que-probablemente-estas-haciendo-a-la-hora-de-dormir",
+      "destination": "https://www.kinedu.com/es/blog",
+      "permanent": true
+    },
+    {
       "source": "/blog/widget-development",
       "destination": "https://www.kinedu.com/blog",
       "permanent": true
