@@ -700,6 +700,11 @@
             <div class="chart-container">
                 <canvas id="mainChart"></canvas>
             </div>
+            <div style="margin-top:10px;font-size:12px;color:#9ca3af;line-height:1.5">
+                ⚠️ Las <strong>vistas</strong> hasta el 6 jul 2026 incluyen el re-rastreo de Google por la migración del blog
+                (picos del 21/24/29 jun y 1 jul: vistas por visitante de 18–49× vs. 2–4× normal, visitantes humanos estables).
+                Filtro de bots activo desde el <strong>7 jul 2026</strong>. Para la tendencia humana usa la pestaña <strong>Visitors</strong>.
+            </div>
         </div>
 
         <!-- CTA Clicks -->
@@ -1389,6 +1394,9 @@
             return parts[1] + '/' + parts[2];
         });
         var values = data.daily.map(function(d) { return d[currentMetric] || 0; });
+        // índice del 7 jul 2026: día en que se activó el filtro de bots
+        var botFilterIdx = -1;
+        data.daily.forEach(function(d, i) { if (botFilterIdx === -1 && d.date >= '2026-07-07') botFilterIdx = i; });
 
         var colors = {
             pageViews: { line: '#2b8be4', bg: 'rgba(43,139,228,0.08)' },
@@ -1400,8 +1408,26 @@
         if (chartInstance) chartInstance.destroy();
 
         var ctx = document.getElementById('mainChart').getContext('2d');
+        var botFilterMarker = {
+            id: 'botFilterMarker',
+            afterDraw: function(chart) {
+                if (botFilterIdx < 0) return;
+                var x = chart.scales.x.getPixelForValue(botFilterIdx);
+                var area = chart.chartArea;
+                var g = chart.ctx;
+                g.save();
+                g.strokeStyle = '#f59e0b'; g.setLineDash([5,4]); g.lineWidth = 1.5;
+                g.beginPath(); g.moveTo(x, area.top); g.lineTo(x, area.bottom); g.stroke();
+                g.setLineDash([]);
+                g.fillStyle = '#f59e0b'; g.font = '600 10px Inter';
+                g.textAlign = (x > area.right - 90) ? 'right' : 'left';
+                g.fillText('filtro de bots', x + ((x > area.right - 90) ? -6 : 6), area.top + 12);
+                g.restore();
+            }
+        };
         chartInstance = new Chart(ctx, {
             type: 'line',
+            plugins: [botFilterMarker],
             data: {
                 labels: labels,
                 datasets: [{
