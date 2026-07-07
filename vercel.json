@@ -2,6 +2,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/pt/browse",
+      "destination": "/pt/browse.html"
+    },
+    {
+      "source": "/es/browse",
+      "destination": "/es/browse.html"
+    },
+    {
       "source": "/pt/blog/stage/:s",
       "destination": "/pt/blog/stage/:s.html"
     },

@@ -3485,4 +3485,6 @@
   <url><loc>https://www.kinedu.com/pt/blog/stage/bebe</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kinedu.com/pt/blog/stage/crianca-pequena</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kinedu.com/pt/blog/stage/pre-escola</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kinedu.com/es/browse</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kinedu.com/pt/browse</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
