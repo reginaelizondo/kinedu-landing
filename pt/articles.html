@@ -147,6 +147,15 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width:1024px){ .kb-stage-row{grid-template-columns:repeat(3,1fr);} .kb-featured-grid{grid-template-columns:repeat(2,1fr)!important;} }
 @media (max-width:640px){ .kb-stage-row{grid-template-columns:repeat(2,1fr);gap:10px;} .kb-featured-grid{grid-template-columns:1fr!important;} .kb-stage h4{font-size:17px;} }
+
+/* ── CATEGORY PILLS (ported from EN) ── */
+.kb-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.kb-pill { padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; background: white; color: var(--ink-2); border: 1.5px solid var(--line); transition: all .15s; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.kb-pill:hover { border-color: var(--blue); color: var(--blue); }
+.kb-pill.on { background: var(--ink); color: white; border-color: var(--ink); }
+.kb-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+.kb-pill.on .kb-pill-dot { background: var(--green); }
+
 </style>
 </head>
 <body>
@@ -286,7 +295,8 @@ a { color: inherit; text-decoration: none; }
         <h2 class="kb-h2">1159 guias para pais</h2>
       </div>
     </div>
-    <div class="kb-grid-3" id="ptGrid">
+    <div class="kb-pills" style="margin-bottom:28px;" id="catPills"><button class="kb-pill on" data-cat="all"><span class="kb-pill-dot"></span>Todos os artigos</button><button class="kb-pill" data-cat="sono"><span class="kb-pill-dot"></span>Sono do Bebê</button><button class="kb-pill" data-cat="amamentacao"><span class="kb-pill-dot"></span>Amamentação</button><button class="kb-pill" data-cat="guia-de-saude"><span class="kb-pill-dot"></span>Saúde do Bebê</button><button class="kb-pill" data-cat="cognitivo"><span class="kb-pill-dot"></span>Desenvolvimento Cognitivo</button><button class="kb-pill" data-cat="fisico"><span class="kb-pill-dot"></span>Desenvolvimento Físico</button><button class="kb-pill" data-cat="linguistico"><span class="kb-pill-dot"></span>Linguagem e Fala</button><button class="kb-pill" data-cat="socioafetivo"><span class="kb-pill-dot"></span>Desenvolvimento Socioafetivo</button></div>
+<div class="kb-grid-3" id="ptGrid">
 <a href="/pt/blog/oferta-kinedu" class="kb-card" data-cat="kinedu" data-index="0">
   <div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2020/04/SAM_9819-w-brain.webp" alt="Oferta Kinedu: 60% de Desconto no Plano Anual" loading="lazy" width="1400" height="934"><span class="kb-card-cat-chip">Kinedu</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Oferta Kinedu: 60% de Desconto no Plano Anual</div><div class="kb-card-excerpt">Você deseja dar ao seu bebê o melhor começo de vida? Então conte com o Kinedu!</div><div class="kb-card-meta">18 dez 2024 · 2 min</div></div>
@@ -5091,5 +5101,32 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
 });
 </script>
 <script>(function(){try{var q=new URLSearchParams(location.search).get('q');if(q){var i=document.getElementById('ptBlogSearch');if(i){i.value=q;filterPT();var g=document.getElementById('ptGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});}}}catch(e){}})();</script>
+<script>(function(){
+var pills=document.querySelectorAll('#catPills .kb-pill');
+window._activeCat='all';
+function applyCat(cat){
+  window._activeCat=cat;
+  pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')===cat);});
+  var si=document.getElementById('ptBlogSearch'); if(si) si.value='';
+  var nores=document.getElementById('ptNoResults');
+  var wrap=document.getElementById('ptShowAll');
+  var cards=document.querySelectorAll('#ptGrid .kb-card');
+  if(cat==='all'){ _ptVisible=12; ptApplyLimit(); if(nores)nores.style.display='none'; return; }
+  var count=0;
+  cards.forEach(function(c){
+    var show=c.getAttribute('data-cat')===cat;
+    c.style.display=show?'':'none'; if(show)count++;
+  });
+  if(wrap)wrap.style.display='none';
+  if(nores)nores.style.display=count?'none':'';
+  var g=document.getElementById('ptGrid');
+  if(g)g.scrollIntoView({behavior:'smooth',block:'start'});
+}
+pills.forEach(function(p){p.addEventListener('click',function(){applyCat(p.getAttribute('data-cat'));});});
+try{var c=new URLSearchParams(location.search).get('cat');if(c)applyCat(c);}catch(e){}
+// al buscar, resetear pill activa a 'all' visualmente
+var si=document.getElementById('ptBlogSearch');
+if(si)si.addEventListener('input',function(){if(si.value.trim()){pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')==='all');});window._activeCat='all';}});
+})();</script>
 </body>
 </html>
