@@ -53,6 +53,21 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="stylesheet" href="styles.css?v=0617n">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kinedu", "url": "https://www.kinedu.com/", "logo": "https://www.kinedu.com/logo%20kinedu.png", "sameAs": ["https://www.facebook.com/kineducom/", "https://www.instagram.com/kinedu/", "https://www.tiktok.com/@kineduapp", "https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw"]}</script>
+<script id="kinedu-faq-ld">window.addEventListener('load',function(){
+try{
+  var items=[].slice.call(document.querySelectorAll('.faq-item'));
+  var main=items.map(function(it){
+    var q=it.querySelector('.faq-question span'), a=it.querySelector('.faq-answer p');
+    if(!q||!a) return null;
+    return {"@type":"Question","name":q.textContent.trim(),
+      "acceptedAnswer":{"@type":"Answer","text":a.textContent.trim()}};
+  }).filter(Boolean);
+  if(main.length<3) return;
+  var ld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":main};
+  var sc=document.createElement('script');sc.type='application/ld+json';
+  sc.textContent=JSON.stringify(ld);document.head.appendChild(sc);
+}catch(e){}});</script>
 </head>
 <body>
 
