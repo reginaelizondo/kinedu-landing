@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Página no encontrada — Kinedu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.png" type="image/png">
+<style>
+  :root { --ink:#1a1a2e; --muted:#6b7280; --blue:#2b8be4; --blue-dark:#1f6fc0; --green:#22c55e; --line:#e5e7eb; --bg:#f8fafc; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; background:linear-gradient(160deg,#eef4fb 0%,#f6f9fc 60%,#eefaf2 100%); color:var(--ink); min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  .nav { width:100%; max-width:1080px; padding:26px 24px; }
+  .nav img { height:34px; }
+  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; max-width:640px; }
+  .code { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(84px,18vw,140px); font-weight:800; letter-spacing:-.04em; line-height:1;
+    background:linear-gradient(90deg,var(--blue),var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(22px,4.5vw,30px); font-weight:800; letter-spacing:-.02em; margin:10px 0 10px; }
+  p.sub { color:var(--muted); font-size:16px; line-height:1.6; margin-bottom:28px; }
+  form { display:flex; gap:8px; width:100%; max-width:460px; background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:6px 6px 6px 18px; box-shadow:0 8px 28px rgba(26,26,46,.06); }
+  form:focus-within { border-color:var(--blue); }
+  form input { flex:1; border:0; outline:0; font:inherit; font-size:15px; color:var(--ink); background:transparent; min-width:0; }
+  form button { background:var(--blue); color:#fff; border:0; padding:12px 22px; border-radius:10px; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit; }
+  form button:hover { background:var(--blue-dark); }
+  .links { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:26px; }
+  .links a { display:inline-block; padding:10px 18px; border-radius:999px; background:#fff; border:1.5px solid var(--line); color:var(--ink); text-decoration:none; font-weight:600; font-size:14px; transition:border-color .15s, transform .1s; }
+  .links a:hover { border-color:var(--blue); transform:translateY(-1px); }
+  .links a.cta { background:var(--blue); border-color:var(--blue); color:#fff; }
+  footer { padding:28px; color:var(--muted); font-size:13px; }
+  footer a { color:var(--blue); text-decoration:none; }
+</style>
+</head>
+<body>
+  <div class="nav"><a href="/" id="homeLink"><img src="/logo%20kinedu.png" alt="Kinedu"></a></div>
+  <main>
+    <div class="code">404</div>
+    <h1 id="t-head">This page doesn't exist</h1>
+    <p class="sub" id="t-sub">The link may be old or have a typo — but we have 3,000+ articles on your baby's development. Try searching:</p>
+    <form id="searchForm" action="/blog" method="get">
+      <input type="text" name="q" id="q" placeholder="e.g. baby sleep, tummy time…" autocomplete="off">
+      <button type="submit" id="t-btn">Search</button>
+    </form>
+    <div class="links" id="links"></div>
+  </main>
+  <footer><span id="t-foot">Think this is our mistake?</span> <a href="mailto:hello@kinedu.com">hello@kinedu.com</a></footer>
+<script>
+(function(){
+  var I18N = {
+    en: { title:'Page not found — Kinedu', head:"This page doesn't exist", sub:"The link may be old or have a typo — but we have 3,000+ articles on your baby's development. Try searching:", btn:'Search', ph:'e.g. baby sleep, tummy time…', foot:'Think this is our mistake?', blogBase:'/blog', links:[['/', 'Home'],['/blog','Blog'],['/blog/category/sleep','Baby sleep'],['/blog/category/breastfeeding','Breastfeeding'],['https://app.kinedu.com/dha2/?swc=dha2','Try Kinedu free','cta']] },
+    es: { title:'Página no encontrada — Kinedu', head:'Esta página no existe', sub:'Puede que el link sea viejo o tenga un error — pero tenemos más de 3,000 artículos sobre el desarrollo de tu bebé. Busca aquí:', btn:'Buscar', ph:'ej. sueño del bebé, tiempo boca abajo…', foot:'¿Crees que es un error nuestro?', blogBase:'/es/blog', links:[['/es','Inicio'],['/es/blog','Blog'],['/es/blog/category/hora-de-dormir','Sueño del bebé'],['/es/blog/category/leche-materna','Lactancia'],['https://app.kinedu.com/dha2/?swc=dha2','Prueba Kinedu gratis','cta']] },
+    pt: { title:'Página não encontrada — Kinedu', head:'Esta página não existe', sub:'O link pode ser antigo ou ter um erro — mas temos mais de 3.000 artigos sobre o desenvolvimento do seu bebê. Pesquise aqui:', btn:'Pesquisar', ph:'ex. sono do bebê, hora da barriguinha…', foot:'Acha que o erro é nosso?', blogBase:'/pt/blog', links:[['/pt','Início'],['/pt/blog','Blog'],['/pt/blog/category/sono','Sono do bebê'],['/pt/blog/category/amamentacao','Amamentação'],['https://app.kinedu.com/dha2/?swc=dha2','Experimente grátis','cta']] }
+  };
+  var path = location.pathname;
+  var lang = 'en';
+  if (path === '/es' || path.indexOf('/es/') === 0) lang = 'es';
+  else if (path === '/pt' || path.indexOf('/pt/') === 0) lang = 'pt';
+  else { try { var st = localStorage.getItem('kinedu-lang'); if (st === 'es' || st === 'pt') lang = st; } catch(e){} }
+  var t = I18N[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title;
+  document.getElementById('t-head').textContent = t.head;
+  document.getElementById('t-sub').textContent = t.sub;
+  document.getElementById('t-btn').textContent = t.btn;
+  document.getElementById('q').placeholder = t.ph;
+  document.getElementById('t-foot').textContent = t.foot;
+  document.getElementById('searchForm').action = t.blogBase;
+  document.getElementById('homeLink').href = lang === 'en' ? '/' : '/' + lang;
+  var box = document.getElementById('links');
+  t.links.forEach(function(l){
+    var a = document.createElement('a');
+    a.href = l[0]; a.textContent = l[1];
+    if (l[2] === 'cta') a.className = 'cta';
+    box.appendChild(a);
+  });
+  // registrar el 404 en analytics (ruta real que falló, filtrado de bots server-side)
+  try {
+    var blob = new Blob([JSON.stringify({ page: path, event: 'pageview', lang: lang, referrer: document.referrer, notFound: true })], { type: 'application/json' });
+    navigator.sendBeacon('/api/track', blob);
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
