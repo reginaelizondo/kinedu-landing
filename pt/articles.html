@@ -156,6 +156,84 @@ a { color: inherit; text-decoration: none; }
 .kb-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
 .kb-pill.on .kb-pill-dot { background: var(--green); }
 
+
+/* ── HERO parity (ported from EN) ── */
+.kb-hero-center {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+}
+.kb-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.kb-hero-center { margin-bottom: 32px; }
+@media (max-width: 640px) {
+  .kb-wrap { padding: 0 16px; }
+  .kb-hero-b { padding: 48px 0 40px; }
+  .kb-hero-b-title { font-size: 36px; line-height: 1.05; letter-spacing: -0.035em; }
+  .kb-hero-sub { font-size: 14.5px; }
+  .kb-hero-center { margin-bottom: 32px; }
+  .kb-search { padding: 5px 5px 5px 14px; border-radius: 12px; }
+  .kb-search input { font-size: 14px; }
+  .kb-search button { padding: 10px 14px; font-size: 13px; }
+  .btn-long { display: none; }
+  .btn-short { display: inline !important; }
+  .kb-hero-b-tags { gap: 8px; font-size: 12px; margin-top: 14px; }
+  .kb-pills { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .kb-pills::-webkit-scrollbar { display: none; }
+  .kb-pill { flex-shrink: 0; }
+  .kb-grid-3 { grid-template-columns: 1fr; gap: 14px; }
+  .kb-featured-grid { grid-template-columns: 1fr !important; }
+  .kb-stage-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kb-stage h4 { font-size: 17px; }
+  .kb-app-cta { padding: 32px 24px; margin: 40px 0; border-radius: 22px; }
+  .kb-app-cta h2 { font-size: 26px; }
+  .kb-app-cta p { font-size: 14.5px; margin-bottom: 20px; }
+  .kb-section-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .kb-h2 { font-size: 24px; }
+  .kb-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .kb-footer { padding: 40px 0 24px; }
+  .kb-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .kb-art-title { font-size: 30px; }
+  .kb-art-dek { font-size: 16px; }
+  .kb-art-body p { font-size: 16px; }
+  .kb-art-body h2 { font-size: 24px; }
+  .kb-art-wrap { padding: 0 16px; }
+  .kb-art-2col { padding: 0 16px; }
+  .kb-art-slim-cta { padding: 0 16px 60px; }
+  .kb-art-slim-cta-inner { flex-direction: column; padding: 24px; gap: 16px; }
+}
+
+.kb-trend-chip--all { background:var(--blue); color:white; border-color:var(--blue); }
+.kb-trend-chip--all:hover { background:var(--blue-dark); color:white; }
+
+/* ── HERO mobile parity (EN) ── */
+@media (max-width: 1024px) {
+.kb-hero-b-title { font-size: 56px; }
+}
+@media (max-width: 900px) {
+.kb-hero-b { padding-top: 108px !important; }
+.kb-hero-b { padding: 64px 0 48px; }
+.kb-hero-b-title { font-size: 46px; }
+.kb-hero-sub { font-size: 15px; }
+}
+@media (max-width: 390px) {
+.kb-hero-b-title { font-size: 30px; }
+}
+@media (max-width: 640px) {
+.kb-hero-b-tags { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 6px; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
+.kb-hero-b-tags::-webkit-scrollbar { display: none; }
+.kb-hero-b-tags .label { flex-shrink: 0; }
+.kb-trend-chip { flex-shrink: 0; }
+}
 </style>
 </head>
 <body>
@@ -202,16 +280,17 @@ a { color: inherit; text-decoration: none; }
 <section class="kb-hero-b">
   <div class="kb-wrap">
     <div class="kb-eyebrow">Orientação respaldada por especialistas</div>
-    <h1 class="kb-hero-b-title">As perguntas que os pais<br>realmente fazem, <em>respondidas por especialistas</em>.</h1>
-    <p class="kb-hero-sub">1159 artigos escritos por pediatras, coaches do sono e especialistas em desenvolvimento — para cada etapa dos primeiros 6 anos do seu filho.</p>
-    <div class="kb-search-wrap" style="position:relative;max-width:520px;margin:0 auto;">
-    <div class="kb-search" style="max-width:100%;margin:0;">
-      <input id="ptBlogSearch" type="search" placeholder='Buscar "regressão do sono", "introdução alimentar"...' autocomplete="off">
-      <button onclick="submitPT()">Buscar</button>
+    <h1 class="kb-hero-b-title">As perguntas que os pais<br>realmente fazem, <em>respondidas<br>por especialistas.</em></h1>
+    <p class="kb-hero-sub">1168 artigos escritos por pediatras, coaches do sono e especialistas em desenvolvimento — para cada fase dos primeiros 6 anos do seu filho.</p></div>
+    <div class="kb-search-wrap">
+    <div class="kb-search">
+<svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+<input id="ptBlogSearch" type="search" placeholder="Pesquise “quando o bebê dorme a noite toda”" autocomplete="off">
+      <button onclick="submitPT()"><span class="btn-long">Pesquisar artigos</span><span class="btn-short" style="display:none">Buscar</span></button>
     </div>
     <div id="ptSearchPanel" class="kb-search-panel" style="display:none;"></div>
     </div>
-    <div class="kb-hero-b-tags"><span class="label">Em alta:</span><button type="button" class="kb-trend-chip" data-q="regressão do sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Regressão do sono</button><button type="button" class="kb-trend-chip" data-q="introdução alimentar" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Introdução alimentar</button><button type="button" class="kb-trend-chip" data-q="fala" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Marcos da fala</button><button type="button" class="kb-trend-chip" data-q="sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Sono</button><button type="button" class="kb-trend-chip" data-q="birras" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Birras</button></div>
+    <div class="kb-hero-b-tags"><span class="label">Em alta:</span><button type="button" class="kb-trend-chip" data-q="regressão do sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Regressão do sono</button><button type="button" class="kb-trend-chip" data-q="introdução alimentar" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Introdução alimentar</button><button type="button" class="kb-trend-chip" data-q="fala" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Marcos da fala</button><button type="button" class="kb-trend-chip" data-q="sono" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Sono</button><button type="button" class="kb-trend-chip" data-q="birras" onclick="var i=document.getElementById('ptBlogSearch');i.value=this.dataset.q;filterPT();var g=document.querySelector('.kb-grid-3');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">Birras</button><a href="/pt/browse" class="kb-trend-chip kb-trend-chip--all">Todos os temas →</a></div>
   </div>
 </section>
 
@@ -292,7 +371,7 @@ a { color: inherit; text-decoration: none; }
     <div class="kb-section-head">
       <div>
         <div class="kb-eyebrow">Todos os artigos</div>
-        <h2 class="kb-h2">1159 guias para pais</h2>
+        <h2 class="kb-h2">1168 guias para pais</h2>
       </div>
     </div>
     <div class="kb-pills" style="margin-bottom:28px;" id="catPills"><button class="kb-pill on" data-cat="all"><span class="kb-pill-dot"></span>Todos os artigos</button><button class="kb-pill" data-cat="sono"><span class="kb-pill-dot"></span>Sono do Bebê</button><button class="kb-pill" data-cat="amamentacao"><span class="kb-pill-dot"></span>Amamentação</button><button class="kb-pill" data-cat="guia-de-saude"><span class="kb-pill-dot"></span>Saúde do Bebê</button><button class="kb-pill" data-cat="cognitivo"><span class="kb-pill-dot"></span>Desenvolvimento Cognitivo</button><button class="kb-pill" data-cat="fisico"><span class="kb-pill-dot"></span>Desenvolvimento Físico</button><button class="kb-pill" data-cat="linguistico"><span class="kb-pill-dot"></span>Linguagem e Fala</button><button class="kb-pill" data-cat="socioafetivo"><span class="kb-pill-dot"></span>Desenvolvimento Socioafetivo</button></div>
@@ -4933,6 +5012,15 @@ a { color: inherit; text-decoration: none; }
   <div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2014/06/3.webp" alt="Desenvolvimento cognitivo infantil nos primeiros anos de vida" loading="lazy" width="1000" height="667"><span class="kb-card-cat-chip">Cognitivo</span></div>
   <div class="kb-card-body"><div class="kb-card-title">Desenvolvimento cognitivo infantil nos primeiros anos de vida</div><div class="kb-card-excerpt">Os bebês são como pequenos cientistas, explorando ativamente o mundo para entender como ele funciona.</div><div class="kb-card-meta">16 jun 2014 · 6 min</div></div>
 </a>
+<a href="/pt/blog/4-atividades-para-estimular-a-linguagem-na-quarentena" class="kb-card" data-cat="linguistico" data-index="1165"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2019/10/shutterstock_602019311.webp" alt="4 atividades para estimular a linguagem na quarentena!" loading="lazy" width="1000" height="667"><span class="kb-card-cat-chip">Linguagem e Fala</span></div><div class="kb-card-body"><div class="kb-card-title">4 atividades para estimular a linguagem na quarentena!</div><div class="kb-card-excerpt">Hoje vim compartilhar o meu top 4 de atividades linguísticas para fazer na quarentena. Essas dicas vão te ajudar a passar mais tempo de qualidade com o seu…</div><div class="kb-card-meta">24 de jun de 2020 · 3 min de leitura</div></div></a>
+<a href="/pt/blog/5-dicas-para-manter-a-calma-durante-a-quarentena" class="kb-card" data-cat="socioafetivo" data-index="1166"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2019/07/shutterstock_1235937430.webp" alt="5 dicas para manter a calma durante a quarentena" loading="lazy" width="1000" height="667"><span class="kb-card-cat-chip">Desenvolvimento Socioafetivo</span></div><div class="kb-card-body"><div class="kb-card-title">5 dicas para manter a calma durante a quarentena</div><div class="kb-card-excerpt">1. Dedique alguns minutos só para você todos os dias. Independentemente de você trabalhar em tempo integral, meio período, dentro ou fora de casa ou cuidando…</div><div class="kb-card-meta">19 de ago de 2020 · 3 min de leitura</div></div></a>
+<a href="/pt/blog/artigos-kinedu-para-lidar-com-a-covid-19" class="kb-card" data-cat="socioafetivo" data-stage="toddler" data-index="1167"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2019/08/shutterstock_730885429.webp" alt="Artigos úteis do Kinedu para ajudar a você a lidar com a COVID-19 com a sua família" loading="lazy" width="1000" height="667"><span class="kb-card-cat-chip">Desenvolvimento Socioafetivo</span></div><div class="kb-card-body"><div class="kb-card-title">Artigos úteis do Kinedu para ajudar a você a lidar com a COVID-19 com a sua família</div><div class="kb-card-excerpt">Confira dicas e informações para ajudar no desenvolvimento do seu filho em casa. Há muita informação para ser processada agora. Para ajudar você a encontrar…</div><div class="kb-card-meta">6 de abr de 2020 · 2 min de leitura</div></div></a>
+<a href="/pt/blog/atividades-criancas-1-ano" class="kb-card" data-cat="cognitivo" data-stage="toddler" data-index="1168"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2020/06/20200609_161111.webp" alt="Conheça 15 atividades para crianças de 1 ano!" loading="lazy" width="1080" height="608"><span class="kb-card-cat-chip">Desenvolvimento Cognitivo</span></div><div class="kb-card-body"><div class="kb-card-title">Conheça 15 atividades para crianças de 1 ano!</div><div class="kb-card-excerpt">As atividades para crianças de 1 ano ajudam no aprendizado de diversas habilidades importantes para o desenvolvimento físico, linguístico, cognitivo e…</div><div class="kb-card-meta">17 de jul de 2023 · 8 min de leitura</div></div></a>
+<a href="/pt/blog/cabe-a-nos-maternidade-durante-a-pandemia" class="kb-card" data-cat="socioafetivo" data-stage="preschool" data-index="1169"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2018/10/picture-35.webp" alt="Maternidade e pandemia" loading="lazy" width="1000" height="558"><span class="kb-card-cat-chip">Desenvolvimento Socioafetivo</span></div><div class="kb-card-body"><div class="kb-card-title">Maternidade e pandemia</div><div class="kb-card-excerpt">Pontos chave: O Dia Internacional da Mulher (8 de março) celebra as conquistas das mulheres e destaca a contínua luta pela igualdade de gênero. A COVID-19…</div><div class="kb-card-meta">3 de mar de 2021 · 3 min de leitura</div></div></a>
+<a href="/pt/blog/como-fazer-o-meu-bebe-dormir-noite__trashed" class="kb-card" data-cat="sono" data-index="1170"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2021/03/3275-Kinedu-womens-day.webp" alt="Como fazer o bebê dormir a noite toda - Parte 1" loading="lazy" width="720" height="720"><span class="kb-card-cat-chip">Sono do Bebê</span></div><div class="kb-card-body"><div class="kb-card-title">Como fazer o bebê dormir a noite toda - Parte 1</div><div class="kb-card-excerpt">Quer saber como fazer o bebê dormir a noite toda? Então, continue a leitura e conheça alguns métodos de treinamento do sono que podem ajudar! A privação do…</div><div class="kb-card-meta">13 de ago de 2021 · 4 min de leitura</div></div></a>
+<a href="/pt/blog/como-seu-bebe-descobre-suas-maos-2" class="kb-card" data-cat="fisico" data-index="1171"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2021/11/Adicionando-atividades-do-Catalogo-1-500x278.webp" alt="Quando o bebê descobre as mãos?" loading="lazy" width="500" height="278"><span class="kb-card-cat-chip">Desenvolvimento Físico</span></div><div class="kb-card-body"><div class="kb-card-title">Quando o bebê descobre as mãos?</div><div class="kb-card-excerpt">Pontos chave: Inicialmente, os bebês não conseguem associar o que veem com o que tocam devido à limitada coordenação das mãos. Estimular a coordenação das…</div><div class="kb-card-meta">6 de jul de 2020 · 3 min de leitura</div></div></a>
+<a href="/pt/blog/o-desenvolvimento-do-seu-filho-durante-a-quarentena" class="kb-card" data-cat="socioafetivo" data-stage="prenatal preschool" data-index="1172"><div class="kb-card-img"><img src="/blog-media/social/baby-tummytime.webp" alt="Como a COVID-19 afetou o desenvolvimento do seu filho?" loading="lazy" width="1200" height="800"><span class="kb-card-cat-chip">Desenvolvimento Socioafetivo</span></div><div class="kb-card-body"><div class="kb-card-title">Como a COVID-19 afetou o desenvolvimento do seu filho?</div><div class="kb-card-excerpt">Pontos chave: O tempo de qualidade com os pais é fundamental para o desenvolvimento da criança, especialmente durante as interrupções da COVID-19. Ler juntos…</div><div class="kb-card-meta">1 de jul de 2020 · 5 min de leitura</div></div></a>
+<a href="/pt/blog/prevencao-ao-coronavirus-perguntas-e-respostas" class="kb-card" data-cat="guia-de-saude" data-index="1173"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2020/04/3248-Kinedu-articles-to-help-with-COVID.webp" alt="Como se prevenir do coronavírus?" loading="lazy" width="1000" height="667"><span class="kb-card-cat-chip">Saúde do Bebê</span></div><div class="kb-card-body"><div class="kb-card-title">Como se prevenir do coronavírus?</div><div class="kb-card-excerpt">Pontos chave: Cuidados familiares em relação à COVID-19: Especialistas recomendam tranquilizar as crianças e enfatizar a importância de lavar as mãos e…</div><div class="kb-card-meta">18 de mar de 2020 · 4 min de leitura</div></div></a>
     </div>
     <div class="kb-show-all" id="ptShowAll">
       <button onclick="ptShowMore()">Ver mais artigos →</button>
