@@ -2,6 +2,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/pt/blog/stage/:s",
+      "destination": "/pt/blog/stage/:s.html"
+    },
+    {
+      "source": "/es/blog/stage/:s",
+      "destination": "/es/blog/stage/:s.html"
+    },
+    {
       "source": "/pt/live-classes",
       "destination": "/pt/live-classes.html"
     },

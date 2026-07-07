@@ -114,6 +114,39 @@ a { color: inherit; text-decoration: none; }
 .kb-hero-b-tags .label{font-weight:600;color:var(--ink-2);font-size:13px}
 .kb-trend-chip{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--line);border-radius:100px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all .15s;box-shadow:0 1px 3px rgba(14,27,44,.05)}
 .kb-trend-chip:hover{border-color:var(--blue);background:var(--blue-soft);color:var(--blue);transform:translateY(-1px)}
+
+/* ── OVERLAY + STAGES (ported from EN index) ── */
+/* ── OVERLAY CARD (featured) ──────────────────────────────────────────── */
+.kb-card-over { position: relative; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; justify-content: end; padding: 22px; color: white; text-decoration: none; }
+.kb-card-over img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); z-index: 0; transition: transform .5s ease; }
+.kb-card-over:hover img.bg { transform: scale(1.05); }
+.kb-card-over::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,.02) 30%, rgba(14,27,44,.82) 100%); z-index: 1; }
+.kb-card-over > * { position: relative; z-index: 2; }
+.kb-card-over .kb-card-cat { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.3); padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .01em; }
+.kb-card-over h3 { color: #fff; font-size: 18px; font-weight: 800; line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 6px; }
+.kb-card-over .meta { color: #fff; font-size: 12px; opacity: .85; font-weight: 500; }
+
+
+/* ── BROWSE BY STAGE ─────────────────────────────────────────── */
+.kb-stage-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.kb-stage { position: relative; aspect-ratio: 2/3; border-radius: 20px; overflow: hidden; cursor: pointer; color: white; display: flex; flex-direction: column; justify-content: end; padding: 18px; transition: transform .2s, box-shadow .2s; text-decoration: none; }
+.kb-stage:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.kb-stage img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, center); transition: transform .4s; }
+.kb-stage:hover img.bg { transform: scale(1.04); }
+.kb-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,27,44,0) 25%, rgba(14,27,44,.85) 100%); }
+.kb-stage > * { position: relative; z-index: 2; color: #fff; }
+.kb-stage .age-range { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
+.kb-stage h4 { font-size: 20px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+.kb-stage .count { font-size: 12px; opacity: .75; margin-top: 4px; font-weight: 500; }
+.kb-stage.active { box-shadow: 0 0 0 3px var(--blue), var(--shadow-lg); transform: translateY(-4px); }
+.kb-stage.active::before { content: ''; position: absolute; inset: 0; background: rgba(43,139,228,.18); z-index: 1; border-radius: 20px; }
+.kb-stage-filter-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--blue-soft); border: 1.5px solid rgba(43,139,228,.2); border-radius: 14px; padding: 12px 18px; margin-bottom: 24px; font-size: 14px; font-weight: 600; color: var(--blue-dark); }
+.kb-stage-filter-banner button { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; font-weight: 600; padding: 4px 8px; border-radius: 8px; transition: background .12s; }
+.kb-stage-filter-banner button:hover { background: rgba(43,139,228,.1); color: var(--blue); }
+
+
+@media (max-width:1024px){ .kb-stage-row{grid-template-columns:repeat(3,1fr);} .kb-featured-grid{grid-template-columns:repeat(2,1fr)!important;} }
+@media (max-width:640px){ .kb-stage-row{grid-template-columns:repeat(2,1fr);gap:10px;} .kb-featured-grid{grid-template-columns:1fr!important;} .kb-stage h4{font-size:17px;} }
 </style>
 </head>
 <body>
@@ -173,6 +206,78 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
+
+<section style="padding:64px 0 0;">
+  <div class="kb-wrap">
+    <div class="kb-section-head">
+      <div>
+        <div class="kb-eyebrow">Explore por fase</div>
+        <h2 class="kb-h2">Cada idade, coberta</h2>
+      </div>
+    </div>
+    <div class="kb-stage-row">
+  <a href="/pt/blog/stage/pre-natal" class="kb-stage" style="--focus:50% 30%;">
+    <img class="bg" src="/blog-media/en/wp-content/uploads/2017/03/mama_yoga-600x400.webp" alt="Pré-natal" loading="lazy" width="600" height="400">
+    <div class="age-range">Gravidez</div>
+    <h4>Pré-natal</h4>
+    <div class="count">209 artigos</div>
+  </a>
+  <a href="/pt/blog/stage/recem-nascido" class="kb-stage" style="--focus:50% 30%;">
+    <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/mother-take-care-her-newborn-baby-hiccups-to-burp-2024-11-01-07-02-43-utc-600x400.webp" alt="Recém-nascido" loading="lazy" width="600" height="400">
+    <div class="age-range">0–3 meses</div>
+    <h4>Recém-nascido</h4>
+    <div class="count">199 artigos</div>
+  </a>
+  <a href="/pt/blog/stage/bebe" class="kb-stage" style="--focus:50% 30%;">
+    <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/cute-happy-baby-boy-playing-toys-in-his-child-room-2024-10-30-22-54-58-utc-600x400.webp" alt="Bebê" loading="lazy" width="600" height="400">
+    <div class="age-range">4–12 meses</div>
+    <h4>Bebê</h4>
+    <div class="count">265 artigos</div>
+  </a>
+  <a href="/pt/blog/stage/crianca-pequena" class="kb-stage" style="--focus:50% 30%;">
+    <img class="bg" src="/blog-media/en/wp-content/uploads/2023/10/a-2-3-year-old-boy-is-looking-at-the-pictures-in-t-2022-11-15-09-04-13-utc-600x400.webp" alt="Criança pequena" loading="lazy" width="600" height="400">
+    <div class="age-range">1–2 anos</div>
+    <h4>Criança pequena</h4>
+    <div class="count">282 artigos</div>
+  </a>
+  <a href="/pt/blog/stage/pre-escola" class="kb-stage" style="--focus:50% 30%;">
+    <img class="bg" src="/blog-media/en/wp-content/uploads/2023/07/group-of-kindergarten-kids-friends-drawing-art-cla-2022-12-16-00-26-14-utc-e1689795192559-600x400.webp" alt="Pré-escola" loading="lazy" width="600" height="400">
+    <div class="age-range">3–5 anos</div>
+    <h4>Pré-escola</h4>
+    <div class="count">161 artigos</div>
+  </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:48px 0 8px;">
+  <div class="kb-wrap">
+    <div class="kb-section-head">
+      <div>
+        <div class="kb-eyebrow">Destaques da semana</div>
+        <h2 class="kb-h2">Escolhidos pelos nossos editores</h2>
+      </div>
+      <a href="#ptGrid" class="kb-link" style="align-self:end;">Ver todos os artigos →</a>
+    </div>
+    <div class="kb-featured-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+    <a href="https://www.kinedu.com/pt/blog/como-fazer-o-meu-bebe-dormir-noite" class="kb-card-over" style="--focus:50% 40%;">
+      <img class="bg" src="/blog-media/pt/wp-content/uploads/2018/06/picture-317.webp" alt="Como fazer o bebê dormir a noite toda – Parte 1" loading="lazy">
+      
+      <div style="margin-top:auto;"><h3>Como fazer o bebê dormir a noite toda – Parte 1</h3><div class="meta">4 min de leitura</div></div>
+    </a>
+    <a href="https://www.kinedu.com/pt/blog/as-diferentes-maneiras-e-estilos-na-hora-de-engatinhar-2" class="kb-card-over" style="--focus:50% 40%;">
+      <img class="bg" src="/blog-media/pt/wp-content/uploads/2018/06/picture-451.webp" alt="Diferentes tipos de engatinhar" loading="lazy">
+      
+      <div style="margin-top:auto;"><h3>Diferentes tipos de engatinhar</h3><div class="meta">2 min de leitura</div></div>
+    </a>
+    <a href="https://www.kinedu.com/pt/blog/5-coisas-que-voce-precisa-ter-em-mente-ao-iniciar-o-desfralde" class="kb-card-over" style="--focus:50% 40%;">
+      <img class="bg" src="/blog-media/pt/wp-content/uploads/2018/06/picture-367.webp" alt="O que você precisa saber antes de começar o desfralde?" loading="lazy">
+      
+      <div style="margin-top:auto;"><h3>O que você precisa saber antes de começar o desfralde?</h3><div class="meta">4 min de leitura</div></div>
+    </a>
+    </div>
+  </div>
+</section>
 <section class="kb-section">
   <div class="kb-wrap">
     <div class="kb-section-head">
@@ -4985,5 +5090,6 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
   }, true);
 });
 </script>
+<script>(function(){try{var q=new URLSearchParams(location.search).get('q');if(q){var i=document.getElementById('ptBlogSearch');if(i){i.value=q;filterPT();var g=document.getElementById('ptGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});}}}catch(e){}})();</script>
 </body>
 </html>
