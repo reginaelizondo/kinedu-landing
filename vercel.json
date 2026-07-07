@@ -161,6 +161,81 @@
   ],
   "redirects": [
     {
+      "source": "/pt/blog/uncategorized",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/sono",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/saude",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/pre-natal",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/obrigado",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/home-3",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/fazer-o-bebe-dormir",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/espelho",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/destaque",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/desenvolvendo-o-movimento-de-pinca",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/como-seu-bebe-descobre-suas-maos",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/como-desenvolver-habitos-saudaveis-\u200b\u200bde-sono",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/as-diferentes-maneiras-e-estilos-na-hora-de-engatinhar",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/alimentacao",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/6-formas-de-aliviar-a-dor-de-nascimento-dos-dentes",
+      "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
       "source": "/es/blog/tabletas-y-smartphones-las-debe-utilizar-mi-bebe",
       "destination": "https://www.kinedu.com/es/blog",
       "permanent": true
