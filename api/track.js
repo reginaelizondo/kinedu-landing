@@ -37,6 +37,18 @@ module.exports = async function handler(req, res) {
     //  e.g. the recrawl surge after deploys/sitemap pings.)
     const BOT_RE = /bot\b|bot\/|crawl|spider|slurp|bingpreview|googlebot|bingbot|yandex|baidu|duckduck|applebot|facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegram|slack|discord|embedly|pinterest|redditbot|ahrefs|semrush|mj12|dotbot|petalbot|bytespider|gptbot|ccbot|claudebot|anthropic|perplexity|amazonbot|headless|phantom|puppeteer|playwright|selenium|lighthouse|pagespeed|gtmetrix|pingdom|uptimerobot|curl|wget|python-requests|python-httpx|axios|node-fetch|go-http-client|java\/|okhttp|libwww|httpclient|scrapy|monitor/i;
     if (!ua || BOT_RE.test(ua)) {
+      // Count search-engine crawler activity separately (SEO signal: crawl rate
+      // rises while Google re-indexes the site). Never mixed into human pageviews.
+      const cm = ua && ua.match(/(googlebot|bingbot|applebot|duckduckbot|yandex)/i);
+      if (cm) {
+        try {
+          await fetch(`${KV_URL}/pipeline`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${KV_TOKEN}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify([['HINCRBY', `analytics:crawl:${date}`, cm[1].toLowerCase(), 1]]),
+          });
+        } catch (e) { /* never fail the beacon over crawl accounting */ }
+      }
       return res.status(200).json({ ok: true, skipped: 'bot' });
     }
 

@@ -44,6 +44,7 @@ module.exports = async function handler(req, res) {
       pipeline.push(['HGETALL', `analytics:cta:${date}`]);
       pipeline.push(['HGETALL', `analytics:ab_view:${date}`]);
       pipeline.push(['HGETALL', `analytics:ab_cta:${date}`]);
+      pipeline.push(['HGETALL', `analytics:crawl:${date}`]);
     }
     // Add totals
     pipeline.push(['GET', 'analytics:total:pv']);
@@ -61,7 +62,7 @@ module.exports = async function handler(req, res) {
     const results = await response.json();
 
     // Parse results into daily data
-    const fieldsPerDay = 8;
+    const fieldsPerDay = 9;
     const daily = dates.map((date, i) => {
       const pvResult     = results[i * fieldsPerDay];
       const uvResult     = results[i * fieldsPerDay + 1];
@@ -71,6 +72,7 @@ module.exports = async function handler(req, res) {
       const ctaResult    = results[i * fieldsPerDay + 5];
       const abViewResult = results[i * fieldsPerDay + 6];
       const abCtaResult  = results[i * fieldsPerDay + 7];
+      const crawlResult  = results[i * fieldsPerDay + 8];
 
       // Parse hash results (HGETALL returns flat array [key, val, key, val, ...])
       function parseHash(result) {
@@ -89,6 +91,7 @@ module.exports = async function handler(req, res) {
       const ctaClicks = parseHash(ctaResult);
       const abViews   = parseHash(abViewResult);
       const abCta     = parseHash(abCtaResult);
+      const crawlers  = parseHash(crawlResult);
 
       let totalPV = 0;
       for (const k in pages) totalPV += pages[k];
@@ -107,6 +110,7 @@ module.exports = async function handler(req, res) {
         ctaClicks,
         abViews,
         abCta,
+        crawlers,
       };
     });
 

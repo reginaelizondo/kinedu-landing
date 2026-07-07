@@ -905,6 +905,32 @@
                 </table>
             </div>
         </div>
+
+        <div class="chart-section" id="seoSection">
+            <div class="chart-header">
+                <h2>SEO — Recuperación orgánica</h2>
+            </div>
+            <div class="summary-grid" style="margin-bottom:16px">
+                <div class="summary-card"><div class="label">Visitas orgánicas (rango)</div><div class="value green" id="seoOrganic">—</div></div>
+                <div class="summary-card"><div class="label">% del tráfico total</div><div class="value blue" id="seoShare">—</div></div>
+                <div class="summary-card"><div class="label">Crawls de buscadores</div><div class="value purple" id="seoCrawls">—</div><div class="label" style="margin-top:4px">midiendo desde 7 jul 2026</div></div>
+            </div>
+            <div class="chart-container">
+                <canvas id="seoChart"></canvas>
+            </div>
+            <div class="data-table" style="margin-top:18px">
+                <h3>Hitos de la migración (referencia)</h3>
+                <table>
+                    <tbody>
+                        <tr><td>17 jun</td><td>Blog migrado al sitio nuevo (3,060 artículos, imágenes auto-alojadas)</td></tr>
+                        <tr><td>24 jun</td><td>Redirects de URLs viejas de WordPress + limpieza de páginas basura</td></tr>
+                        <tr><td>01 jul</td><td>Auditoría: 13 fixes (títulos, canonicals, metadatos sociales)</td></tr>
+                        <tr><td>06 jul</td><td>+190 artículos ES recuperados · hreflang EN/ES/PT</td></tr>
+                        <tr><td>07 jul</td><td>+9 artículos PT · 100% URLs históricas resueltas · sitemap re-enviado</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -917,6 +943,7 @@
 (function() {
     var password = '';
     var chartInstance = null;
+    var seoChartInstance = null;
     var currentData = null;
     var currentMetric = 'pageViews';
 
@@ -1104,6 +1131,38 @@
         return n.toLocaleString('en-US');
     }
 
+    var ORGANIC_RE = /(^|\.)google\.|(^|\.)bing\.com$|duckduckgo|search\.yahoo|ecosia|(^|\.)yandex\./i;
+    function renderSEOSection(data) {
+        var days = data.daily || [];
+        var labels = [], organic = [], crawls = [];
+        var sumOrg = 0, sumAll = 0, sumCrawl = 0;
+        days.forEach(function(d) {
+            labels.push(d.date.slice(5));
+            var org = 0;
+            var refs = d.referrers || {};
+            for (var r in refs) { if (ORGANIC_RE.test(r)) org += refs[r]; }
+            organic.push(org); sumOrg += org; sumAll += (d.pageViews || 0);
+            var cr = 0, cs = d.crawlers || {};
+            for (var b in cs) cr += cs[b];
+            crawls.push(cr); sumCrawl += cr;
+        });
+        document.getElementById('seoOrganic').textContent = formatNum(sumOrg);
+        document.getElementById('seoShare').textContent = sumAll ? ((sumOrg / sumAll) * 100).toFixed(1) + '%' : '–';
+        document.getElementById('seoCrawls').textContent = formatNum(sumCrawl);
+        var ctx = document.getElementById('seoChart').getContext('2d');
+        if (seoChartInstance) seoChartInstance.destroy();
+        seoChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: { labels: labels, datasets: [
+                { label: 'Visitas orgánicas (Google/Bing/etc.)', data: organic, borderColor: '#34a853', backgroundColor: 'rgba(52,168,83,.08)', fill: true, tension: .3, pointRadius: 2 },
+                { label: 'Crawls de buscadores', data: crawls, borderColor: '#4285f4', borderDash: [6,4], fill: false, tension: .3, pointRadius: 2 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { beginAtZero: true } } }
+        });
+    }
+
     function renderDashboard(data) {
         var s = data.summary;
         document.getElementById('totalPV').textContent = formatNum(s.pageViews);
@@ -1118,6 +1177,7 @@
         renderTable('topLangBody', data.topLanguages, formatLangName);
         renderLearnSection(data);
         renderABSection(data);
+        renderSEOSection(data);
     }
 
     // ── LEARN SECTION ────────────────────────────────────────────────
