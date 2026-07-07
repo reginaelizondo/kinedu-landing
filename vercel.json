@@ -2,6 +2,22 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/pt/live-classes",
+      "destination": "/pt/live-classes.html"
+    },
+    {
+      "source": "/es/live-classes",
+      "destination": "/es/live-classes.html"
+    },
+    {
+      "source": "/pt/science",
+      "destination": "/pt/science.html"
+    },
+    {
+      "source": "/es/science",
+      "destination": "/es/science.html"
+    },
+    {
       "source": "/pt/terms",
       "destination": "/pt/terms.html"
     },
