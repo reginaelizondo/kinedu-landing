@@ -193,6 +193,16 @@
   ],
   "redirects": [
     {
+      "source": "/en/:path*",
+      "destination": "https://www.kinedu.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "https://www.kinedu.com/",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/uncategorized",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
