@@ -2372,7 +2372,7 @@
       "permanent": true
     },
     {
-      "source": "/pt/blog/:year(\\d{4})/:rest*",
+      "source": "/pt/blog/:year((?:19|20)\\d{2})/:rest*",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
     },
@@ -2402,7 +2402,7 @@
       "permanent": true
     },
     {
-      "source": "/es/blog/:year(\\d{4})/:rest*",
+      "source": "/es/blog/:year((?:19|20)\\d{2})/:rest*",
       "destination": "https://www.kinedu.com/es/blog",
       "permanent": true
     },
@@ -2432,7 +2432,7 @@
       "permanent": true
     },
     {
-      "source": "/blog/:year(\\d{4})/:rest*",
+      "source": "/blog/:year((?:19|20)\\d{2})/:rest*",
       "destination": "https://www.kinedu.com/blog",
       "permanent": true
     },
