@@ -654,7 +654,7 @@ window.TRANSLATIONS = {
     'footer.termsConditions': 'Términos y Condiciones',
     'footer.privacyPolicy': 'Política de Privacidad',
     'footer.privacyUrl': '/es/privacy',
-    'footer.termsUrl': '/terms',
+    'footer.termsUrl': '/es/terms',
     'footer.copyright': '© 2026 Kinedu. Todos los derechos reservados.',
 
     // SCIENCE PAGE

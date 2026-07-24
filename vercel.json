@@ -42,6 +42,10 @@
       "destination": "/pt/terms.html"
     },
     {
+      "source": "/es/terms",
+      "destination": "/es/terms.html"
+    },
+    {
       "source": "/terms",
       "destination": "/terms.html"
     },
