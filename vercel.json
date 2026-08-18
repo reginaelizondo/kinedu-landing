@@ -1826,6 +1826,11 @@
       "permanent": true
     },
     {
+      "source": "/es/blog/category/sueno",
+      "destination": "https://www.kinedu.com/es/blog/category/hora-de-dormir",
+      "permanent": true
+    },
+    {
       "source": "/es/blog/category/sueno/:rest*",
       "destination": "https://www.kinedu.com/es/blog",
       "permanent": true
@@ -1881,6 +1886,11 @@
       "permanent": true
     },
     {
+      "source": "/pt/blog/category/alimentacao",
+      "destination": "https://www.kinedu.com/pt/blog/category/amamentacao",
+      "permanent": true
+    },
+    {
       "source": "/pt/blog/category/alimentacao/:rest*",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
@@ -1903,6 +1913,11 @@
     {
       "source": "/pt/blog/category/pre-natal/:rest*",
       "destination": "https://www.kinedu.com/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/category/saude",
+      "destination": "https://www.kinedu.com/pt/blog/category/guia-de-saude",
       "permanent": true
     },
     {
@@ -2251,11 +2266,6 @@
       "permanent": true
     },
     {
-      "source": "/pt/blog/category/saude",
-      "destination": "https://www.kinedu.com/pt/blog/category/guia-de-saude",
-      "permanent": true
-    },
-    {
       "source": "/pt/blog/category/relaxamento",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
@@ -2288,16 +2298,6 @@
     {
       "source": "/pt/blog/category/desenvolvimento-infantil",
       "destination": "https://www.kinedu.com/pt/blog",
-      "permanent": true
-    },
-    {
-      "source": "/pt/blog/category/alimentacao",
-      "destination": "https://www.kinedu.com/pt/blog/category/amamentacao",
-      "permanent": true
-    },
-    {
-      "source": "/es/blog/category/sueno",
-      "destination": "https://www.kinedu.com/es/blog/category/hora-de-dormir",
       "permanent": true
     },
     {
