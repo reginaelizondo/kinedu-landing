@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x8ou6ay6eb");</script>
 <script>if(location.hostname==="kinedu-landing.vercel.app")location.replace("https://www.kinedu.com"+location.pathname+location.search+location.hash)</script>
 <!-- Meta Pixel Code -->
@@ -20,7 +21,6 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 / loading="lazy" decoding="async"></noscript>
 <!-- End Meta Pixel Code -->
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>The Kinedu Blog — Real Guidance for Real Parents</title>
 <meta name="description" content="Expert-backed articles on baby sleep, child development, feeding, health, and more. Written by pediatricians and development specialists.">
@@ -29,7 +29,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <link rel="alternate" hreflang="es" href="https://www.kinedu.com/es/blog">
 <link rel="alternate" hreflang="pt" href="https://www.kinedu.com/pt/blog">
 <link rel="alternate" hreflang="x-default" href="https://www.kinedu.com/blog">
-<meta property="og:title" content="Kinedu Blog — 900 Expert Answers for Real Parents">
+<meta property="og:title" content="Kinedu Blog — 1,068 Expert Answers for Real Parents">
 <meta property="og:description" content="The questions parents really ask, answered by pediatricians and child development experts. Sleep, feeding, milestones, health and more.">
 <meta property="og:image" content="https://www.kinedu.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -38,7 +38,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kinedu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kinedu Blog — 900 Expert Answers for Real Parents">
+<meta name="twitter:title" content="Kinedu Blog — 1,068 Expert Answers for Real Parents">
 <meta name="twitter:description" content="The questions parents really ask, answered by pediatricians and child development experts. Sleep, feeding, milestones, health and more.">
 <meta name="twitter:image" content="https://www.kinedu.com/og-image.png">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -135,6 +135,27 @@ img { display: block; max-width: 100%; height: auto; }
 .kb-search input::placeholder { color: var(--muted-2); }
 .kb-search button { background: var(--blue); color: white; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; white-space: nowrap; transition: background .15s, transform .1s; letter-spacing: -0.01em; }
 .kb-search button:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.kb-search button:focus-visible,
+.kb-trend-chip:focus-visible,
+.kb-pill:focus-visible,
+.kb-stage:focus-visible,
+.kb-card:focus-visible,
+.kb-card-over:focus-visible,
+.kb-link:focus-visible {
+  outline: 3px solid rgba(43,139,228,.38);
+  outline-offset: 3px;
+}
+.kb-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
 /* ---- AI Search Panel ---- */
 .kb-search-wrap { position: relative; max-width: 660px; margin: 0 auto; }
@@ -361,7 +382,7 @@ img { display: block; max-width: 100%; height: auto; }
   .kb-hero-sub { font-size: 14.5px; }
   .kb-hero-center { margin-bottom: 32px; }
   .kb-search { padding: 5px 5px 5px 14px; border-radius: 12px; }
-  .kb-search input { font-size: 14px; }
+  .kb-search input { font-size: 16px; }
   .kb-search button { padding: 10px 14px; font-size: 13px; }
   .btn-long { display: none; }
   .btn-short { display: inline !important; }
@@ -417,10 +438,13 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .kb-hero-b-tags { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 6px; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
+  .kb-hero-b-tags { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 8px; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 48px; }
   .kb-hero-b-tags::-webkit-scrollbar { display: none; }
   .kb-hero-b-tags .label { flex-shrink: 0; }
-  .kb-trend-chip { flex-shrink: 0; }
+  .kb-trend-chip { flex-shrink: 0; scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 </style>
 <link rel="alternate" type="application/rss+xml" title="Kinedu Blog" href="https://www.kinedu.com/feed.xml">
@@ -479,15 +503,16 @@ img { display: block; max-width: 100%; height: auto; }
         Expert-backed parenting guidance
       </div>
       <h1 class="kb-hero-b-title">The questions parents<br>really ask, <em>answered<br>by experts.</em></h1>
-      <p class="kb-hero-sub">1068 articles written by pediatricians, sleep coaches, and development specialists — for every stage of your child's first 6 years.</p>
+      <p class="kb-hero-sub">1,068 articles written by pediatricians, sleep coaches, and development specialists — for every stage of your child's first 6 years.</p>
     </div>
     <div class="kb-search-wrap">
-      <div class="kb-search">
+      <form class="kb-search" role="search" onsubmit="submitSearch();return false;">
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-        <input placeholder="Try &ldquo;when do babies sleep through the night&rdquo;" id="blogSearch" type="search" autocomplete="off">
-        <button onclick="submitSearch()"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
-      </div>
-      <div id="searchPanel" class="kb-search-panel" style="display:none;"></div>
+        <label for="blogSearch" class="kb-sr-only">Search Kinedu articles</label>
+        <input placeholder="Search sleep, feeding, milestones…" id="blogSearch" type="search" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+        <button type="submit"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
+      </form>
+      <div id="searchPanel" class="kb-search-panel" style="display:none;" aria-label="Search suggestions"></div>
     </div>
     <div class="kb-hero-b-tags">
       <span class="label">Trending:</span>
@@ -594,14 +619,14 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
     </div>
     <div class="kb-pills" style="margin-bottom:28px;" id="catPills">
-<button class="kb-pill on" data-cat="all"><span class="kb-pill-dot"></span>All articles</button>
-<button class="kb-pill" data-cat="sleep"><span class="kb-pill-dot"></span>Sleep</button>
-<button class="kb-pill" data-cat="child-development"><span class="kb-pill-dot"></span>Child Development</button>
-<button class="kb-pill" data-cat="feeding"><span class="kb-pill-dot"></span>Feeding</button>
-<button class="kb-pill" data-cat="health"><span class="kb-pill-dot"></span>Health</button>
-<button class="kb-pill" data-cat="parenting"><span class="kb-pill-dot"></span>Parenting</button>
-<button class="kb-pill" data-cat="breastfeeding"><span class="kb-pill-dot"></span>Breastfeeding</button>
-<button class="kb-pill" data-cat="nutrition"><span class="kb-pill-dot"></span>Nutrition</button>
+<button class="kb-pill on" data-cat="all" aria-pressed="true"><span class="kb-pill-dot"></span>All articles</button>
+<button class="kb-pill" data-cat="sleep" aria-pressed="false"><span class="kb-pill-dot"></span>Sleep</button>
+<button class="kb-pill" data-cat="child-development" aria-pressed="false"><span class="kb-pill-dot"></span>Child Development</button>
+<button class="kb-pill" data-cat="feeding" aria-pressed="false"><span class="kb-pill-dot"></span>Feeding</button>
+<button class="kb-pill" data-cat="health" aria-pressed="false"><span class="kb-pill-dot"></span>Health</button>
+<button class="kb-pill" data-cat="parenting" aria-pressed="false"><span class="kb-pill-dot"></span>Parenting</button>
+<button class="kb-pill" data-cat="breastfeeding" aria-pressed="false"><span class="kb-pill-dot"></span>Breastfeeding</button>
+<button class="kb-pill" data-cat="nutrition" aria-pressed="false"><span class="kb-pill-dot"></span>Nutrition</button>
 </div>
     <div class="kb-grid-3" id="articleGrid">
 <a href="https://www.kinedu.com/blog/toys-for-1-year-old" class="kb-card" data-stage="baby toddler" data-index="0" data-cat="child-development">
@@ -621,7 +646,7 @@ img { display: block; max-width: 100%; height: auto; }
   <div class="kb-card-body"><div class="kb-card-title">Hiccups in Newborns and Babies</div><div class="kb-card-excerpt">Hiccups happen when the diaphragm, the muscle responsible for breathing, experiences an involuntary spasm.</div><div class="kb-card-meta">Nov 29, 2024 · 3 min read</div></div>
 </a>
 <a href="https://www.kinedu.com/blog/my-18-month-old-isnt-talking" class="kb-card" data-stage="baby toddler" data-index="4" data-cat="child-development">
-  <div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2020/07/Espelho-espelho-meu.webp" alt="My 18-Month-Old Isn’t Talking" loading="lazy" width="1400" height="786"><span class="kb-card-cat-chip">Child Development</span></div>
+  <div class="kb-card-img"><img src="/blog-media/en/wp-content/uploads/2024/11/19-600x400.webp" alt="My 18-Month-Old Isn’t Talking" loading="lazy" width="600" height="400"><span class="kb-card-cat-chip">Child Development</span></div>
   <div class="kb-card-body"><div class="kb-card-title">My 18-Month-Old Isn’t Talking</div><div class="kb-card-excerpt">Just like with a baby’s first steps, many parents eagerly anticipate their toddler’s first words.</div><div class="kb-card-meta">Nov 29, 2024 · 4 min read</div></div>
 </a>
 <a href="https://www.kinedu.com/blog/when-do-babies-sleep-through-the-night" class="kb-card" data-stage="preschool" data-index="5" data-cat="sleep">
@@ -4343,9 +4368,10 @@ img { display: block; max-width: 100%; height: auto; }
 <a href="/blog/your-two-year-olds-linguistic-development" class="kb-card" data-cat="linguistic" data-stage="toddler" data-index="1103"><div class="kb-card-img"><img src="/blog-media/pt/wp-content/uploads/2020/07/20200703_173001-768x1431.webp" alt="How is my two-year-old's linguistic development?" loading="lazy" width="768" height="1431"><span class="kb-card-cat-chip">Linguistic</span></div><div class="kb-card-body"><div class="kb-card-title">How is my two-year-old's linguistic development?</div><div class="kb-card-excerpt">1. Around age two, children understand and start using more words, forming sentences. 2. Avoid comparing your child's language skills to others of the same…</div><div class="kb-card-meta">Jan 29, 2018 · 2 min read</div></div></a>
 <a href="/blog/zika-virus-and-your-pregnancy" class="kb-card" data-cat="health-guide" data-index="1104"><div class="kb-card-img"><img src="/blog-media/es/wp-content/uploads/2020/06/suetate.webp" alt="How can I keep myself and my baby safe from the Zika virus?" loading="lazy" width="1280" height="720"><span class="kb-card-cat-chip">Health Guide</span></div><div class="kb-card-body"><div class="kb-card-title">How can I keep myself and my baby safe from the Zika virus?</div><div class="kb-card-excerpt">Attention pregnant moms! Let's talk about the famous Zika virus. This disease transmitted by mosquitoes was in the media spotlight a while back, causing a…</div><div class="kb-card-meta">Jan 12, 2018 · 2 min read</div></div></a>
 <div id="noResults" style="display:none;text-align:center;padding:60px 0;color:var(--muted);font-size:16px;">No articles found in this category yet.</div>
+<div id="resultsStatus" class="kb-sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <div id="showAllWrap" style="text-align:center;margin-top:40px;">
   <button id="showAllBtn" onclick="showAllCards()" style="background:var(--ink);color:white;padding:14px 36px;border-radius:12px;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='var(--blue)'" onmouseout="this.style.background='var(--ink)'">
-    See all 900 articles →
+    See all 1,068 articles →
   </button>
 </div>
   </div>
@@ -4357,7 +4383,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="kb-app-cta">
       <div>
         <h2>The app that grows with your baby</h2>
-        <p>Personalized activities, milestone tracking, live expert classes, and a library of 900 articles — all in one place.</p>
+        <p>Personalized activities, milestone tracking, live expert classes, and a library of 1,068 articles — all in one place.</p>
         <div class="stores">
           <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" class="kb-app-store-badge" style="color:white;">
             <svg width="18" height="22" viewBox="0 0 18 22" fill="none"><path d="M14.5 11.5c-.02-2.6 2.1-3.85 2.2-3.92-1.2-1.76-3.06-2-3.72-2.03-1.58-.16-3.1.93-3.9.93-.8 0-2.02-.9-3.33-.88C4.02 5.63 2.3 6.67 1.36 8.27-.6 11.5.8 16.2 2.7 18.7c.94 1.38 2.08 2.9 3.55 2.86 1.43-.06 1.97-.92 3.7-.92 1.72 0 2.22.92 3.73.89 1.54-.03 2.5-1.38 3.44-2.77a12.8 12.8 0 001.56-3.22c-.04-.01-2.98-1.14-3.02-4.54M11.97 3.5C12.76 2.55 13.3 1.2 13.14 0c-1.14.05-2.6.76-3.44 1.7-.74.84-1.42 2.2-1.24 3.47 1.26.1 2.6-.65 3.5-1.67" fill="currentColor"/></svg>
@@ -4375,7 +4401,7 @@ img { display: block; max-width: 100%; height: auto; }
           <div class="lbl">Parents worldwide</div>
         </div>
         <div class="kb-app-cta-stat">
-          <div class="num">900</div>
+          <div class="num">1,068</div>
           <div class="lbl">Expert articles</div>
         </div>
         <div class="kb-app-cta-stat">
@@ -4426,6 +4452,17 @@ img { display: block; max-width: 100%; height: auto; }
 
 <script>
 // ─── Category filter helpers ──────────────────────────────────────────────────
+function announceResults(message) {
+  var status = document.getElementById('resultsStatus');
+  if (status) status.textContent = message;
+}
+
+function syncPillA11y() {
+  document.querySelectorAll('#catPills .kb-pill').forEach(function(pill) {
+    pill.setAttribute('aria-pressed', pill.classList.contains('on') ? 'true' : 'false');
+  });
+}
+
 function applyCategoryFilter(cats, displayLabel) {
   // cats: array of strings (data-cat values), or null for "all"
   // Clear stage filter
@@ -4461,6 +4498,7 @@ function applyCategoryFilter(cats, displayLabel) {
   });
 
   document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
+  announceResults(count + ' article' + (count === 1 ? '' : 's') + ' shown' + (displayLabel ? ' in ' + displayLabel : '') + '.');
 
   // Show category banner with count
   if (displayLabel) {
@@ -4482,6 +4520,7 @@ function clearCategoryFilter() {
   document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
   var allPill = document.querySelector('#catPills .kb-pill[data-cat="all"]');
   if (allPill) allPill.classList.add('on');
+  syncPillA11y();
   var banner = document.getElementById('stageBanner');
   if (banner) banner.style.display = 'none';
   _allShown = false;
@@ -4495,6 +4534,7 @@ document.querySelectorAll('#catPills .kb-pill').forEach(function(pill) {
     var cat = this.getAttribute('data-cat');
     document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
     this.classList.add('on');
+    syncPillA11y();
     if (cat === 'all') {
       applyCategoryFilter(null);
     } else {
@@ -4524,6 +4564,7 @@ function showAllCards() {
   });
   var wrap = document.getElementById('showAllWrap');
   if (wrap) wrap.style.display = 'none';
+  announceResults('All 1,068 articles are now shown.');
 }
 
 // Apply limit on load
@@ -4667,6 +4708,7 @@ var searchPanel = document.getElementById('searchPanel');
 
 function deaccent(s) { return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g,'') : s; }
 function normalizeQ(s) { return deaccent(s.toLowerCase()).replace(/[-–—']/g,' ').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim(); }
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, function(ch) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
 
 // Stopwords: dropped from queries so "when do babies crawl" matches "crawl"
 var STOPW = new Set(['a','an','the','is','are','was','do','does','did','my','your','our','his','her','their','when','how','what','why','who','which','to','for','of','in','on','at','can','could','should','would','i','me','we','you','it','its','that','this','these','with','about','from','will','be','been','and','or','not','no','if','too','very','baby','babies','child','children','kid','kids','toddler','little','one','old']);
@@ -4791,15 +4833,17 @@ function highlightText(text, words) {
 }
 
 function renderPanel(scored, words, phrase, totalMatches) {
+  var safePhrase = escapeHtml(phrase);
   if (!scored.length) {
     searchPanel.innerHTML =
-      '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> No results for "<em>' + phrase + '</em>"</div>' +
+      '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> No results for "<em>' + safePhrase + '</em>"</div>' +
       '<div class="kb-sp-empty"><strong>We couldn\'t find articles for that search.</strong>Try different keywords like "sleep", "feeding" or "development".</div>';
     searchPanel.style.display = '';
+    searchInput.setAttribute('aria-expanded', 'true');
     return;
   }
   var top = scored.slice(0, 4);
-  var html = '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Top results for "<em>' + phrase + '</em>"</div>';
+  var html = '<div class="kb-sp-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--blue)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="currentColor"/></svg> Top results for "<em>' + safePhrase + '</em>"</div>';
   top.forEach(function(item) {
     var card  = item.card;
     var href  = card.getAttribute('href');
@@ -4825,6 +4869,7 @@ function renderPanel(scored, words, phrase, totalMatches) {
   html += '</div>';
   searchPanel.innerHTML = html;
   searchPanel.style.display = '';
+  searchInput.setAttribute('aria-expanded', 'true');
 }
 
 function scrollToGrid(e) {
@@ -4834,7 +4879,10 @@ function scrollToGrid(e) {
   closePanel();
 }
 
-function closePanel() { searchPanel.style.display = 'none'; }
+function closePanel() {
+  searchPanel.style.display = 'none';
+  if (searchInput) searchInput.setAttribute('aria-expanded', 'false');
+}
 
 // Submit search: run the filter and scroll user to the article grid
 function submitSearch() {
@@ -4862,6 +4910,7 @@ function doSearch() {
     document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
     var allPill = document.querySelector('#catPills .kb-pill[data-cat="all"]');
     if (allPill) allPill.classList.add('on');
+    syncPillA11y();
     document.getElementById('noResults').style.display = 'none';
     return;
   }
@@ -4903,8 +4952,10 @@ function doSearch() {
 
   // Render inline panel with top results
   renderPanel(scored, words, raw.trim(), count);
+  announceResults(count + ' article' + (count === 1 ? '' : 's') + ' found for ' + raw.trim() + '.');
 
   document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
+  syncPillA11y();
   document.getElementById('noResults').style.display = count === 0 ? '' : 'none';
 }
 
