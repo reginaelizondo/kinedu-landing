@@ -430,7 +430,7 @@ body { padding-top: 88px; }
 .kb-art-head { padding-top: 24px !important; }
 </style>
 <script>localStorage.setItem('kinedu-lang','pt');document.documentElement.lang='pt';</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "datePublished": "2019-03-22", "dateModified": "2026-07-07", "headline": "Gravidez semana a semana: entenda como funciona essa contagem! | Blog Kinedu", "description": "Quem nunca se pegou confuso ao ouvir uma mulher dizer que está grávida de 28 semanas que atire a primeira mamadeira! A contagem da gravidez semana a semana pode parecer um pouco complicada em um primeiro momento, mas é simples de entender. Além disso, é a melhor forma de acompanh", "mainEntityOfPage": "https://www.kinedu.com/pt/blog/gravidez-semana-a-semana", "inLanguage": "pt", "author": {"@type": "Organization", "name": "Kinedu"}, "publisher": {"@type": "Organization", "name": "Kinedu", "logo": {"@type": "ImageObject", "url": "https://www.kinedu.com/logo%20kinedu.png"}}, "image": "https://www.kinedu.com/blog-media/pt/wp-content/uploads/2019/03/original-a83bfab2cd5641e4a48ec1c67fb2f911.jpg"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "datePublished": "2019-03-22", "dateModified": "2026-08-19", "headline": "Gravidez semana a semana: entenda como funciona essa contagem! | Blog Kinedu", "description": "Quem nunca se pegou confuso ao ouvir uma mulher dizer que está grávida de 28 semanas que atire a primeira mamadeira! A contagem da gravidez semana a semana pode parecer um pouco complicada em um primeiro momento, mas é simples de entender. Além disso, é a melhor forma de acompanh", "mainEntityOfPage": "https://www.kinedu.com/pt/blog/gravidez-semana-a-semana", "inLanguage": "pt", "author": {"@type": "Organization", "name": "Kinedu"}, "publisher": {"@type": "Organization", "name": "Kinedu", "logo": {"@type": "ImageObject", "url": "https://www.kinedu.com/logo%20kinedu.png"}}, "image": "https://www.kinedu.com/blog-media/pt/wp-content/uploads/2019/03/original-a83bfab2cd5641e4a48ec1c67fb2f911.jpg"}</script>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gravidez semana a semana: entenda como funciona essa contagem! | Blog Kinedu">
 <meta name="twitter:description" content="Quem nunca se pegou confuso ao ouvir uma mulher dizer que está grávida de 28 semanas que atire a primeira mamadeira! A contagem da gravidez semana a semana pode parecer um pouco complicada em um primeiro momento, mas é simples de entender.">
@@ -497,7 +497,7 @@ body { padding-top: 88px; }
           <div class="author-role">Pediatria &amp; desenvolvimento infantil</div>
         </div>
         <div class="spacer"></div>
-        <span class="kb-updated" style="color:var(--green-dark);font-weight:600">Atualizado em 7 de jul de 2026</span>
+        <span class="kb-updated" style="color:var(--green-dark);font-weight:600">Atualizado em 19 de ago de 2026</span>
         <span class="dot"></span>
         <span>3 min de leitura</span><span class="dot"></span><span style="font-size:12px;color:var(--muted)">Publicado em 22 de mar de 2019</span>
       </div>
@@ -530,7 +530,96 @@ body { padding-top: 88px; }
 <p>De toda forma, deixaremos abaixo uma Calculadora Gestacional para que você possa realizar essa contagem de forma rápida e fácil! A calculadora vai ajudar você a descobrir com quantas <a href="/pt/blog/com-quantas-semanas-o-bebe-comeca-a-mexer" target="_blank" rel="noopener noreferrer">semanas</a> de gravidez está e a provável data do parto.</p>
 
 
-<iframe loading="lazy" src="https://labs.kinedu.com/pregnancy-calculator/pt/" frameborder="0" scrolling="no" width="100%" height="594px"></iframe>
+<div class="kbcalc" id="calculadora">
+  <div class="kbcalc-head">
+    <span class="kbcalc-eyebrow">Calculadora da gravidez</span>
+    <p class="kbcalc-title">Descubra sua idade gestacional</p>
+    <p class="kbcalc-sub">Insira a data da sua <strong>última menstruação (DUM)</strong> ou, se preferir, a <strong>data provável do parto (DPP)</strong>.</p>
+  </div>
+  <div class="kbcalc-fields">
+    <label class="kbcalc-field" for="kbcalc-dum">Última menstruação (DUM)
+      <input type="date" id="kbcalc-dum" name="dum">
+    </label>
+    <span class="kbcalc-ou" aria-hidden="true">ou</span>
+    <label class="kbcalc-field" for="kbcalc-dpp">Data provável do parto (DPP)
+      <input type="date" id="kbcalc-dpp" name="dpp">
+    </label>
+  </div>
+  <button type="button" class="kbcalc-btn" id="kbcalc-btn">Calcular</button>
+  <div class="kbcalc-out" id="kbcalc-out" aria-live="polite" hidden>
+    <p class="kbcalc-res" id="kbcalc-res"></p>
+    <div class="kbcalc-bar"><div class="kbcalc-bar-fill" id="kbcalc-fill"></div></div>
+    <p class="kbcalc-det" id="kbcalc-det"></p>
+    <p class="kbcalc-links">Continue acompanhando: <a href="/pt/blog/tamanho-do-bebe"><strong>o tamanho do bebê em cada semana</strong></a> e <a href="/pt/blog/com-quantas-semanas-o-bebe-comeca-a-mexer"><strong>quando o bebê começa a mexer</strong></a>.</p>
+  </div>
+  <p class="kbcalc-err" id="kbcalc-err" role="alert" hidden></p>
+  <p class="kbcalc-note">Resultado estimado com base na regra de Naegele (40 semanas a partir da DUM). Confirme sempre com seu médico ou na ultrassonografia.</p>
+</div>
+<style>
+.kbcalc { background: linear-gradient(180deg, var(--blue-tint, #F4FAFE) 0%, #fff 100%); border: 1px solid var(--line, #E6EAF0); border-radius: 20px; padding: 28px 26px 22px; margin: 8px 0 32px; box-shadow: 0 2px 12px rgba(14,27,44,.06); }
+.kbcalc-eyebrow { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--blue, #2B8BE4); background: var(--blue-soft, #EAF4FD); border-radius: 999px; padding: 5px 12px; margin-bottom: 12px; }
+.kbcalc-title { font-size: 26px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink, #0E1B2C); margin: 0 0 6px !important; line-height: 1.15; }
+.kbcalc-sub { font-size: 15.5px !important; color: var(--muted, #5E6C80) !important; margin: 0 0 20px !important; line-height: 1.5 !important; }
+.kbcalc-fields { display: flex; align-items: flex-end; gap: 14px; margin-bottom: 18px; }
+.kbcalc-field { flex: 1; display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted, #5E6C80); }
+.kbcalc-field input { width: 100%; border: 1px solid var(--line, #E6EAF0); border-radius: 12px; padding: 12px 14px; font-size: 16px; font-family: inherit; color: var(--ink, #0E1B2C); background: #fff; -webkit-appearance: none; appearance: none; min-height: 48px; }
+.kbcalc-field input:focus { outline: 2px solid var(--blue, #2B8BE4); outline-offset: 1px; border-color: var(--blue, #2B8BE4); }
+.kbcalc-ou { font-size: 13px; font-weight: 700; color: var(--muted-2, #93A0B4); padding-bottom: 14px; }
+.kbcalc-btn { display: block; width: 100%; background: var(--blue, #2B8BE4); color: #fff; font-family: inherit; font-size: 16px; font-weight: 800; letter-spacing: -0.01em; border: 0; border-radius: 12px; padding: 14px 20px; cursor: pointer; transition: background .15s; min-height: 50px; }
+.kbcalc-btn:hover { background: var(--blue-dark, #1E6FBD); }
+.kbcalc-out { margin-top: 20px; background: #fff; border: 1px solid var(--line, #E6EAF0); border-radius: 14px; padding: 20px 20px 16px; }
+.kbcalc-res { font-size: 22px !important; font-weight: 800; color: var(--ink, #0E1B2C) !important; letter-spacing: -0.02em; margin: 0 0 12px !important; line-height: 1.3 !important; }
+.kbcalc-res em { font-style: normal; color: var(--blue, #2B8BE4); }
+.kbcalc-bar { height: 8px; background: var(--blue-soft, #EAF4FD); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
+.kbcalc-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--blue, #2B8BE4), var(--green, #34C989)); border-radius: 999px; transition: width .5s ease; }
+.kbcalc-det { font-size: 15px !important; color: var(--ink-2, #2A3B52) !important; margin: 0 0 10px !important; line-height: 1.55 !important; }
+.kbcalc-links { font-size: 14.5px !important; color: var(--muted, #5E6C80) !important; margin: 0 !important; padding-top: 10px; border-top: 1px solid var(--line-2, #EEF1F6); line-height: 1.5 !important; }
+.kbcalc-err { font-size: 14.5px !important; font-weight: 600; color: #C0392B !important; margin: 14px 0 0 !important; }
+.kbcalc-note { font-size: 12.5px !important; color: var(--muted-2, #93A0B4) !important; margin: 14px 0 0 !important; line-height: 1.5 !important; }
+@media (max-width: 640px) { .kbcalc { padding: 22px 18px 18px; } .kbcalc-fields { flex-direction: column; align-items: stretch; gap: 10px; } .kbcalc-ou { text-align: center; padding: 0; } .kbcalc-title { font-size: 22px; } }
+</style>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var dum = $('kbcalc-dum'), dpp = $('kbcalc-dpp'), btn = $('kbcalc-btn'),
+      out = $('kbcalc-out'), res = $('kbcalc-res'), det = $('kbcalc-det'),
+      fill = $('kbcalc-fill'), err = $('kbcalc-err');
+  if (!btn) return;
+  var DAY = 86400000, GEST = 280;
+  function parse(el){ return el.value ? new Date(el.value + 'T12:00:00') : null; }
+  function fmt(d){ return d.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }); }
+  function fail(msg){ out.hidden = true; err.textContent = msg; err.hidden = false; }
+  dum.addEventListener('input', function(){ if (dum.value) dpp.value = ''; });
+  dpp.addEventListener('input', function(){ if (dpp.value) dum.value = ''; });
+  btn.addEventListener('click', function(){
+    err.hidden = true;
+    var today = new Date(); today.setHours(12,0,0,0);
+    var dDum = parse(dum), dDpp = parse(dpp), gaDays, dppDate;
+    if (dDum) {
+      gaDays = Math.floor((today - dDum) / DAY);
+      dppDate = new Date(dDum.getTime() + GEST * DAY);
+      if (gaDays < 0) return fail('A data da última menstruação não pode estar no futuro.');
+    } else if (dDpp) {
+      gaDays = GEST - Math.round((dDpp - today) / DAY);
+      dppDate = dDpp;
+      if (gaDays < 0) return fail('Essa data provável do parto ainda está muito distante — confira se está correta.');
+    } else {
+      return fail('Preencha a data da última menstruação ou a data provável do parto.');
+    }
+    if (gaDays > 308) return fail('Essa data indica mais de 44 semanas. Confira se a data está correta.');
+    var sem = Math.floor(gaDays / 7), dias = gaDays % 7;
+    var tri = sem < 14 ? '1º trimestre' : sem < 28 ? '2º trimestre' : '3º trimestre';
+    var faltam = Math.max(0, Math.round((GEST - gaDays) / 7));
+    res.innerHTML = 'Você está com <em>' + sem + (sem === 1 ? ' semana' : ' semanas') +
+      (dias ? ' e ' + dias + (dias === 1 ? ' dia' : ' dias') : '') + '</em> de gravidez';
+    det.innerHTML = 'Isso corresponde ao <strong>' + tri + '</strong>. A data provável do parto é <strong>' +
+      fmt(dppDate) + '</strong>' + (faltam > 0 ? ' — faltam cerca de ' + faltam + (faltam === 1 ? ' semana.' : ' semanas.') : '.');
+    fill.style.width = Math.min(100, Math.round(gaDays / GEST * 100)) + '%';
+    out.hidden = false;
+    err.hidden = true;
+  });
+})();
+</script>
 
 
 
