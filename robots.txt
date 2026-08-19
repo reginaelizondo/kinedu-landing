@@ -6,5 +6,6 @@ Disallow: /live-classes-ads-en
 Disallow: /live-classes-ads-es
 Disallow: /live-classes-ads-pt
 Disallow: /api/
+Disallow: /app/
 
 Sitemap: https://www.kinedu.com/sitemap.xml
