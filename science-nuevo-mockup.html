@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>The Science behind Kinedu — mockup propuesta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kinedu-blue:#2B8BE4; --kinedu-green:#4CD964; --kinedu-orange:#FFC033; --kinedu-pink:#E84D8A;
+    --accent-cyan:#38D0E8; --accent-teal:#2DD4BF;
+    --text-primary:#1A1D2E; --text-secondary:#4A5068; --text-tertiary:#8B93A7;
+    --bg-primary:#FFFFFF; --bg-secondary:#F7F8FB; --bg-cream:#EFF5FF; --bg-glass:rgba(255,255,255,0.78);
+    --border:rgba(0,0,0,0.06);
+    --font-head:'Plus Jakarta Sans',sans-serif; --font-body:'Inter',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font-body);color:var(--text-primary);background:var(--bg-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,h4{font-family:var(--font-head)}
+  a{color:inherit;text-decoration:none}
+
+  /* proposal ribbon */
+  .ribbon{background:#132351;color:#fff;text-align:center;font-size:12px;font-weight:700;letter-spacing:.04em;padding:9px 16px}
+  .ribbon b{color:#8fc4ff}
+
+  /* nav pill */
+  .nav{position:sticky;top:14px;z-index:50;margin:14px auto 0;max-width:1000px;padding:0 20px}
+  .nav-pill{background:var(--bg-glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:100px;box-shadow:0 8px 30px rgba(14,27,44,.08);display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 20px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--font-head);font-weight:800;font-size:20px;color:var(--kinedu-blue);letter-spacing:-.02em}
+  .logo-mark{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;width:22px;height:22px}
+  .logo-mark i{border-radius:3px}
+  .logo-mark i:nth-child(1){background:var(--kinedu-blue)}.logo-mark i:nth-child(2){background:var(--kinedu-orange)}
+  .logo-mark i:nth-child(3){background:var(--kinedu-pink)}.logo-mark i:nth-child(4){background:var(--kinedu-green)}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:600;color:var(--text-secondary)}
+  .nav-links a.active{color:var(--kinedu-blue)}
+  .nav-cta{background:var(--kinedu-blue);color:#fff;font-weight:700;font-size:14px;padding:10px 22px;border-radius:100px;box-shadow:0 8px 20px rgba(43,139,228,.28)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{padding:96px 0 56px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(43,139,228,.045) 0%,transparent 60%)}
+  .hero::before{content:'';position:absolute;top:-320px;left:50%;transform:translateX(-50%);width:1000px;height:1000px;background:radial-gradient(circle,rgba(43,139,228,.10),rgba(76,217,100,.05) 40%,transparent 70%);pointer-events:none}
+  .sec-tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--kinedu-blue);margin-bottom:16px}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;position:relative}
+  .hero .sub{font-size:clamp(1rem,1.8vw,1.16rem);color:var(--text-secondary);max-width:660px;margin:22px auto 0;line-height:1.75}
+  .hero .sub b{color:var(--text-primary)} .hero .sub .hl{color:var(--kinedu-blue);font-weight:700}
+  .hero-badges{display:flex;justify-content:center;gap:14px;margin-top:34px;flex-wrap:wrap;position:relative}
+  .hb{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--text-secondary);background:#fff;border:1px solid var(--border);padding:9px 16px;border-radius:100px;box-shadow:0 4px 16px rgba(14,27,44,.05)}
+  .hb b{font-family:var(--font-head)}
+  .hb .d{width:8px;height:8px;border-radius:50%}
+
+  /* stat banner */
+  .statban{padding:66px 0;background:linear-gradient(135deg,rgba(43,139,228,.06),rgba(76,217,100,.04));text-align:center}
+  .statban .big{font-family:var(--font-head);font-size:clamp(4rem,10vw,7rem);font-weight:800;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--kinedu-blue),var(--accent-cyan),var(--kinedu-green),var(--kinedu-blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .statban .lab{font-family:var(--font-head);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:700;letter-spacing:-.02em;margin-top:8px}
+  .statban .subt{font-size:14px;color:var(--text-tertiary);max-width:520px;margin:12px auto 0;line-height:1.6}
+
+  /* sections */
+  section.sec{padding:76px 0;position:relative}
+  section.alt{background:linear-gradient(180deg,rgba(43,139,228,.03),rgba(255,255,255,.5))}
+  section.dark{background:#0d1b3e;color:#fff}
+  .head{text-align:center;max-width:720px;margin:0 auto 48px}
+  .head h2{font-size:clamp(1.7rem,3.2vw,2.35rem);font-weight:800;letter-spacing:-.02em;line-height:1.18}
+  .head p{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-top:14px}
+  section.dark .head h2{color:#fff} section.dark .head p{color:#b9c6e4}
+  section.dark .sec-tag{color:#8fc4ff}
+  .badge-new{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#137a58;background:#e0f7ef;padding:4px 10px;border-radius:99px;margin-bottom:14px}
+
+  /* evidence timeline */
+  .evline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+  .ev{background:#fff;border:1px solid var(--border);border-radius:24px;padding:30px 26px;position:relative;box-shadow:0 10px 40px rgba(14,27,44,.05)}
+  .ev::after{content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-size:20px;color:#c2ccdb;font-weight:800;z-index:2}
+  .ev:last-child::after{display:none}
+  .ev .n{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--kinedu-blue)}
+  .ev .big{font-family:var(--font-head);font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:10px 0 2px;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .ev .who{font-size:12.5px;font-weight:700;color:var(--text-tertiary);margin-bottom:10px}
+  .ev p{font-size:13.5px;line-height:1.65;color:var(--text-secondary)}
+  .ev p em{font-style:normal;font-weight:700;color:var(--text-primary)}
+  @media(max-width:820px){.evline{grid-template-columns:1fr}.ev::after{content:'↓';right:auto;left:50%;top:auto;bottom:-18px;transform:translateX(-50%)}}
+
+  /* text+visual grid */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1020px;margin:0 auto}
+  .grid2.rev{direction:rtl}.grid2.rev>*{direction:ltr}
+  .gtext h3{font-size:clamp(1.4rem,2.4vw,1.85rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+  .gtext p{font-size:14.5px;line-height:1.75;color:var(--text-secondary);margin-bottom:13px}
+  .gtext p b{color:var(--text-primary)} .gtext .hl{color:var(--kinedu-blue);font-weight:700}
+  .ref{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:600;color:var(--text-tertiary);background:rgba(43,139,228,.05);padding:7px 15px;border-radius:50px;border:1px solid rgba(43,139,228,.08)}
+  .visual{background:linear-gradient(135deg,rgba(43,139,228,.06),rgba(76,217,100,.06));border-radius:22px;padding:26px;display:flex;align-items:center;justify-content:center}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr;gap:32px}.grid2.rev{direction:ltr}}
+
+  /* stat trio inline */
+  .trio{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px}
+  .trio .t b{display:block;font-family:var(--font-head);font-size:30px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .trio .t span{font-size:12px;color:var(--text-tertiary)}
+
+  /* principles */
+  .prin{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .pc{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px 18px}
+  .pc .num{font-size:12px;font-weight:800;color:var(--kinedu-blue);letter-spacing:.1em;margin-bottom:12px}
+  .pc h4{font-size:15.5px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px;line-height:1.25}
+  .pc p{font-size:12.5px;line-height:1.55;color:var(--text-secondary)}
+  @media(max-width:1024px){.prin{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:680px){.prin{grid-template-columns:1fr}}
+
+  /* charts row */
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .chart{background:#fff;border:1px solid var(--border);border-radius:22px;padding:26px 24px;box-shadow:0 10px 40px rgba(14,27,44,.05)}
+  .chart h4{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .chart .cap{font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart .src{font-size:10.5px;color:var(--text-tertiary);margin-top:10px}
+  @media(max-width:820px){.charts{grid-template-columns:1fr}}
+
+  /* guided play spectrum */
+  .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  .sp{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center}
+  .sp .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-tertiary);margin-bottom:10px}
+  .sp h4{font-size:19px;font-weight:800;margin-bottom:10px}
+  .sp p{font-size:13px;line-height:1.55;color:var(--text-secondary)}
+  .sp.best{border:2px solid var(--kinedu-blue);box-shadow:0 16px 48px rgba(43,139,228,.14)}
+  .sp.best .lbl{color:var(--kinedu-blue)}
+  .playstats{display:flex;flex-wrap:wrap;justify-content:center;gap:34px;margin-top:38px}
+  .ps{text-align:center}
+  .ps .num{font-family:var(--font-head);font-size:38px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .ps .cap{font-size:12.5px;color:var(--text-secondary);max-width:180px;margin:6px auto 0;line-height:1.45}
+  @media(max-width:680px){.spec{grid-template-columns:1fr}}
+
+  /* honesty */
+  .honest{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:0 auto}
+  .hcol{border-radius:20px;padding:30px 28px}
+  .hcol.yes{background:#ECFBEF;border:1px solid rgba(76,217,100,.28)}
+  .hcol.no{background:#FFF5F7;border:1px solid rgba(232,77,138,.2)}
+  .hcol .t{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .hcol.yes .t{color:#1d9c72}.hcol.no .t{color:#c22a5a}
+  .hcol h4{font-size:20px;font-weight:800;margin:6px 0 14px}
+  .hcol ul{list-style:none}
+  .hcol li{font-size:14px;color:var(--text-secondary);padding:7px 0 7px 26px;position:relative;line-height:1.5}
+  .hcol.yes li::before{content:'✓';position:absolute;left:2px;color:var(--kinedu-green);font-weight:800}
+  .hcol.no li::before{content:'✕';position:absolute;left:2px;color:var(--kinedu-pink);font-weight:800}
+  @media(max-width:680px){.honest{grid-template-columns:1fr}}
+
+  /* philosophy */
+  .philo{background:linear-gradient(135deg,rgba(43,139,228,.06),rgba(76,217,100,.06));border-radius:28px;padding:clamp(36px,5vw,60px);max-width:900px;margin:0 auto;text-align:center}
+  .philo h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+  .philo p{font-size:16px;line-height:1.65;color:var(--text-secondary);max-width:680px;margin:0 auto}
+  .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+  .pills .pill{background:#fff;border:1px solid var(--border);border-radius:100px;padding:9px 18px;font-size:13.5px;font-weight:600}
+
+  /* sources */
+  .sources{max-width:880px;margin:0 auto}
+  .srow{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);align-items:baseline}
+  .srow .yr{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--kinedu-blue);white-space:nowrap;min-width:96px}
+  .srow .txt{font-size:14px;color:var(--text-secondary);line-height:1.6}
+  .srow .txt b{color:var(--text-primary);font-weight:700}
+  .slinks{margin-top:22px;font-size:14px;color:var(--text-secondary);text-align:center}
+  .slinks a{color:var(--kinedu-blue);font-weight:700}
+  .slinks .dot{color:#c2ccdb;margin:0 8px}
+
+  /* final CTA */
+  .final{text-align:center;padding:90px 0}
+  .final h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:760px;margin:0 auto 16px}
+  .final p{font-size:16px;color:var(--text-secondary);max-width:600px;margin:0 auto 30px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--kinedu-blue);color:#fff;font-family:var(--font-head);font-weight:800;font-size:17px;padding:17px 38px;border-radius:100px;box-shadow:0 14px 34px rgba(43,139,228,.32)}
+  .microtrust{margin-top:16px;font-size:13px;color:var(--text-tertiary)}
+
+  footer{background:var(--bg-secondary);padding:40px 0;text-align:center;font-size:13px;color:var(--text-tertiary)}
+</style>
+</head>
+<body>
+
+<div class="ribbon">MOCKUP DE PROPUESTA · así se vería el nuevo <b>science.html</b> · no publicado · science.html real intacto</div>
+
+<nav class="nav">
+  <div class="nav-pill">
+    <div class="logo"><span class="logo-mark"><i></i><i></i><i></i><i></i></span>kinedu</div>
+    <div class="nav-links">
+      <a>Learn</a><a>Blog</a><a class="active">Science</a><a>FAQ</a><a>Team</a>
+    </div>
+    <a class="nav-cta">Try free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="sec-tag">The Science Behind Kinedu</span>
+    <h1>The Science<br>behind Kinedu</h1>
+    <p class="sub">Most parenting advice is opinion. Kinedu is built on evidence — <b>280&nbsp;million milestone answers from 3.5&nbsp;million children</b>, research with <span class="hl">Stanford</span>, and decades of child-development science — distilled into a daily plan made for your child.</p>
+    <div class="hero-badges">
+      <div class="hb"><span class="d" style="background:var(--kinedu-blue)"></span><b>3.5M</b> children</div>
+      <div class="hb"><span class="d" style="background:var(--kinedu-green)"></span><b>414</b> milestones tracked</div>
+      <div class="hb"><span class="d" style="background:var(--kinedu-orange)"></span>Validated <b>α&nbsp;0.996</b></div>
+      <div class="hb"><span class="d" style="background:#8c1515"></span>Studied at <b>Stanford</b></div>
+    </div>
+  </div>
+</header>
+
+<!-- STAT BANNER -->
+<section class="statban">
+  <div class="wrap">
+    <div class="big">280M</div>
+    <div class="lab">milestone answers, collected through ordinary family moments</div>
+    <p class="subt">Enough real life to test our expected ages, see which skills move together, and understand what changes over time.</p>
+  </div>
+</section>
+
+<!-- ACT 1 label -->
+<!-- NEW: EVIDENCE LINE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="badge-new">Nueva sección</span>
+      <span class="sec-tag">Act 1 · How we know it works</span>
+      <h2>Built with caregivers. Studied at Stanford.<br>Tested at population scale.</h2>
+      <p>One continuous story — an instrument built with real families, an independent study of how development unfolds, and a test across the full Kinedu record.</p>
+    </div>
+    <div class="evline">
+      <div class="ev">
+        <div class="n">1 · Built</div>
+        <div class="big">2,135</div>
+        <div class="who">caregivers · Kinedu research team</div>
+        <p>Kinedu built its caregiver-report instrument and validated it with <em>2,135 caregivers</em>. Stanford's Michael&nbsp;C.&nbsp;Frank advised on the early revision of its 0–24-month items.</p>
+      </div>
+      <div class="ev">
+        <div class="n">2 · Studied</div>
+        <div class="big">21,861</div>
+        <div class="who">children · Stanford researchers</div>
+        <p>Stanford researchers analyzed <em>177,934 observations</em> to map how developmental areas move together in the first years.</p>
+      </div>
+      <div class="ev">
+        <div class="n">3 · Tested</div>
+        <div class="big">3.5M</div>
+        <div class="who">children · population scale</div>
+        <p>Kinedu then tested its expected ages against <em>~280 million milestone answers</em> — the largest record of its kind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG BANG + fan chart (kept) -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="grid2">
+      <div class="gtext">
+        <span class="sec-tag">The first 1,000 days</span>
+        <h3>Your baby's brain is building itself right now — faster than it ever will again.</h3>
+        <p>At first, everything grows at once — physical, cognitive, language and social-emotional skills move as one. Then, like a universe after the Big Bang, they expand into distinct but deeply connected abilities around <b>12 months</b>.</p>
+        <p>And the pace is staggering: about <b>50 milestones</b> by 1 month, <b>~300</b> by age 2. We measured it <span class="hl">with Stanford</span> — early on, progress in one ability pulls the others along.</p>
+        <span class="ref">◈ Stanford · The Structure of Development</span>
+      </div>
+      <div class="visual">
+        <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" font-family="Plus Jakarta Sans,sans-serif">
+          <line x1="50" y1="255" x2="405" y2="255" stroke="#d6deea" stroke-width="1.5"/>
+          <line x1="50" y1="30" x2="50" y2="255" stroke="#d6deea" stroke-width="1.5"/>
+          <text x="30" y="145" fill="#8B93A7" font-size="10" transform="rotate(-90 30 145)" text-anchor="middle" letter-spacing="1">ABILITY</text>
+          <line x1="205" y1="30" x2="205" y2="255" stroke="#c9d4e4" stroke-width="1.2" stroke-dasharray="4 4"/>
+          <text x="205" y="22" fill="var(--kinedu-blue)" font-size="10" font-weight="700" text-anchor="middle">~12 mo</text>
+          <path d="M50 200 Q150 195 205 175 T405 60" fill="none" stroke="#2B8BE4" stroke-width="3" stroke-linecap="round"/>
+          <path d="M50 200 Q150 197 205 178 T405 110" fill="none" stroke="#4CD964" stroke-width="3" stroke-linecap="round"/>
+          <path d="M50 200 Q150 200 205 182 T405 160" fill="none" stroke="#FFC033" stroke-width="3" stroke-linecap="round"/>
+          <path d="M50 200 Q150 203 205 186 T405 205" fill="none" stroke="#E84D8A" stroke-width="3" stroke-linecap="round"/>
+          <g font-size="10" fill="#8B93A7"><text x="50" y="272" text-anchor="middle">0</text><text x="145" y="272" text-anchor="middle">6</text><text x="205" y="272" text-anchor="middle">12</text><text x="300" y="272" text-anchor="middle">18</text><text x="395" y="272" text-anchor="middle">24</text><text x="228" y="291" fill="#8B93A7" text-anchor="middle">age (months)</text></g>
+          <g font-size="10.5" font-weight="600"><text x="412" y="60" fill="#2B8BE4" text-anchor="end">Physical</text><text x="412" y="112" fill="#3aab52" text-anchor="end">Cognitive</text><text x="412" y="162" fill="#d99a1f" text-anchor="end">Linguistic</text><text x="412" y="207" fill="#E84D8A" text-anchor="end">Social-Emo</text></g>
+        </svg>
+      </div>
+    </div>
+    <!-- under the hood, folded in -->
+    <div class="trio" style="justify-content:center;margin-top:52px">
+      <div class="t"><b>2x</b><span>brain roughly doubles in size in year one</span></div>
+      <div class="t"><b>150%</b><span>connections peak above adult levels, then prune</span></div>
+      <div class="t"><b>100x</b><span>faster signals as pathways get insulated</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 PRINCIPLES (kept) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="sec-tag">The framework</span>
+      <h2>How development actually works</h2>
+      <p>For a century, each great theory captured just one of these — and treated the rest as background. Kinedu is built to honor all five at once. <b>The expertise lives in the plan, so it doesn't have to live in you.</b></p>
+    </div>
+    <div class="prin">
+      <div class="pc"><div class="num">01</div><h4>Everything is connected</h4><p>Movement, language, thinking and emotion grow as one connected web.</p></div>
+      <div class="pc"><div class="num">02</div><h4>It builds in sequence</h4><p>Each skill rests on the ones before it. Babbling precedes words.</p></div>
+      <div class="pc"><div class="num">03</div><h4>The range of normal is wide</h4><p>The sequence is universal; the timing is personal.</p></div>
+      <div class="pc"><div class="num">04</div><h4>Some windows matter more</h4><p>The brain is especially ready to learn a specific skill at certain moments.</p></div>
+      <div class="pc"><div class="num">05</div><h4>Every child surprises us</h4><p>The science gives you the map — your child draws the route.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: REAL DATA CHARTS -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="badge-new">Nueva sección</span>
+      <span class="sec-tag">What the record shows</span>
+      <h2>Some skills hand off. Others stay for life.</h2>
+      <p>A skill's window isn't just when it appears — it's when it's actively being built. Our assessment knows the difference, and stops asking about what a child has already moved past.</p>
+    </div>
+    <div class="charts">
+      <div class="chart">
+        <h4>Babbling hands off to first words</h4>
+        <p class="cap">Babbling builds early — half of children by 5 months. As children move toward first words, the assessment shifts its attention.</p>
+        <svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" font-family="Plus Jakarta Sans,sans-serif">
+          <g stroke="#eef1f6" stroke-width="1"><line x1="46" y1="20" x2="360" y2="20"/><line x1="46" y1="63" x2="360" y2="63"/><line x1="46" y1="106" x2="360" y2="106"/><line x1="46" y1="149" x2="360" y2="149"/></g>
+          <line x1="46" y1="175" x2="360" y2="175" stroke="#cdd6e3" stroke-width="1.4"/>
+          <line x1="46" y1="20" x2="46" y2="175" stroke="#cdd6e3" stroke-width="1.4"/>
+          <g font-size="8.5" fill="#8B93A7" text-anchor="end"><text x="40" y="24">100%</text><text x="40" y="67">75%</text><text x="40" y="110">50%</text><text x="40" y="153">25%</text><text x="40" y="178">0</text></g>
+          <path d="M46 168 Q78 150 108 95 Q135 55 165 45 Q210 40 250 60 Q300 90 360 120" fill="none" stroke="#E84D8A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M120 172 Q170 168 210 140 Q260 100 300 60 Q330 38 360 30" fill="none" stroke="#2B8BE4" stroke-width="3" stroke-linecap="round"/>
+          <g font-size="9" fill="#8B93A7" text-anchor="middle"><text x="46" y="192">0</text><text x="109" y="192">6</text><text x="172" y="192">12</text><text x="235" y="192">18</text><text x="298" y="192">24</text><text x="360" y="192">30</text><text x="203" y="207" fill="#8B93A7">child age, months</text></g>
+          <text x="120" y="38" font-size="9.5" font-weight="700" fill="#c22a5a">Babbling →</text>
+          <text x="315" y="22" font-size="9.5" font-weight="700" fill="#2B8BE4">First words</text>
+        </svg>
+        <p class="src">Share of children showing each skill · Kinedu record, 2020–2023 · band ±1 SD</p>
+      </div>
+      <div class="chart">
+        <h4>Walking arrives, and stays</h4>
+        <p class="cap">Half of children by 19 months, three quarters by 29 — and once gained, never handed off. The wide range is real.</p>
+        <svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" font-family="Plus Jakarta Sans,sans-serif">
+          <g stroke="#eef1f6" stroke-width="1"><line x1="46" y1="20" x2="360" y2="20"/><line x1="46" y1="63" x2="360" y2="63"/><line x1="46" y1="106" x2="360" y2="106"/><line x1="46" y1="149" x2="360" y2="149"/></g>
+          <line x1="46" y1="175" x2="360" y2="175" stroke="#cdd6e3" stroke-width="1.4"/>
+          <line x1="46" y1="20" x2="46" y2="175" stroke="#cdd6e3" stroke-width="1.4"/>
+          <g font-size="8.5" fill="#8B93A7" text-anchor="end"><text x="40" y="24">100%</text><text x="40" y="67">75%</text><text x="40" y="110">50%</text><text x="40" y="153">25%</text><text x="40" y="178">0</text></g>
+          <path d="M46 172 Q120 168 165 150 Q205 120 235 95 Q270 62 300 45 Q330 34 360 30" fill="none" stroke="#4CD964" stroke-width="3.2" stroke-linecap="round"/>
+          <g font-size="9" fill="#8B93A7" text-anchor="middle"><text x="46" y="192">12</text><text x="109" y="192">18</text><text x="172" y="192">24</text><text x="235" y="192">30</text><text x="298" y="192">36</text><text x="203" y="207" fill="#8B93A7">child age, months</text></g>
+          <text x="250" y="70" font-size="9.5" font-weight="700" fill="#3aab52">Walking</text>
+        </svg>
+        <p class="src">Share of children showing the skill · Kinedu record, 2020–2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 2 — INTERVENTION EVIDENCE (kept, reframed) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="sec-tag">Act 2 · It changes what you do</span>
+      <h2>The evidence no milestone chart can give you.</h2>
+      <p>Measuring development well is one thing. Changing how a parent and child interact is another — and it's the part that's uniquely ours.</p>
+    </div>
+    <div class="grid2">
+      <div class="gtext">
+        <h3>Serve and return: how brains are built</h3>
+        <p>Your baby reaches out, you respond — a look, a word, a hug. Scientists call it <b>serve and return</b>: the exchange that builds the brain.</p>
+        <p>Kinedu is built around it. In a study with <span class="hl">Stanford</span>, one short Kinedu activity video led parents to make <b>69% more bids for joint attention</b> and speak <b>35% more</b>.</p>
+        <span class="ref">◈ Stanford · Kinedu activity study</span>
+      </div>
+      <div class="visual" style="flex-direction:column;gap:10px">
+        <div class="trio" style="justify-content:center;gap:44px;margin:0">
+          <div class="t"><b>+69%</b><span>more bids for joint attention</span></div>
+          <div class="t"><b>+35%</b><span>more words spoken to baby</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- guided play -->
+    <div class="head" style="margin-top:72px">
+      <span class="sec-tag">What actually works</span>
+      <h2>The sweet spot: guided play</h2>
+      <p>Children learn most when an adult sets the stage and the child leads the play. Not rigid lessons. Not a free-for-all. The space in between.</p>
+    </div>
+    <div class="spec">
+      <div class="sp"><div class="lbl">Too little structure</div><h4>Free play</h4><p>All freedom, no direction. Joyful and essential — but the learning goal can get lost.</p></div>
+      <div class="sp best"><div class="lbl">Just right</div><h4>Guided play</h4><p>An adult sets a goal and offers gentle prompts; the child explores and leads.</p></div>
+      <div class="sp"><div class="lbl">Too much structure</div><h4>Direct instruction</h4><p>All direction, little agency. Efficient for facts — but it narrows curiosity.</p></div>
+    </div>
+    <div class="playstats">
+      <div class="ps"><div class="num">0.63</div><div class="cap">Effect size of guided play vs. direct instruction — medium-to-large (typical program ~0.20).</div></div>
+      <div class="ps"><div class="num">1 week+</div><div class="cap">The advantage held a week later — real learning, not a novelty effect.</div></div>
+      <div class="ps"><div class="num">4,000+</div><div class="cap">Children across 39 studies confirmed the pattern in a 2022 meta-analysis.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KINEDU SKILLS + AAP (kept + added) -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="grid2 rev">
+      <div class="gtext">
+        <span class="sec-tag">Kinedu Skills®</span>
+        <h3>Development, reimagined.</h3>
+        <p>Traditional checklists ask: "Has your baby done X yet?" Kinedu Skills® asks something better: how your baby's <b>whole developmental universe</b> is unfolding — and what they're ready to learn next.</p>
+        <p>Built with <span class="hl">Prof. Michael Frank's lab at Stanford</span>, it maps <b>414 milestones across 46 skills</b>, treating development as multi-dimensional and interdependent. Psychometrically validated (α&nbsp;=&nbsp;0.996).</p>
+        <p style="font-size:13px;color:var(--text-tertiary);background:rgba(43,139,228,.05);border-radius:12px;padding:12px 15px;margin-top:4px"><b style="color:var(--text-primary)">Born early?</b> Ages for children born preterm are corrected automatically using the AAP equation.</p>
+      </div>
+      <div class="visual">
+        <div style="text-align:center">
+          <div style="font-family:var(--font-head);font-size:52px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--kinedu-blue),var(--kinedu-green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">414</div>
+          <div style="font-size:13px;color:var(--text-secondary);margin-bottom:18px">milestones · 46 skills · 4 areas</div>
+          <div style="display:inline-block;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px 18px;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(14,27,44,.06)">"Showing the skills of a<br>typical 14-month-old."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3 — HECKMAN (kept) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="sec-tag">Act 3 · Why it matters</span>
+      <h2>The highest-return years of a lifetime</h2>
+      <p>Economists who followed children for 40 years reached a striking conclusion: almost nothing you invest in later pays back like the early years.</p>
+    </div>
+    <div class="trio" style="justify-content:center;gap:56px">
+      <div class="t"><b>7–10%</b><span>annual return on quality early-childhood investment (Heckman)</span></div>
+      <div class="t"><b>+25%</b><span>higher adult earnings after a play-based home program</span></div>
+      <div class="t"><b>Play</b><span>the driver was warm, responsive interaction — what Kinedu builds</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: HONESTY -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="badge-new">Nueva sección</span>
+      <span class="sec-tag">A useful guide. Not a diagnosis.</span>
+      <h2>What this science can — and can't — do for you.</h2>
+    </div>
+    <div class="honest">
+      <div class="hcol yes">
+        <div class="t">What Kinedu helps you do</div>
+        <h4>See and act.</h4>
+        <ul>
+          <li>Surface strengths and skills opening up now</li>
+          <li>Put everyday observations in developmental context</li>
+          <li>Read your child against 280 million real observations</li>
+          <li>Start clearer conversations with your pediatrician</li>
+        </ul>
+      </div>
+      <div class="hcol no">
+        <div class="t">What it will never tell you</div>
+        <h4>A verdict.</h4>
+        <ul>
+          <li>A diagnosis of a developmental condition or delay</li>
+          <li>A prediction of IQ, school readiness, or "potential"</li>
+          <li>A verdict about your child from a population pattern</li>
+          <li>Anything that replaces your pediatrician</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY (kept) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="philo">
+      <span class="sec-tag">Our point of view</span>
+      <h2>Not perfection. Presence.</h2>
+      <p>The science is reassuring: warm, responsive, "good enough" parenting produces secure, thriving children in the large majority of cases. You don't need to get every moment right — you need to be a present, intentional guide.</p>
+      <div class="pills"><span class="pill">Warmth + structure</span><span class="pill">Responsive, not permissive</span><span class="pill">Consistency over perfection</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: SOURCES -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="badge-new">Nueva sección</span>
+      <span class="sec-tag">Sources &amp; method</span>
+      <h2>Read the research yourself.</h2>
+    </div>
+    <div class="sources">
+      <div class="srow"><span class="yr">STANFORD</span><span class="txt"><b>Stenhaug, Ram &amp; Frank</b> — The Structure of Developmental Variation in Early Childhood. 177,934 observations, 21,861 children.</span></div>
+      <div class="srow"><span class="yr">KINEDU · 2026</span><span class="txt"><b>Coupling and Differentiation in Early Development</b> — external and internal replication across ~280M milestone answers.</span></div>
+      <div class="srow"><span class="yr">KINEDU</span><span class="txt"><b>Initial Assessment scale-construction study</b> — Mirón Alvarez, Guerra Elizondo &amp; Tovar Martínez. N=2,135. M.&nbsp;C.&nbsp;Frank advised on early item revision.</span></div>
+      <div class="srow"><span class="yr">THIRD-PARTY</span><span class="txt"><b>Guided-play meta-analysis</b> (39 studies) · <b>Heckman et al.</b> — Perry Preschool &amp; Jamaica study · serve-and-return literature.</span></div>
+      <p class="slinks">Read the full study: <a>English</a><span class="dot">·</span><a>Español</a><span class="dot">·</span><a>Português</a> &nbsp;&nbsp;|&nbsp;&nbsp; A parent's guide: <a>English</a><span class="dot">·</span><a>Español</a><span class="dot">·</span><a>Português</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <span class="sec-tag">You are your baby's most powerful catalyst</span>
+    <h2>See what your child is building next.</h2>
+    <p>The research lives underneath the experience. The next step still begins with what you notice today.</p>
+    <a class="btn">Start your free trial →</a>
+    <p class="microtrust">Recommended by pediatricians · Loved by 11M families · Built for your baby, exactly as they are right now</p>
+  </div>
+</section>
+
+<footer>© 2026 Kinedu · Mockup de propuesta — no publicado, no reemplaza science.html real</footer>
+
+</body>
+</html>

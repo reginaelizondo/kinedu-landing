@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>QA interno — Mejoras Landing Kinedu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Inter:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fffdf9; --navy:#081b46; --ink:#132351; --muted:#5c6a84; --line:#ebe6df;
+    --kblue:#2B8BE4; --bossblue:#087bf3; --mint:#32c99a; --pink:#f7567c; --yellow:#ffbd15;
+    --cool:#EFF5FF; --coolink:#1F2937;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"DM Sans",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+
+  .kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bossblue);margin-bottom:14px}
+  h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;color:var(--navy);line-height:1.12;margin-bottom:12px}
+  .lead{font-size:17px;color:var(--muted);max-width:720px}
+
+  /* doc header */
+  .doc-hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .doc-tag{display:inline-block;background:#fff0bd;color:#7a5a00;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:99px;margin-bottom:20px}
+  .doc-hero h1{font-size:clamp(36px,5.4vw,64px);font-weight:900;letter-spacing:-.045em;color:var(--navy);line-height:1.05;max-width:820px}
+  .doc-hero h1 em{font-style:normal;color:var(--bossblue)}
+  .doc-hero p{margin-top:18px;color:var(--muted);font-size:15px}
+
+  /* verdict cards */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 50px rgba(8,27,70,.05)}
+  .vcard h3{font-size:15px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .vcard ul{list-style:none}
+  .vcard li{font-size:14px;color:var(--muted);padding:5px 0 5px 20px;position:relative}
+  .vcard li::before{content:"·";position:absolute;left:6px;font-weight:900;color:var(--bossblue)}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  /* compare table */
+  .cmp{width:100%;border-collapse:collapse;margin-top:24px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(8,27,70,.05);font-size:14px}
+  .cmp th{background:var(--navy);color:#fff;text-align:left;padding:13px 16px;font-weight:700;font-size:13px;letter-spacing:.02em}
+  .cmp td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top;color:#3E4B65}
+  .cmp td:first-child{font-weight:800;color:var(--navy);white-space:nowrap}
+  .cmp .win{font-weight:700}
+  .win--boss{color:var(--bossblue)} .win--us{color:var(--mint)} .win--tie{color:#b48a00}
+  .swatch{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.12)}
+
+  /* priority lists */
+  .prio{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+  .pcard.now{border-top:4px solid var(--mint)} .pcard.adapt{border-top:4px solid var(--yellow)}
+  .pcard.big{border-top:4px solid var(--bossblue)} .pcard.no{border-top:4px solid var(--pink)}
+  .pcard h3{font-size:13px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+  .pcard.now h3{color:#1d9c72}.pcard.adapt h3{color:#b48a00}.pcard.big h3{color:var(--bossblue)}.pcard.no h3{color:var(--pink)}
+  .pcard ol{padding-left:20px}
+  .pcard li{font-size:14px;color:#3E4B65;padding:4px 0}
+  .pcard li strong{color:var(--navy)}
+  .fx{font-size:12px;color:var(--muted)}
+
+  /* browser frames for mockups */
+  .frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(8,27,70,.10);margin-top:22px}
+  .chrome{background:#f3efe8;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+  .chrome i{width:10px;height:10px;border-radius:50%;display:block}
+  .chrome i:nth-child(1){background:#ff5f57}.chrome i:nth-child(2){background:#febc2e}.chrome i:nth-child(3){background:#28c840}
+  .chrome span{margin-left:10px;font-size:12px;color:var(--muted);font-weight:600}
+  .flabel{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-top:30px}
+  .flabel.before{background:#ffe7ee;color:#c22a5a}
+  .flabel.after{background:#e0f7ef;color:#137a58}
+  .notes{margin-top:14px;background:#fff;border:1px dashed #d8d2c8;border-radius:14px;padding:16px 18px}
+  .notes b{color:var(--navy)}
+  .notes ul{list-style:none;margin-top:6px}
+  .notes li{font-size:13.5px;color:#3E4B65;padding:3px 0 3px 22px;position:relative}
+  .notes li::before{content:"→";position:absolute;left:0;color:var(--bossblue);font-weight:700}
+
+  /* ===== MOCKUP: HERO ANTES (estilo actual kinedu.com) ===== */
+  .m-hero-before{background:linear-gradient(160deg,#F0F6FF 0%,#EFF5FF 55%,#FDFEFF 100%);padding:44px 40px;display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;font-family:'Plus Jakarta Sans','Inter',sans-serif}
+  .m-phone{width:150px;height:300px;background:#0f172a;border-radius:26px;padding:7px;margin:0 auto;box-shadow:0 24px 48px rgba(30,64,175,.18)}
+  .m-phone-scr{width:100%;height:100%;border-radius:20px;background:linear-gradient(180deg,#fff 0%,#EAF3FE 100%);display:flex;flex-direction:column;gap:7px;padding:12px 9px;font-size:7px;color:#334}
+  .m-phone-bar{height:26px;border-radius:6px;background:linear-gradient(90deg,#2B8BE4,#38D0E8)}
+  .m-phone-row{height:15px;border-radius:5px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+  .mb-h1{font-size:clamp(22px,2.8vw,32px);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:#0F172A}
+  .mb-h1 .g1{background:linear-gradient(90deg,#2B8BE4,#38D0E8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mb-h1 .g2{background:linear-gradient(90deg,#E84D8A,#FF7B6B);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mb-sub{font-size:13.5px;color:#475569;margin-top:12px;max-width:420px}
+  .mb-proof{font-size:11.5px;color:#64748B;margin-top:10px}
+  .mb-cta{display:inline-block;margin-top:16px;background:linear-gradient(90deg,#2B8BE4,#5AABF5);color:#fff;font-weight:800;font-size:13.5px;padding:12px 26px;border-radius:99px;box-shadow:0 10px 24px rgba(43,139,228,.35)}
+  .mb-trust{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}
+  .mb-trust b{display:block;font-size:15px}
+  .mb-trust span{font-size:10.5px;color:#64748B}
+  .tb{color:#2B8BE4}.tg{color:#4CD964}.to{color:#FFC033}.tp{color:#E84D8A}
+
+  /* ===== MOCKUP: HERO DESPUES ===== */
+  .m-hero-after{background:#fffdf9;padding:48px 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .ma-h1{font-size:clamp(26px,3.6vw,44px);font-weight:900;line-height:1.04;letter-spacing:-.045em;color:var(--navy)}
+  .ma-h1 em{font-style:normal;color:var(--kblue)}
+  .ma-sub{font-size:14.5px;color:#52607a;margin-top:14px;max-width:400px}
+  .ma-cta{display:inline-block;margin-top:18px;background:var(--kblue);color:#fff;font-weight:800;font-size:14px;padding:13px 28px;border-radius:14px;box-shadow:0 10px 0 rgba(43,139,228,.12)}
+  .ma-micro{display:flex;gap:6px;align-items:center;margin-top:12px;font-size:11.5px;color:#657189;font-weight:600;flex-wrap:wrap}
+  .ma-micro i{font-style:normal;color:#c9c2b6}
+  .ma-photo{position:relative;height:300px;border-radius:22px;background:linear-gradient(145deg,#f5e9d9 0%,#efe0cc 45%,#e7d4bd 100%);overflow:visible}
+  .ma-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#a08a68;font-size:12px;font-weight:700;text-align:center;padding:20px}
+  .ma-photo .ph b{font-size:34px}
+  .fcard{position:absolute;background:rgba(255,255,255,.96);border-radius:14px;padding:11px 14px;box-shadow:0 14px 34px rgba(8,123,243,.14);font-size:11px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:9px}
+  .fcard .ic{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+  .fcard small{display:block;font-weight:500;color:#657189;font-size:9.5px}
+  .fc1{top:18px;right:-14px}.fc1 .ic{background:#e0f7ef;color:#137a58}
+  .fc2{bottom:64px;right:24px}.fc2 .ic{background:#fff0bd;color:#8a6a00}
+  .fc3{bottom:-14px;left:18px}.fc3 .ic{background:#ffe7ee;color:#c22a5a}
+
+  /* ===== MOCKUP: proof ANTES/DESPUES ===== */
+  .m-proof-before{background:#fff;padding:36px 40px;font-family:'Plus Jakarta Sans',sans-serif;text-align:center}
+  .m-proof-before .row{display:flex;justify-content:center;gap:44px;flex-wrap:wrap}
+  .m-proof-before b{font-size:26px;display:block}
+  .m-proof-before span{font-size:11.5px;color:#64748B}
+  .m-proof-after{background:var(--navy);padding:42px 40px;color:#fff}
+  .m-proof-after .pk{color:#8fc4ff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .m-proof-after h4{font-size:clamp(19px,2.4vw,27px);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin:8px 0 22px;max-width:520px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+  .step .n{font-size:10px;font-weight:800;letter-spacing:.12em;color:#8fc4ff}
+  .step b{display:block;font-size:21px;margin:6px 0 2px}
+  .step p{font-size:11.5px;color:#b9c6e4;line-height:1.5}
+
+  /* ===== MOCKUP: comparacion checklist ===== */
+  .m-vs{background:#fffdf9;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .vs-col{border-radius:18px;padding:22px}
+  .vs-col.left{background:#f6f2ec;border:1px solid var(--line)}
+  .vs-col.right{background:#e7f2ff;border:1px solid #cfe6ff}
+  .vs-col .t{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#8794b4}
+  .vs-col.right .t{color:var(--bossblue)}
+  .vs-col h5{font-size:17px;font-weight:900;color:var(--navy);margin:6px 0 12px;letter-spacing:-.02em}
+  .vs-col ul{list-style:none}
+  .vs-col li{font-size:12.5px;color:#52607a;padding:4px 0 4px 22px;position:relative}
+  .vs-col.left li::before{content:"–";position:absolute;left:4px;color:#a9a294;font-weight:800}
+  .vs-col.right li::before{content:"✓";position:absolute;left:2px;color:var(--mint);font-weight:800}
+
+  /* ===== MOCKUP: honestidad ===== */
+  .m-honest{background:#fffdf9;padding:36px 40px}
+  .hbox{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:14px;padding:20px 24px;font-size:13.5px;color:#3E4B65}
+  .hbox b{color:var(--navy)}
+
+  .footer-doc{padding:48px 0 80px;color:var(--muted);font-size:13px}
+  .footer-doc b{color:var(--navy)}
+  .warn{background:#fff0bd;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:13px;color:#6b4e00}
+
+  @media(max-width:800px){
+    .cards3,.prio,.steps{grid-template-columns:1fr}
+    .m-hero-before,.m-hero-after,.m-vs{grid-template-columns:1fr}
+    .ma-photo{height:240px;margin-top:10px}
+    .cmp{display:block;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-hero">
+  <div class="wrap">
+    <span class="doc-tag">Documento interno de QA · no publicado · no commiteado</span>
+    <h1>Qué le <em>robamos</em> al assessment de tu jefe — y qué no.</h1>
+    <p>Comparativa: kinedu.com (actual) vs stand-alone-assessment.vercel.app · 18 ago 2026 · Solo para revisión local</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Veredicto en 20 segundos</span>
+    <h2>Tienes razón: la nuestra es mejor base. Pero él tiene 6 cosas que valen oro.</h2>
+    <p class="lead">No hay que rediseñar kinedu.com para que se parezca al assessment. Hay que quedarnos con nuestra estructura (que es más completa) e injertarle la calma editorial y el microcopy de conversión del sitio de tu jefe.</p>
+    <div class="cards3">
+      <div class="vcard">
+        <h3><span class="dot" style="background:var(--bossblue)"></span>Lo que su sitio hace mejor</h3>
+        <ul>
+          <li>Calma visual: 1 azul dominante, fondo crema cálido</li>
+          <li>Microcopy bajo el CTA que mata objeciones</li>
+          <li>Ciencia con números específicos y nombres reales</li>
+          <li>Foto real + cards de producto flotantes</li>
+          <li>Honestidad explícita ("Not a diagnosis")</li>
+          <li>Demo interactivo sin registro</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <h3><span class="dot" style="background:var(--mint)"></span>Lo que el nuestro hace mejor</h3>
+        <ul>
+          <li>Prueba social masiva: 11M familias, 25K reseñas</li>
+          <li>Página completa: features, testimonios, FAQ, pricing</li>
+          <li>3 idiomas (EN/ES/PT) con toggle</li>
+          <li>Muestra el producto real (app)</li>
+          <li>Navbar pill + badges de tiendas</li>
+          <li>SEO/analytics ya montado (blog, schema, pixel)</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <h3><span class="dot" style="background:var(--yellow)"></span>La jugada</h3>
+        <ul>
+          <li>Mantener estructura y prueba social actuales</li>
+          <li>Adoptar: microcopy CTA, kickers, ciencia específica</li>
+          <li>Adaptar: fondo cálido y paleta más contenida</li>
+          <li>Proyecto aparte: hero con foto + demo inline</li>
+          <li>Nada de esto requiere rehacer el sitio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Look &amp; feel, lado a lado</span>
+    <h2>Dónde está la diferencia real.</h2>
+    <table class="cmp">
+      <tr><th>Elemento</th><th>kinedu.com (hoy)</th><th>Assessment (jefe)</th><th>Quién gana</th></tr>
+      <tr><td>Fondo</td><td><span class="swatch" style="background:#EFF5FF"></span>Blanco azulado frío (#EFF5FF)</td><td><span class="swatch" style="background:#fffdf9"></span>Crema cálido "papel" (#FFFDF9)</td><td class="win win--boss">Él — se siente editorial y premium</td></tr>
+      <tr><td>Paleta</td><td>14 acentos (azul, verde, rosa, naranja, cyan, morado…)</td><td>1 azul dominante + 3 toques mínimos (mint/pink/yellow)</td><td class="win win--boss">Él — la restricción da autoridad</td></tr>
+      <tr><td>Tipografía</td><td>Inter + Plus Jakarta Sans, títulos ~48px</td><td>DM Sans 800–900, títulos hasta 78px, tracking -0.05em, kickers uppercase</td><td class="win win--boss">Él — jerarquía más clara</td></tr>
+      <tr><td>Hero</td><td>Screenshot de la app en un teléfono + orbes de gradiente</td><td>Foto real mamá+bebé con cards de UI flotantes encima</td><td class="win win--boss">Él — emoción + producto en un solo golpe</td></tr>
+      <tr><td>CTA</td><td>"Try 7 days for FREE" (solo)</td><td>CTA + "5–10 minutes · Not a diagnosis · Born early? Ages corrected"</td><td class="win win--boss">Él — mata objeciones en el botón</td></tr>
+      <tr><td>Prueba científica</td><td>"Research-based" (genérico)</td><td>"2,135 caregivers · 21,861 children · 280M answers · Stanford" (específico)</td><td class="win win--boss">Él — lo específico se cree, lo genérico no</td></tr>
+      <tr><td>Prueba social</td><td>11M familias, 180 países, 25K reseñas 5★</td><td>Casi nada</td><td class="win win--us">Nosotros — por mucho</td></tr>
+      <tr><td>Completitud</td><td>Features, testimonios, FAQ, pricing, blog, i18n</td><td>Una sola página de funnel</td><td class="win win--us">Nosotros</td></tr>
+      <tr><td>FAQ</td><td>Al final de la página</td><td>"Before you start" — antes del pricing</td><td class="win win--boss">Él — resuelve dudas antes de pedir dinero</td></tr>
+      <tr><td>Honestidad</td><td>Implícita</td><td>Bloque "What this is, and isn't" + "Not a diagnosis"</td><td class="win win--boss">Él — genera confianza en mamás ansiosas</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Priorización</span>
+    <h2>Qué adoptar, qué adaptar, qué no copiar.</h2>
+    <div class="prio">
+      <div class="pcard now">
+        <h3>✅ Adoptar ya (1–2 días, alto impacto)</h3>
+        <ol>
+          <li><strong>Microcopy bajo el CTA:</strong> "Takes 2 minutes · 7 days free · Cancel anytime" <span class="fx">(verificar copy legal del trial)</span></li>
+          <li><strong>Kickers uppercase</strong> arriba de cada título de sección (THE SCIENCE, WHAT PARENTS SAY…)</li>
+          <li><strong>Números específicos en la sección de ciencia</strong> en vez de "Research-based" <span class="fx">(verificar cifras con el equipo)</span></li>
+          <li><strong>Bloque "Qué es y qué no es"</strong> cerca del assessment</li>
+        </ol>
+      </div>
+      <div class="pcard adapt">
+        <h3>🔧 Adaptar (sin perder la marca)</h3>
+        <ol>
+          <li><strong>Fondo crema</strong> en secciones alternas (no todo el sitio: el logo Kinedu vive bien en blanco)</li>
+          <li><strong>Disciplina de color:</strong> 1 acento dominante por sección; los 14 colores solo en ilustraciones/iconos</li>
+          <li><strong>Mover 3 FAQs clave</strong> arriba del pricing ("¿Necesito tarjeta?", "¿Puedo cancelar?", "¿Sirve para mi bebé prematuro?")</li>
+          <li><strong>Framing de precio:</strong> "como pagar 4 meses" / "ahorra 63%"</li>
+        </ol>
+      </div>
+      <div class="pcard big">
+        <h3>🏗️ Proyecto grande (vale la pena, planear)</h3>
+        <ol>
+          <li><strong>Hero con foto real</strong> mamá+bebé y cards de producto flotantes (necesita shooting o stock premium)</li>
+          <li><strong>Demo interactivo inline:</strong> 1–3 preguntas reales del assessment en la landing, sin registro — ya tenemos quiz-en/es/pt.html como base</li>
+        </ol>
+      </div>
+      <div class="pcard no">
+        <h3>🚫 No copiar</h3>
+        <ol>
+          <li><strong>Quitar la prueba social:</strong> él no tiene 11M familias que presumir; nosotros sí</li>
+          <li><strong>Su pricing ($39.99/$9):</strong> es otro producto/funnel, no el nuestro</li>
+          <li><strong>Volvernos monocromos:</strong> el playful multicolor es parte de la marca Kinedu — se contiene, no se elimina</li>
+          <li><strong>Reducir la página a un solo funnel:</strong> nuestra landing también alimenta SEO/blog</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 1 · Hero</span>
+    <h2>Mismo mensaje, temperatura distinta.</h2>
+    <p class="lead">Mantengo nuestro headline y nuestro CTA (que van al mismo funnel de siempre), pero con la tipografía editorial, el fondo cálido, la foto con cards flotantes y el microcopy anti-objeciones.</p>
+
+    <span class="flabel before">Antes — así está hoy</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com</span></div>
+      <div class="m-hero-before">
+        <div><div class="m-phone"><div class="m-phone-scr"><div class="m-phone-bar"></div><div style="font-weight:800;font-size:8px">Today's activity plan</div><div class="m-phone-row"></div><div class="m-phone-row"></div><div class="m-phone-row"></div><div class="m-phone-row"></div></div></div></div>
+        <div>
+          <div class="mb-h1">Know <span class="g1">exactly</span> what to do with your baby, <span class="g2">every single day.</span></div>
+          <p class="mb-sub">Kinedu gives you a personalized daily plan, simple activities, milestone tracking, and real expert guidance, <b>built around your baby's exact age and stage.</b></p>
+          <p class="mb-proof">Trusted by 11 million families. Recommended by pediatricians. Research-based.</p>
+          <span class="mb-cta">Try 7 days for FREE →</span>
+          <div class="mb-trust">
+            <div><b class="tb">11M+</b><span>families</span></div>
+            <div><b class="tg">180+</b><span>countries</span></div>
+            <div><b class="to">🎓</b><span>Research-based</span></div>
+            <div><b class="tp">25K+</b><span>5-star reviews</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="flabel after">Después — propuesta</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com — propuesta QA</span></div>
+      <div class="m-hero-after">
+        <div>
+          <div class="ma-h1">Know <em>exactly</em> what to do with your baby, every single day.</div>
+          <p class="ma-sub">A personalized daily plan, milestone tracking, and real expert guidance — built around your baby's exact age and stage.</p>
+          <span class="ma-cta">Try 7 days for FREE</span>
+          <div class="ma-micro"><span>Takes 2 minutes</span><i>·</i><span>Cancel anytime</span><i>·</i><span>Loved by 11M families</span></div>
+        </div>
+        <div class="ma-photo">
+          <div class="ph"><b>📷</b>Foto real mamá + bebé<br>(shooting o stock premium cálido)</div>
+          <div class="fcard fc1"><span class="ic">✓</span><div>Today's plan ready<small>4 activities · 7 months</small></div></div>
+          <div class="fcard fc2"><span class="ic">★</span><div>Milestone unlocked<small>Grasps with both hands</small></div></div>
+          <div class="fcard fc3"><span class="ic">♥</span><div>Expert tip for today<small>From our pediatric team</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes"><b>Qué cambió y por qué:</b>
+      <ul>
+        <li>Headline más grande, más pesado, tracking apretado, UNA palabra en azul — jerarquía editorial (de él) sin perder nuestro copy (nuestro).</li>
+        <li>Sub más corto: el detalle vive en las secciones de abajo.</li>
+        <li>Microcopy bajo el CTA — la práctica #1 que le robaría: responde "¿cuánto tarda? ¿me van a cobrar? ¿quién más lo usa?" sin clicks.</li>
+        <li>Foto real con cards flotantes: emoción (mamá+bebé) + producto (las cards) en el mismo espacio. El teléfono ya no carga solo el mensaje.</li>
+        <li>Fondo crema cálido en vez de azul frío: se siente hogar, no software.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 2 · Ciencia</span>
+    <h2>Lo específico se cree. Lo genérico se ignora.</h2>
+    <p class="lead">Hoy decimos "Research-based" y ya. Su sitio nombra investigadores, instituciones y cifras exactas — y eso convierte la ciencia en un argumento de venta. Nosotros tenemos science.html: traigamos sus números a la landing.</p>
+
+    <span class="flabel before">Antes — así está hoy</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com — sección stats</span></div>
+      <div class="m-proof-before">
+        <div class="row">
+          <div><b class="tb">11M+</b><span>Active families</span></div>
+          <div><b class="tp">1800+</b><span>Expert activities</span></div>
+          <div><b class="tg">180+</b><span>Countries</span></div>
+          <div><b class="to">25K+</b><span>5-star reviews</span></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="flabel after">Después — propuesta (se suma, no reemplaza)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com — propuesta QA</span></div>
+      <div class="m-proof-after">
+        <span class="pk">The science behind Kinedu</span>
+        <h4>Built by Kinedu. Studied by Stanford researchers. Tested at population scale.</h4>
+        <div class="steps">
+          <div class="step"><span class="n">1 · BUILT</span><b>2,135</b><p>caregivers in the initial psychometric validation of our instrument.</p></div>
+          <div class="step"><span class="n">2 · STUDIED</span><b>21,861</b><p>children — 177,934 observations analyzed by Stanford researchers.</p></div>
+          <div class="step"><span class="n">3 · TESTED</span><b>280M</b><p>milestone answers from 3.5M children used to test expected ages.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes"><b>Notas:</b>
+      <ul>
+        <li>Las cifras salen del sitio de tu jefe — <b>hay que verificarlas con el equipo de ciencia antes de publicar</b> y ligarlas a science.html.</li>
+        <li>Regla interna vigente: nada de "Backed by Harvard". Stanford solo si el claim es exacto y verificable (los nombres que usa él: Stenhaug, Ram, Frank).</li>
+        <li>Nuestros stats de escala (11M, 180 países) se quedan — cubren prueba social; esto cubre autoridad científica. Son dos músculos distintos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 3 · Posicionamiento</span>
+    <h2>El módulo "vs" — su mejor sección, adaptada a nosotros.</h2>
+    <p class="lead">Él contrasta "una lista estática" vs "el check-in de Kinedu". Nuestra versión: apps genéricas de actividades vs el plan personalizado de Kinedu.</p>
+
+    <span class="flabel after">Propuesta (sección nueva, no existe hoy)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com — propuesta QA</span></div>
+      <div class="m-vs">
+        <div class="vs-col left">
+          <span class="t">A generic activities app</span>
+          <h5>"Here are 500 ideas."</h5>
+          <ul>
+            <li>Same content for every baby</li>
+            <li>You do the guesswork of what fits today</li>
+            <li>No connection to milestones or progress</li>
+            <li>Advice from the internet, not experts</li>
+          </ul>
+        </div>
+        <div class="vs-col right">
+          <span class="t">The Kinedu daily plan</span>
+          <h5>"Here is today, for your baby."</h5>
+          <ul>
+            <li>Picked for your baby's exact age and stage</li>
+            <li>4–5 activities a day, ready when you are</li>
+            <li>Every activity tied to a real milestone</li>
+            <li>Backed by our pediatric and research team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes"><b>Por qué funciona:</b>
+      <ul>
+        <li>Le da al visitante el argumento para descartar alternativas sin que nombremos a nadie.</li>
+        <li>Cabe perfecto entre Features y Testimonios en la página actual.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 4 · Confianza</span>
+    <h2>La honestidad como feature.</h2>
+    <p class="lead">Su bloque "What this is, and isn't" baja la ansiedad de la mamá primeriza — y paradójicamente sube la conversión, porque suena a alguien que no te quiere vender humo.</p>
+
+    <span class="flabel after">Propuesta (bloque nuevo, junto al assessment)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>www.kinedu.com — propuesta QA</span></div>
+      <div class="m-honest">
+        <div class="hbox"><b>What Kinedu is, and isn't.</b> Kinedu helps you notice your baby's strengths and support what comes next with everyday activities. It does not diagnose developmental conditions or delays. If something concerns you, talk with your pediatrician — and bring your Kinedu progress report with you.</div>
+      </div>
+    </div>
+
+    <div class="notes"><b>Detalle fino:</b>
+      <ul>
+        <li>El cierre "bring your Kinedu progress report with you" convierte el disclaimer en un beneficio del producto. Eso no lo tiene ni él.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-doc">
+  <div class="wrap">
+    <b>Estado de este documento:</b> archivo local de QA (QA-propuesta-mejoras.html). No está linkeado desde ninguna página, no está commiteado y no se despliega. Nada del sitio en producción fue modificado.
+    <div class="warn">⚠️ Antes de publicar cualquiera de estas piezas: (1) verificar las cifras científicas con el equipo, (2) validar el copy del trial ("cancel anytime", "no card") contra el flujo real de app.kinedu.com, (3) recordar la regla interna: nunca "Backed by Harvard".</div>
+  </div>
+</footer>
+
+</body>
+</html>

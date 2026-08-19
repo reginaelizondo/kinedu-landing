@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>QA interno — Contenido de science.html</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fffdf9; --navy:#081b46; --ink:#132351; --muted:#5c6a84; --line:#ebe6df;
+    --kblue:#2B8BE4; --kgreen:#4CD964; --mint:#32c99a; --pink:#f7567c; --yellow:#ffbd15;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"DM Sans",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .kicker{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--kblue);margin-bottom:14px}
+  h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;color:var(--navy);line-height:1.12;margin-bottom:12px}
+  .lead{font-size:17px;color:var(--muted);max-width:740px}
+  .doc-hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .doc-tag{display:inline-block;background:#fff0bd;color:#7a5a00;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:99px;margin-bottom:20px}
+  .doc-hero h1{font-size:clamp(34px,5vw,58px);font-weight:900;letter-spacing:-.045em;color:var(--navy);line-height:1.06;max-width:860px}
+  .doc-hero h1 em{font-style:normal;color:var(--kblue)}
+  .doc-hero p{margin-top:18px;color:var(--muted);font-size:15px}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 50px rgba(8,27,70,.05)}
+  .vcard h3{font-size:15px;font-weight:800;margin-bottom:4px}
+  .vcard .sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .vcard ul{list-style:none}
+  .vcard li{font-size:14px;color:#3E4B65;padding:5px 0 5px 22px;position:relative}
+  .vcard li b{color:var(--navy)}
+  .vcard.theirs li::before{content:"＋";position:absolute;left:0;font-weight:900;color:var(--kblue)}
+  .vcard.ours li::before{content:"★";position:absolute;left:0;font-weight:900;color:var(--mint);font-size:11px;top:9px}
+
+  .bigidea{margin-top:28px;background:var(--navy);border-radius:22px;padding:34px 38px;color:#fff}
+  .bigidea .k{color:#8fc4ff;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+  .bigidea h3{font-size:clamp(20px,2.6vw,28px);font-weight:900;letter-spacing:-.02em;line-height:1.25;margin:10px 0 8px}
+  .bigidea p{font-size:14.5px;color:#b9c6e4;max-width:760px}
+  .bigidea b{color:#fff}
+
+  .cmp{width:100%;border-collapse:collapse;margin-top:24px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(8,27,70,.05);font-size:13.5px}
+  .cmp th{background:var(--navy);color:#fff;text-align:left;padding:12px 14px;font-weight:700;font-size:12.5px}
+  .cmp td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;color:#3E4B65}
+  .cmp td:first-child{font-weight:800;color:var(--navy)}
+  .badge{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;white-space:nowrap}
+  .b-keep{background:#e0f7ef;color:#137a58}
+  .b-new{background:#e7f2ff;color:#0b62c4}
+  .b-merge{background:#fff0bd;color:#7a5a00}
+  .b-cut{background:#ffe7ee;color:#c22a5a}
+
+  .flabel{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-top:30px}
+  .flabel.before{background:#ffe7ee;color:#c22a5a}
+  .flabel.after{background:#e0f7ef;color:#137a58}
+  .frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(8,27,70,.10);margin-top:14px}
+  .chrome{background:#f3efe8;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+  .chrome i{width:10px;height:10px;border-radius:50%;display:block}
+  .chrome i:nth-child(1){background:#ff5f57}.chrome i:nth-child(2){background:#febc2e}.chrome i:nth-child(3){background:#28c840}
+  .chrome span{margin-left:10px;font-size:12px;color:var(--muted);font-weight:600}
+  .notes{margin-top:14px;background:#fff;border:1px dashed #d8d2c8;border-radius:14px;padding:16px 18px}
+  .notes b{color:var(--navy)}
+  .notes ul{list-style:none;margin-top:6px}
+  .notes li{font-size:13.5px;color:#3E4B65;padding:3px 0 3px 22px;position:relative}
+  .notes li::before{content:"→";position:absolute;left:0;color:var(--kblue);font-weight:700}
+
+  /* ==== mockups estilo NUESTRO site (blanco + Plus Jakarta + kinedu blue) ==== */
+  .site{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;padding:40px 44px}
+  .site .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--kblue);background:#EEF5FF;padding:5px 12px;border-radius:99px;margin-bottom:14px}
+  .site h4{font-size:clamp(20px,2.8vw,30px);font-weight:800;letter-spacing:-.02em;color:#0F172A;line-height:1.2;margin-bottom:10px}
+  .site .sub{font-size:14px;color:#475569;max-width:640px;line-height:1.65}
+  .site .sub b{color:#0F172A}
+  .site .sub .hl{color:var(--kblue);font-weight:700}
+  .statrow{display:flex;gap:36px;margin-top:22px;flex-wrap:wrap}
+  .statrow b{display:block;font-size:24px;font-weight:800;color:var(--kblue)}
+  .statrow div:nth-child(2) b{color:var(--kgreen)}
+  .statrow div:nth-child(3) b{color:#FFC033}
+  .statrow div:nth-child(4) b{color:#E84D8A}
+  .statrow span{font-size:11px;color:#64748B}
+  .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .tl .tcard{background:#F7F8FB;border:1px solid rgba(0,0,0,.05);border-radius:16px;padding:20px;position:relative}
+  .tl .tcard::after{content:"→";position:absolute;right:-14px;top:44%;font-size:16px;color:#B8C4D8;font-weight:800;z-index:2}
+  .tl .tcard:last-child::after{content:""}
+  .tl .n{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--kblue)}
+  .tl b.big{display:block;font-size:27px;font-weight:800;color:#0F172A;margin:7px 0 1px}
+  .tl .who{font-size:11px;font-weight:700;color:#64748B;margin-bottom:7px}
+  .tl p{font-size:12px;color:#475569;line-height:1.55}
+  .tl p em{font-style:normal;font-weight:700;color:#0F172A}
+  .honest{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  .hcol{border-radius:16px;padding:20px 22px}
+  .hcol.yes{background:#ECFBEF;border:1px solid rgba(76,217,100,.25)}
+  .hcol.no{background:#FFF5F7;border:1px solid rgba(232,77,138,.18)}
+  .hcol .t{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .hcol.yes .t{color:#1d9c72}.hcol.no .t{color:#c22a5a}
+  .hcol h5{font-size:16px;font-weight:800;color:#0F172A;margin:5px 0 10px}
+  .hcol ul{list-style:none}
+  .hcol li{font-size:12.5px;color:#475569;padding:4px 0 4px 22px;position:relative}
+  .hcol.yes li::before{content:"✓";position:absolute;left:2px;color:#4CD964;font-weight:800}
+  .hcol.no li::before{content:"✕";position:absolute;left:2px;color:#E84D8A;font-weight:800}
+  .src{margin-top:18px;border-top:1px solid rgba(0,0,0,.07);padding-top:18px}
+  .src .item{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12.5px;color:#475569;align-items:baseline}
+  .src .item b{color:#0F172A;font-weight:700}
+  .src .item .y{font-size:10.5px;font-weight:800;color:var(--kblue);white-space:nowrap}
+  .src .links{margin-top:14px;font-size:12.5px;font-weight:700;color:var(--kblue)}
+  .src .links span{color:#94A3B8;font-weight:400;margin:0 6px}
+
+  .copyblock{background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:18px;overflow:hidden}
+  .copyblock .cb-h{background:#f6f2ec;padding:10px 18px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#7a6a4f}
+  .copyblock .cb-b{padding:18px 20px;font-size:14px;color:#3E4B65;line-height:1.7}
+  .copyblock .cb-b p+p{margin-top:10px}
+  .copyblock .cb-b b{color:var(--navy)}
+
+  .footer-doc{padding:48px 0 80px;color:var(--muted);font-size:13px}
+  .footer-doc b{color:var(--navy)}
+  .warn{background:#fff0bd;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:13px;color:#6b4e00}
+  @media(max-width:800px){
+    .duo,.tl,.honest{grid-template-columns:1fr}
+    .tl .tcard::after{content:""}
+    .cmp{display:block;overflow-x:auto}
+    .site{padding:28px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-hero">
+  <div class="wrap">
+    <span class="doc-tag">QA interno #2 · science.html · solo contenido · no publicado</span>
+    <h1>Nuestra página de ciencia cuenta la ciencia <em>de otros</em>. La suya cuenta la ciencia <em>de Kinedu</em>.</h1>
+    <p>Comparativa de contenido: kinedu.com/science.html vs stand-alone-assessment.vercel.app/science.html · 18 ago 2026 · El look &amp; feel nuestro NO se toca — esto es solo qué decimos y en qué orden</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">El diagnóstico</span>
+    <h2>Las dos páginas responden preguntas distintas.</h2>
+    <p class="lead">La nuestra es más rica y más emocional, pero casi toda su evidencia es de terceros (Heckman, meta-análisis de juego guiado, neurociencia general). La suya es 100% evidencia propia. Una mamá escéptica sale de la nuestra convencida de que <b>la crianza temprana importa</b>… pero no necesariamente de que <b>Kinedu sea confiable</b>. Se necesitan los dos músculos — y ya tenemos ambos, solo que la mitad no está en la página.</p>
+    <div class="bigidea">
+      <span class="k">La idea central de este QA</span>
+      <h3>Nuestro dato más poderoso no aparece en nuestra página: 280 millones de respuestas de 3.5 millones de niños.</h3>
+      <p>Hoy decimos "millions of real developmental observations" (vago) y nuestro número más grande visible es 177,934. El sitio de tu jefe abre con <b>280M</b> — y ese dato es <b>nuestro</b>. No hay que rediseñar nada: hay que subir nuestra propia evidencia a la página.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Inventario de contenido</span>
+    <h2>Qué tiene cada una que a la otra le falta.</h2>
+    <div class="duo">
+      <div class="vcard theirs">
+        <h3>Su science page tiene (y la nuestra no)</h3>
+        <p class="sub">= los 7 gaps de contenido a cerrar</p>
+        <ul>
+          <li><b>280M respuestas · 3.5M niños</b> — la escala real de nuestros datos, ausente en nuestra página</li>
+          <li><b>La línea de evidencia en 3 actos:</b> construido con 2,135 cuidadores → estudiado por Stanford (21,861 niños) → replicado a escala poblacional (3.5M)</li>
+          <li><b>Nombres propios y roles precisos:</b> nombra a las 3 investigadoras de Kinedu (Mirón, Guerra, Tovar) y delimita el rol de Frank ("advised on early item revision") — preciso se cree más que grandioso</li>
+          <li><b>Gráficas con datos reales:</b> babbling→first words (se releva) y walking (permanece), con fuente "Kinedu record 2020–2023" y banda ±1 SD</li>
+          <li><b>Bloque de honestidad:</b> "What it will not tell you" — no diagnóstico, no IQ, no veredicto</li>
+          <li><b>Sección "Sources and method"</b> con citas completas y links al estudio en EN/ES/PT</li>
+          <li><b>Corrección AAP para prematuros</b> — detalle de cuidado que genera confianza clínica</li>
+        </ul>
+      </div>
+      <div class="vcard ours">
+        <h3>La nuestra tiene (y la suya no) — se queda todo</h3>
+        <p class="sub">= nuestras ventajas, no tocarlas</p>
+        <ul>
+          <li><b>Evidencia de intervención:</b> 69% más "bids" de atención conjunta y 35% más habla tras un video de Kinedu — la suya prueba que Kinedu <i>mide</i> bien; la nuestra prueba que Kinedu <i>cambia</i> conductas. Es nuestro mejor dato y es exclusivo</li>
+          <li><b>El "por qué importa":</b> juego guiado (d=0.63, 39 estudios) y Heckman (7–10% anual, +25% ingresos adultos)</li>
+          <li><b>Neurociencia aterrizada:</b> 2x, 150%, 100x — nadie más lo cuenta así de claro</li>
+          <li><b>Los 5 principios (01–05)</b> — ojo: son LOS MISMOS cinco que sus features (a–e). Ya los teníamos</li>
+          <li><b>Narrativa Big Bang + fan chart</b> — identidad de marca, conecta con el libro Big Bang Baby</li>
+          <li><b>"Not perfection. Presence."</b> — el único momento emocional de las dos páginas</li>
+          <li><b>Navegación completa, i18n, footer</b> — la suya es un funnel aislado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">La propuesta</span>
+    <h2>Nuevo índice: la misma página, contada en 3 actos.</h2>
+    <p class="lead">Hoy nuestra página es una enciclopedia (13 secciones sueltas). La propuesta: una espina narrativa — <b>Acto 1: medimos como nadie</b> (evidencia propia) → <b>Acto 2: cambia lo que haces</b> (intervención) → <b>Acto 3: importa de por vida</b> (Heckman) → cierre honesto con fuentes. Casi todo ya existe; se reordena y se agregan 4 piezas.</p>
+    <table class="cmp">
+      <tr><th style="width:32px">#</th><th>Sección propuesta</th><th>Qué pasa con ella</th><th style="width:110px">Acción</th></tr>
+      <tr><td>1</td><td>Hero "The Science behind Kinedu"</td><td>Se queda igual de look; el sub ahora dice <b>280 million answers from 3.5 million children</b> en vez de "millions of observations", y suma stat-strip con 280M</td><td><span class="badge b-merge">Ajustar</span></td></tr>
+      <tr><td>2</td><td><b>La línea de evidencia (3 actos)</b></td><td>Nueva sección arriba: 2,135 → 21,861 → 3.5M. Es la columna vertebral de credibilidad</td><td><span class="badge b-new">Nueva</span></td></tr>
+      <tr><td>3</td><td>Big Bang + fan chart + 1,000 días</td><td>Se queda — es identidad. "Under the hood" (2x/150%/100x) se fusiona aquí como sub-bloque</td><td><span class="badge b-merge">Fusionar</span></td></tr>
+      <tr><td>4</td><td>Los 5 principios</td><td>Se quedan tal cual — ya coinciden con el modelo del assessment</td><td><span class="badge b-keep">Se queda</span></td></tr>
+      <tr><td>5</td><td><b>Gráficas de datos reales</b> (babbling→words, walking)</td><td>Opcional pero recomendada: es la prueba visual de que el modelo sabe cuándo dejar de preguntar</td><td><span class="badge b-new">Nueva</span></td></tr>
+      <tr><td>6</td><td>Serve &amp; return + 69%/35%</td><td>Se queda — reforzada como "Acto 2: la evidencia de intervención". Es el dato que su página NO puede dar</td><td><span class="badge b-keep">Se queda</span></td></tr>
+      <tr><td>7</td><td>Guided play (0.63)</td><td>Se queda dentro del Acto 2</td><td><span class="badge b-keep">Se queda</span></td></tr>
+      <tr><td>8</td><td>Kinedu Skills® + <b>corrección AAP prematuros</b></td><td>Se queda; se le agrega la línea de prematuros y α=0.996 ya visible</td><td><span class="badge b-merge">Ajustar</span></td></tr>
+      <tr><td>9</td><td>Heckman (7–10%, +25%)</td><td>Se queda — Acto 3</td><td><span class="badge b-keep">Se queda</span></td></tr>
+      <tr><td>10</td><td>Invisible forces (4 fuerzas)</td><td>Candidata a comprimir (de sección completa a franja) — es la más larga y es ciencia ajena</td><td><span class="badge b-cut">Comprimir</span></td></tr>
+      <tr><td>11</td><td>"Not perfection. Presence."</td><td>Se queda — cierre emocional antes del CTA</td><td><span class="badge b-keep">Se queda</span></td></tr>
+      <tr><td>12</td><td><b>"A useful guide. Not a diagnosis."</b></td><td>Nueva: dos columnas — qué te ayuda a hacer / qué nunca te va a decir</td><td><span class="badge b-new">Nueva</span></td></tr>
+      <tr><td>13</td><td><b>Sources and method</b></td><td>Nueva: citas completas con nombres + links al estudio y guía en EN/ES/PT</td><td><span class="badge b-new">Nueva</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 1 · Hero</span>
+    <h2>El mismo hero, con nuestro número real.</h2>
+    <span class="flabel before">Antes — copy actual</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>kinedu.com/science.html</span></div>
+      <div class="site">
+        <span class="tag">The Science Behind Kinedu</span>
+        <h4>The Science behind Kinedu</h4>
+        <p class="sub">Most parenting advice is opinion. Kinedu is built on evidence — <b>millions of real developmental observations</b>, a research partnership with <span class="hl">Stanford</span>, and decades of child-development science — distilled into a daily plan made for your child.</p>
+      </div>
+    </div>
+    <span class="flabel after">Después — mismo diseño, número real</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>kinedu.com/science.html — propuesta</span></div>
+      <div class="site">
+        <span class="tag">The Science Behind Kinedu</span>
+        <h4>The Science behind Kinedu</h4>
+        <p class="sub">Most parenting advice is opinion. Kinedu is built on evidence — <b>280 million milestone answers from 3.5 million children</b>, research with <span class="hl">Stanford</span>, and decades of child-development science — distilled into a daily plan made for your child.</p>
+        <div class="statrow">
+          <div><b>280M</b><span>milestone answers</span></div>
+          <div><b>3.5M</b><span>children</span></div>
+          <div><b>414</b><span>milestones tracked</span></div>
+          <div><b>α 0.996</b><span>psychometric reliability</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><b>Por qué:</b>
+      <ul>
+        <li>"Millions" suena a marketing; "280 million from 3.5 million children" suena a dato. Es literalmente el mismo activo, mejor contado.</li>
+        <li>"Partnership with Stanford" → "research with Stanford": más preciso con el rol real (estudio + asesoría), más defendible.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 2 · La pieza que más falta</span>
+    <h2>La línea de evidencia: nuestra ciencia como historia.</h2>
+    <span class="flabel after">Nueva sección (iría después del hero)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>kinedu.com/science.html — propuesta</span></div>
+      <div class="site">
+        <span class="tag">How we know it works</span>
+        <h4>Built with caregivers. Studied at Stanford.<br>Tested at population scale.</h4>
+        <p class="sub">One continuous story — an instrument built with real families, an independent study of how development unfolds, and a test across the full Kinedu record.</p>
+        <div class="tl">
+          <div class="tcard">
+            <span class="n">1 · Built</span>
+            <b class="big">2,135</b>
+            <span class="who">caregivers · Kinedu research team</span>
+            <p>Kinedu built its caregiver-report instrument and validated it with <em>2,135 caregivers</em>. Stanford's Michael C. Frank advised on the early revision of its 0–24-month items.</p>
+          </div>
+          <div class="tcard">
+            <span class="n">2 · Studied</span>
+            <b class="big">21,861</b>
+            <span class="who">children · Stanford researchers</span>
+            <p>Stanford researchers analyzed <em>177,934 observations</em> to map how developmental areas move together in the first years.</p>
+          </div>
+          <div class="tcard">
+            <span class="n">3 · Tested</span>
+            <b class="big">3.5M</b>
+            <span class="who">children · population scale</span>
+            <p>Kinedu then tested its expected ages against <em>~280 million milestone answers</em> — the largest record of its kind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><b>Notas de contenido:</b>
+      <ul>
+        <li>Esto convierte "somos científicos" (afirmación) en "así se construyó" (historia verificable). Es la sección más valiosa de su página y no requiere diseño nuevo — son 3 cards como las que ya usamos.</li>
+        <li>Bonus interno: el estudio de construcción lo firman 3 investigadoras de Kinedu (María Mirón Alvarez, Ana Sofía Guerra Elizondo, Ana Cristina Tovar Martínez) — nombrarlas en Sources también habla bien de nuestro equipo.</li>
+        <li>Cifras a verificar con el equipo de ciencia antes de publicar: 2,135 · 21,861 · 177,934 · 3.5M · 280M.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 3 · Honestidad</span>
+    <h2>"Lo que nunca te va a decir" — el bloque que más confianza compra.</h2>
+    <span class="flabel after">Nueva sección (antes del CTA final)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>kinedu.com/science.html — propuesta</span></div>
+      <div class="site">
+        <span class="tag">A useful guide. Not a diagnosis.</span>
+        <h4>What this science can — and can't — do for you.</h4>
+        <div class="honest">
+          <div class="hcol yes">
+            <span class="t">What Kinedu helps you do</span>
+            <h5>See and act.</h5>
+            <ul>
+              <li>Surface strengths and skills opening up now</li>
+              <li>Put everyday observations in developmental context</li>
+              <li>Read your child against 280 million real observations</li>
+              <li>Start clearer conversations with your pediatrician</li>
+            </ul>
+          </div>
+          <div class="hcol no">
+            <span class="t">What it will never tell you</span>
+            <h5>A verdict.</h5>
+            <ul>
+              <li>A diagnosis of a developmental condition or delay</li>
+              <li>A prediction of IQ, school readiness, or "potential"</li>
+              <li>A verdict about your child from a population pattern</li>
+              <li>Anything that replaces your pediatrician</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><b>Por qué:</b>
+      <ul>
+        <li>La audiencia de una página de ciencia es la mamá escéptica/ansiosa. Decir con claridad lo que NO hacemos es lo que más baja la guardia — y legalmente nos protege.</li>
+        <li>Detalle a agregar en Kinedu Skills®: "Ages for children born early are corrected automatically (AAP equation)." Una línea, mucha confianza clínica.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Mockup 4 · Cierre</span>
+    <h2>Sources and method: donde la página da la cara.</h2>
+    <span class="flabel after">Nueva sección final (después del CTA)</span>
+    <div class="frame">
+      <div class="chrome"><i></i><i></i><i></i><span>kinedu.com/science.html — propuesta</span></div>
+      <div class="site">
+        <span class="tag">Sources &amp; method</span>
+        <h4>Read the research yourself.</h4>
+        <div class="src">
+          <div class="item"><span class="y">STANFORD</span><div><b>Stenhaug, Ram &amp; Frank</b> — The Structure of Developmental Variation in Early Childhood. 177,934 observations, 21,861 children.</div></div>
+          <div class="item"><span class="y">KINEDU · 2026</span><div><b>Coupling and Differentiation in Early Development</b> — external and internal replication across ~280M milestone answers.</div></div>
+          <div class="item"><span class="y">KINEDU</span><div><b>Initial Assessment scale-construction study</b> — Mirón Alvarez, Guerra Elizondo &amp; Tovar Martínez. N=2,135. M. C. Frank advised on early item revision.</div></div>
+          <div class="item"><span class="y">THIRD-PARTY</span><div><b>Guided-play meta-analysis</b> (39 studies) · <b>Heckman et al.</b> — Perry Preschool &amp; Jamaica study · serve-and-return literature.</div></div>
+          <div class="links">Read the full study: English <span>·</span> Español <span>·</span> Português &nbsp;&nbsp;|&nbsp;&nbsp; A parent's guide: English <span>·</span> Español <span>·</span> Português</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><b>Pendiente operativo:</b>
+      <ul>
+        <li>Los PDFs del estudio y la guía viven hoy en el deploy de tu jefe. Hay que hostearlos en kinedu.com (o linkear a su ubicación definitiva) antes de publicar esta sección.</li>
+        <li>Separar visualmente evidencia propia vs de terceros (como arriba) mantiene la honestidad del claim.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Copy extra</span>
+    <h2>Dos remates de escritura que vale la pena robarle.</h2>
+    <p class="lead">Más allá de secciones, su página escribe cada bloque con una frase-remate que destila la idea. Dos ejemplos adaptados a nuestras secciones existentes:</p>
+    <div class="copyblock">
+      <div class="cb-h">Para nuestra sección de los 5 principios</div>
+      <div class="cb-b"><p><b>"The expertise lives in the instrument, so it doesn't have to live in you."</b> — cierra la idea de que cualquier papá puede responder sin saber de desarrollo infantil. (Adaptar: "The science lives in the plan, so it doesn't have to live in you.")</p></div>
+    </div>
+    <div class="copyblock">
+      <div class="cb-h">Para nuestra sección de milestone tracking</div>
+      <div class="cb-b"><p><b>"Come back for new context — not a permanent label."</b> — reencuadra el tracking como algo vivo, no como calificación. Perfecto para el bloque de progreso.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-doc">
+  <div class="wrap">
+    <b>Estado:</b> archivo local de QA (QA-science-contenido.html). Nada publicado, nada commiteado, science.html intacta. El QA anterior de la landing (QA-propuesta-mejoras.html) queda descartado según tu feedback — la landing principal no se toca.
+    <div class="warn">⚠️ Antes de publicar: (1) verificar TODAS las cifras con el equipo de ciencia (280M, 3.5M, 2,135, 21,861, 177,934, fechas 2020–2023), (2) conseguir/hostear los PDFs del estudio en 3 idiomas, (3) los claims de Stanford siempre con rol preciso ("researchers analyzed…", "Frank advised…") — y la regla de siempre: nunca "Backed by Harvard".</div>
+  </div>
+</footer>
+
+</body>
+</html>
