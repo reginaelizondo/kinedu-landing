@@ -144,3 +144,22 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 .kb-card-over::after { background: linear-gradient(180deg, rgba(8,27,70,0) 30%, rgba(8,27,70,.88) 100%) !important; }
 .kb-card-over h3 { font-size: 19px; letter-spacing: -.02em; line-height: 1.25; }
 .kb-card-over .meta { opacity: .85; font-size: 12.5px; }
+
+/* --- app CTA del artículo: navy premium con acentos de marca (adiós gradiente azul-verde) --- */
+.kb-app-cta { background: #081B46 !important; position: relative; overflow: hidden; }
+.kb-app-cta::before { content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%; background: #087BF3; opacity: .18; top: -120px; right: -80px; }
+.kb-app-cta::after { content: ""; position: absolute; width: 140px; height: 140px; border-radius: 50%; background: #F7567C; opacity: .14; bottom: -50px; left: 30%; }
+.kb-app-cta > * { position: relative; z-index: 1; }
+.kb-app-cta-tag { background: rgba(255,255,255,.12) !important; border-radius: 999px; padding: 6px 14px !important; }
+.kb-app-cta-stat { background: rgba(255,255,255,.07) !important; border: 1px solid rgba(255,255,255,.14) !important; border-radius: 18px !important; backdrop-filter: none !important; }
+.kb-app-cta-stat:nth-child(1) strong, .kb-app-cta-stat:nth-child(1) .num { color: #84CFEC !important; }
+.kb-app-cta-stat:nth-child(2) strong, .kb-app-cta-stat:nth-child(2) .num { color: #8AD28F !important; }
+.kb-app-cta-stat:nth-child(3) strong, .kb-app-cta-stat:nth-child(3) .num { color: #FBC08F !important; }
+.kb-app-cta-stat:nth-child(4) strong, .kb-app-cta-stat:nth-child(4) .num { color: #E37EA7 !important; }
+
+/* --- artículos relacionados: tarjetas al sistema (color de la categoría de la página) --- */
+.kb-grid-3 .kb-card { border-radius: 22px; overflow: hidden; border: 1px solid #EBE6DF; background: #fff; transition: transform .18s, box-shadow .18s; }
+.kb-grid-3 .kb-card:hover { transform: translateY(-4px) rotate(-.3deg); box-shadow: 0 16px 34px rgba(8,27,70,.14); }
+.kb-grid-3 .kb-card .kb-card-img img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+.kb-grid-3 .kb-card .kb-card-excerpt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.kb-grid-3 .kb-card:hover .kb-card-title { color: var(--kcat-dark, #1E6FBD); }
