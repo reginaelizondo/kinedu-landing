@@ -2625,7 +2625,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         var variant = param || stored || (Math.random() < 0.5 ? 'a' : 'b');
         if (!param) sessionStorage.setItem('lc_hero_ab', variant);
 
-        if (variant === 'b') {
+        if (false && variant === 'b') /* Brand 2026: forzada variante A (app screenshot) */ {
             var img  = document.getElementById('lcHeroCalendar');
             var card = document.getElementById('lcHeroCard');
             if (img)  img.style.display  = 'none';
