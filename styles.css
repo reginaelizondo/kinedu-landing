@@ -116,9 +116,9 @@ a {
 
 /* --- ANIMATED GRADIENT TEXT — Kinedu Brand --- */
 .gradient-shift {
-  background: linear-gradient(100deg, rgba(255,189,21,.42), rgba(255,189,21,.28));
+  background: linear-gradient(100deg, rgba(255,189,21,.34), rgba(255,189,21,.22));
   -webkit-text-fill-color: currentColor; color: var(--text-primary, #132351);
-  display: inline-block; padding: .01em .12em; border-radius: .18em; transform: rotate(-1deg);
+  display: inline-block; padding: 0 .06em; border-radius: .14em; transform: rotate(-0.6deg);
 }
 
 .gradient-shift-alt {
@@ -523,14 +523,14 @@ section[id], div[id] { scroll-margin-top: 96px; }
 
 /* --- Hero Headline --- */
 .hero-headline {
-    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-size: clamp(2.8rem, 4.5vw, 3.52rem);
     line-height: 1.08;
     margin-bottom: 24px;
     letter-spacing: -0.035em;
     animation: fadeUp 0.8s ease 0.15s forwards;
     opacity: 0;
     color: var(--text-primary);
-}
+ text-wrap: balance; }
 
 .hero-headline .line {
     display: block;
