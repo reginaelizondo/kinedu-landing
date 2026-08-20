@@ -168,3 +168,8 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 section:has(.kb-card-over) { padding-bottom: 110px !important; }
 .kb-card-over { transition: opacity .45s ease; }
 .kb-card-over.kbfade { opacity: 0; }
+
+/* --- search-wrap fix: el panel de resultados anclado al buscador (paridad EN/ES/PT) --- */
+.kb-search-wrap { position: relative; max-width: 660px; margin: 0 auto; }
+.kb-search-panel { max-height: 440px; overflow-y: auto; box-shadow: 0 18px 44px rgba(8,27,70,.16); }
+.kb-sp-item:hover { background: #F5F4F0; }
