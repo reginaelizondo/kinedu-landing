@@ -510,7 +510,7 @@ img { display: block; max-width: 100%; height: auto; }
       <form class="kb-search" role="search" onsubmit="submitSearch();return false;">
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" style="color:var(--muted-2);flex-shrink:0;"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
         <label for="blogSearch" class="kb-sr-only">Search Kinedu articles</label>
-        <input placeholder="Search sleep, feeding, milestones…" id="blogSearch" type="search" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
+        <input placeholder="Search “when do babies sleep through the night?”" id="blogSearch" type="search" autocomplete="off" aria-controls="searchPanel" aria-expanded="false">
         <button type="submit"><span class="btn-long">Search articles</span><span class="btn-short" style="display:none">Search</span></button>
       </form>
       <div id="searchPanel" class="kb-search-panel" style="display:none;" aria-label="Search suggestions"></div>
@@ -644,7 +644,7 @@ img { display: block; max-width: 100%; height: auto; }
 </section>
 
 <!-- LATEST ARTICLES -->
-<section style="padding:64px 0 32px;">
+<section style="padding:64px 0 32px;" id="kbAllSection" style="display:none">
   <div class="kb-wrap">
     <div class="kb-section-head">
       <div>
@@ -4497,7 +4497,7 @@ function syncPillA11y() {
   });
 }
 
-function applyCategoryFilter(cats, displayLabel) {
+function applyCategoryFilter(cats, displayLabel) { kbShowAll(); 
   // cats: array of strings (data-cat values), or null for "all"
   // Clear stage filter
   _activeStage = null;
@@ -4663,7 +4663,7 @@ applyLimit();
 // ── Stage filter ─────────────────────────────────────────────────────────────
 var _activeStage = null;
 
-function filterByStage(e, el) {
+function filterByStage(e, el) { kbShowAll(); 
   e.preventDefault();
   var stage = el.getAttribute('data-stage');
 
@@ -5063,5 +5063,7 @@ document.addEventListener('click', function(e) {
 </script>
 <script src="/translations.js?v=0820b"></script>
 <script src="/script.js?v=0701a"></script>
-</body>
+<script>
+function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style.display==='none'){s.style.display='';}}
+</script></body>
 </html>

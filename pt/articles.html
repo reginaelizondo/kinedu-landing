@@ -280,7 +280,7 @@ a { color: inherit; text-decoration: none; }
 
 <section class="kb-hero-b">
   <div class="kb-wrap">
-    <div class="kb-eyebrow">Orientação respaldada por especialistas</div>
+    <div class="kb-hero-eyebrow"><svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#34C989"/></svg> Orientação respaldada por especialistas</div>
     <h1 class="kb-hero-b-title">As perguntas que os pais<br>realmente fazem, <em>respondidas<br>por especialistas.</em></h1>
     <p class="kb-hero-sub">1.168 artigos escritos por pediatras, coaches do sono e especialistas em desenvolvimento — para cada fase dos primeiros 6 anos do seu filho.</p></div>
     <div class="kb-search-wrap">
@@ -400,7 +400,7 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </section>
-<section class="kb-section">
+<section class="kb-section" id="kbAllSection" style="display:none">
   <div class="kb-wrap">
     <div class="kb-section-head">
       <div>
@@ -5176,7 +5176,7 @@ function ptRenderPanel(scored, words, phrase, total){
   ptPanel.innerHTML=html; ptPanel.style.display='';
 }
 
-function filterPT() {
+function filterPT() { kbShowAll(); 
   var q = (document.getElementById('ptBlogSearch').value || '').toLowerCase().trim();
   var cards = document.querySelectorAll('#ptGrid .kb-card');
   var count = 0;
@@ -5226,7 +5226,7 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
 <script>(function(){
 var pills=document.querySelectorAll('#catPills .kb-pill');
 window._activeCat='all';
-function applyCat(cat){
+function applyCat(cat) { kbShowAll(); 
   window._activeCat=cat;
   pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')===cat);});
   var si=document.getElementById('ptBlogSearch'); if(si) si.value='';
@@ -5250,5 +5250,7 @@ try{var c=new URLSearchParams(location.search).get('cat');if(c)applyCat(c);}catc
 var si=document.getElementById('ptBlogSearch');
 if(si)si.addEventListener('input',function(){if(si.value.trim()){pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')==='all');});window._activeCat='all';}});
 })();</script>
-</body>
+<script>
+function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style.display==='none'){s.style.display='';}}
+</script></body>
 </html>

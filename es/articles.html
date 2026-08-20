@@ -414,7 +414,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 <!-- GRID -->
-<section class="kb-section">
+<section class="kb-section" id="kbAllSection" style="display:none">
   <div class="kb-wrap">
     <div class="kb-section-head">
       <div>
@@ -4751,7 +4751,7 @@ function esRenderPanel(scored, words, phrase, total){
   esPanel.innerHTML=html; esPanel.style.display='';
 }
 
-function filterES() {
+function filterES() { kbShowAll(); 
   var q = (document.getElementById('esBlogSearch').value || '').toLowerCase().trim();
   var cards = document.querySelectorAll('#esGrid .kb-card');
   var count = 0;
@@ -4807,7 +4807,7 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
 <script>(function(){
 var pills=document.querySelectorAll('#catPills .kb-pill');
 window._activeCat='all';
-function applyCat(cat){
+function applyCat(cat) { kbShowAll(); 
   window._activeCat=cat;
   pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')===cat);});
   var si=document.getElementById('esBlogSearch'); if(si) si.value='';
@@ -4831,5 +4831,7 @@ try{var c=new URLSearchParams(location.search).get('cat');if(c)applyCat(c);}catc
 var si=document.getElementById('esBlogSearch');
 if(si)si.addEventListener('input',function(){if(si.value.trim()){pills.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-cat')==='all');});window._activeCat='all';}});
 })();</script>
-</body>
+<script>
+function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style.display==='none'){s.style.display='';}}
+</script></body>
 </html>
