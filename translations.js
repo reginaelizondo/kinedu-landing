@@ -1,5 +1,11 @@
 window.TRANSLATIONS = {
   en: {
+    'xp.tag': 'Meet the Experts',
+    'xp.title': 'Real credentials.<br><em>Real experience.</em>',
+    'xp.sub': "The certified pediatricians, sleep consultants, lactation experts and child specialists who teach Kinedu's live classes — available to every member, every day.",
+    'xp.ctaTitle': 'Ask them anything — live.',
+    'xp.ctaSub': 'Every expert on this page teaches live classes inside Kinedu. Bring your question, leave with an answer.',
+    'xp.ctaBtn': 'Try 7 days for FREE',
     // META
     'meta.title': 'Kinedu — Give your baby the best start',
     'meta.titleScience': 'The Science Behind Kinedu',
@@ -490,6 +496,12 @@ window.TRANSLATIONS = {
   },
 
   es: {
+    'xp.tag': 'Conoce a las Expertas',
+    'xp.title': 'Credenciales reales.<br><em>Experiencia real.</em>',
+    'xp.sub': 'Las pediatras, consultoras de sueño, expertas en lactancia y especialistas infantiles certificadas que imparten las clases en vivo de Kinedu — disponibles para cada miembro, todos los días.',
+    'xp.ctaTitle': 'Pregúntales lo que sea — en vivo.',
+    'xp.ctaSub': 'Cada experta de esta página imparte clases en vivo dentro de Kinedu. Llega con tu pregunta, sal con una respuesta.',
+    'xp.ctaBtn': 'Prueba 7 días GRATIS',
     // META
     'meta.title': 'Kinedu — Dale a tu bebé el mejor comienzo',
     'meta.titleScience': 'La Ciencia detrás de Kinedu',
@@ -979,6 +991,12 @@ window.TRANSLATIONS = {
   },
 
   pt: {
+    'xp.tag': 'Conheça as Especialistas',
+    'xp.title': 'Credenciais reais.<br><em>Experiência real.</em>',
+    'xp.sub': 'As pediatras, consultoras de sono, especialistas em amamentação e especialistas infantis certificadas que dão as aulas ao vivo do Kinedu — disponíveis para cada membro, todos os dias.',
+    'xp.ctaTitle': 'Pergunte o que quiser — ao vivo.',
+    'xp.ctaSub': 'Cada especialista desta página dá aulas ao vivo dentro do Kinedu. Chegue com sua pergunta, saia com uma resposta.',
+    'xp.ctaBtn': 'Teste 7 dias GRÁTIS',
     // META
     'meta.title': 'Kinedu — Dê ao seu bebê o melhor começo',
     'meta.titleScience': 'A Ciência por trás do Kinedu',

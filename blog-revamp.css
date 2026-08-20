@@ -90,3 +90,15 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 .kbcalc-res em { color: #D1296D !important; }
 .kbcalc-out { border-color: #F3D3E1 !important; }
 .kbcalc-links a { color: #D1296D; }
+
+/* --- hubs del blog: hero con firma + chips trending de colores --- */
+.kb-hero-b { background: linear-gradient(180deg, #F5F4F0 0%, #FBFAF8 100%) !important; }
+.kb-hero-b-title em { position: relative; display: inline-block; padding-bottom: .06em; }
+.kb-hero-b-title em::after { content: ""; position: absolute; left: 1%; right: 3%; bottom: -6px; height: 13px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M4 10 Q 40 2, 75 8 T 150 8 T 225 8 T 296 6' fill='none' stroke='%23FFBD15' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
+.kb-trend-chip { border: 1.5px solid transparent; font-weight: 700; }
+.kb-trend-chip:nth-of-type(5n+1) { background: #E7ECF8; color: #0E3687; }
+.kb-trend-chip:nth-of-type(5n+2) { background: #F3E8F8; color: #6E2F7C; }
+.kb-trend-chip:nth-of-type(5n+3) { background: #FDEBD8; color: #B4610E; }
+.kb-trend-chip:nth-of-type(5n+4) { background: #FBE3ED; color: #D1296D; }
+.kb-trend-chip:nth-of-type(5n+5) { background: #E4F6E7; color: #23803A; }

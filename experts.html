@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta charset="utf-8">
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x8ou6ay6eb");</script>
 <script>if(location.hostname==="kinedu-landing.vercel.app")location.replace("https://www.kinedu.com"+location.pathname+location.search+location.hash)</script>
 <!-- Meta Pixel Code -->
@@ -35,9 +35,9 @@ fbq('track', 'PageView');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=0820a">
+<link rel="stylesheet" href="styles.css?v=0820b">
 <style>
-.xp-hero { padding: 140px 24px 56px; text-align: center; background: linear-gradient(140deg, #FDF0F5 0%, #F6F0FA 50%, #EFF5FC 100%); }
+.xp-hero { padding: 140px 24px 56px; text-align: center; background: linear-gradient(180deg, #F5F4F0 0%, #FBFAF8 100%); }
 .xp-hero .sec-tag { margin-bottom: 16px; }
 .xp-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -.025em; color: var(--text-primary); margin-bottom: 14px; }
 .xp-hero h1 em { font-style: normal; background: #087BF3; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -129,9 +129,9 @@ fbq('track', 'PageView');
     </nav>
 
     <header class="xp-hero">
-        <div class="sec-tag">Meet the Experts</div>
-        <h1>Real credentials.<br><em>Real experience.</em></h1>
-        <p>The certified pediatricians, sleep consultants, lactation experts and child specialists who teach Kinedu's live classes — available to every member, every day.</p>
+        <div class="sec-tag" data-i18n="xp.tag">Meet the Experts</div>
+        <h1 data-i18n="xp.title" data-i18n-html>Real credentials.<br><em>Real experience.</em></h1>
+        <p data-i18n="xp.sub">The certified pediatricians, sleep consultants, lactation experts and child specialists who teach Kinedu's live classes — available to every member, every day.</p>
     </header>
 
     <main>
@@ -460,17 +460,17 @@ fbq('track', 'PageView');
 
     <section class="xp-cta">
         <div class="inner">
-            <h2>Ask them anything — live.</h2>
-            <p>Every expert on this page teaches live classes inside Kinedu. Bring your question, leave with an answer.</p>
+            <h2 data-i18n="xp.ctaTitle">Ask them anything — live.</h2>
+            <p data-i18n="xp.ctaSub">Every expert on this page teaches live classes inside Kinedu. Bring your question, leave with an answer.</p>
             <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="btn-hero-primary" data-track="Experts_CTA">
                 <span class="btn-bg"></span>
-                <span class="btn-text">Try 7 days for FREE</span>
+                <span class="btn-text" data-i18n="xp.ctaBtn">Try 7 days for FREE</span>
                 <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
     </section>
 
-    <script src="translations.js?v=0724a"></script>
+    <script src="translations.js?v=0820b"></script>
     <script src="script.js?v=0701a"></script>
     <script>
     (function(){
@@ -497,5 +497,15 @@ fbq('track', 'PageView');
         show(['en','es','pt'].indexOf(siteLang) > -1 ? siteLang : 'en');
     })();
     </script>
+<script>
+document.querySelectorAll('.lang-btn').forEach(function(b){
+  b.addEventListener('click', function(){
+    var l = b.dataset.lang || b.textContent.trim().toLowerCase().slice(0,2);
+    var map = {en:'en', es:'es', pt:'pt'};
+    var t = document.querySelector('.xp-tab[data-xp-tab="' + (map[l]||'en') + '"]');
+    if (t) t.click();
+  });
+});
+</script>
 </body>
 </html>
