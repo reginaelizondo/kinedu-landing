@@ -824,16 +824,9 @@ section[id], div[id] { scroll-margin-top: 96px; }
     letter-spacing: -0.02em;
 }
 
-.problem-text .word {
-    color: var(--text-dim);
-    transition: color 0.5s ease, text-shadow 0.5s ease;
-    display: inline-block;
-    margin-right: 0.18em;
-}
+.problem-text .word { color: var(--text-primary); opacity: .82; transition: opacity 0.5s ease; display: inline-block; margin-right: 0.18em; }
 
-.problem-text .word.lit {
-    color: var(--text-primary);
-}
+.problem-text .word.lit { opacity: 1; }
 
 /* Focal phrase — single calm brand gradient, both states */
 .problem-text .word.accent, .problem-text .word.accent.lit {
