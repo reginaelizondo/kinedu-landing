@@ -35,17 +35,17 @@ fbq('track', 'PageView');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=0617n">
+<link rel="stylesheet" href="styles.css?v=0820a">
 <style>
-.xp-hero { padding: 140px 24px 56px; text-align: center; background: linear-gradient(150deg, #EBF3FF 0%, #F6FAFF 55%, #EDFAF4 100%); }
+.xp-hero { padding: 140px 24px 56px; text-align: center; background: linear-gradient(140deg, #FDF0F5 0%, #F6F0FA 50%, #EFF5FC 100%); }
 .xp-hero .sec-tag { margin-bottom: 16px; }
 .xp-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -.025em; color: var(--text-primary); margin-bottom: 14px; }
-.xp-hero h1 em { font-style: normal; background: linear-gradient(90deg, #2B8BE4, #34C989); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.xp-hero h1 em { font-style: normal; background: #087BF3; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .xp-hero p { font-size: 1.02rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 .xp-tabs { display: flex; justify-content: center; gap: 10px; padding: 40px 24px 0; }
 .xp-tab { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid var(--border); border-radius: 100px; padding: 10px 22px; font-family: inherit; font-size: .92rem; font-weight: 700; color: var(--text-secondary); cursor: pointer; transition: all .18s; }
 .xp-tab:hover { border-color: var(--kinedu-blue); color: var(--kinedu-blue); }
-.xp-tab.active { background: linear-gradient(90deg, #2B8BE4, #34A9E9); color: #fff; border-color: transparent; box-shadow: 0 6px 18px rgba(43,139,228,.3); }
+.xp-tab.active { background: #087BF3; color: #fff; border-color: transparent; box-shadow: 0 6px 18px rgba(43,139,228,.3); }
 .xp-count { font-size: .7rem; font-weight: 800; background: rgba(14,27,44,.07); padding: 2px 8px; border-radius: 100px; }
 .xp-tab.active .xp-count { background: rgba(255,255,255,.22); }
 .xp-group { display: none; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1140px; margin: 0 auto; padding: 40px 24px 72px; }
@@ -61,7 +61,7 @@ fbq('track', 'PageView');
 .xp-spec { font-size: .8rem; color: var(--text-tertiary); margin-bottom: 14px; }
 .xp-bio { font-size: .84rem; color: var(--text-secondary); line-height: 1.65; text-align: left; }
 .xp-cta { text-align: center; padding: 0 24px 84px; }
-.xp-cta .inner { max-width: 720px; margin: 0 auto; background: linear-gradient(150deg, #EBF3FF, #EDFAF4); border: 1px solid var(--border); border-radius: 26px; padding: 44px 32px; }
+.xp-cta .inner { max-width: 720px; margin: 0 auto; background: linear-gradient(150deg, #F5F4F0, #EDF9EE); border: 1px solid var(--border); border-radius: 26px; padding: 44px 32px; }
 .xp-cta h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; }
 .xp-cta p { color: var(--text-secondary); margin-bottom: 24px; }
 @media (max-width: 900px) { .xp-group { grid-template-columns: repeat(2, 1fr); } .xp-tabs { flex-wrap: wrap; } }
@@ -81,6 +81,7 @@ fbq('track', 'PageView');
 </style>
 </head>
 <body>
+<div class="k-bubs" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
 
     <!-- NAVBAR — Opal-style floating pill -->
     <nav class="navbar" id="navbar">

@@ -1,0 +1,92 @@
+/* ===== Kinedu Blog Brand 2026 — hoja compartida ===== */
+@font-face { font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2'); font-weight:100 500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-bold-webfont.woff2') format('woff2'); font-weight:600 900; font-style:normal; font-display:swap; }
+
+:root {
+  --font: 'Proxima Nova', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --bg: #FBFAF8;
+  --blue-tint: #F3F1EC;
+}
+body { background: #FBFAF8; }
+
+/* --- chip de categoría del artículo --- */
+.kb-art-cat {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--kcat-soft, #EAF4FD); color: var(--kcat-dark, #1E6FBD) !important;
+  padding: 6px 14px; border-radius: 999px;
+}
+.kb-art-cat::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--kcat, #2B8BE4); }
+
+/* --- acentos del cuerpo del artículo --- */
+.kb-art-body h2 { position: relative; padding-left: 18px; }
+.kb-art-body h2::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 5px; border-radius: 4px;
+  background: linear-gradient(180deg, var(--kcat, #2B8BE4), var(--kcat-soft, #EAF4FD)); }
+.kb-art-body ol li::marker { color: var(--kcat, #2B8BE4); font-weight: 700; }
+body .kb-art-body ul li::before { background: var(--kcat, #34C989); }
+body blockquote { border-left-color: var(--kcat, #2B8BE4); }
+
+/* --- tarjetas: acento superior por categoría (hubs con data-cat) --- */
+.kb-card { border-top: 3px solid var(--kcat, transparent); }
+.kb-card[data-cat="physical"] { border-top-color: #32AFE0; }
+.kb-card[data-cat="physical"] .kb-card-cat-chip { background: #E3F4FB; color: #1273A0; }
+.kb-card[data-cat="exercise"] { border-top-color: #32AFE0; }
+.kb-card[data-cat="exercise"] .kb-card-cat-chip { background: #E3F4FB; color: #1273A0; }
+.kb-card[data-cat="linguistic"] { border-top-color: #F99848; }
+.kb-card[data-cat="linguistic"] .kb-card-cat-chip { background: #FDEBD8; color: #B4610E; }
+.kb-card[data-cat="socialandemotional"] { border-top-color: #D1296D; }
+.kb-card[data-cat="socialandemotional"] .kb-card-cat-chip { background: #FBE3ED; color: #D1296D; }
+.kb-card[data-cat="cognitive"] { border-top-color: #3EB646; }
+.kb-card[data-cat="cognitive"] .kb-card-cat-chip { background: #E4F6E7; color: #23803A; }
+.kb-card[data-cat="stimulation"] { border-top-color: #3EB646; }
+.kb-card[data-cat="stimulation"] .kb-card-cat-chip { background: #E4F6E7; color: #23803A; }
+.kb-card[data-cat="health-guide"] { border-top-color: #EC4D4D; }
+.kb-card[data-cat="health-guide"] .kb-card-cat-chip { background: #FDE7E7; color: #C22F2F; }
+.kb-card[data-cat="health"] { border-top-color: #EC4D4D; }
+.kb-card[data-cat="health"] .kb-card-cat-chip { background: #FDE7E7; color: #C22F2F; }
+.kb-card[data-cat="well-being"] { border-top-color: #EC4D4D; }
+.kb-card[data-cat="well-being"] .kb-card-cat-chip { background: #FDE7E7; color: #C22F2F; }
+.kb-card[data-cat="healthyhabits"] { border-top-color: #EC4D4D; }
+.kb-card[data-cat="healthyhabits"] .kb-card-cat-chip { background: #FDE7E7; color: #C22F2F; }
+.kb-card[data-cat="sleep"] { border-top-color: #0E3687; }
+.kb-card[data-cat="sleep"] .kb-card-cat-chip { background: #E7ECF8; color: #0E3687; }
+.kb-card[data-cat="breastfeeding"] { border-top-color: #913FA3; }
+.kb-card[data-cat="breastfeeding"] .kb-card-cat-chip { background: #F3E8F8; color: #6E2F7C; }
+.kb-card[data-cat="bottlefeeding"] { border-top-color: #913FA3; }
+.kb-card[data-cat="bottlefeeding"] .kb-card-cat-chip { background: #F3E8F8; color: #6E2F7C; }
+.kb-card[data-cat="solid-foods"] { border-top-color: #913FA3; }
+.kb-card[data-cat="solid-foods"] .kb-card-cat-chip { background: #F3E8F8; color: #6E2F7C; }
+.kb-card[data-cat="nutrition"] { border-top-color: #913FA3; }
+.kb-card[data-cat="nutrition"] .kb-card-cat-chip { background: #F3E8F8; color: #6E2F7C; }
+.kb-card[data-cat="feeding"] { border-top-color: #913FA3; }
+.kb-card[data-cat="feeding"] .kb-card-cat-chip { background: #F3E8F8; color: #6E2F7C; }
+.kb-card[data-cat="safety"] { border-top-color: #E57339; }
+.kb-card[data-cat="safety"] .kb-card-cat-chip { background: #FBEADF; color: #B4531F; }
+.kb-card[data-cat="diapers"] { border-top-color: #E57339; }
+.kb-card[data-cat="diapers"] .kb-card-cat-chip { background: #FBEADF; color: #B4531F; }
+.kb-card[data-cat="pottytraining"] { border-top-color: #E57339; }
+.kb-card[data-cat="pottytraining"] .kb-card-cat-chip { background: #FBEADF; color: #B4531F; }
+.kb-card[data-cat="health-pregnancy"] { border-top-color: #E37EA7; }
+.kb-card[data-cat="health-pregnancy"] .kb-card-cat-chip { background: #FBEAF1; color: #C4527F; }
+.kb-card[data-cat="general-pregnancy"] { border-top-color: #E37EA7; }
+.kb-card[data-cat="general-pregnancy"] .kb-card-cat-chip { background: #FBEAF1; color: #C4527F; }
+.kb-card[data-cat="prenatal"] { border-top-color: #E37EA7; }
+.kb-card[data-cat="prenatal"] .kb-card-cat-chip { background: #FBEAF1; color: #C4527F; }
+
+/* --- páginas de categoría: hero tintado con su color --- */
+.hero { background: linear-gradient(180deg, var(--kcat-soft, #F5F4F0) 0%, #FBFAF8 100%); border-bottom-color: #EBE6DF; }
+.hero .count, .count { background: var(--kcat-soft, #EAF4FD); color: var(--kcat-dark, #1E6FBD); }
+.hero h1 { position: relative; display: inline-block; }
+.hero h1::after { content: ""; position: absolute; left: 2px; right: -6px; bottom: 4px; height: 14px;
+  background: var(--kcat, #2B8BE4); opacity: .28; border-radius: 8px; z-index: -1; }
+
+/* --- calculadora gestacional: paleta "no born yet" --- */
+.kbcalc { background: linear-gradient(135deg, #FDF0F5 0%, #F6EEFA 55%, #EDF8FD 100%) !important; border-color: #F3D3E1 !important; }
+.kbcalc-eyebrow { background: #FBE3ED !important; color: #D1296D !important; }
+.kbcalc-field input:focus { outline-color: #D1296D !important; border-color: #D1296D !important; }
+.kbcalc-btn { background: #D1296D !important; }
+.kbcalc-btn:hover { background: #B02360 !important; }
+.kbcalc-bar { background: #FBE3ED !important; }
+.kbcalc-bar-fill { background: linear-gradient(90deg, #E37EA7, #BC8BC7, #84CFEC) !important; }
+.kbcalc-res em { color: #D1296D !important; }
+.kbcalc-out { border-color: #F3D3E1 !important; }
+.kbcalc-links a { color: #D1296D; }
