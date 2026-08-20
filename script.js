@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentLang = getInitialLang();
 
+    // Science pages have hard-coded translated content per file — always
+    // render them in the page's own language (buttons navigate instead).
+    (function () {
+        const p = window.location.pathname;
+        const m = p.match(/^\/(es|pt)\/science(\.html)?$/);
+        if (m) { currentLang = m[1]; }
+        else if (/^\/science(\.html)?$/.test(p)) { currentLang = 'en'; }
+    })();
+
         function applyTranslations(lang) {
             if (!window.TRANSLATIONS) return;
             const t = window.TRANSLATIONS[lang];
@@ -141,6 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                     path === '/es/articles.html' || path === '/es/articles' ||
                                     path === '/pt/articles.html' || path === '/pt/articles';
 
+                const isSciencePage = /^\/(es\/|pt\/)?science(\.html)?$/.test(path);
+                if (isSciencePage) {
+                    localStorage.setItem(STORAGE_KEY, lang);
+                    window.location.href = lang === 'es' ? '/es/science' : lang === 'pt' ? '/pt/science' : '/science.html';
+                    return;
+                }
                 if (isBlogArticle || isBlogIndex) {
                     localStorage.setItem(STORAGE_KEY, lang);
                     if (lang === 'es') {
