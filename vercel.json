@@ -266,7 +266,7 @@
       "permanent": true
     },
     {
-      "source": "/pt/blog/como-desenvolver-habitos-saudaveis-\u200b\u200bde-sono",
+      "source": "/pt/blog/como-desenvolver-habitos-saudaveis-​​de-sono",
       "destination": "https://www.kinedu.com/pt/blog",
       "permanent": true
     },
@@ -2728,6 +2728,21 @@
     {
       "source": "/blog/kinedu-parents-manual",
       "destination": "/docs/kinedu-parents-manual.html",
+      "permanent": true
+    },
+    {
+      "source": "/live-class",
+      "destination": "/live-classes",
+      "permanent": true
+    },
+    {
+      "source": "/masterclasses",
+      "destination": "/live-classes",
+      "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/",
       "permanent": true
     }
   ]
