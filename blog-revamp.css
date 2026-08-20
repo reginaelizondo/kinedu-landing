@@ -163,3 +163,8 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 .kb-grid-3 .kb-card .kb-card-img img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 .kb-grid-3 .kb-card .kb-card-excerpt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .kb-grid-3 .kb-card:hover .kb-card-title { color: var(--kcat-dark, #1E6FBD); }
+
+/* --- hub: aire antes del footer + fade de destacados --- */
+section:has(.kb-card-over) { padding-bottom: 110px !important; }
+.kb-card-over { transition: opacity .45s ease; }
+.kb-card-over.kbfade { opacity: 0; }
