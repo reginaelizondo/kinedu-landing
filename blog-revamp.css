@@ -102,3 +102,38 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 .kb-trend-chip:nth-of-type(5n+3) { background: #FDEBD8; color: #B4610E; }
 .kb-trend-chip:nth-of-type(5n+4) { background: #FBE3ED; color: #D1296D; }
 .kb-trend-chip:nth-of-type(5n+5) { background: #E4F6E7; color: #23803A; }
+
+/* --- hubs: etapas estilo pastel + emoji (pilot look) --- */
+.kb-stage { aspect-ratio: auto; min-height: 225px; align-items: center; justify-content: center; text-align: center; padding: 26px 14px 22px; overflow: visible; }
+.kb-stage img.bg { display: none; }
+.kb-stage::after { content: none; }
+.kb-stage::before { content: ""; width: 66px; height: 66px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 3px 10px rgba(8,27,70,.10); margin-bottom: 14px; position: static; inset: auto; }
+.kb-stage:nth-child(1) { background: #FBEAF1; }
+.kb-stage:nth-child(1)::before { content: "🤰"; }
+.kb-stage:nth-child(1) .age-range { color: #C4527F; }
+.kb-stage:nth-child(2) { background: #E3F4FB; }
+.kb-stage:nth-child(2)::before { content: "👶"; }
+.kb-stage:nth-child(2) .age-range { color: #1273A0; }
+.kb-stage:nth-child(3) { background: #FFF3D6; }
+.kb-stage:nth-child(3)::before { content: "🍼"; }
+.kb-stage:nth-child(3) .age-range { color: #A87908; }
+.kb-stage:nth-child(4) { background: #E4F6E7; }
+.kb-stage:nth-child(4)::before { content: "🧸"; }
+.kb-stage:nth-child(4) .age-range { color: #23803A; }
+.kb-stage:nth-child(5) { background: #F3E8F8; }
+.kb-stage:nth-child(5)::before { content: "🎨"; }
+.kb-stage:nth-child(5) .age-range { color: #6E2F7C; }
+.kb-stage > * { color: #0E1B2C; }
+.kb-stage h4 { color: #0E1B2C; font-size: 19px; }
+.kb-stage .age-range { opacity: 1; font-size: 11px; letter-spacing: .07em; margin-bottom: 3px; }
+.kb-stage .count { color: #5E6C80; opacity: 1; background: none; }
+.kb-stage:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(8,27,70,.12); }
+
+/* --- category pages: chips y hero playful con el color del tema --- */
+.kb-card-cat-chip { background: var(--kcat-soft, #fff); color: var(--kcat-dark, inherit); }
+.hero { position: relative; overflow: hidden; }
+.hero > * { position: relative; z-index: 1; }
+.hero::before { content: ""; position: absolute; right: -70px; top: -90px; width: 300px; height: 300px; border-radius: 50%; background: var(--kcat, #2B8BE4); opacity: .13; z-index: 0; }
+.hero::after { content: ""; position: absolute; right: 190px; top: 110px; width: 70px; height: 70px; border-radius: 50%; background: var(--kcat-dark, #1E6FBD); opacity: .12; z-index: 0; }
+.hero-back { background: var(--kcat-soft, #EAF4FD) !important; color: var(--kcat-dark, #1E6FBD) !important; }
+.crumb a { color: var(--kcat-dark, #1E6FBD) !important; }
