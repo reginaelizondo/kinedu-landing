@@ -137,3 +137,10 @@ body blockquote { border-left-color: var(--kcat, #2B8BE4); }
 .hero::after { content: ""; position: absolute; right: 190px; top: 110px; width: 70px; height: 70px; border-radius: 50%; background: var(--kcat-dark, #1E6FBD); opacity: .12; z-index: 0; }
 .hero-back { background: var(--kcat-soft, #EAF4FD) !important; color: var(--kcat-dark, #1E6FBD) !important; }
 .crumb a { color: var(--kcat-dark, #1E6FBD) !important; }
+
+/* --- editores polish: tarjetas destacadas --- */
+.kb-card-over { border-radius: 22px; overflow: hidden; transition: transform .18s, box-shadow .18s; }
+.kb-card-over:hover { transform: translateY(-4px) rotate(-.3deg); box-shadow: 0 16px 34px rgba(8,27,70,.16); }
+.kb-card-over::after { background: linear-gradient(180deg, rgba(8,27,70,0) 30%, rgba(8,27,70,.88) 100%) !important; }
+.kb-card-over h3 { font-size: 19px; letter-spacing: -.02em; line-height: 1.25; }
+.kb-card-over .meta { opacity: .85; font-size: 12.5px; }
