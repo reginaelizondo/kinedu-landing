@@ -3742,9 +3742,18 @@ body.amodal-lock { overflow: hidden; }
 .k-bubs .b4 { width: 60px; height: 60px; background: #32C99A; opacity: .16; top: 90px; left: 140px; }
 .k-bubs .b5 { width: 120px; height: 120px; background: #913FA3; opacity: .06; bottom: 180px; right: 60px; }
 
+/* Burbujas extra solo para mobile (b6-b10), repartidas a lo alto de la página */
+.k-bubs .b6, .k-bubs .b7, .k-bubs .b8, .k-bubs .b9, .k-bubs .b10 { display: none; }
+
 /* En mobile las burbujas pasan de fixed a absolute: se ven igual pero
    hacen scroll con la página en vez de quedarse congeladas encima del contenido */
 @media (max-width: 768px) {
     body { position: relative; }
     .k-bubs { position: absolute; }
+    .k-bubs .b6, .k-bubs .b7, .k-bubs .b8, .k-bubs .b9, .k-bubs .b10 { display: block; }
+    .k-bubs .b6  { width: 140px; height: 140px; background: #FFC033; opacity: .12; top: 16%; left: -50px; }
+    .k-bubs .b7  { width: 80px;  height: 80px;  background: #087BF3; opacity: .10; top: 30%; right: -24px; }
+    .k-bubs .b8  { width: 110px; height: 110px; background: #32C99A; opacity: .11; top: 46%; left: -40px; }
+    .k-bubs .b9  { width: 70px;  height: 70px;  background: #F7567C; opacity: .12; top: 62%; right: 26px; }
+    .k-bubs .b10 { width: 130px; height: 130px; background: #913FA3; opacity: .07; top: 78%; left: -55px; }
 }
