@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const folder = imgMap[lang] || 'EN';
             const heroImg = document.getElementById('heroImg');
             const heroSource = document.getElementById('heroSourceMobile');
-            if (heroImg) heroImg.src = 'TAP/NEW/desktop ' + folder + '.webp';
-            if (heroSource) heroSource.srcset = 'TAP/NEW/mobile ' + folder + '.webp';
+            if (heroImg) heroImg.src = 'TAP/NEW/desktop ' + folder + '.webp?v=2';
+            if (heroSource) heroSource.srcset = 'TAP/NEW/mobile ' + folder + '.webp?v=2';
 
             // Swap feature images per language
             const featureImages = {
