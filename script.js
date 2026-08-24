@@ -86,8 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const folder = imgMap[lang] || 'EN';
             const heroImg = document.getElementById('heroImg');
             const heroSource = document.getElementById('heroSourceMobile');
-            if (heroImg) heroImg.src = 'TAP/NEW/desktop ' + folder + '.webp?v=2';
-            if (heroSource) heroSource.srcset = 'TAP/NEW/mobile ' + folder + '.webp?v=2';
+            // Only touch src when it actually changes — re-assigning forces a
+            // reload/repaint of the hero image (visible flicker at page load).
+            const heroDesk = 'TAP/NEW/desktop ' + folder + '.webp?v=2';
+            const heroMob = 'TAP/NEW/mobile ' + folder + '.webp?v=2';
+            if (heroImg && !heroImg.src.endsWith(encodeURI(heroDesk))) heroImg.src = heroDesk;
+            if (heroSource && heroSource.srcset !== heroMob) heroSource.srcset = heroMob;
 
             // Swap feature images per language
             const featureImages = {

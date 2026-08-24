@@ -762,6 +762,10 @@ section[id], div[id] { scroll-margin-top: 96px; }
     max-width: 100%;
     height: auto;
     display: block;
+    /* Pin to its own GPU layer: prevents the 1-frame re-raster "jump"
+       of the downscaled image when the page fade-in transition ends. */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 
