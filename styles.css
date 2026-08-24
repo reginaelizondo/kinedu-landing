@@ -744,17 +744,6 @@ section[id], div[id] { scroll-margin-top: 96px; }
     opacity: 0.65;
 }
 
-/* Opacity-only breath — no scale, so the halo never grows/shrinks
-   behind the phone (that size-pulse read as a "trembling" phone). */
-@keyframes glowPulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 0.78; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .device-glow { animation: none; opacity: 0.65; }
-}
-
 /* ===== HERO PHONE IMAGE ===== */
 .hero-phone-img {
     position: relative;
