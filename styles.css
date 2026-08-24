@@ -739,8 +739,9 @@ section[id], div[id] { scroll-margin-top: 96px; }
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
-    animation: glowPulse 7s ease-in-out infinite;
-    will-change: opacity;
+    /* Fully static — every animated variant of this halo read as the
+       phone "trembling", so it does not move or breathe at all now. */
+    opacity: 0.65;
 }
 
 /* Opacity-only breath — no scale, so the halo never grows/shrinks
