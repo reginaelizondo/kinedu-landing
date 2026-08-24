@@ -1,1480 +1,658 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x8ou6ay6eb");</script>
-<script>if(location.hostname==="kinedu-landing.vercel.app")location.replace("https://www.kinedu.com"+location.pathname+location.search+location.hash)</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinedu Analytics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: #f0f2f5;
-            color: #1a1a2e;
-            min-height: 100vh;
-        }
-
-        /* ---- LOGIN SCREEN ---- */
-        .login-screen {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-        }
-        .login-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 48px 40px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            text-align: center;
-        }
-        .login-card img {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-        }
-        .login-logo {
-            width: 54px;
-            height: 54px;
-            background: linear-gradient(135deg, #2b8be4, #4cd964);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: #fff;
-            font-weight: 800;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .login-card h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #1a1a2e;
-        }
-        .login-card p {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 28px;
-        }
-        .login-input {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 12px;
-            font-size: 15px;
-            font-family: 'Inter', sans-serif;
-            outline: none;
-            transition: border-color 0.2s;
-            margin-bottom: 16px;
-        }
-        .login-input:focus {
-            border-color: #2b8be4;
-            box-shadow: 0 0 0 3px rgba(43,139,228,0.1);
-        }
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #2b8be4, #1a6fbf);
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: transform 0.15s, box-shadow 0.15s;
-        }
-        .login-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(43,139,228,0.35);
-        }
-        .login-error {
-            color: #ef4444;
-            font-size: 13px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        /* ---- DASHBOARD ---- */
-        .dashboard { display: none; }
-        .dashboard.active { display: block; }
-
-        /* Top bar */
-        .top-bar {
-            background: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 16px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .top-bar-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .top-bar-logo {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #2b8be4, #4cd964);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: #fff;
-            font-weight: 800;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .top-bar h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-        }
-        .top-bar-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .period-select {
-            padding: 8px 14px;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-            background: #fff;
-            cursor: pointer;
-            outline: none;
-            color: #374151;
-        }
-        .period-select:focus { border-color: #2b8be4; }
-        .refresh-btn {
-            padding: 8px 16px;
-            background: #f3f4f6;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            color: #374151;
-            transition: background 0.15s;
-        }
-        .refresh-btn:hover { background: #e5e7eb; }
-        .logout-btn {
-            padding: 8px 16px;
-            background: none;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            color: #6b7280;
-            transition: all 0.15s;
-        }
-        .logout-btn:hover { background: #fef2f2; color: #ef4444; border-color: #fca5a5; }
-
-        /* Content */
-        .dash-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 28px 32px 60px;
-        }
-
-        /* Summary cards */
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-        .summary-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid #e5e7eb;
-        }
-        .summary-card .label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #6b7280;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        .summary-card .value {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 32px;
-            font-weight: 800;
-            color: #1a1a2e;
-            line-height: 1;
-        }
-        .summary-card .value.blue { color: #2b8be4; }
-        .summary-card .value.green { color: #22c55e; }
-        .summary-card .value.purple { color: #8b5cf6; }
-        .summary-card .value.orange { color: #f59e0b; }
-
-        /* Chart section */
-        .chart-section {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px;
-            border: 1px solid #e5e7eb;
-            margin-bottom: 28px;
-        }
-        .chart-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .chart-header h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-        }
-        .chart-toggle {
-            display: flex;
-            gap: 4px;
-            background: #f3f4f6;
-            border-radius: 8px;
-            padding: 3px;
-        }
-        .chart-toggle button {
-            padding: 6px 14px;
-            border: none;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            background: transparent;
-            color: #6b7280;
-            transition: all 0.15s;
-        }
-        .chart-toggle button.active {
-            background: #fff;
-            color: #1a1a2e;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-        .chart-container {
-            position: relative;
-            height: 300px;
-        }
-
-        /* CTA section */
-        .cta-section {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px;
-            border: 1px solid #e5e7eb;
-            margin-bottom: 28px;
-        }
-        .cta-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .cta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 12px;
-        }
-        .cta-card {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 18px;
-            border: 1px solid #f3f4f6;
-        }
-        .cta-card .cta-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 6px;
-        }
-        .cta-card .cta-count {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: #8b5cf6;
-            line-height: 1;
-        }
-        .cta-card .cta-pct {
-            font-size: 11px;
-            color: #9ca3af;
-            margin-top: 4px;
-        }
-
-        /* Tables grid */
-        .tables-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-        }
-        .data-table {
-            background: #fff;
-            border-radius: 16px;
-            padding: 24px;
-            border: 1px solid #e5e7eb;
-        }
-        .data-table h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #374151;
-        }
-        .data-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .data-table th, .data-table td {
-            padding: 10px 12px;
-            text-align: left;
-            font-size: 13px;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .data-table th {
-            font-weight: 600;
-            color: #6b7280;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .data-table td { color: #374151; }
-        .data-table .num { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
-        .data-table tr:last-child td { border-bottom: none; }
-        .data-table .bar-cell {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .mini-bar {
-            height: 6px;
-            border-radius: 3px;
-            background: linear-gradient(90deg, #2b8be4, #4cd964);
-            min-width: 4px;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 24px;
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        /* Loading */
-        .loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(255,255,255,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-        .loading-overlay.hidden { display: none; }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #e5e7eb;
-            border-top: 3px solid #2b8be4;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .summary-grid { grid-template-columns: repeat(2, 1fr); }
-            .tables-grid { grid-template-columns: 1fr; }
-            .dash-content { padding: 20px 16px 40px; }
-            .top-bar { padding: 14px 16px; flex-wrap: wrap; gap: 8px; }
-        }
-        @media (max-width: 500px) {
-            .summary-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .summary-card { padding: 18px 16px; }
-            .summary-card .value { font-size: 26px; }
-            .chart-container { height: 220px; }
-            .top-bar-right { width: 100%; justify-content: flex-end; }
-        }
-
-        /* ── LEARN SECTION ─────────────────────────────────────────── */
-        .learn-section {
-            background: #fff;
-            border-radius: 16px;
-            padding: 28px 28px 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-            border-top: 4px solid #2b8be4;
-        }
-        .learn-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-        .learn-icon { font-size: 28px; }
-        .learn-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700; color: #111827; margin: 0; }
-        .learn-subtitle { font-size: 12px; color: #9ca3af; margin: 2px 0 0; }
-        .learn-link-btn {
-            display: inline-flex; align-items: center; gap: 4px;
-            background: #f3f4f6; border: 1px solid #e5e7eb;
-            border-radius: 8px; padding: 5px 10px;
-            font-size: 12px; font-weight: 600; color: #374151;
-            text-decoration: none; transition: background .15s;
-        }
-        .learn-link-btn:hover { background: #e5e7eb; }
-
-        /* Lang cards */
-        .learn-lang-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-bottom: 24px;
-        }
-        @media (max-width: 640px) { .learn-lang-grid { grid-template-columns: 1fr; } }
-        .learn-lang-card {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 18px 16px;
-        }
-        .llc-flag { font-size: 22px; margin-bottom: 4px; }
-        .llc-label { font-weight: 700; font-size: 14px; color: #111827; }
-        .llc-swc { font-size: 11px; color: #9ca3af; font-family: monospace; margin-bottom: 14px; }
-        .llc-stats { display: flex; gap: 0; border-top: 1px solid #e5e7eb; padding-top: 12px; }
-        .llc-stat { flex: 1; text-align: center; }
-        .llc-stat + .llc-stat { border-left: 1px solid #e5e7eb; }
-        .llc-val { display: block; font-size: 20px; font-weight: 700; color: #111827; }
-        .llc-key { display: block; font-size: 10px; color: #9ca3af; margin-top: 1px; }
-
-        /* A/B Panel */
-        .ab-panel {
-            background: linear-gradient(135deg, #fefce8 0%, #fffbf0 100%);
-            border: 1px solid #fde68a;
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .ab-panel-header {
-            display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;
-        }
-        .ab-badge {
-            background: #f59e0b; color: #fff;
-            font-size: 10px; font-weight: 800; letter-spacing: .06em;
-            border-radius: 6px; padding: 3px 8px;
-        }
-        .ab-panel-header h3 { font-size: 15px; font-weight: 700; color: #111827; margin: 0; }
-        .ab-meta { font-size: 11px; color: #9ca3af; margin-left: auto; }
-        .ab-meta code { background: #f3f4f6; padding: 1px 5px; border-radius: 4px; font-size: 11px; }
-        .ab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-        @media (max-width: 540px) { .ab-grid { grid-template-columns: 1fr; } }
-        .ab-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 16px;
-            border: 1.5px solid #e5e7eb;
-        }
-        .ab-card--a { border-color: #93c5fd; }
-        .ab-card--b { border-color: #6ee7b7; }
-        .ab-card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
-        .ab-pill {
-            width: 28px; height: 28px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 14px; flex-shrink: 0;
-        }
-        .ab-pill--a { background: #dbeafe; color: #1d4ed8; }
-        .ab-pill--b { background: #d1fae5; color: #065f46; }
-        .ab-card-name { font-size: 13px; font-weight: 700; color: #111827; }
-        .ab-card-desc { font-size: 11px; color: #9ca3af; }
-        .ab-preview-link { font-size: 11px; color: #2b8be4; text-decoration: none; margin-left: auto; white-space: nowrap; }
-        .ab-metrics { display: flex; gap: 0; border-top: 1px solid #f3f4f6; padding-top: 12px; margin-bottom: 12px; }
-        .ab-metric { flex: 1; text-align: center; }
-        .ab-metric + .ab-metric { border-left: 1px solid #f3f4f6; }
-        .ab-mval { display: block; font-size: 18px; font-weight: 700; color: #111827; }
-        .ab-mkey { display: block; font-size: 10px; color: #9ca3af; }
-        .ab-bar-wrap { height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; }
-        .ab-bar { height: 100%; border-radius: 99px; transition: width .5s ease; }
-        .ab-bar--a { background: #3b82f6; }
-        .ab-bar--b { background: #10b981; }
-        /* Manual input */
-        .ab-manual { background: #fff; border-radius: 10px; padding: 14px; border: 1px dashed #d1d5db; }
-        .ab-manual-label { font-size: 12px; font-weight: 600; color: #6b7280; margin-bottom: 10px; }
-        .ab-inputs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
-        @media (max-width: 600px) { .ab-inputs { grid-template-columns: 1fr 1fr; } }
-        .ab-input-group label { display: block; font-size: 10px; color: #9ca3af; margin-bottom: 3px; }
-        .ab-input-group input {
-            width: 100%; padding: 6px 8px; border: 1px solid #e5e7eb;
-            border-radius: 7px; font-size: 13px; font-family: inherit;
-            outline: none; transition: border-color .15s;
-        }
-        .ab-input-group input:focus { border-color: #2b8be4; }
-        .ab-winner {
-            font-size: 13px; font-weight: 700; color: #065f46;
-            min-height: 20px;
-        }
-        /* Quick links row */
-        .learn-links-row { display: flex; gap: 8px; flex-wrap: wrap; }
-        .learn-ext-link {
-            display: inline-flex; align-items: center; gap: 5px;
-            background: #f9fafb; border: 1px solid #e5e7eb;
-            border-radius: 8px; padding: 6px 12px;
-            font-size: 12px; font-weight: 500; color: #374151;
-            text-decoration: none; transition: background .15s;
-        }
-        .learn-ext-link:hover { background: #e5e7eb; }
-
-        /* Meta Ads live row */
-        .meta-ads-row {
-            background: #fff;
-            border-radius: 14px;
-            border: 1.5px solid #e5e7eb;
-            padding: 18px 20px;
-            margin-bottom: 16px;
-        }
-        .meta-ads-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-        .meta-logo {
-            font-size: 11px;
-            font-weight: 700;
-            background: #1877f2;
-            color: #fff;
-            padding: 3px 9px;
-            border-radius: 6px;
-            letter-spacing: .5px;
-        }
-        .meta-date-sel {
-            font-size: 12px;
-            padding: 4px 8px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            background: #f9fafb;
-            cursor: pointer;
-            color: #374151;
-        }
-        .meta-refresh-btn {
-            font-size: 12px;
-            padding: 4px 12px;
-            background: #f3f4f6;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            cursor: pointer;
-            color: #374151;
-            font-weight: 600;
-        }
-        .meta-refresh-btn:hover { background: #e5e7eb; }
-        .meta-fetched-at { font-size: 11px; color: #9ca3af; margin-left: 4px; }
-        .meta-campaign-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        @media (max-width: 640px) { .meta-campaign-grid { grid-template-columns: 1fr; } }
-        .meta-camp-card {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 14px;
-        }
-        .mcc-top {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            margin-bottom: 10px;
-        }
-        .mcc-flag { font-size: 18px; }
-        .mcc-name { font-size: 13px; font-weight: 700; color: #111827; flex: 1; }
-        .mcc-status {
-            font-size: 10px;
-            padding: 2px 7px;
-            border-radius: 20px;
-            background: #dcfce7;
-            color: #166534;
-            font-weight: 600;
-        }
-        .mcc-status.no-data { background: #fef9c3; color: #854d0e; }
-        .mcc-status.loading { background: #f3f4f6; color: #6b7280; }
-        .mcc-metrics {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-        }
-        @media (max-width: 900px) { .mcc-metrics { grid-template-columns: repeat(3, 1fr); } }
-        .mcc-metric { text-align: center; }
-        .mcc-val { display: block; font-size: 15px; font-weight: 700; color: #111827; }
-        .mcc-key { display: block; font-size: 10px; color: #9ca3af; margin-top: 2px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinedu Analytics</title>
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@font-face { font-family: 'Proxima Nova'; src: url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2'); font-weight: 100 500; font-display: swap; }
+@font-face { font-family: 'Proxima Nova'; src: url('/fonts/proxima-nova/proximanova-bold-webfont.woff2') format('woff2'); font-weight: 600 900; font-display: swap; }
+:root {
+  --bg: #FBFAF8; --card: #FFFFFF; --line: #EBE6DF;
+  --ink: #081B46; --ink2: #52607A; --muted: #8A94A8;
+  --c1: #087BF3; --c2: #C97E16; --c3: #3AA35A; --c4: #0C86AC; --c5: #D1296D; --c6: #7C3AA8;
+  --good: #1FA66E; --bad: #D14343; --grid: #EEEAE3;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Proxima Nova', -apple-system, sans-serif; background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.5; }
+a { color: var(--c1); text-decoration: none; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
+
+/* ---------- login ---------- */
+#login { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 100; }
+#login .box { background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 40px; width: 360px; max-width: 92vw; text-align: center; box-shadow: 0 10px 40px rgba(8,27,70,.07); }
+#login h1 { font-size: 22px; margin-bottom: 4px; }
+#login p { color: var(--ink2); font-size: 14px; margin-bottom: 20px; }
+#login input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: 12px; font-size: 15px; font-family: inherit; margin-bottom: 12px; }
+#login button { width: 100%; padding: 12px; background: var(--c1); color: #fff; border: 0; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; }
+#login .err { color: var(--bad); font-size: 13px; margin-top: 10px; display: none; }
+
+/* ---------- header ---------- */
+.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.head h1 { font-size: 26px; letter-spacing: -.02em; }
+.head .sub { color: var(--ink2); font-size: 13.5px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chipset { display: flex; background: var(--card); border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; }
+.chip { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--ink2); cursor: pointer; font-family: inherit; }
+.chip.on { background: var(--ink); color: #fff; }
+#updated { font-size: 12px; color: var(--muted); }
+
+/* ---------- layout ---------- */
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 20px 22px; grid-column: span 12; min-width: 0; }
+.card h2 { font-size: 15px; font-weight: 800; letter-spacing: .01em; margin-bottom: 2px; }
+.card .desc { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+.s6 { grid-column: span 6; } .s4 { grid-column: span 4; } .s8 { grid-column: span 8; } .s3 { grid-column: span 3; }
+@media (max-width: 900px) { .s6, .s4, .s8, .s3 { grid-column: span 12; } .wrap { padding: 18px 14px 60px; } }
+
+/* ---------- KPIs ---------- */
+.kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 16px; }
+@media (max-width: 900px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+.kpi { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 18px; }
+.kpi .lbl { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kpi .val { font-size: 28px; font-weight: 800; letter-spacing: -.02em; margin: 2px 0; }
+.kpi .dlt { font-size: 12.5px; font-weight: 700; }
+.dlt.up { color: var(--good); } .dlt.down { color: var(--bad); } .dlt.flat { color: var(--muted); }
+
+/* ---------- tables ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 6px 8px; border-bottom: 1.5px solid var(--line); cursor: pointer; user-select: none; white-space: nowrap; }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td { padding: 7px 8px; border-bottom: 1px solid var(--grid); color: var(--ink2); }
+td.k { color: var(--ink); font-weight: 600; max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr:hover td { background: #FAF8F4; }
+.bar-ln { display: inline-block; height: 6px; border-radius: 3px; background: var(--c1); vertical-align: middle; margin-right: 8px; }
+.tag { display: inline-block; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px; margin-right: 6px; vertical-align: 1px; }
+.tag.en { background: #E6F0FD; color: #0B5CB8; } .tag.es { background: #FDEEF4; color: #B01F5A; } .tag.pt { background: #E7F5EC; color: #1E7A3C; }
+.empty { color: var(--muted); font-size: 13px; padding: 22px 0; text-align: center; }
+.scroll-x { overflow-x: auto; }
+.note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* ---------- charts ---------- */
+.ch { position: relative; }
+.ch svg { display: block; width: 100%; height: auto; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink2); margin-bottom: 8px; }
+.legend .it::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; background: var(--sw); vertical-align: -1px; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: #fff; font-size: 12px; padding: 8px 12px; border-radius: 10px; opacity: 0; transition: opacity .1s; z-index: 50; max-width: 260px; line-height: 1.45; }
+#tip b { font-weight: 800; }
+.hbar-row { display: grid; grid-template-columns: minmax(140px, 300px) 1fr 64px; gap: 10px; align-items: center; font-size: 13px; padding: 5px 0; }
+.hbar-row .nm { color: var(--ink); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbar-row .tr { background: var(--grid); border-radius: 4px; height: 14px; position: relative; }
+.hbar-row .fl { position: absolute; inset: 0 auto 0 0; border-radius: 4px; min-width: 2px; }
+.hbar-row .ct { text-align: right; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.section-title { font-size: 19px; font-weight: 800; letter-spacing: -.01em; margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
+.section-title::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--dot, var(--c1)); }
+</style>
 </head>
-<body>
+<body data-palette="#087BF3,#C97E16,#3AA35A,#0C86AC,#D1296D,#7C3AA8">
 
-<!-- LOGIN -->
-<div class="login-screen" id="loginScreen">
-    <div class="login-card">
-        <div class="login-logo">K</div>
-        <h1>Kinedu Analytics</h1>
-        <p>Enter the password to view analytics</p>
-        <form id="loginForm">
-            <input type="password" class="login-input" id="passwordInput" placeholder="Password" autocomplete="off" autofocus>
-            <button type="submit" class="login-btn">Sign in</button>
-        </form>
-        <div class="login-error" id="loginError">Incorrect password. Try again.</div>
-    </div>
+<div id="login">
+  <div class="box">
+    <h1>Kinedu Analytics</h1>
+    <p>Ingresa la contraseña para ver el dashboard</p>
+    <input type="password" id="pw" placeholder="Password" autocomplete="off">
+    <button id="go">Entrar</button>
+    <div class="err" id="err">Contraseña incorrecta. Intenta de nuevo.</div>
+  </div>
 </div>
 
-<!-- DASHBOARD -->
-<div class="dashboard" id="dashboard">
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-left">
-            <div class="top-bar-logo">K</div>
-            <h1>Kinedu Analytics</h1>
-        </div>
-        <div class="top-bar-right">
-            <select class="period-select" id="periodSelect">
-                <option value="7">Last 7 days</option>
-                <option value="14">Last 14 days</option>
-                <option value="30" selected>Last 30 days</option>
-                <option value="60">Last 60 days</option>
-                <option value="90">Last 90 days</option>
-            </select>
-            <button class="refresh-btn" id="refreshBtn">Refresh</button>
-            <button class="logout-btn" id="logoutBtn">Logout</button>
-        </div>
+<div class="wrap" id="app" style="display:none;">
+  <div class="head">
+    <div>
+      <h1>Kinedu Analytics</h1>
+      <div class="sub" id="periodLabel"></div>
     </div>
-
-    <!-- Content -->
-    <div class="dash-content">
-        <!-- Summary Cards -->
-        <div class="summary-grid">
-            <div class="summary-card">
-                <div class="label">Page Views</div>
-                <div class="value blue" id="totalPV">—</div>
-            </div>
-            <div class="summary-card">
-                <div class="label">Unique Visitors</div>
-                <div class="value green" id="totalUV">—</div>
-            </div>
-            <div class="summary-card">
-                <div class="label">Conversions</div>
-                <div class="value purple" id="totalConv">—</div>
-            </div>
-            <div class="summary-card">
-                <div class="label">Conversion Rate</div>
-                <div class="value orange" id="convRate">—</div>
-            </div>
-        </div>
-
-        <!-- Chart -->
-        <div class="chart-section">
-            <div class="chart-header">
-                <h2>Traffic Overview</h2>
-                <div class="chart-toggle" id="chartToggle">
-                    <button class="active" data-metric="pageViews">Views</button>
-                    <button data-metric="uniqueVisitors">Visitors</button>
-                    <button data-metric="conversions">Conversions</button>
-                </div>
-            </div>
-            <div class="chart-container">
-                <canvas id="mainChart"></canvas>
-            </div>
-            <div style="margin-top:10px;font-size:12px;color:#9ca3af;line-height:1.5">
-                ⚠️ Las <strong>vistas</strong> hasta el 6 jul 2026 incluyen el re-rastreo de Google por la migración del blog
-                (picos del 21/24/29 jun y 1 jul: vistas por visitante de 18–49× vs. 2–4× normal, visitantes humanos estables).
-                Filtro de bots activo desde el <strong>7 jul 2026</strong>. Para la tendencia humana usa la pestaña <strong>Visitors</strong>.
-            </div>
-        </div>
-
-        <!-- CTA Clicks -->
-        <div class="cta-section">
-            <h2>CTA Clicks</h2>
-            <div class="cta-grid" id="ctaGrid">
-                <div class="empty-state">No CTA data yet</div>
-            </div>
-        </div>
-
-        <!-- App Store Sources -->
-        <div class="cta-section" id="appleSection">
-            <h2 style="display:flex;align-items:center;gap:10px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                App Store — Download Sources
-                <span id="appleReportDate" style="font-size:12px;font-weight:400;color:#9ca3af;margin-left:auto;"></span>
-            </h2>
-            <div id="appleContent">
-                <div class="empty-state" style="padding:20px 0;">Loading App Store data...</div>
-            </div>
-        </div>
-
-        <!-- ══ LEARN ADS SECTION ══════════════════════════════════════ -->
-        <div class="learn-section">
-            <div class="learn-header">
-                <div class="learn-icon">🎓</div>
-                <div>
-                    <h2 class="learn-title">Learn — Ads Landings</h2>
-                    <p class="learn-subtitle">live-classes-ads · EN / ES / PT</p>
-                </div>
-                <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;">
-                    <a href="https://www.kinedu.com/live-classes-ads-en.html" target="_blank" class="learn-link-btn">🇺🇸 EN</a>
-                    <a href="https://www.kinedu.com/live-classes-ads-es.html" target="_blank" class="learn-link-btn">🇲🇽 ES</a>
-                    <a href="https://www.kinedu.com/live-classes-ads-pt.html" target="_blank" class="learn-link-btn">🇧🇷 PT</a>
-                </div>
-            </div>
-
-                <!-- Meta Ads live data -->
-            <div class="meta-ads-row">
-                <div class="meta-ads-header">
-                    <span class="meta-logo">Meta Ads</span>
-                    <select id="metaDatePreset" onchange="fetchMetaData()" class="meta-date-sel">
-                        <option value="last_7d">Last 7 days</option>
-                        <option value="last_14d">Last 14 days</option>
-                        <option value="last_30d">Last 30 days</option>
-                        <option value="this_month">This month</option>
-                        <option value="today">Today</option>
-                    </select>
-                    <button onclick="fetchMetaData()" class="meta-refresh-btn" id="metaRefreshBtn">↻ Refresh</button>
-                    <span id="metaFetchedAt" class="meta-fetched-at"></span>
-                </div>
-                <div class="meta-campaign-grid" id="metaCampaignGrid">
-                    <div class="meta-camp-card" id="metaCard_en">
-                        <div class="mcc-top"><span class="mcc-flag">🇺🇸</span><span class="mcc-name">EN — US</span><span class="mcc-status" id="mcs_en">loading…</span></div>
-                        <div class="mcc-metrics">
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_imp">—</span><span class="mcc-key">Impressions</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_clicks">—</span><span class="mcc-key">Link Clicks</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_spend">—</span><span class="mcc-key">Spend (USD)</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_ctr">—</span><span class="mcc-key">CTR</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_en_cpc">—</span><span class="mcc-key">CPC</span></div>
-                        </div>
-                    </div>
-                    <div class="meta-camp-card" id="metaCard_es">
-                        <div class="mcc-top"><span class="mcc-flag">🇲🇽</span><span class="mcc-name">ES — MX</span><span class="mcc-status" id="mcs_es">loading…</span></div>
-                        <div class="mcc-metrics">
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_imp">—</span><span class="mcc-key">Impressions</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_clicks">—</span><span class="mcc-key">Link Clicks</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_spend">—</span><span class="mcc-key">Spend (USD)</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_ctr">—</span><span class="mcc-key">CTR</span></div>
-                            <div class="mcc-metric"><span class="mcc-val" id="mm_es_cpc">—</span><span class="mcc-key">CPC</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Per-language stat cards -->
-            <div class="learn-lang-grid" id="learnLangGrid">
-                <div class="learn-lang-card" id="learnCard_en">
-                    <div class="llc-flag">🇺🇸</div>
-                    <div class="llc-label">English</div>
-                    <div class="llc-swc">swc: learn-ads</div>
-                    <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_en">—</span><span class="llc-key">Landing Views</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lc_en">—</span><span class="llc-key">CTA Clicks</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lr_en">—</span><span class="llc-key">CTR</span></div>
-                    </div>
-                </div>
-                <div class="learn-lang-card" id="learnCard_es">
-                    <div class="llc-flag">🇲🇽</div>
-                    <div class="llc-label">Español</div>
-                    <div class="llc-swc">swc: learn-ads</div>
-                    <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_es">—</span><span class="llc-key">Landing Views</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lc_es">—</span><span class="llc-key">CTA Clicks</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lr_es">—</span><span class="llc-key">CTR</span></div>
-                    </div>
-                </div>
-                <div class="learn-lang-card" id="learnCard_pt">
-                    <div class="llc-flag">🇧🇷</div>
-                    <div class="llc-label">Português</div>
-                    <div class="llc-swc">swc: learn-ads</div>
-                    <div class="llc-stats">
-                        <div class="llc-stat"><span class="llc-val" id="lv_pt">—</span><span class="llc-key">Landing Views</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lc_pt">—</span><span class="llc-key">CTA Clicks</span></div>
-                        <div class="llc-stat"><span class="llc-val" id="lr_pt">—</span><span class="llc-key">CTR</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- A/B Test panel -->
-            <div class="ab-panel">
-                <div class="ab-panel-header">
-                    <span class="ab-badge">A/B TEST</span>
-                    <h3>Hero Image — Variant A vs Variant B</h3>
-                    <span class="ab-meta">Auto-tracked · <code>ab_view</code> + <code>ab_cta</code></span>
-                </div>
-                <div class="ab-grid">
-                    <!-- Variant A -->
-                    <div class="ab-card ab-card--a">
-                        <div class="ab-card-header">
-                            <span class="ab-pill ab-pill--a">A</span>
-                            <div>
-                                <div class="ab-card-name">App screenshot</div>
-                                <div class="ab-card-desc">Static calendar image</div>
-                            </div>
-                            <a href="https://www.kinedu.com/live-classes-ads-en.html?v=a" target="_blank" class="ab-preview-link">Preview ↗</a>
-                        </div>
-                        <div class="ab-metrics">
-                            <div class="ab-metric"><span class="ab-mval" id="ab_a_views">—</span><span class="ab-mkey">Impressions</span></div>
-                            <div class="ab-metric"><span class="ab-mval" id="ab_a_clicks">—</span><span class="ab-mkey">CTA Clicks</span></div>
-                            <div class="ab-metric"><span class="ab-mval" id="ab_a_ctr">—</span><span class="ab-mkey">CTR</span></div>
-                        </div>
-                        <div class="ab-bar-wrap"><div class="ab-bar ab-bar--a" id="ab_a_bar" style="width:50%"></div></div>
-                    </div>
-                    <!-- Variant B -->
-                    <div class="ab-card ab-card--b">
-                        <div class="ab-card-header">
-                            <span class="ab-pill ab-pill--b">B</span>
-                            <div>
-                                <div class="ab-card-name">Live class card</div>
-                                <div class="ab-card-desc">Animated schedule mockup</div>
-                            </div>
-                            <a href="https://www.kinedu.com/live-classes-ads-en.html?v=b" target="_blank" class="ab-preview-link">Preview ↗</a>
-                        </div>
-                        <div class="ab-metrics">
-                            <div class="ab-metric"><span class="ab-mval" id="ab_b_views">—</span><span class="ab-mkey">Impressions</span></div>
-                            <div class="ab-metric"><span class="ab-mval" id="ab_b_clicks">—</span><span class="ab-mkey">CTA Clicks</span></div>
-                            <div class="ab-metric"><span class="ab-mval" id="ab_b_ctr">—</span><span class="ab-mkey">CTR</span></div>
-                        </div>
-                        <div class="ab-bar-wrap"><div class="ab-bar ab-bar--b" id="ab_b_bar" style="width:50%"></div></div>
-                    </div>
-                </div>
-                <!-- Manual input for Meta data -->
-                <div class="ab-manual">
-                    <div class="ab-manual-label">📊 Override manual (optional — leave blank to use auto data)</div>
-                    <div class="ab-inputs">
-                        <div class="ab-input-group">
-                            <label>A — Impressions</label><input type="number" id="inp_a_views" placeholder="0" oninput="updateAB()">
-                        </div>
-                        <div class="ab-input-group">
-                            <label>A — CTA Clicks</label><input type="number" id="inp_a_clicks" placeholder="0" oninput="updateAB()">
-                        </div>
-                        <div class="ab-input-group">
-                            <label>B — Impressions</label><input type="number" id="inp_b_views" placeholder="0" oninput="updateAB()">
-                        </div>
-                        <div class="ab-input-group">
-                            <label>B — CTA Clicks</label><input type="number" id="inp_b_clicks" placeholder="0" oninput="updateAB()">
-                        </div>
-                    </div>
-                    <div class="ab-winner" id="ab_winner"></div>
-                </div>
-            </div>
-
-            <!-- Quick links -->
-            <div class="learn-links-row">
-                <a href="https://www.facebook.com/events_manager" target="_blank" class="learn-ext-link">📈 Meta Events Manager</a>
-                <a href="https://vercel.com/analytics" target="_blank" class="learn-ext-link">▲ Vercel Analytics</a>
-                <a href="https://www.kinedu.com/live-classes.html" target="_blank" class="learn-ext-link">🔗 Original landing</a>
-            </div>
-        </div>
-
-        <!-- Tables -->
-        <div class="tables-grid">
-            <div class="data-table">
-                <h3>Top Pages</h3>
-                <table>
-                    <thead><tr><th>Page</th><th class="num">Views</th></tr></thead>
-                    <tbody id="topPagesBody"></tbody>
-                </table>
-            </div>
-            <div class="data-table">
-                <h3>Referrers</h3>
-                <table>
-                    <thead><tr><th>Source</th><th class="num">Visits</th></tr></thead>
-                    <tbody id="topRefBody"></tbody>
-                </table>
-            </div>
-            <div class="data-table">
-                <h3>Languages</h3>
-                <table>
-                    <thead><tr><th>Language</th><th class="num">Views</th></tr></thead>
-                    <tbody id="topLangBody"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="chart-section" id="seoSection">
-            <div class="chart-header">
-                <h2>SEO — Recuperación orgánica</h2>
-            </div>
-            <div class="summary-grid" style="margin-bottom:16px">
-                <div class="summary-card"><div class="label">Visitas orgánicas (rango)</div><div class="value green" id="seoOrganic">—</div></div>
-                <div class="summary-card"><div class="label">% del tráfico total</div><div class="value blue" id="seoShare">—</div></div>
-                <div class="summary-card"><div class="label">Crawls de buscadores</div><div class="value purple" id="seoCrawls">—</div><div class="label" style="margin-top:4px">midiendo desde 7 jul 2026</div></div>
-            </div>
-            <div class="chart-container">
-                <canvas id="seoChart"></canvas>
-            </div>
-            <div class="data-table" style="margin-top:18px">
-                <h3>Hitos de la migración (referencia)</h3>
-                <table>
-                    <tbody>
-                        <tr><td>17 jun</td><td>Blog migrado al sitio nuevo (3,060 artículos, imágenes auto-alojadas)</td></tr>
-                        <tr><td>24 jun</td><td>Redirects de URLs viejas de WordPress + limpieza de páginas basura</td></tr>
-                        <tr><td>01 jul</td><td>Auditoría: 13 fixes (títulos, canonicals, metadatos sociales)</td></tr>
-                        <tr><td>06 jul</td><td>+190 artículos ES recuperados · hreflang EN/ES/PT</td></tr>
-                        <tr><td>07 jul</td><td>+9 artículos PT · 100% URLs históricas resueltas · sitemap re-enviado</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="controls">
+      <div class="chipset" id="rangeChips">
+        <button class="chip" data-d="7">7d</button>
+        <button class="chip on" data-d="14">14d</button>
+        <button class="chip" data-d="30">30d</button>
+        <button class="chip" data-d="90">90d</button>
+      </div>
+      <div class="chipset" id="langChips">
+        <button class="chip on" data-l="all">Todos</button>
+        <button class="chip" data-l="en">EN</button>
+        <button class="chip" data-l="es">ES</button>
+        <button class="chip" data-l="pt">PT</button>
+      </div>
+      <span id="updated"></span>
     </div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="grid">
+    <div class="card s8">
+      <h2>Tráfico diario</h2>
+      <div class="desc">Vistas de página y visitantes únicos — comparado contra el periodo anterior (línea punteada)</div>
+      <div class="legend">
+        <span class="it" style="--sw:var(--c1)">Vistas</span>
+        <span class="it" style="--sw:var(--c4)">Únicos</span>
+        <span class="it" style="--sw:#B9C2D4">Periodo anterior</span>
+      </div>
+      <div class="ch" id="chTraffic"></div>
+    </div>
+    <div class="card s4">
+      <h2>Conversiones por día</h2>
+      <div class="desc">Clicks en CTAs hacia la app / trial</div>
+      <div class="ch" id="chConv"></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="--dot:var(--c2)">¿Dónde le pican? — CTAs y conversión</div>
+  <div class="grid">
+    <div class="card s6">
+      <h2>Ranking de CTAs</h2>
+      <div class="desc">Todos los botones/links medidos, ordenados por clicks en el periodo</div>
+      <div id="ctaRank"></div>
+    </div>
+    <div class="card s6">
+      <h2>Conversión por página</h2>
+      <div class="desc">Dónde ve la gente y dónde convierte — CVR = conversiones / vistas</div>
+      <div class="scroll-x"><table id="tblPages"></table></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="--dot:var(--c3)">Blog</div>
+  <div class="grid">
+    <div class="card s4">
+      <h2>Landing vs Blog</h2>
+      <div class="desc">Reparto del tráfico del periodo</div>
+      <div class="ch" id="chSplit"></div>
+    </div>
+    <div class="card s8">
+      <h2>Categorías del blog</h2>
+      <div class="desc">Vistas por categoría y su conversión — para saber qué temas jalan y cuáles venden</div>
+      <div id="catBars"></div>
+    </div>
+    <div class="card s6">
+      <h2>Top artículos</h2>
+      <div class="desc">Los artículos más vistos y cuánto convierten</div>
+      <div class="scroll-x"><table id="tblArticles"></table></div>
+    </div>
+    <div class="card s6">
+      <h2>Qué buscan los papás</h2>
+      <div class="desc">Términos escritos en el buscador del blog — oro para decidir contenido</div>
+      <div class="scroll-x"><table id="tblSearch"></table></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="--dot:var(--c4)">Fuentes y audiencia</div>
+  <div class="grid">
+    <div class="card s6">
+      <h2>De dónde llegan</h2>
+      <div class="desc">Dominios de referencia agrupados (el tráfico directo/SEO sin referrer no aparece aquí)</div>
+      <div id="refRank"></div>
+    </div>
+    <div class="card s6">
+      <h2>Idiomas</h2>
+      <div class="desc">Vistas por idioma en el periodo</div>
+      <div class="ch" id="chLangs"></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="--dot:var(--c6)">SEO — crawlers</div>
+  <div class="grid">
+    <div class="card s12">
+      <h2>Actividad de bots de búsqueda</h2>
+      <div class="desc">Hits diarios de Googlebot y compañía — sube cuando reindexan el sitio (señal de que los cambios SEO se están leyendo)</div>
+      <div class="legend" id="crawlLegend"></div>
+      <div class="ch" id="chCrawl"></div>
+    </div>
+  </div>
+
+  <div class="grid" id="abWrap" style="display:none; margin-top:16px;">
+    <div class="card s12">
+      <h2>A/B — Learn ads landings</h2>
+      <div class="desc">Variante A vs B por idioma</div>
+      <div class="scroll-x"><table id="tblAB"></table></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px;">
+    Tracking propio (sin cookies): pageviews con filtro anti-bots, visitantes únicos por día (hash IP+UA),
+    conversiones = clicks en CTAs medidos. El blog se instrumentó el 24 ago 2026 — sus series empiezan ahí.
+  </div>
 </div>
 
-<!-- Loading -->
-<div class="loading-overlay hidden" id="loading">
-    <div class="spinner"></div>
-</div>
+<div id="tip"></div>
 
 <script>
-(function() {
-    var password = '';
-    var chartInstance = null;
-    var seoChartInstance = null;
-    var currentData = null;
-    var currentMetric = 'pageViews';
+/* ================= state ================= */
+var PAL = ['#087BF3','#C97E16','#3AA35A','#0C86AC','#D1296D','#7C3AA8'];
+var state = { days: 14, lang: 'all', raw: null, pw: sessionStorage.getItem('kinedu-analytics-pw') || '' };
+var DEMO = location.search.indexOf('demo=1') > -1;
 
-    // Elements
-    var loginScreen = document.getElementById('loginScreen');
-    var dashboard = document.getElementById('dashboard');
-    var loginForm = document.getElementById('loginForm');
-    var passwordInput = document.getElementById('passwordInput');
-    var loginError = document.getElementById('loginError');
-    var loading = document.getElementById('loading');
-    var periodSelect = document.getElementById('periodSelect');
+function $(id) { return document.getElementById(id); }
+function fmt(n) { return (n || 0).toLocaleString('en-US'); }
+function pct(n) { return (isFinite(n) ? n : 0).toFixed(1) + '%'; }
+function langOfPath(p) { if (p.indexOf('/es/') === 0 || p === '/es') return 'es'; if (p.indexOf('/pt/') === 0 || p === '/pt') return 'pt'; return 'en'; }
+function isBlogPath(p) { return p.indexOf('/blog') === 0 || p.indexOf('/es/blog') === 0 || p.indexOf('/pt/blog') === 0 || /\/(browse|articles)/.test(p); }
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-    // Check if already logged in this session
-    var savedPw = sessionStorage.getItem('analytics_pw');
-    if (savedPw) {
-        password = savedPw;
-        showDashboard();
+/* ================= login ================= */
+function tryLogin(pw) {
+  fetchStats(pw, state.days * 2).then(function (data) {
+    state.pw = pw; sessionStorage.setItem('kinedu-analytics-pw', pw);
+    $('login').style.display = 'none'; $('app').style.display = '';
+    state.raw = data; renderAll();
+  }).catch(function () { $('err').style.display = 'block'; });
+}
+$('go').addEventListener('click', function () { tryLogin($('pw').value); });
+$('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') tryLogin($('pw').value); });
+
+/* ================= fetch ================= */
+function fetchStats(pw, days) {
+  if (DEMO) return Promise.resolve(demoData(days));
+  return fetch('/api/stats?days=' + days + '&password=' + encodeURIComponent(pw))
+    .then(function (r) { if (!r.ok) throw new Error('auth'); return r.json(); });
+}
+function refresh() {
+  fetchStats(state.pw, state.days * 2).then(function (d) { state.raw = d; renderAll(); }).catch(function () {});
+}
+setInterval(refresh, 5 * 60 * 1000);
+
+/* ================= controls ================= */
+$('rangeChips').addEventListener('click', function (e) {
+  var b = e.target.closest('.chip'); if (!b) return;
+  this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+  b.classList.add('on'); state.days = parseInt(b.dataset.d); refresh();
+});
+$('langChips').addEventListener('click', function (e) {
+  var b = e.target.closest('.chip'); if (!b) return;
+  this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+  b.classList.add('on'); state.lang = b.dataset.l; renderAll();
+});
+
+/* ================= windows ================= */
+function windows() {
+  var daily = state.raw.daily || [];
+  var n = state.days;
+  var cur = daily.slice(-n);
+  var prev = daily.slice(-2 * n, -n);
+  return { cur: cur, prev: prev };
+}
+function sumField(days, f) { var t = 0; days.forEach(function (d) { t += d[f] || 0; }); return t; }
+function mergeHash(days, f, filterFn) {
+  var out = {};
+  days.forEach(function (d) {
+    var h = d[f] || {};
+    for (var k in h) { if (filterFn && !filterFn(k)) continue; out[k] = (out[k] || 0) + h[k]; }
+  });
+  return out;
+}
+function langFilterKey(k) { return state.lang === 'all' || langOfPath(k) === state.lang; }
+
+/* ================= tooltip ================= */
+var tip = $('tip');
+function showTip(html, x, y) {
+  tip.innerHTML = html; tip.style.opacity = 1;
+  var w = tip.offsetWidth;
+  tip.style.left = Math.min(x + 14, window.innerWidth - w - 12) + 'px';
+  tip.style.top = (y + 16) + 'px';
+}
+function hideTip() { tip.style.opacity = 0; }
+
+/* ================= chart helpers (SVG a mano) ================= */
+function lineAreaChart(el, series, opts) {
+  // series: [{name, color, values[], dashed, area}] — mismo largo; opts: {labels[], h}
+  opts = opts || {};
+  var W = 720, H = opts.h || 220, padL = 44, padR = 10, padT = 12, padB = 26;
+  var iw = W - padL - padR, ih = H - padT - padB;
+  var max = 1;
+  series.forEach(function (s) { s.values.forEach(function (v) { if (v > max) max = v; }); });
+  max = max * 1.08;
+  var n = Math.max.apply(null, series.map(function (s) { return s.values.length; }));
+  function X(i) { return padL + (n <= 1 ? iw / 2 : i * iw / (n - 1)); }
+  function Y(v) { return padT + ih - (v / max) * ih; }
+  var g = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" style="aspect-ratio:' + W + '/' + H + '">';
+  // grid: 4 líneas horizontales
+  for (var gi = 0; gi <= 4; gi++) {
+    var gy = padT + ih * gi / 4, gv = Math.round(max * (1 - gi / 4));
+    g += '<line x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy + '" stroke="#EEEAE3" stroke-width="1"/>';
+    g += '<text x="' + (padL - 8) + '" y="' + (gy + 4) + '" text-anchor="end" font-size="10" fill="#8A94A8">' + fmt(gv) + '</text>';
+  }
+  series.forEach(function (s) {
+    if (!s.values.length) return;
+    var pts = s.values.map(function (v, i) { return X(i).toFixed(1) + ',' + Y(v).toFixed(1); });
+    if (s.area) {
+      g += '<path d="M' + pts.join('L') + 'L' + X(s.values.length - 1).toFixed(1) + ',' + (padT + ih) + 'L' + X(0).toFixed(1) + ',' + (padT + ih) + 'Z" fill="' + s.color + '" opacity="0.10"/>';
     }
-
-    // Login
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        password = passwordInput.value;
-        loginError.style.display = 'none';
-        fetchData(function(err) {
-            if (err) {
-                loginError.style.display = 'block';
-                password = '';
-            } else {
-                sessionStorage.setItem('analytics_pw', password);
-                showDashboard();
-            }
-        });
+    g += '<path d="M' + pts.join('L') + '" fill="none" stroke="' + s.color + '" stroke-width="2" ' + (s.dashed ? 'stroke-dasharray="4 4" opacity="0.7"' : '') + ' stroke-linejoin="round" stroke-linecap="round"/>';
+  });
+  // eje x: primera, media, última etiqueta
+  if (opts.labels && opts.labels.length) {
+    [0, Math.floor((n - 1) / 2), n - 1].forEach(function (i) {
+      if (i < 0 || !opts.labels[i]) return;
+      var anch = i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle';
+      g += '<text x="' + X(i) + '" y="' + (H - 8) + '" text-anchor="' + anch + '" font-size="10" fill="#8A94A8">' + opts.labels[i].slice(5) + '</text>';
     });
+  }
+  g += '<rect id="hitzone" x="' + padL + '" y="' + padT + '" width="' + iw + '" height="' + ih + '" fill="transparent"/>';
+  g += '</svg>';
+  el.innerHTML = g;
+  // crosshair tooltip
+  var svg = el.querySelector('svg');
+  svg.addEventListener('mousemove', function (e) {
+    var r = svg.getBoundingClientRect();
+    var relX = (e.clientX - r.left) / r.width * W;
+    var i = Math.round((relX - padL) / iw * (n - 1));
+    if (i < 0 || i > n - 1 || isNaN(i)) { hideTip(); return; }
+    var html = '<b>' + (opts.labels && opts.labels[i] ? opts.labels[i] : '') + '</b>';
+    series.forEach(function (s) { if (!s.dashed && s.values[i] != null) html += '<br>' + s.name + ': <b>' + fmt(s.values[i]) + '</b>'; });
+    showTip(html, e.clientX, e.clientY);
+  });
+  svg.addEventListener('mouseleave', hideTip);
+}
 
-    // Logout
-    document.getElementById('logoutBtn').addEventListener('click', function() {
-        sessionStorage.removeItem('analytics_pw');
-        password = '';
-        loginScreen.style.display = 'flex';
-        dashboard.classList.remove('active');
-        passwordInput.value = '';
+function barChart(el, values, labels, color, opts) {
+  opts = opts || {};
+  var W = 340, H = opts.h || 220, padL = 34, padR = 6, padT = 10, padB = 24;
+  var iw = W - padL - padR, ih = H - padT - padB;
+  var max = Math.max.apply(null, values.concat([1])) * 1.1;
+  var n = values.length, bw = Math.max(2, iw / n - 2);
+  var g = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="aspect-ratio:' + W + '/' + H + '">';
+  for (var gi = 0; gi <= 3; gi++) {
+    var gy = padT + ih * gi / 3, gv = Math.round(max * (1 - gi / 3));
+    g += '<line x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy + '" stroke="#EEEAE3"/>';
+    g += '<text x="' + (padL - 6) + '" y="' + (gy + 4) + '" text-anchor="end" font-size="10" fill="#8A94A8">' + fmt(gv) + '</text>';
+  }
+  values.forEach(function (v, i) {
+    var x = padL + i * iw / n + 1, h = (v / max) * ih, y = padT + ih - h;
+    g += '<rect data-i="' + i + '" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(h, 1).toFixed(1) + '" rx="3" fill="' + color + '"/>';
+  });
+  g += '</svg>';
+  el.innerHTML = g;
+  el.querySelector('svg').addEventListener('mousemove', function (e) {
+    var t = e.target;
+    if (t.tagName === 'rect' && t.dataset.i != null) {
+      var i = +t.dataset.i;
+      showTip('<b>' + (labels[i] || '') + '</b><br>' + fmt(values[i]) + (opts.unit ? ' ' + opts.unit : ''), e.clientX, e.clientY);
+    } else hideTip();
+  });
+  el.querySelector('svg').addEventListener('mouseleave', hideTip);
+}
+
+function donut(el, parts) {
+  // parts: [{name, value, color}]
+  var total = parts.reduce(function (a, p) { return a + p.value; }, 0) || 1;
+  var R = 70, r = 44, cx = 90, cy = 90, a0 = -Math.PI / 2;
+  var g = '<svg viewBox="0 0 300 180" style="aspect-ratio:300/180">';
+  parts.forEach(function (p) {
+    var frac = p.value / total, a1 = a0 + frac * Math.PI * 2;
+    if (frac <= 0) return;
+    var large = frac > 0.5 ? 1 : 0;
+    function P(a, rad) { return (cx + Math.cos(a) * rad).toFixed(1) + ' ' + (cy + Math.sin(a) * rad).toFixed(1); }
+    // gap de 2px: encoger ángulos un pelo
+    var gap = 0.02;
+    var b0 = a0 + gap, b1 = Math.max(b0, a1 - gap);
+    g += '<path d="M' + P(b0, R) + ' A' + R + ' ' + R + ' 0 ' + large + ' 1 ' + P(b1, R) +
+         ' L' + P(b1, r) + ' A' + r + ' ' + r + ' 0 ' + large + ' 0 ' + P(b0, r) + 'Z" fill="' + p.color + '" data-n="' + esc(p.name) + '" data-v="' + p.value + '"/>';
+    a0 = a1;
+  });
+  g += '<text x="' + cx + '" y="' + (cy - 2) + '" text-anchor="middle" font-size="20" font-weight="800" fill="#081B46">' + fmt(total) + '</text>';
+  g += '<text x="' + cx + '" y="' + (cy + 15) + '" text-anchor="middle" font-size="10" fill="#8A94A8">vistas</text>';
+  // leyenda directa a la derecha
+  var ly = 40;
+  parts.forEach(function (p) {
+    g += '<rect x="190" y="' + (ly - 9) + '" width="10" height="10" rx="3" fill="' + p.color + '"/>';
+    g += '<text x="206" y="' + ly + '" font-size="11.5" fill="#52607A">' + esc(p.name) + ' — ' + pct(p.value / total * 100) + '</text>';
+    ly += 22;
+  });
+  g += '</svg>';
+  el.innerHTML = g;
+  el.querySelector('svg').addEventListener('mousemove', function (e) {
+    var t = e.target;
+    if (t.dataset && t.dataset.n) showTip('<b>' + t.dataset.n + '</b><br>' + fmt(+t.dataset.v) + ' vistas', e.clientX, e.clientY);
+    else hideTip();
+  });
+  el.querySelector('svg').addEventListener('mouseleave', hideTip);
+}
+
+function hbars(el, rows, colorFn, unit) {
+  // rows: [[name, value, extraHtml?]]
+  if (!rows.length) { el.innerHTML = '<div class="empty">Sin datos todavía en este periodo</div>'; return; }
+  var max = rows[0][1] || 1;
+  el.innerHTML = rows.map(function (r, i) {
+    var c = colorFn ? colorFn(r[0], i) : PAL[0];
+    return '<div class="hbar-row"><div class="nm" title="' + esc(r[0]) + '">' + (r[2] || esc(r[0])) + '</div>' +
+      '<div class="tr"><div class="fl" style="width:' + Math.max(2, r[1] / max * 100) + '%;background:' + c + '"></div></div>' +
+      '<div class="ct">' + fmt(r[1]) + (unit || '') + '</div></div>';
+  }).join('');
+}
+
+function sortable(tbl, rows, cols, defaultSort) {
+  // cols: [{k, label, num, render?}]
+  var sort = defaultSort || { i: 1, dir: -1 };
+  function draw() {
+    rows.sort(function (a, b) {
+      var x = a[sort.i], y = b[sort.i];
+      return (x < y ? -1 : x > y ? 1 : 0) * sort.dir;
     });
-
-    // Period change
-    periodSelect.addEventListener('change', function() {
-        fetchData();
+    var html = '<thead><tr>' + cols.map(function (c, i) {
+      return '<th class="' + (c.num ? 'num' : '') + '" data-i="' + i + '">' + c.label + (sort.i === i ? (sort.dir < 0 ? ' ↓' : ' ↑') : '') + '</th>';
+    }).join('') + '</tr></thead><tbody>';
+    rows.slice(0, 25).forEach(function (r) {
+      html += '<tr>' + cols.map(function (c, i) {
+        var v = c.render ? c.render(r[i], r) : esc(r[i]);
+        return '<td class="' + (c.num ? 'num' : 'k') + '">' + v + '</td>';
+      }).join('') + '</tr>';
     });
-
-    // Refresh
-    document.getElementById('refreshBtn').addEventListener('click', function() {
-        fetchData();
+    tbl.innerHTML = html + '</tbody>';
+    tbl.querySelectorAll('th').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var i = +th.dataset.i;
+        if (sort.i === i) sort.dir *= -1; else { sort.i = i; sort.dir = -1; }
+        draw();
+      });
     });
+  }
+  if (!rows.length) { tbl.innerHTML = ''; tbl.insertAdjacentHTML('afterend', ''); tbl.innerHTML = '<tbody><tr><td class="empty" colspan="' + cols.length + '">Sin datos todavía — el tracking del blog arrancó el 24 ago</td></tr></tbody>'; return; }
+  draw();
+}
 
-    // Chart toggle
-    document.getElementById('chartToggle').addEventListener('click', function(e) {
-        var btn = e.target.closest('button');
-        if (!btn) return;
-        currentMetric = btn.getAttribute('data-metric');
-        document.querySelectorAll('#chartToggle button').forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        if (currentData) updateChart(currentData);
+/* ================= render ================= */
+function renderAll() {
+  if (!state.raw) return;
+  var w = windows(), cur = w.cur, prev = w.prev;
+  $('periodLabel').textContent = 'Últimos ' + state.days + ' días · ' + (cur[0] ? cur[0].date : '') + ' → ' + (cur.length ? cur[cur.length - 1].date : '') + (state.lang !== 'all' ? ' · filtro: ' + state.lang.toUpperCase() + ' (aplica a tablas por página)' : '');
+  $('updated').textContent = 'Actualizado ' + new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+
+  /* ---- KPIs ---- */
+  var pv = sumField(cur, 'pageViews'), pvP = sumField(prev, 'pageViews');
+  var uv = sumField(cur, 'uniqueVisitors'), uvP = sumField(prev, 'uniqueVisitors');
+  var cv = sumField(cur, 'conversions'), cvP = sumField(prev, 'conversions');
+  var cvr = uv ? cv / uv * 100 : 0, cvrP = uvP ? cvP / uvP * 100 : 0;
+  var blogPV = 0; cur.forEach(function (d) { for (var p in d.pages) if (isBlogPath(p)) blogPV += d.pages[p]; });
+  var blogShare = pv ? blogPV / pv * 100 : 0;
+  function delta(c, p, isPct) {
+    if (!p) return '<span class="dlt flat">— sin base previa</span>';
+    var d = (c - p) / p * 100;
+    var cls = d > 1 ? 'up' : d < -1 ? 'down' : 'flat';
+    return '<span class="dlt ' + cls + '">' + (d > 0 ? '▲' : d < 0 ? '▼' : '•') + ' ' + Math.abs(d).toFixed(0) + '% vs previo</span>';
+  }
+  $('kpis').innerHTML =
+    '<div class="kpi"><div class="lbl">Vistas</div><div class="val">' + fmt(pv) + '</div>' + delta(pv, pvP) + '</div>' +
+    '<div class="kpi"><div class="lbl">Únicos</div><div class="val">' + fmt(uv) + '</div>' + delta(uv, uvP) + '</div>' +
+    '<div class="kpi"><div class="lbl">Conversiones</div><div class="val">' + fmt(cv) + '</div>' + delta(cv, cvP) + '</div>' +
+    '<div class="kpi"><div class="lbl">CVR</div><div class="val">' + cvr.toFixed(1) + '%</div>' + delta(cvr, cvrP) + '</div>' +
+    '<div class="kpi"><div class="lbl">% Blog</div><div class="val">' + blogShare.toFixed(0) + '%</div><span class="dlt flat">' + fmt(blogPV) + ' vistas de blog</span></div>';
+
+  /* ---- tráfico diario ---- */
+  var labels = cur.map(function (d) { return d.date; });
+  lineAreaChart($('chTraffic'), [
+    { name: 'Vistas per. anterior', color: '#B9C2D4', values: prev.map(function (d) { return d.pageViews; }), dashed: true },
+    { name: 'Vistas', color: PAL[0], values: cur.map(function (d) { return d.pageViews; }), area: true },
+    { name: 'Únicos', color: PAL[3], values: cur.map(function (d) { return d.uniqueVisitors; }) }
+  ], { labels: labels, h: 230 });
+
+  barChart($('chConv'), cur.map(function (d) { return d.conversions; }), labels, PAL[2], { h: 230, unit: 'conv.' });
+
+  /* ---- CTAs ---- */
+  var ctas = mergeHash(cur, 'ctaClicks');
+  var ctaRows = Object.entries(ctas).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 14);
+  hbars($('ctaRank'), ctaRows, function (name, i) {
+    if (/Assessment/i.test(name)) return PAL[4];
+    if (/Blog/i.test(name)) return PAL[2];
+    if (/Nav/i.test(name)) return PAL[1];
+    return PAL[0];
+  });
+
+  /* ---- conversión por página ---- */
+  var pages = mergeHash(cur, 'pages', langFilterKey);
+  var convs = mergeHash(cur, 'convByPage', langFilterKey);
+  var pageRows = Object.entries(pages).map(function (e) {
+    var c = convs[e[0]] || 0;
+    return [e[0], e[1], c, e[1] ? c / e[1] * 100 : 0];
+  }).filter(function (r) { return r[1] >= 3; });
+  sortable($('tblPages'), pageRows, [
+    { k: 'page', label: 'Página', render: function (v) { var l = langOfPath(v); return '<span class="tag ' + l + '">' + l.toUpperCase() + '</span>' + esc(v); } },
+    { k: 'v', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
+    { k: 'c', label: 'Conv', num: true, render: function (v) { return fmt(v); } },
+    { k: 'r', label: 'CVR', num: true, render: function (v) { return pct(v); } }
+  ]);
+
+  /* ---- landing vs blog ---- */
+  donut($('chSplit'), [
+    { name: 'Landing + páginas', value: pv - blogPV, color: PAL[0] },
+    { name: 'Blog', value: blogPV, color: PAL[2] }
+  ]);
+
+  /* ---- categorías ---- */
+  var cats = mergeHash(cur, 'cats');
+  var catConv = mergeHash(cur, 'catConv');
+  var catRows = Object.entries(cats).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 12).map(function (e) {
+    var cc = catConv[e[0]] || 0;
+    return [e[0], e[1], esc(e[0]) + ' <span style="color:#8A94A8;font-weight:400;font-size:11.5px;">· ' + fmt(cc) + ' conv (' + pct(e[1] ? cc / e[1] * 100 : 0) + ')</span>'];
+  });
+  if (catRows.length) hbars($('catBars'), catRows, function (n, i) { return PAL[i % PAL.length]; });
+  else $('catBars').innerHTML = '<div class="empty">Sin datos aún — las categorías empiezan a medirse desde el 24 ago 2026</div>';
+
+  /* ---- top artículos ---- */
+  var artRows = Object.entries(pages).filter(function (e) { return /\/blog\//.test(e[0]) && e[0].indexOf('/category/') === -1; })
+    .map(function (e) { var c = convs[e[0]] || 0; return [e[0].replace(/^\/(es\/|pt\/)?blog\//, ''), e[1], c, e[1] ? c / e[1] * 100 : 0, e[0]]; });
+  sortable($('tblArticles'), artRows, [
+    { k: 'a', label: 'Artículo', render: function (v, r) { var l = langOfPath(r[4]); return '<span class="tag ' + l + '">' + l.toUpperCase() + '</span>' + esc(v.slice(0, 46)); } },
+    { k: 'v', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
+    { k: 'c', label: 'Conv', num: true, render: function (v) { return fmt(v); } },
+    { k: 'r', label: 'CVR', num: true, render: function (v) { return pct(v); } }
+  ]);
+
+  /* ---- búsquedas ---- */
+  var searches = mergeHash(cur, 'searches', function (k) { return state.lang === 'all' || k.indexOf(state.lang + '|') === 0; });
+  var seaRows = Object.entries(searches).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 25).map(function (e) {
+    var parts = e[0].split('|');
+    return [parts.slice(1).join('|'), e[1], parts[0]];
+  });
+  if (seaRows.length) {
+    $('tblSearch').innerHTML = '<thead><tr><th>Término</th><th class="num">Búsquedas</th></tr></thead><tbody>' +
+      seaRows.map(function (r) { return '<tr><td class="k"><span class="tag ' + r[2] + '">' + r[2].toUpperCase() + '</span>' + esc(r[0]) + '</td><td class="num">' + fmt(r[1]) + '</td></tr>'; }).join('') + '</tbody>';
+  } else {
+    $('tblSearch').innerHTML = '<tbody><tr><td class="empty">Sin búsquedas registradas aún — se miden desde el 24 ago 2026</td></tr></tbody>';
+  }
+
+  /* ---- referrers ---- */
+  var refs = mergeHash(cur, 'referrers');
+  var groups = {};
+  Object.entries(refs).forEach(function (e) {
+    var d = e[0], grp =
+      /google\./.test(d) ? 'Google (SEO)' :
+      /bing\./.test(d) ? 'Bing' :
+      /facebook|instagram|fb\.|l\.instagram/.test(d) ? 'Meta (FB/IG)' :
+      /tiktok/.test(d) ? 'TikTok' :
+      /pinterest/.test(d) ? 'Pinterest' :
+      /youtube|youtu\.be/.test(d) ? 'YouTube' :
+      /kinedu\.com/.test(d) ? 'Interno (kinedu.com)' :
+      /duckduckgo|yahoo|ecosia/.test(d) ? 'Otros buscadores' : d;
+    groups[grp] = (groups[grp] || 0) + e[1];
+  });
+  var refRows = Object.entries(groups).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 12);
+  hbars($('refRank'), refRows, function (n) {
+    if (/Google/.test(n)) return PAL[0];
+    if (/Meta|TikTok|Pinterest|YouTube/.test(n)) return PAL[4];
+    if (/Interno/.test(n)) return PAL[1];
+    return PAL[3];
+  });
+
+  /* ---- idiomas ---- */
+  var langs = mergeHash(cur, 'languages');
+  var lRows = [['Español', langs.es || 0, PAL[4]], ['Inglés', langs.en || 0, PAL[0]], ['Portugués', langs.pt || 0, PAL[2]]];
+  donut($('chLangs'), lRows.map(function (r) { return { name: r[0], value: r[1], color: r[2] }; }));
+
+  /* ---- crawlers ---- */
+  var bots = {};
+  cur.forEach(function (d) { for (var b in (d.crawlers || {})) bots[b] = 1; });
+  var botNames = Object.keys(bots).slice(0, 5);
+  if (botNames.length) {
+    var series = botNames.map(function (b, i) {
+      return { name: b, color: PAL[i % PAL.length], values: cur.map(function (d) { return (d.crawlers || {})[b] || 0; }) };
     });
+    $('crawlLegend').innerHTML = series.map(function (s) { return '<span class="it" style="--sw:' + s.color + '">' + esc(s.name) + '</span>'; }).join('');
+    lineAreaChart($('chCrawl'), series, { labels: labels, h: 180 });
+  } else {
+    $('crawlLegend').innerHTML = '';
+    $('chCrawl').innerHTML = '<div class="empty">Sin actividad de crawlers registrada en el periodo</div>';
+  }
 
-    function showDashboard() {
-        loginScreen.style.display = 'none';
-        dashboard.classList.add('active');
-        fetchData();
-        fetchAppleData();
-    }
+  /* ---- A/B ---- */
+  var ab = state.raw.abSummary || {};
+  var abLangs = Object.keys(ab);
+  if (abLangs.length) {
+    $('abWrap').style.display = '';
+    var html = '<thead><tr><th>Idioma</th><th class="num">A vistas</th><th class="num">A clicks</th><th class="num">A CVR</th><th class="num">B vistas</th><th class="num">B clicks</th><th class="num">B CVR</th></tr></thead><tbody>';
+    abLangs.forEach(function (l) {
+      var a = ab[l].a, b = ab[l].b;
+      html += '<tr><td class="k">' + l.toUpperCase() + '</td><td class="num">' + fmt(a.views) + '</td><td class="num">' + fmt(a.cta) + '</td><td class="num">' + pct(a.views ? a.cta / a.views * 100 : 0) + '</td>' +
+              '<td class="num">' + fmt(b.views) + '</td><td class="num">' + fmt(b.cta) + '</td><td class="num">' + pct(b.views ? b.cta / b.views * 100 : 0) + '</td></tr>';
+    });
+    $('tblAB').innerHTML = html + '</tbody>';
+  } else { $('abWrap').style.display = 'none'; }
+}
 
-    function fetchAppleData() {
-        var content = document.getElementById('appleContent');
-        content.innerHTML = '<div class="empty-state" style="padding:20px 0;">Loading App Store data...</div>';
-        fetch('/api/apple-analytics', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password: password })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            renderAppleData(data);
-        })
-        .catch(function(err) {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;color:#ef4444;">Error: ' + err.message + '</div>';
-        });
-    }
+/* ================= demo data ================= */
+function demoData(days) {
+  var daily = [], today = new Date();
+  var PAGES = ['/', '/es', '/science', '/es/blog/mollera-sumida', '/pt/blog/calculadora-gestacional', '/es/blog/indicadores-del-desarrollo-control-de-la-cabeza', '/blog/baby-milestones', '/es/blog', '/pt/blog', '/live-classes', '/es/blog/category/guia-de-salud'];
+  var CATS = ['Guía de Salud', 'Hora de Dormir', 'Física', 'Leche Materna', 'Cognitiva', 'Guia de Saúde'];
+  var CTAS = ['Nav — Try Free', 'Assessment — Open modal', 'Blog CTA — Try free', 'Blog CTA — App Store', 'Blog CTA — Google Play', 'Science — Start Trial', 'Blog CTA — Download (smartlink)'];
+  var REFS = ['www.google.com', 'com.google.android.googlequicksearchbox', 'm.facebook.com', 'www.bing.com', 'l.instagram.com', 'duckduckgo.com'];
+  var SEARCH = ['es|cuando gatea', 'es|mollera', 'es|dormir toda la noche', 'pt|calculadora', 'en|tummy time', 'es|fiebre bebe', 'pt|sono do bebe'];
+  function ri(n) { return Math.floor(Math.random() * n); }
+  for (var i = days - 1; i >= 0; i--) {
+    var dt = new Date(today); dt.setDate(dt.getDate() - i);
+    var boost = 1 + Math.sin(i / 4) * 0.3 + (days - i) / days * 0.5;
+    var pv = Math.round((500 + ri(300)) * boost);
+    var pages = {}, convBy = {}, cats = {}, catConv = {}, searches = {}, refs = {}, ctas = {};
+    PAGES.forEach(function (p, j) { pages[p] = Math.round(pv / (j + 2)); });
+    Object.keys(pages).slice(0, 7).forEach(function (p) { convBy[p] = ri(Math.max(2, pages[p] / 28)); });
+    CATS.forEach(function (c, j) { cats[c] = Math.round(pv / (j + 4)); catConv[c] = ri(Math.max(1, cats[c] / 25)); });
+    SEARCH.forEach(function (s) { if (ri(2)) searches[s] = 1 + ri(8); });
+    REFS.forEach(function (r, j) { refs[r] = Math.round(pv / (j + 3) / 2); });
+    CTAS.forEach(function (c, j) { ctas[c] = ri(Math.max(2, 30 - j * 4)); });
+    var totalConv = Object.values(convBy).reduce(function (a, b) { return a + b; }, 0);
+    daily.push({
+      date: dt.toISOString().slice(0, 10),
+      pageViews: pv,
+      uniqueVisitors: Math.round(pv * 0.62),
+      conversions: totalConv,
+      convByPage: convBy,
+      pages: pages,
+      referrers: refs,
+      languages: { es: Math.round(pv * 0.5), en: Math.round(pv * 0.3), pt: Math.round(pv * 0.2) },
+      ctaClicks: ctas,
+      abViews: {}, abCta: {},
+      crawlers: { googlebot: 40 + ri(160), bingbot: 10 + ri(30), applebot: ri(12) },
+      cats: cats, catConv: catConv, searches: searches
+    });
+  }
+  return { daily: daily, abSummary: {}, allTimeTotals: {} };
+}
 
-    function renderAppleData(data) {
-        var content = document.getElementById('appleContent');
-        var dateEl = document.getElementById('appleReportDate');
-
-        if (data.error) {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;color:#ef4444;">Error: ' + data.error + '</div>';
-            return;
-        }
-        if (data.status === 'initializing') {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⏳ Report request created. Apple generates data in ~24h. Check back tomorrow.</div>';
-            return;
-        }
-        if (data.status === 'pending') {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⏳ Reports are being generated by Apple. Check back in a few hours.</div>';
-            return;
-        }
-        if (data.status === 'no_instances') {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⏳ Apple is preparing your first report (<b>' + (data.reportType || '') + '</b>). Usually ready within 24–48 hours of activating the API key.</div>';
-            return;
-        }
-        if (data.status === 'no_segments') {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⏳ Report instance found (<b>' + (data.instanceDate || '') + '</b>) but segments not ready yet.</div>';
-            return;
-        }
-        if (data.status === 'no_source_data') {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">⚠️ Data received but column names unexpected.<br><small style="color:#6b7280;">Columns: ' + (data.headers || []).join(', ') + '<br>Type: ' + (data.reportType || '') + ' · Rows: ' + (data.rowCount || 0) + '</small></div>';
-            return;
-        }
-        if (!data.sources || data.sources.length === 0) {
-            content.innerHTML = '<div class="empty-state" style="padding:20px 0;">No source data available yet.</div>';
-            return;
-        }
-
-        if (data.reportDate) dateEl.textContent = 'Report: ' + data.reportDate;
-
-        var smartBannerDownloads = (data.smartBanner && data.smartBanner.downloads) || 0;
-        var total = data.total || 1;
-
-        var html = '<div class="cta-grid" style="margin-bottom:20px;">';
-        // Smart App Banner highlight card
-        var pct = total > 0 ? ((smartBannerDownloads / total) * 100).toFixed(1) : '0.0';
-        html += '<div class="cta-card" style="border:2px solid #2b8be4;">' +
-            '<div class="cta-name">📱 Smart App Banner</div>' +
-            '<div class="cta-count">' + formatNum(smartBannerDownloads) + '</div>' +
-            '<div class="cta-pct">' + pct + '% of downloads</div>' +
-            '</div>';
-        html += '<div class="cta-card">' +
-            '<div class="cta-name">Total Downloads</div>' +
-            '<div class="cta-count">' + formatNum(total) + '</div>' +
-            '<div class="cta-pct">All sources</div>' +
-            '</div>';
-        html += '</div>';
-
-        // Sources breakdown table
-        html += '<table style="width:100%;border-collapse:collapse;font-size:13px;">' +
-            '<thead><tr><th style="text-align:left;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">Source</th>' +
-            '<th style="text-align:right;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">Downloads</th>' +
-            '<th style="text-align:right;padding:8px 4px;border-bottom:1px solid #e5e7eb;color:#6b7280;">%</th></tr></thead><tbody>';
-
-        var maxDl = data.sources[0].downloads || 1;
-        data.sources.forEach(function(s) {
-            var rowPct = total > 0 ? ((s.downloads / total) * 100).toFixed(1) : '0.0';
-            var barW = maxDl > 0 ? Math.round((s.downloads / maxDl) * 100) : 0;
-            var isSmartBanner = s.name.toLowerCase().includes('smart');
-            html += '<tr style="' + (isSmartBanner ? 'background:#eff6ff;' : '') + '">' +
-                '<td style="padding:8px 4px;"><div class="bar-cell"><div class="mini-bar" style="width:' + barW + 'px;' + (isSmartBanner ? 'background:#2b8be4;' : '') + '"></div>' + s.name + '</div></td>' +
-                '<td style="text-align:right;padding:8px 4px;">' + formatNum(s.downloads) + '</td>' +
-                '<td style="text-align:right;padding:8px 4px;color:#6b7280;">' + rowPct + '%</td>' +
-                '</tr>';
-        });
-        html += '</tbody></table>';
-        content.innerHTML = html;
-    }
-
-    function fetchData(callback) {
-        loading.classList.remove('hidden');
-        var days = periodSelect.value;
-        fetch('/api/stats?password=' + encodeURIComponent(password) + '&days=' + days)
-            .then(function(r) {
-                if (r.status === 401) throw new Error('unauthorized');
-                return r.json();
-            })
-            .then(function(data) {
-                loading.classList.add('hidden');
-                currentData = data;
-                renderDashboard(data);
-                if (callback) callback(null);
-            })
-            .catch(function(err) {
-                loading.classList.add('hidden');
-                if (callback) callback(err);
-            });
-    }
-
-    function formatNum(n) {
-        if (n === undefined || n === null) return '0';
-        return n.toLocaleString('en-US');
-    }
-
-    var ORGANIC_RE = /(^|\.)google\.|(^|\.)bing\.com$|duckduckgo|search\.yahoo|ecosia|(^|\.)yandex\./i;
-    function renderSEOSection(data) {
-        var days = data.daily || [];
-        var labels = [], organic = [], crawls = [];
-        var sumOrg = 0, sumAll = 0, sumCrawl = 0;
-        days.forEach(function(d) {
-            labels.push(d.date.slice(5));
-            var org = 0;
-            var refs = d.referrers || {};
-            for (var r in refs) { if (ORGANIC_RE.test(r)) org += refs[r]; }
-            organic.push(org); sumOrg += org; sumAll += (d.pageViews || 0);
-            var cr = 0, cs = d.crawlers || {};
-            for (var b in cs) cr += cs[b];
-            crawls.push(cr); sumCrawl += cr;
-        });
-        document.getElementById('seoOrganic').textContent = formatNum(sumOrg);
-        document.getElementById('seoShare').textContent = sumAll ? ((sumOrg / sumAll) * 100).toFixed(1) + '%' : '–';
-        document.getElementById('seoCrawls').textContent = formatNum(sumCrawl);
-        var ctx = document.getElementById('seoChart').getContext('2d');
-        if (seoChartInstance) seoChartInstance.destroy();
-        seoChartInstance = new Chart(ctx, {
-            type: 'line',
-            data: { labels: labels, datasets: [
-                { label: 'Visitas orgánicas (Google/Bing/etc.)', data: organic, borderColor: '#34a853', backgroundColor: 'rgba(52,168,83,.08)', fill: true, tension: .3, pointRadius: 2 },
-                { label: 'Crawls de buscadores', data: crawls, borderColor: '#4285f4', borderDash: [6,4], fill: false, tension: .3, pointRadius: 2 }
-            ]},
-            options: { responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } },
-                scales: { y: { beginAtZero: true } } }
-        });
-    }
-
-    function renderDashboard(data) {
-        var s = data.summary;
-        document.getElementById('totalPV').textContent = formatNum(s.pageViews);
-        document.getElementById('totalUV').textContent = formatNum(s.uniqueVisitors);
-        document.getElementById('totalConv').textContent = formatNum(s.conversions);
-        document.getElementById('convRate').textContent = s.conversionRate + '%';
-
-        updateChart(data);
-        renderCTAs(data.topCTAs, s.uniqueVisitors);
-        renderTable('topPagesBody', data.topPages, formatPageName);
-        renderTable('topRefBody', data.topReferrers);
-        renderTable('topLangBody', data.topLanguages, formatLangName);
-        renderLearnSection(data);
-        renderABSection(data);
-        renderSEOSection(data);
-    }
-
-    // ── LEARN SECTION ────────────────────────────────────────────────
-    var LEARN_PAGES = {
-        en: ['live-classes-ads-en', '/live-classes-ads-en', '/live-classes-ads-en.html'],
-        es: ['live-classes-ads-es', '/live-classes-ads-es', '/live-classes-ads-es.html'],
-        pt: ['live-classes-ads-pt', '/live-classes-ads-pt', '/live-classes-ads-pt.html'],
-    };
-    var LEARN_CTA_KEYS = {
-        en: ['Ads_LiveClasses_Hero', 'Ads_LiveClasses_Comparison', 'Ads_LiveClasses_Upcoming', 'Ads_LiveClasses_Pricing', 'Ads_LiveClasses_FAQ'],
-        es: ['Ads_ES_LiveClasses_Hero', 'Ads_ES_LiveClasses_Comparison', 'Ads_ES_LiveClasses_Upcoming', 'Ads_ES_LiveClasses_Pricing', 'Ads_ES_LiveClasses_FAQ'],
-        pt: ['Ads_PT_LiveClasses_Hero', 'Ads_PT_LiveClasses_Comparison', 'Ads_PT_LiveClasses_Upcoming', 'Ads_PT_LiveClasses_Pricing', 'Ads_PT_LiveClasses_FAQ'],
-    };
-
-    function renderLearnSection(data) {
-        var pages  = data.topPages  || [];
-        var ctas   = data.topCTAs   || [];
-
-        ['en','es','pt'].forEach(function(lang) {
-            // Sum views for this ads page
-            var views = pages
-                .filter(function(p) { return LEARN_PAGES[lang].indexOf(p[0]) > -1; })
-                .reduce(function(sum, p) { return sum + p[1]; }, 0);
-
-            // Sum CTA clicks for this lang
-            var clicks = ctas
-                .filter(function(c) { return LEARN_CTA_KEYS[lang].indexOf(c[0]) > -1; })
-                .reduce(function(sum, c) { return sum + c[1]; }, 0);
-
-            var ctr = views > 0 ? ((clicks / views) * 100).toFixed(1) + '%' : '—';
-
-            document.getElementById('lv_' + lang).textContent = views > 0 ? formatNum(views) : '—';
-            document.getElementById('lc_' + lang).textContent = clicks > 0 ? formatNum(clicks) : '—';
-            document.getElementById('lr_' + lang).textContent = views > 0 ? ctr : '—';
-
-            // Highlight card if it has traffic
-            if (views > 0) {
-                var card = document.getElementById('learnCard_' + lang);
-                if (card) card.style.borderColor = '#2b8be4';
-            }
-        });
-    }
-
-    // ── META ADS LIVE DATA ──────────────────────────────────────────────
-    window.fetchMetaData = function() {
-        var preset = document.getElementById('metaDatePreset').value;
-        var btn = document.getElementById('metaRefreshBtn');
-        btn.textContent = '↻ Loading…';
-        btn.disabled = true;
-
-        ['en','es'].forEach(function(lang) {
-            document.getElementById('mcs_' + lang).textContent = 'loading…';
-            document.getElementById('mcs_' + lang).className = 'mcc-status loading';
-            ['imp','clicks','spend','ctr','cpc'].forEach(function(m) {
-                document.getElementById('mm_' + lang + '_' + m).textContent = '—';
-            });
-        });
-
-        fetch('/api/meta-analytics?date_preset=' + preset)
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                btn.textContent = '↻ Refresh';
-                btn.disabled = false;
-                if (data.error) {
-                    document.getElementById('metaFetchedAt').textContent = '⚠ ' + data.error;
-                    return;
-                }
-                var ts = new Date(data.fetched_at);
-                document.getElementById('metaFetchedAt').textContent = 'Updated ' + ts.toLocaleTimeString();
-
-                ['en','es'].forEach(function(lang) {
-                    var c = data.campaigns && data.campaigns[lang];
-                    var statusEl = document.getElementById('mcs_' + lang);
-                    if (!c || !c.has_data) {
-                        statusEl.textContent = 'No data yet';
-                        statusEl.className = 'mcc-status no-data';
-                        return;
-                    }
-                    statusEl.textContent = 'ACTIVE';
-                    statusEl.className = 'mcc-status';
-                    document.getElementById('mm_' + lang + '_imp').textContent    = formatNum(c.impressions);
-                    document.getElementById('mm_' + lang + '_clicks').textContent = formatNum(c.clicks);
-                    document.getElementById('mm_' + lang + '_spend').textContent  = '$' + c.spend.toFixed(2);
-                    document.getElementById('mm_' + lang + '_ctr').textContent    = c.ctr.toFixed(2) + '%';
-                    document.getElementById('mm_' + lang + '_cpc').textContent    = c.cpc > 0 ? '$' + c.cpc.toFixed(2) : '—';
-                });
-            })
-            .catch(function(err) {
-                btn.textContent = '↻ Refresh';
-                btn.disabled = false;
-                document.getElementById('metaFetchedAt').textContent = '⚠ ' + err.message;
-                ['en','es'].forEach(function(lang) {
-                    var statusEl = document.getElementById('mcs_' + lang);
-                    statusEl.textContent = 'Error';
-                    statusEl.className = 'mcc-status no-data';
-                });
-            });
-    };
-
-    // Auto-fetch Meta data on load
-    fetchMetaData();
-
-    // ── A/B TEST — auto from stats API ──────────────────────────────
-    function renderABSection(data) {
-        var ab = data.abSummary || {};
-        // Aggregate across all languages (EN + ES + PT)
-        var aViews = 0, aClicks = 0, bViews = 0, bClicks = 0;
-        ['en','es','pt'].forEach(function(lang) {
-            if (ab[lang]) {
-                aViews  += ab[lang].a.views || 0;
-                aClicks += ab[lang].a.cta   || 0;
-                bViews  += ab[lang].b.views || 0;
-                bClicks += ab[lang].b.cta   || 0;
-            }
-        });
-        _renderAB(aViews, aClicks, bViews, bClicks);
-    }
-
-    function _renderAB(aViews, aClicks, bViews, bClicks) {
-        var total = aViews + bViews || 1;
-        var aCTR = aViews > 0 ? ((aClicks / aViews) * 100).toFixed(1) : '—';
-        var bCTR = bViews > 0 ? ((bClicks / bViews) * 100).toFixed(1) : '—';
-
-        document.getElementById('ab_a_views').textContent  = aViews  > 0 ? formatNum(aViews)  : '—';
-        document.getElementById('ab_a_clicks').textContent = aClicks > 0 ? formatNum(aClicks) : '—';
-        document.getElementById('ab_a_ctr').textContent    = aCTR !== '—' ? aCTR + '%' : '—';
-        document.getElementById('ab_b_views').textContent  = bViews  > 0 ? formatNum(bViews)  : '—';
-        document.getElementById('ab_b_clicks').textContent = bClicks > 0 ? formatNum(bClicks) : '—';
-        document.getElementById('ab_b_ctr').textContent    = bCTR !== '—' ? bCTR + '%' : '—';
-
-        var aW = Math.round((aViews / total) * 100);
-        document.getElementById('ab_a_bar').style.width = aW + '%';
-        document.getElementById('ab_b_bar').style.width = (100 - aW) + '%';
-
-        var winner = document.getElementById('ab_winner');
-        if (aViews > 0 && bViews > 0 && aCTR !== '—' && bCTR !== '—') {
-            var aCTRn = parseFloat(aCTR), bCTRn = parseFloat(bCTR);
-            if (aCTRn === bCTRn) {
-                winner.textContent = '🤝 Tied — need more data';
-                winner.style.color = '#6b7280';
-            } else if (aCTRn > bCTRn) {
-                var lift = (((aCTRn - bCTRn) / bCTRn) * 100).toFixed(0);
-                winner.innerHTML = '🏆 <strong>Variant A wins</strong> — +' + lift + '% higher CTR vs B';
-                winner.style.color = '#1d4ed8';
-            } else {
-                var lift = (((bCTRn - aCTRn) / aCTRn) * 100).toFixed(0);
-                winner.innerHTML = '🏆 <strong>Variant B wins</strong> — +' + lift + '% higher CTR vs A';
-                winner.style.color = '#065f46';
-            }
-        } else {
-            winner.textContent = aViews + bViews > 0 ? '⏳ Need more data to pick a winner' : '';
-        }
-    }
-
-    // Keep manual input as override (hidden by default, shown if needed)
-    window.updateAB = function() {
-        var aViews  = parseInt(document.getElementById('inp_a_views').value)  || 0;
-        var aClicks = parseInt(document.getElementById('inp_a_clicks').value) || 0;
-        var bViews  = parseInt(document.getElementById('inp_b_views').value)  || 0;
-        var bClicks = parseInt(document.getElementById('inp_b_clicks').value) || 0;
-        if (aViews + bViews > 0) _renderAB(aViews, aClicks, bViews, bClicks);
-    };
-
-    function renderCTAs(entries, totalVisitors) {
-        var grid = document.getElementById('ctaGrid');
-        if (!entries || entries.length === 0) {
-            grid.innerHTML = '<div class="empty-state">No CTA data yet</div>';
-            return;
-        }
-        var totalClicks = entries.reduce(function(sum, e) { return sum + e[1]; }, 0);
-        grid.innerHTML = entries.map(function(e) {
-            var pct = totalVisitors > 0 ? ((e[1] / totalVisitors) * 100).toFixed(1) : '0.0';
-            return '<div class="cta-card">' +
-                '<div class="cta-name">' + e[0] + '</div>' +
-                '<div class="cta-count">' + formatNum(e[1]) + '</div>' +
-                '<div class="cta-pct">' + pct + '% of visitors</div>' +
-                '</div>';
-        }).join('');
-    }
-
-    function formatPageName(name) {
-        if (name === '/' || name === '/index.html') return 'Home';
-        return name.replace(/^\//, '').replace('.html', '');
-    }
-
-    function formatLangName(code) {
-        var names = { en: 'English', es: 'Spanish', pt: 'Portuguese' };
-        return names[code] || code.toUpperCase();
-    }
-
-    function renderTable(tbodyId, entries, nameFormatter) {
-        var tbody = document.getElementById(tbodyId);
-        if (!entries || entries.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="2" class="empty-state">No data yet</td></tr>';
-            return;
-        }
-        var maxVal = entries[0][1];
-        tbody.innerHTML = entries.slice(0, 10).map(function(e) {
-            var name = nameFormatter ? nameFormatter(e[0]) : e[0];
-            var pct = maxVal > 0 ? Math.round((e[1] / maxVal) * 100) : 0;
-            return '<tr><td><div class="bar-cell"><div class="mini-bar" style="width:' + pct + 'px"></div>' +
-                   name + '</div></td><td class="num">' + formatNum(e[1]) + '</td></tr>';
-        }).join('');
-    }
-
-    function updateChart(data) {
-        var labels = data.daily.map(function(d) {
-            var parts = d.date.split('-');
-            return parts[1] + '/' + parts[2];
-        });
-        var values = data.daily.map(function(d) { return d[currentMetric] || 0; });
-        // índice del 7 jul 2026: día en que se activó el filtro de bots
-        var botFilterIdx = -1;
-        data.daily.forEach(function(d, i) { if (botFilterIdx === -1 && d.date >= '2026-07-07') botFilterIdx = i; });
-
-        var colors = {
-            pageViews: { line: '#2b8be4', bg: 'rgba(43,139,228,0.08)' },
-            uniqueVisitors: { line: '#22c55e', bg: 'rgba(34,197,94,0.08)' },
-            conversions: { line: '#8b5cf6', bg: 'rgba(139,92,246,0.08)' },
-        };
-        var c = colors[currentMetric] || colors.pageViews;
-
-        if (chartInstance) chartInstance.destroy();
-
-        var ctx = document.getElementById('mainChart').getContext('2d');
-        var botFilterMarker = {
-            id: 'botFilterMarker',
-            afterDraw: function(chart) {
-                if (botFilterIdx < 0) return;
-                var x = chart.scales.x.getPixelForValue(botFilterIdx);
-                var area = chart.chartArea;
-                var g = chart.ctx;
-                g.save();
-                g.strokeStyle = '#f59e0b'; g.setLineDash([5,4]); g.lineWidth = 1.5;
-                g.beginPath(); g.moveTo(x, area.top); g.lineTo(x, area.bottom); g.stroke();
-                g.setLineDash([]);
-                g.fillStyle = '#f59e0b'; g.font = '600 10px Inter';
-                g.textAlign = (x > area.right - 90) ? 'right' : 'left';
-                g.fillText('filtro de bots', x + ((x > area.right - 90) ? -6 : 6), area.top + 12);
-                g.restore();
-            }
-        };
-        chartInstance = new Chart(ctx, {
-            type: 'line',
-            plugins: [botFilterMarker],
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: currentMetric,
-                    data: values,
-                    borderColor: c.line,
-                    backgroundColor: c.bg,
-                    borderWidth: 2.5,
-                    pointRadius: 3,
-                    pointBackgroundColor: c.line,
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointHoverRadius: 6,
-                    fill: true,
-                    tension: 0.35,
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: { intersect: false, mode: 'index' },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1a1a2e',
-                        titleFont: { family: 'Inter', size: 12 },
-                        bodyFont: { family: 'Inter', size: 13, weight: '600' },
-                        padding: 12,
-                        cornerRadius: 10,
-                        displayColors: false,
-                    },
-                },
-                scales: {
-                    x: {
-                        grid: { display: false },
-                        ticks: { font: { family: 'Inter', size: 11 }, color: '#9ca3af', maxTicksLimit: 15 },
-                    },
-                    y: {
-                        beginAtZero: true,
-                        grid: { color: '#f3f4f6' },
-                        ticks: { font: { family: 'Inter', size: 11 }, color: '#9ca3af' },
-                    },
-                },
-            },
-        });
-    }
-})();
+/* auto-login si hay pw guardada o demo */
+if (DEMO) { $('login').style.display = 'none'; $('app').style.display = ''; state.raw = demoData(state.days * 2); renderAll(); }
+else if (state.pw) { tryLogin(state.pw); }
 </script>
 </body>
 </html>

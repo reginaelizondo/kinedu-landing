@@ -740,6 +740,7 @@ try{
 
     function openModal(e) {
         if (e) e.preventDefault();
+        try { navigator.sendBeacon('/api/track', JSON.stringify({ page: location.pathname, lang: localStorage.getItem('kinedu-lang') || 'en', event: 'conversion', cta: 'Assessment — Open modal' })); } catch (err) {}
         if (!frame.getAttribute('src')) {
             frame.addEventListener('load', function () { loader.classList.add('hide'); }, { once: true });
             frame.setAttribute('src', SRC);

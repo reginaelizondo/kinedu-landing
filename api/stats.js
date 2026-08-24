@@ -45,6 +45,9 @@ module.exports = async function handler(req, res) {
       pipeline.push(['HGETALL', `analytics:ab_view:${date}`]);
       pipeline.push(['HGETALL', `analytics:ab_cta:${date}`]);
       pipeline.push(['HGETALL', `analytics:crawl:${date}`]);
+      pipeline.push(['HGETALL', `analytics:cat:${date}`]);
+      pipeline.push(['HGETALL', `analytics:catconv:${date}`]);
+      pipeline.push(['HGETALL', `analytics:search:${date}`]);
     }
     // Add totals
     pipeline.push(['GET', 'analytics:total:pv']);
@@ -62,7 +65,7 @@ module.exports = async function handler(req, res) {
     const results = await response.json();
 
     // Parse results into daily data
-    const fieldsPerDay = 9;
+    const fieldsPerDay = 12;
     const daily = dates.map((date, i) => {
       const pvResult     = results[i * fieldsPerDay];
       const uvResult     = results[i * fieldsPerDay + 1];
@@ -73,6 +76,9 @@ module.exports = async function handler(req, res) {
       const abViewResult = results[i * fieldsPerDay + 6];
       const abCtaResult  = results[i * fieldsPerDay + 7];
       const crawlResult  = results[i * fieldsPerDay + 8];
+      const catResult    = results[i * fieldsPerDay + 9];
+      const catConvResult = results[i * fieldsPerDay + 10];
+      const searchResult = results[i * fieldsPerDay + 11];
 
       // Parse hash results (HGETALL returns flat array [key, val, key, val, ...])
       function parseHash(result) {
@@ -92,6 +98,9 @@ module.exports = async function handler(req, res) {
       const abViews   = parseHash(abViewResult);
       const abCta     = parseHash(abCtaResult);
       const crawlers  = parseHash(crawlResult);
+      const cats      = parseHash(catResult);
+      const catConv   = parseHash(catConvResult);
+      const searches  = parseHash(searchResult);
 
       let totalPV = 0;
       for (const k in pages) totalPV += pages[k];
@@ -104,6 +113,7 @@ module.exports = async function handler(req, res) {
         pageViews: totalPV,
         uniqueVisitors: (uvResult && uvResult.result) || 0,
         conversions: totalConv,
+        convByPage: conversions,
         pages,
         referrers,
         languages,
@@ -111,6 +121,9 @@ module.exports = async function handler(req, res) {
         abViews,
         abCta,
         crawlers,
+        cats,
+        catConv,
+        searches,
       };
     });
 
@@ -125,6 +138,10 @@ module.exports = async function handler(req, res) {
     const topCTAs = {};
     const abViews = {};
     const abCta   = {};
+    const topCats = {};
+    const topCatConv = {};
+    const topSearches = {};
+    const crawlTotals = {};
     let sumUV = 0;
     let sumPV = 0;
     let sumConv = 0;
@@ -139,6 +156,10 @@ module.exports = async function handler(req, res) {
       for (const c in day.ctaClicks)  topCTAs[c]      = (topCTAs[c]      || 0) + day.ctaClicks[c];
       for (const k in day.abViews)    abViews[k]      = (abViews[k]      || 0) + day.abViews[k];
       for (const k in day.abCta)      abCta[k]        = (abCta[k]        || 0) + day.abCta[k];
+      for (const k in day.cats)       topCats[k]      = (topCats[k]      || 0) + day.cats[k];
+      for (const k in day.catConv)    topCatConv[k]   = (topCatConv[k]   || 0) + day.catConv[k];
+      for (const k in day.searches)   topSearches[k]  = (topSearches[k]  || 0) + day.searches[k];
+      for (const k in day.crawlers)   crawlTotals[k]  = (crawlTotals[k]  || 0) + day.crawlers[k];
     }
 
     // Build A/B summary: { en: { a: {views, cta}, b: {views, cta} }, es: {...} }
@@ -170,6 +191,10 @@ module.exports = async function handler(req, res) {
       topLanguages: Object.entries(topLanguages).sort((a, b) => b[1] - a[1]),
       topCTAs: Object.entries(topCTAs).sort((a, b) => b[1] - a[1]),
       abSummary,
+      topCategories: Object.entries(topCats).sort((a, b) => b[1] - a[1]),
+      topCategoryConv: Object.entries(topCatConv).sort((a, b) => b[1] - a[1]),
+      topSearches: Object.entries(topSearches).sort((a, b) => b[1] - a[1]).slice(0, 100),
+      crawlTotals,
       allTimeTotals: { pageViews: totalPV, conversions: totalConv },
     });
   } catch (err) {

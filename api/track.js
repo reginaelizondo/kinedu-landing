@@ -62,6 +62,12 @@ module.exports = async function handler(req, res) {
       ['HINCRBY', `analytics:lang:${date}`, lang, 1],
     ];
 
+    // Blog category rollups (beacon sends cat on blog pages)
+    const cat = (body.cat || '').toString().trim().slice(0, 40);
+    if (cat) {
+      pipeline.push(['HINCRBY', `analytics:cat:${date}`, cat, 1]);
+    }
+
     // Track conversions (CTA clicks)
     if (event === 'conversion') {
       const ctaLabel = body.cta || 'unknown';
@@ -69,9 +75,20 @@ module.exports = async function handler(req, res) {
       pipeline.push(['INCR', 'analytics:total:conv']);
       // Track individual CTA clicks: "page|cta_label"
       pipeline.push(['HINCRBY', `analytics:cta:${date}`, ctaLabel, 1]);
+      if (cat) {
+        pipeline.push(['HINCRBY', `analytics:catconv:${date}`, cat, 1]);
+      }
       // Track A/B CTA clicks: "page|variant" → count
       if (body.variant) {
         pipeline.push(['HINCRBY', `analytics:ab_cta:${date}`, `${page}|${body.variant}`, 1]);
+      }
+    }
+
+    // Track blog-hub search terms (what parents are looking for)
+    if (event === 'search' && body.q) {
+      const q = body.q.toString().toLowerCase().trim().replace(/\s+/g, ' ').slice(0, 40);
+      if (q.length >= 2) {
+        pipeline.push(['HINCRBY', `analytics:search:${date}`, `${lang}|${q}`, 1]);
       }
     }
 
