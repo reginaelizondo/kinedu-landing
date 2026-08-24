@@ -757,5 +757,32 @@ body { padding-top: 88px; }
 </script>
 <script src="/translations.js?v=0724a"></script>
 <script src="/script.js?v=0701a"></script>
+<script id="kbeacon">(function(){try{
+var P=location.pathname,L=P.indexOf('/es/')===0||P==='/es'?'es':P.indexOf('/pt/')===0||P==='/pt'?'pt':'en';
+var cat='';
+if(P.indexOf('/blog/category/')>-1){var h1=document.querySelector('h1');if(h1)cat=(h1.textContent||'').trim();}
+else{var ce=document.querySelector('.kb-art-cat');if(ce)cat=(ce.textContent||'').trim();}
+cat=cat.replace(/\s+/g,' ').slice(0,40);
+function send(d){try{navigator.sendBeacon('/api/track',JSON.stringify(d))}catch(e){}}
+send({page:P,referrer:document.referrer,lang:L,cat:cat});
+document.addEventListener('click',function(e){
+var t=e.target,a=t&&t.closest?t.closest('a[href]'):null;if(!a)return;
+var h=a.getAttribute('href')||'',lb='';
+if(h.indexOf('webpromo.kinedu.com')>-1)lb='Blog CTA — Try free';
+else if(h.indexOf('apps.apple.com')>-1)lb='Blog CTA — App Store';
+else if(h.indexOf('play.google.com')>-1)lb='Blog CTA — Google Play';
+else if(h.indexOf('smart.link')>-1)lb='Blog CTA — Download (smartlink)';
+else if(h.indexOf('app.kinedu.com')>-1)lb='Blog CTA — app.kinedu.com';
+else if(h.indexOf('assessment4.kinedu.com')>-1)lb='Blog CTA — Assessment';
+if(!lb)return;
+send({page:P,lang:L,cat:cat,event:'conversion',cta:lb});
+},true);
+var si=document.getElementById('esBlogSearch')||document.getElementById('ptBlogSearch')||document.getElementById('blogSearch');
+if(si){var lastQ='';function sq(){var q=(si.value||'').trim();if(q.length>=2&&q!==lastQ){lastQ=q;send({page:P,lang:L,event:'search',q:q});}}
+si.addEventListener('keydown',function(e){if(e.key==='Enter')sq();});
+var btn=si.parentElement?si.parentElement.querySelector('button'):null;
+if(btn)btn.addEventListener('click',sq);
+var db;si.addEventListener('input',function(){clearTimeout(db);db=setTimeout(sq,2500);});}
+}catch(e){}})();</script>
 </body>
 </html>
