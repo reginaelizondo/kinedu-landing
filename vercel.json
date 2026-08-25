@@ -2736,11 +2736,6 @@
       "permanent": true
     },
     {
-      "source": "/masterclasses",
-      "destination": "/live-classes",
-      "permanent": true
-    },
-    {
       "source": "/partners",
       "destination": "/",
       "permanent": true
