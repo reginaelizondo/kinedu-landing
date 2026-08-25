@@ -752,10 +752,28 @@ section[id], div[id] { scroll-margin-top: 96px; }
     max-width: 100%;
     height: auto;
     display: block;
-    /* Pin to its own GPU layer: prevents the 1-frame re-raster "jump"
-       of the downscaled image when the page fade-in transition ends. */
+    /* Fully isolated, permanently promoted layer so no neighbouring
+       repaint (e.g. the hero text settling in) can re-raster the
+       downscaled phone and make it shimmer/"tremble" on load. */
     transform: translateZ(0);
     backface-visibility: hidden;
+    will-change: transform;
+    contain: paint;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Kill ALL hero entrance motion — the page must be perfectly static on
+   load. The fadeUp of the text column was repainting the region every
+   frame and shimmering the phone image beside it. */
+.hero-headline,
+.hero-sub,
+.hero-proof,
+.hero-ctas,
+.store-badges,
+.hero-trust {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 
