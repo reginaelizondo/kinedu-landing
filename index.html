@@ -92,7 +92,7 @@ try{
                     </div>
                 </div>
 
-                <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://stand-alone-assessment.vercel.app/" target="_blank" rel="noopener" class="mobile-only" data-i18n="nav.assessment">How's my baby?</a>
                 <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
                 <div class="lang-toggle lang-toggle--mobile">
                     <button class="lang-btn active" data-lang="en">EN</button>
@@ -106,7 +106,7 @@ try{
                     <button class="lang-btn" data-lang="es">ES</button>
                     <button class="lang-btn" data-lang="pt">PT</button>
                 </div>
-                <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://stand-alone-assessment.vercel.app/" target="_blank" rel="noopener" class="nav-schools" data-i18n="nav.assessment">How's my baby?</a>
                 <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
             </div>
             <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -692,7 +692,7 @@ try{
         </div>
     </div>
 
-    <script src="translations.js?v=0820b"></script>
+    <script src="translations.js?v=0825a"></script>
     <script src="script.js?v=0824a"></script>
     <script>
     (function(){
@@ -715,9 +715,9 @@ try{
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang}));
             });
         });
-        document.querySelectorAll('a[href*="kinedu-classrooms"]').forEach(function(a){
+        document.querySelectorAll('a[href*="stand-alone-assessment"]').forEach(function(a){
             a.addEventListener('click', function(){
-                navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Hero — Schools & Educators', lang: lang}));
+                navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Nav — How is my baby (assessment)', lang: lang}));
             });
         });
         var appStore = document.getElementById('appStoreBadge');
