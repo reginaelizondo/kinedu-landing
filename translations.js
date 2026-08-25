@@ -13,6 +13,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'How It Works',
     'nav.learn': 'Learn',
+    'nav.masterclasses': 'Masterclasses',
+    'nav.liveClasses': 'Live Classes',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/blog',
     'nav.team': 'Team',
@@ -509,6 +511,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'Cómo Funciona',
     'nav.learn': 'Aprende',
+    'nav.masterclasses': 'Masterclasses',
+    'nav.liveClasses': 'Clases en vivo',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/es/blog',
     'nav.team': 'Equipo',
@@ -1004,6 +1008,8 @@ window.TRANSLATIONS = {
     // NAV
     'nav.howItWorks': 'Como Funciona',
     'nav.learn': 'Aprenda',
+    'nav.masterclasses': 'Masterclasses',
+    'nav.liveClasses': 'Aulas ao vivo',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/pt/blog',
     'nav.team': 'Equipe',

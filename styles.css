@@ -336,7 +336,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 }
 
 .nav-cta {
-    padding: 10px 26px;
+    padding: 10px 20px;
     background: var(--kinedu-blue);
     color: white;
     border-radius: var(--r-full);

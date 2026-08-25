@@ -50,7 +50,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="TAP/NEW/desktop EN.webp?v=2" media="(min-width: 769px)">
     <link rel="preload" as="image" href="TAP/NEW/mobile EN.webp?v=2" media="(max-width: 768px)">
-    <link rel="stylesheet" href="styles.css?v=0824a">
+    <link rel="stylesheet" href="styles.css?v=0825c">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kinedu", "url": "https://www.kinedu.com/", "logo": "https://www.kinedu.com/logo%20kinedu.png", "sameAs": ["https://www.facebook.com/kineducom/", "https://www.instagram.com/kinedu/", "https://www.tiktok.com/@kineduapp", "https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw"]}</script>
@@ -77,7 +77,8 @@ try{
         <div class="nav-pill">
             <a href="#" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
-                <a href="live-classes.html" data-i18n="nav.learn">Learn</a>
+                <a href="https://masterclasses.kinedu.com/" data-i18n="nav.masterclasses">Masterclasses</a>
+                <a href="live-classes.html" data-i18n="nav.liveClasses">Live Classes</a>
                 <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
                 <a href="science.html" data-i18n="nav.science">Science</a>
                 <a href="#faq" data-i18n="nav.faq">FAQ</a>
@@ -692,7 +693,7 @@ try{
         </div>
     </div>
 
-    <script src="translations.js?v=0825a"></script>
+    <script src="translations.js?v=0825b"></script>
     <script src="script.js?v=0824a"></script>
     <script>
     (function(){
@@ -713,6 +714,11 @@ try{
             a.addEventListener('click', function(){
                 var label = a.closest('nav') ? 'Nav — Free Assessment' : 'Section — Free Assessment';
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang}));
+            });
+        });
+        document.querySelectorAll('a[href*="masterclasses.kinedu.com"]').forEach(function(a){
+            a.addEventListener('click', function(){
+                navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Nav — Masterclasses', lang: lang}));
             });
         });
         document.querySelectorAll('a[href*="stand-alone-assessment"]').forEach(function(a){
