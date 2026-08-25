@@ -160,6 +160,18 @@
     {
       "source": "/blog/:slug",
       "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/masterclasses",
+      "destination": "/masterclasses.html"
+    },
+    {
+      "source": "/es/masterclasses",
+      "destination": "/es/masterclasses.html"
+    },
+    {
+      "source": "/pt/masterclasses",
+      "destination": "/pt/masterclasses.html"
     }
   ],
   "headers": [
