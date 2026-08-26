@@ -105,6 +105,10 @@ tr:hover td { background: #FAF8F4; }
       <div class="sub" id="periodLabel"></div>
     </div>
     <div class="controls">
+      <div class="chipset" id="viewTabs">
+        <button class="chip on" data-view="site">Sitio</button>
+        <button class="chip" data-view="mc">Masterclasses</button>
+      </div>
       <div class="chipset" id="rangeChips">
         <button class="chip" data-d="7">7d</button>
         <button class="chip on" data-d="14">14d</button>
@@ -121,6 +125,7 @@ tr:hover td { background: #FAF8F4; }
     </div>
   </div>
 
+  <div id="viewSite">
   <div class="kpis" id="kpis"></div>
 
   <div class="grid">
@@ -211,7 +216,52 @@ tr:hover td { background: #FAF8F4; }
     </div>
   </div>
 
-  <div class="note" style="margin-top:26px;">
+  </div><!-- /#viewSite -->
+
+  <!-- ===== TAB MASTERCLASSES (kinedu.com/masterclasses) ===== -->
+  <div id="viewMc" style="display:none;">
+    <div class="kpis" id="mcKpis"></div>
+
+    <div class="section-title" style="--dot:var(--c2)">Funnel de compra</div>
+    <div class="grid">
+      <div class="card s6">
+        <h2>Del storefront al pago</h2>
+        <div class="desc">Cada paso y cuánto se cae entre uno y otro</div>
+        <div id="mcFunnel"></div>
+      </div>
+      <div class="card s6">
+        <h2>Actividad diaria</h2>
+        <div class="desc">Vistas, checkouts iniciados y compras por día</div>
+        <div class="ch" id="mcChart"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c3)">Por clase y pack</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Qué se ve y qué se vende</h2>
+        <div class="desc">Vistas → checkouts → compras → ingreso (USD). CVR = compras ÷ vistas</div>
+        <div class="scroll-x"><table id="mcTblProducts"></table></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c4)">Después de comprar</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Uso del curso</h2>
+        <div class="desc">Empezaron, lecciones terminadas y certificados — quién sí está usando lo que compró</div>
+        <div id="mcEngage"></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px;" id="mcNote">
+      Datos en vivo de Supabase (tablas <code>events</code> y <code>purchases</code> del proyecto de Masterclasses),
+      vía <code>/masterclasses/api/admin/summary</code>. Ingresos convertidos a USD al tipo de cambio del día.
+      Solo pagos reales (livemode).
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px;" id="siteNote">
     Tracking propio (sin cookies): pageviews con filtro anti-bots, visitantes únicos por día (hash IP+UA),
     conversiones = clicks en CTAs medidos. El blog se instrumentó el 24 ago 2026 — sus series empiezan ahí.
   </div>
@@ -651,6 +701,121 @@ function demoData(days) {
 }
 
 /* auto-login si hay pw guardada o demo */
+
+/* ================= TAB MASTERCLASSES =================
+   Datos del proyecto de Masterclasses (Supabase) vía su propia API,
+   servida same-origin por el rewrite /masterclasses/api/*. La llave es la
+   misma contraseña del dashboard: si METRICS_KEY (Vercel del proyecto de
+   masterclasses) coincide con ella, este tab funciona sin pedir nada más. */
+var mcState = { data: null, loading: false, error: null };
+
+function mcFetch() {
+  if (mcState.loading) return;
+  mcState.loading = true; mcState.error = null; mcRender();
+  fetch('/masterclasses/api/admin/summary?key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Masterclasses.');
+      if (r.status === 501) throw new Error('Falta configurar METRICS_KEY (o Supabase) en el proyecto kinedu-master-classes de Vercel.');
+      if (!r.ok) throw new Error('No se pudo leer el resumen (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { mcState.data = d; mcState.loading = false; mcRender(); })
+    .catch(function (e) { mcState.error = e.message || String(e); mcState.loading = false; mcRender(); });
+}
+
+function mcRender() {
+  var kpis = $('mcKpis'), fun = $('mcFunnel'), tbl = $('mcTblProducts'), eng = $('mcEngage'), note = $('mcNote');
+  if (mcState.loading) { kpis.innerHTML = '<div class="kpi"><div class="lbl">Cargando</div><div class="val">…</div></div>'; return; }
+  if (mcState.error) {
+    kpis.innerHTML = '';
+    fun.innerHTML = '<div class="empty">' + esc(mcState.error) + '</div>';
+    tbl.innerHTML = ''; eng.innerHTML = '';
+    return;
+  }
+  var d = mcState.data; if (!d) return;
+  var f = d.funnel, t = d.totals, e = d.engagement;
+  var aov = f.purchases ? t.revenueUsd / f.purchases : 0;
+  var cvr = f.classViews ? f.purchases / f.classViews * 100 : 0;
+
+  kpis.innerHTML = [
+    ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras'],
+    ['Compradores', fmt(t.buyers), 'correos únicos'],
+    ['Ticket promedio', '$' + (aov ? aov.toFixed(2) : '0'), 'por compra'],
+    ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ vistas de clase'],
+    ['Regalos', fmt(f.giftPurchases), 'compras para alguien más'],
+    ['Certificados', fmt(e.coursesCompleted), 'cursos terminados']
+  ].map(function (k) {
+    return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
+  }).join('');
+
+  /* funnel con caída entre pasos */
+  var steps = [
+    ['Vieron el storefront', f.storefrontViews, PAL[0]],
+    ['Vieron una clase', f.classViews, PAL[3]],
+    ['Iniciaron el pago', f.checkoutsStarted, PAL[2]],
+    ['Compraron', f.purchases, PAL[1]]
+  ];
+  var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
+  fun.innerHTML = steps.map(function (s, i) {
+    var prevV = i ? steps[i - 1][1] : 0;
+    var drop = i && prevV ? ' · ' + (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
+    return '<div class="hbar-row"><div class="nm">' + s[0] + '</div>' +
+      '<div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div>' +
+      '<div class="ct">' + fmt(s[1]) + '</div></div>' +
+      (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop.slice(3) + '</div>' : '');
+  }).join('');
+
+  /* serie diaria */
+  var days = d.byDay || [];
+  var labels = days.map(function (x) { return x.date.slice(5); });
+  lineAreaChart($('mcChart'), [
+    { name: 'Vistas', color: PAL[0], values: days.map(function (x) { return x.views; }), area: true },
+    { name: 'Checkouts', color: PAL[2], values: days.map(function (x) { return x.checkouts; }) },
+    { name: 'Compras', color: PAL[1], values: days.map(function (x) { return x.purchases; }) }
+  ], { labels: labels, h: 230 });
+
+  /* tabla por producto */
+  var rows = (d.byProduct || []).map(function (p) {
+    return [p.name, p.views, p.checkouts, p.purchases, p.revenueUsd, p.views ? p.purchases / p.views * 100 : 0];
+  });
+  if (!rows.length) { tbl.innerHTML = '<tbody><tr><td class="empty">Sin datos todavía — el funnel web empieza a llenarse con este deploy</td></tr></tbody>'; }
+  else sortable(tbl, rows, [
+    { k: 'name', label: 'Clase / pack' },
+    { k: 'views', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
+    { k: 'checkouts', label: 'Checkouts', num: true, render: function (v) { return fmt(v); } },
+    { k: 'purchases', label: 'Compras', num: true, render: function (v) { return fmt(v); } },
+    { k: 'rev', label: 'Ingreso USD', num: true, render: function (v) { return '$' + fmt(Math.round(v)); } },
+    { k: 'cvr', label: 'CVR', num: true, render: function (v) { return v.toFixed(2) + '%'; } }
+  ], { i: 4, dir: -1 });
+
+  /* engagement post-compra */
+  var perBuyer = f.purchases ? e.lessonsCompleted / f.purchases : 0;
+  hbars(eng, [
+    ['Empezaron su curso', e.courseStarted],
+    ['Lecciones terminadas', e.lessonsCompleted],
+    ['Certificados', e.coursesCompleted]
+  ].sort(function (a, b) { return b[1] - a[1]; }), function (n, i) { return PAL[i % PAL.length]; });
+  note.innerHTML = 'Datos en vivo de Supabase (tablas <code>events</code> y <code>purchases</code> del proyecto de Masterclasses) vía <code>/masterclasses/api/admin/summary</code>. ' +
+    'Ingresos convertidos a USD al tipo de cambio del día; solo pagos reales (livemode). ' +
+    'Promedio de ' + perBuyer.toFixed(1) + ' lecciones terminadas por compra. ' +
+    'Actualizado ' + new Date(d.updatedAt).toLocaleString('es-MX');
+}
+
+$('viewTabs').addEventListener('click', function (e) {
+  var b = e.target.closest('.chip'); if (!b) return;
+  this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+  b.classList.add('on');
+  var mc = b.dataset.view === 'mc';
+  $('viewSite').style.display = mc ? 'none' : '';
+  $('siteNote').style.display = mc ? 'none' : '';
+  $('viewMc').style.display = mc ? '' : 'none';
+  $('rangeChips').style.display = mc ? 'none' : '';
+  $('langChips').style.display = mc ? 'none' : '';
+  $('periodLabel').textContent = mc ? 'Masterclasses — kinedu.com/masterclasses (histórico completo)' : $('periodLabel').textContent;
+  if (mc && !mcState.data) mcFetch();
+  else if (mc) mcRender();
+});
+
 if (DEMO) { $('login').style.display = 'none'; $('app').style.display = ''; state.raw = demoData(state.days * 2); renderAll(); }
 else if (state.pw) { tryLogin(state.pw); }
 </script>
