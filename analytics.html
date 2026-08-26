@@ -236,12 +236,55 @@ tr:hover td { background: #FAF8F4; }
       </div>
     </div>
 
+    <div class="section-title" style="--dot:var(--c5)">¿Dónde le pican? — clicks reales</div>
+    <div class="grid">
+      <div class="card s6">
+        <h2>Ranking de botones y links</h2>
+        <div class="desc">Cada elemento que la gente pica, con su etiqueta y desde qué página</div>
+        <div id="mcCtas"></div>
+      </div>
+      <div class="card s6">
+        <h2>¿A dónde llegan?</h2>
+        <div class="desc">Destino final de esos clicks — a dónde manda cada pico</div>
+        <div id="mcDest"></div>
+      </div>
+      <div class="card s12">
+        <h2>Página por página</h2>
+        <div class="desc">Vistas, visitantes únicos, clicks, CTR (clicks ÷ vistas) y cuántos salieron hacia el pago</div>
+        <div class="scroll-x"><table id="mcTblPages"></table></div>
+      </div>
+    </div>
+
     <div class="section-title" style="--dot:var(--c3)">Por clase y pack</div>
     <div class="grid">
       <div class="card s12">
         <h2>Qué se ve y qué se vende</h2>
         <div class="desc">Vistas → checkouts → compras → ingreso (USD). CVR = compras ÷ vistas</div>
         <div class="scroll-x"><table id="mcTblProducts"></table></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c4)">¿De dónde llegan?</div>
+    <div class="grid">
+      <div class="card s4">
+        <h2>Fuentes</h2>
+        <div class="desc">Referrer o utm_source de cada visita</div>
+        <div id="mcSources"></div>
+      </div>
+      <div class="card s4">
+        <h2>Idioma</h2>
+        <div class="desc">Idioma activo al ver la página</div>
+        <div id="mcLangs"></div>
+      </div>
+      <div class="card s4">
+        <h2>Dispositivo</h2>
+        <div class="desc">Móvil vs escritorio</div>
+        <div id="mcDevices"></div>
+      </div>
+      <div class="card s12" id="mcCampaignsWrap" style="display:none;">
+        <h2>Campañas (utm_campaign)</h2>
+        <div class="desc">Tráfico por campaña etiquetada</div>
+        <div id="mcCampaigns"></div>
       </div>
     </div>
 
@@ -308,7 +351,8 @@ setInterval(refresh, 5 * 60 * 1000);
 $('rangeChips').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-  b.classList.add('on'); state.days = parseInt(b.dataset.d); refresh();
+  b.classList.add('on'); state.days = parseInt(b.dataset.d);
+  if ($('viewMc').style.display !== 'none') { mcState.data = null; mcFetch(); } else refresh();
 });
 $('langChips').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
@@ -712,7 +756,7 @@ var mcState = { data: null, loading: false, error: null };
 function mcFetch() {
   if (mcState.loading) return;
   mcState.loading = true; mcState.error = null; mcRender();
-  fetch('/masterclasses/api/admin/summary?key=' + encodeURIComponent(state.pw))
+  fetch('/masterclasses/api/admin/summary?days=' + (state.days || 30) + '&key=' + encodeURIComponent(state.pw))
     .then(function (r) {
       if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Masterclasses.');
       if (r.status === 501) throw new Error('Falta configurar METRICS_KEY (o Supabase) en el proyecto kinedu-master-classes de Vercel.');
@@ -724,62 +768,92 @@ function mcFetch() {
 }
 
 function mcRender() {
-  var kpis = $('mcKpis'), fun = $('mcFunnel'), tbl = $('mcTblProducts'), eng = $('mcEngage'), note = $('mcNote');
+  var kpis = $('mcKpis'), fun = $('mcFunnel'), note = $('mcNote');
   if (mcState.loading) { kpis.innerHTML = '<div class="kpi"><div class="lbl">Cargando</div><div class="val">…</div></div>'; return; }
   if (mcState.error) {
     kpis.innerHTML = '';
     fun.innerHTML = '<div class="empty">' + esc(mcState.error) + '</div>';
-    tbl.innerHTML = ''; eng.innerHTML = '';
+    ['mcCtas','mcDest','mcSources','mcLangs','mcDevices'].forEach(function (id) { $(id).innerHTML = ''; });
+    ['mcTblProducts','mcTblPages'].forEach(function (id) { $(id).innerHTML = ''; });
     return;
   }
   var d = mcState.data; if (!d) return;
   var f = d.funnel, t = d.totals, e = d.engagement;
   var aov = f.purchases ? t.revenueUsd / f.purchases : 0;
-  var cvr = f.classViews ? f.purchases / f.classViews * 100 : 0;
+  var cvr = f.visitors ? f.purchases / f.visitors * 100 : 0;
+  var clickRate = t.pageViews ? t.clicks / t.pageViews * 100 : 0;
 
   kpis.innerHTML = [
-    ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras'],
-    ['Compradores', fmt(t.buyers), 'correos únicos'],
+    ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras · $' + fmt(Math.round(t.revenueUsdAllTime)) + ' histórico'],
+    ['Visitantes', fmt(f.visitors), fmt(t.pageViews) + ' vistas de página'],
+    ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ visitantes'],
     ['Ticket promedio', '$' + (aov ? aov.toFixed(2) : '0'), 'por compra'],
-    ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ vistas de clase'],
-    ['Regalos', fmt(f.giftPurchases), 'compras para alguien más'],
-    ['Certificados', fmt(e.coursesCompleted), 'cursos terminados']
+    ['Clicks medidos', fmt(t.clicks), clickRate.toFixed(0) + '% de las vistas pican algo'],
+    ['Regalos', fmt(f.giftPurchases), 'compras para alguien más']
   ].map(function (k) {
     return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
   }).join('');
 
-  /* funnel con caída entre pasos */
+  /* ---- funnel con caída entre pasos ---- */
   var steps = [
-    ['Vieron el storefront', f.storefrontViews, PAL[0]],
-    ['Vieron una clase', f.classViews, PAL[3]],
+    ['Visitantes únicos', f.visitors, PAL[0]],
+    ['Vieron el storefront', f.storefrontViews, PAL[3]],
+    ['Vieron una clase o pack', f.classViews, PAL[5] || PAL[1]],
     ['Iniciaron el pago', f.checkoutsStarted, PAL[2]],
     ['Compraron', f.purchases, PAL[1]]
   ];
   var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
   fun.innerHTML = steps.map(function (s, i) {
     var prevV = i ? steps[i - 1][1] : 0;
-    var drop = i && prevV ? ' · ' + (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
+    var drop = i && prevV ? (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
     return '<div class="hbar-row"><div class="nm">' + s[0] + '</div>' +
       '<div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div>' +
       '<div class="ct">' + fmt(s[1]) + '</div></div>' +
-      (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop.slice(3) + '</div>' : '');
+      (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop + '</div>' : '');
   }).join('');
 
-  /* serie diaria */
+  /* ---- serie diaria ---- */
   var days = d.byDay || [];
   var labels = days.map(function (x) { return x.date.slice(5); });
   lineAreaChart($('mcChart'), [
     { name: 'Vistas', color: PAL[0], values: days.map(function (x) { return x.views; }), area: true },
+    { name: 'Visitantes', color: PAL[3], values: days.map(function (x) { return x.visitors; }) },
     { name: 'Checkouts', color: PAL[2], values: days.map(function (x) { return x.checkouts; }) },
     { name: 'Compras', color: PAL[1], values: days.map(function (x) { return x.purchases; }) }
   ], { labels: labels, h: 230 });
 
-  /* tabla por producto */
-  var rows = (d.byProduct || []).map(function (p) {
-    return [p.name, p.views, p.checkouts, p.purchases, p.revenueUsd, p.views ? p.purchases / p.views * 100 : 0];
+  /* ---- dónde le pican: ranking de CTAs ---- */
+  var ctaRows = (d.byCta || []).map(function (c) {
+    var sub = (c.from ? 'desde ' + c.from : '') + (c.to ? ' → ' + c.to + ' (' + c.toShare + '%)' : '');
+    return [c.label, c.clicks, '<div class="nm" title="' + esc(c.label) + '"><div style="font-weight:700">' + esc(c.label) + '</div>' +
+      '<div style="font-size:11px;color:var(--muted);font-weight:500">' + esc(sub) + '</div></div>'];
   });
-  if (!rows.length) { tbl.innerHTML = '<tbody><tr><td class="empty">Sin datos todavía — el funnel web empieza a llenarse con este deploy</td></tr></tbody>'; }
-  else sortable(tbl, rows, [
+  hbars($('mcCtas'), ctaRows, function (n, i) { return PAL[i % PAL.length]; });
+
+  /* ---- a dónde llegan ---- */
+  hbars($('mcDest'), (d.byDestination || []).map(function (x) { return [x.to, x.clicks]; }),
+    function (n, i) { return PAL[(i + 2) % PAL.length]; });
+
+  /* ---- página por página ---- */
+  var pageRows = (d.byPage || []).map(function (p) {
+    return [p.name, p.views, p.visitors, p.clicks, p.ctr, p.toCheckout];
+  });
+  if (!pageRows.length) $('mcTblPages').innerHTML = '<tbody><tr><td class="empty">Sin clicks todavía — la medición arranca con este deploy</td></tr></tbody>';
+  else sortable($('mcTblPages'), pageRows, [
+    { k: 'name', label: 'Página' },
+    { k: 'views', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
+    { k: 'visitors', label: 'Únicos', num: true, render: function (v) { return fmt(v); } },
+    { k: 'clicks', label: 'Clicks', num: true, render: function (v) { return fmt(v); } },
+    { k: 'ctr', label: 'CTR', num: true, render: function (v) { return v.toFixed(1) + '%'; } },
+    { k: 'toCheckout', label: '→ pago', num: true, render: function (v) { return fmt(v); } }
+  ], { i: 1, dir: -1 });
+
+  /* ---- tabla por producto ---- */
+  var rows = (d.byProduct || []).map(function (p) {
+    return [p.name, p.views, p.checkouts, p.purchases, p.revenueUsd, p.cvr];
+  });
+  if (!rows.length) $('mcTblProducts').innerHTML = '<tbody><tr><td class="empty">Sin datos todavía en este periodo</td></tr></tbody>';
+  else sortable($('mcTblProducts'), rows, [
     { k: 'name', label: 'Clase / pack' },
     { k: 'views', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
     { k: 'checkouts', label: 'Checkouts', num: true, render: function (v) { return fmt(v); } },
@@ -788,17 +862,27 @@ function mcRender() {
     { k: 'cvr', label: 'CVR', num: true, render: function (v) { return v.toFixed(2) + '%'; } }
   ], { i: 4, dir: -1 });
 
-  /* engagement post-compra */
+  /* ---- de dónde llegan ---- */
+  hbars($('mcSources'), (d.sources || []).map(function (x) { return [x.name, x.value]; }), function (n, i) { return PAL[i % PAL.length]; });
+  hbars($('mcLangs'), (d.languages || []).map(function (x) { return [x.name.toUpperCase(), x.value]; }), function (n, i) { return PAL[(i + 1) % PAL.length]; });
+  hbars($('mcDevices'), (d.devices || []).map(function (x) { return [x.name, x.value]; }), function (n, i) { return PAL[(i + 3) % PAL.length]; });
+  if ((d.campaigns || []).length) {
+    $('mcCampaignsWrap').style.display = '';
+    hbars($('mcCampaigns'), d.campaigns.map(function (x) { return [x.name, x.value]; }), function (n, i) { return PAL[i % PAL.length]; });
+  } else $('mcCampaignsWrap').style.display = 'none';
+
+  /* ---- engagement post-compra ---- */
   var perBuyer = f.purchases ? e.lessonsCompleted / f.purchases : 0;
-  hbars(eng, [
+  hbars($('mcEngage'), [
     ['Empezaron su curso', e.courseStarted],
     ['Lecciones terminadas', e.lessonsCompleted],
     ['Certificados', e.coursesCompleted]
   ].sort(function (a, b) { return b[1] - a[1]; }), function (n, i) { return PAL[i % PAL.length]; });
-  note.innerHTML = 'Datos en vivo de Supabase (tablas <code>events</code> y <code>purchases</code> del proyecto de Masterclasses) vía <code>/masterclasses/api/admin/summary</code>. ' +
+
+  note.innerHTML = 'Medición propia del sitio de Masterclasses (tablas <code>events</code> y <code>purchases</code> en Supabase) vía <code>/masterclasses/api/admin/summary</code>. ' +
+    'Cada vista guarda página, visitante anónimo, origen, idioma y dispositivo; cada click guarda su etiqueta, desde dónde y a dónde lleva. ' +
     'Ingresos convertidos a USD al tipo de cambio del día; solo pagos reales (livemode). ' +
-    'Promedio de ' + perBuyer.toFixed(1) + ' lecciones terminadas por compra. ' +
-    'Actualizado ' + new Date(d.updatedAt).toLocaleString('es-MX');
+    'Promedio de ' + perBuyer.toFixed(1) + ' lecciones terminadas por compra. Últimos ' + d.days + ' días · actualizado ' + new Date(d.updatedAt).toLocaleString('es-MX');
 }
 
 $('viewTabs').addEventListener('click', function (e) {
@@ -809,9 +893,8 @@ $('viewTabs').addEventListener('click', function (e) {
   $('viewSite').style.display = mc ? 'none' : '';
   $('siteNote').style.display = mc ? 'none' : '';
   $('viewMc').style.display = mc ? '' : 'none';
-  $('rangeChips').style.display = mc ? 'none' : '';
   $('langChips').style.display = mc ? 'none' : '';
-  $('periodLabel').textContent = mc ? 'Masterclasses — kinedu.com/masterclasses (histórico completo)' : $('periodLabel').textContent;
+  if (mc) $('periodLabel').textContent = 'Masterclasses — kinedu.com/masterclasses · últimos ' + state.days + ' días';
   if (mc && !mcState.data) mcFetch();
   else if (mc) mcRender();
 });
