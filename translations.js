@@ -162,7 +162,7 @@ window.TRANSLATIONS = {
     'faq.a7': 'Yes! You can add multiple children to your account. Each one gets their own personalized plan based on their age and development — so if you have a newborn and a toddler, both get exactly what they need.',
 
     // FOOTER
-    'footer.brand': 'Recommended by pediatricians. Loved by parents. Built for your baby — exactly as they are right now.',
+    'footer.brand': 'Recommended by pediatricians. Loved by parents. Built for your baby, exactly as they are right now.',
     'footer.company': 'Company',
     'footer.aboutUs': 'About us',
     'footer.theScience': 'The science',
@@ -180,7 +180,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Back to home',
     'sci.hero.tag': 'Backed by Research',
     'sci.heroTitle': 'The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'Most parenting advice is opinion. Kinedu is built on evidence — <strong>millions of real developmental observations</strong>, a research partnership with <strong>Stanford</strong>, and decades of child-development science — distilled into a daily plan made for your child.',
+    'sci.heroSub': 'Most parenting advice is opinion. Kinedu is built on evidence: <strong>millions of real developmental observations</strong>, a research partnership with <strong>Stanford</strong>, and decades of child-development science, all distilled into a daily plan made for your child.',
 
     'sci.bigbang.tag': 'The Big Bang of Development',
     'sci.bigbang.title': 'Your baby\'s brain is building itself <span class="gradient-shift">right now</span> — faster than it ever will again.',
@@ -659,7 +659,7 @@ window.TRANSLATIONS = {
     'faq.a7': '¡Sí! Puedes agregar varios hijos a tu cuenta. Cada uno recibe su propio plan según su edad y desarrollo — si tienes un recién nacido y un niño pequeño, ambos reciben exactamente lo que necesitan.',
 
     // FOOTER
-    'footer.brand': 'Recomendado por pediatras. Amado por padres. Hecho para tu bebé — justo como es ahora.',
+    'footer.brand': 'Recomendado por pediatras. Amado por padres. Hecho para tu bebé, justo como es ahora.',
     'footer.company': 'Empresa',
     'footer.aboutUs': 'Nosotros',
     'footer.theScience': 'La ciencia',
@@ -677,7 +677,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Volver al inicio',
     'sci.hero.tag': 'Respaldado por la Ciencia',
     'sci.heroTitle': 'La <span class="gradient-shift">Ciencia</span> detrás de <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'La mayoría de los consejos de crianza son opiniones. Kinedu se construye sobre evidencia: <strong>millones de observaciones reales del desarrollo</strong>, una colaboración de investigación con <strong>Stanford</strong> y décadas de ciencia del desarrollo infantil — convertidas en un plan diario hecho para tu bebé.',
+    'sci.heroSub': 'La mayoría de los consejos de crianza son opiniones. Kinedu se construye sobre evidencia: <strong>millones de observaciones reales del desarrollo</strong>, una colaboración de investigación con <strong>Stanford</strong> y décadas de ciencia del desarrollo infantil, todo convertido en un plan diario hecho para tu bebé.',
 
     'sci.bigbang.tag': 'El Big Bang del Desarrollo',
     'sci.bigbang.title': 'El cerebro de tu bebé se está construyendo <span class="gradient-shift">ahora mismo</span> — más rápido de lo que jamás volverá a hacerlo.',
@@ -1155,7 +1155,7 @@ window.TRANSLATIONS = {
     'faq.a7': 'Sim! Você pode adicionar vários filhos na sua conta. Cada um recebe seu próprio plano de acordo com sua idade e desenvolvimento — se você tem um recém-nascido e uma criança pequena, os dois recebem exatamente o que precisam.',
 
     // FOOTER
-    'footer.brand': 'Recomendado por pediatras. Amado por pais. Feito para o seu bebê — exatamente como ele é agora.',
+    'footer.brand': 'Recomendado por pediatras. Amado por pais. Feito para o seu bebê, exatamente como ele é agora.',
     'footer.company': 'Empresa',
     'footer.aboutUs': 'Sobre nós',
     'footer.theScience': 'A ciência',
@@ -1173,7 +1173,7 @@ window.TRANSLATIONS = {
     'sci.backToHome': 'Voltar ao início',
     'sci.hero.tag': 'Baseado em Pesquisa',
     'sci.heroTitle': 'A <span class="gradient-shift">Ciência</span> por trás do <span class="gradient-shift">Kinedu</span>',
-    'sci.heroSub': 'A maioria dos conselhos de criação é opinião. A Kinedu é construída sobre evidência: <strong>milhões de observações reais do desenvolvimento</strong>, uma parceria de pesquisa com <strong>Stanford</strong> e décadas de ciência do desenvolvimento infantil — transformadas em um plano diário feito para o seu bebê.',
+    'sci.heroSub': 'A maioria dos conselhos de criação é opinião. A Kinedu é construída sobre evidência: <strong>milhões de observações reais do desenvolvimento</strong>, uma parceria de pesquisa com <strong>Stanford</strong> e décadas de ciência do desenvolvimento infantil, tudo transformado em um plano diário feito para o seu bebê.',
 
     'sci.bigbang.tag': 'O Big Bang do Desenvolvimento',
     'sci.bigbang.title': 'O cérebro do seu bebê está se construindo <span class="gradient-shift">agora mesmo</span> — mais rápido do que jamais acontecerá novamente.',
