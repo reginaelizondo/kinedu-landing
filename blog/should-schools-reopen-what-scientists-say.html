@@ -96,7 +96,7 @@ img{display:block;max-width:100%;height:auto}
 @media(max-width:960px){.kb-art-2col{grid-template-columns:1fr}.kb-art-toc{display:none}.kb-grid-3{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.kb-wrap,.kb-art-wrap,.kb-art-2col,.kb-slim-cta{padding:0 16px}.kb-art-title{font-size:32px}.kb-art-dek{font-size:16px}.kb-art-body p{font-size:16px}.kb-art-body h2{font-size:22px}.kb-grid-3{grid-template-columns:1fr}.kb-nav-links{display:none}.kb-slim-cta-inner{flex-direction:column;padding:24px}}
 </style>
-<link rel="stylesheet" href="/styles.css?v=0617n">
+<link rel="stylesheet" href="/styles.css?v=0831a">
 <style>
 
 /* Spacing for fixed site navbar */
@@ -127,7 +127,6 @@ body { padding-top: 88px; }
                 <a href="/live-classes.html" data-i18n="nav.learn">Learn</a>
                 <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl" class="active">Blog</a>
                 <a href="/science.html" data-i18n="nav.science">Science</a>
-                <a href="/#faq" data-i18n="nav.faq">FAQ</a>
                 <div class="nav-dropdown" id="teamDropdown">
                     <button class="nav-dropdown-toggle" id="teamToggle" aria-expanded="false" aria-haspopup="true">
                         <span data-i18n="nav.team">Team</span>
@@ -139,6 +138,7 @@ body { padding-top: 88px; }
                     </div>
                 </div>
                 <a href="https://kinedu-classrooms.vercel.app/" class="mobile-only" data-i18n="nav.forSchools">For Schools</a>
+                <a href="https://www.kinedu.com/masterclasses/login" class="mobile-only" data-i18n="nav.portal">My portal</a>
                 <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
                 <div class="lang-toggle lang-toggle--mobile">
                     <button class="lang-btn active" data-lang="en">EN</button>
@@ -153,7 +153,8 @@ body { padding-top: 88px; }
         <button class="lang-btn" data-lang="pt">PT</button>
       </div>
       <a href="https://kinedu-classrooms.vercel.app/" class="nav-schools" data-i18n="nav.forSchools">For Schools</a>
-      <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+      <a href="https://www.kinedu.com/masterclasses/login" class="nav-portal" title="My portal"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="7" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M3.4 17c0-3.1 3-5.6 6.6-5.6s6.6 2.5 6.6 5.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="nav-portal-label" data-i18n="nav.portal">My portal</span></a>
+                    <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -417,7 +418,7 @@ body { padding-top: 88px; }
   },{passive:true});
 })();
 </script>
-<script src="/translations.js?v=0724a"></script>
+<script src="/translations.js?v=0831a"></script>
 <script src="/script.js?v=0701a"></script>
 <script id="kbeacon">(function(){try{
 var P=location.pathname,L=P.indexOf('/es/')===0||P==='/es'?'es':P.indexOf('/pt/')===0||P==='/pt'?'pt':'en';

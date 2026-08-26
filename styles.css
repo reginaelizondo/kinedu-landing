@@ -339,6 +339,28 @@ section[id], div[id] { scroll-margin-top: 96px; }
     background: rgba(0, 0, 0, 0.03);
 }
 
+/* Botón "Mi portal" (monito → login de masterclasses) — idéntico en TODAS las páginas */
+.nav-portal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-radius: var(--r-full);
+    border: 1.5px solid #EBE6DF;
+    background: #fff;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+.nav-portal:hover { color: var(--kinedu-blue); border-color: var(--kinedu-blue); }
+/* solo el monito, en TODOS los tamaños e idiomas: con etiqueta ES/PT no
+   caben en la píldora de 1100px y el nav dejaría de ser idéntico entre
+   páginas/idiomas. El title hace de tooltip. */
+.nav-portal-label { display: none; }
 .nav-cta {
     padding: 10px 20px;
     background: var(--kinedu-blue);
