@@ -257,12 +257,13 @@ section[id], div[id] { scroll-margin-top: 96px; }
 
 .nav-links a {
     white-space: nowrap;
-    font-size: 0.84rem;
-    font-weight: 500;
-    color: var(--text-tertiary);
+    /* mismo look que el nav de masterclasses: bold + tinta (antes gris 500) */
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--text-primary);
     transition: color 0.3s ease, background 0.3s ease;
     position: relative;
-    padding: 7px 12px;
+    padding: 7px 10px;
     border-radius: var(--r-full);
 }
 
@@ -3449,10 +3450,10 @@ section[id], div[id] { scroll-margin-top: 96px; }
     border: none;
     cursor: pointer;
     font-family: inherit;
-    font-size: 0.84rem;
-    font-weight: 500;
-    color: var(--text-tertiary);
-    padding: 7px 14px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 7px 12px;
     border-radius: var(--r-full);
     transition: color 0.2s, background 0.2s;
 }
