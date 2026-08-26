@@ -172,6 +172,10 @@
     {
       "source": "/pt/masterclasses",
       "destination": "/pt/masterclasses.html"
+    },
+    {
+      "source": "/masterclasses/:path+",
+      "destination": "https://kinedu-master-classes.vercel.app/masterclasses/:path+"
     }
   ],
   "headers": [

@@ -77,7 +77,7 @@ try{
         <div class="nav-pill">
             <a href="#" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
-                <a href="https://masterclasses.kinedu.com/" data-i18n="nav.masterclasses">Masterclasses</a>
+                <a href="/masterclasses" data-i18n="nav.masterclasses">Masterclasses</a>
                 <a href="live-classes.html" data-i18n="nav.liveClasses">Live Classes</a>
                 <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
                 <a href="science.html" data-i18n="nav.science">Science</a>
@@ -716,7 +716,7 @@ try{
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang}));
             });
         });
-        document.querySelectorAll('a[href*="masterclasses.kinedu.com"]').forEach(function(a){
+        document.querySelectorAll('a[href="/masterclasses"], a[href*="masterclasses.kinedu.com"]').forEach(function(a){
             a.addEventListener('click', function(){
                 navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Nav — Masterclasses', lang: lang}));
             });
