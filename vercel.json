@@ -2763,6 +2763,21 @@
       "source": "/partners",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/masterclasses.html",
+      "destination": "/masterclasses",
+      "permanent": true
+    },
+    {
+      "source": "/es/masterclasses.html",
+      "destination": "/es/masterclasses",
+      "permanent": true
+    },
+    {
+      "source": "/pt/masterclasses.html",
+      "destination": "/pt/masterclasses",
+      "permanent": true
     }
   ]
 }

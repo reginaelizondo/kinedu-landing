@@ -9,3 +9,4 @@ Disallow: /api/
 Disallow: /app/
 
 Sitemap: https://www.kinedu.com/sitemap.xml
+Sitemap: https://www.kinedu.com/masterclasses/sitemap.xml
