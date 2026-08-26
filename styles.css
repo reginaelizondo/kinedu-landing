@@ -697,15 +697,10 @@ section[id], div[id] { scroll-margin-top: 96px; }
     align-items: center;
 }
 
+/* Barra de confianza ESTÁTICA — sin reveal ni conteo (pedido explícito):
+   visible desde el primer pintado, números fijos del HTML. */
 .trust-item {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.trust-item.visible {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .trust-val--blue { color: var(--kinedu-blue); }
