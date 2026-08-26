@@ -177,7 +177,7 @@ window.TRANSLATIONS = {
     'footer.privacyPolicy': 'Privacy Policy',
     'footer.privacyUrl': '/privacy',
     'footer.termsUrl': '/terms',
-    'footer.copyright': '© 2026 Kinedu. All rights reserved.',
+    'footer.copyright': '© 2016 Kinedu. All rights reserved.',
 
     // SCIENCE PAGE
     'sci.backToHome': 'Back to home',
@@ -677,7 +677,7 @@ window.TRANSLATIONS = {
     'footer.privacyPolicy': 'Política de Privacidad',
     'footer.privacyUrl': '/es/privacy',
     'footer.termsUrl': '/es/terms',
-    'footer.copyright': '© 2026 Kinedu. Todos los derechos reservados.',
+    'footer.copyright': '© 2016 Kinedu. Todos los derechos reservados.',
 
     // SCIENCE PAGE
     'sci.backToHome': 'Volver al inicio',
@@ -1176,7 +1176,7 @@ window.TRANSLATIONS = {
     'footer.privacyPolicy': 'Política de Privacidade',
     'footer.privacyUrl': '/pt/privacy',
     'footer.termsUrl': '/pt/terms',
-    'footer.copyright': '© 2026 Kinedu. Todos os direitos reservados.',
+    'footer.copyright': '© 2016 Kinedu. Todos os direitos reservados.',
 
     // SCIENCE PAGE
     'sci.backToHome': 'Voltar ao início',
