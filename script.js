@@ -143,6 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lang = btn.getAttribute('data-lang');
                 if (lang === currentLang) return;
 
+                // Feedback #3: el idioma debe CAMBIAR LA URL cuando la página
+                // tiene versión propia. La fuente de verdad son los hreflang
+                // del <head> (los mismos que lee Google): si existe alternate
+                // para ese idioma y es otra ruta, navegamos ahí. Se navega
+                // relativo (pathname) para que funcione igual en local y prod.
+                const alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+                if (alt) {
+                    try {
+                        const u = new URL(alt.getAttribute('href'), window.location.href);
+                        if (u.pathname !== window.location.pathname) {
+                            localStorage.setItem(STORAGE_KEY, lang);
+                            window.location.href = u.pathname + u.search + window.location.hash;
+                            return;
+                        }
+                    } catch (e) { /* href raro: seguimos con el swap normal */ }
+                }
+
                 // For blog articles & blog index, the content is hardcoded HTML — we
                 // can't translate client-side. Navigate to the equivalent page in the
                 // chosen language instead.
