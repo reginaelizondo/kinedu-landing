@@ -1489,6 +1489,9 @@ render();
   function activate(name){
     document.querySelectorAll('.sci-tab').forEach(function(t){ t.classList.toggle('active', t.dataset.sciTab === name); });
     document.querySelectorAll('.sci-panel').forEach(function(p){ p.classList.toggle('active', p.id === 'sci-panel-' + name); });
+    // la pregunta de investigación + las 3 paradas viven solo en el tab del assessment
+    var ih = document.querySelector('.sci26-inhero');
+    if (ih) ih.style.display = name === 'app' ? 'none' : '';
   }
   document.querySelectorAll('.sci-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
