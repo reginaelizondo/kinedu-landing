@@ -1428,6 +1428,10 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
   content: ""; position: absolute; left: 1%; right: 3%; bottom: -4px; height: 12px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M4 10 Q 40 2, 75 8 T 150 8 T 225 8 T 296 6' fill='none' stroke='%23FFBD15' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
 }
+/* el highlight es inline-block con padding: compensar el borde derecho
+   para que el punto no quede visualmente separado ("everything .") */
+.lc-hero .lc-h1 > .lc-grad { margin-right: -.12em; }
+.lc-hero .lc-h1 .lc-h1-line2 .lc-grad { margin-right: -.02em; }
 /* bandas de secciones: alternar menta / azul suave calido */
 .lc-pas { background: linear-gradient(180deg, #EAF6EF 0%, #F3FAF5 100%) !important; }
 .lc-section--alt { background: linear-gradient(180deg, #F5F4F0 0%, #FBFAF8 100%) !important; }
@@ -1526,7 +1530,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
             <!-- Image column (left) -->
             <div class="lc-hero-mockup">
-                <img src="Features/EN/Liveclasses EN.webp" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager">
+                <img src="Features/EN/Liveclasses EN.webp?v=2" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager">
 
                 <!-- Variant B: live schedule card (shown via A/B test JS) -->
                 <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
@@ -2174,7 +2178,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 <a href="https://apps.apple.com/us/app/kinedu-baby-development/id741277284" target="_blank" rel="noopener">
                     <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.kinedu.appkinedu&hl=es_MX419" target="_blank" rel="noopener">
+                <a href="https://play.google.com/store/apps/details?id=com.kinedu.appkinedu" target="_blank" rel="noopener">
                     <img src="google-play-badge.webp" alt="Get it on Google Play">
                 </a>
             </div>
@@ -2302,13 +2306,13 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2016 Kinedu. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2016–2026 Kinedu. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="translations.js?v=0831a"></script>
-    <script src="script.js?v=0701a"></script>
+    <script src="translations.js?v=0833a"></script>
+    <script src="script.js?v=0833a"></script>
     <script>
     (function () {
         // ── Analytics tracking ──────────────────────────────────────

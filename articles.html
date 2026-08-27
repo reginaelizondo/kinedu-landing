@@ -654,9 +654,9 @@ img { display: block; max-width: 100%; height: auto; }
 </a>
 
 <a href="https://www.kinedu.com/blog/my-18-month-old-isnt-talking" class="kb-card-over" style="--focus:50% 50%;">
-  <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/19-600x400.webp" alt="My 18-Month-Old Isn&#x27;t Talking — Should I Worry?" loading="lazy" width="600" height="400">
+  <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/19-600x400.webp" alt="My 18-Month-Old Isn't Talking — Should I Worry?" loading="lazy" width="600" height="400">
   <div class="kb-card-cat">Child Development</div>
-  <h3>My 18-Month-Old Isn&#x27;t Talking — Should I Worry?</h3>
+  <h3>My 18-Month-Old Isn't Talking — Should I Worry?</h3>
   <div class="meta">Dr. Mariana Cruz · 10 min read</div>
 </a>
     </div>
@@ -736,7 +736,7 @@ img { display: block; max-width: 100%; height: auto; }
       </div>
     </div>
   </div>
-  <div class="ksf-bottom">© 2016 Kinedu. All rights reserved.</div>
+  <div class="ksf-bottom">© 2016–2026 Kinedu. All rights reserved.</div>
 </footer>
 
 <script>
@@ -1316,14 +1316,14 @@ document.addEventListener('click', function(e) {
   if (wrap && !wrap.contains(e.target)) closePanel();
 });
 </script>
-<script src="/translations.js?v=0831a"></script>
-<script src="/script.js?v=0701a"></script>
+<script src="/translations.js?v=0833a"></script>
+<script src="/script.js?v=0833a"></script>
 <script>
 function kbHideAll(){var s=document.getElementById('kbAllSection');if(s){s.style.display='none';}}
 function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style.display==='none'){s.style.display='';}}
 </script><script>
 (function(){
-  var POOL = [{"href": "/blog/when-do-babies-sleep-through-the-night", "img": "/blog-media/social/newborn-sleeping.jpg", "title": "When Do Babies Sleep Through the Night?", "min": "7 min read"}, {"href": "/blog/baby-fake-cough", "img": "/blog-media/en/wp-content/uploads/2022/05/shutterstock_1994994326-600x400.jpg", "title": "The Baby Fake Cough: Causes and Tips", "min": "5 min read"}, {"href": "/blog/what-do-i-do-if-my-baby-ate-sand", "img": "/blog-media/en/wp-content/uploads/2016/09/H_2063-600x400.jpg", "title": "What do I do if my baby ate dirt or sand?", "min": "3 min read"}, {"href": "/blog/toys-for-1-year-old", "img": "/blog-media/social/baby-playing.jpg", "title": "The Best Toys for a 1-Year-Old", "min": "6 min read"}, {"href": "/blog/hiccups-in-newborns-and-babies", "img": "/blog-media/social/newborn-sleeping.jpg", "title": "Hiccups in Newborns and Babies", "min": "4 min read"}, {"href": "/blog/my-18-month-old-isnt-talking", "img": "/blog-media/social/baby-walking.jpg", "title": "My 18-Month-Old Isn&#x27;t Talking — Should I Worry?", "min": "10 min read"}, {"href": "/blog/pregnancy-calculator", "img": "/blog-media/en/wp-content/uploads/2021/04/Pregnancy-calculator-600x400.jpeg", "title": "Pregnancy calculator: How many weeks pregnant am I?", "min": "3 min read"}, {"href": "/blog/how-to-recover-after-a-c-section", "img": "/blog-media/social/baby-walking.jpg", "title": "How to Recover After a C-Section", "min": "10 min read"}];
+  var POOL = [{"href": "/blog/when-do-babies-sleep-through-the-night", "img": "/blog-media/social/newborn-sleeping.jpg", "title": "When Do Babies Sleep Through the Night?", "min": "7 min read", "cat": "Sleep"}, {"href": "/blog/baby-fake-cough", "img": "/blog-media/en/wp-content/uploads/2022/05/shutterstock_1994994326-600x400.jpg", "title": "The Baby Fake Cough: Causes and Tips", "min": "5 min read", "cat": "Health"}, {"href": "/blog/what-do-i-do-if-my-baby-ate-sand", "img": "/blog-media/en/wp-content/uploads/2016/09/H_2063-600x400.jpg", "title": "What do I do if my baby ate dirt or sand?", "min": "3 min read", "cat": "Health"}, {"href": "/blog/toys-for-1-year-old", "img": "/blog-media/social/baby-playing.jpg", "title": "The Best Toys for a 1-Year-Old", "min": "6 min read", "cat": "Child Development"}, {"href": "/blog/hiccups-in-newborns-and-babies", "img": "/blog-media/social/newborn-sleeping.jpg", "title": "Hiccups in Newborns and Babies", "min": "4 min read", "cat": "Health"}, {"href": "/blog/my-18-month-old-isnt-talking", "img": "/blog-media/social/baby-walking.jpg", "title": "My 18-Month-Old Isn't Talking — Should I Worry?", "min": "10 min read", "cat": "Child Development"}, {"href": "/blog/pregnancy-calculator", "img": "/blog-media/en/wp-content/uploads/2021/04/Pregnancy-calculator-600x400.jpeg", "title": "Pregnancy calculator: How many weeks pregnant am I?", "min": "3 min read", "cat": "Pregnancy"}, {"href": "/blog/how-to-recover-after-a-c-section", "img": "/blog-media/social/baby-walking.jpg", "title": "How to Recover After a C-Section", "min": "10 min read", "cat": "Pregnancy"}];
   var cards = document.querySelectorAll('.kb-card-over');
   if (!cards.length || POOL.length < 2) return;
   var i = 0, c = 0;
@@ -1338,6 +1338,7 @@ function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style
       var img = card.querySelector('img.bg'); if (img) { img.src = item.img; img.alt = item.title; }
       var h3 = card.querySelector('h3'); if (h3) h3.textContent = item.title;
       var meta = card.querySelector('.meta'); if (meta && item.min) meta.textContent = item.min;
+      var cat = card.querySelector('.kb-card-cat'); if (cat && item.cat) cat.textContent = item.cat;
       card.classList.remove('kbfade');
     }, 460);
   }, 5000);

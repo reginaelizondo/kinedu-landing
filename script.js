@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const heroSource = document.getElementById('heroSourceMobile');
             // Only touch src when it actually changes — re-assigning forces a
             // reload/repaint of the hero image (visible flicker at page load).
-            const heroDesk = 'TAP/NEW/desktop ' + folder + '.webp?v=3';
-            const heroMob = 'TAP/NEW/mobile ' + folder + '.webp?v=3';
+            const heroDesk = 'TAP/NEW/desktop ' + folder + '.webp?v=4';
+            const heroMob = 'TAP/NEW/mobile ' + folder + '.webp?v=4';
             if (heroImg && !heroImg.src.endsWith(encodeURI(heroDesk))) heroImg.src = heroDesk;
             if (heroSource && heroSource.srcset !== heroMob) heroSource.srcset = heroMob;
 

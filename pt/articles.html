@@ -446,11 +446,11 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
   </div>
-  <div class="ksf-bottom">© 2016 Kinedu. Todos os direitos reservados.</div>
+  <div class="ksf-bottom">© 2016–2026 Kinedu. Todos os direitos reservados.</div>
 </footer>
 
-<script src="/translations.js?v=0831a"></script>
-<script src="/script.js?v=0701a"></script>
+<script src="/translations.js?v=0833a"></script>
+<script src="/script.js?v=0833a"></script>
 <script>
 var _ptVisible = 12;
 function ptApplyLimit() {
@@ -610,7 +610,7 @@ function kbHideAll(){var s=document.getElementById('kbAllSection');if(s){s.style
 function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style.display==='none'){s.style.display='';}}
 </script><script>
 (function(){
-  var POOL = [{"href": "/pt/blog/bebe-dorme-de-boca-aberta", "img": "/blog-media/pt/wp-content/uploads/2023/02/boca-aberta.jpeg", "title": "Meu bebê dorme de boca aberta, é normal?", "min": "5 min de leitura"}, {"href": "/pt/blog/formula-com-agua-fria", "img": "/blog-media/pt/wp-content/uploads/2023/05/posso-preparar-formula-com-agua-fria.jpeg", "title": "Posso preparar fórmula com água fria?", "min": "4 min de leitura"}, {"href": "/pt/blog/tamanho-do-bebe", "img": "/blog-media/pt/wp-content/uploads/2020/11/post_thumbnail-ec977646f07c346181f58398a49231c7.jpg", "title": "Saiba o tamanho do bebê de acordo com cada fase", "min": "4 min de leitura"}, {"href": "/pt/blog/moleira-funda", "img": "/blog-media/pt/wp-content/uploads/2020/09/post_thumbnail-5a141e10949dc0c39ef36c8a480f9c2b.jpeg", "title": "Moleira funda: o que é e quando se preocupar", "min": "7 min de leitura"}, {"href": "/pt/blog/por-que-meu-bebe-fica-com-as-maos-fechadas-2", "img": "/blog-media/pt/wp-content/uploads/2019/09/maos_fechadas-1.jpg", "title": "Por que o bebê fica com as mãos fechadas?", "min": "6 min de leitura"}, {"href": "/pt/blog/calculadora-gestacional", "img": "/blog-media/pt/wp-content/uploads/2021/11/calculadora-gestacional-kinedu.jpeg", "title": "Calculadora gestacional: Descubra em que semana da gravidez você está!", "min": "7 min de leitura"}, {"href": "/pt/blog/brinquedos-para-bebes-de-1-ano", "img": "/blog-media/pt/wp-content/uploads/2024/11/cute-happy-baby-boy-playing-toys-in-his-child-room-2024-10-30-22-54-58-utc.jpg", "title": "Brinquedos para bebês de 1 ano", "min": "3 min de leitura"}, {"href": "/pt/blog/como-acabar-com-os-solucos-do-seu-bebe", "img": "/blog-media/pt/wp-content/uploads/2018/06/picture-364.jpg", "title": "Como parar soluço de bebê?", "min": "4 min de leitura"}];
+  var POOL = [{"href": "/pt/blog/bebe-dorme-de-boca-aberta", "img": "/blog-media/pt/wp-content/uploads/2023/02/boca-aberta.jpeg", "title": "Meu bebê dorme de boca aberta, é normal?", "min": "5 min de leitura", "cat": "Sono"}, {"href": "/pt/blog/formula-com-agua-fria", "img": "/blog-media/pt/wp-content/uploads/2023/05/posso-preparar-formula-com-agua-fria.jpeg", "title": "Posso preparar fórmula com água fria?", "min": "4 min de leitura", "cat": "Alimentação"}, {"href": "/pt/blog/tamanho-do-bebe", "img": "/blog-media/pt/wp-content/uploads/2020/11/post_thumbnail-ec977646f07c346181f58398a49231c7.jpg", "title": "Saiba o tamanho do bebê de acordo com cada fase", "min": "4 min de leitura", "cat": "Desenvolvimento infantil"}, {"href": "/pt/blog/moleira-funda", "img": "/blog-media/pt/wp-content/uploads/2020/09/post_thumbnail-5a141e10949dc0c39ef36c8a480f9c2b.jpeg", "title": "Moleira funda: o que é e quando se preocupar", "min": "7 min de leitura", "cat": "Saúde"}, {"href": "/pt/blog/por-que-meu-bebe-fica-com-as-maos-fechadas-2", "img": "/blog-media/pt/wp-content/uploads/2019/09/maos_fechadas-1.jpg", "title": "Por que o bebê fica com as mãos fechadas?", "min": "6 min de leitura", "cat": "Desenvolvimento infantil"}, {"href": "/pt/blog/calculadora-gestacional", "img": "/blog-media/pt/wp-content/uploads/2021/11/calculadora-gestacional-kinedu.jpeg", "title": "Calculadora gestacional: Descubra em que semana da gravidez você está!", "min": "7 min de leitura", "cat": "Gravidez"}, {"href": "/pt/blog/brinquedos-para-bebes-de-1-ano", "img": "/blog-media/pt/wp-content/uploads/2024/11/cute-happy-baby-boy-playing-toys-in-his-child-room-2024-10-30-22-54-58-utc.jpg", "title": "Brinquedos para bebês de 1 ano", "min": "3 min de leitura", "cat": "Desenvolvimento infantil"}, {"href": "/pt/blog/como-acabar-com-os-solucos-do-seu-bebe", "img": "/blog-media/pt/wp-content/uploads/2018/06/picture-364.jpg", "title": "Como parar soluço de bebê?", "min": "4 min de leitura", "cat": "Saúde"}];
   var cards = document.querySelectorAll('.kb-card-over');
   if (!cards.length || POOL.length < 2) return;
   var i = 0, c = 0;
@@ -625,6 +625,7 @@ function kbShowAll(){var s=document.getElementById('kbAllSection');if(s&&s.style
       var img = card.querySelector('img.bg'); if (img) { img.src = item.img; img.alt = item.title; }
       var h3 = card.querySelector('h3'); if (h3) h3.textContent = item.title;
       var meta = card.querySelector('.meta'); if (meta && item.min) meta.textContent = item.min;
+      var cat = card.querySelector('.kb-card-cat'); if (cat && item.cat) cat.textContent = item.cat;
       card.classList.remove('kbfade');
     }, 460);
   }, 5000);
