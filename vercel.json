@@ -166,6 +166,26 @@
       "destination": "/blog/:slug.html"
     },
     {
+      "source": "/assessment",
+      "destination": "https://stand-alone-assessment.vercel.app/assessment/index.html"
+    },
+    {
+      "source": "/assessment/app",
+      "destination": "https://stand-alone-assessment.vercel.app/assessment/app/index.html"
+    },
+    {
+      "source": "/assessment/app/",
+      "destination": "https://stand-alone-assessment.vercel.app/assessment/app/index.html"
+    },
+    {
+      "source": "/assessment/:page(caregivers|schools|science)",
+      "destination": "https://stand-alone-assessment.vercel.app/assessment/:page.html"
+    },
+    {
+      "source": "/assessment/:path+",
+      "destination": "https://stand-alone-assessment.vercel.app/assessment/:path+"
+    },
+    {
       "source": "/masterclasses",
       "destination": "https://kinedu-master-classes.vercel.app/masterclasses"
     },
