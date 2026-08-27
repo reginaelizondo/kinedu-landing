@@ -1062,7 +1062,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 </div>
             </div>
         
-<div class="sci26 sci26-inhero" style="--sciacc:#087BF3"><div class="sci26-kick">The research question</div><h2>What does early development actually look like?<br>Not in a lab, but in millions of ordinary homes.</h2><p class="sci26-quote">“The broad sequence is shared.<br>The calendar is personal.”</p></div>
+<div class="sci26 sci26-inhero" style="--sciacc:#087BF3"><div class="sci26-kick">The research question</div><h2>What does early development actually look like?<br>Not in a lab, but in millions of ordinary homes.</h2><p class="sci26-shortans">The short answer, after 470 million observations:</p><p class="sci26-quote">“The broad sequence is shared.<br>The calendar is personal.”</p><p class="sci26-bridge">The rest of this page is how we know it — in three stops:</p><div class="sci26-path"><a href="#sci-product"><span class="n">1</span>The product that asks</a><a href="#sci-findings"><span class="n">2</span>What the data showed</a><a href="#app"><span class="n">3</span>What it means for your child</a></div><style>.sci26-shortans{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:#8A94A8;margin:28px 0 12px;text-align:center}.sci26-bridge{margin:24px auto 0;max-width:840px;text-align:center;font-size:15.5px;color:#52607A;line-height:1.6}.sci26-path{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}.sci26-path a{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;background:#fff;border:1.5px solid #EBE6DF;font-weight:700;font-size:13.5px;color:#081B46;text-decoration:none;transition:border-color .15s,color .15s}.sci26-path a:hover{border-color:#087BF3;color:#087BF3}.sci26-path .n{width:20px;height:20px;border-radius:99px;background:#EFF4FB;color:#087BF3;font-size:11.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}</style></div>
 </div>
     </section>
 
@@ -1168,7 +1168,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
   .sci26-tbl { min-width: 420px; }
   .sci26-lead { font-size: 16px; }
 }
-</style><section class="sci26" style="padding-top:60px;--sciacc:#2EA84F"><div class="sci26-wrap" style="max-width:860px">
+</style><section id="sci-product" class="sci26" style="padding-top:60px;--sciacc:#2EA84F"><div class="sci26-wrap" style="max-width:860px">
 <div class="sci26-kick">Before any statistic, the product itself</div><h2>Every data point starts as a question a parent can answer.</h2><p class="sci26-lead">No clinic, no equipment. Just what you see in ordinary moments. This is a real question from the 12-month assessment:</p>
 <div id="sciq" style="background:#fff;border:1.5px solid #EBE6DF;border-radius:22px;padding:28px 26px;box-shadow:0 4px 18px rgba(8,27,70,.07);transition:opacity .25s ease"></div>
 <script>
@@ -1207,7 +1207,7 @@ function fin(){
 }
 render();
 })();
-</script></div></section><section class="sci26" style="--sciacc:#F7567C"><div class="sci26-wrap"><div class="sci26-kick">One continuous story</div><h2>Built by Kinedu. Studied by Stanford.<br>Tested with millions of children.</h2>
+</script></div></section><section id="sci-findings" class="sci26" style="--sciacc:#F7567C"><div class="sci26-wrap"><div class="sci26-kick">One continuous story</div><h2>Built by Kinedu. Studied by Stanford.<br>Tested with millions of children.</h2>
 <p class="sci26-lead">One continuous story: an instrument made with caregivers, a developmental study, then a replication across the full Kinedu record.</p><div class="sci26-acts">
 <div class="sci26-act"><span class="n">1</span><div class="big">2,135</div><div class="unit">caregivers</div><p>First we built it small. 2,135 real moms and dads answered it, and we checked that every question truly worked. Michael C. Frank, of Stanford, helped review the milestones for ages 0–24 months.</p></div>
 <div class="sci26-act"><span class="n">2</span><div class="big">21,861</div><div class="unit">children</div><p>Then Stanford looked on its own. Researchers Stenhaug, Ram and Frank studied 21,861 children from Kinedu's data and published what they found in <em>The Structure of Developmental Variation in Early Childhood</em>.</p></div>
@@ -1486,10 +1486,22 @@ render();
     var name = location.hash === '#app' ? 'app' : 'assessment';
     activate(name);
   }
-  // el dropdown del nav manda #app / #assessment aun estando ya en la página
+  // el dropdown del nav manda #app / #assessment aun estando ya en la página;
+  // cualquier otro hash es un ancla normal (chips del puente) — si vive en el
+  // panel oculto, primero activamos el panel del assessment.
   window.addEventListener('hashchange', function(){
-    fromHash();
-    var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
+    var hsh = location.hash;
+    if (hsh === '#app' || hsh === '#assessment') {
+      fromHash();
+      var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
+      return;
+    }
+    var t = hsh && hsh.length > 1 && document.querySelector(hsh);
+    if (t) {
+      var panel = t.closest('.sci-panel');
+      if (panel && !panel.classList.contains('active')) activate('assessment');
+      setTimeout(function(){ t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40);
+    }
   });
   if (location.hash === '#app') activate('app');
 })();
