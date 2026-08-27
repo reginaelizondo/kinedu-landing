@@ -483,23 +483,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => el.classList.add('reveal'));
 
+    // Feedback #17: el reveal iba ~2s detrás del scroll (disparo tardío +
+    // stagger largo + transición de 0.8s = secciones en blanco). Ahora:
+    // dispara 30% de viewport ANTES de que el elemento entre (rootMargin
+    // positivo), el stagger se acota a 210ms, y si el elemento ya está bien
+    // adentro (llegada directa por ancla o scroll rápido) aparece al instante.
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Stagger based on siblings
                 const parent = entry.target.parentElement;
                 const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
                 const index = siblings.indexOf(entry.target);
 
-                const delay = entry.target.classList.contains('stat-item') ? 180 : 100;
+                const yaVisible = entry.boundingClientRect.top < window.innerHeight * 0.75;
+                const delay = yaVisible ? 0 : Math.min(index * 70, 210);
                 setTimeout(() => {
                     entry.target.classList.add('active');
-                }, index * delay);
+                }, delay);
 
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px 30% 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
 

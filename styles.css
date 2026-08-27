@@ -1041,7 +1041,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 
 .stat-item.reveal {
     opacity: 0;
-    transform: translateY(24px) scale(0.9);
+    transform: translateY(18px) scale(0.9);
     transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1324,10 +1324,10 @@ section[id], div[id] { scroll-margin-top: 96px; }
 /* Scroll reveal for feature rows */
 .feature-row.reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(18px);
     transition:
-        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-row.reveal.active {
@@ -1657,7 +1657,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 /* Scroll reveal for review cards */
 .review-card.reveal {
     opacity: 0;
-    transform: translateY(30px) rotate(var(--tilt, 0deg));
+    transform: translateY(18px) rotate(var(--tilt, 0deg));
     transition:
         opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
         transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2158,8 +2158,8 @@ section[id], div[id] { scroll-margin-top: 96px; }
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(18px);
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.active {
@@ -3811,4 +3811,13 @@ body.amodal-lock { overflow: hidden; }
     .k-bubs .b8  { width: 110px; height: 110px; background: #32C99A; opacity: .11; top: 46%; left: -40px; }
     .k-bubs .b9  { width: 70px;  height: 70px;  background: #F7567C; opacity: .12; top: 62%; right: 26px; }
     .k-bubs .b10 { width: 130px; height: 130px; background: #913FA3; opacity: .07; top: 78%; left: -55px; }
+}
+
+/* Feedback #17 + a11y: sin animación de entrada si el sistema lo pide */
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .feature-row.reveal, .review-card.reveal, .stat-item.reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
