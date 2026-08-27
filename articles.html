@@ -1382,5 +1382,26 @@ var btn=si.parentElement?si.parentElement.querySelector('button'):null;
 if(btn)btn.addEventListener('click',sq);
 var db;si.addEventListener('input',function(){clearTimeout(db);db=setTimeout(sq,2500);});}
 }catch(e){}})();</script>
+<style>
+/* == Blog hub: pase mobile ad hoc — al final del doc para ganar la cascada
+   (las medias de arriba quedaron en orden mixto y en telefono ganaba 46px) == */
+@media (max-width: 640px) {
+  .kb-hero-b { padding: 40px 0 34px; }
+  .kb-hero-b-title { font-size: 34px; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px; padding: 0 16px; }
+  .kb-hero-sub { font-size: 15px; padding: 0 20px; }
+  .kb-hero-eyebrow { font-size: 11px; letter-spacing: .13em; }
+  .kb-hero-b-tags { display: flex; flex-wrap: wrap; justify-content: center; row-gap: 8px; padding: 0 14px; }
+  .kb2026-h2 { font-size: 25px; }
+  .kb2026-lead { font-size: 14.5px; }
+  .kb-h2 { font-size: 24px; }
+  .kb2026-topics { grid-template-columns: 1fr; gap: 9px; }
+  .kb2026-topic { padding: 13px 16px; }
+  .kb-stage-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .kb2026-q { font-size: 15px; padding: 16px 18px; }
+}
+@media (max-width: 400px) {
+  .kb-hero-b-title { font-size: 29px; }
+}
+</style>
 </body>
 </html>
