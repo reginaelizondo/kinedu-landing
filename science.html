@@ -1062,9 +1062,24 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 </div>
             </div>
         
-<div class="sci26 sci26-inhero" style="--sciacc:#087BF3"><div class="sci26-kick">The research question</div><h2>What does early development actually look like, not in a lab, but in millions of ordinary homes?</h2><p class="sci26-quote">“The broad sequence is shared.<br>The calendar is personal.”</p></div>
+<div class="sci26 sci26-inhero" style="--sciacc:#087BF3"><div class="sci26-kick">The research question</div><h2>What does early development actually look like?<br>Not in a lab, but in millions of ordinary homes.</h2><p class="sci26-quote">“The broad sequence is shared.<br>The calendar is personal.”</p></div>
 </div>
-    </section><style>
+    </section>
+
+<style>
+/* ===== Science en 2 partes (patrón de tabs de Live Classes) ===== */
+.sci-tabs { display:flex; justify-content:center; gap:10px; padding: 34px 20px 6px; flex-wrap:wrap; background:#FBFAF8; }
+.sci-tab { flex-shrink:0; padding: 13px 26px; border-radius:100px; border:1.5px solid var(--border, rgba(0,0,0,.08)); background:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:.95rem; font-weight:700; color:#4A5068; cursor:pointer; transition:all .2s; white-space:nowrap; }
+.sci-tab:hover:not(.active) { border-color:#2B8BE4; color:#2B8BE4; }
+.sci-tab.active { background:#2B8BE4; border-color:#2B8BE4; color:#fff; box-shadow:0 10px 24px -12px rgba(43,139,228,.6); }
+.sci-panel { display:none; }
+.sci-panel.active { display:block; }
+@media (max-width:600px){ .sci-tab { padding:10px 16px; font-size:.82rem; } }
+</style>
+
+<div class="sci-tabs" role="tablist"><button class="sci-tab active" data-sci-tab="assessment" role="tab">The assessment · how we measure</button><button class="sci-tab" data-sci-tab="app" role="tab">The app · how babies learn</button></div>
+<div class="sci-panel active" id="sci-panel-assessment">
+<style>
 .sci26 { padding: 76px 24px; position: relative; overflow: hidden; }
 .sci26-wrap { max-width: 1040px; margin: 0 auto; position: relative; z-index: 1; }
 .sci26-kick { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--sciacc, #087BF3); margin-bottom: 12px; }
@@ -1146,7 +1161,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <div style="display:flex;gap:10px;margin-bottom:16px">
 <span style="flex:1;text-align:center;border:1.5px solid #EBE6DF;border-radius:999px;padding:11px;font-weight:700;color:#52607A">Not yet</span>
 <span style="flex:1;text-align:center;border-radius:999px;padding:11px;font-weight:700;background:#1E88E5;color:#fff">Yes</span></div>
-<p style="font-family:'DM Mono',monospace;font-size:12px;color:#8A94A8;margin:0;line-height:1.6">49.5% of 12-month-olds show it · asked right at the edge, where an answer carries information · Example, not a real child's result.</p></div></div></section><section class="sci26" style="--sciacc:#F7567C"><div class="sci26-wrap"><div class="sci26-kick">One continuous story</div><h2>Built by Kinedu. Studied by Stanford.<br>Tested at population scale.</h2>
+<p style="font-family:'DM Mono',monospace;font-size:12px;color:#8A94A8;margin:0;line-height:1.6">49.5% of 12-month-olds show it · asked right at the edge, where an answer carries information · Example, not a real child's result.</p></div></div></section><section class="sci26" style="--sciacc:#F7567C"><div class="sci26-wrap"><div class="sci26-kick">One continuous story</div><h2>Built by Kinedu. Studied by Stanford.<br>Tested with millions of children.</h2>
 <p class="sci26-lead">An instrument made with caregivers, an independent developmental study, and expected ages tested against the full Kinedu record.</p><div class="sci26-acts">
 <div class="sci26-act"><span class="n">1</span><div class="big">2,135</div><div class="unit">caregivers</div><p>Kinedu created the caregiver-report instrument and tested its initial psychometric properties with 2,135 Spanish-speaking caregivers. Michael C. Frank, of Stanford, advised on the early revision of its 0–24-month milestone items.</p></div>
 <div class="sci26-act"><span class="n">2</span><div class="big">21,861</div><div class="unit">children</div><p>Stanford researchers Stenhaug, Ram and Frank analyzed 21,861 children and 177,934 observations from Kinedu data in <em>The Structure of Developmental Variation in Early Childhood</em>.</p></div>
@@ -1217,7 +1232,316 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px">
 <a href="/research/kinedu-replication-EXTERNAL.pdf" style="background:#087BF3;color:#fff;font-weight:800;border-radius:999px;padding:14px 26px;text-decoration:none">Research report (PDF) →</a>
 <a href="/research/kinedu-parents-guide.pdf" style="background:#fff;color:#087BF3;font-weight:800;border-radius:999px;padding:14px 26px;text-decoration:none;border:1.5px solid #087BF3">Parent Guide (PDF) →</a></div>
-<p style="font-family:'DM Mono',monospace;font-size:11.5px;color:#8A94A8;margin-top:18px">Coupling and Differentiation in Early Development · July 2026 · Kinedu supports developmental surveillance. It is not a diagnosis.</p></div></section><section class="science-cta">
+<p style="font-family:'DM Mono',monospace;font-size:11.5px;color:#8A94A8;margin-top:18px">Coupling and Differentiation in Early Development · July 2026 · Kinedu supports developmental surveillance. It is not a diagnosis.</p></div></section>
+<section class="sci26" style="--sciacc:#087BF3"><div class="sci26-wrap" style="max-width:760px;text-align:center">
+<div class="sci26-kick">The full paper</div><h2>Every claim on this page, with its methods and its limits.</h2>
+<p style="margin-top:26px"><a href="/docs/kinedu-replication-EXTERNAL.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#087BF3;color:#fff;font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:999px;text-decoration:none">Read the research report (PDF) ↓</a></p>
+<p style="font-family:'DM Mono',monospace;font-size:11.5px;color:#8A94A8;margin-top:16px">Coupling and Differentiation in Early Development · Kinedu, 2026</p>
+</div></section>
+</div><!-- /panel assessment -->
+<div class="sci-panel" id="sci-panel-app">
+<section class="stat-banner">
+        <div class="section-wrap">
+            <div class="stat-banner-inner">
+                <div class="stat-big-num" data-i18n="sci.bigbang.stat">1,000</div>
+                <div class="stat-big-label" data-i18n="sci.bigbang.statLabel">days shape a lifetime — from pregnancy through age 2</div>
+                <p class="stat-big-sub" data-i18n="sci.stat.sub">The architecture of a lifetime is assembled in early childhood — and your everyday interactions are what shape it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: The Big Bang of Development -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-grid">
+                <div class="science-text">
+                    <h2 data-i18n="sci.bigbang.title" data-i18n-html>Your baby's brain is building itself <span class="gradient-shift">right now</span> — faster than it ever will again.</h2>
+                    <p data-i18n="sci.bigbang.p1" data-i18n-html>At first, everything grows at once — physical, cognitive, language and social-emotional skills move as one. Then, like a universe after the Big Bang, they expand into distinct but deeply connected abilities around <strong>12 months</strong>.</p>
+                    <p data-i18n="sci.bigbang.p2" data-i18n-html>And the pace is staggering: about <strong>50 milestones</strong> by 1 month, <strong>~300</strong> by age 2. We measured it with <strong>Stanford</strong> — early on, progress in one ability pulls the others along.</p>
+                    <span class="science-ref">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                        <span data-i18n="sci.bigbang.ref">Stanford · The Structure of Development</span>
+                    </span>
+                </div>
+                <div class="science-visual">
+                    <div class="science-img-wrapper" style="padding:28px 26px">
+                        <div class="bb-legend">
+                            <span><i style="background:#2B8BE4"></i><span data-i18n="sci.domains.physical.title">Physical</span></span>
+                            <span><i style="background:#34C989"></i><span data-i18n="sci.domains.cognitive.title">Cognitive</span></span>
+                            <span><i style="background:#FF9F0A"></i><span data-i18n="sci.domains.language.title">Linguistic</span></span>
+                            <span><i style="background:#FF2D55"></i><span data-i18n="sci.domains.social.title">Social-Emotional</span></span>
+                        </div>
+                        <svg class="bb-chart" viewBox="0 0 500 300" role="img" aria-label="Developmental areas start bundled and differentiate with age">
+                            <g stroke="#E6EAF0" stroke-width="1">
+                                <line x1="50" y1="90" x2="480" y2="90"/><line x1="50" y1="150" x2="480" y2="150"/><line x1="50" y1="210" x2="480" y2="210"/>
+                            </g>
+                            <line x1="50" y1="30" x2="50" y2="262" stroke="#D5DAE2" stroke-width="1.5"/>
+                            <line x1="50" y1="262" x2="480" y2="262" stroke="#D5DAE2" stroke-width="1.5"/>
+                            <line x1="265" y1="40" x2="265" y2="262" stroke="#2B8BE4" stroke-width="1.3" stroke-dasharray="4 4" opacity=".5"/>
+                            <text x="265" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#2B8BE4" font-family="Plus Jakarta Sans,sans-serif">~12 mo</text>
+                            <path d="M50,246 C150,215 215,110 265,92 C360,76 430,72 480,70" class="line" pathLength="1" style="transition-delay:0ms" fill="none" stroke="#2B8BE4" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,243 C150,212 215,120 265,98 C360,72 430,60 480,55" class="line" pathLength="1" style="transition-delay:130ms" fill="none" stroke="#34C989" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,249 C160,240 220,198 265,172 C360,148 430,135 480,130" class="line" pathLength="1" style="transition-delay:260ms" fill="none" stroke="#FF9F0A" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M50,247 C150,228 215,160 265,135 C370,115 430,108 480,105" class="line" pathLength="1" style="transition-delay:390ms" fill="none" stroke="#FF2D55" stroke-width="3.2" stroke-linecap="round"/>
+                            <g fill="#8A95A5" font-size="11" font-family="Plus Jakarta Sans,sans-serif" text-anchor="middle">
+                                <text x="50" y="280">0</text><text x="158" y="280">6</text><text x="265" y="280">12</text><text x="373" y="280">18</text><text x="480" y="280">24</text>
+                                <text x="265" y="296" font-size="10.5">age (months)</text>
+                            </g>
+                            <circle class="dot" cx="480" cy="70" r="4.5" fill="#2B8BE4"/>
+                            <circle class="dot" cx="480" cy="55" r="4.5" fill="#34C989"/>
+                            <circle class="dot" cx="480" cy="130" r="4.5" fill="#FF9F0A"/>
+                            <circle class="dot" cx="480" cy="105" r="4.5" fill="#FF2D55"/>
+                            <text x="20" y="146" transform="rotate(-90 20 146)" text-anchor="middle" font-size="10.5" fill="#8A95A5" font-family="Plus Jakarta Sans,sans-serif" letter-spacing="0.08em">ABILITY</text>
+                        </svg>
+                        <div class="bb-chart-cap" data-i18n="sci.bb.chart">Each line is a developmental area — bundled early, then fanning apart with age.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="play-stats" style="margin-top:48px">
+                <div class="play-stat"><div class="num" data-i18n="sci.bb.s1.num">21,861</div><div class="cap" data-i18n="sci.bb.s1.cap">children studied</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.bb.s2.num">177,934</div><div class="cap" data-i18n="sci.bb.s2.cap">developmental observations</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.bb.s3.num">414</div><div class="cap" data-i18n="sci.bb.s3.cap">milestones tracked</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Neuroscience mechanism -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.neuro.tag">Under the hood</span>
+                <h2 data-i18n="sci.neuro.title" data-i18n-html>How the brain <span class="gradient-shift">builds itself</span></h2>
+                <p data-i18n="sci.neuro.sub">In the first years, the brain physically reorganizes at a pace it will never match again. Here's what's happening beneath the surface.</p>
+            </div>
+            <div class="play-stats">
+                <div class="play-stat"><div class="num" data-i18n="sci.neuro.s1.num">2x</div><div class="cap" data-i18n="sci.neuro.s1.cap">A baby's brain roughly doubles in size in the first year alone.</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.neuro.s2.num">150%</div><div class="cap" data-i18n="sci.neuro.s2.cap">Connections peak at about 150% of adult levels — then the brain prunes, keeping what's used and trimming the rest.</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.neuro.s3.num">100x</div><div class="cap" data-i18n="sci.neuro.s3.cap">As pathways get insulated, signals can travel up to 100x faster — which is why new skills suddenly "click."</div></div>
+            </div>
+            <div style="text-align:center;margin-top:36px">
+                <span class="science-ref" style="display:inline-flex">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <span data-i18n="sci.neuro.ref">Developmental neuroscience: synaptogenesis, pruning &amp; myelination</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: The Five Forces -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.forces.tag">The framework</span>
+                <h2 data-i18n="sci.forces.title" data-i18n-html>How development <span class="gradient-shift">actually works</span></h2>
+                <p data-i18n="sci.forces.sub">For a century, each great theory captured just one of these — and treated the rest as background. Kinedu is built to honor all five at once.</p>
+            </div>
+            <div class="forces-grid">
+                <div class="force-card"><div class="force-num">01</div><h3 data-i18n="sci.forces.f1.title">Everything is connected</h3><p data-i18n="sci.forces.f1.desc">Movement, language, thinking and emotion grow as one connected web — which is why a single playful moment can move all of them at once.</p></div>
+                <div class="force-card"><div class="force-num">02</div><h3 data-i18n="sci.forces.f2.title">It builds in sequence</h3><p data-i18n="sci.forces.f2.desc">Each skill rests on the ones before it. Babbling precedes words; reaching precedes crawling. Development stacks, step by step.</p></div>
+                <div class="force-card"><div class="force-num">03</div><h3 data-i18n="sci.forces.f3.title">The range of normal is wide</h3><p data-i18n="sci.forces.f3.desc">Healthy children reach the same milestones on very different timelines. The sequence is universal; the timing is personal.</p></div>
+                <div class="force-card"><div class="force-num">04</div><h3 data-i18n="sci.forces.f4.title">Some windows matter more</h3><p data-i18n="sci.forces.f4.desc">At certain moments the brain is especially ready to learn a specific skill. Meeting those windows makes everyday moments count.</p></div>
+                <div class="force-card"><div class="force-num">05</div><h3 data-i18n="sci.forces.f5.title">Every child surprises us</h3><p data-i18n="sci.forces.f5.desc">No model predicts exactly how one child will unfold. The science gives you the map — your child draws the route.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Serve and Return -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="science-grid reverse">
+                <div class="science-text">
+                    <h2 data-i18n="sci.serve.title" data-i18n-html>Serve and return: <span class="gradient-shift">how brains are built</span></h2>
+                    <p data-i18n="sci.serve.p1" data-i18n-html>Your baby reaches out, you respond — a look, a word, a hug. Scientists call it <strong>serve and return</strong>: the exchange that builds the brain.</p>
+                    <p data-i18n="sci.serve.p2" data-i18n-html>Kinedu is built around it. In a study with <strong>Stanford</strong>, one short Kinedu activity video led parents to make <strong>69% more bids for joint attention</strong> and speak <strong>35% more</strong>.</p>
+                    <span class="science-ref">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                        <span data-i18n="sci.serve.ref">Stanford · Kinedu activity study</span>
+                    </span>
+                </div>
+                <div class="science-visual">
+                    <div class="science-img-wrapper">
+                        <img src="Developmental playtime activities.png" alt="Parent-child serve and return interaction" class="science-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Guided Play -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.play.tag">What actually works</span>
+                <h2 data-i18n="sci.play.title" data-i18n-html>The sweet spot: <span class="gradient-shift">guided play</span></h2>
+                <p data-i18n="sci.play.sub">Decades of studies point to the same place: children learn most when an adult sets the stage and the child leads the play. Not rigid lessons. Not a free-for-all. The space in between.</p>
+            </div>
+            <div class="spectrum-grid">
+                <div class="spectrum-card"><div class="lbl" data-i18n="sci.play.free.lbl">Too little structure</div><h3 data-i18n="sci.play.free.title">Free play</h3><p data-i18n="sci.play.free.desc">All freedom, no direction. Joyful and essential — but the learning goal can get lost.</p></div>
+                <div class="spectrum-card best"><div class="lbl" data-i18n="sci.play.guided.lbl">Just right</div><h3 data-i18n="sci.play.guided.title">Guided play</h3><p data-i18n="sci.play.guided.desc">An adult sets a goal and offers gentle prompts; the child explores and leads. Engagement and direction, together.</p></div>
+                <div class="spectrum-card"><div class="lbl" data-i18n="sci.play.direct.lbl">Too much structure</div><h3 data-i18n="sci.play.direct.title">Direct instruction</h3><p data-i18n="sci.play.direct.desc">All direction, little agency. Efficient for facts — but it narrows curiosity and exploration.</p></div>
+            </div>
+            <div class="play-stats">
+                <div class="play-stat"><div class="num">0.63</div><div class="cap" data-i18n="sci.play.stat1.cap">Effect size of guided play vs. direct instruction on early concepts — medium-to-large (a typical program is ~0.20).</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.play.stat2.num">1 week+</div><div class="cap" data-i18n="sci.play.stat2.cap">The advantage held a week later — real learning, not a novelty effect.</div></div>
+                <div class="play-stat"><div class="num">4,000+</div><div class="cap" data-i18n="sci.play.stat3.cap">Children across 39 studies confirmed the pattern in a 2022 meta-analysis.</div></div>
+            </div>
+            <div style="text-align:center;margin-top:36px">
+                <span class="science-ref" style="display:inline-flex">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <span data-i18n="sci.play.ref">Guided-play meta-analysis · 39 studies, ~4,000 children</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Kinedu Skills Model -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="science-grid">
+                <div class="science-text">
+                    <h2 data-i18n-html data-i18n="sci.skills.title">Kinedu Skills<sup>®</sup>: <span class="gradient-shift">development reimagined</span></h2>
+                    <p data-i18n="sci.skills.p1" data-i18n-html>Traditional checklists ask: "Has your baby done X yet?" Kinedu Skills® asks something better: how your baby's <strong>whole developmental universe</strong> is unfolding — and what they're ready to learn next.</p>
+                    <p data-i18n="sci.skills.p2" data-i18n-html>Built with <strong>Prof. Michael Frank's lab at Stanford</strong> from millions of milestone observations, it maps <strong>414 milestones across 46 skills</strong> — treating development the way the data shows it really works: <strong>multi-dimensional, interdependent, and always moving</strong>, never just pass/fail. Psychometrically validated (α = 0.996).</p>
+                    <div class="science-ref">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span data-i18n="sci.skills.ref">MIT-Solve · Stanford · research preprint</span>
+                    </div>
+                </div>
+                <div class="science-visual">
+                    <div class="science-img-wrapper">
+                        <img src="Kinedu Skills.png" alt="Kinedu Skills Milestone Model" class="science-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Economic returns -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.econ.tag">Why it matters</span>
+                <h2 data-i18n="sci.econ.title" data-i18n-html>The highest-return years <span class="gradient-shift">of a lifetime</span></h2>
+                <p data-i18n="sci.econ.sub">Economists who followed children for 40 years reached a striking conclusion: almost nothing you invest in later pays back like the early years.</p>
+            </div>
+            <div class="play-stats">
+                <div class="play-stat"><div class="num" data-i18n="sci.econ.stat1.num">7-10%</div><div class="cap" data-i18n="sci.econ.stat1.cap">Annual return on quality early-childhood investment — above the stock market's long-run average (work led by Nobel laureate James Heckman).</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.econ.stat2.num">+25%</div><div class="cap" data-i18n="sci.econ.stat2.cap">Higher adult earnings for children who got a play-based, responsive home program as babies — enough to erase the penalty of early adversity.</div></div>
+                <div class="play-stat"><div class="num" data-i18n="sci.econ.stat3.num">Play</div><div class="cap" data-i18n="sci.econ.stat3.cap">In that study, nutrition supplements alone changed nothing long-term. The driver was warm, playful, responsive interaction — exactly what Kinedu builds.</div></div>
+            </div>
+            <div style="text-align:center;margin-top:36px">
+                <span class="science-ref" style="display:inline-flex">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <span data-i18n="sci.econ.ref">Heckman et al. · Perry Preschool · Jamaica longitudinal study</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Philosophy -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="philosophy-card">
+                <span class="sec-tag" data-i18n="sci.phil.tag">Our point of view</span>
+                <h2 data-i18n="sci.phil.title">Not perfection. Presence.</h2>
+                <p data-i18n="sci.phil.p1">The science is reassuring: warm, responsive, "good enough" parenting produces secure, thriving children in the large majority of cases. You don't need to get every moment right.</p>
+                <p data-i18n="sci.phil.p2">What matters is being a present, intentional guide — combining warmth with structure, and responding to your child without fearing your own authority. That's the parent Kinedu is built for.</p>
+                <div class="philosophy-pills">
+                    <span class="pill" data-i18n="sci.phil.pill1">Warmth + structure</span>
+                    <span class="pill" data-i18n="sci.phil.pill2">Responsive, not permissive</span>
+                    <span class="pill" data-i18n="sci.phil.pill3">Consistency over perfection</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Research Partners -->
+    <section class="science-section">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.partners.tag">Research Partners</span>
+                <h2 data-i18n="sci.partners.title" data-i18n-html>Built alongside <span class="gradient-shift">world-class researchers</span></h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card stanford">
+                    <div class="partner-card-icon stanford">
+                        <img src="partner-logos/channels4_profile.png" alt="Stanford" class="partner-logo">
+                    </div>
+                    <h3>Stanford</h3>
+                    <p data-i18n="sci.partners.stanfordDesc">Prof. Michael Frank's lab — our partner on the Structure of Development research and the studies measuring how Kinedu activities change parent-child interaction.</p>
+                </div>
+                <div class="partner-card mit">
+                    <div class="partner-card-icon mit">
+                        <img src="partner-logos/MIT_2023_red_logo.svg.png" alt="MIT" class="partner-logo">
+                    </div>
+                    <h3>MIT-Solve</h3>
+                    <p data-i18n="sci.partners.mitDesc">Supporting the Kinedu Skills® Milestone Model — a new approach to tracking early childhood development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: The Invisible Forces (dark matter) -->
+    <section class="science-section alt-bg">
+        <div class="section-wrap">
+            <div class="science-section-header">
+                <span class="sec-tag" data-i18n="sci.inv.tag">The invisible forces</span>
+                <h2 data-i18n="sci.inv.title" data-i18n-html>What holds it all <span class="gradient-shift">together</span></h2>
+                <p data-i18n="sci.inv.sub">Milestones are the visible universe — the skills you can point to and celebrate. But like the dark matter that keeps galaxies from flying apart, four invisible forces decide whether those skills take hold. None of them show up on a milestone chart; all of them shape how it fills in.</p>
+            </div>
+            <div class="inv-grid">
+                <div class="force-card"><div class="force-icon" style="background:#2B8BE4"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><div class="force-kicker" style="color:#2B8BE4" data-i18n="sci.inv.play.k">Stimulates</div><h3 data-i18n="sci.inv.play.t">Play</h3><p data-i18n="sci.inv.play.d">Serve-and-return from the first weeks of life — the back-and-forth that wires the brain.</p></div>
+                <div class="force-card"><div class="force-icon" style="background:#34C989"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.9-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div class="force-kicker" style="color:#34C989" data-i18n="sci.inv.rel.k">Buffers</div><h3 data-i18n="sci.inv.rel.t">Relationships</h3><p data-i18n="sci.inv.rel.d">Warmth plus structure — the container that holds everything else.</p></div>
+                <div class="force-card"><div class="force-icon" style="background:#FF9F0A"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/></svg></div><div class="force-kicker" style="color:#FF9F0A" data-i18n="sci.inv.stress.k">Strengthens</div><h3 data-i18n="sci.inv.stress.t">Stress</h3><p data-i18n="sci.inv.stress.d">Not the enemy. The right amount builds resilience — what matters is the buffer, not the stressor.</p></div>
+                <div class="force-card"><div class="force-icon" style="background:#FF2D55"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v13M4 13a8 8 0 0 0 16 0M3 13h2M19 13h2"/></svg></div><div class="force-kicker" style="color:#FF2D55" data-i18n="sci.inv.pred.k">Anchors</div><h3 data-i18n="sci.inv.pred.t">Predictability</h3><p data-i18n="sci.inv.pred.d">Routines, reading, mealtimes and sleep — when the brain replays and locks in the day's learning.</p></div>
+            </div>
+            <div class="play-stats" style="margin-top:40px">
+                <div class="play-stat"><div class="num" data-i18n="sci.inv.stat.num">+10%</div><div class="cap" data-i18n="sci.inv.stat.cap">More learning kept by children who napped after a task — one example of predictability at work.</div></div>
+            </div>
+            <p class="inv-close" data-i18n="sci.inv.close" data-i18n-html>Four forces, one parent — <strong>at the center of every one of them is you.</strong></p>
+            <div style="text-align:center;margin-top:14px">
+                <span class="science-ref" style="display:inline-flex">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <span data-i18n="sci.inv.ref">Shonkoff · Fisher · Spencer</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Parents as Cosmic Catalysts -->
+    <section class="catalyst-section">
+        <div class="section-wrap">
+            <div class="catalyst-card">
+                <h2 data-i18n="sci.catalyst.title" data-i18n-html>You are your baby's <span class="gradient-shift">most powerful catalyst</span></h2>
+                <p data-i18n="sci.catalyst.body" data-i18n-html>You don't need fancy toys or a flawless routine — you need a plan. Kinedu turns the science on this page into a <strong>daily plan built around your child</strong>: challenging enough to grow new skills, smart enough to reinforce what they've learned, and simple enough to fit real family life.</p>
+
+                <div class="catalyst-features">
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        </div>
+                        <span data-i18n="sci.catalyst.f1">Personalized milestone tracking</span>
+                    </div>
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <span data-i18n="sci.catalyst.f2">A new activity every day, just for your baby</span>
+                    </div>
+                    <div class="catalyst-feature">
+                        <div class="catalyst-feature-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span data-i18n="sci.catalyst.f3">Adapts as your baby grows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+</div><!-- /panel app -->
+<section class="science-cta">
         <div class="section-wrap">
             <h2 data-i18n="sci.cta.title" data-i18n-html>Start science-based parenting <span class="gradient-shift-alt">today.</span></h2>
             <p data-i18n="sci.cta.sub">Everything in Kinedu is built on real research. See the difference it makes.</p>
@@ -1313,5 +1637,22 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
       setTimeout(function(){ els.forEach(reveal); }, 4000);
     })();
     </script>
+
+<script>
+(function(){
+  function activate(name){
+    document.querySelectorAll('.sci-tab').forEach(function(t){ t.classList.toggle('active', t.dataset.sciTab === name); });
+    document.querySelectorAll('.sci-panel').forEach(function(p){ p.classList.toggle('active', p.id === 'sci-panel-' + name); });
+  }
+  document.querySelectorAll('.sci-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      activate(tab.dataset.sciTab);
+      history.replaceState(null, '', '#' + tab.dataset.sciTab);
+      window.scrollTo({ top: document.querySelector('.sci-tabs').offsetTop - 90, behavior: 'smooth' });
+    });
+  });
+  if (location.hash === '#app') activate('app');
+})();
+</script>
 </body>
 </html>
