@@ -61,7 +61,7 @@ fbq('track', 'PageView');
 .xp-card { background: #fff; border: 1px solid #EBE6DF; border-radius: 22px; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease; display: flex; flex-direction: column; }
 .xp-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px -16px rgba(8,27,70,.22); }
 .xp-photo { display: flex; align-items: flex-end; justify-content: center; height: 210px; }
-.xp-photo img { width: 158px; height: 158px; object-fit: cover; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 10px 26px -12px rgba(8,27,70,.3); margin-bottom: -26px; z-index: 1; }
+.xp-photo img { background: #F5F4F0; width: 158px; height: 158px; object-fit: cover; border-radius: 999px; border: 5px solid #fff; box-shadow: 0 10px 26px -12px rgba(8,27,70,.3); margin-bottom: -26px; z-index: 1; }
 .xp-body { padding: 42px 24px 26px; text-align: center; display: flex; flex-direction: column; flex: 1; }
 .xp-class { display: inline-block; align-self: center; font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #087BF3; background: #EFF4FB; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px; }
 .xp-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.16rem; font-weight: 800; letter-spacing: -.02em; color: #081B46; margin-bottom: 4px; }
@@ -99,16 +99,16 @@ fbq('track', 'PageView');
             <a href="/" class="nav-logo"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
             <div class="nav-links" id="navLinks">
                 <a href="/masterclasses" data-i18n="nav.masterclasses">Masterclasses</a>
-                <a href="live-classes.html" data-i18n="nav.liveClasses">Live Classes</a>
+                <a href="/live-classes" data-i18n="nav.liveClasses">Live Classes</a>
                 <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
-                <a href="science.html" data-i18n="nav.science">Science</a>
+                <a href="/science" data-i18n="nav.science">Science</a>
                 <div class="nav-dropdown" id="teamDropdown">
                     <button class="nav-dropdown-toggle" id="teamToggle" aria-expanded="false" aria-haspopup="true">
                         <span data-i18n="nav.team">Team</span>
                         <svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </button>
                     <div class="nav-dropdown-menu" role="menu">
-                        <a href="/founder.html" class="nd-item" role="menuitem"><span data-i18n="nav.founder">Founder</span></a>
+                        <a href="/founder" class="nd-item" role="menuitem"><span data-i18n="nav.founder">Founder</span></a>
                         <a href="/experts" class="nd-item" role="menuitem"><span data-i18n="nav.experts">Experts</span></a>
                     </div>
                 </div>
@@ -152,7 +152,7 @@ fbq('track', 'PageView');
     </div>
       <div class="xp-group" data-xp-lang="en">
         <article class="xp-card">
-          <div class="xp-photo" style="background:#EFF6FF;"><img src="/Features/experts/en/thanya-asse.jpg" alt="Dr. Thanya Asse — Pediatrician, MD" loading="lazy"></div>
+          <div class="xp-photo" style="background:#EFF6FF;"><img src="/Features/experts/en/thanya-asse.jpg" alt="Dr. Thanya Asse — Pediatrician, MD" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Health Classes</span>
             <h3>Dr. Thanya Asse</h3>
@@ -162,7 +162,7 @@ fbq('track', 'PageView');
           </div>
         </article>
         <article class="xp-card">
-          <div class="xp-photo" style="background:#F0FDF4;"><img src="/Features/experts/en/amaya-martinez.jpg" alt="Amaya Martínez — Sleep Coach, Certified" loading="lazy"></div>
+          <div class="xp-photo" style="background:#F0FDF4;"><img src="/Features/experts/en/amaya-martinez.jpg" alt="Amaya Martínez — Sleep Coach, Certified" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Sleep Classes</span>
             <h3>Amaya Martínez</h3>
@@ -172,7 +172,7 @@ fbq('track', 'PageView');
           </div>
         </article>
         <article class="xp-card">
-          <div class="xp-photo" style="background:#FDF2F8;"><img src="/Features/experts/en/alicia-simpson.png" alt="Alicia Simpson — Nutritionist &amp; IBCLC, MS RD" loading="lazy"></div>
+          <div class="xp-photo" style="background:#FDF2F8;"><img src="/Features/experts/en/alicia-simpson.png" alt="Alicia Simpson — Nutritionist &amp; IBCLC, MS RD" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Nutrition &amp; Lactation Classes</span>
             <h3>Alicia Simpson</h3>
@@ -182,7 +182,7 @@ fbq('track', 'PageView');
           </div>
         </article>
         <article class="xp-card">
-          <div class="xp-photo" style="background:#F5F3FF;"><img src="/Features/experts/en/caryn-shender.jpg" alt="Caryn Shender — Pediatric Sleep Consultant" loading="lazy"></div>
+          <div class="xp-photo" style="background:#F5F3FF;"><img src="/Features/experts/en/caryn-shender.jpg" alt="Caryn Shender — Pediatric Sleep Consultant" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Sleep Classes</span>
             <h3>Caryn Shender</h3>
@@ -192,7 +192,7 @@ fbq('track', 'PageView');
           </div>
         </article>
         <article class="xp-card">
-          <div class="xp-photo" style="background:#FFF7ED;"><img src="/Features/experts/en/sarah-rappenhagen.webp" alt="Sarah Rappenhagen — Occupational Therapist" loading="lazy"></div>
+          <div class="xp-photo" style="background:#FFF7ED;"><img src="/Features/experts/en/sarah-rappenhagen.webp" alt="Sarah Rappenhagen — Occupational Therapist" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Development Classes</span>
             <h3>Sarah Rappenhagen</h3>
@@ -202,7 +202,7 @@ fbq('track', 'PageView');
           </div>
         </article>
         <article class="xp-card">
-          <div class="xp-photo" style="background:#F0FDFA;"><img src="/Features/experts/en/delia-herrera.png" alt="Delia Herrera — Speech &amp; Language Pathologist" loading="lazy"></div>
+          <div class="xp-photo" style="background:#F0FDFA;"><img src="/Features/experts/en/delia-herrera.png" alt="Delia Herrera — Speech &amp; Language Pathologist" loading="eager" fetchpriority="high"></div>
           <div class="xp-body">
             <span class="xp-class">Language Classes</span>
             <h3>Delia Herrera</h3>

@@ -2,6 +2,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/founder",
+      "destination": "/founder.html"
+    },
+    {
       "source": "/analytics",
       "destination": "/analytics.html"
     },
@@ -2797,6 +2801,21 @@
     {
       "source": "/pt/masterclasses.html",
       "destination": "/pt/masterclasses",
+      "permanent": true
+    },
+    {
+      "source": "/science.html",
+      "destination": "/science",
+      "permanent": true
+    },
+    {
+      "source": "/live-classes.html",
+      "destination": "/live-classes",
+      "permanent": true
+    },
+    {
+      "source": "/founder.html",
+      "destination": "/founder",
       "permanent": true
     }
   ]

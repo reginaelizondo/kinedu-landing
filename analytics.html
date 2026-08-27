@@ -145,6 +145,7 @@ tr:hover td { background: #FAF8F4; }
       <div class="chipset" id="viewTabs">
         <button class="chip on" data-view="site">Sitio</button>
         <button class="chip" data-view="mc">Masterclasses</button>
+        <button class="chip" data-view="as">Assessment</button>
       </div>
       <div class="chipset" id="rangeChips">
         <button class="chip" data-d="7">7d</button>
@@ -427,6 +428,64 @@ tr:hover td { background: #FAF8F4; }
     <div class="note" style="margin-top:26px;" id="affNote">
       Afiliados guardados en Supabase (proyecto de Masterclasses) vía <code>/masterclasses/api/admin/affiliates</code>.
       La atribución de ventas viaja en el metadata de Stripe (cookie <code>mc_ref</code>, 30 días en todo <code>.kinedu.com</code>) y la guarda el webhook en cada compra.
+    </div>
+  </div>
+
+  <!-- ===== TAB ASSESSMENT (kinedu.com/assessment) ===== -->
+  <div id="viewAs" style="display:none;">
+    <div class="kpis" id="asKpis"></div>
+
+    <div class="section-title" style="--dot:var(--c2)">Funnel del assessment</div>
+    <div class="grid">
+      <div class="card s6">
+        <h2>De cuenta a compra</h2>
+        <div class="desc">Cada paso y cuánto se cae entre uno y otro</div>
+        <div id="asFunnel"></div>
+      </div>
+      <div class="card s3">
+        <h2>Bebés por edad</h2>
+        <div class="desc">Edad de hoy, en meses</div>
+        <div id="asAges"></div>
+      </div>
+      <div class="card s3">
+        <h2>Por plan</h2>
+        <div class="desc">basic = gratis · tracking/detail = de pago</div>
+        <div id="asTiers"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c1)">Quién compró</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Compras y suscripciones</h2>
+        <div class="desc">Cada bebé con plan de pago: de qué cuenta es, qué plan y en qué estado está la suscripción</div>
+        <div class="scroll-x"><table id="asTblPurchases"></table></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c4)">Usuarios y sus bebés</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Un renglón por bebé</h2>
+        <div class="desc">Correo de la cuenta, bebé, edad, plan, cuántos assessments lleva y su última actividad</div>
+        <div class="scroll-x"><table id="asTblUsers"></table></div>
+      </div>
+      <div class="card s6">
+        <h2>Actividad por día</h2>
+        <div class="desc">Últimos 30 días — altas, bebés nuevos, assessments</div>
+        <div class="scroll-x"><table id="asTblDaily"></table></div>
+      </div>
+      <div class="card s6">
+        <h2>Eventos (30 días)</h2>
+        <div class="desc">Todo lo que registra el app, por nombre</div>
+        <div id="asEvents"></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px;" id="asNote">
+      Datos en vivo del proyecto stand-alone-assessment (Postgres propio) vía
+      <code>/assessment/api/admin/summary</code>. La llave es la misma contraseña del dashboard:
+      si <code>METRICS_KEY</code> (Vercel del proyecto de Assessment) coincide con ella, este tab funciona solo.
     </div>
   </div>
 
@@ -1228,6 +1287,116 @@ $('affForm').addEventListener('submit', function (e) {
     }).catch(function (err) { btn.disabled = false; msg.className = 'aff-msg bad'; msg.textContent = 'Error de red: ' + (err.message || err); });
 });
 
+/* ================= TAB ASSESSMENT =================
+   Datos del proyecto stand-alone-assessment vía su propia API, servida
+   same-origin por el rewrite /assessment/api/*. Mismo contrato de llave que
+   Masterclasses: la contraseña del dashboard debe coincidir con METRICS_KEY. */
+var asState = { data: null, loading: false, error: null };
+
+function asFetch() {
+  if (asState.loading) return;
+  asState.loading = true; asState.error = null; asRender();
+  fetch('/assessment/api/admin/summary?key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 403) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Assessment (Vercel → stand-alone-assessment → METRICS_KEY).');
+      if (!r.ok) throw new Error('No se pudo leer el resumen (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { asState.data = d; asState.loading = false; asRender(); })
+    .catch(function (e) { asState.error = e.message || String(e); asState.loading = false; asRender(); });
+}
+
+function asHbars(rows, name, val, color) {
+  var top = 1; rows.forEach(function (r) { top = Math.max(top, r[val]); });
+  return rows.map(function (r) {
+    return '<div class="hbar-row"><div class="nm">' + esc(String(r[name])) + '</div>' +
+      '<div class="tr"><div class="fl" style="width:' + Math.max(2, r[val] / top * 100) + '%;background:' + color + '"></div></div>' +
+      '<div class="ct">' + fmt(r[val]) + '</div></div>';
+  }).join('') || '<div class="empty">Sin datos aún</div>';
+}
+
+function asRender() {
+  var kpis = $('asKpis'), fun = $('asFunnel');
+  if (asState.loading) { kpis.innerHTML = '<div class="kpi"><div class="lbl">Cargando</div><div class="val">…</div></div>'; return; }
+  if (asState.error) {
+    kpis.innerHTML = '';
+    fun.innerHTML = '<div class="empty">' + esc(asState.error) + '</div>';
+    ['asAges','asTiers','asEvents'].forEach(function (id) { $(id).innerHTML = ''; });
+    ['asTblPurchases','asTblUsers','asTblDaily'].forEach(function (id) { $(id).innerHTML = ''; });
+    return;
+  }
+  var d = asState.data; if (!d) return;
+  var t = d.totals;
+
+  kpis.innerHTML = [
+    ['Cuentas', fmt(t.accounts), 'familias registradas'],
+    ['Bebés', fmt(t.children), t.preterm_children + ' prematuros'],
+    ['Assessments', fmt(t.assessments_started), fmt(t.assessments_completed) + ' completados · ' + Math.round(t.completion_rate * 100) + '%'],
+    ['Compras', fmt(t.purchases), t.premium_children + ' bebés premium activos'],
+    ['Trials activos', fmt(t.trials_active), 'probando lo de pago'],
+    ['Bebés por cuenta', t.accounts ? (t.children / t.accounts).toFixed(1) : '0', 'promedio']
+  ].map(function (k) {
+    return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
+  }).join('');
+
+  var steps = [
+    ['Cuentas', t.accounts, PAL[0]],
+    ['Bebés dados de alta', t.children, PAL[3]],
+    ['Assessments empezados', t.assessments_started, PAL[5] || PAL[1]],
+    ['Completados', t.assessments_completed, PAL[2]],
+    ['Compraron', t.purchases, PAL[1]]
+  ];
+  var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
+  fun.innerHTML = steps.map(function (s, i) {
+    var prevV = i ? steps[i - 1][1] : 0;
+    var drop = i && prevV ? (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
+    return '<div class="hbar-row"><div class="nm">' + s[0] + '</div>' +
+      '<div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div>' +
+      '<div class="ct">' + fmt(s[1]) + '</div></div>' +
+      (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop + '</div>' : '');
+  }).join('');
+
+  $('asAges').innerHTML = asHbars(d.byAge || [], 'bucket', 'n', PAL[3]);
+  $('asTiers').innerHTML = asHbars(d.byTier || [], 'tier', 'n', PAL[2]);
+  $('asEvents').innerHTML = asHbars((d.events30d || []).slice(0, 14), 'name', 'n', PAL[0]);
+
+  sortable($('asTblPurchases'), (d.purchases || []).map(function (r) {
+    return [(r.paid_at || '').slice(0, 10), r.email, r.child,
+      r.child_age_months == null ? '' : r.child_age_months,
+      r.plan || '—', r.tier, r.subscription_status || '—'];
+  }), [
+    { label: 'Fecha' }, { label: 'Cuenta' }, { label: 'Bebé' },
+    { label: 'Edad (m)', num: 1 }, { label: 'Plan' }, { label: 'Tier' },
+    { label: 'Suscripción' }
+  ], { i: 0, dir: -1 });
+
+  var babies = [];
+  (d.users || []).forEach(function (u) {
+    if (!u.children.length) {
+      babies.push([u.email, '(sin bebés)', '', '—', 0, 0, (u.signed_up || '').slice(0, 10)]);
+      return;
+    }
+    u.children.forEach(function (b) {
+      babies.push([u.email, b.name + (b.preterm ? ' ◦prem' : ''),
+        b.age_months == null ? '' : b.age_months,
+        b.tier + (b.subscription_status ? ' (' + b.subscription_status + ')' : ''),
+        b.assessments, b.completed, (b.last_activity || '').slice(0, 10)]);
+    });
+  });
+  sortable($('asTblUsers'), babies, [
+    { label: 'Cuenta' }, { label: 'Bebé' }, { label: 'Edad (m)', num: 1 },
+    { label: 'Plan' }, { label: 'Assessments', num: 1 },
+    { label: 'Completados', num: 1 }, { label: 'Última actividad' }
+  ], { i: 6, dir: -1 });
+
+  sortable($('asTblDaily'), (d.byDay || []).map(function (r) {
+    return [r.day, r.accounts, r.children, r.assessments, r.completed];
+  }), [
+    { label: 'Día' }, { label: 'Cuentas', num: 1 }, { label: 'Bebés', num: 1 },
+    { label: 'Assessments', num: 1 }, { label: 'Completados', num: 1 }
+  ], { i: 0, dir: -1 });
+}
+
 /* Sub-vista dentro de Masterclasses: Resumen / Engagement / Afiliados */
 function showMcSub(sub) {
   state.mcSub = sub;
@@ -1256,18 +1425,22 @@ $('viewTabs').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
   b.classList.add('on');
-  var mc = b.dataset.view === 'mc';
-  $('viewSite').style.display = mc ? 'none' : '';
-  $('siteNote').style.display = mc ? 'none' : '';
-  $('langChips').style.display = mc ? 'none' : '';
-  $('mcSubTabs').style.display = mc ? '' : 'none';
-  if (mc) {
+  var v = b.dataset.view; // 'site' | 'mc' | 'as'
+  $('viewSite').style.display = v === 'site' ? '' : 'none';
+  $('siteNote').style.display = v === 'site' ? '' : 'none';
+  $('langChips').style.display = v === 'site' ? '' : 'none';
+  $('mcSubTabs').style.display = v === 'mc' ? '' : 'none';
+  $('viewAs').style.display = v === 'as' ? '' : 'none';
+  if (v === 'mc') {
     showMcSub(state.mcSub || 'summary');
   } else {
     $('viewMc').style.display = 'none';
     $('viewEng').style.display = 'none';
     $('viewAff').style.display = 'none';
-    if (state.raw) renderAll(); // restaura el label y KPIs del Sitio
+    if (v === 'as') {
+      $('periodLabel').textContent = 'Assessment — kinedu.com/assessment · todo el histórico';
+      if (!asState.data) asFetch(); else asRender();
+    } else if (state.raw) renderAll(); // restaura el label y KPIs del Sitio
   }
 });
 
