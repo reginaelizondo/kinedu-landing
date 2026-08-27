@@ -1092,7 +1092,6 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .sci26-act:nth-child(n+2)::after { content: '→'; position: absolute; left: -24px; top: 42%; font-size: 22px; font-weight: 800; color: #C9D2E0; }
 @media (max-width: 780px) { .sci26-act:nth-child(n+2)::after { content: '↓'; left: 50%; top: -24px; transform: translateX(-50%); } }
 </style>
-<div class="sci-tabs" role="tablist"><button class="sci-tab active" data-sci-tab="assessment" role="tab">El assessment · cómo medimos</button><button class="sci-tab" data-sci-tab="app" role="tab">Cómo ve Kinedu el desarrollo</button></div>
 <div class="sci-panel active" id="sci-panel-assessment">
 <style>
 .sci26 { padding: 76px 24px; position: relative; overflow: hidden; }
@@ -1481,7 +1480,7 @@ render();
     tab.addEventListener('click', function(){
       activate(tab.dataset.sciTab);
       history.replaceState(null, '', '#' + tab.dataset.sciTab);
-      window.scrollTo({ top: document.querySelector('.sci-tabs').offsetTop - 90, behavior: 'smooth' });
+      var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
     });
   });
   function fromHash(){
@@ -1491,7 +1490,7 @@ render();
   // el dropdown del nav manda #app / #assessment aun estando ya en la página
   window.addEventListener('hashchange', function(){
     fromHash();
-    window.scrollTo({ top: document.querySelector('.sci-tabs').offsetTop - 90, behavior: 'smooth' });
+    var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
   });
   if (location.hash === '#app') activate('app');
 })();
