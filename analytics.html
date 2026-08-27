@@ -38,6 +38,8 @@ a { color: var(--c1); text-decoration: none; }
 .chip { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--ink2); cursor: pointer; font-family: inherit; }
 .chip.on { background: var(--ink); color: #fff; }
 #updated { font-size: 12px; color: var(--muted); }
+.subtabs { display: inline-flex; background: var(--card); border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; margin-bottom: 22px; }
+.subtabs .chip.on { background: var(--c1); color: #fff; }
 
 /* ---------- layout ---------- */
 .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
@@ -84,6 +86,41 @@ tr:hover td { background: #FAF8F4; }
 .hbar-row .ct { text-align: right; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; font-size: 12.5px; }
 .section-title { font-size: 19px; font-weight: 800; letter-spacing: -.01em; margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
 .section-title::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--dot, var(--c1)); }
+
+/* ---------- affiliate form ---------- */
+.aff-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.aff-field { display: flex; flex-direction: column; gap: 5px; flex: 1 1 160px; min-width: 0; }
+.aff-field.aff-narrow { flex: 0 0 110px; }
+.aff-field.aff-submit { flex: 0 0 auto; }
+.aff-field label { font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.aff-field input { padding: 10px 13px; border: 1.5px solid var(--line); border-radius: 11px; font-size: 14px; font-family: inherit; color: var(--ink); background: #fff; width: 100%; }
+.aff-field input:focus { outline: none; border-color: var(--c1); box-shadow: 0 0 0 3px rgba(8,123,243,.12); }
+.aff-code { display: flex; align-items: stretch; }
+.aff-code span { display: inline-flex; align-items: center; padding: 0 10px; background: #F1EEE8; border: 1.5px solid var(--line); border-right: 0; border-radius: 11px 0 0 11px; font-size: 13px; color: var(--muted); font-family: 'DM Mono', monospace; }
+.aff-code input { border-radius: 0 11px 11px 0; font-family: 'DM Mono', monospace; }
+.aff-submit button { padding: 11px 20px; background: var(--c1); color: #fff; border: 0; border-radius: 11px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap; }
+.aff-submit button:disabled { opacity: .55; cursor: default; }
+.aff-msg { font-size: 13px; margin-top: 12px; font-weight: 600; }
+.aff-msg.ok { color: var(--good); } .aff-msg.bad { color: var(--bad); }
+.aff-copy { border: 1.5px solid var(--line); background: #fff; color: var(--c1); font-weight: 700; font-size: 11.5px; padding: 3px 9px; border-radius: 8px; cursor: pointer; font-family: inherit; }
+.aff-copy:hover { background: #F1F7FE; }
+.aff-status { font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+.aff-status.active { background: #E7F5EC; color: #1E7A3C; } .aff-status.inactive { background: #F0ECE4; color: #8A7B63; }
+
+/* ---------- engagement ---------- */
+.eng-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.eng-select, .eng-input { padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 11px; font-size: 13.5px; font-family: inherit; color: var(--ink); background: #fff; }
+.eng-input { flex: 1 1 200px; min-width: 0; }
+.eng-select:focus, .eng-input:focus { outline: none; border-color: var(--c1); box-shadow: 0 0 0 3px rgba(8,123,243,.12); }
+.eng-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink2); font-weight: 600; cursor: pointer; }
+.eng-prog { display: inline-flex; align-items: center; gap: 8px; min-width: 120px; }
+.eng-prog .track { flex: 1; height: 7px; border-radius: 4px; background: var(--grid); overflow: hidden; }
+.eng-prog .fill { height: 100%; border-radius: 4px; background: var(--c3); }
+.eng-prog .pv { font-size: 12px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
+.eng-badge { display: inline-block; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.eng-badge.done { background: #E7F5EC; color: #1E7A3C; }
+.eng-badge.going { background: #E6F0FD; color: #0B5CB8; }
+.eng-badge.idle { background: #FCEEE6; color: #B45309; }
 </style>
 </head>
 <body data-palette="#087BF3,#C97E16,#3AA35A,#0C86AC,#D1296D,#7C3AA8">
@@ -218,6 +255,13 @@ tr:hover td { background: #FAF8F4; }
 
   </div><!-- /#viewSite -->
 
+  <!-- ===== SUB-TABS DE MASTERCLASSES (Resumen / Engagement / Afiliados) ===== -->
+  <div id="mcSubTabs" class="subtabs" style="display:none;">
+    <button class="chip on" data-sub="summary">Resumen</button>
+    <button class="chip" data-sub="eng">Engagement</button>
+    <button class="chip" data-sub="aff">Afiliados</button>
+  </div>
+
   <!-- ===== TAB MASTERCLASSES (kinedu.com/masterclasses) ===== -->
   <div id="viewMc" style="display:none;">
     <div class="kpis" id="mcKpis"></div>
@@ -304,6 +348,88 @@ tr:hover td { background: #FAF8F4; }
     </div>
   </div>
 
+  <!-- ===== TAB ENGAGEMENT (uso por clase de los usuarios) ===== -->
+  <div id="viewEng" style="display:none;">
+    <div class="kpis" id="engKpis"></div>
+
+    <div class="section-title" style="--dot:var(--c3)">Por clase</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Uso por masterclass</h2>
+        <div class="desc">Compradores → empezaron → lecciones completadas → terminaron. Empezó % = abrieron al menos una lección. Prom. = lecciones completadas por quien empezó. Los packs cuentan en cada clase que desbloquean.</div>
+        <div class="scroll-x"><table id="engTblClass"></table></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c4)">Usuario por usuario</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Quién está usando qué</h2>
+        <div class="desc">Cada comprador y su avance en cada clase. Filtra por clase o busca por correo. "Compró y no empezó" = oportunidad de reactivación.</div>
+        <div class="eng-controls">
+          <select id="engClassFilter" class="eng-select"><option value="">Todas las clases</option></select>
+          <input id="engSearch" class="eng-input" type="text" placeholder="Buscar correo…" autocomplete="off">
+          <label class="eng-check"><input type="checkbox" id="engOnlyIdle"> Solo compró y no empezó</label>
+        </div>
+        <div class="scroll-x"><table id="engTblUser"></table></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px;" id="engNote">
+      Uso real del curso (tablas <code>events</code> y <code>purchases</code> en Supabase) vía <code>/masterclasses/api/admin/engagement</code>.
+      Solo compradores reales (livemode). El avance sale de los eventos <code>course_started</code>, <code>lesson_completed</code> y <code>course_completed</code> que emite el reproductor.
+    </div>
+  </div>
+
+  <!-- ===== TAB AFILIADOS (kinedu.com/masterclasses/r/CODE) ===== -->
+  <div id="viewAff" style="display:none;">
+    <div class="kpis" id="affKpis"></div>
+
+    <div class="section-title" style="--dot:var(--c2)">Generar un afiliado</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Nuevo afiliado</h2>
+        <div class="desc">Crea un embajador. Recibe un link tipo <code>kinedu.com/masterclasses/r/su-codigo</code>; cada clic y cada venta que llegue por ahí se le atribuye.</div>
+        <form id="affForm" class="aff-form" autocomplete="off">
+          <div class="aff-field">
+            <label for="affName">Nombre *</label>
+            <input id="affName" type="text" placeholder="Regina Elizondo" required>
+          </div>
+          <div class="aff-field">
+            <label for="affCode">Código *</label>
+            <div class="aff-code"><span>/r/</span><input id="affCode" type="text" placeholder="regina" required></div>
+          </div>
+          <div class="aff-field">
+            <label for="affEmail">Email</label>
+            <input id="affEmail" type="email" placeholder="regina@kinedu.com">
+          </div>
+          <div class="aff-field aff-narrow">
+            <label for="affComm">Comisión %</label>
+            <input id="affComm" type="number" step="0.1" min="0" max="100" placeholder="20">
+          </div>
+          <div class="aff-field aff-submit">
+            <button type="submit" id="affCreateBtn">Crear afiliado</button>
+          </div>
+        </form>
+        <div id="affFormMsg" class="aff-msg"></div>
+      </div>
+    </div>
+
+    <div class="section-title" style="--dot:var(--c5)">Afiliados y su desempeño</div>
+    <div class="grid">
+      <div class="card s12">
+        <h2>Clics, ventas y comisión por afiliado</h2>
+        <div class="desc">Copia su link con el botón. Conv. = ventas ÷ clics. Ingreso y comisión en USD, solo pagos reales.</div>
+        <div class="scroll-x"><table id="affTable"></table></div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px;" id="affNote">
+      Afiliados guardados en Supabase (proyecto de Masterclasses) vía <code>/masterclasses/api/admin/affiliates</code>.
+      La atribución de ventas viaja en el metadata de Stripe (cookie <code>mc_ref</code>, 30 días en todo <code>.kinedu.com</code>) y la guarda el webhook en cada compra.
+    </div>
+  </div>
+
   <div class="note" style="margin-top:26px;" id="siteNote">
     Tracking propio (sin cookies): pageviews con filtro anti-bots, visitantes únicos por día (hash IP+UA),
     conversiones = clicks en CTAs medidos. El blog se instrumentó el 24 ago 2026 — sus series empiezan ahí.
@@ -315,7 +441,7 @@ tr:hover td { background: #FAF8F4; }
 <script>
 /* ================= state ================= */
 var PAL = ['#087BF3','#C97E16','#3AA35A','#0C86AC','#D1296D','#7C3AA8'];
-var state = { days: 14, lang: 'all', raw: null, pw: sessionStorage.getItem('kinedu-analytics-pw') || '' };
+var state = { days: 14, lang: 'all', raw: null, mcSub: 'summary', pw: sessionStorage.getItem('kinedu-analytics-pw') || '' };
 var DEMO = location.search.indexOf('demo=1') > -1;
 
 function $(id) { return document.getElementById(id); }
@@ -352,7 +478,9 @@ $('rangeChips').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
   b.classList.add('on'); state.days = parseInt(b.dataset.d);
-  if ($('viewMc').style.display !== 'none') { mcState.data = null; mcFetch(); } else refresh();
+  if ($('viewMc').style.display !== 'none') { mcState.data = null; mcFetch(); }
+  else if ($('viewAff').style.display !== 'none' || $('viewEng').style.display !== 'none') { /* afiliados/engagement no dependen del rango */ }
+  else refresh();
 });
 $('langChips').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
@@ -885,6 +1013,245 @@ function mcRender() {
     'Promedio de ' + perBuyer.toFixed(1) + ' lecciones terminadas por compra. Últimos ' + d.days + ' días · actualizado ' + new Date(d.updatedAt).toLocaleString('es-MX');
 }
 
+/* ================= TAB ENGAGEMENT =================
+   Uso por clase de los usuarios (Supabase) vía
+   /masterclasses/api/admin/engagement, misma llave (== METRICS_KEY). */
+var engState = { data: null, loading: false, error: null, filled: false };
+
+function engFetch() {
+  if (engState.loading) return;
+  engState.loading = true; engState.error = null; engRender();
+  fetch('/masterclasses/api/admin/engagement?key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Masterclasses.');
+      if (r.status === 501) throw new Error('Falta configurar METRICS_KEY (o Supabase) en el proyecto kinedu-master-classes de Vercel.');
+      if (!r.ok) throw new Error('No se pudo leer el engagement (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { engState.data = d; engState.loading = false; engRender(); })
+    .catch(function (e) { engState.error = e.message || String(e); engState.loading = false; engRender(); });
+}
+
+function engRender() {
+  var kpis = $('engKpis');
+  if (engState.loading && !engState.data) { kpis.innerHTML = '<div class="kpi"><div class="lbl">Cargando</div><div class="val">…</div></div>'; return; }
+  if (engState.error) {
+    kpis.innerHTML = '';
+    $('engTblClass').innerHTML = '<tbody><tr><td class="empty">' + esc(engState.error) + '</td></tr></tbody>';
+    $('engTblUser').innerHTML = '';
+    return;
+  }
+  var d = engState.data; if (!d) return;
+  var k = d.kpis || {};
+
+  kpis.innerHTML = [
+    ['Compradores', fmt(k.buyers), 'usuarios únicos'],
+    ['Empezaron', fmt(k.started) + (k.startRate != null ? ' · ' + k.startRate + '%' : ''), 'abrieron ≥1 lección'],
+    ['Terminaron', fmt(k.completed), 'curso completo'],
+    ['Activos 30d', fmt(k.active30d), fmt(k.active7d) + ' en 7 días'],
+    ['Lecciones completadas', fmt(k.lessonsCompleted), (k.avgLessonsPerStarter || 0) + ' por quien empezó']
+  ].map(function (x) {
+    return '<div class="kpi"><div class="lbl">' + x[0] + '</div><div class="val">' + x[1] + '</div><div class="dlt" style="color:var(--muted)">' + x[2] + '</div></div>';
+  }).join('');
+
+  /* ---- tabla por clase ---- */
+  var cRows = (d.byClass || []).map(function (c) {
+    return [c.name, c.buyers, c.started, c.startRate, c.lessonsCompleted, c.avgLessons, c.completers, c.completeRate];
+  });
+  if (!cRows.length) $('engTblClass').innerHTML = '<tbody><tr><td class="empty">Aún no hay compras ni actividad de curso.</td></tr></tbody>';
+  else sortable($('engTblClass'), cRows, [
+    { k: 'name', label: 'Clase' },
+    { k: 'buyers', label: 'Compradores', num: true, render: function (v) { return fmt(v); } },
+    { k: 'started', label: 'Empezaron', num: true, render: function (v) { return fmt(v); } },
+    { k: 'startRate', label: 'Empezó %', num: true, render: function (v) { return v == null ? '—' : v.toFixed(1) + '%'; } },
+    { k: 'lessons', label: 'Lecc. compl.', num: true, render: function (v) { return fmt(v); } },
+    { k: 'avg', label: 'Prom/uso', num: true, render: function (v) { return (v || 0).toFixed(1); } },
+    { k: 'compl', label: 'Terminaron', num: true, render: function (v) { return fmt(v); } },
+    { k: 'complRate', label: 'Term %', num: true, render: function (v) { return v == null ? '—' : v.toFixed(1) + '%'; } }
+  ], { i: 1, dir: -1 });
+
+  /* ---- llena el filtro de clases una vez ---- */
+  if (!engState.filled) {
+    var sel = $('engClassFilter');
+    (d.byClass || []).forEach(function (c) {
+      var o = document.createElement('option'); o.value = c.slug; o.textContent = c.name; sel.appendChild(o);
+    });
+    engState.filled = true;
+  }
+  engRenderUsers();
+}
+
+function engRenderUsers() {
+  var d = engState.data; if (!d) return;
+  var cls = $('engClassFilter').value;
+  var q = ($('engSearch').value || '').toLowerCase().trim();
+  var idle = $('engOnlyIdle').checked;
+  var rows = (d.byUser || []).filter(function (u) {
+    if (cls && u.slug !== cls) return false;
+    if (idle && !(u.bought && !u.started)) return false;
+    if (q && u.email.toLowerCase().indexOf(q) < 0) return false;
+    return true;
+  });
+  var LIMIT = 300, shown = rows.slice(0, LIMIT);
+  var head = '<thead><tr><th>Correo</th><th>Clase</th><th>Estado</th><th>Avance</th><th class="num">Última actividad</th></tr></thead><tbody>';
+  if (!shown.length) { $('engTblUser').innerHTML = head + '<tr><td class="empty" colspan="5">Sin usuarios con estos filtros.</td></tr></tbody>'; return; }
+  var body = shown.map(function (u) {
+    var badge = u.completed ? '<span class="eng-badge done">terminó</span>'
+      : u.started ? '<span class="eng-badge going">en curso</span>'
+      : '<span class="eng-badge idle">sin empezar</span>';
+    var prog;
+    if (u.totalLessons > 0) {
+      var pct = u.pct == null ? 0 : u.pct;
+      prog = '<div class="eng-prog"><div class="track"><div class="fill" style="width:' + pct + '%"></div></div>' +
+        '<span class="pv">' + u.lessonsCompleted + '/' + u.totalLessons + '</span></div>';
+    } else {
+      prog = '<span class="pv">' + fmt(u.lessonsCompleted) + ' lecc.</span>';
+    }
+    var last = u.daysSince == null ? '—' : (u.daysSince === 0 ? 'hoy' : 'hace ' + u.daysSince + 'd');
+    return '<tr><td class="k" title="' + esc(u.email) + '">' + esc(u.email) + '</td>' +
+      '<td>' + esc(u.className) + '</td><td>' + badge + '</td><td>' + prog + '</td>' +
+      '<td class="num">' + last + '</td></tr>';
+  }).join('');
+  var more = rows.length > LIMIT ? '<tr><td class="empty" colspan="5">+' + fmt(rows.length - LIMIT) + ' más — filtra por clase o correo para acotar</td></tr>' : '';
+  $('engTblUser').innerHTML = head + body + more + '</tbody>';
+}
+
+['engClassFilter', 'engSearch', 'engOnlyIdle'].forEach(function (id) {
+  $(id).addEventListener('input', engRenderUsers);
+  $(id).addEventListener('change', engRenderUsers);
+});
+
+/* ================= TAB AFILIADOS =================
+   Afiliados de Masterclasses (Supabase) vía /masterclasses/api/admin/affiliates,
+   same-origin por el rewrite /masterclasses/*. Misma llave (contraseña ==
+   METRICS_KEY) que el tab de Masterclasses. */
+var affState = { data: null, loading: false, error: null };
+
+function affSlug(s) {
+  return String(s).toLowerCase().trim()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '') // quita acentos: pérez → perez
+    .replace(/[^a-z0-9-_]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+
+function affFetch() {
+  if (affState.loading) return;
+  affState.loading = true; affState.error = null; affRender();
+  fetch('/masterclasses/api/admin/affiliates?key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Masterclasses.');
+      if (r.status === 501) throw new Error('Falta configurar METRICS_KEY (o Supabase) en el proyecto kinedu-master-classes de Vercel.');
+      if (!r.ok) throw new Error('No se pudo leer los afiliados (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { affState.data = d; affState.loading = false; affRender(); })
+    .catch(function (e) { affState.error = e.message || String(e); affState.loading = false; affRender(); });
+}
+
+function affRender() {
+  var kpis = $('affKpis'), tbl = $('affTable');
+  if (affState.loading && !affState.data) { kpis.innerHTML = '<div class="kpi"><div class="lbl">Cargando</div><div class="val">…</div></div>'; return; }
+  if (affState.error) {
+    kpis.innerHTML = '';
+    tbl.innerHTML = '<tbody><tr><td class="empty">' + esc(affState.error) + '</td></tr></tbody>';
+    return;
+  }
+  var d = affState.data; if (!d) return;
+  var t = d.totals || { affiliates: 0, clicks: 0, sales: 0, revenue: 0, commission: 0 };
+
+  kpis.innerHTML = [
+    ['Afiliados', fmt(t.affiliates), 'activos e inactivos'],
+    ['Clics totales', fmt(t.clicks), 'a través de /r/'],
+    ['Ventas atribuidas', fmt(t.sales), 'compras vía afiliado'],
+    ['Ingreso (USD)', '$' + fmt(Math.round(t.revenue)), 'atribuido a afiliados'],
+    ['Comisión (USD)', '$' + fmt(Math.round(t.commission)), 'adeudada']
+  ].map(function (k) {
+    return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
+  }).join('');
+
+  var rows = (d.affiliates || []).map(function (a) {
+    return [a.name, a.clicks, a.sales, a.conv, a.revenue, a.commission, a.status, a.code, a.link];
+  });
+  if (!rows.length) { tbl.innerHTML = '<tbody><tr><td class="empty">Aún no hay afiliados. Crea el primero con el formulario de arriba.</td></tr></tbody>'; return; }
+  sortable(tbl, rows, [
+    { k: 'aff', label: 'Afiliado', render: function (v, r) {
+        return '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
+          '<div><div style="font-weight:700;color:var(--ink)">' + esc(r[0]) + '</div>' +
+          '<div style="font-size:11px;color:var(--muted);font-family:\'DM Mono\',monospace">/r/' + esc(r[7]) + '</div></div>' +
+          '<button class="aff-copy" data-link="' + esc(r[8]) + '">Copiar link</button></div>';
+      } },
+    { k: 'clicks', label: 'Clics', num: true, render: function (v) { return fmt(v); } },
+    { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } },
+    { k: 'conv', label: 'Conv.', num: true, render: function (v) { return v == null ? '—' : v.toFixed(1) + '%'; } },
+    { k: 'rev', label: 'Ingreso USD', num: true, render: function (v) { return '$' + fmt(Math.round(v)); } },
+    { k: 'comm', label: 'Comisión USD', num: true, render: function (v) { return v ? '$' + fmt(Math.round(v)) : '—'; } },
+    { k: 'status', label: 'Estado', render: function (v) { return '<span class="aff-status ' + v + '">' + (v === 'active' ? 'activo' : 'inactivo') + '</span>'; } }
+  ], { i: 1, dir: -1 });
+}
+
+/* copiar link (delegado, se liga una vez) */
+$('affTable').addEventListener('click', function (e) {
+  var b = e.target.closest('.aff-copy'); if (!b) return;
+  var link = b.dataset.link, prev = b.textContent;
+  var done = function () { b.textContent = '¡Copiado!'; setTimeout(function () { b.textContent = prev; }, 1400); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, done);
+  else { var ta = document.createElement('textarea'); ta.value = link; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (x) {} document.body.removeChild(ta); done(); }
+});
+
+/* auto-slug del código a partir del nombre (solo si el código está vacío) */
+$('affName').addEventListener('input', function () {
+  if (!$('affCode').dataset.touched) $('affCode').value = affSlug(this.value);
+});
+$('affCode').addEventListener('input', function () { this.dataset.touched = '1'; this.value = affSlug(this.value); });
+
+/* crear afiliado */
+$('affForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var msg = $('affFormMsg'), btn = $('affCreateBtn');
+  var payload = {
+    name: $('affName').value.trim(),
+    code: affSlug($('affCode').value),
+    email: $('affEmail').value.trim() || undefined,
+    commission_pct: $('affComm').value !== '' ? $('affComm').value : undefined
+  };
+  if (!payload.name || payload.code.length < 2) { msg.className = 'aff-msg bad'; msg.textContent = 'Nombre y código (2+ caracteres) son obligatorios.'; return; }
+  btn.disabled = true; msg.className = 'aff-msg'; msg.textContent = 'Creando…';
+  fetch('/masterclasses/api/admin/affiliates?key=' + encodeURIComponent(state.pw), {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+  }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (res) {
+      btn.disabled = false;
+      if (!res.ok) { msg.className = 'aff-msg bad'; msg.textContent = res.j.error || 'No se pudo crear.'; return; }
+      msg.className = 'aff-msg ok';
+      msg.innerHTML = '✓ Creado. Su link: <code>' + esc(res.j.affiliate.link) + '</code>';
+      $('affForm').reset(); $('affCode').dataset.touched = '';
+      affState.data = null; affFetch();
+    }).catch(function (err) { btn.disabled = false; msg.className = 'aff-msg bad'; msg.textContent = 'Error de red: ' + (err.message || err); });
+});
+
+/* Sub-vista dentro de Masterclasses: Resumen / Engagement / Afiliados */
+function showMcSub(sub) {
+  state.mcSub = sub;
+  $('mcSubTabs').querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('on', c.dataset.sub === sub); });
+  $('viewMc').style.display = sub === 'summary' ? '' : 'none';
+  $('viewEng').style.display = sub === 'eng' ? '' : 'none';
+  $('viewAff').style.display = sub === 'aff' ? '' : 'none';
+  if (sub === 'summary') {
+    $('periodLabel').textContent = 'Masterclasses — kinedu.com/masterclasses · últimos ' + state.days + ' días';
+    if (!mcState.data) mcFetch(); else mcRender();
+  } else if (sub === 'eng') {
+    $('periodLabel').textContent = 'Masterclasses · Engagement — uso por clase de los usuarios';
+    if (!engState.data) engFetch(); else engRender();
+  } else if (sub === 'aff') {
+    $('periodLabel').textContent = 'Masterclasses · Afiliados — kinedu.com/masterclasses/r/CODE';
+    if (!affState.data) affFetch(); else affRender();
+  }
+}
+
+$('mcSubTabs').addEventListener('click', function (e) {
+  var b = e.target.closest('.chip'); if (!b) return;
+  showMcSub(b.dataset.sub);
+});
+
 $('viewTabs').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
@@ -892,11 +1259,16 @@ $('viewTabs').addEventListener('click', function (e) {
   var mc = b.dataset.view === 'mc';
   $('viewSite').style.display = mc ? 'none' : '';
   $('siteNote').style.display = mc ? 'none' : '';
-  $('viewMc').style.display = mc ? '' : 'none';
   $('langChips').style.display = mc ? 'none' : '';
-  if (mc) $('periodLabel').textContent = 'Masterclasses — kinedu.com/masterclasses · últimos ' + state.days + ' días';
-  if (mc && !mcState.data) mcFetch();
-  else if (mc) mcRender();
+  $('mcSubTabs').style.display = mc ? '' : 'none';
+  if (mc) {
+    showMcSub(state.mcSub || 'summary');
+  } else {
+    $('viewMc').style.display = 'none';
+    $('viewEng').style.display = 'none';
+    $('viewAff').style.display = 'none';
+    if (state.raw) renderAll(); // restaura el label y KPIs del Sitio
+  }
 });
 
 if (DEMO) { $('login').style.display = 'none'; $('app').style.display = ''; state.raw = demoData(state.days * 2); renderAll(); }
