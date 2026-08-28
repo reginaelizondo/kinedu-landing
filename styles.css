@@ -96,7 +96,6 @@ body {
     font-family: 'Proxima Nova', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-primary);
     background: #FBFAF8;
-    background-attachment: fixed;
     overflow-x: hidden;
     line-height: 1.65;
 }
@@ -2273,6 +2272,11 @@ section[id], div[id] { scroll-margin-top: 96px; }
         padding: 0 20px;
         height: 52px;
         justify-content: center;
+        /* móvil: el navbar es fixed, así que un blur de 28px repinta en cada
+           frame de scroll y traba la página. Blur ligero + fondo más opaco. */
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     .nav-hamburger {
