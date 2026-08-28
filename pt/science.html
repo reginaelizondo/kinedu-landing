@@ -1163,9 +1163,16 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 @media (max-width: 860px) {
   .sci26 { padding: 56px 18px; }
   .sci26-acts, .sci26-rules { grid-template-columns: 1fr; }
-  .sci26-act { padding: 20px 18px; }
-  .sci26-act .n { width: 32px; height: 32px; margin-bottom: 10px; }
-  .sci26-act .big { font-size: 34px !important; }
+  .sci26-acts { gap: 12px; }
+  .sci26-act { padding: 16px 18px; }
+  .sci26-act .n { width: 28px; height: 28px; margin-bottom: 8px; font-size: 13px; }
+  /* móvil: apilados no necesitan el crescendo gigante de desktop. Igualamos la
+     especificidad de .sci26-act:nth-child(n) .big para poder achicarlos. */
+  .sci26-act:nth-child(1) .big { font-size: 26px !important; }
+  .sci26-act:nth-child(2) .big { font-size: 30px !important; }
+  .sci26-act:nth-child(3) .big { font-size: 36px !important; }
+  .sci26-act .unit { font-size: 12px; margin-bottom: 6px; }
+  .sci26-act p { font-size: 13.5px; }
   .sci26-edge { grid-template-columns: 1fr; gap: 30px; }
   .sci26::before, .sci26::after { display: none; }
 }

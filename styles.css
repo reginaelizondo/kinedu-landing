@@ -3313,9 +3313,9 @@ section[id], div[id] { scroll-margin-top: 96px; }
   gap: 14px;
 }
 .kb-app-cta-stat {
-  background: rgba(255,255,255,0.16);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 18px;
   padding: 22px 20px;

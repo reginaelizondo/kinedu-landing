@@ -271,6 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!toggle) return;
 
         function openDropdown() {
+            // Cierra cualquier otro dropdown abierto para que nunca se solapen dos
+            // (antes, al pasar de Science a Team, ambos quedaban abiertos 300ms).
+            document.querySelectorAll('.nav-dropdown.open').forEach(function (other) {
+                if (other === dropdown) return;
+                other.classList.remove('open');
+                var t = other.querySelector('.nav-dropdown-toggle');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            });
             dropdown.classList.add('open');
             toggle.setAttribute('aria-expanded', 'true');
         }
