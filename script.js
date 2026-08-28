@@ -330,13 +330,16 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
-            e.preventDefault();
             const target = document.querySelector(href);
-            if (target) {
-                const offset = navbar.offsetHeight - 10;
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
+            // Sin target (p.ej. #app/#assessment de science, que activan un panel
+            // vía 'hashchange'): dejamos el comportamiento por defecto para que el
+            // hash sí cambie. Antes hacíamos preventDefault siempre y esos enlaces
+            // quedaban muertos.
+            if (!target) return;
+            e.preventDefault();
+            const offset = navbar.offsetHeight - 10;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
         });
     });
 
