@@ -1509,7 +1509,7 @@ render();
     tab.addEventListener('click', function(){
       activate(tab.dataset.sciTab);
       history.replaceState(null, '', '#' + tab.dataset.sciTab);
-      var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
   function fromHash(){
@@ -1523,7 +1523,7 @@ render();
     var hsh = location.hash;
     if (hsh === '#app' || hsh === '#assessment') {
       fromHash();
-      var p = document.querySelector('.sci-panel.active'); if (p) window.scrollTo({ top: p.offsetTop - 90, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     var t = hsh && hsh.length > 1 && document.querySelector(hsh);
@@ -1541,8 +1541,7 @@ render();
       e.preventDefault();
       var name = a.getAttribute('href') === '#app' ? 'app' : 'assessment';
       activate(name);
-      var p = document.querySelector('.sci-panel.active');
-      if (p) window.scrollTo({ top: Math.max(0, p.offsetTop - 90), behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
   if (location.hash === '#app') activate('app');
