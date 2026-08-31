@@ -1043,8 +1043,10 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <!-- HERO -->
     <section class="science-hero">
         <div class="section-wrap">
-            <h1 data-i18n="sci.heroTitle" data-i18n-html="">A <span class="gradient-shift">Ciência</span> por trás do <span class="gradient-shift">Kinedu</span></h1>
-            <p class="hero-sub" data-i18n="sci.heroSub" data-i18n-html="">A maioria dos conselhos de criação é opinião. A Kinedu é construída sobre evidência: <strong>milhões de observações reais do desenvolvimento</strong>, uma parceria de pesquisa com <strong>Stanford</strong> e décadas de ciência do desenvolvimento infantil, tudo transformado em um plano diário feito para o seu bebê.</p>
+            <h1 class="sci-hero-assess" data-i18n="sci.heroTitle" data-i18n-html="">A <span class="gradient-shift">Ciência</span> por trás do <span class="gradient-shift">Kinedu</span></h1>
+            <h1 class="sci-hero-dev" style="display:none" data-i18n="sci.heroTitleDev" data-i18n-html="">Como o seu bebê <span class="gradient-shift">realmente</span> se desenvolve.</h1>
+            <p class="hero-sub sci-hero-assess" data-i18n="sci.heroSub" data-i18n-html="">A maioria dos conselhos de criação é opinião. A Kinedu é construída sobre evidência: <strong>milhões de observações reais do desenvolvimento</strong>, uma parceria de pesquisa com <strong>Stanford</strong> e décadas de ciência do desenvolvimento infantil, tudo transformado em um plano diário feito para o seu bebê.</p>
+            <p class="hero-sub sci-hero-dev" style="display:none" data-i18n="sci.heroSubDev" data-i18n-html="">Cada bebê segue o mesmo caminho no seu próprio ritmo. Isto é o que <strong>3,5 milhões de crianças</strong> nos ensinaram sobre como o desenvolvimento realmente acontece.</p>
 
             <div class="hero-badges">
                 <div class="hero-badge">
@@ -1500,6 +1502,8 @@ render();
     // la pregunta de investigación + las 3 paradas viven solo en el tab del assessment
     var ih = document.querySelector('.sci26-inhero');
     if (ih) ih.style.display = name === 'app' ? 'none' : '';
+    document.querySelectorAll('.sci-hero-assess').forEach(function(e){ e.style.display = name === 'app' ? 'none' : ''; });
+    document.querySelectorAll('.sci-hero-dev').forEach(function(e){ e.style.display = name === 'app' ? '' : 'none'; });
   }
   document.querySelectorAll('.sci-tab').forEach(function(tab){
     tab.addEventListener('click', function(){

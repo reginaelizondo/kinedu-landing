@@ -1044,8 +1044,10 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <!-- HERO -->
     <section class="science-hero">
         <div class="section-wrap">
-            <h1 data-i18n="sci.heroTitle" data-i18n-html>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
-            <p class="hero-sub" data-i18n="sci.heroSub" data-i18n-html>Most parenting advice is opinion. Kinedu is built on evidence: <strong>millions of real developmental observations</strong>, a research partnership with <strong>Stanford</strong>, and decades of child-development science, all distilled into a daily plan made for your child.</p>
+            <h1 class="sci-hero-assess" data-i18n="sci.heroTitle" data-i18n-html>The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span></h1>
+            <h1 class="sci-hero-dev" style="display:none" data-i18n="sci.heroTitleDev" data-i18n-html>How your baby <span class="gradient-shift">actually</span> develops.</h1>
+            <p class="hero-sub sci-hero-assess" data-i18n="sci.heroSub" data-i18n-html>Most parenting advice is opinion. Kinedu is built on evidence: <strong>millions of real developmental observations</strong>, a research partnership with <strong>Stanford</strong>, and decades of child-development science, all distilled into a daily plan made for your child.</p>
+            <p class="hero-sub sci-hero-dev" style="display:none" data-i18n="sci.heroSubDev" data-i18n-html>Every baby follows a shared path at their own pace. Here’s what <strong>3.5 million children</strong> taught us about how development really unfolds.</p>
 
             <div class="hero-badges">
                 <div class="hero-badge">
@@ -1500,6 +1502,8 @@ render();
     // la pregunta de investigación + las 3 paradas viven solo en el tab del assessment
     var ih = document.querySelector('.sci26-inhero');
     if (ih) ih.style.display = name === 'app' ? 'none' : '';
+    document.querySelectorAll('.sci-hero-assess').forEach(function(e){ e.style.display = name === 'app' ? 'none' : ''; });
+    document.querySelectorAll('.sci-hero-dev').forEach(function(e){ e.style.display = name === 'app' ? '' : 'none'; });
   }
   document.querySelectorAll('.sci-tab').forEach(function(tab){
     tab.addEventListener('click', function(){

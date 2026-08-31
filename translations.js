@@ -185,6 +185,8 @@ window.TRANSLATIONS = {
     'sci.hero.tag': 'Backed by Research',
     'sci.heroTitle': 'The <span class="gradient-shift">Science</span> behind <span class="gradient-shift">Kinedu</span>',
     'sci.heroSub': 'Most parenting advice is opinion. Kinedu is built on evidence: <strong>millions of real developmental observations</strong>, a research partnership with <strong>Stanford</strong>, and decades of child-development science, all distilled into a daily plan made for your child.',
+    'sci.heroTitleDev': 'How your baby <span class="gradient-shift">actually</span> develops.',
+    'sci.heroSubDev': 'Every baby follows a shared path at their own pace. Here\u2019s what <strong>3.5 million children</strong> taught us about how development really unfolds.',
 
     'sci.bigbang.tag': 'The Big Bang of Development',
     'sci.bigbang.title': 'Your baby\'s brain is building itself <span class="gradient-shift">right now</span> — faster than it ever will again.',
@@ -686,6 +688,8 @@ window.TRANSLATIONS = {
     'sci.hero.tag': 'Respaldado por la Ciencia',
     'sci.heroTitle': 'La <span class="gradient-shift">Ciencia</span> detrás de <span class="gradient-shift">Kinedu</span>',
     'sci.heroSub': 'La mayoría de los consejos de crianza son opiniones. Kinedu se construye sobre evidencia: <strong>millones de observaciones reales del desarrollo</strong>, una colaboración de investigación con <strong>Stanford</strong> y décadas de ciencia del desarrollo infantil, todo convertido en un plan diario hecho para tu bebé.',
+    'sci.heroTitleDev': 'Cómo se desarrolla <span class="gradient-shift">de verdad</span> tu bebé.',
+    'sci.heroSubDev': 'Cada bebé sigue el mismo camino a su propio ritmo. Esto es lo que <strong>3.5 millones de niños</strong> nos enseñaron sobre cómo ocurre el desarrollo de verdad.',
 
     'sci.bigbang.tag': 'El Big Bang del Desarrollo',
     'sci.bigbang.title': 'El cerebro de tu bebé se está construyendo <span class="gradient-shift">ahora mismo</span> — más rápido de lo que jamás volverá a hacerlo.',
@@ -1186,6 +1190,8 @@ window.TRANSLATIONS = {
     'sci.hero.tag': 'Baseado em Pesquisa',
     'sci.heroTitle': 'A <span class="gradient-shift">Ciência</span> por trás do <span class="gradient-shift">Kinedu</span>',
     'sci.heroSub': 'A maioria dos conselhos de criação é opinião. A Kinedu é construída sobre evidência: <strong>milhões de observações reais do desenvolvimento</strong>, uma parceria de pesquisa com <strong>Stanford</strong> e décadas de ciência do desenvolvimento infantil, tudo transformado em um plano diário feito para o seu bebê.',
+    'sci.heroTitleDev': 'Como o seu bebê <span class="gradient-shift">realmente</span> se desenvolve.',
+    'sci.heroSubDev': 'Cada bebê segue o mesmo caminho no seu próprio ritmo. Isto é o que <strong>3,5 milhões de crianças</strong> nos ensinaram sobre como o desenvolvimento realmente acontece.',
 
     'sci.bigbang.tag': 'O Big Bang do Desenvolvimento',
     'sci.bigbang.title': 'O cérebro do seu bebê está se construindo <span class="gradient-shift">agora mesmo</span> — mais rápido do que jamais acontecerá novamente.',
