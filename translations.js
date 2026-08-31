@@ -329,7 +329,6 @@ window.TRANSLATIONS = {
     'sci.inv.ref': 'Shonkoff · Fisher · Spencer',
     'sci.partners.tag': 'Research Partners',
     'sci.partners.title': 'Built alongside <span class="gradient-shift">world-class researchers</span>',
-    'sci.partners.harvardDesc': 'Center on the Developing Child — the science of brain architecture, toxic stress, and serve-and-return interactions.',
     'sci.partners.stanfordDesc': 'Prof. Michael Frank\'s lab — our partner on the Structure of Development research and the studies measuring how Kinedu activities change parent-child interaction.',
     'sci.partners.mitDesc': 'Supporting the Kinedu Skills\u00ae Milestone Model — a new approach to tracking early childhood development.',
 
@@ -832,7 +831,6 @@ window.TRANSLATIONS = {
     'sci.inv.ref': 'Shonkoff · Fisher · Spencer',
     'sci.partners.tag': 'Socios de Investigación',
     'sci.partners.title': 'Construido junto a <span class="gradient-shift">investigadores de clase mundial</span>',
-    'sci.partners.harvardDesc': 'Centro de Desarrollo Infantil — la ciencia de la arquitectura cerebral, el estrés tóxico y las interacciones servir y devolver.',
     'sci.partners.stanfordDesc': 'El laboratorio del Prof. Michael Frank — nuestro aliado en la investigación de la Estructura del Desarrollo y en los estudios que miden cómo las actividades de Kinedu cambian la interacción entre padres e hijos.',
     'sci.partners.mitDesc': 'Apoyando el modelo Kinedu Skills\u00ae — un nuevo enfoque para dar seguimiento al desarrollo en la primera infancia.',
 
@@ -1334,7 +1332,6 @@ window.TRANSLATIONS = {
     'sci.inv.ref': 'Shonkoff · Fisher · Spencer',
     'sci.partners.tag': 'Parceiros de Pesquisa',
     'sci.partners.title': 'Construído ao lado de <span class="gradient-shift">pesquisadores de classe mundial</span>',
-    'sci.partners.harvardDesc': 'Centro de Desenvolvimento Infantil — a ciência da arquitetura cerebral, estresse tóxico e interações servir e devolver.',
     'sci.partners.stanfordDesc': 'O laboratório do Prof. Michael Frank — nosso parceiro na pesquisa da Estrutura do Desenvolvimento e nos estudos que medem como as atividades da Kinedu mudam a interação entre pais e filhos.',
     'sci.partners.mitDesc': 'Apoiando o modelo Kinedu Skills\u00ae — uma nova abordagem para acompanhar o desenvolvimento na primeira infância.',
 
