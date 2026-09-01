@@ -2817,6 +2817,36 @@
       "source": "/founder.html",
       "destination": "/founder",
       "permanent": true
+    },
+    {
+      "source": "/pt/blog/com-quantos-meses-nasce-o-primeiro-dente-do-bebe/:extra+",
+      "destination": "/pt/blog/com-quantos-meses-nasce-o-primeiro-dente-do-bebe",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/os-primeiros-anos-desenvolvimento-linguistico/:extra+",
+      "destination": "/pt/blog/os-primeiros-anos-desenvolvimento-linguistico",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/tamanho-do-bebe/:extra+",
+      "destination": "/pt/blog/tamanho-do-bebe",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/como-aumentar-minha-producao-de-leite/:extra+",
+      "destination": "/pt/blog/como-aumentar-minha-producao-de-leite",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/introduction-to-solids/:path*",
+      "destination": "/masterclasses/introduction-to-solids",
+      "permanent": true
     }
   ]
 }
