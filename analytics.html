@@ -276,7 +276,7 @@ tr:hover td { background: #FAF8F4; }
       </div>
       <div class="card s6">
         <h2>Actividad diaria</h2>
-        <div class="desc">Vistas, checkouts iniciados y compras por día</div>
+        <div class="desc">Vistas, aperturas de checkout y compras por día</div>
         <div class="ch" id="mcChart"></div>
       </div>
     </div>
@@ -304,7 +304,7 @@ tr:hover td { background: #FAF8F4; }
     <div class="grid">
       <div class="card s12">
         <h2>Qué se ve y qué se vende</h2>
-        <div class="desc">Vistas → checkouts → compras → ingreso (USD). CVR = compras ÷ vistas</div>
+        <div class="desc">Vistas → aperturas de checkout → compras → ingreso (USD). CVR = compras ÷ vistas</div>
         <div class="scroll-x"><table id="mcTblProducts"></table></div>
       </div>
     </div>
@@ -982,12 +982,18 @@ function mcRender() {
   }).join('');
 
   /* ---- funnel con caída entre pasos ---- */
+  /* El embudo va en PERSONAS únicas: antes mezclaba visitantes (personas) con
+     vistas y aperturas de checkout (eventos), así que el "% del paso anterior"
+     no significaba nada. `people` lo manda el API de masterclasses; si aún no
+     viene (deploy viejo), se cae a los conteos de eventos de siempre.
+     OJO: "Abrieron el checkout" NO es "intentaron pagar" — con el pago
+     embebido la sesión de Stripe se crea al cargar la página. */
+  var ppl = d.people || {};
   var steps = [
-    ['Visitantes únicos', f.visitors, PAL[0]],
-    ['Vieron el storefront', f.storefrontViews, PAL[3]],
-    ['Vieron una clase o pack', f.classViews, PAL[5] || PAL[1]],
-    ['Iniciaron el pago', f.checkoutsStarted, PAL[2]],
-    ['Compraron', f.purchases, PAL[1]]
+    ['Visitantes únicos', ppl.visitors != null ? ppl.visitors : f.visitors, PAL[0]],
+    ['Vieron una clase o pack', ppl.viewedClass != null ? ppl.viewedClass : f.classViews, PAL[5] || PAL[1]],
+    ['Abrieron el checkout', ppl.openedCheckout != null ? ppl.openedCheckout : f.checkoutsStarted, PAL[2]],
+    ['Compraron', ppl.buyers != null ? ppl.buyers : f.purchases, PAL[1]]
   ];
   var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
   fun.innerHTML = steps.map(function (s, i) {
@@ -1005,7 +1011,7 @@ function mcRender() {
   lineAreaChart($('mcChart'), [
     { name: 'Vistas', color: PAL[0], values: days.map(function (x) { return x.views; }), area: true },
     { name: 'Visitantes', color: PAL[3], values: days.map(function (x) { return x.visitors; }) },
-    { name: 'Checkouts', color: PAL[2], values: days.map(function (x) { return x.checkouts; }) },
+    { name: 'Checkout abierto', color: PAL[2], values: days.map(function (x) { return x.checkouts; }) },
     { name: 'Compras', color: PAL[1], values: days.map(function (x) { return x.purchases; }) }
   ], { labels: labels, h: 230 });
 
@@ -1032,7 +1038,7 @@ function mcRender() {
     { k: 'visitors', label: 'Únicos', num: true, render: function (v) { return fmt(v); } },
     { k: 'clicks', label: 'Clicks', num: true, render: function (v) { return fmt(v); } },
     { k: 'ctr', label: 'CTR', num: true, render: function (v) { return v.toFixed(1) + '%'; } },
-    { k: 'toCheckout', label: '→ pago', num: true, render: function (v) { return fmt(v); } }
+    { k: 'toCheckout', label: '→ checkout', num: true, render: function (v) { return fmt(v); } }
   ], { i: 1, dir: -1 });
 
   /* ---- tabla por producto ---- */
@@ -1043,7 +1049,7 @@ function mcRender() {
   else sortable($('mcTblProducts'), rows, [
     { k: 'name', label: 'Clase / pack' },
     { k: 'views', label: 'Vistas', num: true, render: function (v) { return fmt(v); } },
-    { k: 'checkouts', label: 'Checkouts', num: true, render: function (v) { return fmt(v); } },
+    { k: 'checkouts', label: 'Checkout abierto', num: true, render: function (v) { return fmt(v); } },
     { k: 'purchases', label: 'Compras', num: true, render: function (v) { return fmt(v); } },
     { k: 'rev', label: 'Ingreso USD', num: true, render: function (v) { return '$' + fmt(Math.round(v)); } },
     { k: 'cvr', label: 'CVR', num: true, render: function (v) { return v.toFixed(2) + '%'; } }
