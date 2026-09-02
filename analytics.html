@@ -990,11 +990,21 @@ function mcRender() {
      embebido la sesión de Stripe se crea al cargar la página. */
   var ppl = d.people || {};
   var steps = [
-    ['Visitantes únicos', ppl.visitors != null ? ppl.visitors : f.visitors, PAL[0]],
+    ['Visitantes con actividad', ppl.visitors != null ? ppl.visitors : f.visitors, PAL[0]],
     ['Vieron una clase o pack', ppl.viewedClass != null ? ppl.viewedClass : f.classViews, PAL[5] || PAL[1]],
     ['Abrieron el checkout', ppl.openedCheckout != null ? ppl.openedCheckout : f.checkoutsStarted, PAL[2]],
     ['Compraron', ppl.buyers != null ? ppl.buyers : f.purchases, PAL[1]]
   ];
+  /* Nota al pie: total crudo vs. con actividad — la diferencia son sobre todo
+     rastreadores de buscadores (entran a una página y se van sin tocar nada). */
+  var notaBots = '';
+  if (ppl.visitorsAll != null && ppl.visitors != null && ppl.visitorsAll > ppl.visitors) {
+    notaBots = '<div style="font-size:11.5px;color:var(--muted);margin-top:10px;">' +
+      'Llegaron ' + fmt(ppl.visitorsAll) + ' visitantes en total; ' +
+      fmt(ppl.visitorsAll - ppl.visitors) + ' no hicieron nada (una sola página, sin clics) — ' +
+      'casi todos son bots de buscadores. El embudo usa solo los ' + fmt(ppl.visitors) + ' con actividad real.' +
+      '</div>';
+  }
   var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
   fun.innerHTML = steps.map(function (s, i) {
     var prevV = i ? steps[i - 1][1] : 0;
@@ -1003,7 +1013,7 @@ function mcRender() {
       '<div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div>' +
       '<div class="ct">' + fmt(s[1]) + '</div></div>' +
       (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop + '</div>' : '');
-  }).join('');
+  }).join('') + notaBots;
 
   /* ---- serie diaria ---- */
   var days = d.byDay || [];
