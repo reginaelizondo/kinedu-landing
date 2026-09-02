@@ -191,23 +191,23 @@
     },
     {
       "source": "/masterclasses",
-      "destination": "https://kinedu-master-classes.vercel.app/masterclasses"
+      "destination": "https://master-classes-six.vercel.app/masterclasses"
     },
     {
       "source": "/es/masterclasses",
-      "destination": "https://kinedu-master-classes.vercel.app/masterclasses?lang=es"
+      "destination": "https://master-classes-six.vercel.app/masterclasses?lang=es"
     },
     {
       "source": "/pt/masterclasses",
-      "destination": "https://kinedu-master-classes.vercel.app/masterclasses?lang=pt"
+      "destination": "https://master-classes-six.vercel.app/masterclasses?lang=pt"
     },
     {
       "source": "/masterclasses/api/:path*",
-      "destination": "https://kinedu-master-classes.vercel.app/masterclasses/api/:path*"
+      "destination": "https://master-classes-six.vercel.app/masterclasses/api/:path*"
     },
     {
       "source": "/masterclasses/:path+",
-      "destination": "https://kinedu-master-classes.vercel.app/masterclasses/:path+"
+      "destination": "https://master-classes-six.vercel.app/masterclasses/:path+"
     }
   ],
   "headers": [
