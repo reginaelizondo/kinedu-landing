@@ -2287,124 +2287,87 @@ section[id], div[id] { scroll-margin-top: 96px; }
     .nav-links, .nav-actions { display: none; }
     .nav-hamburger { display: flex; }
 
-    /* --- Mobile menu backdrop --- */
-    .nav-menu-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: transparent;
-        z-index: 9998;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+    /* --- Menú "bubble" (clon del nav de Masterclasses) ---
+       La píldora se queda visible (logo · Try free · ☰/✕) y el menú cae DEBAJO
+       como tarjeta redondeada. Antes era un cajón lateral fijo. --- */
+    .nav-pill { justify-content: space-between; padding: 0 8px 0 16px; overflow: visible; }
+    .nav-actions { display: flex !important; align-items: center; gap: 6px; margin-left: auto; }
+    .nav-actions .lang-toggle, .nav-actions .nav-schools { display: none !important; }
+    .nav-actions .nav-cta { padding: 7px 12px; font-size: 0.78rem; white-space: nowrap; }
+    .nav-hamburger { position: static; right: auto; margin-left: 2px; }
 
-    .nav-menu-backdrop.visible {
-        display: block;
-        opacity: 1;
-    }
-
-    /* --- Slide-in sidebar from right --- */
-    .nav-pill.menu-open {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        background: transparent;
-        border-color: transparent;
-        box-shadow: none;
-    }
+    /* Fondo transparente que cierra el menú al tocar fuera */
+    .nav-menu-backdrop { display: none; position: fixed; inset: 0; background: transparent; z-index: 9998; }
+    .nav-menu-backdrop.visible { display: block; }
 
     .nav-links {
-        position: fixed;
-        top: 0;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
         right: 0;
-        width: 300px;
-        height: 100vh;
-        height: 100dvh;
-        background: #ffffff;
+        display: flex !important;
         flex-direction: column;
         align-items: stretch;
-        padding: 80px 24px 40px;
         gap: 2px;
+        padding: 10px;
+        background: #ffffff;
+        border-radius: 22px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 18px 50px rgba(8, 27, 70, 0.16);
         z-index: 9999;
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.08);
-        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), visibility 0.35s;
-        overflow-y: auto;
-        display: flex !important;
-        transform: translateX(100%);
+        opacity: 0;
         visibility: hidden;
-        border-left: 1px solid rgba(0, 0, 0, 0.06);
         pointer-events: none;
+        transform: translateY(-6px);
+        transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+        max-height: calc(100dvh - 96px);
+        overflow-y: auto;
     }
 
     .nav-links.active {
-        transform: translateX(0);
+        opacity: 1;
         visibility: visible;
         pointer-events: auto;
-    }
-
-    .nav-hamburger.active {
-        position: fixed;
-        top: 16px;
-        right: 20px;
-        z-index: 10000;
+        transform: none;
     }
 
     .nav-links a {
         font-family: 'Proxima Nova', 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 600;
+        font-size: 15px;
+        font-weight: 700;
         color: var(--text-primary);
-        padding: 14px 20px;
+        padding: 13px 16px;
         border-radius: 14px;
         width: 100%;
-        transition: all 0.2s ease;
+        display: block;
         letter-spacing: -0.01em;
-        /* iOS Safari touch fix */
         touch-action: manipulation;
         cursor: pointer;
         pointer-events: auto;
         -webkit-tap-highlight-color: rgba(43, 139, 228, 0.1);
-        display: block;
     }
 
-    .nav-links a:hover {
-        background: linear-gradient(135deg, rgba(43, 139, 228, 0.06), rgba(76, 217, 100, 0.04));
-        transform: translateX(4px);
-    }
+    .nav-links a:hover,
+    .nav-links a:active { background: #F5F4F0; }
 
-    .nav-links a.active {
-        color: var(--kinedu-blue);
-        background: linear-gradient(135deg, rgba(43, 139, 228, 0.1), rgba(76, 217, 100, 0.05));
-        font-weight: 700;
-    }
+    .nav-links a.active { color: var(--kinedu-blue); background: #F5F4F0; }
 
-    .nav-links .mobile-only {
-        display: flex !important;
-    }
+    .nav-links .mobile-only { display: block !important; }
 
-    .nav-links .nav-cta.mobile-only {
-        margin-top: 16px;
-        padding: 15px 24px;
-        font-size: 0.95rem;
-        text-align: center;
-        justify-content: center;
-        border-radius: 14px;
-        background: #087BF3;
-        color: #fff;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        box-shadow: 0 4px 16px rgba(43, 139, 228, 0.25);
-        transition: all 0.3s ease;
-    }
+    /* "Try free" ya vive en la píldora (como en Masterclasses): no se duplica */
+    .nav-links .nav-cta.mobile-only { display: none !important; }
 
-    .nav-links .nav-cta.mobile-only:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 24px rgba(43, 139, 228, 0.35);
-    }
+    /* Link plano generado por script.js para un desplegable con página propia
+       (Science). El desplegable original se esconde en móvil. */
+    .nav-links .nav-flat { display: block !important; }
+    .nav-links .nav-dropdown.nav-dd--collapse { display: none !important; }
 
     .lang-toggle--mobile {
         display: flex;
-        margin-top: 20px;
-        justify-content: center;
+        margin-top: 6px;
+        padding: 12px 16px 6px;
+        border-top: 1px solid #F0EDE7;
+        justify-content: flex-start;
     }
 
 
@@ -3107,8 +3070,8 @@ section[id], div[id] { scroll-margin-top: 96px; }
 
 /* ── ≤380px: small mobile precision fixes ── */
 @media (max-width: 380px) {
-    /* Hamburger menu: shouldn't be 300px wide on tiny phones */
-    .nav-links { width: calc(100vw - 32px) !important; max-width: 320px; padding: 72px 18px 32px !important; }
+    /* Bubble: ocupa el ancho de la píldora; solo se compacta el padding */
+    .nav-links { padding: 8px !important; }
 
     /* Reviews go single column on smallest screens */
     .review-card {
@@ -3636,56 +3599,41 @@ section[id], div[id] { scroll-margin-top: 96px; }
     box-shadow: 0 0 10px rgba(43,139,228,0.3);
 }
 @media (max-width: 768px) {
-    /* Mobile nav dropdown — inline expandable */
+    /* Mobile nav dropdown → PLANO dentro del bubble (como Masterclasses):
+       el botón "Team ▾" se esconde y Founder / Experts quedan como links
+       normales. (Science lo aplana script.js con un link directo a su página.) */
     .nav-dropdown { width: 100%; }
-    .nav-dropdown-toggle {
-        width: 100%;
-        font-size: 0.95rem !important;
-        font-weight: 600 !important;
-        color: var(--text-primary) !important;
-        padding: 14px 20px !important;
-        border-radius: 14px !important;
-        justify-content: space-between;
-    }
-    .nav-dropdown-toggle.active {
-        color: var(--kinedu-blue) !important;
-        background: linear-gradient(135deg, rgba(43,139,228,0.1), rgba(76,217,100,0.05)) !important;
-    }
+    .nav-dropdown-toggle { display: none !important; }
     .nav-dropdown-menu {
         position: static;
         transform: none !important;
         box-shadow: none;
         border: none;
-        border-left: 2px solid rgba(43,139,228,0.2);
         border-radius: 0;
         background: transparent;
-        padding: 4px 0 4px 12px;
-        margin: 0 0 4px 20px;
+        padding: 0;
+        margin: 0;
         min-width: 0;
         opacity: 1;
-        pointer-events: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, opacity 0.2s;
-    }
-    .nav-dropdown.open .nav-dropdown-menu {
         pointer-events: auto;
-        max-height: 400px;
-        opacity: 1;
-        transform: none !important;
+        max-height: none;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
     .nd-item {
-        font-size: 0.88rem !important;
-        font-weight: 500 !important;
-        color: var(--text-secondary) !important;
-        padding: 10px 14px !important;
-        border-radius: 10px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        padding: 13px 16px !important;
+        border-radius: 14px !important;
     }
     .nd-item:hover {
-        background: rgba(43,139,228,0.06) !important;
+        background: #F5F4F0 !important;
         transform: none !important;
     }
-    .nd-icon { background: rgba(43,139,228,0.08); }
+    .nd-icon { display: none; }
     .steps-row {
         flex-direction: column;
         align-items: center;

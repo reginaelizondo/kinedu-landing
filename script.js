@@ -240,6 +240,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         backdrop.addEventListener('click', closeMenu);
 
+        // Bubble móvil (clon del nav de Masterclasses): los desplegables se
+        // aplanan. Un desplegable cuyo primer item apunta a una página propia
+        // (Science → /science) se vuelve UN link plano con la etiqueta del
+        // botón; el desplegable original se esconde en móvil (CSS
+        // .nav-dd--collapse). Team no tiene página: su botón se esconde y
+        // Founder / Experts quedan como links sueltos (solo CSS).
+        navLinks.querySelectorAll('.nav-dropdown').forEach(dd => {
+            if (dd.id === 'teamDropdown') return;
+            const label = dd.querySelector('.nav-dropdown-toggle span');
+            const first = dd.querySelector('.nd-item');
+            const href = first && first.getAttribute('href');
+            if (!label || !href) return;
+            const flat = document.createElement('a');
+            flat.href = href.split('#')[0] || href;
+            flat.className = 'nav-flat mobile-only';
+            flat.appendChild(label.cloneNode(true)); // conserva data-i18n → se traduce igual
+            dd.insertAdjacentElement('beforebegin', flat);
+            dd.classList.add('nav-dd--collapse');
+        });
+
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href') || '';
