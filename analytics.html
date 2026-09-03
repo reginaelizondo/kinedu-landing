@@ -967,15 +967,26 @@ function mcRender() {
   var d = mcState.data; if (!d) return;
   var f = d.funnel, t = d.totals, e = d.engagement;
   var aov = f.purchases ? t.revenueUsd / f.purchases : 0;
-  var cvr = f.visitors ? f.purchases / f.visitors * 100 : 0;
-  var clickRate = t.pageViews ? t.clicks / t.pageViews * 100 : 0;
+  /* Visitantes REALES (los que hicieron algo): el MISMO número que usa el
+     embudo de abajo. Antes la tarjeta y la conversión usaban el total crudo,
+     que incluye rastreadores de buscadores — el embudo decía 47 y la
+     conversión se calculaba sobre 192, así que el dashboard se contradecía
+     solo y subvendía la conversión (1.04% en vez de 4.3%). */
+  var ppl = d.people || {};
+  var visReales = ppl.visitors != null ? ppl.visitors : f.visitors;
+  var visCrudos = ppl.visitorsAll != null ? ppl.visitorsAll : null;
+  var compradores = ppl.buyers != null ? ppl.buyers : f.purchases;
+  var cvr = visReales ? compradores / visReales * 100 : 0;
+  /* Clics POR VISTA: en una misma página la gente pica varias veces, así que
+     esto pasa de 1 — expresarlo como "% de las vistas" daba 125%, imposible. */
+  var clicsPorVista = t.pageViews ? t.clicks / t.pageViews : 0;
 
   kpis.innerHTML = [
     ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras · $' + fmt(Math.round(t.revenueUsdAllTime)) + ' histórico'],
-    ['Visitantes', fmt(f.visitors), fmt(t.pageViews) + ' vistas de página'],
-    ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ visitantes'],
+    ['Visitantes', fmt(visReales), (visCrudos && visCrudos > visReales ? fmt(visCrudos) + ' en crudo (con bots) · ' : '') + fmt(t.pageViews) + ' vistas de página'],
+    ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ visitantes con actividad'],
     ['Ticket promedio', '$' + (aov ? aov.toFixed(2) : '0'), 'por compra'],
-    ['Clicks medidos', fmt(t.clicks), clickRate.toFixed(0) + '% de las vistas pican algo'],
+    ['Clicks medidos', fmt(t.clicks), clicsPorVista.toFixed(2) + ' clics por vista'],
     ['Regalos', fmt(f.giftPurchases), 'compras para alguien más']
   ].map(function (k) {
     return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
@@ -988,7 +999,6 @@ function mcRender() {
      viene (deploy viejo), se cae a los conteos de eventos de siempre.
      OJO: "Abrieron el checkout" NO es "intentaron pagar" — con el pago
      embebido la sesión de Stripe se crea al cargar la página. */
-  var ppl = d.people || {};
   var steps = [
     ['Visitantes con actividad', ppl.visitors != null ? ppl.visitors : f.visitors, PAL[0]],
     ['Vieron una clase o pack', ppl.viewedClass != null ? ppl.viewedClass : f.classViews, PAL[5] || PAL[1]],
@@ -1355,9 +1365,12 @@ function asRender() {
     return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
   }).join('');
 
+  /* OJO: de Cuentas a Bebés NO hay caída — una cuenta puede dar de alta
+     varios bebés, así que el "% del paso anterior" salía en 235.9% y parecía
+     un bug. Ese paso lleva su propia nota (bebés por cuenta) en vez del %. */
   var steps = [
     ['Cuentas', t.accounts, PAL[0]],
-    ['Bebés dados de alta', t.children, PAL[3]],
+    ['Bebés dados de alta', t.children, PAL[3], (t.accounts ? (t.children / t.accounts).toFixed(1) + ' bebés por cuenta — no es una caída, una cuenta registra varios' : '')],
     ['Assessments empezados', t.assessments_started, PAL[5] || PAL[1]],
     ['Completados', t.assessments_completed, PAL[2]],
     ['Compraron', t.purchases, PAL[1]]
@@ -1365,7 +1378,7 @@ function asRender() {
   var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
   fun.innerHTML = steps.map(function (s, i) {
     var prevV = i ? steps[i - 1][1] : 0;
-    var drop = i && prevV ? (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
+    var drop = s[3] != null ? s[3] : (i && prevV ? (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '');
     return '<div class="hbar-row"><div class="nm">' + s[0] + '</div>' +
       '<div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div>' +
       '<div class="ct">' + fmt(s[1]) + '</div></div>' +
@@ -1442,6 +1455,11 @@ $('viewTabs').addEventListener('click', function (e) {
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
   b.classList.add('on');
   var v = b.dataset.view; // 'site' | 'mc' | 'as'
+  /* El API del assessment devuelve el acumulado, no una ventana de días.
+     Dejar 7d/14d/30d/90d encendidos hacía creer que filtraban algo. */
+  $('rangeChips').style.opacity = '';
+  $('rangeChips').style.pointerEvents = '';
+  $('rangeChips').removeAttribute('title');
   $('viewSite').style.display = v === 'site' ? '' : 'none';
   $('siteNote').style.display = v === 'site' ? '' : 'none';
   $('langChips').style.display = v === 'site' ? '' : 'none';
@@ -1454,7 +1472,10 @@ $('viewTabs').addEventListener('click', function (e) {
     $('viewEng').style.display = 'none';
     $('viewAff').style.display = 'none';
     if (v === 'as') {
-      $('periodLabel').textContent = 'Assessment — kinedu.com/assessment · todo el histórico';
+      $('periodLabel').textContent = 'Assessment — kinedu.com/assessment · todo el histórico (el filtro de días no aplica aquí)';
+      $('rangeChips').style.opacity = '.35';
+      $('rangeChips').style.pointerEvents = 'none';
+      $('rangeChips').title = 'El assessment se reporta con todo el histórico';
       if (!asState.data) asFetch(); else asRender();
     } else if (state.raw) renderAll(); // restaura el label y KPIs del Sitio
   }
