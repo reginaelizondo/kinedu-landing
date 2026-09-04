@@ -29,7 +29,6 @@
 <script>localStorage.setItem('kinedu-lang','pt');document.documentElement.lang='pt';</script>
 <link rel="stylesheet" href="/styles.css?v=0842a">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --blue: #2B8BE4; --blue-dark: #1E6FBD; --blue-soft: #EAF4FD;
@@ -105,7 +104,7 @@ a { color: inherit; text-decoration: none; }
 .ksf-social { display: flex; gap: 10px; }
 .ksf-social-btn { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.35); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85); }
 .ksf-cols { display: flex; gap: 72px; }
-.ksf-col h5 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: white; margin-bottom: 16px; }
+.ksf-col h3, .ksf-col h5 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: white; margin-bottom: 16px; }
 .ksf-col a { display: block; font-size: 14px; color: rgba(255,255,255,.72); text-decoration: none; padding: 5px 0; }
 .ksf-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 40px; text-align: center; font-size: 13px; color: rgba(255,255,255,.5); }
 @media (max-width: 760px) { .ksf-inner { flex-direction: column; padding: 40px 20px 32px; gap: 36px; } }
@@ -235,7 +234,9 @@ a { color: inherit; text-decoration: none; }
 .kb-trend-chip { flex-shrink: 0; }
 }
 </style>
-<link rel="stylesheet" href="/blog-revamp.css?v=0820h"></head>
+<link rel="stylesheet" href="/blog-revamp.css?v=0820i">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'">
+</head>
 <body>
 <div class="k-bubs" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span><span class="b6"></span><span class="b7"></span><span class="b8"></span><span class="b9"></span><span class="b10"></span></div>
 
@@ -361,31 +362,31 @@ a { color: inherit; text-decoration: none; }
   <a href="/pt/blog/stage/pre-natal" class="kb-stage" style="--focus:50% 30%;">
     <img class="bg" src="/blog-media/en/wp-content/uploads/2017/03/mama_yoga-600x400.webp" alt="Pré-natal" loading="lazy" width="600" height="400">
     <div class="age-range">Gravidez</div>
-    <h4>Pré-natal</h4>
+    <h3>Pré-natal</h3>
     <div class="count">209 artigos</div>
   </a>
   <a href="/pt/blog/stage/recem-nascido" class="kb-stage" style="--focus:50% 30%;">
     <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/mother-take-care-her-newborn-baby-hiccups-to-burp-2024-11-01-07-02-43-utc-600x400.webp" alt="Recém-nascido" loading="lazy" width="600" height="400">
     <div class="age-range">0–3 meses</div>
-    <h4>Recém-nascido</h4>
+    <h3>Recém-nascido</h3>
     <div class="count">199 artigos</div>
   </a>
   <a href="/pt/blog/stage/bebe" class="kb-stage" style="--focus:50% 30%;">
     <img class="bg" src="/blog-media/en/wp-content/uploads/2024/11/cute-happy-baby-boy-playing-toys-in-his-child-room-2024-10-30-22-54-58-utc-600x400.webp" alt="Bebê" loading="lazy" width="600" height="400">
     <div class="age-range">4–12 meses</div>
-    <h4>Bebê</h4>
+    <h3>Bebê</h3>
     <div class="count">265 artigos</div>
   </a>
   <a href="/pt/blog/stage/crianca-pequena" class="kb-stage" style="--focus:50% 30%;">
     <img class="bg" src="/blog-media/en/wp-content/uploads/2023/10/a-2-3-year-old-boy-is-looking-at-the-pictures-in-t-2022-11-15-09-04-13-utc-600x400.webp" alt="Criança pequena" loading="lazy" width="600" height="400">
     <div class="age-range">1–2 anos</div>
-    <h4>Criança pequena</h4>
+    <h3>Criança pequena</h3>
     <div class="count">282 artigos</div>
   </a>
   <a href="/pt/blog/stage/pre-escola" class="kb-stage" style="--focus:50% 30%;">
     <img class="bg" src="/blog-media/en/wp-content/uploads/2023/07/group-of-kindergarten-kids-friends-drawing-art-cla-2022-12-16-00-26-14-utc-e1689795192559-600x400.webp" alt="Pré-escola" loading="lazy" width="600" height="400">
     <div class="age-range">3–5 anos</div>
-    <h4>Pré-escola</h4>
+    <h3>Pré-escola</h3>
     <div class="count">161 artigos</div>
   </a>
     </div>
@@ -434,13 +435,13 @@ a { color: inherit; text-decoration: none; }
     </div>
     <div class="ksf-cols">
       <div class="ksf-col">
-        <h5>Empresa</h5>
+        <h3>Empresa</h3>
         <a href="/founder">Sobre nós</a>
         <a href="/science">A ciência</a>
         <a href="/pt/articles">Blog</a>
       </div>
       <div class="ksf-col">
-        <h5>Suporte</h5>
+        <h3>Suporte</h3>
         <a href="mailto:hello@kinedu.com">Fale conosco</a>
         <a href="/pt/terms">Termos e Condições</a>
         <a href="/pt/privacy">Política de Privacidade</a>

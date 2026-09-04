@@ -810,8 +810,9 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             width: 8px; height: 8px;
             border-radius: 50%;
             background: var(--border);
+            background-clip: content-box; box-sizing: content-box; /* área táctil 24px, punto visible 8px */
             border: none;
-            padding: 0;
+            padding: 8px;
             cursor: pointer;
             transition: background .2s, width .2s;
         }
