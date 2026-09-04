@@ -74,8 +74,8 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <script>(function(){var d=document.documentElement;var l=localStorage.getItem('kinedu-lang');if(l)d.lang=l;d.classList.add('no-fouc');function r(){if(d.classList.contains('fouc-ready'))return;d.classList.remove('no-fouc');d.classList.add('fouc-ready')}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(r)})}else{requestAnimationFrame(r)}setTimeout(r,600)})()</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css?v=0841a">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/styles.css?v=0842a">
     <style>
         /* =========================================
            SCIENCE PAGE — Styles v2
@@ -1407,13 +1407,13 @@ render();
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer.company">Empresa</h4>
+                    <h3 data-i18n="footer.company">Empresa</h3>
                     <a href="/founder" data-i18n="footer.aboutUs">Nosotros</a>
                     <a href="/es/science" data-i18n="footer.theScience">La ciencia</a>
                     <a href="/es/blog" data-i18n="footer.blog" data-i18n-href="/footer.blogUrl">Blog</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer.support">Soporte</h4>
+                    <h3 data-i18n="footer.support">Soporte</h3>
                     <a href="mailto:hello@kinedu.com" data-i18n="footer.contactUs">Contáctanos</a>
                     <a href="/terms" data-i18n="footer.termsConditions" data-i18n-href="/footer.termsUrl">Términos y Condiciones</a>
                     <a href="/es/privacy" data-i18n="footer.privacyPolicy" data-i18n-href="/footer.privacyUrl">Política de Privacidad</a>
@@ -1425,8 +1425,8 @@ render();
         </div>
     </footer>
 
-    <script src="/translations.js?v=0839a"></script>
-    <script src="/script.js?v=0841a"></script>
+    <script src="/translations.js?v=0839a" defer></script>
+    <script src="/script.js?v=0842a" defer></script>
     <script>
     (function(){
         var lang = localStorage.getItem('kinedu-lang') || 'en';

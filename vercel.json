@@ -249,6 +249,11 @@
   ],
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "https://www.kinedu.com/",
+      "permanent": true
+    },
+    {
       "source": "/en/:path*",
       "destination": "https://www.kinedu.com/:path*",
       "permanent": true

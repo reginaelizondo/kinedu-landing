@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             for (const [id, name] of Object.entries(featureImages)) {
                 const el = document.getElementById(id);
-                if (el) el.src = '/Features/' + folder + '/' + name + ' ' + folder + '.webp?v=2';
+                if (el) el.src = '/Features/' + folder + '/' + name + ' ' + folder + '.webp?v=3';
             }
 
             // Swap App Store link per language
