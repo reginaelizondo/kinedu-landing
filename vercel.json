@@ -107,11 +107,11 @@
     },
     {
       "source": "/es",
-      "destination": "/index.html"
+      "destination": "/es/index.html"
     },
     {
       "source": "/pt",
-      "destination": "/index.html"
+      "destination": "/pt/index.html"
     },
     {
       "source": "/browse",
