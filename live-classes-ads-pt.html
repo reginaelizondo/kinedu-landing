@@ -2321,7 +2321,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
         function buildExpertCard(e, idx) {
             var photoHtml = e.photo
-                ? '<img src="' + e.photo + '" alt="' + e.name + '" onerror="this.style.display=\'none\'">'
+                ? '<img src="' + e.photo + '" alt="' + e.name + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">'
                 : '';
             var seeMoreLabel = (window.TRANSLATIONS && window.TRANSLATIONS[expertsLang] && window.TRANSLATIONS[expertsLang]['lc.experts.seeMore']) || 'See more ↓';
             return '<div class="lc-expert-card">' +

@@ -46,6 +46,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" as="image" href="/Features/PT/Liveclasses PT.webp?v=3">
     <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/styles.css?v=0842a">
@@ -1527,7 +1528,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
             <!-- Image column (left) -->
             <div class="lc-hero-mockup">
-                <img src="/Features/PT/Liveclasses PT.webp?v=3" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager" width="720" height="792">
+                <img src="/Features/PT/Liveclasses PT.webp?v=3" id="lcHeroCalendar" alt="Live classes in the Kinedu app" loading="eager" width="720" height="792" fetchpriority="high">
 
                 <!-- Variant B: live schedule card (shown via A/B test JS) -->
                 <div class="lc-hero-card" id="lcHeroCard" style="display:none" aria-label="Today's live classes">
@@ -2389,7 +2390,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 
         function buildExpertCard(e, idx) {
             var photoHtml = e.photo
-                ? '<img src="' + e.photo + '" alt="' + e.name + '" onerror="this.style.display=\'none\'">'
+                ? '<img src="' + e.photo + '" alt="' + e.name + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">'
                 : '';
             var seeMoreLabel = (window.TRANSLATIONS && window.TRANSLATIONS[expertsLang] && window.TRANSLATIONS[expertsLang]['lc.experts.seeMore']) || 'See more ↓';
             return '<div class="lc-expert-card">' +
