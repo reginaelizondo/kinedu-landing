@@ -2587,7 +2587,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     (function () {
         var param = new URLSearchParams(window.location.search).get('v');
         var stored = sessionStorage.getItem('lc_hero_ab');
-        var variant = param || stored || (Math.random() < 0.5 ? 'a' : 'b');
+        var variant = 'a'; // Brand 2026: variante A forzada. Antes se sorteaba a/b y data-hero-variant="b" reordenaba el hero desde el final del body (CLS 0.2 en la mitad de las visitas)
         if (!param) sessionStorage.setItem('lc_hero_ab', variant);
 
         if (variant === 'b') {

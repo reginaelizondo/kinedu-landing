@@ -47,6 +47,8 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css?v=0842a">
     <style>
         /* ── Live Classes page-specific styles ─────────────────────── */
@@ -2656,7 +2658,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     (function () {
         var param = new URLSearchParams(window.location.search).get('v');
         var stored = sessionStorage.getItem('lc_hero_ab');
-        var variant = param || stored || (Math.random() < 0.5 ? 'a' : 'b');
+        var variant = 'a'; // Brand 2026: variante A forzada. Antes se sorteaba a/b y data-hero-variant="b" reordenaba el hero desde el final del body (CLS 0.2 en la mitad de las visitas)
         if (!param) sessionStorage.setItem('lc_hero_ab', variant);
 
         if (false && variant === 'b') /* Brand 2026: forzada variante A (app screenshot) */ {
