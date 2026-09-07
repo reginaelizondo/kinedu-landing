@@ -2852,6 +2852,56 @@
       "source": "/introduction-to-solids/:path*",
       "destination": "/masterclasses/introduction-to-solids",
       "permanent": true
+    },
+    {
+      "source": "/baby-sign-language/:path*",
+      "destination": "/masterclasses/baby-sign-language",
+      "permanent": true
+    },
+    {
+      "source": "/brain-motor-development/:path*",
+      "destination": "/masterclasses/brain-motor-development",
+      "permanent": true
+    },
+    {
+      "source": "/caring-for-newborn/:path*",
+      "destination": "/masterclasses/caring-for-newborn",
+      "permanent": true
+    },
+    {
+      "source": "/first-aid/:path*",
+      "destination": "/masterclasses/first-aid",
+      "permanent": true
+    },
+    {
+      "source": "/learn-through-play/:path*",
+      "destination": "/masterclasses/learn-through-play",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-motor-development/:path*",
+      "destination": "/masterclasses/mastering-motor-development",
+      "permanent": true
+    },
+    {
+      "source": "/positive-education/:path*",
+      "destination": "/masterclasses/positive-education",
+      "permanent": true
+    },
+    {
+      "source": "/sleep-habits/:path*",
+      "destination": "/masterclasses/sleep-habits",
+      "permanent": true
+    },
+    {
+      "source": "/bundle/:path*",
+      "destination": "/masterclasses/bundle/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/como-ensinar-o-valor-da-honestidade-para-criancas-pequenas/:extra+",
+      "destination": "/pt/blog/como-ensinar-o-valor-da-honestidade-para-criancas-pequenas",
+      "permanent": true
     }
   ]
 }
