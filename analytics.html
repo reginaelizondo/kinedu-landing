@@ -425,6 +425,13 @@ tr:hover td { background: #FAF8F4; }
       </div>
     </div>
 
+    <div id="affDetail" hidden style="margin-top:16px;">
+      <div class="section-title" style="--dot:var(--c1)"><span id="affDetailTitle">Detalle</span> <button class="aff-copy" id="affDetailClose" style="margin-left:10px">Cerrar</button></div>
+      <div class="desc" id="affDetailDesc" style="margin:-6px 0 12px"></div>
+      <div class="kpis" id="affDetailKpis"></div>
+      <div class="grid" id="affDetailGrid" style="margin-top:16px"></div>
+    </div>
+
     <div class="note" style="margin-top:26px;" id="affNote">
       Afiliados guardados en Supabase (proyecto de Masterclasses) vía <code>/masterclasses/api/admin/affiliates</code>.
       La atribución de ventas viaja en el metadata de Stripe (cookie <code>mc_ref</code>, 30 días en todo <code>.kinedu.com</code>) y la guarda el webhook en cada compra.
@@ -1262,7 +1269,8 @@ function affRender() {
         return '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">' +
           '<div><div style="font-weight:700;color:var(--ink)">' + esc(r[0]) + '</div>' +
           '<div style="font-size:11px;color:var(--muted);font-family:\'DM Mono\',monospace">/r/' + esc(r[7]) + '</div></div>' +
-          '<button class="aff-copy" data-link="' + esc(r[8]) + '">Copiar link</button></div>';
+          '<button class="aff-copy" data-link="' + esc(r[8]) + '">Copiar link</button>' +
+          '<button class="aff-copy aff-detail-btn" data-code="' + esc(r[7]) + '" data-name="' + esc(r[0]) + '">Detalle</button></div>';
       } },
     { k: 'clicks', label: 'Clics', num: true, render: function (v) { return fmt(v); } },
     { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } },
@@ -1273,8 +1281,75 @@ function affRender() {
   ], { i: 1, dir: -1 });
 }
 
+/* detalle por afiliado: a qué link le picaron, idioma, país, campaña, día, últimos clics y ventas */
+var affDetailState = { code: null };
+function affDetailFetch(code, name) {
+  var box = $('affDetail'); box.hidden = false; affDetailState.code = code;
+  $('affDetailTitle').textContent = 'Detalle de ' + name;
+  $('affDetailDesc').textContent = 'Cargando…';
+  $('affDetailKpis').innerHTML = ''; $('affDetailGrid').innerHTML = '';
+  box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  fetch('/masterclasses/api/admin/affiliates?key=' + encodeURIComponent(state.pw) + '&detail=' + encodeURIComponent(code) + '&days=' + (state.days || 30))
+    .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || ('HTTP ' + r.status)); return j; }); })
+    .then(function (d) { if (affDetailState.code === code) affDetailRender(d, name); })
+    .catch(function (e) { $('affDetailDesc').textContent = 'No se pudo cargar el detalle: ' + e.message; });
+}
+function affMiniTable(title, rows, cols, note) {
+  var html = '<div class="card s6"><h2>' + title + '</h2>' + (note ? '<div class="desc">' + note + '</div>' : '');
+  if (!rows.length) return html + '<div class="empty" style="padding:14px 0">Sin datos en el periodo.</div></div>';
+  html += '<div class="scroll-x"><table><thead><tr>' + cols.map(function (c) { return '<th class="' + (c.num ? 'num' : '') + '">' + c.label + '</th>'; }).join('') + '</tr></thead><tbody>';
+  rows.forEach(function (r) {
+    html += '<tr>' + cols.map(function (c) { var v = c.render ? c.render(r[c.k], r) : esc(String(r[c.k] == null ? '' : r[c.k])); return '<td class="' + (c.num ? 'num' : 'k') + '">' + v + '</td>'; }).join('') + '</tr>';
+  });
+  return html + '</tbody></table></div></div>';
+}
+function affDetailRender(d, name) {
+  var k = d.kpis || {};
+  $('affDetailDesc').textContent = 'Últimos ' + d.days + ' días · código /r/' + d.affiliate.code + (d.utmAvailable ? '' : ' · (la campaña por clic se activa al correr la migración SQL de utm)');
+  $('affDetailKpis').innerHTML = [
+    ['Clics', fmt(k.clicks), 'en el periodo'],
+    ['Visitantes', fmt(k.visitors), 'IPs distintas'],
+    ['Ventas', fmt(k.sales), 'atribuidas'],
+    ['Ingreso (USD)', '$' + fmt(Math.round(k.revenue || 0)), 'pagos reales'],
+    ['Conv.', k.clicks ? ((k.sales / k.clicks) * 100).toFixed(1) + '%' : '0%', 'ventas ÷ clics']
+  ].map(function (x) { return '<div class="kpi"><div class="lbl">' + x[0] + '</div><div class="val">' + x[1] + '</div><div class="dlt" style="color:var(--muted)">' + x[2] + '</div></div>'; }).join('');
+  var langName = { en: 'Inglés', es: 'Español', pt: 'Portugués' };
+  var pct = function (n) { return k.clicks ? ' <span style="color:var(--muted);font-weight:400">(' + Math.round((n / k.clicks) * 100) + '%)</span>' : ''; };
+  var when = function (iso) { var dt = new Date(iso); return dt.toLocaleDateString('es-MX', { day: '2-digit', month: 'short' }) + ' ' + dt.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' }); };
+  var g = '';
+  g += affMiniTable('A qué link le picaron', d.byLanding || [], [
+    { k: 'key', label: 'Destino' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v) + pct(v); } },
+    { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } }, { k: 'revenue', label: 'USD', num: true, render: function (v) { return '$' + fmt(Math.round(v)); } }
+  ], 'Según el ?to= del link (storefront, clase, pack o regalo).');
+  g += affMiniTable('Por campaña / origen', (d.byCampaign || []), [
+    { k: 'key', label: 'Campaña (utm_campaign)' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v) + pct(v); } }
+  ], 'Los correos y ads llevan utm_campaign; el resto cae en "sin campaña".');
+  g += affMiniTable('Por idioma', d.byLanguage || [], [
+    { k: 'key', label: 'Idioma', render: function (v) { return esc(langName[v] || v); } }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v) + pct(v); } }
+  ]);
+  g += affMiniTable('Por país', d.byCountry || [], [
+    { k: 'key', label: 'País' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v) + pct(v); } }
+  ]);
+  g += affMiniTable('Por día', (d.byDay || []).slice(-31).reverse(), [
+    { k: 'date', label: 'Fecha' }, { k: 'clicks', label: 'Clics', num: true, render: function (v) { return fmt(v); } }, { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } }
+  ]);
+  g += affMiniTable('Ventas atribuidas', d.sales || [], [
+    { k: 'at', label: 'Fecha', render: function (v) { return when(v); } }, { k: 'product', label: 'Producto' },
+    { k: 'amount', label: 'USD', num: true, render: function (v, r) { return '$' + fmt(Math.round(v)) + (r.currency !== 'USD' ? ' <span style="color:var(--muted)">(' + esc(r.currency) + ')</span>' : ''); } }
+  ]);
+  g += affMiniTable('Últimos clics', d.recent || [], [
+    { k: 'at', label: 'Cuándo', render: function (v) { return when(v); } }, { k: 'landing', label: 'Destino' },
+    { k: 'language', label: 'Idioma', render: function (v) { return esc(langName[v] || v || ''); } }, { k: 'country', label: 'País' },
+    { k: 'campaign', label: 'Campaña', render: function (v, r) { return esc(v || r.source || ''); } }
+  ]).replace('class="card s6"', 'class="card s12"');
+  $('affDetailGrid').innerHTML = g;
+}
+$('affDetailClose').addEventListener('click', function () { $('affDetail').hidden = true; affDetailState.code = null; });
+
 /* copiar link (delegado, se liga una vez) */
 $('affTable').addEventListener('click', function (e) {
+  var db = e.target.closest('.aff-detail-btn');
+  if (db) { affDetailFetch(db.dataset.code, db.dataset.name); return; }
   var b = e.target.closest('.aff-copy'); if (!b) return;
   var link = b.dataset.link, prev = b.textContent;
   var done = function () { b.textContent = '¡Copiado!'; setTimeout(function () { b.textContent = prev; }, 1400); };
