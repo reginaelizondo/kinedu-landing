@@ -989,7 +989,7 @@ function mcRender() {
   var clicsPorVista = t.pageViews ? t.clicks / t.pageViews : 0;
 
   kpis.innerHTML = [
-    ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras · $' + fmt(Math.round(t.revenueUsdAllTime)) + ' histórico'],
+    ['Ingresos (USD)', '$' + fmt(Math.round(t.revenueUsd)), f.purchases + ' compras' + (t.refunds ? ' · ' + t.refunds + (t.refunds === 1 ? ' reembolso' : ' reembolsos') + ' (' + '$' + fmt(Math.round(t.refundsUsd || 0)) + ', ya descontado)' : '') + ' · $' + fmt(Math.round(t.revenueUsdAllTime)) + ' histórico'],
     ['Visitantes', fmt(visReales), (visCrudos && visCrudos > visReales ? fmt(visCrudos) + ' en crudo (con bots) · ' : '') + fmt(t.pageViews) + ' vistas de página'],
     ['Conversión', cvr.toFixed(2) + '%', 'compras ÷ visitantes con actividad'],
     ['Ticket promedio', '$' + (aov ? aov.toFixed(2) : '0'), 'por compra'],
