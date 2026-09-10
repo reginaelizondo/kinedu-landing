@@ -151,6 +151,8 @@ h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
 .plan-price{font-size:2.3rem;font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
 .plan-price span{font-size:.95rem;color:var(--muted);font-weight:600;letter-spacing:0}
 .plan-per{font-size:.82rem;color:var(--body);margin-bottom:22px;min-height:1.3em}
+.plan-once{font-size:.82rem;color:var(--blue);font-weight:700;margin:-16px 0 20px;display:flex;align-items:center;gap:6px}
+.plan-once::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--tb);flex:none;box-shadow:inset 0 0 0 4px var(--blue)}
 .plan-feats{list-style:none;margin:0 0 26px;display:flex;flex-direction:column;gap:10px;flex:1}
 .plan-feats li{position:relative;padding-left:22px;font-size:.88rem;color:var(--ink);line-height:1.45}
 .plan-feats li::before{content:'';position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--cognitive)}
@@ -325,6 +327,7 @@ footer a{color:var(--body)}
         <div class="plan-dur">12 months of Kinedu Premium</div>
         <div class="plan-price" data-price="year">$59.99<span> USD</span></div>
         <div class="plan-per">That's about $5 a month</div>
+        <div class="plan-once">One payment now. It never renews for you.</div>
         <ul class="plan-feats">
           <li><b>A new activity plan every day</b>, tuned to their age</li>
           <li>1,800+ play-based activities and expert articles</li>
