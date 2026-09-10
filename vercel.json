@@ -122,6 +122,14 @@
       "destination": "/gift.html"
     },
     {
+      "source": "/es/gift",
+      "destination": "/es/gift.html"
+    },
+    {
+      "source": "/pt/gift",
+      "destination": "/pt/gift.html"
+    },
+    {
       "source": "/live-classes",
       "destination": "/live-classes.html"
     },
