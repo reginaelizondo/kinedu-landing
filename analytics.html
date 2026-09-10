@@ -104,6 +104,24 @@ tr:hover td { background: #FAF8F4; }
 .aff-msg.ok { color: var(--good); } .aff-msg.bad { color: var(--bad); }
 .aff-copy { border: 1.5px solid var(--line); background: #fff; color: var(--c1); font-weight: 700; font-size: 11.5px; padding: 3px 9px; border-radius: 8px; cursor: pointer; font-family: inherit; }
 .aff-copy:hover { background: #F1F7FE; }
+.aff-edit-btn { color: var(--c4, #8A5CF6); }
+.aff-modal { position: fixed; inset: 0; background: rgba(14,27,44,.45); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+.aff-modal[hidden] { display: none; }
+.aff-modal-card { background: #fff; border-radius: 16px; max-width: 448px; width: 100%; box-shadow: 0 20px 60px rgba(14,27,44,.3); padding: 22px 24px; max-height: 90vh; overflow: auto; }
+.aff-modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.aff-modal-head h2 { margin: 0; }
+.aff-modal-body { display: flex; flex-direction: column; gap: 13px; }
+.aff-row2 { display: flex; gap: 12px; }
+.aff-row2 > * { flex: 1; }
+.aff-modal .aff-field label { display: block; font-size: 11.5px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+.aff-modal input, .aff-modal select, .aff-modal textarea { width: 100%; border: 1.5px solid var(--line); border-radius: 9px; padding: 9px 11px; font: inherit; color: var(--ink); background: #fff; box-sizing: border-box; }
+.aff-modal input:focus, .aff-modal select:focus, .aff-modal textarea:focus { outline: none; border-color: var(--c1); }
+.aff-modal textarea { resize: vertical; }
+.aff-meta { font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; line-height: 1.8; font-family: 'DM Mono', monospace; word-break: break-all; }
+.aff-modal-foot { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.aff-save { border: 0; background: var(--c1); color: #fff; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 9px; cursor: pointer; font-family: inherit; }
+.aff-save:hover { filter: brightness(1.08); }
+.aff-save:disabled { opacity: .55; cursor: default; }
 .aff-status { font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
 .aff-status.active { background: #E7F5EC; color: #1E7A3C; } .aff-status.inactive { background: #F0ECE4; color: #8A7B63; }
 
@@ -430,6 +448,24 @@ tr:hover td { background: #FAF8F4; }
       <div class="desc" id="affDetailDesc" style="margin:-6px 0 12px"></div>
       <div class="kpis" id="affDetailKpis"></div>
       <div class="grid" id="affDetailGrid" style="margin-top:16px"></div>
+    </div>
+
+    <div id="affEdit" class="aff-modal" hidden>
+      <div class="aff-modal-card">
+        <div class="aff-modal-head"><h2 id="affEditTitle">Editar afiliado</h2><button class="aff-copy" id="affEditClose">Cerrar</button></div>
+        <div class="aff-modal-body">
+          <div class="aff-field"><label for="affEditName">Nombre</label><input id="affEditName" type="text"></div>
+          <div class="aff-field"><label for="affEditEmail">Email</label><input id="affEditEmail" type="email" placeholder="sin email"></div>
+          <div class="aff-row2">
+            <div class="aff-field"><label for="affEditComm">Comisión %</label><input id="affEditComm" type="number" step="0.1" min="0" max="100" placeholder="sin comisión"></div>
+            <div class="aff-field"><label for="affEditStatus">Estado</label><select id="affEditStatus"><option value="active">activo</option><option value="inactive">inactivo</option></select></div>
+          </div>
+          <div class="aff-field"><label for="affEditNotes">Notas internas</label><textarea id="affEditNotes" rows="2" placeholder="para qué se creó, canal, acuerdos…"></textarea></div>
+          <div class="aff-meta" id="affEditMeta"></div>
+        </div>
+        <div id="affEditMsg" class="aff-msg"></div>
+        <div class="aff-modal-foot"><button class="aff-copy" id="affEditCancel">Cancelar</button><button id="affEditSave" class="aff-save">Guardar cambios</button></div>
+      </div>
     </div>
 
     <div class="note" style="margin-top:26px;" id="affNote">
@@ -1260,7 +1296,9 @@ function affRender() {
     return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div><div class="dlt" style="color:var(--muted)">' + k[2] + '</div></div>';
   }).join('');
 
+  affState.byCode = {};
   var rows = (d.affiliates || []).map(function (a) {
+    affState.byCode[a.code] = a;
     return [a.name, a.clicks, a.sales, a.conv, a.revenue, a.commission, a.status, a.code, a.link];
   });
   if (!rows.length) { tbl.innerHTML = '<tbody><tr><td class="empty">Aún no hay afiliados. Crea el primero con el formulario de arriba.</td></tr></tbody>'; return; }
@@ -1270,7 +1308,8 @@ function affRender() {
           '<div><div style="font-weight:700;color:var(--ink)">' + esc(r[0]) + '</div>' +
           '<div style="font-size:11px;color:var(--muted);font-family:\'DM Mono\',monospace">/r/' + esc(r[7]) + '</div></div>' +
           '<button class="aff-copy" data-link="' + esc(r[8]) + '">Copiar link</button>' +
-          '<button class="aff-copy aff-detail-btn" data-code="' + esc(r[7]) + '" data-name="' + esc(r[0]) + '">Detalle</button></div>';
+          '<button class="aff-copy aff-detail-btn" data-code="' + esc(r[7]) + '" data-name="' + esc(r[0]) + '">Detalle</button>' +
+          '<button class="aff-copy aff-edit-btn" data-code="' + esc(r[7]) + '" title="Editar afiliado">&#9998; Editar</button></div>';
       } },
     { k: 'clicks', label: 'Clics', num: true, render: function (v) { return fmt(v); } },
     { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } },
@@ -1348,6 +1387,8 @@ $('affDetailClose').addEventListener('click', function () { $('affDetail').hidde
 
 /* copiar link (delegado, se liga una vez) */
 $('affTable').addEventListener('click', function (e) {
+  var eb = e.target.closest('.aff-edit-btn');
+  if (eb) { affEditOpen(eb.dataset.code); return; }
   var db = e.target.closest('.aff-detail-btn');
   if (db) { affDetailFetch(db.dataset.code, db.dataset.name); return; }
   var b = e.target.closest('.aff-copy'); if (!b) return;
@@ -1355,6 +1396,60 @@ $('affTable').addEventListener('click', function (e) {
   var done = function () { b.textContent = '¡Copiado!'; setTimeout(function () { b.textContent = prev; }, 1400); };
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, done);
   else { var ta = document.createElement('textarea'); ta.value = link; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (x) {} document.body.removeChild(ta); done(); }
+});
+
+/* editar afiliado: lápiz por fila → modal con todos sus campos → PATCH */
+function affEditOpen(code) {
+  var a = (affState.byCode || {})[code]; if (!a) return;
+  $('affEditTitle').textContent = 'Editar: ' + a.name;
+  $('affEditName').value = a.name || '';
+  $('affEditEmail').value = a.email || '';
+  $('affEditComm').value = (a.commission_pct != null ? a.commission_pct : '');
+  $('affEditStatus').value = (a.status === 'inactive' ? 'inactive' : 'active');
+  $('affEditNotes').value = a.notes || '';
+  var created = '—';
+  if (a.created_at) { try { created = new Date(a.created_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }); } catch (x) {} }
+  $('affEditMeta').innerHTML = 'Código (fijo): /r/' + esc(a.code) + '<br>Creado: ' + esc(created) +
+    '<br>Link: ' + esc(a.link) + ' <button class="aff-copy" data-link="' + esc(a.link) + '" style="margin-left:6px">Copiar</button>';
+  $('affEditMeta').dataset.code = code;
+  var msg = $('affEditMsg'); msg.className = 'aff-msg'; msg.textContent = '';
+  $('affEdit').hidden = false;
+}
+function affEditCloseFn() { $('affEdit').hidden = true; }
+$('affEditClose').addEventListener('click', affEditCloseFn);
+$('affEditCancel').addEventListener('click', affEditCloseFn);
+$('affEdit').addEventListener('click', function (e) {
+  if (e.target === this) { affEditCloseFn(); return; }
+  var cb = e.target.closest('.aff-copy[data-link]'); if (!cb) return;
+  var link = cb.dataset.link, prev = cb.textContent;
+  var done = function () { cb.textContent = '¡Copiado!'; setTimeout(function () { cb.textContent = prev; }, 1400); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, done);
+  else { var ta = document.createElement('textarea'); ta.value = link; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (x) {} document.body.removeChild(ta); done(); }
+});
+$('affEditSave').addEventListener('click', function () {
+  var code = $('affEditMeta').dataset.code; if (!code) return;
+  var msg = $('affEditMsg'), btn = this;
+  var name = $('affEditName').value.trim();
+  if (name.length < 2) { msg.className = 'aff-msg bad'; msg.textContent = 'El nombre debe tener al menos 2 caracteres.'; return; }
+  var payload = {
+    code: code,
+    name: name,
+    email: $('affEditEmail').value.trim(),
+    status: $('affEditStatus').value,
+    notes: $('affEditNotes').value.trim(),
+    commission_pct: ($('affEditComm').value === '' ? null : $('affEditComm').value)
+  };
+  btn.disabled = true; msg.className = 'aff-msg'; msg.textContent = 'Guardando…';
+  fetch('/masterclasses/api/admin/affiliates?key=' + encodeURIComponent(state.pw), {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+  }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (res) {
+      btn.disabled = false;
+      if (!res.ok) { msg.className = 'aff-msg bad'; msg.textContent = res.j.error || 'No se pudo guardar.'; return; }
+      msg.className = 'aff-msg ok'; msg.textContent = '\u2713 Guardado.';
+      affState.data = null; affFetch();
+      setTimeout(affEditCloseFn, 700);
+    }).catch(function (err) { btn.disabled = false; msg.className = 'aff-msg bad'; msg.textContent = 'Error de red: ' + (err.message || err); });
 });
 
 /* auto-slug del código a partir del nombre (solo si el código está vacío) */
