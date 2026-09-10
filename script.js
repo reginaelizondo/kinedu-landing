@@ -116,7 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const appStoreBadge = document.getElementById('appStoreBadge');
             if (appStoreBadge) appStoreBadge.href = appStoreUrls[lang] || appStoreUrls.en;
 
-            localStorage.setItem(STORAGE_KEY, lang);
+            // La preferencia SOLO se guarda cuando la persona elige en el switcher
+            // (abajo). Antes se guardaba en cada carga, lo que pisaba la señal de
+            // "no ha elegido" y rompía la auto-detección por idioma del dispositivo.
             currentLang = lang;
 
             // Remove FOUC class
@@ -189,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
+                localStorage.setItem(STORAGE_KEY, lang);
                 applyTranslations(lang);
             });
         });
