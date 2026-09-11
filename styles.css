@@ -202,7 +202,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 }
 
 .nav-pill {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 12px 0 28px;
     display: flex;
@@ -249,7 +249,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
 
 .nav-links {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
     position: relative;
 }
@@ -262,7 +262,7 @@ section[id], div[id] { scroll-margin-top: 96px; }
     color: var(--text-primary);
     transition: color 0.3s ease, background 0.3s ease;
     position: relative;
-    padding: 7px 10px;
+    padding: 6px 8px;
     border-radius: var(--r-full);
 }
 
@@ -2262,11 +2262,9 @@ section[id], div[id] { scroll-margin-top: 96px; }
     }
 }
 
-@media (max-width: 768px) {
-    :root {
-        --section-pad: 48px;
-    }
-
+@media (max-width: 1024px) {
+    /* Nav colapsa al hamburguesa desde 1024px: el nav completo (ES/PT)
+       no cabe abajo de ~1024. Se muestra el bubble menu con Gift dentro. */
     .nav-pill {
         position: relative;
         padding: 0 20px;
@@ -2369,6 +2367,19 @@ section[id], div[id] { scroll-margin-top: 96px; }
         border-top: 1px solid #F0EDE7;
         justify-content: flex-start;
     }
+}
+
+@media (max-width: 1200px) {
+    /* "How's my baby?" solo cuando la barra tiene espacio real */
+    .nav-schools { display: none !important; }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-pad: 48px;
+    }
+
+
 
 
     /* --- HERO MOBILE — Opal-style clean layout --- */

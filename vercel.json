@@ -257,6 +257,11 @@
   ],
   "redirects": [
     {
+      "source": "/babytracker",
+      "destination": "https://www.kinedu.com/",
+      "permanent": true
+    },
+    {
       "source": "/index.html",
       "destination": "https://www.kinedu.com/",
       "permanent": true
