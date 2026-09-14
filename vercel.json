@@ -257,6 +257,41 @@
   ],
   "redirects": [
     {
+      "source": "/es/blog/por-que-mi-bebe-tiene-los-punos-cerrados",
+      "destination": "/es/blog/son-normales-los-punos-cerrados-en-bebes",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/por-que-meu-bebe-fica-com-as-maos-fechadas",
+      "destination": "/pt/blog/por-que-meu-bebe-fica-com-as-maos-fechadas-2",
+      "permanent": true
+    },
+    {
+      "source": "/blog/101-guide-to-developing-head-control",
+      "destination": "/blog/motor-milestones-head-control",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/guia-pratico-para-desenvolver-o-controle-da-cabeca",
+      "destination": "/pt/blog/a-coordenacao-motora-e-o-controle-da-cabeca",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/atividades-para-criancas-de-2-anos-2",
+      "destination": "/pt/blog/atividades-para-criancas-de-2-anos",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/guia-practica-para-trabajar-el-control-de-la-cabeza",
+      "destination": "/es/blog/indicadores-del-desarrollo-control-de-la-cabeza",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/actividades-para-ninos-de-2-anos",
+      "destination": "/es/blog/actividades-para-ninos-de-2-anos-2",
+      "permanent": true
+    },
+    {
       "source": "/babytracker",
       "destination": "https://www.kinedu.com/",
       "permanent": true
