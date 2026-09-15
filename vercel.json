@@ -70,6 +70,18 @@
       "destination": "/es/science-what-you-can-do.html"
     },
     {
+      "source": "/book",
+      "destination": "/book.html"
+    },
+    {
+      "source": "/es/book",
+      "destination": "/es/book.html"
+    },
+    {
+      "source": "/pt/book",
+      "destination": "/pt/book.html"
+    },
+    {
       "source": "/pt/terms",
       "destination": "/pt/terms.html"
     },
@@ -2893,6 +2905,21 @@
     {
       "source": "/science-what-you-can-do.html",
       "destination": "/science-what-you-can-do",
+      "permanent": true
+    },
+    {
+      "source": "/book.html",
+      "destination": "/book",
+      "permanent": true
+    },
+    {
+      "source": "/es/book.html",
+      "destination": "/es/book",
+      "permanent": true
+    },
+    {
+      "source": "/pt/book.html",
+      "destination": "/pt/book",
       "permanent": true
     },
     {

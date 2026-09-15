@@ -5,6 +5,7 @@
   <url><loc>https://www.kinedu.com/science</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/science-what-we-know</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/science-what-you-can-do</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kinedu.com/book</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/founder</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.kinedu.com/browse</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.kinedu.com/es/blog</loc><lastmod>2026-06-10</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -3469,9 +3470,11 @@
   <url><loc>https://www.kinedu.com/es/science</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/es/science-what-we-know</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/es/science-what-you-can-do</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kinedu.com/es/book</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/pt/science</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/pt/science-what-we-know</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/pt/science-what-you-can-do</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kinedu.com/pt/book</loc><lastmod>2026-09-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/es/live-classes</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/pt/live-classes</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kinedu.com/es/blog/stage/prenatal</loc><lastmod>2026-08-20</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

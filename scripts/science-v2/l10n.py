@@ -53,6 +53,7 @@ def localize(html, path, lang, META, H1, T):
     body = re.sub(r'\x00(\d+)\x00', lambda m: blocks[int(m.group(1))], body)
     # links internos de la serie y PDFs
     body = body.replace('href="/science', 'href="/%s/science' % lang)
+    body = body.replace('href="/book"', 'href="/%s/book"' % lang)
     body = body.replace('/research/kinedu-replication-EXTERNAL.pdf', '/research/kinedu-replication-EXTERNAL-%s.pdf' % lang.upper()).replace('/research/kinedu-parents-guide.pdf', '/research/kinedu-parents-guide-%s.pdf' % lang.upper())
     # nav/footer: textos ES de translations.js (como en las demás páginas /es/)
     tj = open(os.path.join(os.path.dirname(__file__), "..", "..", "translations.js"), encoding="utf-8").read()

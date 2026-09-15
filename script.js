@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // render them in the page's own language (buttons navigate instead).
     (function () {
         const p = window.location.pathname;
-        const m = p.match(/^\/(es|pt)\/science(-what-we-know|-what-you-can-do)?(\.html)?$/);
+        const m = p.match(/^\/(es|pt)\/(?:science(-what-we-know|-what-you-can-do)?|book)(\.html)?$/);
         if (m) { currentLang = m[1]; }
-        else if (/^\/science(-what-we-know|-what-you-can-do)?(\.html)?$/.test(p)) { currentLang = 'en'; }
+        else if (/^\/(?:science(-what-we-know|-what-you-can-do)?|book)(\.html)?$/.test(p)) { currentLang = 'en'; }
     })();
 
         function applyTranslations(lang) {
@@ -178,6 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem(STORAGE_KEY, lang);
                     const suf = sciM[1] || '';
                     window.location.href = (lang === 'es' ? '/es' : lang === 'pt' ? '/pt' : '') + '/science' + suf;
+                    return;
+                }
+                if (/^\/(?:es\/|pt\/)?book(?:\.html)?$/.test(path)) {
+                    localStorage.setItem(STORAGE_KEY, lang);
+                    window.location.href = (lang === 'es' ? '/es' : lang === 'pt' ? '/pt' : '') + '/book';
                     return;
                 }
                 if (/^\/(?:es\/|pt\/)?gift(?:\.html)?$/.test(path)) {

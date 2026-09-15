@@ -86,6 +86,7 @@ NAV_ITEMS=[("/science","How Kinedu was built"),("/science-what-we-know","How bab
 def nav(active):
     n=NAV
     items="".join('<a href="%s" class="nd-item%s" role="menuitem"><span>%s</span></a>'%(p," is-active" if p==active else "",t) for p,t in NAV_ITEMS)
+    items+='<a href="/book" class="nd-item" role="menuitem"><span>The book</span></a>'  # el libro de Luis (scripts/book/build.py)
     n=re.sub(r'<a href="/science" class="nd-item" role="menuitem"><span>[^<]*</span></a>\s*<a href="/science#assessment" class="nd-item" role="menuitem"><span>[^<]*</span></a>', items, n)
     classes=('<div class="nav-dropdown" id="classesDropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.classes">Classes</span>'
              '<svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
