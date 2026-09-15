@@ -218,6 +218,19 @@ footer a{color:var(--body)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.gc-stage,.step,.plan,.btn{transition:none}.gc-wrap:hover .gc-shine{transition:none;transform:translateX(-140%) skewX(-12deg)}}
+
+/* Cierre: tarjeta clara para que no choque con el footer azul */
+.final{background:linear-gradient(135deg,#EEF4FC 0%,#F6FBF7 100%);color:#081B46;border:1px solid #E4EAF3;margin:0 24px 64px;box-shadow:0 24px 60px -40px rgba(8,27,70,.25)}
+.final .blob{background:rgba(8,123,243,.07)}
+.final .blob+.blob{background:rgba(46,168,79,.07)}
+.final .dot{display:block}
+.final .kick{color:#087BF3}
+.final .kick i{background:#087BF3}
+.final h2{color:#081B46}
+.final p{color:#52607A}
+.final .btn.yellow{background:#087BF3;color:#fff;box-shadow:0 14px 30px -12px rgba(8,123,243,.6)}
+.final .btn.yellow:hover{background:#0B6BD0}
+@media(max-width:640px){.final{margin:0 16px 48px;padding:64px 20px}}
 </style>
 </head>
 <body>
