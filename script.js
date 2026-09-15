@@ -180,6 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = (lang === 'es' ? '/es' : lang === 'pt' ? '/pt' : '') + '/science' + suf;
                     return;
                 }
+                if (/^\/(?:es\/|pt\/)?gift(?:\.html)?$/.test(path)) {
+                    localStorage.setItem(STORAGE_KEY, lang);
+                    window.location.href = (lang === 'es' ? '/es' : lang === 'pt' ? '/pt' : '') + '/gift';
+                    return;
+                }
                 if (isBlogArticle || isBlogIndex) {
                     localStorage.setItem(STORAGE_KEY, lang);
                     if (lang === 'es') {
@@ -548,6 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return; // páginas con su propio FAQ (p. ej. /gift) no usan este markup
         question.setAttribute('aria-expanded', 'false');
         question.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
