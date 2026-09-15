@@ -8,13 +8,14 @@ window.TRANSLATIONS = {
     'xp.ctaBtn': 'Try 7 days for FREE',
     // META
     'meta.title': 'Kinedu: Give your baby the best start',
-    'meta.titleScience': 'The Science Behind Kinedu',
+    'meta.titleScience': 'The Science Behind Kinedu: How We Got Here | Kinedu',
 
     // NAV
     'nav.howItWorks': 'How It Works',
     'nav.learn': 'Learn',
     'nav.masterclasses': 'Masterclasses',
     'nav.liveClasses': 'Live Classes',
+    'nav.classes': 'Classes',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/blog',
     'nav.gift': 'Gift',
@@ -515,13 +516,14 @@ window.TRANSLATIONS = {
     'xp.ctaBtn': 'Prueba 7 días GRATIS',
     // META
     'meta.title': 'Kinedu | Dale a tu bebé el mejor comienzo',
-    'meta.titleScience': 'La Ciencia detrás de Kinedu',
+    'meta.titleScience': 'La ciencia detrás de Kinedu: cómo llegamos aquí | Kinedu',
 
     // NAV
     'nav.howItWorks': 'Cómo Funciona',
     'nav.learn': 'Aprende',
     'nav.masterclasses': 'Masterclasses',
     'nav.liveClasses': 'Clases en vivo',
+    'nav.classes': 'Clases',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/es/blog',
     'nav.gift': 'Regalar',
@@ -1021,13 +1023,14 @@ window.TRANSLATIONS = {
     'xp.ctaBtn': 'Teste 7 dias GRÁTIS',
     // META
     'meta.title': 'Kinedu | Dê ao seu bebê o melhor começo',
-    'meta.titleScience': 'A Ciência por trás do Kinedu',
+    'meta.titleScience': 'A ciência por trás do Kinedu: como chegamos até aqui | Kinedu',
 
     // NAV
     'nav.howItWorks': 'Como Funciona',
     'nav.learn': 'Aprenda',
     'nav.masterclasses': 'Masterclasses',
     'nav.liveClasses': 'Aulas ao vivo',
+    'nav.classes': 'Aulas',
     'nav.blog': 'Blog',
     'nav.blogUrl': '/pt/blog',
     'nav.gift': 'Presentear',

@@ -14,6 +14,14 @@
       "destination": "/science.html"
     },
     {
+      "source": "/science-what-we-know",
+      "destination": "/science-what-we-know.html"
+    },
+    {
+      "source": "/science-what-you-can-do",
+      "destination": "/science-what-you-can-do.html"
+    },
+    {
       "source": "/pt/browse",
       "destination": "/pt/browse.html"
     },
@@ -42,8 +50,24 @@
       "destination": "/pt/science.html"
     },
     {
+      "source": "/pt/science-what-we-know",
+      "destination": "/pt/science-what-we-know.html"
+    },
+    {
+      "source": "/pt/science-what-you-can-do",
+      "destination": "/pt/science-what-you-can-do.html"
+    },
+    {
       "source": "/es/science",
       "destination": "/es/science.html"
+    },
+    {
+      "source": "/es/science-what-we-know",
+      "destination": "/es/science-what-we-know.html"
+    },
+    {
+      "source": "/es/science-what-you-can-do",
+      "destination": "/es/science-what-you-can-do.html"
     },
     {
       "source": "/pt/terms",
@@ -2859,6 +2883,16 @@
     {
       "source": "/science.html",
       "destination": "/science",
+      "permanent": true
+    },
+    {
+      "source": "/science-what-we-know.html",
+      "destination": "/science-what-we-know",
+      "permanent": true
+    },
+    {
+      "source": "/science-what-you-can-do.html",
+      "destination": "/science-what-you-can-do",
       "permanent": true
     },
     {

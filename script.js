@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // render them in the page's own language (buttons navigate instead).
     (function () {
         const p = window.location.pathname;
-        const m = p.match(/^\/(es|pt)\/science(\.html)?$/);
+        const m = p.match(/^\/(es|pt)\/science(-what-we-know|-what-you-can-do)?(\.html)?$/);
         if (m) { currentLang = m[1]; }
-        else if (/^\/science(\.html)?$/.test(p)) { currentLang = 'en'; }
+        else if (/^\/science(-what-we-know|-what-you-can-do)?(\.html)?$/.test(p)) { currentLang = 'en'; }
     })();
 
         function applyTranslations(lang) {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // keep their own static <title>; clobbering it with meta.title showed the
             // home title everywhere and hurt SEO.
             const _p = window.location.pathname;
-            const isScience = /^\/(es\/|pt\/)?science(\.html)?\/?$/.test(_p);
+            const isScience = /^\/(es\/|pt\/)?science(\.html)?\/?$/.test(_p); // only part 1 has a translated title key
             const isHome = _p === '/' || _p === '/index.html' || _p === '/es' || _p === '/es/' || _p === '/pt' || _p === '/pt/';
             const titleKey = isScience ? 'meta.titleScience' : (isHome ? 'meta.title' : null);
             if (titleKey && t[titleKey]) document.title = t[titleKey];
@@ -173,10 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                     path === '/es/articles.html' || path === '/es/articles' ||
                                     path === '/pt/articles.html' || path === '/pt/articles';
 
-                const isSciencePage = /^\/(es\/|pt\/)?science(\.html)?$/.test(path);
-                if (isSciencePage) {
+                const sciM = path.match(/^\/(?:es\/|pt\/)?science(-what-we-know|-what-you-can-do)?(?:\.html)?$/);
+                if (sciM) {
                     localStorage.setItem(STORAGE_KEY, lang);
-                    window.location.href = lang === 'es' ? '/es/science' : lang === 'pt' ? '/pt/science' : '/science.html';
+                    const suf = sciM[1] || '';
+                    window.location.href = (lang === 'es' ? '/es' : lang === 'pt' ? '/pt' : '') + '/science' + suf;
                     return;
                 }
                 if (isBlogArticle || isBlogIndex) {
@@ -250,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // .nav-dd--collapse). Team no tiene página: su botón se esconde y
         // Founder / Experts quedan como links sueltos (solo CSS).
         navLinks.querySelectorAll('.nav-dropdown').forEach(dd => {
-            if (dd.id === 'teamDropdown') return;
+            if (dd.id === 'teamDropdown' || dd.id === 'classesDropdown') return; // ambos se aplanan en sus items (solo CSS)
             const label = dd.querySelector('.nav-dropdown-toggle span');
             const first = dd.querySelector('.nd-item');
             const href = first && first.getAttribute('href');
