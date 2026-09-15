@@ -643,3 +643,25 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     }}
 /* Footer single column on tiny */
     .footer-grid{ grid-template-columns: 1fr !important; gap: 24px !important; }
+
+/* Link 'How's my baby?' */
+.nav-schools{
+    padding: 10px 22px;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--r-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+.nav-schools:hover{
+    color: var(--kinedu-blue);
+}
+.nav-schools{
+        display: none;
+    }
+@media (max-width: 1024px){
+    .nav-actions .lang-toggle, .nav-actions .nav-schools { display: none !important; }}
+@media (max-width: 1200px){
+    /* "How's my baby?" solo cuando la barra tiene espacio real */
+    .nav-schools { display: none !important; }}
