@@ -198,6 +198,7 @@ COMMON_CSS = """
 @media(max-width:900px){.sci-cases,.sci-honest,.sci-stress{grid-template-columns:1fr}.sci-states,.sci-spectrum{grid-template-columns:1fr 1fr}.sci-fade{grid-template-columns:1fr}}
 @media(max-width:560px){.sci-hero-kick{font-size:11px;padding:7px 14px;letter-spacing:.08em}.sci-states,.sci-spectrum{grid-template-columns:1fr}.sci-emerge .st::after{content:none}.sci-prose p{font-size:16.5px}}
 .science-hero{padding-bottom:44px!important}
+.sci26-plain::before,.sci26-plain::after{display:none!important}
 </style>
 """
 
@@ -238,12 +239,12 @@ READ_WORK = """<div class="sci-docs">
 def nextprev(prev, nxt):
     p='<a class="prev" href="%s">← %s</a>'%prev if prev else "<span></span>"
     n='<a href="%s">Next: %s →</a>'%nxt if nxt else ""
-    return '<section class="sci26" style="padding:26px 20px 40px"><div class="sci-next">%s%s</div></section>'%(p,n)
+    return '<section class="sci26 sci26-plain" style="padding:26px 20px 40px"><div class="sci-next">%s%s</div></section>'%(p,n)
 
 def page(path, title, desc, active, hero_html, sections, og_title=None):
     return (head(title, desc, path, og_title) + COMMON_CSS + "</head>\n<body>\n" + nav(active) + "\n" + hero_html + "\n" + chapters(active) + "\n" + SCI26_CSS + "\n" + PG_CSS + "\n" + "\n".join(sections) + "\n<!-- FOOTER -->\n" + FOOTER + "\n\n" + TAIL + "\n</body>\n</html>\n")
 
-p3_note = '<section class="sci26" style="padding:10px 20px 30px"><div class="sci26-wrap" style="max-width:860px"><p style="font-family:\'DM Mono\',monospace;font-size:11.5px;color:#8A94A8;text-align:center;line-height:1.7">References to Stanford, Harvard’s Center on the Developing Child and named researchers are for attribution only and do not imply endorsement of Kinedu. Nothing on this page is medical advice.</p></div></section>'
+p3_note = '<section class="sci26 sci26-plain" style="padding:10px 20px 30px"><div class="sci26-wrap" style="max-width:860px"><p style="font-family:\'DM Mono\',monospace;font-size:11.5px;color:#8A94A8;text-align:center;line-height:1.7">References to Stanford, Harvard’s Center on the Developing Child and named researchers are for attribution only and do not imply endorsement of Kinedu. Nothing on this page is medical advice.</p></div></section>'
 
 COUPLING_SVG = """<div class="sci26-chart" style="max-width:520px"><h3 style="font-size:19px;font-weight:800;color:#081B46;margin:0 0 8px">The four areas become more distinct as children grow.</h3>
 <p style="font-size:14.5px;color:#52607A;line-height:1.6;margin:0 0 16px">Following the same children from 2 to 35 months.</p>
@@ -447,7 +448,7 @@ CHECKLIST_SVG = """<svg viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg"
 
 AREAS4 = '<div class="sci-areas4">' + "".join('<span style="--c:%s"><img src="/images/areas/%s.png" alt="" width="40" height="40" loading="lazy"></span>'%(c,f) for c,f in (("#1E88E5","physical"),("#2EA84F","cognitive"),("#E8A33D","linguistic"),("#D6497B","emotional"))) + '</div>'
 
-p1_bridge = sec("From milestones to a clearer picture", "How Kinedu’s assessment has evolved.", "",
+p1_bridge = sec("From milestones to a clearer picture", 'How Kinedu’s assessment <span class="sci-squig">has evolved.</span>', "",
  '<div class="sci-bridge">'
  '<div class="sci-then"><div class="k">2013 · Where Kinedu started</div>'+CHECKLIST_SVG+'<p>Kinedu began with an age-based milestone checklist: one item at a time, with a yes-or-no answer. It was a simple way to record what a baby could already do. We wanted to show more of how those skills develop.</p></div>'
  '<div class="sci-arrow" aria-hidden="true">→</div>'
@@ -463,7 +464,7 @@ p1_acts = sec("How we got there", 'Built by Kinedu. Studied by <span class="sci-
 </div>
 <p class="sci-quote" style="margin-top:34px">That research helped us map <span class="mk">how skills develop and connect.</span></p>""", "#F7567C")
 
-p1_rebuilt = sec("The rebuild", "We rebuilt the assessment around a different question.",
+p1_rebuilt = sec("The rebuild", 'We rebuilt the assessment around <span class="sci-squig">a different question.</span>',
  "We wanted to understand how a skill is taking shape.<br>Walking begins well before those first independent steps:",
  """<div class="sci-path">
 <div class="st"><span class="k">months earlier</span><span class="dot"></span><b>Pulls up to stand</b></div>
@@ -520,35 +521,35 @@ p2_hero = hero("The science behind Kinedu · Part 2 of 3",
     "What 3.5 million children taught us about the first three years.",
     "")
 
-p2_intro = sec("Why five", "Five patterns that help explain development.",
+p2_intro = sec("Why five", 'Five patterns that help <span class="sci-squig">explain development.</span>',
  "Together, these ideas help make sense of how skills connect, when they appear, and why children develop at different paces.", "", "#087BF3", "", 860, "padding-top:60px;padding-bottom:30px")
 
 def proof(text): return '<div class="sci-proof"><span class="tag">Proof</span><p>%s</p></div>'%text
 
-p2_one = sec("One · Together", "Early skills develop together.",
+p2_one = sec("One · Together", 'Early skills <span class="sci-squig">develop together.</span>',
  "Holding their head up gives your baby new ways to look around and interact. It’s one example of how movement, learning, communication, and relationships connect.",
  CH_FAN + '<div style="margin-top:30px">' + COUPLING_SVG + '</div>', "#2EA84F", "sci26-mint", 1060)
 
-p2_two = sec("Two · In order", "Skills build on earlier skills.",
+p2_two = sec("Two · In order", 'Skills build on <span class="sci-squig">earlier skills.</span>',
  "Babbling helps lay the groundwork for words. Pulling up to stand helps prepare the way for independent steps. These sequences help us understand what a child may be working toward.",
  SEQ + '<p class="sci26-note" style="margin-top:14px">Expected age: when three in four children have the skill · The order is typical, the timing varies · Kinedu record</p>\n<div class="sci-two">' + CH_BABBLE + CH_WALK + '</div>', "#E8A33D", "", 1060)
 
-p2_three = sec("Three · Wide", "Children reach milestones across a wide range of ages.",
+p2_three = sec("Three · Wide", 'Children reach milestones across a wide <span class="sci-squig">range of ages.</span>',
  "For some skills, children reach them within a few months of one another. For others, the range spans well over a year, and it tends to widen as children grow.",
  DISP+'<p class="sci-quote" style="font-size:clamp(21px,3vw,30px)">An expected age is <span class="mk">a reference point, not a deadline.</span></p>', "#F7567C", "sci26-blue", 1060)
 
-p2_four = sec("Four · Windows", "A learning window isn’t a countdown.",
+p2_four = sec("Four · Windows", 'A learning window <span class="sci-squig">isn’t a countdown.</span>',
  "The chart shows when reports of these skills become more common in our data. These age ranges describe a pattern, not a deadline for an individual child.",
  WIN, "#087BF3", "", 1060)
 
-p2_five = sec("Five · Unpredictable", "Today’s assessment doesn’t tell your child’s whole future.",
+p2_five = sec("Five · Unpredictable", 'Today’s assessment doesn’t tell your child’s <span class="sci-squig">whole future.</span>',
  "A child’s current skill level tells us little about how quickly they’ll progress next. Where they are today and their pace of development are different things.",
  """<div class="sci26-chart" style="max-width:1000px;margin:26px auto 0"><h3 style="font-size:20px;font-weight:800;color:#081B46;margin:0 0 8px">An assessment is a photograph, not a prophecy.</h3>
 <p style="font-size:14.5px;color:#52607A;line-height:1.6;margin:0 0 12px">Each assessment captures a moment in your child’s development. Checking in again helps you see what has changed.</p>
 <div class="pg-vdesk"><svg viewBox="0 0 940 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An assessment is a photograph: one taken at 3 months says little by age 2, one taken at 2 years still says a lot three months later, so check in again every few months" font-family="Proxima Nova,Arial,sans-serif"><line x1="70" y1="150" x2="930" y2="150" stroke="#E7E2D8" stroke-width="2"/><circle cx="70" cy="150" r="3" fill="#D9D2C7"/><text x="70" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">0</text><circle cx="213" cy="150" r="3" fill="#D9D2C7"/><text x="213" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">6</text><circle cx="356" cy="150" r="3" fill="#D9D2C7"/><text x="356" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">12</text><circle cx="500" cy="150" r="3" fill="#D9D2C7"/><text x="500" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">18</text><circle cx="643" cy="150" r="3" fill="#D9D2C7"/><text x="643" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">24</text><circle cx="786" cy="150" r="3" fill="#D9D2C7"/><text x="786" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">30</text><circle cx="930" cy="150" r="3" fill="#D9D2C7"/><text x="930" y="172" text-anchor="middle" font-size="11.5" fill="#8A94A0">36</text><text x="500" y="192" text-anchor="middle" font-size="12" fill="#8A94A0">your baby’s age, months</text><defs><linearGradient id="fade1" x1="0" x2="1"><stop offset="0" stop-color="#913FA3" stop-opacity=".9"/><stop offset="1" stop-color="#913FA3" stop-opacity="0"/></linearGradient></defs><rect x="141" y="96" width="573" height="14" rx="7" fill="url(#fade1)"/><g transform="translate(141,86)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#913FA3"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#913FA3"/></g><text x="128" y="66" font-size="12.5" font-weight="800" fill="#913FA3">Assessment at 3 months</text><text x="142" y="128" font-size="11.5" fill="#52607A">at age 2, it says little about where they stand</text><rect x="643" y="96" width="72" height="14" rx="7" fill="#087BF3" opacity=".9"/><g transform="translate(643,86)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#087BF3"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#087BF3"/></g><text x="630" y="66" font-size="12.5" font-weight="800" fill="#087BF3">Assessment at 2 years</text><text x="930" y="128" text-anchor="end" font-size="11.5" fill="#52607A">3 months later, it still says a lot about where they stand</text><text x="70" y="232" font-size="13" font-weight="800" fill="#081B46">Checking in again:</text><text x="200" y="232" font-size="12.5" fill="#52607A">a new picture every few months</text><line x1="141" y1="268" x2="858" y2="268" stroke="#C9D2E0" stroke-width="2" stroke-dasharray="4 6"/><g transform="translate(141,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#1FA66E"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#1FA66E"/></g><g transform="translate(285,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#8FD6B5"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#8FD6B5"/></g><g transform="translate(428,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#8FD6B5"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#8FD6B5"/></g><g transform="translate(571,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#8FD6B5"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#8FD6B5"/></g><g transform="translate(715,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#8FD6B5"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#8FD6B5"/></g><g transform="translate(858,268)"><rect x="-13" y="-9" width="26" height="20" rx="5" fill="#8FD6B5"/><circle cx="0" cy="1.5" r="5" fill="#fff"/><rect x="-5" y="-13" width="10" height="5" rx="2" fill="#8FD6B5"/></g></svg></div><div class="pg-vmob" style="max-width:none"><svg viewBox="0 0 390 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" font-family="Proxima Nova,Arial,sans-serif" style="width:100%;height:auto;display:block"><defs><linearGradient id="fade1m" x1="0" x2="1"><stop offset="0" stop-color="#913FA3" stop-opacity=".9"/><stop offset="1" stop-color="#913FA3" stop-opacity="0"/></linearGradient></defs><text x="24" y="22" font-size="12.5" font-weight="800" fill="#913FA3">Assessment at 3 months</text><rect x="52" y="44" width="228" height="12" rx="6" fill="url(#fade1m)"/><g transform="translate(52,36)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#913FA3"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#913FA3"/></g><text x="280" y="76" text-anchor="end" font-size="11.5" fill="#52607A">at age 2, it says little about where they stand</text><text x="24" y="112" font-size="12.5" font-weight="800" fill="#087BF3">Assessment at 2 years</text><rect x="252" y="134" width="28" height="12" rx="6" fill="#087BF3" opacity=".9"/><g transform="translate(252,126)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#087BF3"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#087BF3"/></g><text x="366" y="166" text-anchor="end" font-size="11.5" fill="#52607A">3 months later, it still says a lot about where they stand</text><line x1="24" y1="190" x2="366" y2="190" stroke="#E7E2D8" stroke-width="2"/><circle cx="24" cy="190" r="3" fill="#D9D2C7"/><text x="24" y="210" text-anchor="middle" font-size="11" fill="#8A94A0">0</text><circle cx="138" cy="190" r="3" fill="#D9D2C7"/><text x="138" y="210" text-anchor="middle" font-size="11" fill="#8A94A0">12</text><circle cx="252" cy="190" r="3" fill="#D9D2C7"/><text x="252" y="210" text-anchor="middle" font-size="11" fill="#8A94A0">24</text><circle cx="366" cy="190" r="3" fill="#D9D2C7"/><text x="366" y="210" text-anchor="middle" font-size="11" fill="#8A94A0">36</text><text x="195" y="228" text-anchor="middle" font-size="11.5" fill="#8A94A0">your baby’s age, months</text><text x="24" y="268" font-size="12.5" font-weight="800" fill="#081B46">Checking in again:</text><text x="24" y="286" font-size="11.5" fill="#52607A">a new picture every few months</text><line x1="52" y1="314" x2="337" y2="314" stroke="#C9D2E0" stroke-width="2" stroke-dasharray="4 6"/><g transform="translate(52,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#1FA66E"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#1FA66E"/></g><g transform="translate(109,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#8FD6B5"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#8FD6B5"/></g><g transform="translate(166,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#8FD6B5"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#8FD6B5"/></g><g transform="translate(223,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#8FD6B5"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#8FD6B5"/></g><g transform="translate(280,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#8FD6B5"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#8FD6B5"/></g><g transform="translate(337,314)"><rect x="-11" y="-8" width="22" height="17" rx="4" fill="#8FD6B5"/><circle cx="0" cy="1" r="4" fill="#fff"/><rect x="-4" y="-11" width="8" height="4" rx="1.5" fill="#8FD6B5"/></g></svg></div></div>
 """+"<p class=\"sci26-note\" style=\"margin-top:18px\">In this analysis, current skill level explained about 1.5% of the variation in subsequent developmental pace.</p>", "#913FA3", "sci26-mint", 1060)
 
-p2_closer = '<section class="sci26" style="padding:40px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><a href="'+ASSESS+'" class="sci-btn sci-btn-primary sci-btn-xl">See where your baby is today <span class="arr" aria-hidden="true">→</span></a><p class="sci-btn-note">About five minutes. Free, no app needed.</p></div></section>'
+p2_closer = '<section class="sci26 sci26-plain" style="padding:40px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><a href="'+ASSESS+'" class="sci-btn sci-btn-primary sci-btn-xl">See where your baby is today <span class="arr" aria-hidden="true">→</span></a><p class="sci-btn-note">About five minutes. Free, no app needed.</p></div></section>'
 
 p2_honest = honest(cannot=CANNOT[:2]+[("Read the room for you.","About 11% of a reading is how the caregiver answers, not the child. We correct for it, and we would rather tell you than not.")])
 
@@ -577,11 +578,11 @@ FOUR=[("#play","One","Play","Follow their curiosity. Join the back-and-forth.","
       ("#relationships","Two","Relationships","Warmth, connection, and clear limits.","heart","#F7567C","#FBE3ED"),
       ("#stress","Three","Stress","Help them through difficult moments.","shield","#E8A33D","#FDEBD8"),
       ("#predictability","Four","Predictability","Build routines they can recognize.","clock","#913FA3","#F1E7F3")]
-p3_open = sec("Where this comes from", "Everyday moments give you ways to help.",
+p3_open = sec("Where this comes from", 'Everyday moments give you <span class="sci-squig">ways to help.</span>',
  "Kinedu’s data help us understand how children’s skills develop. The ideas on this page come from broader research on parenting and child development. They focus on four parts of everyday life:",
  '<div class="sci-four">'+"".join('<a href="%s" style="--c:%s;--bg:%s"><span class="ic">%s</span><span class="k">%s</span><b>%s</b><small>%s</small></a>'%(h,c,bg,ICO[ic],k,t,sub) for h,k,t,sub,ic,c,bg in FOUR)+'</div>', "#087BF3", "", 960, "padding-top:60px")
 
-p3_play = sec("One · Play", "Play starts with the back-and-forth between you.",
+p3_play = sec("One · Play", 'Play starts with the back-and-forth <span class="sci-squig">between you.</span>',
  "Your baby makes a sound. You respond. They respond again. Researchers call these back-and-forth exchanges “serve and return.” Your face, voice, and attention are part of the interaction.",
  """<div class="sci-rally">
 <div class="st baby"><span class="who">Your baby</span><b>coos</b></div><span class="arr">→</span>
@@ -604,7 +605,7 @@ p3_play = sec("One · Play", "Play starts with the back-and-forth between you.",
  +app_slot("Daily activity ideas", "Short videos that show you how to try activities with your baby.", TRY, "Try it free"), "#2EA84F", "sci26-mint", 1040)
 p3_play = p3_play.replace('<section class="sci26', '<section id="play" class="sci26', 1)
 
-p3_rel = sec("Two · Relationships", "Warmth and clear limits can go together.",
+p3_rel = sec("Two · Relationships", 'Warmth and clear limits <span class="sci-squig">can go together.</span>',
  "You can respond to your child’s feelings while keeping a clear limit. The goal is to offer support and expectations that fit their age.",
  pts([("You can say no with care.","Your child can feel upset about a limit and still receive your comfort and support."),
       ("Keep the limit. Stay connected.","Acknowledge the feeling and explain the boundary in simple words."),
@@ -613,7 +614,7 @@ p3_rel = sec("Two · Relationships", "Warmth and clear limits can go together.",
  +app_slot("Live classes and the Positive Education masterclass", "Learn ways to set limits with care and respond to tantrums, with guidance from child psychologists.", "/live-classes", "See live classes"), "#F7567C", "", 1040)
 p3_rel = p3_rel.replace('<section class="sci26', '<section id="relationships" class="sci26', 1)
 
-p3_stress = sec("Three · Stress", "Not all stress is the same.",
+p3_stress = sec("Three · Stress", 'Not all stress is <span class="sci-squig">the same.</span>',
  "Harvard’s Center on the Developing Child describes three types of stress response: positive, tolerable, and toxic. The intensity, duration, and support available to a child matter.",
  """<div class="sci-stress">
 <div class="c" style="background:#E4F6E7"><b>Positive</b><p>A brief challenge, with support from a caring adult, followed by a return to calm.</p></div>
@@ -635,7 +636,7 @@ def day_html():
     items="".join('<div class="d"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg></span><b>%s</b></div>'%(DAY_ICO[k],t) for k,t in DAY)
     return '<div class="sci-day">'+items+'<div class="d again"><span class="i">↻</span><b>A familiar rhythm, day after day</b></div></div>'
 
-p3_pred = sec("Four · Predictability", "Familiar routines help your child know what comes next.",
+p3_pred = sec("Four · Predictability", 'Familiar routines help your child know <span class="sci-squig">what comes next.</span>',
  "When our team asked Phil Fisher, of the Stanford Center on Early Childhood, what advice he would give parents, he emphasized predictability: familiar routines children can count on.",
  line("Familiar patterns around meals, play, and bedtime can make the day easier to recognize. A routine can be simple and still leave room to adapt.")
  +day_html()
@@ -643,7 +644,7 @@ p3_pred = sec("Four · Predictability", "Familiar routines help your child know 
  +app_slot("Baby Tracker and the Sleep Habits masterclass", "Keep track of feeds, naps, and diaper changes in one place. Explore bedtime routines in the Sleep Habits masterclass.", "/masterclasses", "See masterclasses"), "#913FA3", "sci26-mint", 1040)
 p3_pred = p3_pred.replace('<section class="sci26', '<section id="predictability" class="sci26', 1)
 
-p3_closer = '<section class="sci26" style="padding:44px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><p class="sci-mantra" style="margin:0">Connect. Guide. Protect. Repeat.</p><p class="sci-line" style="margin-top:18px">Find ideas for putting these principles into practice with your child.</p><p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">'+cta("Explore Kinedu", TRY)+cta("Take the free assessment", ASSESS, False)+'</p></div></section>'
+p3_closer = '<section class="sci26 sci26-plain" style="padding:44px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><p class="sci-mantra" style="margin:0">Connect. Guide. Protect. Repeat.</p><p class="sci-line" style="margin-top:18px">Find ideas for putting these principles into practice with your child.</p><p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">'+cta("Explore Kinedu", TRY)+cta("Take the free assessment", ASSESS, False)+'</p></div></section>'
 
 page3 = page("/science-what-you-can-do", "So What Can You Do? Four Things in Your Hands | Kinedu",
  "Play, relationships, stress and predictability: the four things the evidence keeps pointing to, and what a parent can actually do with them.",
