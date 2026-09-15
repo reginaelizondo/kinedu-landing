@@ -4,21 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, follow">
-<title>Página no encontrada — Kinedu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<title>Page not found | Kinedu</title>
 <link rel="icon" href="/favicon.png" type="image/png">
 <style>
   :root { --ink:#1a1a2e; --muted:#6b7280; --blue:#2b8be4; --blue-dark:#1f6fc0; --green:#22c55e; --line:#e5e7eb; --bg:#f8fafc; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Inter',system-ui,sans-serif; background:linear-gradient(160deg,#eef4fb 0%,#f6f9fc 60%,#eefaf2 100%); color:var(--ink); min-height:100vh; display:flex; flex-direction:column; align-items:center; }
-  .nav { width:100%; max-width:1080px; padding:26px 24px; }
-  .nav img { height:34px; }
-  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; max-width:640px; }
-  .code { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(84px,18vw,140px); font-weight:800; letter-spacing:-.04em; line-height:1;
+  body { font-family:'Proxima Nova','Inter',system-ui,sans-serif; background:linear-gradient(160deg,#eef4fb 0%,#f6f9fc 60%,#eefaf2 100%); color:var(--ink); min-height:100vh; display:flex; flex-direction:column; align-items:center; }
+  main { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:150px 24px 40px; max-width:640px; }
+  @media (max-width:768px) { main { padding-top:120px; } }
+  .code { font-family:'Proxima Nova',sans-serif; font-size:clamp(84px,18vw,140px); font-weight:800; letter-spacing:-.04em; line-height:1;
     background:linear-gradient(90deg,var(--blue),var(--green)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(22px,4.5vw,30px); font-weight:800; letter-spacing:-.02em; margin:10px 0 10px; }
+  h1 { font-family:'Proxima Nova',sans-serif; font-size:clamp(22px,4.5vw,30px); font-weight:800; letter-spacing:-.02em; margin:10px 0 10px; }
   p.sub { color:var(--muted); font-size:16px; line-height:1.6; margin-bottom:28px; }
   form { display:flex; gap:8px; width:100%; max-width:460px; background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:6px 6px 6px 18px; box-shadow:0 8px 28px rgba(26,26,46,.06); }
   form:focus-within { border-color:var(--blue); }
@@ -33,13 +29,58 @@
   footer a { color:var(--blue); text-decoration:none; }
 </style>
 <link rel="stylesheet" href="/nav-shared.css?v=0848a">
+<script src="/translations.js?v=0850a" defer></script>
+<script src="/script.js?v=0850a" defer></script>
 </head>
 <body>
-  <div class="nav"><a href="/" id="homeLink"><img src="/logo%20kinedu.png" alt="Kinedu"></a></div>
+<nav class="navbar" id="navbar">
+        <div class="nav-pill">
+            <a href="/" class="nav-logo" id="homeLink"><img src="logo kinedu.png" alt="Kinedu" class="nav-logo-img"></a>
+            <div class="nav-links" id="navLinks">
+                <div class="nav-dropdown" id="classesDropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.classes">Classes</span><svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu" role="menu"><a href="/masterclasses" class="nd-item" role="menuitem"><span data-i18n="nav.masterclasses">Masterclasses</span></a><a href="/live-classes" class="nd-item" role="menuitem"><span data-i18n="nav.liveClasses">Live Classes</span></a></div></div>
+                <a href="/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
+                <a href="/gift" data-i18n="nav.gift" data-i18n-href="nav.giftUrl">Gift</a>
+                <div class="nav-dropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.science">Science</span><svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu" role="menu"><a href="/science" class="nd-item" role="menuitem"><span>How Kinedu was built</span></a><a href="/science-what-we-know" class="nd-item" role="menuitem"><span>How babies grow</span></a><a href="/science-what-you-can-do" class="nd-item" role="menuitem"><span>What you can do as a parent</span></a></div></div>
+                <a href="/book" data-i18n="nav.book" data-i18n-href="nav.bookUrl">Book</a>
+                <div class="nav-dropdown" id="teamDropdown">
+                    <button class="nav-dropdown-toggle" id="teamToggle" aria-expanded="false" aria-haspopup="true">
+                        <span data-i18n="nav.team">Team</span>
+                        <svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/founder" class="nd-item" role="menuitem"><span data-i18n="nav.founder">Founder</span></a>
+                        <a href="/experts" class="nd-item" role="menuitem"><span data-i18n="nav.experts">Experts</span></a>
+                    </div>
+                </div>
+
+                <a href="https://www.kinedu.com/assessment" class="mobile-only" data-i18n="nav.assessment">How's my baby?</a>
+                <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta mobile-only" data-i18n="nav.tryFree">Try free</a>
+                <div class="lang-toggle lang-toggle--mobile">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="pt">PT</button>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="pt">PT</button>
+                </div>
+                <a href="https://www.kinedu.com/assessment" class="nav-schools" data-i18n="nav.assessment">How's my baby?</a>
+                <a href="https://webpromo.kinedu.com/p/landing-kinedu" class="nav-cta" data-i18n="nav.tryFree">Try free</a>
+            </div>
+            <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
   <main>
     <div class="code">404</div>
     <h1 id="t-head">This page doesn't exist</h1>
-    <p class="sub" id="t-sub">The link may be old or have a typo — but we have 3,000+ articles on your baby's development. Try searching:</p>
+    <p class="sub" id="t-sub">The link may be old or have a typo. But we have 3,000+ articles on your baby's development. Try searching:</p>
     <form id="searchForm" action="/blog" method="get">
       <input type="text" name="q" id="q" placeholder="e.g. baby sleep, tummy time…" autocomplete="off">
       <button type="submit" id="t-btn">Search</button>
@@ -90,9 +131,9 @@
 <script>
 (function(){
   var I18N = {
-    en: { title:'Page not found — Kinedu', head:"This page doesn't exist", sub:"The link may be old or have a typo — but we have 3,000+ articles on your baby's development. Try searching:", btn:'Search', ph:'e.g. baby sleep, tummy time…', foot:'Think this is our mistake?', blogBase:'/blog', links:[['/', 'Home'],['/blog','Blog'],['/blog/category/sleep','Baby sleep'],['/blog/category/breastfeeding','Breastfeeding'],['https://webpromo.kinedu.com/p/landing-kinedu','Try Kinedu free','cta']] },
-    es: { title:'Página no encontrada — Kinedu', head:'Esta página no existe', sub:'Puede que el link sea viejo o tenga un error — pero tenemos más de 3,000 artículos sobre el desarrollo de tu bebé. Busca aquí:', btn:'Buscar', ph:'ej. sueño del bebé, tiempo boca abajo…', foot:'¿Crees que es un error nuestro?', blogBase:'/es/blog', links:[['/es','Inicio'],['/es/blog','Blog'],['/es/blog/category/hora-de-dormir','Sueño del bebé'],['/es/blog/category/leche-materna','Lactancia'],['https://webpromo.kinedu.com/p/landing-kinedu','Prueba Kinedu gratis','cta']] },
-    pt: { title:'Página não encontrada — Kinedu', head:'Esta página não existe', sub:'O link pode ser antigo ou ter um erro — mas temos mais de 3.000 artigos sobre o desenvolvimento do seu bebê. Pesquise aqui:', btn:'Pesquisar', ph:'ex. sono do bebê, hora da barriguinha…', foot:'Acha que o erro é nosso?', blogBase:'/pt/blog', links:[['/pt','Início'],['/pt/blog','Blog'],['/pt/blog/category/sono','Sono do bebê'],['/pt/blog/category/amamentacao','Amamentação'],['https://webpromo.kinedu.com/p/landing-kinedu','Experimente grátis','cta']] }
+    en: { title:'Page not found | Kinedu', head:"This page doesn't exist", sub:"The link may be old or have a typo. But we have 3,000+ articles on your baby's development. Try searching:", btn:'Search', ph:'e.g. baby sleep, tummy time…', foot:'Think this is our mistake?', blogBase:'/blog', links:[['/', 'Home'],['/blog','Blog'],['/blog/category/sleep','Baby sleep'],['/blog/category/breastfeeding','Breastfeeding'],['https://webpromo.kinedu.com/p/landing-kinedu','Try Kinedu free','cta']] },
+    es: { title:'Página no encontrada | Kinedu', head:'Esta página no existe', sub:'Puede que el link sea viejo o tenga un error. Pero tenemos más de 3,000 artículos sobre el desarrollo de tu bebé. Busca aquí:', btn:'Buscar', ph:'ej. sueño del bebé, tiempo boca abajo…', foot:'¿Crees que es un error nuestro?', blogBase:'/es/blog', links:[['/es','Inicio'],['/es/blog','Blog'],['/es/blog/category/hora-de-dormir','Sueño del bebé'],['/es/blog/category/leche-materna','Lactancia'],['https://webpromo.kinedu.com/p/landing-kinedu','Prueba Kinedu gratis','cta']] },
+    pt: { title:'Página não encontrada | Kinedu', head:'Esta página não existe', sub:'O link pode ser antigo ou ter um erro. Mas temos mais de 3.000 artigos sobre o desenvolvimento do seu bebê. Pesquise aqui:', btn:'Pesquisar', ph:'ex. sono do bebê, hora da barriguinha…', foot:'Acha que o erro é nosso?', blogBase:'/pt/blog', links:[['/pt','Início'],['/pt/blog','Blog'],['/pt/blog/category/sono','Sono do bebê'],['/pt/blog/category/amamentacao','Amamentação'],['https://webpromo.kinedu.com/p/landing-kinedu','Experimente grátis','cta']] }
   };
   var path = location.pathname;
   var lang = 'en';

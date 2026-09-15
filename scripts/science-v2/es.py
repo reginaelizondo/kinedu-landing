@@ -103,7 +103,6 @@ T = {
 "In about five minutes, answer questions about everyday behaviors and get a clearer picture of your baby’s developing skills.": "En unos cinco minutos, contesta preguntas sobre conductas de todos los días y obtén una imagen más clara de las habilidades que tu bebé está desarrollando.",
 "The science, in three parts": "La ciencia, en tres partes",
 "How Kinedu was built": "Cómo nació Kinedu",
-"The book": "El libro",
 "How babies grow": "Cómo crecen los bebés",
 "What you can do as a parent": "Lo que puedes hacer como papá",
 "Next: How babies grow →": "Siguiente: Cómo crecen los bebés →",

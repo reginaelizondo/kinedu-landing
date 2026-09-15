@@ -169,9 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isBlogArticle = path.startsWith('/blog/') ||
                                       path.startsWith('/es/blog/') ||
                                       path.startsWith('/pt/blog/');
-                const isBlogIndex = path === '/articles.html' || path === '/articles' ||
-                                    path === '/es/articles.html' || path === '/es/articles' ||
-                                    path === '/pt/articles.html' || path === '/pt/articles';
+                const isBlogIndex = /^\/(?:es\/|pt\/)?(?:blog|articles)(?:\.html)?\/?$/.test(path);
 
                 const sciM = path.match(/^\/(?:es\/|pt\/)?science(-what-we-know|-what-you-can-do)?(?:\.html)?$/);
                 if (sciM) {
@@ -193,11 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isBlogArticle || isBlogIndex) {
                     localStorage.setItem(STORAGE_KEY, lang);
                     if (lang === 'es') {
-                        window.location.href = '/es/articles';
+                        window.location.href = '/es/blog';
                     } else if (lang === 'pt') {
-                        window.location.href = '/pt/articles';
+                        window.location.href = '/pt/blog';
                     } else {
-                        window.location.href = '/articles.html';
+                        window.location.href = '/blog';
                     }
                     return;
                 }

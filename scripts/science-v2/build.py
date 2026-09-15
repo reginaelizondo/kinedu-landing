@@ -17,7 +17,7 @@ FOOTER=block(1393,1431)
 FOOTER=FOOTER.replace('<a href="/science" data-i18n="footer.theScience">The science</a>', '<a href="/science" data-i18n="footer.theScience">The science</a>\n                    <a href="/gift" data-i18n="footer.gift" data-i18n-href="footer.giftUrl">Gift Kinedu</a>',1)
 assert 'footer.gift' in FOOTER
 FOOTER=re.sub(r'(<a[^>]*aria-label="[^"]*"[^>]*>\s*<svg)(?![^>]*aria-hidden)', r'\1 aria-hidden="true"', FOOTER)
-TAIL=block(1433,1475).replace("?v=0843a","?v=0844a")   # translations/script + track (sin el script de paneles ni el reveal muerto)
+TAIL=block(1433,1475).replace("?v=0843a","?v=0850a")   # translations/script + track (sin el script de paneles ni el reveal muerto)
 TAIL=TAIL.replace('a[href*="app.kinedu.com"]', 'a[href*="app.kinedu.com"], a[href*="webpromo.kinedu.com"], a[href*="/assessment"]')
 TAIL=re.sub(r"\s*<script>\s*\(function\(\)\{\s*var sel='\.science-section-header.*?</script>", "", TAIL, flags=re.S)
 assert "science-section-header" not in TAIL and 'webpromo.kinedu.com"]' in TAIL
@@ -86,8 +86,9 @@ NAV_ITEMS=[("/science","How Kinedu was built"),("/science-what-we-know","How bab
 def nav(active):
     n=NAV
     items="".join('<a href="%s" class="nd-item%s" role="menuitem"><span>%s</span></a>'%(p," is-active" if p==active else "",t) for p,t in NAV_ITEMS)
-    items+='<a href="/book" class="nd-item" role="menuitem"><span>The book</span></a>'  # el libro de Luis (scripts/book/build.py)
     n=re.sub(r'<a href="/science" class="nd-item" role="menuitem"><span>[^<]*</span></a>\s*<a href="/science#assessment" class="nd-item" role="menuitem"><span>[^<]*</span></a>', items, n)
+    n=re.sub(r'(<div class="nav-dropdown"><button class="nav-dropdown-toggle active".*?data-i18n="nav.science".*?</div></div>)', lambda m: m.group(1)+'\n                <a href="/book" data-i18n="nav.book" data-i18n-href="nav.bookUrl">Book</a>', n, count=1, flags=re.S)  # el libro de Luis (scripts/book/build.py)
+    assert 'data-i18n="nav.book"' in n
     classes=('<div class="nav-dropdown" id="classesDropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.classes">Classes</span>'
              '<svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
              '<div class="nav-dropdown-menu" role="menu"><a href="/masterclasses" class="nd-item" role="menuitem"><span data-i18n="nav.masterclasses">Masterclasses</span></a>'

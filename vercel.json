@@ -118,20 +118,12 @@
       "destination": "/experts.html"
     },
     {
-      "source": "/es/articles",
-      "destination": "/es/articles.html"
-    },
-    {
       "source": "/es/articles.html",
       "destination": "/es/articles.html"
     },
     {
       "source": "/es/blog/:slug",
       "destination": "/es/blog/:slug.html"
-    },
-    {
-      "source": "/pt/articles",
-      "destination": "/pt/articles.html"
     },
     {
       "source": "/pt/articles.html",
@@ -2890,6 +2882,36 @@
     {
       "source": "/pt/masterclasses.html",
       "destination": "/pt/masterclasses",
+      "permanent": true
+    },
+    {
+      "source": "/articles",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/articles.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/articles",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/es/articles.html",
+      "destination": "/es/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/articles",
+      "destination": "/pt/blog",
+      "permanent": true
+    },
+    {
+      "source": "/pt/articles.html",
+      "destination": "/pt/blog",
       "permanent": true
     },
     {
