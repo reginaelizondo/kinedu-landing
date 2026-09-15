@@ -1,10 +1,7 @@
-/* Nav estándar de kinedu.com extraído de styles.css (para páginas con CSS propio como /gift) */
-/* ===== Kinedu Brand 2026: Proxima Nova (webfonts propios, media.kinedu.com) ===== */
-@font-face{ font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2'); font-weight:100 500; font-style:normal; font-display:swap; }
-@font-face{ font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-bold-webfont.woff2') format('woff2'); font-weight:600 900; font-style:normal; font-display:swap; }
-:root{
-    /* ====== LIGHT WARM PALETTE ====== */
-    --bg-primary: #FBFAF8;
+/* Nav + footer estándar de kinedu.com, extraídos de styles.css (para páginas con CSS propio como /gift y 404) */
+@font-face{font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2'); font-weight:100 500; font-style:normal; font-display:swap;}
+@font-face{font-family:'Proxima Nova'; src:url('/fonts/proxima-nova/proximanova-bold-webfont.woff2') format('woff2'); font-weight:600 900; font-style:normal; font-display:swap;}
+:root{--bg-primary: #FBFAF8;
     --bg-secondary: #F5F4F0;
     --bg-warm: #FBFAF8;
     --bg-cream: #FBFAF8;
@@ -18,13 +15,13 @@
     --bg-card-hover: #FBFAF6;
     --bg-glass: rgba(255,253,250,0.82);
 
-    /* ====== KINEDU BRAND COLORS ====== */
+    
     --kinedu-blue: #2B8BE4;
     --kinedu-green: #4CD964;
     --kinedu-orange: #FFC033;
     --kinedu-pink: #E84D8A;
 
-    /* Extended palette */
+    
     --accent-blue: #2B8BE4;
     --accent-blue-light: #5AABF5;
     --accent-green: #4CD964;
@@ -40,28 +37,28 @@
     --accent-yellow: #FFE566;
     --accent-coral: #FF7B6B;
 
-    /* Text hierarchy */
+    
     --text-primary: #1A1D2E;
     --text-secondary: #4A5068;
-    --text-tertiary: #66708A; /* antes #8B93A7 (2.9:1); ≥4.5:1 sobre greige */
+    --text-tertiary: #66708A; 
     --text-dim: #C4CAD8;
 
-    /* Borders */
+    
     --border: rgba(0,0,0,0.06);
     --border-hover: rgba(0,0,0,0.12);
     --border-colored: rgba(43,139,228,0.12);
 
-    /* Spacing */
+    
     --section-pad: 80px;
 
-    /* Radius — extra rounded = friendly */
+    
     --r-sm: 12px;
     --r-md: 18px;
     --r-lg: 24px;
     --r-xl: 32px;
     --r-full: 100px;
 
-    /* Shadows — soft & warm */
+    
     --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
     --shadow-md: 0 6px 20px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
@@ -70,28 +67,17 @@
     --shadow-glow-blue: 0 8px 32px rgba(43,139,228,0.18);
     --shadow-glow-green: 0 8px 32px rgba(76,217,100,0.14);
     --shadow-glow-pink: 0 8px 32px rgba(232,77,138,0.14);
-    --shadow-glow-orange: 0 8px 32px rgba(255,192,51,0.18);
-}
-/* =========================================
-   NAVBAR — Floating pill (warm light)
-   ========================================= */
-.navbar{
-    position: fixed;
+    --shadow-glow-orange: 0 8px 32px rgba(255,192,51,0.18);}
+.navbar{position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10000;
     padding: 20px 32px;
     transition: padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-}
-/* Prevent the sticky navbar from covering anchor targets when jumping to #faq, #pricing, etc. */
-section[id], div[id]{ scroll-margin-top: 96px; }
-.navbar.scrolled{
-    padding: 8px 32px;
-}
-.nav-pill{
-    max-width: 1140px;
+    pointer-events: none;}
+.navbar.scrolled{padding: 8px 32px;}
+.nav-pill{max-width: 1140px;
     margin: 0 auto;
     padding: 0 12px 0 28px;
     display: flex;
@@ -105,76 +91,52 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     border-radius: var(--r-full);
     pointer-events: all;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-}
-.navbar.scrolled .nav-pill{
-    height: 52px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);}
+.navbar.scrolled .nav-pill{height: 52px;
     background: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.08);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
-    /* mantener el ancho completo: con 8 items, encoger a 900px partía
-       "Live Classes" en dos renglones */
-    max-width: 1100px;
-}
-.nav-logo{
-    display: flex;
+    
+    max-width: 1100px;}
+.nav-logo{display: flex;
     align-items: center;
     z-index: 10;
     flex-shrink: 0;
-    text-decoration: none;
-}
-.nav-logo-img{
-    height: 30px;
+    text-decoration: none;}
+.nav-logo-img{height: 30px;
     width: auto;
-    display: block;
-}
-.mobile-only{
-    display: none !important;
-}
-.nav-links{
-    display: flex;
+    display: block;}
+.mobile-only{display: none !important;}
+.nav-links{display: flex;
     gap: 2px;
     align-items: center;
-    position: relative;
-}
-.nav-links a{
-    white-space: nowrap;
-    /* mismo look que el nav de masterclasses: bold + tinta (antes gris 500) */
+    position: relative;}
+.nav-links a{white-space: nowrap;
+    
     font-size: 0.86rem;
     font-weight: 700;
     color: var(--text-primary);
     transition: color 0.3s ease, background 0.3s ease;
     position: relative;
     padding: 6px 8px;
-    border-radius: var(--r-full);
-}
-.nav-links a:hover{
-    color: var(--text-primary);
-}
-.nav-links a.active{
-    color: var(--kinedu-blue);
+    border-radius: var(--r-full);}
+.nav-links a:hover{color: var(--text-primary);}
+.nav-links a.active{color: var(--kinedu-blue);
     background: rgba(43, 139, 228, 0.08);
-    font-weight: 600;
-}
-.nav-actions{
-    display: flex;
+    font-weight: 600;}
+.nav-actions{display: flex;
     align-items: center;
     gap: 6px;
-    flex-shrink: 0;
-}
-/* Language Toggle */
-.lang-toggle{
-    display: flex;
+    flex-shrink: 0;}
+.lang-toggle{display: flex;
     align-items: center;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--r-full);
     padding: 2px;
     gap: 0;
-    flex-shrink: 0;
-}
-.lang-btn{
-    padding: 9px 13px;
+    flex-shrink: 0;}
+.lang-btn{padding: 9px 13px;
     font-size: 0.72rem;
     font-weight: 600;
     font-family: 'Proxima Nova', 'Inter', sans-serif;
@@ -185,36 +147,32 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     border-radius: var(--r-full);
     cursor: pointer;
     transition: all 0.25s ease;
-    line-height: 1;
-}
-.lang-btn:hover{
-    color: var(--text-primary);
-}
-.lang-btn.active{
-    background: white;
+    line-height: 1;}
+.lang-btn:hover{color: var(--text-primary);}
+.lang-btn.active{background: white;
     color: var(--kinedu-blue);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-.lang-toggle--mobile{
-    display: none;
-}
-.nav-cta{
-    padding: 10px 20px;
-    background: #1873D3; /* 4.8:1 con texto blanco (antes #2B8BE4 = 3.1:1) */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);}
+.lang-toggle--mobile{display: none;}
+.nav-cta{padding: 10px 20px;
+    background: #1873D3; 
     color: white;
     border-radius: var(--r-full);
     font-size: 0.85rem;
     font-weight: 600;
     transition: all 0.25s ease;
-    border: none;
-}
-.nav-cta:hover{
-    background: #0F63BF;
+    border: none;}
+.nav-cta:hover{background: #0F63BF;
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(43,139,228,0.25);
-}
-.nav-hamburger{
-    display: none;
+    box-shadow: 0 4px 16px rgba(43,139,228,0.25);}
+.nav-schools{padding: 10px 22px;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--r-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;}
+.nav-schools:hover{color: var(--kinedu-blue);}
+.nav-hamburger{display: none;
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -223,71 +181,94 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     padding: 8px;
     z-index: 10;
     border-radius: 50%;
-    transition: background 0.2s;
-}
-.nav-hamburger:hover{
-    background: rgba(0, 0, 0, 0.04);
-}
-.nav-hamburger span{
-    width: 18px;
+    transition: background 0.2s;}
+.nav-hamburger:hover{background: rgba(0, 0, 0, 0.04);}
+.nav-hamburger span{width: 18px;
     height: 1.5px;
     background: var(--text-secondary);
     border-radius: 2px;
-    transition: all 0.3s ease;
-}
-/* Hamburger → X animation */
-.nav-hamburger.active span:nth-child(1){
-    transform: translateY(6.5px) rotate(45deg);
-}
-.nav-hamburger.active span:nth-child(2){
-    opacity: 0;
-}
-.nav-hamburger.active span:nth-child(3){
-    transform: translateY(-6.5px) rotate(-45deg);
+    transition: all 0.3s ease;}
+.nav-hamburger.active span:nth-child(1){transform: translateY(6.5px) rotate(45deg);}
+.nav-hamburger.active span:nth-child(2){opacity: 0;}
+.nav-hamburger.active span:nth-child(3){transform: translateY(-6.5px) rotate(-45deg);}
+.footer{background: #2B8BE4;
+    border-top: none;
+    padding: 48px 0 28px;}
+.footer-wrap{max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;}
+.footer-grid{display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;}
+.footer-logo{display: block;
+    margin-bottom: 12px;}
+.footer-logo-img{height: 32px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);}
+.footer-brand p{font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    max-width: 280px;
+    margin-bottom: 20px;}
+.footer-social{display: flex;
+    gap: 10px;}
+.footer-social a{width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s;}
+.footer-social a:hover{background: white;
+    border-color: white;
+    color: #2B8BE4;
+    transform: translateY(-3px);}
+.footer-col h3, .footer-col h4{color: white;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    font-weight: 700;}
+.footer-col a{display: block;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    padding: 5px 0;
+    transition: color 0.2s;}
+.footer-col a:hover{color: white;}
+.footer-bottom{padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;}
+.footer-bottom p{font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);}
+@media (max-width: 1024px){
+.nav-schools{display: none;}
+.footer-grid{grid-template-columns: 1fr 1fr;
+        gap: 32px;}
 }
 @media (max-width: 1024px){
-    /* Nav colapsa al hamburguesa desde 1024px: el nav completo (ES/PT)
-       no cabe abajo de ~1024. Se muestra el bubble menu con Gift dentro. */
-    .nav-pill {
-        position: relative;
+.nav-pill{position: relative;
         padding: 0 20px;
         height: 52px;
         justify-content: center;
-        /* móvil: el navbar es fixed, así que un blur de 28px repinta en cada
-           frame de scroll y traba la página. Blur ligero + fondo más opaco. */
+        
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
-
-    .nav-hamburger {
-        position: absolute;
-        right: 12px;
-    }
-
-
-    .nav-links, .nav-actions { display: none; }
-
-    .nav-hamburger { display: flex; }
-
-
-    /* --- Menú "bubble" (clon del nav de Masterclasses) ---
-       La píldora se queda visible (logo · Try free · ☰/✕) y el menú cae DEBAJO
-       como tarjeta redondeada. Antes era un cajón lateral fijo. --- */
-    .nav-pill { justify-content: space-between; padding: 0 8px 0 16px; overflow: visible; }
-
-    .nav-actions { display: flex !important; align-items: center; gap: 6px; margin-left: auto; }
-
-    .nav-actions .lang-toggle, .nav-actions .nav-schools { display: none !important; }
-
-    .nav-actions .nav-cta { padding: 7px 12px; font-size: 0.78rem; white-space: nowrap; }
-
-    .nav-hamburger { position: static; right: auto; margin-left: 2px; }
-
-
-    .nav-links {
-        position: absolute;
+        -webkit-backdrop-filter: blur(10px);}
+.nav-hamburger{position: absolute;
+        right: 12px;}
+.nav-links, .nav-actions{display: none;}
+.nav-hamburger{display: flex;}
+.nav-pill{justify-content: space-between; padding: 0 8px 0 16px; overflow: visible;}
+.nav-actions{display: flex !important; align-items: center; gap: 6px; margin-left: auto;}
+.nav-actions .lang-toggle, .nav-actions .nav-schools{display: none !important;}
+.nav-actions .nav-cta{padding: 7px 12px; font-size: 0.78rem; white-space: nowrap;}
+.nav-hamburger{position: static; right: auto; margin-left: 2px;}
+.nav-menu-backdrop{display: none; position: fixed; inset: 0; background: transparent; z-index: 9998;}
+.nav-menu-backdrop.visible{display: block;}
+.nav-links{position: absolute;
         top: calc(100% + 8px);
         left: 0;
         right: 0;
@@ -307,20 +288,12 @@ section[id], div[id]{ scroll-margin-top: 96px; }
         transform: translateY(-6px);
         transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
         max-height: calc(100dvh - 96px);
-        overflow-y: auto;
-    }
-
-
-    .nav-links.active {
-        opacity: 1;
+        overflow-y: auto;}
+.nav-links.active{opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        transform: none;
-    }
-
-
-    .nav-links a {
-        font-family: 'Proxima Nova', 'Plus Jakarta Sans', sans-serif;
+        transform: none;}
+.nav-links a{font-family: 'Proxima Nova', 'Plus Jakarta Sans', sans-serif;
         font-size: 15px;
         font-weight: 700;
         color: var(--text-primary);
@@ -332,57 +305,53 @@ section[id], div[id]{ scroll-margin-top: 96px; }
         touch-action: manipulation;
         cursor: pointer;
         pointer-events: auto;
-        -webkit-tap-highlight-color: rgba(43, 139, 228, 0.1);
-    }
-
-
-    .nav-links a:hover,
-    .nav-links a:active { background: #F5F4F0; }
-
-
-    .nav-links a.active { color: var(--kinedu-blue); background: #F5F4F0; }
-
-
-    .nav-links .mobile-only { display: block !important; }
-
-
-    /* "Try free" ya vive en la píldora (como en Masterclasses): no se duplica */
-    .nav-links .nav-cta.mobile-only { display: none !important; }
-
-
-    /* Link plano generado por script.js para un desplegable con página propia
-       (Science). El desplegable original se esconde en móvil. */
-    .nav-links .nav-flat { display: block !important; }
-
-    .nav-links .nav-dropdown.nav-dd--collapse { display: none !important; }
-
-
-    .lang-toggle--mobile {
-        display: flex;
+        -webkit-tap-highlight-color: rgba(43, 139, 228, 0.1);}
+.nav-links a:hover,
+    .nav-links a:active{background: #F5F4F0;}
+.nav-links a.active{color: var(--kinedu-blue); background: #F5F4F0;}
+.nav-links .mobile-only{display: block !important;}
+.nav-links .nav-cta.mobile-only{display: none !important;}
+.nav-links .nav-flat{display: block !important;}
+.nav-links .nav-dropdown.nav-dd--collapse{display: none !important;}
+.lang-toggle--mobile{display: flex;
         margin-top: 6px;
         padding: 12px 16px 6px;
         border-top: 1px solid #F0EDE7;
-        justify-content: flex-start;
-    }}
+        justify-content: flex-start;}
+}
+@media (max-width: 1200px){
+.nav-schools{display: none !important;}
+}
 @media (max-width: 768px){
-    :root {
-        --section-pad: 48px;
-    }}
+:root{--section-pad: 48px;}
+.footer{padding: 36px 0 20px;}
+.footer-grid{grid-template-columns: 1fr 1fr;
+        gap: 24px;}
+.footer-brand{grid-column: 1 / -1;}
+.footer-brand p{max-width: 100%;
+        font-size: 0.82rem;}
+.footer-col h3, .footer-col h4{font-size: 0.8rem;
+        margin-bottom: 12px;}
+.footer-col a{font-size: 0.78rem;
+        padding: 4px 0;}
+.footer-bottom{padding-top: 20px;}
+}
 @media (max-width: 480px){
-
-    .nav-logo-img {
-        height: 24px;
-    }}
-/* Sticky nav: keep pill clear of edges */
-    .nav-pill{ margin: 0 12px; max-width: calc(100vw - 24px); }
-/* =========================================
-   RESTORED: nav dropdown + how-it-works (used by live-classes.html)
-   ========================================= */
-/* ── Nav dropdown (Learn submenu) ───────────────────────────── */
-.nav-dropdown{ position: relative; }
-.nav-dropdown::after{ content: ''; position: absolute; left: -10px; right: -10px; top: 100%; height: 18px; }
-.nav-dropdown-toggle{
-    white-space: nowrap;
+.footer-wrap{padding: 0 16px;}
+.footer-grid{gap: 20px;}
+.nav-logo-img{height: 24px;}
+}
+@media (max-width: 600px){
+:root{--section-pad: 36px;}
+.nav-pill{margin: 0 12px; max-width: calc(100vw - 24px);}
+}
+@media (max-width: 380px){
+.nav-links{padding: 8px !important;}
+.footer-grid{grid-template-columns: 1fr !important; gap: 24px !important;}
+}
+.nav-dropdown{position: relative;}
+.nav-dropdown::after{content: ''; position: absolute; left: -10px; right: -10px; top: 100%; height: 18px;}
+.nav-dropdown-toggle{white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -395,23 +364,17 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     color: var(--text-primary);
     padding: 7px 12px;
     border-radius: var(--r-full);
-    transition: color 0.2s, background 0.2s;
-}
-.nav-dropdown-toggle:hover{ color: var(--text-primary); }
-.nav-dropdown-toggle.active{
-    color: var(--kinedu-blue);
+    transition: color 0.2s, background 0.2s;}
+.nav-dropdown-toggle:hover{color: var(--text-primary);}
+.nav-dropdown-toggle.active{color: var(--kinedu-blue);
     background: rgba(43,139,228,0.08);
-    font-weight: 600;
-}
-.nav-chevron{
-    width: 14px; height: 14px;
+    font-weight: 600;}
+.nav-chevron{width: 14px; height: 14px;
     transition: transform 0.22s ease;
     flex-shrink: 0;
-    color: currentColor;
-}
-.nav-dropdown.open .nav-chevron{ transform: rotate(180deg); }
-.nav-dropdown-menu{
-    position: absolute;
+    color: currentColor;}
+.nav-dropdown.open .nav-chevron{transform: rotate(180deg);}
+.nav-dropdown-menu{position: absolute;
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%) translateY(-6px);
@@ -424,15 +387,11 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.18s ease, transform 0.18s ease;
-    z-index: 1001;
-}
-.nav-dropdown.open .nav-dropdown-menu{
-    opacity: 1;
+    z-index: 1001;}
+.nav-dropdown.open .nav-dropdown-menu{opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-}
-.nd-item{
-    display: flex !important;
+    transform: translateX(-50%) translateY(0);}
+.nd-item{display: flex !important;
     align-items: center;
     gap: 10px;
     padding: 9px 12px !important;
@@ -445,31 +404,20 @@ section[id], div[id]{ scroll-margin-top: 96px; }
     box-sizing: border-box;
     text-decoration: none;
     transition: background 0.15s !important;
-    transform: none !important;
-}
-.nd-item:hover{
-    background: var(--bg-soft) !important;
+    transform: none !important;}
+.nd-item:hover{background: var(--bg-soft) !important;
     color: var(--kinedu-blue) !important;
-    transform: none !important;
-}
-.nd-icon{
-    font-size: 0.95rem;
+    transform: none !important;}
+.nd-icon{font-size: 0.95rem;
     width: 28px; height: 28px;
     background: var(--bg-soft);
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-}
+    flex-shrink: 0;}
 @media (max-width: 768px){
-    /* Mobile nav dropdown → PLANO dentro del bubble (como Masterclasses):
-       el botón "Team ▾" se esconde y Founder / Experts quedan como links
-       normales. (Science lo aplana script.js con un link directo a su página.) */
-    .nav-dropdown { width: 100%; }
-
-    .nav-dropdown-toggle { display: none !important; }
-
-    .nav-dropdown-menu {
-        position: static;
+.nav-dropdown{width: 100%;}
+.nav-dropdown-toggle{display: none !important;}
+.nav-dropdown-menu{position: static;
         transform: none !important;
         box-shadow: none;
         border: none;
@@ -484,188 +432,15 @@ section[id], div[id]{ scroll-margin-top: 96px; }
         overflow: visible;
         display: flex;
         flex-direction: column;
-        gap: 2px;
-    }
-
-    .nd-item {
-        font-size: 15px !important;
+        gap: 2px;}
+.nd-item{font-size: 15px !important;
         font-weight: 700 !important;
         color: var(--text-primary) !important;
         padding: 13px 16px !important;
-        border-radius: 14px !important;
-    }
-
-    .nd-item:hover {
-        background: #F5F4F0 !important;
-        transform: none !important;
-    }
-
-    .nd-icon { display: none; }}
-
-/* Footer estándar (extraído de styles.css) */
-/* =========================================
-   FOOTER — Dark contrast
-   ========================================= */
-.footer{
-    background: #2B8BE4;
-    border-top: none;
-    padding: 48px 0 28px;
+        border-radius: 14px !important;}
+.nd-item:hover{background: #F5F4F0 !important;
+        transform: none !important;}
+.nd-icon{display: none;}
 }
-.footer-wrap{
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-.footer-grid{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 48px;
-}
-.footer-logo{
-    display: block;
-    margin-bottom: 12px;
-}
-.footer-logo-img{
-    height: 32px;
-    width: auto;
-    display: block;
-    filter: brightness(0) invert(1);
-}
-.footer-brand p{
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-    max-width: 280px;
-    margin-bottom: 20px;
-}
-.footer-social{
-    display: flex;
-    gap: 10px;
-}
-.footer-social a{
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.7);
-    transition: all 0.3s;
-}
-.footer-social a:hover{
-    background: white;
-    border-color: white;
-    color: #2B8BE4;
-    transform: translateY(-3px);
-}
-.footer-col h3, .footer-col h4{
-    color: white;
-    font-size: 0.85rem;
-    margin-bottom: 18px;
-    font-weight: 700;
-}
-.footer-col a{
-    display: block;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.7);
-    padding: 5px 0;
-    transition: color 0.2s;
-}
-.footer-col a:hover{
-    color: white;
-}
-.footer-bottom{
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    text-align: center;
-}
-.footer-bottom p{
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.5);
-}
-.footer-grid{
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-@media (max-width: 768px){
-
-    /* --- FOOTER MOBILE --- */
-    .footer {
-        padding: 36px 0 20px;
-    }
-
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-
-    .footer-brand p {
-        max-width: 100%;
-        font-size: 0.82rem;
-    }
-
-
-    .footer-col h3, .footer-col h4 {
-        font-size: 0.8rem;
-        margin-bottom: 12px;
-    }
-
-
-    .footer-col a {
-        font-size: 0.78rem;
-        padding: 4px 0;
-    }
-
-
-    .footer-bottom {
-        padding-top: 20px;
-    }}
-@media (max-width: 480px){
-
-    /* --- FOOTER --- */
-    .footer-wrap {
-        padding: 0 16px;
-    }
-
-
-    .footer-grid {
-        gap: 20px;
-    }}
-/* Footer single column on tiny */
-    .footer-grid{ grid-template-columns: 1fr !important; gap: 24px !important; }
-
-/* Link 'How's my baby?' */
-.nav-schools{
-    padding: 10px 22px;
-    background: transparent;
-    color: var(--text-secondary);
-    border-radius: var(--r-full);
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.25s ease;
-}
-.nav-schools:hover{
-    color: var(--kinedu-blue);
-}
-.nav-schools{
-        display: none;
-    }
-@media (max-width: 1024px){
-    .nav-actions .lang-toggle, .nav-actions .nav-schools { display: none !important; }}
-@media (max-width: 1200px){
-    /* "How's my baby?" solo cuando la barra tiene espacio real */
-    .nav-schools { display: none !important; }}
-
-/* Fondo del menú móvil */
-.nav-menu-backdrop { display: none; position: fixed; inset: 0; background: transparent; z-index: 9998; }
-.nav-menu-backdrop.visible { display: block; }
+/* Páginas con texto centrado por defecto */
+.footer,.footer .footer-col,.footer .footer-brand{text-align:left}
