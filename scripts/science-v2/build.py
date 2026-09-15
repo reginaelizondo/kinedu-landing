@@ -14,6 +14,8 @@ HEAD=HEAD.replace("font-family: 'Plus Jakarta Sans', sans-serif;", "font-family:
 assert "Plus Jakarta" not in HEAD and "googleapis" not in HEAD
 NAV=block(1005,1049)
 FOOTER=block(1393,1431)
+FOOTER=FOOTER.replace('<a href="/science" data-i18n="footer.theScience">The science</a>', '<a href="/science" data-i18n="footer.theScience">The science</a>\n                    <a href="/gift" data-i18n="footer.gift" data-i18n-href="footer.giftUrl">Gift Kinedu</a>',1)
+assert 'footer.gift' in FOOTER
 FOOTER=re.sub(r'(<a[^>]*aria-label="[^"]*"[^>]*>\s*<svg)(?![^>]*aria-hidden)', r'\1 aria-hidden="true"', FOOTER)
 TAIL=block(1433,1475).replace("?v=0843a","?v=0844a")   # translations/script + track (sin el script de paneles ni el reveal muerto)
 TAIL=TAIL.replace('a[href*="app.kinedu.com"]', 'a[href*="app.kinedu.com"], a[href*="webpromo.kinedu.com"], a[href*="/assessment"]')
@@ -462,7 +464,7 @@ p1_acts = sec("How we got there", 'Built by Kinedu. Studied by <span class="sci-
 <p class="sci-quote" style="margin-top:34px">That research helped us map <span class="mk">how skills develop and connect.</span></p>""", "#F7567C")
 
 p1_rebuilt = sec("The rebuild", "We rebuilt the assessment around a different question.",
- "We wanted to understand how a skill is taking shape. Walking begins well before those first independent steps:",
+ "We wanted to understand how a skill is taking shape.<br>Walking begins well before those first independent steps:",
  """<div class="sci-path">
 <div class="st"><span class="k">months earlier</span><span class="dot"></span><b>Pulls up to stand</b></div>
 <div class="st"><span class="k">then</span><span class="dot"></span><b>Walks while holding onto the sofa</b></div>
@@ -481,9 +483,9 @@ p1_rebuilt = sec("The rebuild", "We rebuilt the assessment around a different qu
 </div>
 <p class="sci-quote">A clearer picture of the skills your baby is building <span class="mk">and what may come next.</span></p>""", "#087BF3", "sci26-mint")
 
-p1_product = '<section id="assessment" class="sci26" style="--sciacc:#2EA84F"><div class="sci26-wrap" style="max-width:860px"><div class="sci26-kick">How the assessment works</div><h2>Answer simple questions about what your baby does. That’s it.</h2><p class="sci26-lead">You can answer at home, based on what you see every day. Here’s a sample question from the assessment for 12&#8209;month&#8209;olds:</p>\n' + SCIQ + '</div></section>'
+p1_product = '<section id="assessment" class="sci26" style="--sciacc:#2EA84F"><div class="sci26-wrap" style="max-width:860px"><div class="sci26-kick">How the assessment works</div><h2>Answer simple questions about what your baby does. <span class="sci-squig">That’s it.</span></h2><p class="sci26-lead">You can answer at home, based on what you see every day. Here’s a sample question from the assessment for 12&#8209;month&#8209;olds:</p>\n' + SCIQ + '</div></section>'
 
-p1_instrument = sec("Why we ask what we ask", "Questions chosen to capture developing skills.",
+p1_instrument = sec("Why we ask what we ask", 'Questions chosen to capture <span class="sci-squig">developing skills.</span>',
  "A “not yet” answer doesn’t tell the whole story. We look at it alongside your baby’s age and other answers to understand how their skills are developing.",
  '<div class="sci26-edge"><div class="sci-prose"><p class="big" style="font-size:clamp(19px,2.3vw,24px)">Your answers help us build a picture.</p><p>We compare your answers with patterns in caregiver reports across ages. Together, they help us understand which skills your baby is developing. You don’t need special training to answer.</p></div>'+CH_HEAD+'</div>', "#1FA66E")
 
