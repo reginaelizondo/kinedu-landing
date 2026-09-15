@@ -665,3 +665,7 @@ section[id], div[id]{ scroll-margin-top: 96px; }
 @media (max-width: 1200px){
     /* "How's my baby?" solo cuando la barra tiene espacio real */
     .nav-schools { display: none !important; }}
+
+/* Fondo del menú móvil */
+.nav-menu-backdrop { display: none; position: fixed; inset: 0; background: transparent; z-index: 9998; }
+.nav-menu-backdrop.visible { display: block; }
