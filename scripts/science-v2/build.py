@@ -314,8 +314,9 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 @media(max-width:760px){.sci-day{flex-wrap:wrap;justify-content:center;gap:16px 10px}.sci-day::before{display:none}.sci-day .d{flex:0 0 30%}}
 .sci-spec2{max-width:1040px;margin:26px auto 0}
 .sci-spec2 .ends{display:flex;justify-content:space-between;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8A94A8;margin-bottom:10px}
-.sci-spec2 .track{position:relative;height:12px;border-radius:99px;background:linear-gradient(90deg,#2EA84F,#087BF3 38%,#E8A33D 66%,#913FA3)}
-.sci-spec2 .track i{position:absolute;top:50%;width:22px;height:22px;border-radius:99px;border:4px solid #fff;transform:translate(-50%,-50%);box-shadow:0 4px 12px rgba(8,27,70,.18)}
+.sci-spec2 .track{position:relative;height:6px;border-radius:99px;background:#E7E2D8}
+.sci-spec2 .track::after{content:'';position:absolute;right:-2px;top:50%;width:0;height:0;border-left:8px solid #C9D2E0;border-top:6px solid transparent;border-bottom:6px solid transparent;transform:translateY(-50%)}
+.sci-spec2 .track i{position:absolute;top:50%;width:20px;height:20px;border-radius:99px;border:4px solid #fff;transform:translate(-50%,-50%);box-shadow:0 3px 10px rgba(8,27,70,.16)}
 .sci-spec2 .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px;text-align:left}
 .sci-spec2 .cols>div{background:#fff;border-radius:18px;padding:18px 18px 20px;border:1px solid #EBE6DF;box-shadow:0 10px 26px -18px rgba(8,27,70,.25)}
 .sci-spec2 .ic{display:inline-flex;width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--c) 12%,#fff);color:var(--c);align-items:center;justify-content:center;margin-bottom:12px}
