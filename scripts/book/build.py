@@ -240,7 +240,7 @@ CSS = r"""
 .bk-stats{display:flex;gap:28px;margin:30px 0 0;padding:22px 0 0;border-top:1px solid rgba(237,241,248,.14);flex-wrap:wrap}
 .bk-stat .n{font-size:28px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1}
 .bk-stat .l{font-size:13px;color:#8FA1C0;margin-top:6px;font-weight:600}
-.bk-hero .bk-fine{font-size:13px;color:#8FA1C0;margin:18px 0 0}
+.bk-hero .bk-fine{font-size:13px;color:#8FA1C0;margin:22px 0 0}
 .bk-cover{position:relative;display:flex;justify-content:center}
 .bk-cover img{width:100%;max-width:400px;height:auto;display:block;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
 /* ---- cards ---- */
@@ -428,8 +428,7 @@ def build(lang):
         <a class="bk-btn bk-btn-ghost" href="#inside">{E(c["cta2"])}</a>
         {date_pill}
       </div>
-      <div class="bk-stats">{stats}</div>
-      <p class="bk-fine">{E(c["fine"])}</p>
+      <p class="bk-fine bk-fine-solo">{E(c["fine"])}</p>
     </div>
     <div class="bk-cover">
       <img src="/images/book/cover-3d.webp" srcset="/images/book/cover-3d-sm.webp 420w, /images/book/cover-3d.webp 724w" sizes="(max-width: 900px) 220px, 400px" width="724" height="1179" alt="{E(c["cover_alt"])}" fetchpriority="high">
