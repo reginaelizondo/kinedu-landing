@@ -24,6 +24,11 @@ EXCERPT = ("It looks like a father sitting on the kitchen floor at 7:15 in the m
            "The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.")
 BLURB = "Big Bang Baby restores awe and confidence to parenting: your child is not a checklist to complete, but a universe taking shape — and your loving, imperfect presence is one of the forces that helps hold it together."  # blurb oficial del libro, tal cual bigbangbaby.net (Regina: dejarlo así)
 BIO = "Luis Garza Sada is a father of four and an early-childhood practitioner. For more than sixteen years he has worked at the intersection of parenting, technology, and developmental science — as the founder and CEO of Kinedu, an early childhood company serving millions of families, and in partnership with researchers at Stanford and the Harvard Center on the Developing Child. He lives in Monterrey, Mexico, with his wife, Paulina, and their four daughters. He has been recognized as an EY Entrepreneur Of The Year and is part of the global Endeavor network of entrepreneurs."  # bio oficial, tal cual bigbangbaby.net (Regina: dejarlo así)
+# Texto de presentación tal cual bigbangbaby.net (Regina: "pon algo más como esta")
+DESC1 = "During your baby’s first few years, the architecture of a lifetime is being assembled — shaped, again and again, by ordinary moments with you. That should feel enormous. Instead, today’s parenting culture has turned it into a source of panic: a feed full of contradictory experts, vague slogans, and the quiet message that one wrong move could damage your child forever."
+DESC2 = "In <em>Big Bang Baby</em>, Luis Garza Sada offers something the parenting internet cannot: a single, unifying framework for how children actually develop — drawn from the science of the early universe, sixteen years building tools used by millions of families, and original research with Stanford."
+DESC3 = "A baby’s mind, body, language, and emotions are not separate tracks. They are one process — tightly coupled, expanding and cooling, like the cosmos, into the distinct person your child is becoming."
+DESC4 = "More than a framework, it gives you back a role modern parenting culture has quietly taken away. Understand that process, and the anxiety gives way to something better: clarity, direction, and the confidence to be the adult in the room."
 EXCERPT2 = "Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor."
 
 C = {
@@ -49,9 +54,9 @@ C = {
    ("It takes shape.", "Around the first birthday, distinct areas emerge and your child starts becoming exactly who they are. Different from every other child, including their sibling."),
   ],
   idea_note="Seen in the record of 3.5 million children who grew up with Kinedu.",
-  why_kick="Why this book",
-  why_h2='Parenting advice got loud. <span class="bk-squig">This is the calm.</span>',
-  why_lead="Contradictory experts, vague slogans, and the fear that one wrong move lasts forever. Luis lived it too, four daughters deep.",
+  why_kick="From the book",
+  why_h2='Sound <span class="bk-squig">familiar?</span>',
+  why_lead="A scene from the introduction, and the three convictions that came out of mornings like it.",
   excerpt_lbl="From the introduction",
   conv=[
    ("You are the adult in the room.", "Warmth and structure together, not one or the other. Setting a limit does not break the bond."),
@@ -102,9 +107,9 @@ C = {
    ("Toma forma.", "Cerca del primer cumpleaños aparecen áreas distintas y tu hijo empieza a ser exactamente quien es. Distinto a todos los demás niños, incluidos sus hermanos."),
   ],
   idea_note="Visto en el registro de 3.5 millones de niños que crecieron con Kinedu.",
-  why_kick="Por qué este libro",
-  why_h2='Los consejos de crianza se volvieron ruido. <span class="bk-squig">Esto es la calma.</span>',
-  why_lead="Expertos que se contradicen, frases vacías y el miedo a que un error dure para siempre. Luis también lo vivió, con cuatro hijas.",
+  why_kick="Del libro",
+  why_h2='¿Te suena <span class="bk-squig">familiar?</span>',
+  why_lead="Una escena de la introducción y las tres convicciones que salieron de mañanas como esa.",
   excerpt_lbl="De la introducción (en inglés)",
   conv=[
    ("Tú eres el adulto en la habitación.", "Calidez y estructura juntas, no una u otra. Poner un límite no rompe el vínculo."),
@@ -155,9 +160,9 @@ C = {
    ("Ele toma forma.", "Perto do primeiro aniversário, áreas distintas aparecem e seu filho começa a ser exatamente quem é. Diferente de todas as outras crianças, inclusive dos irmãos."),
   ],
   idea_note="Visto no registro de 3,5 milhões de crianças que cresceram com o Kinedu.",
-  why_kick="Por que este livro",
-  why_h2='Os conselhos sobre criação viraram barulho. <span class="bk-squig">Isto é a calma.</span>',
-  why_lead="Especialistas que se contradizem, frases vazias e o medo de que um erro dure para sempre. Luis também viveu isso, com quatro filhas.",
+  why_kick="Do livro",
+  why_h2='Parece <span class="bk-squig">familiar?</span>',
+  why_lead="Uma cena da introdução e as três convicções que nasceram de manhãs como essa.",
   excerpt_lbl="Da introdução (em inglês)",
   conv=[
    ("Você é o adulto da casa.", "Carinho e estrutura juntos, não um ou outro. Colocar um limite não quebra o vínculo."),
@@ -251,6 +256,14 @@ CSS = r"""
 .bk-blurb .bk-wrap{max-width:820px;text-align:center}
 .bk-blurb .rule{display:block;width:130px;height:1px;background:rgba(233,199,126,.5);margin:0 auto}
 .bk-blurb p{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-style:italic;font-weight:500;font-size:clamp(1.75rem,3.4vw,2.7rem);line-height:1.38;color:var(--bk-ink);margin:44px 0;text-wrap:pretty}
+.bk-desc{max-width:760px;margin:56px auto 0;text-align:left}
+.bk-desc p{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-style:normal;font-weight:500;font-size:clamp(1.2rem,1.75vw,1.45rem);line-height:1.62;color:var(--bk-ink);margin:0 0 1.1em;text-wrap:pretty}
+.bk-desc p em{font-style:italic}
+.bk-desc .epi{display:flex;align-items:center;gap:18px;margin:44px 0 22px}
+.bk-desc .epi .ln{flex:1;height:1px;background:rgba(233,199,126,.4)}
+.bk-desc .epi .st{color:var(--bk-gold);font-size:16px}
+.bk-desc p.q{font-style:italic;text-align:center;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.3;margin:0}
+.bk-desc .epi+p.q+.epi{margin-top:22px;margin-bottom:44px}
 /* ---- why ---- */
 .bk-excerpt{background:radial-gradient(120% 120% at 15% 10%,#12264A 0%,var(--bk-navy) 55%,var(--bk-edge) 100%);color:var(--bk-ink);border-radius:26px;padding:36px 40px;max-width:860px;margin:0 auto 26px;position:relative;overflow:hidden}
 .bk-excerpt::after{content:"";position:absolute;right:-80px;bottom:-140px;width:380px;height:380px;background:radial-gradient(circle,rgba(233,199,126,.26),transparent 65%);filter:blur(8px);pointer-events:none}
@@ -303,6 +316,8 @@ CSS = r"""
   .bk-excerpt{padding:26px 22px}
       .bk-blurb{padding:64px 20px}
   .bk-blurb p{margin:32px 0}
+  .bk-desc{margin-top:36px}
+  .bk-desc .epi{margin:32px 0 16px}
   .bk-close{padding:56px 20px}
   .bk-close .bk-wrap{grid-template-columns:1fr;gap:28px;text-align:center;justify-items:center}
   .bk-close .bk-cover img{max-width:200px}
@@ -435,7 +450,17 @@ def build(lang):
 </section>
 
 <section class="bk-blurb bk-stars">
-  <div class="bk-wrap"><span class="rule"></span><p lang="en">{E(BLURB)}</p><span class="rule"></span></div>
+  <div class="bk-wrap"><span class="rule"></span><p lang="en">{E(BLURB)}</p><span class="rule"></span>
+    <div class="bk-desc" lang="en">
+      <p>{E(DESC1)}</p>
+      <p>{DESC2}</p>
+      <div class="epi"><span class="ln"></span><span class="st">✦</span><span class="ln"></span></div>
+      <p class="q">{E(Q_BEGIN)}</p>
+      <div class="epi"><span class="ln"></span><span class="st">✦</span><span class="ln"></span></div>
+      <p>{E(DESC3)}</p>
+      <p>{E(DESC4)}</p>
+    </div>
+  </div>
 </section>
 
 <section class="bk-sec white" id="why">
