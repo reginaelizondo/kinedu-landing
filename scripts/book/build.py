@@ -20,9 +20,10 @@ Q_EARLIER = "Earlier is better; later is not impossible."
 Q_WINDOW = "The window narrows; it does not slam shut."
 Q_WATCH = "Watch the child, not the chart."
 Q_RANGE = "The range of normal is astonishingly wide."
-Q_MANTRA = "Connect. Guide. Buffer. Repeat."
 EXCERPT = ("It looks like a father sitting on the kitchen floor at 7:15 in the morning, trying to make the school carpool on time while running late for work, “holding space” for a three-year-old who is screaming because her banana broke in half. "
            "The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.")
+BLURB = "Big Bang Baby restores awe and confidence to parenting: your child is not a checklist to complete, but a universe taking shape — and your loving, imperfect presence is one of the forces that helps hold it together."  # blurb oficial del libro, tal cual bigbangbaby.net (Regina: dejarlo así)
+BIO = "Luis Garza Sada is a father of four and an early-childhood practitioner. For more than sixteen years he has worked at the intersection of parenting, technology, and developmental science — as the founder and CEO of Kinedu, an early childhood company serving millions of families, and in partnership with researchers at Stanford and the Harvard Center on the Developing Child. He lives in Monterrey, Mexico, with his wife, Paulina, and their four daughters. He has been recognized as an EY Entrepreneur Of The Year and is part of the global Endeavor network of entrepreneurs."  # bio oficial, tal cual bigbangbaby.net (Regina: dejarlo así)
 EXCERPT2 = "Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor."
 
 C = {
@@ -66,12 +67,7 @@ C = {
    ("The Universe Takes Shape", "Distinct areas emerge, age by age. And the four invisible forces that hold it all together."),
   ],
   part_lbl=["Part 1", "Part 2", "Part 3"],
-  forces_lbl="The four invisible forces",
-  forces=["Play", "Relationships", "Stress", "Predictability"],
   extras="Plus a parent’s guide to the Kinedu report, a glossary in plain language, and a research primer.",
-  quotes_kick="Straight from the book",
-  quotes_h2='Lines you’ll <span class="bk-squig">want to remember.</span>',
-  quotes=[(Q_WINDOW, ""), (Q_WATCH, ""), (Q_RANGE, "")],
   who_lbl="Who it’s for",
   who=["New and expecting parents who want science without the guilt trip", "Anyone tired of advice that contradicts itself every Tuesday", "Educators and pediatric professionals who want one framework, not ten tribes"],
   close_h2="You were there for the Big Bang. Be there for the rest.",
@@ -124,12 +120,7 @@ C = {
    ("The Universe Takes Shape", "Aparecen áreas distintas, edad por edad. Y las cuatro fuerzas invisibles que lo sostienen todo."),
   ],
   part_lbl=["Parte 1", "Parte 2", "Parte 3"],
-  forces_lbl="Las cuatro fuerzas invisibles",
-  forces=["Juego", "Relaciones", "Estrés", "Predictibilidad"],
   extras="Además: una guía para papás del reporte de Kinedu, un glosario en lenguaje sencillo y un resumen de la investigación.",
-  quotes_kick="Directo del libro",
-  quotes_h2='Frases que vas a <span class="bk-squig">querer recordar.</span>',
-  quotes=[(Q_WINDOW, "La ventana se angosta; no se cierra de golpe."), (Q_WATCH, "Mira al niño, no a la gráfica."), (Q_RANGE, "El rango de lo normal es asombrosamente amplio.")],
   who_lbl="Para quién es",
   who=["Papás nuevos o en espera que quieren ciencia sin culpa", "Cualquiera cansado de consejos que se contradicen cada martes", "Educadores y profesionales de pediatría que quieren un solo marco, no diez tribus"],
   close_h2="You were there for the Big Bang. Be there for the rest.",
@@ -182,12 +173,7 @@ C = {
    ("The Universe Takes Shape", "Áreas distintas aparecem, idade por idade. E as quatro forças invisíveis que sustentam tudo."),
   ],
   part_lbl=["Parte 1", "Parte 2", "Parte 3"],
-  forces_lbl="As quatro forças invisíveis",
-  forces=["Brincadeira", "Relações", "Estresse", "Previsibilidade"],
   extras="Além disso: um guia para pais do relatório do Kinedu, um glossário em linguagem simples e um resumo da pesquisa.",
-  quotes_kick="Direto do livro",
-  quotes_h2='Frases que você vai <span class="bk-squig">querer lembrar.</span>',
-  quotes=[(Q_WINDOW, "A janela se estreita; ela não se fecha de repente."), (Q_WATCH, "Observe a criança, não o gráfico."), (Q_RANGE, "A faixa do normal é incrivelmente ampla.")],
   who_lbl="Para quem é",
   who=["Pais novos ou à espera que querem ciência sem culpa", "Qualquer pessoa cansada de conselhos que se contradizem toda terça-feira", "Educadores e profissionais de pediatria que querem um único modelo, não dez tribos"],
   close_h2="You were there for the Big Bang. Be there for the rest.",
@@ -259,6 +245,12 @@ CSS = r"""
 .bk-viz.v3 i.a{left:34%;top:30%;background:#2B8BE4}.bk-viz.v3 i.b{left:60%;top:26%;background:#4CD964}.bk-viz.v3 i.c3{left:40%;top:62%;background:#E84D8A}.bk-viz.v3 i.d{left:64%;top:60%;background:#FFC033}
 .bk-viz.v3 i.g{left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(233,199,126,.22),transparent 70%)}
 .bk-note{font-size:13.5px;color:#8A94A8;text-align:center;margin:22px 0 0}
+/* ---- blurb ---- */
+.bk-blurb{position:relative;background:radial-gradient(120% 90% at 50% 50%,#12264A 0%,var(--bk-navy) 45%,var(--bk-edge) 100%);color:var(--bk-ink);padding:96px 24px;overflow:hidden}
+.bk-blurb::after{content:"";position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.14) 0%,rgba(233,199,126,.08) 22%,transparent 62%);filter:blur(12px)}
+.bk-blurb .bk-wrap{max-width:820px;text-align:center}
+.bk-blurb .rule{display:block;width:130px;height:1px;background:rgba(233,199,126,.5);margin:0 auto}
+.bk-blurb p{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-style:italic;font-weight:500;font-size:clamp(1.75rem,3.4vw,2.7rem);line-height:1.38;color:var(--bk-ink);margin:44px 0;text-wrap:pretty}
 /* ---- why ---- */
 .bk-excerpt{background:radial-gradient(120% 120% at 15% 10%,#12264A 0%,var(--bk-navy) 55%,var(--bk-edge) 100%);color:var(--bk-ink);border-radius:26px;padding:36px 40px;max-width:860px;margin:0 auto 26px;position:relative;overflow:hidden}
 .bk-excerpt::after{content:"";position:absolute;right:-80px;bottom:-140px;width:380px;height:380px;background:radial-gradient(circle,rgba(233,199,126,.26),transparent 65%);filter:blur(8px);pointer-events:none}
@@ -269,38 +261,30 @@ CSS = r"""
 /* ---- inside ---- */
 .bk-part .k{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9A7423;margin:0 0 10px}
 .bk-part .t{font-size:19px}
-.bk-forces{margin:26px auto 0;max-width:860px;background:#fff;border:1px solid #EBE6DF;border-radius:22px;padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px}
-.bk-forces .lbl{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A94A8;margin-right:6px}
-.bk-forces .chip{display:inline-flex;align-items:center;gap:8px;background:#FBFAF8;border:1px solid #EBE6DF;border-radius:999px;padding:9px 16px;font-size:14.5px;font-weight:700;color:#081B46}
-.bk-forces .chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
-.bk-forces .chip:nth-of-type(1) i{background:#2B8BE4}.bk-forces .chip:nth-of-type(2) i{background:#E84D8A}.bk-forces .chip:nth-of-type(3) i{background:#FFC033}.bk-forces .chip:nth-of-type(4) i{background:#4CD964}
-.bk-forces .mantra{margin-left:auto;font-style:italic;font-weight:700;color:#9A7423;font-size:15.5px;white-space:nowrap}
 .bk-extras{font-size:14px;color:#8A94A8;text-align:center;margin:18px auto 0;max-width:640px}
-/* ---- quotes ---- */
-.bk-q{background:#fff;border:1px solid #EBE6DF;border-radius:22px;padding:30px 26px 26px;position:relative}
-.bk-q::before{content:"“";position:absolute;left:22px;top:6px;font-size:64px;line-height:1;color:var(--bk-gold);font-weight:800}
-.bk-q .q{font-size:clamp(1.15rem,1.8vw,1.35rem);line-height:1.35;font-weight:800;color:#081B46;margin:18px 0 0;letter-spacing:-.01em;text-wrap:balance}
-.bk-q .g{font-size:14px;color:#8A94A8;margin:10px 0 0;line-height:1.5}
 /* ---- close ---- */
 .bk-close{position:relative;background:radial-gradient(120% 90% at 50% 40%,#12264A 0%,var(--bk-navy) 45%,var(--bk-edge) 100%);color:var(--bk-ink);padding:88px 24px;overflow:hidden}
 .bk-close::after{content:"";position:absolute;left:50%;top:70%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.2) 0%,rgba(233,199,126,.12) 20%,transparent 62%);filter:blur(12px)}
 .bk-close .bk-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;max-width:960px}
 .bk-close .bk-cover img{max-width:300px}
-.bk-close .who{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.bk-close .who{display:flex;flex-direction:column;gap:9px;margin:0 0 28px}
 .bk-close .who .lbl{width:100%;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8FA1C0;margin:0 0 4px}
-.bk-close .who span.c{font-size:13.5px;font-weight:600;color:#DCE4F1;background:rgba(237,241,248,.07);border:1px solid rgba(237,241,248,.16);border-radius:999px;padding:8px 14px}
+.bk-close .who span.c{font-size:15.5px;font-weight:600;color:#DCE4F1;display:flex;gap:10px;align-items:flex-start;line-height:1.4;text-wrap:pretty}
+.bk-close .who span.c::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--bk-gold);margin-top:8px}
 .bk-close h2{color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin:0 0 10px}
 .bk-close .p{font-size:16px;color:#B9C6DC;margin:0 0 24px}
 .bk-close .bk-more{color:var(--bk-gold);font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(233,199,126,.4);margin-left:6px}
 .bk-close .bk-more:hover{border-bottom-color:var(--bk-gold)}
-/* ---- author ---- */
-.bk-author{background:#FBFAF8;padding:72px 24px 88px}
-.bk-author .bk-wrap{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:center;max-width:860px}
-.bk-author img{width:180px;height:180px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 24px 50px -24px rgba(8,27,70,.45)}
-.bk-author .name{font-size:1.45rem;font-weight:800;color:#081B46;margin:0 0 10px;letter-spacing:-.02em}
-.bk-author p{font-size:16.5px;line-height:1.62;color:var(--bk-muted);margin:0 0 16px;text-wrap:pretty}
-.bk-author a.lnk{color:#087BF3;font-weight:700;text-decoration:none;font-size:15.5px}
-.bk-author a.lnk:hover{text-decoration:underline}
+/* ---- author (estilo bigbangbaby.net) ---- */
+.bk-author{position:relative;background:radial-gradient(120% 90% at 50% 40%,#12264A 0%,var(--bk-navy) 45%,var(--bk-edge) 100%);color:var(--bk-ink);padding:88px 24px 72px;overflow:hidden}
+.bk-author .bk-wrap{max-width:900px;padding-bottom:64px;border-bottom:1px solid rgba(233,199,126,.35)}
+.bk-author h2{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(2.1rem,4vw,3rem);letter-spacing:0;color:#fff;margin:0 0 34px;line-height:1.1}
+.bk-author .row{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start}
+.bk-author img{width:100%;max-width:300px;height:auto;border-radius:6px;display:block;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.bk-author p{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.15rem,1.6vw,1.35rem);line-height:1.6;color:var(--bk-ink);margin:0;text-wrap:pretty}
+.bk-author a.lnk{display:inline-block;margin-top:26px;color:var(--bk-gold);font-weight:700;text-decoration:none;font-size:15px;border-bottom:1px solid rgba(233,199,126,.4)}
+.bk-author a.lnk:hover{border-bottom-color:var(--bk-gold)}
+.bk-close{padding-top:72px}
 @media(max-width:900px){
   .bk-hero{padding:130px 20px 56px}
   .bk-hero .bk-wrap{grid-template-columns:1fr;gap:32px}
@@ -317,17 +301,18 @@ CSS = r"""
   .bk-card{padding:20px}
   .bk-viz{height:96px}
   .bk-excerpt{padding:26px 22px}
-  .bk-forces{padding:18px 18px}
-  .bk-forces .mantra{margin-left:0;width:100%;white-space:normal}
+      .bk-blurb{padding:64px 20px}
+  .bk-blurb p{margin:32px 0}
   .bk-close{padding:56px 20px}
   .bk-close .bk-wrap{grid-template-columns:1fr;gap:28px;text-align:center;justify-items:center}
   .bk-close .bk-cover img{max-width:200px}
-  .bk-close .who{justify-content:center}
+  .bk-close .who{align-items:flex-start;text-align:left}
   .bk-close .bk-ctas{justify-content:center}
   .bk-close .bk-more{margin:4px 0 0}
-  .bk-author{padding:52px 20px 64px}
-  .bk-author .bk-wrap{grid-template-columns:1fr;text-align:center;justify-items:center;gap:20px}
-  .bk-author img{width:140px;height:140px}
+  .bk-author{padding:56px 20px 40px}
+  .bk-author .bk-wrap{padding-bottom:40px}
+  .bk-author .row{grid-template-columns:1fr;gap:22px}
+  .bk-author img{max-width:240px}
 }
 """
 
@@ -371,8 +356,6 @@ def build(lang):
     idea = "".join(f'<div class="bk-card">{viz[i]}<p class="t"{" lang=\"en\"" if t == Q_BEGIN else ""}>{E(t)}</p><p>{E(p)}</p></div>' for i, (t, p) in enumerate(c["idea"]))
     conv = "".join(f'<div class="bk-card bk-conv"><div class="n">{i+1}</div><p class="t">{E(t)}</p><p>{E(p)}</p></div>' for i, (t, p) in enumerate(c["conv"]))
     parts = "".join(f'<div class="bk-card bk-part"><p class="k">{E(c["part_lbl"][i])}</p><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div>' for i, (t, p) in enumerate(c["parts"]))
-    forces = "".join(f'<span class="chip"><i></i>{E(f)}</span>' for f in c["forces"])
-    quotes = "".join(f'<div class="bk-q"><p class="q" lang="en">{E(q)}</p>' + (f'<p class="g">{E(g)}</p>' if g else "") + '</div>' for q, g in c["quotes"])
     who = "".join(f'<span class="c">{E(w)}</span>' for w in c["who"])
     en_note = f' {E(c["en_note"])}' if c["en_note"] else ""
 
@@ -405,6 +388,9 @@ def build(lang):
     <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/images/book/cover-3d.webp" as="image" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
     <link rel="stylesheet" href="/styles.css?v=0842a">
     <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -448,6 +434,10 @@ def build(lang):
   </div>
 </section>
 
+<section class="bk-blurb bk-stars">
+  <div class="bk-wrap"><span class="rule"></span><p lang="en">{E(BLURB)}</p><span class="rule"></span></div>
+</section>
+
 <section class="bk-sec white" id="why">
   <div class="bk-wrap">
     <div class="bk-head">
@@ -472,21 +462,20 @@ def build(lang):
       <p class="bk-lead">{E(c["inside_lead"])}{en_note}</p>
     </div>
     <div class="bk-3">{parts}</div>
-    <div class="bk-forces"><span class="lbl">{E(c["forces_lbl"])}</span>{forces}<span class="mantra" lang="en">{E(Q_MANTRA)}</span></div>
     <p class="bk-extras">{E(c["extras"])}</p>
   </div>
 </section>
 
-<section class="bk-sec white" id="quotes">
+<section class="bk-author bk-stars">
   <div class="bk-wrap">
-    <div class="bk-head">
-      <span class="bk-kick"><i></i>{E(c["quotes_kick"])}</span>
-      <h2>{c["quotes_h2"]}</h2>
+    <h2>{E(c["auth_kick"])}</h2>
+    <div class="row">
+      <img src="/images/book/luis-garza-sada-portrait.webp" width="640" height="959" alt="{E(c["photo_alt"])}" loading="lazy">
+      <p lang="en">{E(BIO)}</p>
     </div>
-    <div class="bk-3">{quotes}</div>
+    <a class="lnk" href="/founder">{E(c["auth_link"])} →</a>
   </div>
 </section>
-
 <section class="bk-close bk-stars">
   <div class="bk-wrap">
     <div class="bk-cover"><img src="/images/book/cover-3d-sm.webp" width="420" height="684" alt="" loading="lazy"></div>
@@ -502,17 +491,6 @@ def build(lang):
   </div>
 </section>
 
-<section class="bk-author">
-  <div class="bk-wrap">
-    <img src="/images/book/luis-garza-sada.webp" width="180" height="180" alt="{E(c["photo_alt"])}">
-    <div>
-      <span class="bk-kick"><i></i>{E(c["auth_kick"])}</span>
-      <p class="name">Luis Garza Sada</p>
-      <p>{E(c["auth_bio"])}</p>
-      <a class="lnk" href="/founder">{E(c["auth_link"])} →</a>
-    </div>
-  </div>
-</section>
 </main>
 {footer}
 {tail.strip()}
