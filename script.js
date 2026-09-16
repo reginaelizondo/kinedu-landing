@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const m = p.match(/^\/(es|pt)\/(?:science(-what-we-know|-what-you-can-do)?|book(?:\/introduction)?)(\.html)?$/);
         if (m) { currentLang = m[1]; }
         else if (/^\/(?:science(-what-we-know|-what-you-can-do)?|book(?:\/introduction)?)(\.html)?$/.test(p)) { currentLang = 'en'; }
+        else { return; }
+        // La ruta fija el idioma: se guarda para que las páginas a las que se
+        // navegue desde aquí (live classes, etc.) sigan en el mismo idioma.
+        try { localStorage.setItem(STORAGE_KEY, currentLang); } catch (e) {}
     })();
 
         function applyTranslations(lang) {
