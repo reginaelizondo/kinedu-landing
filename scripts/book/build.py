@@ -23,8 +23,6 @@ E = html.escape
 # Textos del libro / sitio del libro, textuales. No se traducen.
 BLURB = "Big Bang Baby restores awe and confidence to parenting: your child is not a checklist to complete, but a universe taking shape — and your loving, imperfect presence is one of the forces that helps hold it together."
 EXCERPT = [
- "Open Instagram on any given Tuesday and you will find a post from a child psychologist with 400,000 followers telling you that saying “Good job!” damages your child’s intrinsic motivation. Scroll a little further and you’ll find another expert, equally credentialed, arguing that not saying “Good job!” hurts your attachment to your baby. By Thursday, a viral reel will explain that your toddler’s tantrum is actually a communication of unmet needs and that your job is to “hold space” for their big feelings while modeling emotional regulation.",
- "This all sounds compassionate and enlightened, and it contains a grain of truth that makes it hard to argue with.",
  "But reality for any parent looks very different. It looks like a father sitting on the kitchen floor at 7:15 in the morning, trying to make the school carpool on time while running late for work, “holding space” for a three-year-old who is screaming because her banana broke in half. The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.",
  "The right thing, as described by the parenting internet, involves narrating the child’s emotions back to her (“I see that you’re feeling frustrated about the banana”), validating the experience (“It’s okay to feel sad when something breaks”), and waiting for the storm to pass without any further guidance on emotional regulation or any adult authority that would get the morning back on track.",
  "Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor.",
@@ -39,17 +37,18 @@ C = {
   desc="How do your child’s skills develop, and what can you do to support them? Big Bang Baby, by Kinedu founder Luis Garza Sada. Read an excerpt and pre-order the book.",
   og_title="Big Bang Baby: the book by Kinedu’s founder",
   kick="The book by Kinedu’s founder",
-  date="Out 23 September 2026", date_after="Out now",
+  date="Kindle edition · In English · Out 23 September 2026", date_after="Kindle edition · In English · Out now",
   q="How do your child’s skills develop, and what can you do to support them?",
   p="In Big Bang Baby, Kinedu founder and father of four Luis Garza Sada explores how early skills connect, why children develop at different paces, and how play, relationships, and everyday routines help them learn.",
   cta="Pre-order on Amazon", cta_after="Get it on Amazon", cta2="Read an excerpt",
   qs_h2="The questions behind the everyday moments.",
   qs=[("Why does one new skill seem to unlock others?", "How movement, language, thinking, and emotions develop together."),
-      ("Why do children reach milestones at different times?", "What developmental patterns can tell us, and where an individual child’s story is still unfolding."),
+      ("Why do children reach milestones at different times?", "Why the timing varies, and what milestones can and can’t tell you about your child."),
       ("How can you help without turning every moment into a lesson?", "The role of play, warm relationships, clear limits, and familiar routines.")],
   uni_h2="A universe taking shape.",
   uni_p="Early skills are closely connected. As children grow, those skills become more distinct. Big Bang Baby uses the expanding universe as a metaphor for understanding that change.",
   uni_lbl=["Closely connected", "Expanding", "Taking shape"],
+  uni_line="A new way to understand the child in front of you.",
   ban_kick="A taste of the book",
   ban_h2="Start with a broken banana.",
   ban_note="From the introduction of Big Bang Baby.",
@@ -79,17 +78,18 @@ C = {
   desc="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas? Big Bang Baby, de Luis Garza Sada, fundador de Kinedu. Lee un extracto y reserva el libro.",
   og_title="Big Bang Baby: el libro del fundador de Kinedu",
   kick="El libro del fundador de Kinedu",
-  date="Sale el 23 de septiembre de 2026", date_after="Ya disponible",
+  date="Edición Kindle · En inglés · Sale el 23 de septiembre de 2026", date_after="Edición Kindle · En inglés · Ya disponible",
   q="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas?",
   p="En Big Bang Baby, Luis Garza Sada, fundador de Kinedu y papá de cuatro, explora cómo se conectan las primeras habilidades, por qué cada niño se desarrolla a su ritmo y cómo el juego, las relaciones y las rutinas de todos los días los ayudan a aprender.",
   cta="Reserva en Amazon", cta_after="Cómpralo en Amazon", cta2="Lee un extracto",
   qs_h2="Las preguntas detrás de los momentos de todos los días.",
   qs=[("¿Por qué una habilidad nueva parece desbloquear otras?", "Cómo el movimiento, el lenguaje, el pensamiento y las emociones se desarrollan juntos."),
-      ("¿Por qué los niños alcanzan los hitos en momentos distintos?", "Lo que los patrones del desarrollo pueden decirnos, y dónde la historia de cada niño se sigue escribiendo."),
+      ("¿Por qué los niños alcanzan los hitos en momentos distintos?", "Por qué varían los tiempos, y qué pueden y qué no pueden decirte los hitos sobre tu hijo."),
       ("¿Cómo ayudar sin convertir cada momento en una lección?", "El papel del juego, las relaciones cálidas, los límites claros y las rutinas conocidas.")],
   uni_h2="Un universo tomando forma.",
   uni_p="Las primeras habilidades están muy conectadas. Conforme los niños crecen, esas habilidades se vuelven más distintas. Big Bang Baby usa el universo en expansión como metáfora para entender ese cambio.",
   uni_lbl=["Muy conectadas", "En expansión", "Tomando forma"],
+  uni_line="Una nueva forma de entender al niño que tienes enfrente.",
   ban_kick="Una probada del libro",
   ban_h2="Empieza con un plátano roto.",
   ban_note="De la introducción de Big Bang Baby, en inglés.",
@@ -119,17 +119,18 @@ C = {
   desc="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las? Big Bang Baby, de Luis Garza Sada, fundador do Kinedu. Leia um trecho e reserve o livro.",
   og_title="Big Bang Baby: o livro do fundador do Kinedu",
   kick="O livro do fundador do Kinedu",
-  date="Lançamento em 23 de setembro de 2026", date_after="Já disponível",
+  date="Edição Kindle · Em inglês · Lançamento em 23 de setembro de 2026", date_after="Edição Kindle · Em inglês · Já disponível",
   q="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las?",
   p="Em Big Bang Baby, Luis Garza Sada, fundador do Kinedu e pai de quatro, explora como as primeiras habilidades se conectam, por que cada criança se desenvolve no seu ritmo e como a brincadeira, as relações e as rotinas do dia a dia as ajudam a aprender.",
   cta="Reserve na Amazon", cta_after="Compre na Amazon", cta2="Leia um trecho",
   qs_h2="As perguntas por trás dos momentos do dia a dia.",
   qs=[("Por que uma habilidade nova parece destravar outras?", "Como movimento, linguagem, pensamento e emoções se desenvolvem juntos."),
-      ("Por que as crianças alcançam os marcos em momentos diferentes?", "O que os padrões do desenvolvimento podem nos dizer, e onde a história de cada criança ainda está sendo escrita."),
+      ("Por que as crianças alcançam os marcos em momentos diferentes?", "Por que os tempos variam, e o que os marcos podem e não podem dizer sobre o seu filho."),
       ("Como ajudar sem transformar cada momento em uma lição?", "O papel da brincadeira, das relações afetuosas, dos limites claros e das rotinas familiares.")],
   uni_h2="Um universo tomando forma.",
   uni_p="As primeiras habilidades são muito conectadas. À medida que as crianças crescem, essas habilidades se tornam mais distintas. Big Bang Baby usa o universo em expansão como metáfora para entender essa mudança.",
   uni_lbl=["Muito conectadas", "Em expansão", "Tomando forma"],
+  uni_line="Um novo jeito de entender a criança que está na sua frente.",
   ban_kick="Um gostinho do livro",
   ban_h2="Comece com uma banana quebrada.",
   ban_note="Da introdução de Big Bang Baby, em inglês.",
@@ -200,7 +201,7 @@ CSS = r"""
 .bk-uni svg{width:100%;height:auto;display:block}
 .bk-uni .lbls{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;margin-top:8px}
 .bk-uni .lbls span{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8FA1C0}
-.bk-uni .blurb{grid-column:1/-1;margin:36px auto 0;max-width:760px;text-align:center;font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-style:italic;font-weight:500;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.4;color:var(--bk-ink);padding-top:32px;border-top:1px solid rgba(233,199,126,.35);text-wrap:pretty}
+.bk-uni .blurb{grid-column:1/-1;margin:36px auto 0;max-width:760px;text-align:center;font-weight:800;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.3;letter-spacing:-.02em;color:#fff;padding-top:30px;border-top:1px solid rgba(233,199,126,.35);text-wrap:balance}
 /* 4. plátano */
 .bk-ban{background:#fff;padding:84px 24px;border-top:1px solid #F0EDE7}
 .bk-ban .bk-wrap{max-width:720px}
@@ -461,7 +462,7 @@ def build_landing(lang):
       {universe_svg()}
       <div class="lbls">{lbls}</div>
     </div>
-    <p class="blurb" lang="en">{E(BLURB)}</p>
+    <p class="blurb">{E(c["uni_line"])}</p>
   </div>
 </section>
 
