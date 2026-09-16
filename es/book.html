@@ -104,6 +104,11 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-ban .ex{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.25rem,1.9vw,1.5rem);line-height:1.55;color:#1A1D2E;border-left:2px solid #E9C77E;padding-left:26px;margin:0 0 28px}
 .bk-ban .ex p{margin:0 0 1em;text-wrap:pretty}
 .bk-ban .ex p:last-child{margin:0;font-weight:600}
+.bk-ban .ex p.rest{display:none}
+.bk-ban .ex.open p.rest{display:block}
+.bk-btn-navy{background:#081B46;color:#fff;box-shadow:0 18px 40px -16px rgba(8,27,70,.6)}
+.bk-btn-navy:hover{background:#12264A}
+.bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
 /* 5. índice */
@@ -274,8 +279,9 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <span class="bk-kick"><i></i>Una probada del libro</span>
     <h2>Empieza con un plátano roto.</h2>
     <p class="note">De la introducción de Big Bang Baby, en inglés.</p>
-    <div class="ex" lang="en"><p>Open Instagram on any given Tuesday and you will find a post from a child psychologist with 400,000 followers telling you that saying “Good job!” damages your child’s intrinsic motivation. Scroll a little further and you’ll find another expert, equally credentialed, arguing that not saying “Good job!” hurts your attachment to your baby. By Thursday, a viral reel will explain that your toddler’s tantrum is actually a communication of unmet needs and that your job is to “hold space” for their big feelings while modeling emotional regulation.</p><p>This all sounds compassionate and enlightened, and it contains a grain of truth that makes it hard to argue with.</p><p>But reality for any parent looks very different. It looks like a father sitting on the kitchen floor at 7:15 in the morning, trying to make the school carpool on time while running late for work, “holding space” for a three-year-old who is screaming because her banana broke in half. The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.</p><p>The right thing, as described by the parenting internet, involves narrating the child’s emotions back to her (“I see that you’re feeling frustrated about the banana”), validating the experience (“It’s okay to feel sad when something breaks”), and waiting for the storm to pass without any further guidance on emotional regulation or any adult authority that would get the morning back on track.</p><p>Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor.</p></div>
-    <a class="more" href="/es/book/introduction">Lee la introducción →</a>
+    <div class="ex" lang="en" id="bkEx"><p>Open Instagram on any given Tuesday and you will find a post from a child psychologist with 400,000 followers telling you that saying “Good job!” damages your child’s intrinsic motivation. Scroll a little further and you’ll find another expert, equally credentialed, arguing that not saying “Good job!” hurts your attachment to your baby. By Thursday, a viral reel will explain that your toddler’s tantrum is actually a communication of unmet needs and that your job is to “hold space” for their big feelings while modeling emotional regulation.</p><p class="rest">This all sounds compassionate and enlightened, and it contains a grain of truth that makes it hard to argue with.</p><p class="rest">But reality for any parent looks very different. It looks like a father sitting on the kitchen floor at 7:15 in the morning, trying to make the school carpool on time while running late for work, “holding space” for a three-year-old who is screaming because her banana broke in half. The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.</p><p class="rest">The right thing, as described by the parenting internet, involves narrating the child’s emotions back to her (“I see that you’re feeling frustrated about the banana”), validating the experience (“It’s okay to feel sad when something breaks”), and waiting for the storm to pass without any further guidance on emotional regulation or any adult authority that would get the morning back on track.</p><p class="rest">Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor.</p></div>
+    <button type="button" class="bk-btn bk-btn-navy bk-readmore" id="bkExMore">Leer más</button>
+    <a class="more" href="/es/book/introduction" id="bkExLink" hidden>Lee la introducción →</a>
   </div>
 </section>
 
@@ -366,6 +372,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         });
     })();
     </script>
+<script>(function(){var b=document.getElementById('bkExMore');if(b){b.addEventListener('click',function(){document.getElementById('bkEx').classList.add('open');b.hidden=true;document.getElementById('bkExLink').hidden=false;});}})();</script>
 <script>(function(){if(Date.now()<Date.parse('2026-09-23T06:00:00Z'))return;document.querySelectorAll('[data-after]').forEach(function(e){e.textContent=e.getAttribute('data-after')});})();</script>
 </body>
 </html>

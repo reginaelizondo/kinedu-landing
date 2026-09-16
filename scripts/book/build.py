@@ -53,7 +53,7 @@ C = {
   ban_kick="A taste of the book",
   ban_h2="Start with a broken banana.",
   ban_note="From the introduction of Big Bang Baby.",
-  ban_link="Read the introduction",
+  ban_link="Read the introduction", ban_more="Read more",
   in_h2="What you’ll find inside.",
   parts=[("The Old Cosmology", "How familiar ideas about child development shaped the advice parents hear today."),
          ("The Big Bang", "How early abilities connect and begin to develop during the first year."),
@@ -93,7 +93,7 @@ C = {
   ban_kick="Una probada del libro",
   ban_h2="Empieza con un plátano roto.",
   ban_note="De la introducción de Big Bang Baby, en inglés.",
-  ban_link="Lee la introducción",
+  ban_link="Lee la introducción", ban_more="Leer más",
   in_h2="Qué vas a encontrar dentro.",
   parts=[("The Old Cosmology", "Cómo las ideas conocidas sobre el desarrollo infantil moldearon los consejos que los papás escuchan hoy."),
          ("The Big Bang", "Cómo se conectan las primeras capacidades y empiezan a desarrollarse durante el primer año."),
@@ -133,7 +133,7 @@ C = {
   ban_kick="Um gostinho do livro",
   ban_h2="Comece com uma banana quebrada.",
   ban_note="Da introdução de Big Bang Baby, em inglês.",
-  ban_link="Leia a introdução",
+  ban_link="Leia a introdução", ban_more="Ler mais",
   in_h2="O que você vai encontrar dentro.",
   parts=[("The Old Cosmology", "Como ideias conhecidas sobre o desenvolvimento infantil moldaram os conselhos que os pais ouvem hoje."),
          ("The Big Bang", "Como as primeiras capacidades se conectam e começam a se desenvolver durante o primeiro ano."),
@@ -208,6 +208,11 @@ CSS = r"""
 .bk-ban .ex{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.25rem,1.9vw,1.5rem);line-height:1.55;color:#1A1D2E;border-left:2px solid #E9C77E;padding-left:26px;margin:0 0 28px}
 .bk-ban .ex p{margin:0 0 1em;text-wrap:pretty}
 .bk-ban .ex p:last-child{margin:0;font-weight:600}
+.bk-ban .ex p.rest{display:none}
+.bk-ban .ex.open p.rest{display:block}
+.bk-btn-navy{background:#081B46;color:#fff;box-shadow:0 18px 40px -16px rgba(8,27,70,.6)}
+.bk-btn-navy:hover{background:#12264A}
+.bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
 /* 5. índice */
@@ -286,7 +291,8 @@ CSS = r"""
 }
 """
 
-LAUNCH_JS = """<script>(function(){if(Date.now()<Date.parse('2026-09-23T06:00:00Z'))return;document.querySelectorAll('[data-after]').forEach(function(e){e.textContent=e.getAttribute('data-after')});})();</script>"""
+LAUNCH_JS = """<script>(function(){var b=document.getElementById('bkExMore');if(b){b.addEventListener('click',function(){document.getElementById('bkEx').classList.add('open');b.hidden=true;document.getElementById('bkExLink').hidden=false;});}})();</script>
+<script>(function(){if(Date.now()<Date.parse('2026-09-23T06:00:00Z'))return;document.querySelectorAll('[data-after]').forEach(function(e){e.textContent=e.getAttribute('data-after')});})();</script>"""
 
 def universe_svg():
     """Un solo visual: conexiones densas → expansión → cuatro áreas distintas."""
@@ -415,7 +421,7 @@ def build_landing(lang):
     date_pill = f'<span class="bk-date" data-after="{E(c["date_after"])}">{E(c["date"])}</span>'
     qs = "".join(f'<div class="it"><p class="q">{E(q)}</p><p>{E(p)}</p></div>' for q, p in c["qs"])
     lbls = "".join(f'<span>{E(l)}</span>' for l in c["uni_lbl"])
-    ex = "".join(f'<p>{E(p)}</p>' for p in EXCERPT)
+    ex = "".join(f'<p{" class=\"rest\"" if i else ""}>{E(p)}</p>' for i, p in enumerate(EXCERPT))
     toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div></div>' for i, (t, p) in enumerate(c["parts"]))
     dts = "".join(f'<li>{E(d)}</li>' for d in c["get_details"])
     body = f"""<section class="bk-hero bk-navy bk-stars">
@@ -464,8 +470,9 @@ def build_landing(lang):
     <span class="bk-kick"><i></i>{E(c["ban_kick"])}</span>
     <h2>{E(c["ban_h2"])}</h2>
     <p class="note">{E(c["ban_note"])}</p>
-    <div class="ex" lang="en">{ex}</div>
-    <a class="more" href="{base}/book/introduction">{E(c["ban_link"])} →</a>
+    <div class="ex" lang="en" id="bkEx">{ex}</div>
+    <button type="button" class="bk-btn bk-btn-navy bk-readmore" id="bkExMore">{E(c["ban_more"])}</button>
+    <a class="more" href="{base}/book/introduction" id="bkExLink" hidden>{E(c["ban_link"])} →</a>
   </div>
 </section>
 
