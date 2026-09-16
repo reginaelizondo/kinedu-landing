@@ -339,6 +339,10 @@ def chrome(lang):
     m = re.search(rf'<a href="{re.escape(base)}/book" data-i18n="nav.book" data-i18n-href="nav.bookUrl"(?: class="active")?>[^<]*</a>', nav)
     assert m, "falta el link Book en el nav fuente"
     nav = nav.replace(m.group(0), m.group(0).replace(' class="active"', '').replace('data-i18n-href="nav.bookUrl">', 'data-i18n-href="nav.bookUrl" class="active">'))
+    # rutas absolutas: /book/introduction vive un nivel más abajo
+    nav = nav.replace('src="logo kinedu.png"', 'src="/logo kinedu.png"')
+    footer = footer.replace('src="logo kinedu.png"', 'src="/logo kinedu.png"')
+    tail = tail.replace('src="translations.js?', 'src="/translations.js?').replace('src="script.js?', 'src="/script.js?')
     return tracking, nav, footer, tail
 
 def head_html(lang, title, desc, path, og_title, ld, alt_paths):
