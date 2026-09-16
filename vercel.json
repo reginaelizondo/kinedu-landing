@@ -82,6 +82,18 @@
       "destination": "/pt/book.html"
     },
     {
+      "source": "/book/introduction",
+      "destination": "/book-introduction.html"
+    },
+    {
+      "source": "/es/book/introduction",
+      "destination": "/es/book-introduction.html"
+    },
+    {
+      "source": "/pt/book/introduction",
+      "destination": "/pt/book-introduction.html"
+    },
+    {
       "source": "/pt/terms",
       "destination": "/pt/terms.html"
     },
