@@ -70,9 +70,10 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-date::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--bk-gold)}
 .bk-navy{position:relative;background:radial-gradient(120% 90% at 50% 45%,#12264A 0%,var(--bk-navy) 45%,var(--bk-edge) 100%);color:var(--bk-ink);overflow:hidden}
 .bk-stars::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.4px 1.4px at 8% 22%,rgba(157,180,214,.9),transparent 60%),radial-gradient(1px 1px at 18% 68%,rgba(157,180,214,.7),transparent 60%),radial-gradient(1.6px 1.6px at 27% 38%,rgba(255,255,255,.75),transparent 60%),radial-gradient(1px 1px at 36% 82%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.2px 1.2px at 44% 14%,rgba(157,180,214,.8),transparent 60%),radial-gradient(1px 1px at 57% 58%,rgba(157,180,214,.55),transparent 60%),radial-gradient(1.8px 1.8px at 66% 24%,rgba(255,255,255,.7),transparent 60%),radial-gradient(1px 1px at 73% 76%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.3px 1.3px at 84% 40%,rgba(157,180,214,.85),transparent 60%),radial-gradient(1px 1px at 92% 66%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.5px 1.5px at 12% 90%,rgba(255,255,255,.55),transparent 60%),radial-gradient(1px 1px at 61% 92%,rgba(157,180,214,.5),transparent 60%),radial-gradient(1.2px 1.2px at 96% 12%,rgba(157,180,214,.7),transparent 60%)}
+.bk-panel{border-radius:30px;padding:60px 60px;max-width:1160px;margin:0 auto;box-shadow:0 30px 70px -40px rgba(8,27,70,.45)}
 /* 1. entrada */
-.bk-hero{padding:160px 24px 80px}
-.bk-hero::after{content:"";position:absolute;left:66%;top:58%;width:760px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.2) 0%,rgba(233,199,126,.13) 18%,rgba(214,168,92,.05) 42%,transparent 66%);filter:blur(10px)}
+.bk-hero{background:#FBFAF8;padding:130px 24px 36px}
+.bk-hero .bk-panel::after{content:"";position:absolute;left:66%;top:58%;width:760px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.2) 0%,rgba(233,199,126,.13) 18%,rgba(214,168,92,.05) 42%,transparent 66%);filter:blur(10px)}
 .bk-hero .bk-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
 .bk-hero .bk-kick{color:var(--bk-gold);background:rgba(233,199,126,.08);border-color:rgba(233,199,126,.28)}
 .bk-hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:.98;letter-spacing:.04em;text-transform:uppercase;font-weight:800;color:#fff;margin:0 0 12px}
@@ -122,8 +123,8 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-in .rw .t{font-size:21px;font-weight:800;color:#081B46;margin:0 0 6px;letter-spacing:-.01em}
 .bk-in .rw p{font-size:15.5px;line-height:1.58;color:var(--bk-muted);margin:0;max-width:600px;text-wrap:pretty}
 /* 6. autor + cierre */
-.bk-end{padding:84px 24px}
-.bk-end::after{content:"";position:absolute;left:50%;top:78%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.18) 0%,rgba(233,199,126,.1) 20%,transparent 62%);filter:blur(12px)}
+.bk-end{background:#FBFAF8;padding:36px 24px 88px}
+.bk-end .bk-panel::after{content:"";position:absolute;left:50%;top:78%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.18) 0%,rgba(233,199,126,.1) 20%,transparent 62%);filter:blur(12px)}
 .bk-end .bk-wrap{max-width:900px}
 .bk-au{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center;padding-bottom:48px;border-bottom:1px solid rgba(233,199,126,.3);margin-bottom:48px}
 .bk-au img{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 20px 40px -20px rgba(0,0,0,.7)}
@@ -161,14 +162,16 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-ixend .h{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 4px}
 .bk-ixend .p{font-size:1rem;color:#C9D3E6;margin:0 0 18px}
 @media(max-width:900px){
-  .bk-hero{padding:124px 20px 56px}
+  .bk-hero{padding:104px 16px 24px}
+  .bk-panel{border-radius:22px;padding:36px 22px}
   .bk-hero .bk-wrap{grid-template-columns:1fr;gap:28px}
   .bk-hero .bk-cover{order:-1}
   .bk-cover img{max-width:200px}
   .bk-hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}
   .bk-ctas .bk-btn{width:100%}
   .bk-date{margin:12px 0 0;display:flex}
-  .bk-qs,.bk-uni,.bk-ban,.bk-in,.bk-end{padding:56px 20px}
+  .bk-qs,.bk-uni,.bk-ban,.bk-in{padding:56px 20px}
+  .bk-end{padding:24px 16px 56px}
   .bk-qs .row{grid-template-columns:1fr;gap:24px}
   .bk-uni .bk-wrap{grid-template-columns:1fr;gap:28px}
   .bk-uni .blurb{margin-top:28px}
@@ -233,7 +236,8 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </nav>
 <main class="bk">
-<section class="bk-hero bk-navy bk-stars">
+<section class="bk-hero">
+  <div class="bk-panel bk-navy bk-stars">
   <div class="bk-wrap">
     <div>
       <span class="bk-kick"><i></i>El libro del fundador de Kinedu</span>
@@ -250,6 +254,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <div class="bk-cover">
       <img src="/images/book/cover-3d.webp" srcset="/images/book/cover-3d-sm.webp 420w, /images/book/cover-3d.webp 724w" sizes="(max-width: 900px) 200px, 320px" width="724" height="1179" alt="Big Bang Baby, el libro de Luis Garza Sada" fetchpriority="high">
     </div>
+  </div>
   </div>
 </section>
 
@@ -281,7 +286,6 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <p class="note">De la introducción de Big Bang Baby, en inglés.</p>
     <div class="ex" lang="en" id="bkEx"><p>But reality for any parent looks very different. It looks like a father sitting on the kitchen floor at 7:15 in the morning, trying to make the school carpool on time while running late for work, “holding space” for a three-year-old who is screaming because her banana broke in half. The father knows, somewhere deep in the rational part of his brain, that this is developmentally normal. He has read the posts. He understands that a three-year-old does not yet have the capacity to regulate an intense emotional response. He is trying to do the right thing.</p><p class="rest">The right thing, as described by the parenting internet, involves narrating the child’s emotions back to her (“I see that you’re feeling frustrated about the banana”), validating the experience (“It’s okay to feel sad when something breaks”), and waiting for the storm to pass without any further guidance on emotional regulation or any adult authority that would get the morning back on track.</p><p class="rest">Meanwhile, three other children need breakfast, school starts in twenty minutes, and the broken banana is now on the floor.</p></div>
     <button type="button" class="bk-btn bk-btn-navy bk-readmore" id="bkExMore">Leer más</button>
-    <a class="more" href="/es/book/introduction" id="bkExLink" hidden>Lee la introducción →</a>
   </div>
 </section>
 
@@ -292,7 +296,8 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="bk-end bk-navy bk-stars" id="get">
+<section class="bk-end" id="get">
+  <div class="bk-panel bk-navy bk-stars">
   <div class="bk-wrap">
     <div class="bk-au">
       <img src="/images/book/luis-garza-sada.webp" width="120" height="120" alt="Luis Garza Sada, autor de Big Bang Baby y fundador de Kinedu" loading="lazy">
@@ -311,6 +316,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         <div class="bk-ctas"><a class="bk-btn bk-btn-gold" href="https://www.amazon.com/dp/B0HHL292P6" target="_blank" rel="noopener" data-after="Cómpralo en Amazon">Reserva en Amazon</a><a class="more" href="https://bigbangbaby.net/" target="_blank" rel="noopener">bigbangbaby.net</a></div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 </main>
@@ -372,7 +378,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         });
     })();
     </script>
-<script>(function(){var b=document.getElementById('bkExMore');if(b){b.addEventListener('click',function(){document.getElementById('bkEx').classList.add('open');b.hidden=true;document.getElementById('bkExLink').hidden=false;});}})();</script>
+<script>(function(){var b=document.getElementById('bkExMore');if(b){b.addEventListener('click',function(){document.getElementById('bkEx').classList.add('open');b.hidden=true;});}})();</script>
 <script>(function(){if(Date.now()<Date.parse('2026-09-23T06:00:00Z'))return;document.querySelectorAll('[data-after]').forEach(function(e){e.textContent=e.getAttribute('data-after')});})();</script>
 </body>
 </html>

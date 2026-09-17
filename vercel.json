@@ -82,18 +82,6 @@
       "destination": "/pt/book.html"
     },
     {
-      "source": "/book/introduction",
-      "destination": "/book-introduction.html"
-    },
-    {
-      "source": "/es/book/introduction",
-      "destination": "/es/book-introduction.html"
-    },
-    {
-      "source": "/pt/book/introduction",
-      "destination": "/pt/book-introduction.html"
-    },
-    {
       "source": "/pt/terms",
       "destination": "/pt/terms.html"
     },
@@ -296,6 +284,21 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/pt/book/introduction",
+      "destination": "/pt/book",
+      "permanent": false
+    },
+    {
+      "source": "/es/book/introduction",
+      "destination": "/es/book",
+      "permanent": false
+    },
+    {
+      "source": "/book/introduction",
+      "destination": "/book",
+      "permanent": false
+    },
     {
       "source": "/es/blog/por-que-mi-bebe-tiene-los-punos-cerrados",
       "destination": "/es/blog/son-normales-los-punos-cerrados-en-bebes",
