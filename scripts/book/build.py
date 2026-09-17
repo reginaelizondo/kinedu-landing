@@ -238,15 +238,19 @@ CSS = r"""
 .bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
-/* 4b. qué puedes hacer */
-.bk-do{background:#fff;padding:84px 24px;border-top:1px solid #F0EDE7}
-.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 36px}
-.bk-do .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:960px;margin:0 auto}
-.bk-do .f{border-radius:22px;padding:26px 26px 24px;background:var(--tint)}
-.bk-do .f1{--tint:#EFF4FB;--c:#2B8BE4}.bk-do .f2{--tint:#FDF0F5;--c:#E84D8A}.bk-do .f3{--tint:#FFF6DF;--c:#E0A200}.bk-do .f4{--tint:#EDF9EE;--c:#2EA84F}
-.bk-do .dot{display:block;width:12px;height:12px;border-radius:50%;background:var(--c);margin:0 0 14px}
-.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 8px}
-.bk-do p{font-size:17.5px;line-height:1.5;color:#081B46;font-weight:600;margin:0;text-wrap:pretty}
+/* 4b. qué puedes hacer (look del libro) */
+.bk-do{padding:88px 24px}
+.bk-do::after{content:"";position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.14) 0%,rgba(233,199,126,.08) 22%,transparent 62%);filter:blur(12px)}
+.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 40px}
+.bk-do .bk-kick{color:var(--bk-gold);background:rgba(233,199,126,.08);border-color:rgba(233,199,126,.28)}
+.bk-do h2{color:#fff}
+.bk-do .bk-lead{color:#C9D3E6}
+.bk-do .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px;margin:0 auto}
+.bk-do .f{display:flex;gap:20px;align-items:flex-start;border-radius:22px;padding:26px 26px 24px;background:rgba(237,241,248,.05);border:1px solid rgba(233,199,126,.28);backdrop-filter:blur(2px)}
+.bk-do .ic{flex-shrink:0;width:72px;height:72px;border-radius:18px;background:radial-gradient(circle at 50% 40%,rgba(233,199,126,.22),rgba(233,199,126,.04) 70%);border:1px solid rgba(233,199,126,.25);display:flex;align-items:center;justify-content:center;padding:10px}
+.bk-do .ic svg{width:100%;height:100%}
+.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bk-gold);margin:0 0 8px}
+.bk-do p{font-size:17.5px;line-height:1.5;color:#EDF1F8;font-weight:600;margin:0;text-wrap:pretty}
 /* 5. índice */
 .bk-in{background:#FBFAF8;padding:80px 24px}
 .bk-in h2{margin-bottom:28px}
@@ -261,21 +265,23 @@ CSS = r"""
 .bk-end{background:#FBFAF8;padding:36px 24px 88px}
 .bk-end .bk-panel::after{content:"";position:absolute;left:50%;top:78%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.18) 0%,rgba(233,199,126,.1) 20%,transparent 62%);filter:blur(12px)}
 .bk-end .bk-wrap{max-width:900px}
-.bk-au{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center;padding-bottom:48px;border-bottom:1px solid rgba(233,199,126,.3);margin-bottom:48px}
+.bk-au{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center}
+.bk-btn-blue{background:#087BF3;color:#fff;box-shadow:0 18px 40px -16px rgba(8,123,243,.6)}
+.bk-btn-blue:hover{background:#0B6BD0}
 .bk-au img{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 20px 40px -20px rgba(0,0,0,.7)}
 .bk-au .nm{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 4px;letter-spacing:-.01em}
 .bk-au .rl{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--bk-gold);margin:0 0 10px}
 .bk-au p{font-size:16px;line-height:1.6;color:#C9D3E6;margin:0 0 10px;text-wrap:pretty}
 .bk-au a{color:var(--bk-gold);font-weight:700;text-decoration:none;font-size:14.5px;border-bottom:1px solid rgba(233,199,126,.4)}
 .bk-au a:hover{border-bottom-color:var(--bk-gold)}
-.bk-get{display:grid;grid-template-columns:150px 1fr;gap:36px;align-items:center}
+.bk-get{display:grid;grid-template-columns:150px 1fr;gap:36px;align-items:center;max-width:900px;margin:56px auto 0}
 .bk-get img{width:150px;height:auto;display:block;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55))}
-.bk-get h2{color:#fff;margin-bottom:14px}
+.bk-get h2{color:#081B46;margin-bottom:14px}
 .bk-get .dt{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-wrap:wrap;gap:6px 18px}
-.bk-get .dt li{font-size:14.5px;color:#C9D3E6;font-weight:600;display:flex;align-items:center;gap:8px}
+.bk-get .dt li{font-size:14.5px;color:#52607A;font-weight:600;display:flex;align-items:center;gap:8px}
 .bk-get .dt li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--bk-gold)}
-.bk-get .more{color:var(--bk-gold);font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(233,199,126,.4);margin-left:6px}
-.bk-get .more:hover{border-bottom-color:var(--bk-gold)}
+.bk-get .more{color:#081B46;font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(8,27,70,.3);margin-left:6px}
+.bk-get .more:hover{border-bottom-color:#081B46}
 /* página de extracto */
 .bk-ix{background:#fff;padding:150px 24px 72px}
 .bk-ix .bk-head{max-width:680px;margin:0 auto 36px}
@@ -307,7 +313,8 @@ CSS = r"""
   .bk-date{margin:12px 0 0;display:flex}
   .bk-qs,.bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
   .bk-do .grid{grid-template-columns:1fr;gap:12px}
-  .bk-do .f{padding:20px}
+  .bk-do .f{padding:18px;gap:14px}
+  .bk-do .ic{width:56px;height:56px;border-radius:14px;padding:8px}
   .bk-end{padding:24px 16px 56px}
   .bk-qs .row{grid-template-columns:1fr;gap:24px}
   .bk-uni .bk-wrap{grid-template-columns:1fr;gap:28px}
@@ -315,8 +322,8 @@ CSS = r"""
   .bk-ban .ex{padding-left:18px;font-size:1.2rem}
   .bk-in .rw{grid-template-columns:64px 1fr;gap:16px;padding:20px 0}
   .bk-in .rw .n{font-size:34px}
-  .bk-au{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px;padding-bottom:36px;margin-bottom:36px}
-  .bk-get{grid-template-columns:1fr;text-align:center;justify-items:center;gap:22px}
+  .bk-au{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px}
+  .bk-get{grid-template-columns:1fr;text-align:center;justify-items:center;gap:22px;margin-top:40px}
   .bk-get .dt{justify-content:center}
   .bk-get .bk-ctas{justify-content:center}
   .bk-ix{padding:120px 20px 56px}
@@ -329,6 +336,17 @@ CSS = r"""
 
 LAUNCH_JS = """<script>(function(){var b=document.getElementById('bkExMore');if(b){b.addEventListener('click',function(){document.getElementById('bkEx').classList.add('open');b.hidden=true;});}})();</script>
 <script>(function(){if(Date.now()<Date.parse('2026-09-23T06:00:00Z'))return;document.querySelectorAll('[data-after]').forEach(function(e){e.textContent=e.getAttribute('data-after')});})();</script>"""
+
+FORCE_ICONS = [
+ # play: pelota y bloques
+ '<svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="34" width="16" height="16" rx="3"/><rect x="18" y="18" width="16" height="16" rx="3" fill="rgba(233,199,126,.12)"/><circle cx="44" cy="42" r="9" fill="rgba(233,199,126,.12)"/><path d="M37 38c4 2 10 2 14 0M37 46c4-2 10-2 14 0"/><path d="M14 12l2 4M46 12l-2 4M30 8v4" stroke="#FDF6E3"/></svg>',
+ # relationships: adulto y niño de la mano
+ '<svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="16" r="6" fill="rgba(233,199,126,.12)"/><path d="M12 52V36a10 10 0 0 1 20 0v16"/><circle cx="45" cy="28" r="4.5" fill="rgba(233,199,126,.12)"/><path d="M38 52V41a7 7 0 0 1 14 0v11"/><path d="M32 38l6 3" stroke="#FDF6E3"/><path d="M8 52h48" stroke="rgba(233,199,126,.5)"/></svg>',
+ # stress: paraguas que amortigua la lluvia
+ '<svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 32a24 24 0 0 1 48 0Z" fill="rgba(233,199,126,.12)"/><path d="M32 8v4M32 32v16a5 5 0 0 0 10 0"/><path d="M14 10l-2 5M50 10l2 5M22 6l-1 4M42 6l1 4" stroke="#FDF6E3"/><path d="M10 44l-1 3M18 48l-1 3M46 48l-1 3M54 44l-1 3" stroke="rgba(253,246,227,.6)"/></svg>',
+ # predictability: sol y luna en ciclo
+ '<svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="24" r="7" fill="rgba(233,199,126,.12)"/><path d="M22 10v4M22 34v4M8 24h4M32 24h4M12 14l3 3M29 31l3 3M12 34l3-3M29 17l3-3"/><path d="M50 30a9 9 0 1 1-8-12 7 7 0 0 0 8 12Z" fill="rgba(253,246,227,.12)" stroke="#FDF6E3"/><path d="M12 50c6 6 34 6 40 0" /><path d="M48 46l4 4-4 4"/></svg>',
+]
 
 def universe_svg():
     """Un solo visual: conexiones densas → expansión → cuatro áreas distintas."""
@@ -454,13 +472,14 @@ def page_html(lang, head_inner, body_inner):
 def build_landing(lang):
     c = C[lang]; base = c["base"]
     cta = f'<a class="bk-btn bk-btn-gold" href="{AMAZON}" target="_blank" rel="noopener" data-after="{E(c["cta_after"])}">{E(c["cta"])}</a>'
+    cta_blue = f'<a class="bk-btn bk-btn-blue" href="{AMAZON}" target="_blank" rel="noopener" data-after="{E(c["cta_after"])}">{E(c["cta"])}</a>'
     date_pill = f'<span class="bk-date" data-after="{E(c["date_after"])}">{E(c["date"])}</span>'
     qs = "".join(f'<div class="it"><p class="q">{E(q)}</p><p>{E(p)}</p></div>' for q, p in c["qs"])
     lbls = "".join(f'<span>{E(l)}</span>' for l in c["uni_lbl"])
     ex = "".join(f'<p{" class=\"rest\"" if i else ""}>{E(p)}</p>' for i, p in enumerate(EXCERPT))
     toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div></div>' for i, (t, p) in enumerate(c["parts"]))
     dts = "".join(f'<li>{E(d)}</li>' for d in c["get_details"])
-    do = "".join(f'<div class="f f{i+1}"><span class="dot"></span><p class="t">{E(t)}</p><p>{E(x)}</p></div>' for i, (t, x) in enumerate(c["do"]))
+    do = "".join(f'<div class="f"><span class="ic">{FORCE_ICONS[i]}</span><div><p class="t">{E(t)}</p><p>{E(x)}</p></div></div>' for i, (t, x) in enumerate(c["do"]))
     body = f"""<section class="bk-hero">
   <div class="bk-panel bk-navy bk-stars">
   <div class="bk-wrap">
@@ -514,7 +533,7 @@ def build_landing(lang):
   </div>
 </section>
 
-<section class="bk-do" id="support">
+<section class="bk-do bk-navy bk-stars" id="support">
   <div class="bk-wrap">
     <div class="bk-head">
       <span class="bk-kick"><i></i>{E(c["do_kick"])}</span>
@@ -544,15 +563,17 @@ def build_landing(lang):
         <a href="/founder">{E(c["au_link"])} →</a>
       </div>
     </div>
+  </div>
+  </div>
+  <div class="bk-wrap">
     <div class="bk-get">
       <img src="/images/book/cover-3d-sm.webp" width="420" height="684" alt="" loading="lazy">
       <div>
         <h2>{E(c["get_h2"])}</h2>
         <ul class="dt">{dts}</ul>
-        <div class="bk-ctas">{cta}<a class="more" href="https://bigbangbaby.net/" target="_blank" rel="noopener">{E(c["get_more"])}</a></div>
+        <div class="bk-ctas">{cta_blue}<a class="more" href="https://bigbangbaby.net/" target="_blank" rel="noopener">{E(c["get_more"])}</a></div>
       </div>
     </div>
-  </div>
   </div>
 </section>"""
     head = head_html(lang, c["title"], c["desc"], c["path"], c["og_title"], book_ld(SITE + c["path"]), [("en", "/book"), ("es", "/es/book"), ("pt", "/pt/book")])
