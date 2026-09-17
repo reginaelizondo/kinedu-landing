@@ -53,6 +53,13 @@ C = {
   ban_h2="Start with a broken banana.",
   ban_note="From the introduction of Big Bang Baby.",
   ban_link="Read the introduction", ban_more="Read more",
+  do_kick="What you can do",
+  do_h2="And what can you do to support them?",
+  do_lead="Four everyday forces the book keeps coming back to.",
+  do=[("Play","The small moments that look like nothing and build everything."),
+      ("Relationships","Held by you, pushed by you, and through you: that’s how your child builds their model of the world."),
+      ("Stress","It will always be there. What matters is that you, the buffer, are there too."),
+      ("Predictability","The single most important thing a parent should know, according to Dr. Phil Fisher.")],
   in_h2="What you’ll find inside.",
   parts=[("The Old Cosmology", "How familiar ideas about child development shaped the advice parents hear today."),
          ("The Big Bang", "How early abilities connect and begin to develop during the first year."),
@@ -94,6 +101,13 @@ C = {
   ban_h2="Empieza con un plátano roto.",
   ban_note="De la introducción de Big Bang Baby, en inglés.",
   ban_link="Lee la introducción", ban_more="Leer más",
+  do_kick="Qué puedes hacer",
+  do_h2="¿Y qué puedes hacer para apoyarlas?",
+  do_lead="Cuatro fuerzas cotidianas a las que el libro vuelve una y otra vez.",
+  do=[("Juego","Los momentos pequeños que parecen nada y lo construyen todo."),
+      ("Relaciones","Sostenido por ti, empujado por ti y a través de ti: así construye tu hijo su modelo del mundo."),
+      ("Estrés","Siempre va a estar ahí. Lo que importa es que tú, el amortiguador, también estés."),
+      ("Predictibilidad","Lo más importante que un papá debe saber, según el Dr. Phil Fisher.")],
   in_h2="Qué vas a encontrar dentro.",
   parts=[("The Old Cosmology", "Cómo las ideas conocidas sobre el desarrollo infantil moldearon los consejos que los papás escuchan hoy."),
          ("The Big Bang", "Cómo se conectan las primeras capacidades y empiezan a desarrollarse durante el primer año."),
@@ -135,6 +149,13 @@ C = {
   ban_h2="Comece com uma banana quebrada.",
   ban_note="Da introdução de Big Bang Baby, em inglês.",
   ban_link="Leia a introdução", ban_more="Ler mais",
+  do_kick="O que você pode fazer",
+  do_h2="E o que você pode fazer para apoiá-las?",
+  do_lead="Quatro forças do dia a dia às quais o livro volta o tempo todo.",
+  do=[("Brincadeira","Os pequenos momentos que parecem nada e constroem tudo."),
+      ("Relações","Segurado por você, impulsionado por você e através de você: é assim que seu filho constrói seu modelo do mundo."),
+      ("Estresse","Ele sempre vai existir. O que importa é que você, o amortecedor, também esteja lá."),
+      ("Previsibilidade","A coisa mais importante que um pai ou mãe deve saber, segundo o Dr. Phil Fisher.")],
   in_h2="O que você vai encontrar dentro.",
   parts=[("The Old Cosmology", "Como ideias conhecidas sobre o desenvolvimento infantil moldaram os conselhos que os pais ouvem hoje."),
          ("The Big Bang", "Como as primeiras capacidades se conectam e começam a se desenvolver durante o primeiro ano."),
@@ -217,6 +238,15 @@ CSS = r"""
 .bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
+/* 4b. qué puedes hacer */
+.bk-do{background:#fff;padding:84px 24px;border-top:1px solid #F0EDE7}
+.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 36px}
+.bk-do .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:960px;margin:0 auto}
+.bk-do .f{border-radius:22px;padding:26px 26px 24px;background:var(--tint)}
+.bk-do .f1{--tint:#EFF4FB;--c:#2B8BE4}.bk-do .f2{--tint:#FDF0F5;--c:#E84D8A}.bk-do .f3{--tint:#FFF6DF;--c:#E0A200}.bk-do .f4{--tint:#EDF9EE;--c:#2EA84F}
+.bk-do .dot{display:block;width:12px;height:12px;border-radius:50%;background:var(--c);margin:0 0 14px}
+.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 8px}
+.bk-do p{font-size:17.5px;line-height:1.5;color:#081B46;font-weight:600;margin:0;text-wrap:pretty}
 /* 5. índice */
 .bk-in{background:#FBFAF8;padding:80px 24px}
 .bk-in h2{margin-bottom:28px}
@@ -275,7 +305,9 @@ CSS = r"""
   .bk-hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}
   .bk-ctas .bk-btn{width:100%}
   .bk-date{margin:12px 0 0;display:flex}
-  .bk-qs,.bk-uni,.bk-ban,.bk-in{padding:56px 20px}
+  .bk-qs,.bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
+  .bk-do .grid{grid-template-columns:1fr;gap:12px}
+  .bk-do .f{padding:20px}
   .bk-end{padding:24px 16px 56px}
   .bk-qs .row{grid-template-columns:1fr;gap:24px}
   .bk-uni .bk-wrap{grid-template-columns:1fr;gap:28px}
@@ -428,6 +460,7 @@ def build_landing(lang):
     ex = "".join(f'<p{" class=\"rest\"" if i else ""}>{E(p)}</p>' for i, p in enumerate(EXCERPT))
     toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div></div>' for i, (t, p) in enumerate(c["parts"]))
     dts = "".join(f'<li>{E(d)}</li>' for d in c["get_details"])
+    do = "".join(f'<div class="f f{i+1}"><span class="dot"></span><p class="t">{E(t)}</p><p>{E(x)}</p></div>' for i, (t, x) in enumerate(c["do"]))
     body = f"""<section class="bk-hero">
   <div class="bk-panel bk-navy bk-stars">
   <div class="bk-wrap">
@@ -478,6 +511,17 @@ def build_landing(lang):
     <p class="note">{E(c["ban_note"])}</p>
     <div class="ex" lang="en" id="bkEx">{ex}</div>
     <button type="button" class="bk-btn bk-btn-navy bk-readmore" id="bkExMore">{E(c["ban_more"])}</button>
+  </div>
+</section>
+
+<section class="bk-do" id="support">
+  <div class="bk-wrap">
+    <div class="bk-head">
+      <span class="bk-kick"><i></i>{E(c["do_kick"])}</span>
+      <h2>{E(c["do_h2"])}</h2>
+      <p class="bk-lead">{E(c["do_lead"])}</p>
+    </div>
+    <div class="grid">{do}</div>
   </div>
 </section>
 
