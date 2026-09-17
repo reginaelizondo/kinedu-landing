@@ -198,7 +198,7 @@ CSS = r"""
 .bk-stars::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.4px 1.4px at 8% 22%,rgba(157,180,214,.9),transparent 60%),radial-gradient(1px 1px at 18% 68%,rgba(157,180,214,.7),transparent 60%),radial-gradient(1.6px 1.6px at 27% 38%,rgba(255,255,255,.75),transparent 60%),radial-gradient(1px 1px at 36% 82%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.2px 1.2px at 44% 14%,rgba(157,180,214,.8),transparent 60%),radial-gradient(1px 1px at 57% 58%,rgba(157,180,214,.55),transparent 60%),radial-gradient(1.8px 1.8px at 66% 24%,rgba(255,255,255,.7),transparent 60%),radial-gradient(1px 1px at 73% 76%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.3px 1.3px at 84% 40%,rgba(157,180,214,.85),transparent 60%),radial-gradient(1px 1px at 92% 66%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.5px 1.5px at 12% 90%,rgba(255,255,255,.55),transparent 60%),radial-gradient(1px 1px at 61% 92%,rgba(157,180,214,.5),transparent 60%),radial-gradient(1.2px 1.2px at 96% 12%,rgba(157,180,214,.7),transparent 60%)}
 .bk-panel{border-radius:30px;padding:60px 60px;max-width:1160px;margin:0 auto;box-shadow:0 30px 70px -40px rgba(8,27,70,.45)}
 /* 1. entrada (hero claro sobre el beige de Kinedu; el libro aporta el brillo) */
-.bk-hero{background:#FBFAF8;padding:150px 24px 64px}
+.bk-hero{background:#FBFAF8;padding:150px 24px 8px}
 .bk-panel-light{max-width:1160px;margin:0 auto;position:relative}
 .bk-hero .bk-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
 .bk-hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:.98;letter-spacing:.04em;text-transform:uppercase;font-weight:800;color:#081B46;margin:0 0 12px}
@@ -216,7 +216,7 @@ CSS = r"""
 .bk-hero .bk-cover::after{content:"";position:absolute;left:50%;top:50%;width:400px;height:400px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(233,199,126,.45);pointer-events:none}
 .bk-cover img{position:relative;z-index:1;width:100%;max-width:340px;height:auto;display:block;filter:drop-shadow(0 34px 44px rgba(8,27,70,.35))}
 /* 2. preguntas */
-.bk-qs{background:#FBFAF8;padding:80px 24px}
+.bk-qs{background:#FBFAF8;padding:36px 24px 80px}
 .bk-qs h2{max-width:640px;margin:0 0 36px}
 .bk-qs .row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .bk-qs .it{border-top:2px solid #E9C77E;padding-top:20px}
@@ -310,7 +310,7 @@ CSS = r"""
 .bk-ixend .h{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 4px}
 .bk-ixend .p{font-size:1rem;color:#C9D3E6;margin:0 0 18px}
 @media(max-width:900px){
-  .bk-hero{padding:110px 20px 40px}
+  .bk-hero{padding:110px 20px 0}
   .bk-panel{border-radius:22px;padding:36px 22px}
   .bk-hero .bk-cover{padding:16px 0}
   .bk-hero .bk-cover::before{width:340px;height:340px}
@@ -321,7 +321,8 @@ CSS = r"""
   .bk-hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}
   .bk-ctas .bk-btn{width:100%}
   .bk-date{margin:12px 0 0;display:flex}
-  .bk-qs,.bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
+  .bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
+  .bk-qs{padding:28px 20px 56px}
   .bk-do .grid{grid-template-columns:1fr;gap:12px}
   .bk-do .f{padding:18px;gap:14px}
   .bk-do .ic{width:56px;height:56px;border-radius:14px;padding:8px}
