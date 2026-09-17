@@ -71,17 +71,24 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-navy{position:relative;background:radial-gradient(120% 90% at 50% 45%,#12264A 0%,var(--bk-navy) 45%,var(--bk-edge) 100%);color:var(--bk-ink);overflow:hidden}
 .bk-stars::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.4px 1.4px at 8% 22%,rgba(157,180,214,.9),transparent 60%),radial-gradient(1px 1px at 18% 68%,rgba(157,180,214,.7),transparent 60%),radial-gradient(1.6px 1.6px at 27% 38%,rgba(255,255,255,.75),transparent 60%),radial-gradient(1px 1px at 36% 82%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.2px 1.2px at 44% 14%,rgba(157,180,214,.8),transparent 60%),radial-gradient(1px 1px at 57% 58%,rgba(157,180,214,.55),transparent 60%),radial-gradient(1.8px 1.8px at 66% 24%,rgba(255,255,255,.7),transparent 60%),radial-gradient(1px 1px at 73% 76%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.3px 1.3px at 84% 40%,rgba(157,180,214,.85),transparent 60%),radial-gradient(1px 1px at 92% 66%,rgba(157,180,214,.6),transparent 60%),radial-gradient(1.5px 1.5px at 12% 90%,rgba(255,255,255,.55),transparent 60%),radial-gradient(1px 1px at 61% 92%,rgba(157,180,214,.5),transparent 60%),radial-gradient(1.2px 1.2px at 96% 12%,rgba(157,180,214,.7),transparent 60%)}
 .bk-panel{border-radius:30px;padding:60px 60px;max-width:1160px;margin:0 auto;box-shadow:0 30px 70px -40px rgba(8,27,70,.45)}
-/* 1. entrada */
-.bk-hero{background:#FBFAF8;padding:130px 24px 36px}
-.bk-hero .bk-panel::after{content:"";position:absolute;left:66%;top:58%;width:760px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.2) 0%,rgba(233,199,126,.13) 18%,rgba(214,168,92,.05) 42%,transparent 66%);filter:blur(10px)}
-.bk-hero .bk-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
-.bk-hero .bk-kick{color:var(--bk-gold);background:rgba(233,199,126,.08);border-color:rgba(233,199,126,.28)}
-.bk-hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:.98;letter-spacing:.04em;text-transform:uppercase;font-weight:800;color:#fff;margin:0 0 12px}
-.bk-hero .bk-subtitle{font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.35;color:#C9D3E6;margin:0 0 28px;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
-.bk-hero .bk-q{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.25;font-weight:800;color:#fff;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
-.bk-hero .bk-p{font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:#C9D3E6;margin:0 0 28px;max-width:600px;text-wrap:pretty}
-.bk-cover{position:relative;display:flex;justify-content:center}
-.bk-cover img{width:100%;max-width:320px;height:auto;display:block;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
+/* 1. entrada (hero claro sobre el beige de Kinedu; el libro aporta el brillo) */
+.bk-hero{background:#FBFAF8;padding:150px 24px 64px}
+.bk-panel-light{max-width:1160px;margin:0 auto;position:relative}
+.bk-hero .bk-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.bk-hero h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:.98;letter-spacing:.04em;text-transform:uppercase;font-weight:800;color:#081B46;margin:0 0 12px}
+.bk-hero .bk-subtitle{font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.35;color:#52607A;margin:0 0 28px;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.bk-hero .bk-q{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.25;font-weight:800;color:#081B46;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+.bk-hero .bk-p{font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:#52607A;margin:0 0 28px;max-width:600px;text-wrap:pretty}
+.bk-hero .bk-btn-gold{background:#087BF3;color:#fff;box-shadow:0 18px 40px -16px rgba(8,123,243,.6)}
+.bk-hero .bk-btn-gold:hover{background:#0B6BD0}
+.bk-hero .bk-btn-ghost{color:#081B46;border-color:#D9DFEA;background:#fff}
+.bk-hero .bk-btn-ghost:hover{border-color:#081B46}
+.bk-hero .bk-date{color:#9A7423}
+.bk-hero .bk-date::before{background:#E9C77E}
+.bk-cover{position:relative;display:flex;justify-content:center;padding:36px 0}
+.bk-hero .bk-cover::before{content:"";position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(233,199,126,.55) 0%,rgba(233,199,126,.22) 38%,rgba(233,199,126,0) 68%);pointer-events:none}
+.bk-hero .bk-cover::after{content:"";position:absolute;left:50%;top:50%;width:400px;height:400px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(233,199,126,.45);pointer-events:none}
+.bk-cover img{position:relative;z-index:1;width:100%;max-width:340px;height:auto;display:block;filter:drop-shadow(0 34px 44px rgba(8,27,70,.35))}
 /* 2. preguntas */
 .bk-qs{background:#FBFAF8;padding:80px 24px}
 .bk-qs h2{max-width:640px;margin:0 0 36px}
@@ -177,9 +184,12 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-ixend .h{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 4px}
 .bk-ixend .p{font-size:1rem;color:#C9D3E6;margin:0 0 18px}
 @media(max-width:900px){
-  .bk-hero{padding:104px 16px 24px}
+  .bk-hero{padding:110px 20px 40px}
   .bk-panel{border-radius:22px;padding:36px 22px}
-  .bk-hero .bk-wrap{grid-template-columns:1fr;gap:28px}
+  .bk-hero .bk-cover{padding:16px 0}
+  .bk-hero .bk-cover::before{width:340px;height:340px}
+  .bk-hero .bk-cover::after{width:260px;height:260px}
+  .bk-hero .bk-wrap{grid-template-columns:1fr;gap:20px}
   .bk-hero .bk-cover{order:-1}
   .bk-cover img{max-width:200px}
   .bk-hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}
@@ -255,7 +265,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     </nav>
 <main class="bk">
 <section class="bk-hero">
-  <div class="bk-panel bk-navy bk-stars">
+  <div class="bk-panel-light">
   <div class="bk-wrap">
     <div>
       <span class="bk-kick"><i></i>The book by Kinedu’s founder</span>
