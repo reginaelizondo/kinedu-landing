@@ -46,7 +46,7 @@ a { color: var(--c1); text-decoration: none; }
 .card { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 20px 22px; grid-column: span 12; min-width: 0; }
 .card h2 { font-size: 15px; font-weight: 800; letter-spacing: .01em; margin-bottom: 2px; }
 .card .desc { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
-.s6 { grid-column: span 6; } .s4 { grid-column: span 4; } .s8 { grid-column: span 8; } .s3 { grid-column: span 3; }
+.s6 { grid-column: span 6; } .s4 { grid-column: span 4; } .s8 { grid-column: span 8; } .s3 { grid-column: span 3; } .s7 { grid-column: span 7; } .s5 { grid-column: span 5; }
 @media (max-width: 900px) { .s6, .s4, .s8, .s3 { grid-column: span 12; } .wrap { padding: 18px 14px 60px; } }
 
 /* ---------- KPIs ---------- */
@@ -164,6 +164,7 @@ tr:hover td { background: #FAF8F4; }
         <button class="chip on" data-view="site">Sitio</button>
         <button class="chip" data-view="mc">Masterclasses</button>
         <button class="chip" data-view="as">Assessment</button>
+        <button class="chip" data-view="gift">Gift</button>
       </div>
       <div class="chipset" id="rangeChips">
         <button class="chip" data-d="7">7d</button>
@@ -475,7 +476,54 @@ tr:hover td { background: #FAF8F4; }
   </div>
 
   <!-- ===== TAB ASSESSMENT (kinedu.com/assessment) ===== -->
-  <div id="viewAs" style="display:none;">
+  <div id="viewGift" style="display:none;">
+  <div class="kpis" id="giftKpis"></div>
+  <div class="grid">
+    <div class="card s7">
+      <h2>Embudo del regalo</h2>
+      <div class="desc">De la página kinedu.com/gift al regalo canjeado — vistas y clics medidos aquí, checkout y compras desde Web Promos</div>
+      <div id="giftFunnel"></div>
+    </div>
+    <div class="card s5">
+      <h2>Clics en la página</h2>
+      <div class="desc">Qué botón de /gift usan (EN, ES y PT juntos)</div>
+      <div id="giftCtas"></div>
+    </div>
+    <div class="card s8">
+      <h2>Día a día</h2>
+      <div class="desc">Vistas de /gift, llegadas al checkout y regalos pagados</div>
+      <div class="legend">
+        <span class="it" style="--sw:var(--c1)">Vistas de /gift</span>
+        <span class="it" style="--sw:var(--c4)">Llegaron al checkout</span>
+        <span class="it" style="--sw:var(--c3)">Regalos pagados</span>
+      </div>
+      <div class="ch" id="giftDaily"></div>
+    </div>
+    <div class="card s4">
+      <h2>Por idioma</h2>
+      <div class="desc">Regalos pagados según la página donde se compró</div>
+      <div id="giftLang"></div>
+    </div>
+    <div class="card s6">
+      <h2>Estado de los regalos</h2>
+      <div class="desc">Pagado → enviado → entregado → canjeado (rebotado = el correo no llegó)</div>
+      <div id="giftStatus"></div>
+    </div>
+    <div class="card s6">
+      <h2>De dónde llegó la compra</h2>
+      <div class="desc">utm_source guardado con el regalo (directo = sin utm)</div>
+      <div id="giftSources"></div>
+    </div>
+    <div class="card s12">
+      <h2>Últimos regalos</h2>
+      <div class="desc">Los más recientes del periodo (máx. 100) — quién regala, a quién, cuánto y en qué va</div>
+      <div class="scroll-x"><table id="giftTbl"></table></div>
+      <div class="note" id="giftNote"></div>
+    </div>
+  </div>
+</div>
+
+<div id="viewAs" style="display:none;">
     <div class="kpis" id="asKpis"></div>
 
     <div class="section-title" style="--dot:var(--c2)">Funnel del assessment</div>
@@ -580,7 +628,8 @@ $('rangeChips').addEventListener('click', function (e) {
   var b = e.target.closest('.chip'); if (!b) return;
   this.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
   b.classList.add('on'); state.days = parseInt(b.dataset.d);
-  if ($('viewMc').style.display !== 'none') { mcState.data = null; mcFetch(); }
+  if ($('viewGift').style.display !== 'none') { giftState.data = null; fetchStats(state.pw, state.days * 2).then(function (d) { state.raw = d; giftFetch(); }).catch(function () { giftFetch(); }); }
+  else if ($('viewMc').style.display !== 'none') { mcState.data = null; mcFetch(); }
   else if ($('viewAff').style.display !== 'none' || $('viewEng').style.display !== 'none') { /* afiliados/engagement no dependen del rango */ }
   else refresh();
 });
@@ -1596,6 +1645,128 @@ function asRender() {
   ], { i: 0, dir: -1 });
 }
 
+/* ================= Gift (kinedu.com/gift) =================
+   Vistas y clics: del beacon propio (mismo /api/stats del Sitio, páginas
+   /gift, /es/gift, /pt/gift y CTAs "Gift — …"). Checkout y compras: de Web
+   Promos (tablas promo_gifts y promo_events) vía /gift-api/summary; la
+   contraseña del dashboard debe coincidir con METRICS_KEY del proyecto
+   kinedu-promos en Vercel. */
+var giftState = { data: null, loading: false, error: null };
+function isGiftPath(p) { return /^\/(es\/|pt\/)?gift(\.html)?$/.test(p); }
+
+function giftFetch() {
+  if (giftState.loading) return;
+  giftState.loading = true; giftState.error = null; giftRender();
+  fetch('/gift-api/summary?days=' + (state.days || 30) + '&key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Web Promos (Vercel → kinedu-promos → METRICS_KEY).');
+      if (r.status === 501) throw new Error('Falta METRICS_KEY en el proyecto de Web Promos (Vercel → kinedu-promos): ponle la contraseña de este dashboard.');
+      if (!r.ok) throw new Error('No se pudo leer el resumen de regalos (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { giftState.data = d; giftState.loading = false; giftRender(); })
+    .catch(function (e) { giftState.error = e.message || String(e); giftState.loading = false; giftRender(); });
+}
+
+function giftRender() {
+  if (!state.raw) return;
+  var w = windows(), cur = w.cur, prev = w.prev;
+  $('periodLabel').textContent = 'Gift — kinedu.com/gift · últimos ' + state.days + ' días · ' + (cur[0] ? cur[0].date : '') + ' → ' + (cur.length ? cur[cur.length - 1].date : '');
+
+  /* vistas y clics (beacon propio) */
+  function giftViews(days) { var t = 0; days.forEach(function (d) { for (var p in d.pages) if (isGiftPath(p)) t += d.pages[p]; }); return t; }
+  function giftClicks(days, re) { var t = 0; days.forEach(function (d) { for (var k in d.ctaClicks) if (/^Gift — /.test(k) && (!re || re.test(k))) t += d.ctaClicks[k]; }); return t; }
+  var views = giftViews(cur), viewsP = giftViews(prev);
+  var plans = giftClicks(cur, /See plans/), plansP = giftClicks(prev, /See plans/);
+  var checkoutClicks = giftClicks(cur, /Checkout/), checkoutClicksP = giftClicks(prev, /Checkout/);
+  var byDayViews = {}; cur.forEach(function (d) { var t = 0; for (var p in d.pages) if (isGiftPath(p)) t += d.pages[p]; byDayViews[d.date] = t; });
+
+  function delta(c, p) {
+    if (!p) return '<span class="dlt flat">— sin base previa</span>';
+    var d = (c - p) / p * 100, cls = d > 1 ? 'up' : d < -1 ? 'down' : 'flat';
+    return '<span class="dlt ' + cls + '">' + (d > 0 ? '▲' : d < 0 ? '▼' : '•') + ' ' + Math.abs(d).toFixed(0) + '% vs previo</span>';
+  }
+
+  var d = giftState.data, t = d && d.totals;
+  var usd = d ? ((d.revenue && d.revenue.USD) || 0) / 100 : 0;
+  var paid = t ? t.paid : null;
+  var kp = [
+    ['Vistas de /gift', fmt(views), delta(views, viewsP)],
+    ['Clics a "ver planes"', fmt(plans), delta(plans, plansP)],
+    ['Clics a checkout', fmt(checkoutClicks), delta(checkoutClicks, checkoutClicksP)],
+    ['Regalos pagados', paid == null ? (giftState.loading ? '…' : '—') : fmt(paid), t ? '<span class="dlt flat">' + fmt(t.checkout_started) + ' llegaron al checkout' + (t.checkout_started ? ' · ' + pct(paid / t.checkout_started * 100) + ' pagan' : '') + '</span>' : '<span class="dlt flat">' + (giftState.error ? 'sin datos de Web Promos' : 'cargando…') + '</span>'],
+    ['Ingresos', t ? '$' + usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '—', t ? '<span class="dlt flat">USD · ticket ' + (paid ? '$' + (usd / paid).toFixed(2) : '—') + (t.redeemed ? ' · ' + fmt(t.redeemed) + ' canjeados' : '') + '</span>' : '<span class="dlt flat">de Web Promos</span>']
+  ];
+  $('giftKpis').innerHTML = kp.map(function (k) { return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div>' + k[2] + '</div>'; }).join('');
+
+  /* clics por botón */
+  var ctas = {}; cur.forEach(function (dd) { for (var k in dd.ctaClicks) if (/^Gift — /.test(k)) ctas[k.replace(/^Gift — /, '')] = (ctas[k.replace(/^Gift — /, '')] || 0) + dd.ctaClicks[k]; });
+  var ctaRows = Object.entries(ctas).sort(function (a, b) { return b[1] - a[1]; });
+  if (ctaRows.length) hbars($('giftCtas'), ctaRows, function (name) { return /Checkout/.test(name) ? PAL[2] : /Masterclass/.test(name) ? PAL[1] : PAL[0]; });
+  else $('giftCtas').innerHTML = '<div class="empty">Sin clics medidos aún en el periodo (la medición de /gift empezó el 21-sep-2026)</div>';
+
+  if (giftState.error) {
+    $('giftFunnel').innerHTML = '<div class="empty">' + esc(giftState.error) + '</div>';
+    ['giftLang', 'giftStatus', 'giftSources'].forEach(function (id) { $(id).innerHTML = ''; });
+    $('giftTbl').innerHTML = ''; $('giftNote').textContent = '';
+    lineAreaChart($('giftDaily'), [{ name: 'Vistas de /gift', color: PAL[0], values: cur.map(function (dd) { return byDayViews[dd.date] || 0; }), area: true }], { labels: cur.map(function (dd) { return dd.date; }), h: 230 });
+    return;
+  }
+  if (!d) {
+    $('giftFunnel').innerHTML = '<div class="empty">Cargando compras de Web Promos…</div>';
+    return;
+  }
+
+  /* embudo */
+  var steps = [
+    ['Vieron /gift', views, PAL[0]],
+    ['Clic a "ver planes"', plans, PAL[1]],
+    ['Clic a checkout', checkoutClicks, PAL[3]],
+    ['Llegaron al checkout (Web Promos)', t.checkout_started, PAL[5]],
+    ['Pagaron', t.paid, PAL[2]],
+    ['Abrieron el regalo', t.opened, PAL[4]],
+    ['Canjearon', t.redeemed, PAL[2]]
+  ];
+  var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
+  $('giftFunnel').innerHTML = steps.map(function (s, i) {
+    var prevV = i ? steps[i - 1][1] : 0;
+    var drop = i && prevV ? (s[1] / prevV * 100).toFixed(1) + '% del paso anterior' : '';
+    return '<div class="hbar-row"><div class="nm">' + s[0] + '</div><div class="tr"><div class="fl" style="width:' + Math.max(2, s[1] / top * 100) + '%;background:' + s[2] + '"></div></div><div class="ct">' + fmt(s[1]) + '</div></div>' +
+      (drop ? '<div style="font-size:11.5px;color:var(--muted);margin:-4px 0 8px 0;">' + drop + '</div>' : '');
+  }).join('') + (t.already_premium ? '<div style="font-size:11.5px;color:var(--muted);margin-top:6px">' + fmt(t.already_premium) + ' intentos no se vendieron porque el destinatario ya era premium.</div>' : '');
+
+  /* diario */
+  var labels = cur.map(function (dd) { return dd.date; });
+  var bd = {}; (d.byDay || []).forEach(function (r) { bd[r.day] = r; });
+  lineAreaChart($('giftDaily'), [
+    { name: 'Vistas de /gift', color: PAL[0], values: labels.map(function (l) { return byDayViews[l] || 0; }), area: true },
+    { name: 'Llegaron al checkout', color: PAL[3], values: labels.map(function (l) { return bd[l] ? bd[l].checkout_started : 0; }) },
+    { name: 'Regalos pagados', color: PAL[2], values: labels.map(function (l) { return bd[l] ? bd[l].paid : 0; }) }
+  ], { labels: labels, h: 230 });
+
+  /* idioma, estado, fuente */
+  var LN = { en: 'Inglés', es: 'Español', pt: 'Portugués' };
+  var langRows = Object.entries(d.byLang || {}).map(function (e) { return [(LN[e[0]] || e[0]) + ' · ' + fmt(e[1].created) + ' iniciados', e[1].paid]; }).sort(function (a, b) { return b[1] - a[1]; });
+  if (langRows.length) hbars($('giftLang'), langRows, function () { return PAL[2]; }); else $('giftLang').innerHTML = '<div class="empty">Sin regalos en el periodo</div>';
+  var SN = { pending: 'Pendiente (no pagó)', paid: 'Pagado', sent: 'Enviado', delivered: 'Entregado', redeemed: 'Canjeado', bounced: 'Rebotado' };
+  var stRows = ['pending', 'paid', 'sent', 'delivered', 'redeemed', 'bounced'].filter(function (k) { return d.byStatus && d.byStatus[k]; }).map(function (k) { return [SN[k], d.byStatus[k]]; });
+  if (stRows.length) hbars($('giftStatus'), stRows, function (name) { return /Pendiente/.test(name) ? '#B9C2D4' : /Rebotado/.test(name) ? PAL[4] : /Canjeado/.test(name) ? PAL[2] : PAL[0]; }); else $('giftStatus').innerHTML = '<div class="empty">Sin regalos en el periodo</div>';
+  var srcRows = Object.entries(d.bySource || {}).map(function (e) { return [e[0] + ' · ' + fmt(e[1].created) + ' iniciados', e[1].paid]; }).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 12);
+  if (srcRows.length) hbars($('giftSources'), srcRows, function () { return PAL[1]; }); else $('giftSources').innerHTML = '<div class="empty">Sin regalos en el periodo</div>';
+
+  /* tabla */
+  sortable($('giftTbl'), (d.gifts || []).map(function (g) {
+    return [(g.created_at || '').slice(0, 10), g.gifter_email, g.recipient_email, (g.lang || '').toUpperCase(),
+      g.amount_cents != null ? (g.amount_cents / 100).toFixed(2) + ' ' + (g.currency || '') : '—',
+      SN[g.status] || g.status, g.deliver_at ? g.deliver_at.slice(0, 10) : 'al instante', g.redeemed_at ? g.redeemed_at.slice(0, 10) : (g.opened_at ? 'abierto ' + g.opened_at.slice(0, 10) : '—'),
+      g.utm_source || 'directo'];
+  }), [
+    { label: 'Fecha' }, { label: 'Regala' }, { label: 'Destinatario' }, { label: 'Idioma' }, { label: 'Monto' },
+    { label: 'Estado' }, { label: 'Entrega' }, { label: 'Canje' }, { label: 'Fuente' }
+  ], { i: 0, dir: -1 });
+  $('giftNote').textContent = 'Vistas y clics: medición propia de kinedu.com (desde el 21-sep-2026). Checkout, pagos y canjes: Web Promos (promo_gifts / promo_events, entorno ' + (d.env || 'prod') + ').';
+}
+
 /* Sub-vista dentro de Masterclasses: Resumen / Engagement / Afiliados */
 function showMcSub(sub) {
   state.mcSub = sub;
@@ -1635,6 +1806,7 @@ $('viewTabs').addEventListener('click', function (e) {
   $('langChips').style.display = v === 'site' ? '' : 'none';
   $('mcSubTabs').style.display = v === 'mc' ? '' : 'none';
   $('viewAs').style.display = v === 'as' ? '' : 'none';
+  $('viewGift').style.display = v === 'gift' ? '' : 'none';
   if (v === 'mc') {
     showMcSub(state.mcSub || 'summary');
   } else {
@@ -1647,6 +1819,8 @@ $('viewTabs').addEventListener('click', function (e) {
       $('rangeChips').style.pointerEvents = 'none';
       $('rangeChips').title = 'El assessment se reporta con todo el histórico';
       if (!asState.data) asFetch(); else asRender();
+    } else if (v === 'gift') {
+      if (!giftState.data) giftFetch(); else giftRender();
     } else if (state.raw) renderAll(); // restaura el label y KPIs del Sitio
   }
 });

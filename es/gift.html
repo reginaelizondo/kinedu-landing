@@ -525,6 +525,27 @@ document.querySelectorAll('.faq-q').forEach(function(q){
   });
 });
 </script>
+<script>
+/* Medición propia (/api/track, mismo beacon que el resto del sitio): vista de la
+   página y clics en los CTAs de regalo, para el tab Gift de /analytics. */
+(function(){
+  var m = /^\/(es|pt)(\/|$)/.exec(location.pathname), lang = m ? m[1] : 'en';
+  var page = location.pathname.replace(/\.html$/, '');
+  function send(extra){ try { navigator.sendBeacon('/api/track', JSON.stringify(Object.assign({ page: page, referrer: document.referrer, lang: lang }, extra || {}))); } catch (e) {} }
+  send();
+  function label(a){
+    if (a.hasAttribute('data-checkout')) return 'Gift — Checkout (1 year)';
+    if (/masterclasses\/gift/.test(a.getAttribute('href') || '')) return 'Gift — Masterclass gift';
+    if ((a.getAttribute('href') || '') === '#plans') return a.classList.contains('nav-cta') ? 'Gift — See plans (nav)' : 'Gift — See plans';
+    return null;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a'); if (!a) return;
+    var l = label(a); if (!l) return;
+    send({ event: 'conversion', cta: l });
+  }, true);
+})();
+</script>
 <script src="/translations.js?v=0850a" defer></script>
 <script src="/script.js?v=0850a" defer></script>
 </body>

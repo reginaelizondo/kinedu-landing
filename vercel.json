@@ -238,6 +238,10 @@
       "destination": "https://kinedu-master-classes.vercel.app/masterclasses?lang=pt"
     },
     {
+      "source": "/gift-api/summary",
+      "destination": "https://webpromo.kinedu.com/api/gift/admin-summary"
+    },
+    {
       "source": "/masterclasses/api/:path*",
       "destination": "https://kinedu-master-classes.vercel.app/masterclasses/api/:path*"
     },
