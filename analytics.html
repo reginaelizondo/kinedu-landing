@@ -84,6 +84,11 @@ tr:hover td { background: #FAF8F4; }
 .hbar-row .tr { background: var(--grid); border-radius: 4px; height: 14px; position: relative; }
 .hbar-row .fl { position: absolute; inset: 0 auto 0 0; border-radius: 4px; min-width: 2px; }
 .hbar-row .ct { text-align: right; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.wp-row { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; }
+.wp-row .m { font-size: 14px; color: var(--muted); }
+.wp-row .m b { font-size: 22px; font-weight: 800; color: var(--ink); letter-spacing: -.02em; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.wp-row .m small { color: var(--muted); font-size: 12.5px; margin-left: 6px; }
+.wp-row .pill { display: inline-block; background: #FFF4DC; color: #9A5B00; font-weight: 700; font-size: 12px; border-radius: 999px; padding: 4px 10px; }
 .section-title { font-size: 19px; font-weight: 800; letter-spacing: -.01em; margin: 30px 0 12px; display: flex; align-items: center; gap: 10px; }
 .section-title::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--dot, var(--c1)); }
 
@@ -184,6 +189,15 @@ tr:hover td { background: #FAF8F4; }
 
   <div id="viewSite">
   <div class="kpis" id="kpis"></div>
+
+  <div class="grid" style="margin-bottom:16px">
+    <div class="card s12" id="wpCard">
+      <h2>Landing kinedu en Web Promos</h2>
+      <div class="desc">Lo que pasa DESPUÉS de que el sitio manda gente a webpromo.kinedu.com (utm_source landing-kinedu): mismas reglas y números que la tarjeta "Landing kinedu" del dashboard de Web Promos</div>
+      <div class="wp-row" id="wpRow"></div>
+      <div class="note" id="wpNote"></div>
+    </div>
+  </div>
 
   <div class="grid">
     <div class="card s8">
@@ -830,6 +844,7 @@ function sortable(tbl, rows, cols, defaultSort) {
 function renderAll() {
   if (!state.raw) return;
   var w = windows(), cur = w.cur, prev = w.prev;
+  if (wpState.days !== state.days || (!wpState.data && !wpState.loading && !wpState.error)) wpFetch(); else wpRender();
   $('periodLabel').textContent = 'Últimos ' + state.days + ' días · ' + (cur[0] ? cur[0].date : '') + ' → ' + (cur.length ? cur[cur.length - 1].date : '') + (state.lang !== 'all' ? ' · filtro: ' + state.lang.toUpperCase() + ' (aplica a tablas por página)' : '');
   $('updated').textContent = 'Actualizado ' + new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
 
@@ -1643,6 +1658,43 @@ function asRender() {
     { label: 'Día' }, { label: 'Cuentas', num: 1 }, { label: 'Bebés', num: 1 },
     { label: 'Assessments', num: 1 }, { label: 'Completados', num: 1 }
   ], { i: 0, dir: -1 });
+}
+
+/* ================= Landing kinedu en Web Promos =================
+   Números del espacio "landing-kinedu" (tráfico que kinedu.com manda a
+   webpromo) calculados por Web Promos con su propio motor
+   (/api/promos/admin-placement, proxy /promos-api/placement). Misma llave
+   que el tab Gift: METRICS_KEY del proyecto kinedu-promos. */
+var wpState = { days: null, data: null, error: null, loading: false };
+function wpFetch() {
+  if (DEMO) { wpState.data = { placement: { label: 'Landing kinedu', utmSource: 'landing-kinedu' }, stats: { llegaron: 1021, correos: 252, iniciaron: 67, directas: 0, pagadas: 14, maduras: 48, enVentana: 19, revenueUsdCents: 83860, intros: 0 } }; wpState.days = state.days; wpRender(); return; }
+  if (wpState.loading) return;
+  wpState.loading = true; wpState.error = null; wpState.days = state.days; wpRender();
+  fetch('/promos-api/placement?id=landing-kinedu&days=' + state.days + '&key=' + encodeURIComponent(state.pw))
+    .then(function (r) {
+      if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Web Promos (Vercel → kinedu-promos).');
+      if (r.status === 501) throw new Error('Falta METRICS_KEY en el proyecto de Web Promos (Vercel → kinedu-promos): ponle la contraseña de este dashboard.');
+      if (!r.ok) throw new Error('Web Promos no respondió (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(function (d) { wpState.data = d; wpState.loading = false; wpRender(); })
+    .catch(function (e) { wpState.error = e.message || String(e); wpState.loading = false; wpRender(); });
+}
+function wpRender() {
+  var row = $('wpRow'), note = $('wpNote');
+  if (wpState.loading && !wpState.data) { row.innerHTML = '<span class="m">Cargando desde Web Promos…</span>'; note.textContent = ''; return; }
+  if (wpState.error) { row.innerHTML = '<span class="m">' + esc(wpState.error) + '</span>'; note.textContent = ''; return; }
+  var d = wpState.data; if (!d || !d.stats) return;
+  var s = d.stats, maduras = (s.maduras || 0) + (s.directas || 0), empezaron = (s.iniciaron || 0) + (s.directas || 0);
+  var pc = function (a, b) { return b ? (a / b * 100).toFixed(1) + '%' : '—'; };
+  row.innerHTML =
+    '<span class="m">Llegaron<b>' + fmt(s.llegaron) + '</b></span>' +
+    '<span class="m">Correos<b>' + fmt(s.correos) + '</b><small>' + pc(s.correos, s.llegaron) + '</small></span>' +
+    '<span class="m">Empezaron<b>' + fmt(empezaron) + '</b>' + (s.intros ? '<small>' + fmt(s.intros) + ' intro</small>' : '') + '</span>' +
+    '<span class="m">Pagaron<b>' + fmt(s.pagadas) + '</b>' + (maduras ? '<small>' + pc(s.pagadas, maduras) + ' de ' + fmt(maduras) + ' maduras</small>' : '') + '</span>' +
+    '<span class="m">Ingresos<b>$' + ((s.revenueUsdCents || 0) / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</b><small>USD</small></span>' +
+    (s.enVentana ? '<span class="pill">' + fmt(s.enVentana) + ' en camino</span>' : '');
+  note.textContent = 'Últimos ' + (wpState.days || state.days) + ' días · "maduras" = pruebas que ya cumplieron sus 7 días (30 si fue intro) y ya pudieron convertir; "en camino" = todavía dentro de esa ventana. Fuente: Web Promos, espacio ' + (d.placement ? d.placement.label + ' (utm_source ' + d.placement.utmSource + ')' : 'landing-kinedu') + '.';
 }
 
 /* ================= Gift (kinedu.com/gift) =================

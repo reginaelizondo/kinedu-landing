@@ -242,6 +242,10 @@
       "destination": "https://webpromo.kinedu.com/api/gift/admin-summary"
     },
     {
+      "source": "/promos-api/placement",
+      "destination": "https://webpromo.kinedu.com/api/promos/admin-placement"
+    },
+    {
       "source": "/masterclasses/api/:path*",
       "destination": "https://kinedu-master-classes.vercel.app/masterclasses/api/:path*"
     },
