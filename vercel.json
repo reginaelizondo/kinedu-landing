@@ -242,7 +242,7 @@
       "destination": "https://webpromo.kinedu.com/api/gift/admin-summary"
     },
     {
-      "source": "/promos-api/placement",
+      "source": "/wp-api/placement",
       "destination": "https://webpromo.kinedu.com/api/promos/admin-placement"
     },
     {

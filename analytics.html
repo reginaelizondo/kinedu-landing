@@ -1663,14 +1663,14 @@ function asRender() {
 /* ================= Landing kinedu en Web Promos =================
    Números del espacio "landing-kinedu" (tráfico que kinedu.com manda a
    webpromo) calculados por Web Promos con su propio motor
-   (/api/promos/admin-placement, proxy /promos-api/placement). Misma llave
+   (/api/promos/admin-placement, proxy /wp-api/placement). Misma llave
    que el tab Gift: METRICS_KEY del proyecto kinedu-promos. */
 var wpState = { days: null, data: null, error: null, loading: false };
 function wpFetch() {
   if (DEMO) { wpState.data = { placement: { label: 'Landing kinedu', utmSource: 'landing-kinedu' }, stats: { llegaron: 1021, correos: 252, iniciaron: 67, directas: 0, pagadas: 14, maduras: 48, enVentana: 19, revenueUsdCents: 83860, intros: 0 } }; wpState.days = state.days; wpRender(); return; }
   if (wpState.loading) return;
   wpState.loading = true; wpState.error = null; wpState.days = state.days; wpRender();
-  fetch('/promos-api/placement?id=landing-kinedu&days=' + state.days + '&key=' + encodeURIComponent(state.pw))
+  fetch('/wp-api/placement?id=landing-kinedu&days=' + state.days + '&key=' + encodeURIComponent(state.pw))
     .then(function (r) {
       if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Web Promos (Vercel → kinedu-promos).');
       if (r.status === 501) throw new Error('Falta METRICS_KEY en el proyecto de Web Promos (Vercel → kinedu-promos): ponle la contraseña de este dashboard.');
