@@ -1703,13 +1703,13 @@ function wpRender() {
    Promos (tablas promo_gifts y promo_events) vía /gift-api/summary; la
    contraseña del dashboard debe coincidir con METRICS_KEY del proyecto
    kinedu-promos en Vercel. */
-var giftState = { data: null, loading: false, error: null };
+var giftState = { data: null, loading: false, error: null, tests: false };
 function isGiftPath(p) { return /^\/(es\/|pt\/)?gift(\.html)?$/.test(p); }
 
 function giftFetch() {
   if (giftState.loading) return;
   giftState.loading = true; giftState.error = null; giftRender();
-  fetch('/gift-api/summary?days=' + (state.days || 30) + '&key=' + encodeURIComponent(state.pw))
+  fetch('/gift-api/summary?days=' + (state.days || 30) + (giftState.tests ? '&tests=1' : '') + '&key=' + encodeURIComponent(state.pw))
     .then(function (r) {
       if (r.status === 401) throw new Error('La contraseña de este dashboard no coincide con METRICS_KEY del proyecto de Web Promos (Vercel → kinedu-promos → METRICS_KEY).');
       if (r.status === 501) throw new Error('Falta METRICS_KEY en el proyecto de Web Promos (Vercel → kinedu-promos): ponle la contraseña de este dashboard.');
@@ -1816,7 +1816,11 @@ function giftRender() {
     { label: 'Fecha' }, { label: 'Regala' }, { label: 'Destinatario' }, { label: 'Idioma' }, { label: 'Monto' },
     { label: 'Estado' }, { label: 'Entrega' }, { label: 'Canje' }, { label: 'Fuente' }
   ], { i: 0, dir: -1 });
-  $('giftNote').textContent = 'Vistas y clics: medición propia de kinedu.com (desde el 21-sep-2026). Checkout, pagos y canjes: Web Promos (promo_gifts / promo_events, entorno ' + (d.env || 'prod') + ').';
+  var hid = d.tests_hidden || 0;
+  $('giftNote').innerHTML = 'Vistas y clics: medición propia de kinedu.com (desde el 21-sep-2026). Checkout, pagos y canjes: Web Promos (promo_gifts / promo_events, entorno ' + esc(d.env || 'prod') + '). ' +
+    (giftState.tests ? 'Mostrando también los regalos de prueba. ' : (hid ? fmt(hid) + ' regalos de prueba ocultos (equipo @kinedu.com, @test.com, @resend.dev): no cuentan en ningún número. ' : '')) +
+    '<a href="#" id="giftTestsToggle" style="color:var(--c1);font-weight:700">' + (giftState.tests ? 'Ocultar pruebas' : 'Ver pruebas') + '</a>';
+  $('giftTestsToggle').onclick = function (e) { e.preventDefault(); giftState.tests = !giftState.tests; giftState.data = null; giftFetch(); };
 }
 
 /* Sub-vista dentro de Masterclasses: Resumen / Engagement / Afiliados */
