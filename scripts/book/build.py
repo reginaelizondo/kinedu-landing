@@ -62,18 +62,9 @@ C = {
       ("Stress","It will always be there. What matters is that you, the buffer, are there too."),
       ("Predictability","The single most important thing a parent should know, according to Dr. Phil Fisher.")],
   in_h2="What you’ll find inside.",
-  parts=[("The Old Cosmology", "Where today’s parenting advice comes from, and why it so often contradicts itself. What the classic theories reveal about how children think, learn, connect, and build a sense of self.",
-          ["What Piaget, Vygotsky, Bowlby, and Erikson each help us understand.",
-           "How research gets simplified into parenting rules and social media advice.",
-           "Why no single theory tells your child’s whole story."]),
-         ("The Big Bang", "What’s happening beneath the first smiles, sounds, and steps: how early skills connect, why children follow different timelines, and how everyday experiences help new abilities emerge.",
-          ["Why what your baby can show isn’t always everything they understand.",
-           "What developmental windows and milestone ages can and can’t tell you.",
-           "How to support the next step by noticing your child’s readiness, interests, and surroundings."]),
-         ("The Universe Takes Shape", "Development from birth to age five, and your role along the way. From first words and pretend play to friendships and big feelings, how children’s abilities become more distinct and work together in new ways.",
-          ["What changes through infancy, toddlerhood, and preschool.",
-           "The four everyday forces: play, relationships, stress, and predictable routines.",
-           "How connection, encouragement, limits, and repair help build a lasting bond."])],
+  parts=[("The Old Cosmology", "Where today’s parenting advice comes from, and why it so often contradicts itself. What the classic theories reveal about how children think, learn, connect, and build a sense of self."),
+         ("The Big Bang", "What’s happening beneath the first smiles, sounds, and steps: how early skills connect, why children follow different timelines, and how everyday experiences help new abilities emerge."),
+         ("The Universe Takes Shape", "Development from birth to age five, and your role along the way. From first words and pretend play to friendships and big feelings, how children’s abilities become more distinct and work together in new ways.")],
   also_lbl="Also inside",
   also="“Building Your Map” takeaways throughout the book, a parent’s guide to the Kinedu research, a plain-language glossary, and a research primer for readers who want to go deeper.",
   part_lbl="Part",
@@ -122,18 +113,9 @@ C = {
       ("Estrés","Siempre va a estar ahí. Lo que importa es que tú, el amortiguador, también estés."),
       ("Predictibilidad","Lo más importante que un papá debe saber, según el Dr. Phil Fisher.")],
   in_h2="Qué vas a encontrar dentro.",
-  parts=[("The Old Cosmology", "De dónde vienen los consejos de crianza de hoy, y por qué tantas veces se contradicen. Lo que las teorías clásicas revelan sobre cómo los niños piensan, aprenden, se vinculan y construyen su sentido de sí mismos.",
-          ["Qué nos ayuda a entender cada uno: Piaget, Vygotsky, Bowlby y Erikson.",
-           "Cómo la investigación se simplifica en reglas de crianza y consejos de redes sociales.",
-           "Por qué ninguna teoría cuenta por sí sola la historia completa de tu hijo."]),
-         ("The Big Bang", "Lo que pasa debajo de las primeras sonrisas, sonidos y pasos: cómo se conectan las primeras habilidades, por qué cada niño sigue su propio calendario y cómo las experiencias de todos los días ayudan a que surjan nuevas capacidades.",
-          ["Por qué lo que tu bebé puede mostrar no siempre es todo lo que entiende.",
-           "Qué pueden decirte, y qué no, las ventanas del desarrollo y las edades de los hitos.",
-           "Cómo apoyar el siguiente paso observando la disposición, los intereses y el entorno de tu hijo."]),
-         ("The Universe Takes Shape", "El desarrollo desde el nacimiento hasta los cinco años, y tu papel en el camino. De las primeras palabras y el juego simbólico a las amistades y las emociones grandes: cómo las capacidades de los niños se vuelven más distintas y trabajan juntas de formas nuevas.",
-          ["Qué cambia entre la primera infancia, la etapa de caminar y el preescolar.",
-           "Las cuatro fuerzas cotidianas: juego, relaciones, estrés y rutinas predecibles.",
-           "Cómo la conexión, el aliento, los límites y la reparación ayudan a construir un vínculo duradero."])],
+  parts=[("The Old Cosmology", "De dónde vienen los consejos de crianza de hoy, y por qué tantas veces se contradicen. Lo que las teorías clásicas revelan sobre cómo los niños piensan, aprenden, se vinculan y construyen su sentido de sí mismos."),
+         ("The Big Bang", "Lo que pasa debajo de las primeras sonrisas, sonidos y pasos: cómo se conectan las primeras habilidades, por qué cada niño sigue su propio calendario y cómo las experiencias de todos los días ayudan a que surjan nuevas capacidades."),
+         ("The Universe Takes Shape", "El desarrollo desde el nacimiento hasta los cinco años, y tu papel en el camino. De las primeras palabras y el juego simbólico a las amistades y las emociones grandes: cómo las capacidades de los niños se vuelven más distintas y trabajan juntas de formas nuevas.")],
   also_lbl="También dentro",
   also="Ideas para llevar de “Building Your Map” a lo largo del libro, una guía para papás sobre la investigación de Kinedu, un glosario en lenguaje sencillo y una introducción a la investigación para quien quiera ir más a fondo.",
   part_lbl="Parte",
@@ -182,18 +164,9 @@ C = {
       ("Estresse","Ele sempre vai existir. O que importa é que você, o amortecedor, também esteja lá."),
       ("Previsibilidade","A coisa mais importante que um pai ou mãe deve saber, segundo o Dr. Phil Fisher.")],
   in_h2="O que você vai encontrar dentro.",
-  parts=[("The Old Cosmology", "De onde vêm os conselhos de criação de hoje, e por que tantas vezes eles se contradizem. O que as teorias clássicas revelam sobre como as crianças pensam, aprendem, se conectam e constroem o senso de si mesmas.",
-          ["O que Piaget, Vygotsky, Bowlby e Erikson nos ajudam a entender.",
-           "Como a pesquisa vira regras de criação e conselhos de redes sociais.",
-           "Por que nenhuma teoria sozinha conta a história completa do seu filho."]),
-         ("The Big Bang", "O que acontece por trás dos primeiros sorrisos, sons e passos: como as primeiras habilidades se conectam, por que cada criança segue o próprio ritmo e como as experiências do dia a dia ajudam novas capacidades a surgir.",
-          ["Por que o que o seu bebê consegue mostrar nem sempre é tudo o que ele entende.",
-           "O que as janelas do desenvolvimento e as idades dos marcos podem, e não podem, dizer a você.",
-           "Como apoiar o próximo passo observando a prontidão, os interesses e o ambiente do seu filho."]),
-         ("The Universe Takes Shape", "O desenvolvimento do nascimento aos cinco anos, e o seu papel ao longo do caminho. Das primeiras palavras e do faz de conta às amizades e às emoções grandes: como as capacidades das crianças ficam mais distintas e trabalham juntas de formas novas.",
-          ["O que muda entre a primeira infância, a fase de andar e a pré-escola.",
-           "As quatro forças do dia a dia: brincadeira, relações, estresse e rotinas previsíveis.",
-           "Como conexão, incentivo, limites e reparação ajudam a construir um vínculo duradouro."])],
+  parts=[("The Old Cosmology", "De onde vêm os conselhos de criação de hoje, e por que tantas vezes eles se contradizem. O que as teorias clássicas revelam sobre como as crianças pensam, aprendem, se conectam e constroem o senso de si mesmas."),
+         ("The Big Bang", "O que acontece por trás dos primeiros sorrisos, sons e passos: como as primeiras habilidades se conectam, por que cada criança segue o próprio ritmo e como as experiências do dia a dia ajudam novas capacidades a surgir."),
+         ("The Universe Takes Shape", "O desenvolvimento do nascimento aos cinco anos, e o seu papel ao longo do caminho. Das primeiras palavras e do faz de conta às amizades e às emoções grandes: como as capacidades das crianças ficam mais distintas e trabalham juntas de formas novas.")],
   also_lbl="Também dentro",
   also="Resumos “Building Your Map” ao longo do livro, um guia para pais sobre a pesquisa do Kinedu, um glossário em linguagem simples e uma introdução à pesquisa para quem quiser ir mais fundo.",
   part_lbl="Parte",
@@ -310,16 +283,7 @@ CSS = r"""
 .bk-in .rw .n{font-size:46px;font-weight:800;letter-spacing:-.04em;color:#C9A44A;line-height:1}
 .bk-in .rw .n small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8A94A8;margin-top:6px;font-weight:800}
 .bk-in .rw .t{font-size:21px;font-weight:800;color:#081B46;margin:0 0 6px;letter-spacing:-.01em}
-.bk-in .rw p{font-size:15.5px;line-height:1.58;color:var(--bk-muted);margin:0;max-width:600px;text-wrap:pretty}
-.bk-in .rw>div+div{display:grid;grid-template-columns:1.05fr 1fr;column-gap:44px;align-items:start}
-.bk-in .rw>div+div .t{grid-column:1/-1}
-.bk-in .rw>div+div>p:not(.t){max-width:none}
-.bk-in .rw.also>div+div{display:block}
-.bk-in .rw ul{list-style:none;margin:0;padding:0;max-width:none}
-.bk-in .rw li:first-child{margin-top:0}
-@media(max-width:900px){.bk-in .rw>div+div{display:block}.bk-in .rw ul{margin-top:14px}}
-.bk-in .rw li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:#33415C;margin-top:8px;text-wrap:pretty}
-.bk-in .rw li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#C9A44A}
+.bk-in .rw p{font-size:16px;line-height:1.6;color:var(--bk-muted);margin:0;max-width:780px;text-wrap:pretty}
 .bk-in .rw.also{align-items:start}
 .bk-in .rw.also .n small{margin-top:0;line-height:1.5}
 .bk-in .rw.also p{color:#33415C}
@@ -547,7 +511,7 @@ def build_landing(lang):
     qs = "".join(f'<div class="it"><p class="q">{E(q)}</p><p>{E(p)}</p></div>' for q, p in c["qs"])
     lbls = "".join(f'<span>{E(l)}</span>' for l in c["uni_lbl"])
     ex = "".join(f'<p{" class=\"rest\"" if i else ""}>{E(p)}</p>' for i, p in enumerate(EXCERPT))
-    toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p><ul>' + "".join(f'<li>{E(b)}</li>' for b in bs) + '</ul></div></div>' for i, (t, p, bs) in enumerate(c["parts"]))
+    toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div></div>' for i, (t, p) in enumerate(c["parts"]))
     toc += f'<div class="rw also"><div class="n"><small>{E(c["also_lbl"])}</small></div><div><p>{E(c["also"])}</p></div></div>'
     dts = "".join(f'<li>{E(d)}</li>' for d in c["get_details"])
     do = "".join(f'<div class="f f{i+1}"><span class="ic">{FORCE_ICONS[i]}</span><p class="t">{E(t)}</p><p>{E(x)}</p></div>' for i, (t, x) in enumerate(c["do"]))
