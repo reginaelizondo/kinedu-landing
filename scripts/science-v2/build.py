@@ -293,6 +293,8 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci-four a b{font-size:18px;line-height:1.2;margin-bottom:6px}
 .sci-four a small{font-size:13.5px;line-height:1.4;color:#52607A}
 .sci26 h2+.sci26-areas{margin-top:40px}
+.sci26 h2{line-height:1.25}
+.sci26 h2 .sci-squig::after{bottom:-3px;height:8px;background-size:auto 8px}
 .sci26-act p.more{margin-top:12px}
 .sci26-act p.more a{font-weight:700;color:#0E3687;text-decoration:none;border-bottom:2px solid rgba(14,54,135,.25)}
 .sci26-act p.more a:hover{border-bottom-color:#0E3687}
@@ -398,12 +400,17 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci-then,.sci-now{background:#fff;border:1px solid #EBE6DF;border-radius:22px;padding:24px;display:flex;flex-direction:column;justify-content:flex-start}
 .sci-then .k,.sci-now .k{flex:0 0 auto}
 .sci-then svg,.sci-now .sci-areas4{margin-top:auto}
-.sci-then .s,.sci-now .s{margin-bottom:auto}
+.sci-then .s{margin-bottom:auto}
+.sci-now .facts{margin-bottom:auto}
 .sci-now{border:2px solid #087BF3;box-shadow:0 18px 44px rgba(8,123,243,.12)}
 .sci-then .k,.sci-now .k{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A94A8;margin-bottom:14px}
 .sci-now .k{color:#087BF3}
 .sci-then .s{margin:20px 0 0;font-size:19px;line-height:1.35;font-weight:600;color:#52607A;text-wrap:balance;text-align:center}
 .sci-now .s{margin:20px 0 0;font-size:20px;line-height:1.32;font-weight:800;letter-spacing:-.01em;color:#081B46;text-wrap:balance;text-align:center}
+.sci-now .facts{list-style:none;margin:18px auto 0;padding:16px 0 0;border-top:1px solid #EAF1FC;max-width:360px;text-align:left}
+.sci-now .facts li{position:relative;padding-left:26px;font-size:14.5px;line-height:1.45;color:#33415C;margin-top:9px;text-wrap:pretty}
+.sci-now .facts li:first-child{margin-top:0}
+.sci-now .facts li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:99px;background:#087BF3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.6L12 5.6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
 .sci-arrow{display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#C9D2E0}
 .sci-areas4{display:flex;justify-content:center;padding:6px 0}
 .sci-areas4 span{width:64px;height:64px;border-radius:99px;background:#fff;border:3px solid var(--c);display:inline-flex;align-items:center;justify-content:center;margin-left:-12px;box-shadow:0 6px 18px rgba(8,27,70,.10)}
@@ -428,7 +435,7 @@ MOBILE_CSS = """@media(max-width:640px){
 .sci-chapters a{flex:0 0 auto;white-space:nowrap}
 .sci26-kick{justify-content:center;text-align:center;font-size:11px;letter-spacing:.08em;padding:7px 14px}
 .sci-squig::after{bottom:-1px;height:7px}
-.sci26 h2{line-height:1.22}
+.sci26 h2{line-height:1.28}
 .sci-day .again{flex:0 0 100%;flex-direction:row;justify-content:center;gap:10px;margin-top:6px}
 .sci-day .again b{margin-top:0}
 .sci-day .again .i{width:40px;height:40px;font-size:18px}
@@ -478,7 +485,7 @@ p1_bridge = sec("More than a milestone checklist", 'From checking milestones to 
  '<div class="sci-bridge">'
  '<div class="sci-then"><div class="k">Then · 2013</div>'+CHECKLIST_SVG+'<p class="s">A checklist of milestones by age.</p></div>'
  '<div class="sci-arrow" aria-hidden="true">→</div>'
- '<div class="sci-now"><div class="k">Now · today</div>'+AREAS4+'<p class="s">A connected view of how your baby’s skills are taking shape.</p></div>'
+ '<div class="sci-now"><div class="k">Now · today</div>'+AREAS4+'<p class="s">A connected view of how your baby’s skills are taking shape.</p><ul class="facts"><li>Reads each answer alongside your baby’s age and other skills.</li><li>Looks for what’s just beginning, not only what’s already mastered.</li><li>Expected ages checked against 3.5 million children.</li></ul></div>'
  '</div>', "#2EA84F", "", 1060)
 
 p1_acts = sec("How we got there", 'Built by Kinedu. Studied by <span class="sci-squig">Stanford researchers.</span> <span style="display:inline-block">Shaped by data from millions of children.</span>',
