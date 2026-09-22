@@ -56,14 +56,26 @@ C = {
   do_kick="What you can do",
   do_h2="And what can you do to support them?",
   do_lead="Four everyday forces the book keeps coming back to.",
+  do_center="Your child",
   do=[("Play","The small moments that look like nothing and build everything."),
       ("Relationships","Held by you, pushed by you, and through you: that’s how your child builds their model of the world."),
       ("Stress","It will always be there. What matters is that you, the buffer, are there too."),
       ("Predictability","The single most important thing a parent should know, according to Dr. Phil Fisher.")],
   in_h2="What you’ll find inside.",
-  parts=[("The Old Cosmology", "How familiar ideas about child development shaped the advice parents hear today."),
-         ("The Big Bang", "How early abilities connect and begin to develop during the first year."),
-         ("The Universe Takes Shape", "How children’s skills become more distinct, and how everyday experiences support their development.")],
+  parts=[("The Old Cosmology", "Where today’s parenting advice comes from, and why it so often contradicts itself. What the classic theories reveal about how children think, learn, connect, and build a sense of self.",
+          ["What Piaget, Vygotsky, Bowlby, and Erikson each help us understand.",
+           "How research gets simplified into parenting rules and social media advice.",
+           "Why no single theory tells your child’s whole story."]),
+         ("The Big Bang", "What’s happening beneath the first smiles, sounds, and steps: how early skills connect, why children follow different timelines, and how everyday experiences help new abilities emerge.",
+          ["Why what your baby can show isn’t always everything they understand.",
+           "What developmental windows and milestone ages can and can’t tell you.",
+           "How to support the next step by noticing your child’s readiness, interests, and surroundings."]),
+         ("The Universe Takes Shape", "Development from birth to age five, and your role along the way. From first words and pretend play to friendships and big feelings, how children’s abilities become more distinct and work together in new ways.",
+          ["What changes through infancy, toddlerhood, and preschool.",
+           "The four everyday forces: play, relationships, stress, and predictable routines.",
+           "How connection, encouragement, limits, and repair help build a lasting bond."])],
+  also_lbl="Also inside",
+  also="“Building Your Map” takeaways throughout the book, a parent’s guide to the Kinedu research, a plain-language glossary, and a research primer for readers who want to go deeper.",
   part_lbl="Part",
   au_role="Founder of Kinedu. Father of four.",
   au_p="Luis brings his experience building Kinedu and raising four daughters to the questions at the heart of Big Bang Baby: how children develop, and how parents can support them. For more than sixteen years he has worked with early-childhood researchers and educators, and read the questions parents send in at two in the morning. The book sits at that intersection: the science of the first years, and the everyday reality of raising small children.",
@@ -104,14 +116,26 @@ C = {
   do_kick="Qué puedes hacer",
   do_h2="¿Y qué puedes hacer para apoyarlas?",
   do_lead="Cuatro fuerzas cotidianas a las que el libro vuelve una y otra vez.",
+  do_center="Tu hijo",
   do=[("Juego","Los momentos pequeños que parecen nada y lo construyen todo."),
       ("Relaciones","Sostenido por ti, empujado por ti y a través de ti: así construye tu hijo su modelo del mundo."),
       ("Estrés","Siempre va a estar ahí. Lo que importa es que tú, el amortiguador, también estés."),
       ("Predictibilidad","Lo más importante que un papá debe saber, según el Dr. Phil Fisher.")],
   in_h2="Qué vas a encontrar dentro.",
-  parts=[("The Old Cosmology", "Cómo las ideas conocidas sobre el desarrollo infantil moldearon los consejos que los papás escuchan hoy."),
-         ("The Big Bang", "Cómo se conectan las primeras capacidades y empiezan a desarrollarse durante el primer año."),
-         ("The Universe Takes Shape", "Cómo las habilidades de los niños se vuelven más distintas y cómo las experiencias cotidianas apoyan su desarrollo.")],
+  parts=[("The Old Cosmology", "De dónde vienen los consejos de crianza de hoy, y por qué tantas veces se contradicen. Lo que las teorías clásicas revelan sobre cómo los niños piensan, aprenden, se vinculan y construyen su sentido de sí mismos.",
+          ["Qué nos ayuda a entender cada uno: Piaget, Vygotsky, Bowlby y Erikson.",
+           "Cómo la investigación se simplifica en reglas de crianza y consejos de redes sociales.",
+           "Por qué ninguna teoría cuenta por sí sola la historia completa de tu hijo."]),
+         ("The Big Bang", "Lo que pasa debajo de las primeras sonrisas, sonidos y pasos: cómo se conectan las primeras habilidades, por qué cada niño sigue su propio calendario y cómo las experiencias de todos los días ayudan a que surjan nuevas capacidades.",
+          ["Por qué lo que tu bebé puede mostrar no siempre es todo lo que entiende.",
+           "Qué pueden decirte, y qué no, las ventanas del desarrollo y las edades de los hitos.",
+           "Cómo apoyar el siguiente paso observando la disposición, los intereses y el entorno de tu hijo."]),
+         ("The Universe Takes Shape", "El desarrollo desde el nacimiento hasta los cinco años, y tu papel en el camino. De las primeras palabras y el juego simbólico a las amistades y las emociones grandes: cómo las capacidades de los niños se vuelven más distintas y trabajan juntas de formas nuevas.",
+          ["Qué cambia entre la primera infancia, la etapa de caminar y el preescolar.",
+           "Las cuatro fuerzas cotidianas: juego, relaciones, estrés y rutinas predecibles.",
+           "Cómo la conexión, el aliento, los límites y la reparación ayudan a construir un vínculo duradero."])],
+  also_lbl="También dentro",
+  also="Ideas para llevar de “Building Your Map” a lo largo del libro, una guía para papás sobre la investigación de Kinedu, un glosario en lenguaje sencillo y una introducción a la investigación para quien quiera ir más a fondo.",
   part_lbl="Parte",
   au_role="Fundador de Kinedu. Papá de cuatro.",
   au_p="Luis lleva su experiencia construyendo Kinedu y criando a cuatro hijas a las preguntas que están en el corazón de Big Bang Baby: cómo se desarrollan los niños y cómo pueden apoyarlos sus papás. Desde hace más de dieciséis años trabaja con investigadores y educadores de primera infancia, y ha leído las preguntas que los papás mandan a las dos de la mañana. El libro vive en ese cruce: la ciencia de los primeros años y la realidad de todos los días de criar niños pequeños.",
@@ -152,14 +176,26 @@ C = {
   do_kick="O que você pode fazer",
   do_h2="E o que você pode fazer para apoiá-las?",
   do_lead="Quatro forças do dia a dia às quais o livro volta o tempo todo.",
+  do_center="Seu filho",
   do=[("Brincadeira","Os pequenos momentos que parecem nada e constroem tudo."),
       ("Relações","Segurado por você, impulsionado por você e através de você: é assim que seu filho constrói seu modelo do mundo."),
       ("Estresse","Ele sempre vai existir. O que importa é que você, o amortecedor, também esteja lá."),
       ("Previsibilidade","A coisa mais importante que um pai ou mãe deve saber, segundo o Dr. Phil Fisher.")],
   in_h2="O que você vai encontrar dentro.",
-  parts=[("The Old Cosmology", "Como ideias conhecidas sobre o desenvolvimento infantil moldaram os conselhos que os pais ouvem hoje."),
-         ("The Big Bang", "Como as primeiras capacidades se conectam e começam a se desenvolver durante o primeiro ano."),
-         ("The Universe Takes Shape", "Como as habilidades das crianças se tornam mais distintas e como as experiências do dia a dia apoiam seu desenvolvimento.")],
+  parts=[("The Old Cosmology", "De onde vêm os conselhos de criação de hoje, e por que tantas vezes eles se contradizem. O que as teorias clássicas revelam sobre como as crianças pensam, aprendem, se conectam e constroem o senso de si mesmas.",
+          ["O que Piaget, Vygotsky, Bowlby e Erikson nos ajudam a entender.",
+           "Como a pesquisa vira regras de criação e conselhos de redes sociais.",
+           "Por que nenhuma teoria sozinha conta a história completa do seu filho."]),
+         ("The Big Bang", "O que acontece por trás dos primeiros sorrisos, sons e passos: como as primeiras habilidades se conectam, por que cada criança segue o próprio ritmo e como as experiências do dia a dia ajudam novas capacidades a surgir.",
+          ["Por que o que o seu bebê consegue mostrar nem sempre é tudo o que ele entende.",
+           "O que as janelas do desenvolvimento e as idades dos marcos podem, e não podem, dizer a você.",
+           "Como apoiar o próximo passo observando a prontidão, os interesses e o ambiente do seu filho."]),
+         ("The Universe Takes Shape", "O desenvolvimento do nascimento aos cinco anos, e o seu papel ao longo do caminho. Das primeiras palavras e do faz de conta às amizades e às emoções grandes: como as capacidades das crianças ficam mais distintas e trabalham juntas de formas novas.",
+          ["O que muda entre a primeira infância, a fase de andar e a pré-escola.",
+           "As quatro forças do dia a dia: brincadeira, relações, estresse e rotinas previsíveis.",
+           "Como conexão, incentivo, limites e reparação ajudam a construir um vínculo duradouro."])],
+  also_lbl="Também dentro",
+  also="Resumos “Building Your Map” ao longo do livro, um guia para pais sobre a pesquisa do Kinedu, um glossário em linguagem simples e uma introdução à pesquisa para quem quiser ir mais fundo.",
   part_lbl="Parte",
   au_role="Fundador do Kinedu. Pai de quatro.",
   au_p="Luis leva sua experiência construindo o Kinedu e criando quatro filhas às perguntas que estão no coração de Big Bang Baby: como as crianças se desenvolvem e como os pais podem apoiá-las. Há mais de dezesseis anos trabalha com pesquisadores e educadores de primeira infância, e já leu as perguntas que os pais mandam às duas da manhã. O livro vive nesse cruzamento: a ciência dos primeiros anos e a realidade do dia a dia de criar crianças pequenas.",
@@ -245,19 +281,26 @@ CSS = r"""
 .bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
-/* 4b. qué puedes hacer (look del libro) */
-.bk-do{padding:88px 24px}
-.bk-do::after{content:"";position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.14) 0%,rgba(233,199,126,.08) 22%,transparent 62%);filter:blur(12px)}
-.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 40px}
+/* 4b. qué puedes hacer: las cuatro fuerzas orbitando al niño (look del libro) */
+.bk-do{padding:96px 24px 100px}
+.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 56px}
 .bk-do .bk-kick{color:var(--bk-gold);background:rgba(233,199,126,.08);border-color:rgba(233,199,126,.28)}
 .bk-do h2{color:#fff}
 .bk-do .bk-lead{color:#C9D3E6}
-.bk-do .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px;margin:0 auto}
-.bk-do .f{display:flex;gap:20px;align-items:flex-start;border-radius:22px;padding:26px 26px 24px;background:rgba(237,241,248,.05);border:1px solid rgba(233,199,126,.28);backdrop-filter:blur(2px)}
-.bk-do .ic{flex-shrink:0;width:72px;height:72px;border-radius:18px;background:radial-gradient(circle at 50% 40%,rgba(233,199,126,.22),rgba(233,199,126,.04) 70%);border:1px solid rgba(233,199,126,.25);display:flex;align-items:center;justify-content:center;padding:10px}
+.bk-do .orbit{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1000px;margin:0 auto;align-items:stretch}
+.bk-do .lines{display:none}
+.bk-do .center{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1;margin:0 0 14px}
+.bk-do .center{isolation:isolate}
+.bk-do .center::before{content:"";position:absolute;left:50%;top:11px;width:64px;height:64px;border-radius:50%;border:1px solid rgba(233,199,126,.35);transform:translate(-50%,-50%);pointer-events:none}
+.bk-do .center .core{width:22px;height:22px;border-radius:50%;background:#FDF6E3;box-shadow:0 0 22px 10px rgba(233,199,126,.6),0 0 70px 34px rgba(233,199,126,.22),0 0 140px 70px rgba(233,199,126,.08);animation:bkPulse 4s ease-in-out infinite}
+.bk-do .center .lbl{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-gold);white-space:nowrap}
+@keyframes bkPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.bk-do .f{position:relative;z-index:1;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:84px 1fr;column-gap:22px;align-items:start;background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.03));border:1px solid rgba(233,199,126,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 60px -40px rgba(0,0,0,.8);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.bk-do .f:hover{transform:translateY(-4px);border-color:rgba(233,199,126,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 60px -30px rgba(233,199,126,.35)}
+.bk-do .ic{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;margin:2px 0 0;padding:15px;background:radial-gradient(circle at 50% 42%,rgba(233,199,126,.28),rgba(233,199,126,.05) 72%);border:1px solid rgba(233,199,126,.4);box-shadow:0 0 34px -6px rgba(233,199,126,.35)}
 .bk-do .ic svg{width:100%;height:100%}
-.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bk-gold);margin:0 0 8px}
-.bk-do p{font-size:17.5px;line-height:1.5;color:#EDF1F8;font-weight:600;margin:0;text-wrap:pretty}
+.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-gold);margin:4px 0 8px}
+.bk-do p{font-size:18px;line-height:1.45;color:#F3F6FB;font-weight:600;margin:0;letter-spacing:-.01em;text-wrap:pretty}
 /* 5. índice */
 .bk-in{background:#FBFAF8;padding:80px 24px}
 .bk-in h2{margin-bottom:28px}
@@ -268,6 +311,12 @@ CSS = r"""
 .bk-in .rw .n small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8A94A8;margin-top:6px;font-weight:800}
 .bk-in .rw .t{font-size:21px;font-weight:800;color:#081B46;margin:0 0 6px;letter-spacing:-.01em}
 .bk-in .rw p{font-size:15.5px;line-height:1.58;color:var(--bk-muted);margin:0;max-width:600px;text-wrap:pretty}
+.bk-in .rw ul{list-style:none;margin:14px 0 0;padding:0;max-width:600px}
+.bk-in .rw li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:#33415C;margin-top:8px;text-wrap:pretty}
+.bk-in .rw li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#C9A44A}
+.bk-in .rw.also{align-items:start}
+.bk-in .rw.also .n small{margin-top:0;line-height:1.5}
+.bk-in .rw.also p{color:#33415C}
 /* 6. autor + cierre */
 .bk-end{background:#FBFAF8;padding:36px 24px 88px}
 .bk-end .bk-panel::after{content:"";position:absolute;left:50%;top:78%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.18) 0%,rgba(233,199,126,.1) 20%,transparent 62%);filter:blur(12px)}
@@ -323,9 +372,13 @@ CSS = r"""
   .bk-date{margin:12px 0 0;display:flex}
   .bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
   .bk-qs{padding:28px 20px 56px}
-  .bk-do .grid{grid-template-columns:1fr;gap:12px}
-  .bk-do .f{padding:18px;gap:14px}
-  .bk-do .ic{width:56px;height:56px;border-radius:14px;padding:8px}
+  .bk-do{padding:64px 20px}
+  .bk-do .bk-head{margin-bottom:28px}
+  .bk-do .orbit{grid-template-columns:1fr;gap:14px}
+  .bk-do .center{margin:6px 0 18px}
+  .bk-do .f{padding:22px;grid-template-columns:64px 1fr;column-gap:16px}
+  .bk-do .f .ic{width:64px;height:64px;padding:11px;margin:0}
+  .bk-do p{font-size:16.5px}
   .bk-end{padding:24px 16px 56px}
   .bk-qs .row{grid-template-columns:1fr;gap:24px}
   .bk-uni .bk-wrap{grid-template-columns:1fr;gap:28px}
@@ -488,9 +541,10 @@ def build_landing(lang):
     qs = "".join(f'<div class="it"><p class="q">{E(q)}</p><p>{E(p)}</p></div>' for q, p in c["qs"])
     lbls = "".join(f'<span>{E(l)}</span>' for l in c["uni_lbl"])
     ex = "".join(f'<p{" class=\"rest\"" if i else ""}>{E(p)}</p>' for i, p in enumerate(EXCERPT))
-    toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p></div></div>' for i, (t, p) in enumerate(c["parts"]))
+    toc = "".join(f'<div class="rw"><div class="n">{i+1}<small>{E(c["part_lbl"])}</small></div><div><p class="t" lang="en">{E(t)}</p><p>{E(p)}</p><ul>' + "".join(f'<li>{E(b)}</li>' for b in bs) + '</ul></div></div>' for i, (t, p, bs) in enumerate(c["parts"]))
+    toc += f'<div class="rw also"><div class="n"><small>{E(c["also_lbl"])}</small></div><div><p>{E(c["also"])}</p></div></div>'
     dts = "".join(f'<li>{E(d)}</li>' for d in c["get_details"])
-    do = "".join(f'<div class="f"><span class="ic">{FORCE_ICONS[i]}</span><div><p class="t">{E(t)}</p><p>{E(x)}</p></div></div>' for i, (t, x) in enumerate(c["do"]))
+    do = "".join(f'<div class="f f{i+1}"><span class="ic">{FORCE_ICONS[i]}</span><p class="t">{E(t)}</p><p>{E(x)}</p></div>' for i, (t, x) in enumerate(c["do"]))
     body = f"""<section class="bk-hero">
   <div class="bk-panel-light">
   <div class="bk-wrap">
@@ -551,7 +605,11 @@ def build_landing(lang):
       <h2>{E(c["do_h2"])}</h2>
       <p class="bk-lead">{E(c["do_lead"])}</p>
     </div>
-    <div class="grid">{do}</div>
+    <div class="orbit">
+      <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 50 Q32 50 14 24 M50 50 Q68 50 86 24 M50 50 Q32 50 14 76 M50 50 Q68 50 86 76" fill="none" stroke="rgba(233,199,126,.55)" stroke-width="1.2" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/></svg>
+      <div class="center"><span class="core"></span><span class="lbl">{E(c["do_center"])}</span></div>
+      {do}
+    </div>
   </div>
 </section>
 

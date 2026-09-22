@@ -119,19 +119,26 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-ban .bk-readmore{margin:0 0 6px}
 .bk-ban a.more{color:#081B46;font-weight:800;text-decoration:none;font-size:16px;border-bottom:2px solid #E9C77E;padding-bottom:2px}
 .bk-ban a.more:hover{border-bottom-color:#081B46}
-/* 4b. qué puedes hacer (look del libro) */
-.bk-do{padding:88px 24px}
-.bk-do::after{content:"";position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.14) 0%,rgba(233,199,126,.08) 22%,transparent 62%);filter:blur(12px)}
-.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 40px}
+/* 4b. qué puedes hacer: las cuatro fuerzas orbitando al niño (look del libro) */
+.bk-do{padding:96px 24px 100px}
+.bk-do .bk-head{text-align:center;max-width:720px;margin:0 auto 56px}
 .bk-do .bk-kick{color:var(--bk-gold);background:rgba(233,199,126,.08);border-color:rgba(233,199,126,.28)}
 .bk-do h2{color:#fff}
 .bk-do .bk-lead{color:#C9D3E6}
-.bk-do .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px;margin:0 auto}
-.bk-do .f{display:flex;gap:20px;align-items:flex-start;border-radius:22px;padding:26px 26px 24px;background:rgba(237,241,248,.05);border:1px solid rgba(233,199,126,.28);backdrop-filter:blur(2px)}
-.bk-do .ic{flex-shrink:0;width:72px;height:72px;border-radius:18px;background:radial-gradient(circle at 50% 40%,rgba(233,199,126,.22),rgba(233,199,126,.04) 70%);border:1px solid rgba(233,199,126,.25);display:flex;align-items:center;justify-content:center;padding:10px}
+.bk-do .orbit{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1000px;margin:0 auto;align-items:stretch}
+.bk-do .lines{display:none}
+.bk-do .center{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1;margin:0 0 14px}
+.bk-do .center{isolation:isolate}
+.bk-do .center::before{content:"";position:absolute;left:50%;top:11px;width:64px;height:64px;border-radius:50%;border:1px solid rgba(233,199,126,.35);transform:translate(-50%,-50%);pointer-events:none}
+.bk-do .center .core{width:22px;height:22px;border-radius:50%;background:#FDF6E3;box-shadow:0 0 22px 10px rgba(233,199,126,.6),0 0 70px 34px rgba(233,199,126,.22),0 0 140px 70px rgba(233,199,126,.08);animation:bkPulse 4s ease-in-out infinite}
+.bk-do .center .lbl{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-gold);white-space:nowrap}
+@keyframes bkPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.bk-do .f{position:relative;z-index:1;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:84px 1fr;column-gap:22px;align-items:start;background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.03));border:1px solid rgba(233,199,126,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 60px -40px rgba(0,0,0,.8);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.bk-do .f:hover{transform:translateY(-4px);border-color:rgba(233,199,126,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 60px -30px rgba(233,199,126,.35)}
+.bk-do .ic{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:84px;height:84px;border-radius:50%;margin:2px 0 0;padding:15px;background:radial-gradient(circle at 50% 42%,rgba(233,199,126,.28),rgba(233,199,126,.05) 72%);border:1px solid rgba(233,199,126,.4);box-shadow:0 0 34px -6px rgba(233,199,126,.35)}
 .bk-do .ic svg{width:100%;height:100%}
-.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--bk-gold);margin:0 0 8px}
-.bk-do p{font-size:17.5px;line-height:1.5;color:#EDF1F8;font-weight:600;margin:0;text-wrap:pretty}
+.bk-do .t{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-gold);margin:4px 0 8px}
+.bk-do p{font-size:18px;line-height:1.45;color:#F3F6FB;font-weight:600;margin:0;letter-spacing:-.01em;text-wrap:pretty}
 /* 5. índice */
 .bk-in{background:#FBFAF8;padding:80px 24px}
 .bk-in h2{margin-bottom:28px}
@@ -142,6 +149,12 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
 .bk-in .rw .n small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8A94A8;margin-top:6px;font-weight:800}
 .bk-in .rw .t{font-size:21px;font-weight:800;color:#081B46;margin:0 0 6px;letter-spacing:-.01em}
 .bk-in .rw p{font-size:15.5px;line-height:1.58;color:var(--bk-muted);margin:0;max-width:600px;text-wrap:pretty}
+.bk-in .rw ul{list-style:none;margin:14px 0 0;padding:0;max-width:600px}
+.bk-in .rw li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:#33415C;margin-top:8px;text-wrap:pretty}
+.bk-in .rw li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#C9A44A}
+.bk-in .rw.also{align-items:start}
+.bk-in .rw.also .n small{margin-top:0;line-height:1.5}
+.bk-in .rw.also p{color:#33415C}
 /* 6. autor + cierre */
 .bk-end{background:#FBFAF8;padding:36px 24px 88px}
 .bk-end .bk-panel::after{content:"";position:absolute;left:50%;top:78%;width:900px;height:600px;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle at center,rgba(255,226,168,.18) 0%,rgba(233,199,126,.1) 20%,transparent 62%);filter:blur(12px)}
@@ -197,9 +210,13 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
   .bk-date{margin:12px 0 0;display:flex}
   .bk-uni,.bk-ban,.bk-in,.bk-do{padding:56px 20px}
   .bk-qs{padding:28px 20px 56px}
-  .bk-do .grid{grid-template-columns:1fr;gap:12px}
-  .bk-do .f{padding:18px;gap:14px}
-  .bk-do .ic{width:56px;height:56px;border-radius:14px;padding:8px}
+  .bk-do{padding:64px 20px}
+  .bk-do .bk-head{margin-bottom:28px}
+  .bk-do .orbit{grid-template-columns:1fr;gap:14px}
+  .bk-do .center{margin:6px 0 18px}
+  .bk-do .f{padding:22px;grid-template-columns:64px 1fr;column-gap:16px}
+  .bk-do .f .ic{width:64px;height:64px;padding:11px;margin:0}
+  .bk-do p{font-size:16.5px}
   .bk-end{padding:24px 16px 56px}
   .bk-qs .row{grid-template-columns:1fr;gap:24px}
   .bk-uni .bk-wrap{grid-template-columns:1fr;gap:28px}
@@ -228,7 +245,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                 <div class="nav-dropdown" id="classesDropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.classes">Clases</span><svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu" role="menu"><a href="/masterclasses" class="nd-item" role="menuitem"><span data-i18n="nav.masterclasses">Masterclasses</span></a><a href="/live-classes" class="nd-item" role="menuitem"><span data-i18n="nav.liveClasses">Clases en vivo</span></a></div></div>
                 <a href="/es/blog" data-i18n="nav.blog" data-i18n-href="nav.blogUrl">Blog</a>
                 <a href="/es/gift" data-i18n="nav.gift" data-i18n-href="nav.giftUrl">Regalar</a>
-                <div class="nav-dropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.science">Ciencia</span><svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu" role="menu"><a href="/es/science" class="nd-item" role="menuitem"><span>Cómo nació Kinedu</span></a><a href="/es/science-what-we-know" class="nd-item" role="menuitem"><span>Cómo crecen los bebés</span></a><a href="/es/science-what-you-can-do" class="nd-item" role="menuitem"><span>Lo que puedes hacer como papá</span></a></div></div>
+                <div class="nav-dropdown"><button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav.science">Ciencia</span><svg class="nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu" role="menu"><a href="/es/science" class="nd-item" role="menuitem"><span>Por qué lo construimos</span></a><a href="/es/science-what-we-know" class="nd-item" role="menuitem"><span>Cómo se desarrollan las habilidades</span></a><a href="/es/science-what-you-can-do" class="nd-item" role="menuitem"><span>Cómo puedes apoyarlas</span></a></div></div>
                 <a href="/es/book" data-i18n="nav.book" data-i18n-href="nav.bookUrl" class="active">Libro</a>
                 <div class="nav-dropdown" id="teamDropdown">
                     <button class="nav-dropdown-toggle" id="teamToggle" aria-expanded="false" aria-haspopup="true">
@@ -325,14 +342,18 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
       <h2>¿Y qué puedes hacer para apoyarlas?</h2>
       <p class="bk-lead">Cuatro fuerzas cotidianas a las que el libro vuelve una y otra vez.</p>
     </div>
-    <div class="grid"><div class="f"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="34" width="16" height="16" rx="3"/><rect x="18" y="18" width="16" height="16" rx="3" fill="rgba(233,199,126,.12)"/><circle cx="44" cy="42" r="9" fill="rgba(233,199,126,.12)"/><path d="M37 38c4 2 10 2 14 0M37 46c4-2 10-2 14 0"/><path d="M14 12l2 4M46 12l-2 4M30 8v4" stroke="#FDF6E3"/></svg></span><div><p class="t">Juego</p><p>Los momentos pequeños que parecen nada y lo construyen todo.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="16" r="6" fill="rgba(233,199,126,.12)"/><path d="M12 52V36a10 10 0 0 1 20 0v16"/><circle cx="45" cy="28" r="4.5" fill="rgba(233,199,126,.12)"/><path d="M38 52V41a7 7 0 0 1 14 0v11"/><path d="M32 38l6 3" stroke="#FDF6E3"/><path d="M8 52h48" stroke="rgba(233,199,126,.5)"/></svg></span><div><p class="t">Relaciones</p><p>Sostenido por ti, empujado por ti y a través de ti: así construye tu hijo su modelo del mundo.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 32a24 24 0 0 1 48 0Z" fill="rgba(233,199,126,.12)"/><path d="M32 8v4M32 32v16a5 5 0 0 0 10 0"/><path d="M14 10l-2 5M50 10l2 5M22 6l-1 4M42 6l1 4" stroke="#FDF6E3"/><path d="M10 44l-1 3M18 48l-1 3M46 48l-1 3M54 44l-1 3" stroke="rgba(253,246,227,.6)"/></svg></span><div><p class="t">Estrés</p><p>Siempre va a estar ahí. Lo que importa es que tú, el amortiguador, también estés.</p></div></div><div class="f"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="24" r="7" fill="rgba(233,199,126,.12)"/><path d="M22 10v4M22 34v4M8 24h4M32 24h4M12 14l3 3M29 31l3 3M12 34l3-3M29 17l3-3"/><path d="M50 30a9 9 0 1 1-8-12 7 7 0 0 0 8 12Z" fill="rgba(253,246,227,.12)" stroke="#FDF6E3"/><path d="M12 50c6 6 34 6 40 0" /><path d="M48 46l4 4-4 4"/></svg></span><div><p class="t">Predictibilidad</p><p>Lo más importante que un papá debe saber, según el Dr. Phil Fisher.</p></div></div></div>
+    <div class="orbit">
+      <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 50 Q32 50 14 24 M50 50 Q68 50 86 24 M50 50 Q32 50 14 76 M50 50 Q68 50 86 76" fill="none" stroke="rgba(233,199,126,.55)" stroke-width="1.2" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/></svg>
+      <div class="center"><span class="core"></span><span class="lbl">Tu hijo</span></div>
+      <div class="f f1"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="34" width="16" height="16" rx="3"/><rect x="18" y="18" width="16" height="16" rx="3" fill="rgba(233,199,126,.12)"/><circle cx="44" cy="42" r="9" fill="rgba(233,199,126,.12)"/><path d="M37 38c4 2 10 2 14 0M37 46c4-2 10-2 14 0"/><path d="M14 12l2 4M46 12l-2 4M30 8v4" stroke="#FDF6E3"/></svg></span><p class="t">Juego</p><p>Los momentos pequeños que parecen nada y lo construyen todo.</p></div><div class="f f2"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="16" r="6" fill="rgba(233,199,126,.12)"/><path d="M12 52V36a10 10 0 0 1 20 0v16"/><circle cx="45" cy="28" r="4.5" fill="rgba(233,199,126,.12)"/><path d="M38 52V41a7 7 0 0 1 14 0v11"/><path d="M32 38l6 3" stroke="#FDF6E3"/><path d="M8 52h48" stroke="rgba(233,199,126,.5)"/></svg></span><p class="t">Relaciones</p><p>Sostenido por ti, empujado por ti y a través de ti: así construye tu hijo su modelo del mundo.</p></div><div class="f f3"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 32a24 24 0 0 1 48 0Z" fill="rgba(233,199,126,.12)"/><path d="M32 8v4M32 32v16a5 5 0 0 0 10 0"/><path d="M14 10l-2 5M50 10l2 5M22 6l-1 4M42 6l1 4" stroke="#FDF6E3"/><path d="M10 44l-1 3M18 48l-1 3M46 48l-1 3M54 44l-1 3" stroke="rgba(253,246,227,.6)"/></svg></span><p class="t">Estrés</p><p>Siempre va a estar ahí. Lo que importa es que tú, el amortiguador, también estés.</p></div><div class="f f4"><span class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#E9C77E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="24" r="7" fill="rgba(233,199,126,.12)"/><path d="M22 10v4M22 34v4M8 24h4M32 24h4M12 14l3 3M29 31l3 3M12 34l3-3M29 17l3-3"/><path d="M50 30a9 9 0 1 1-8-12 7 7 0 0 0 8 12Z" fill="rgba(253,246,227,.12)" stroke="#FDF6E3"/><path d="M12 50c6 6 34 6 40 0" /><path d="M48 46l4 4-4 4"/></svg></span><p class="t">Predictibilidad</p><p>Lo más importante que un papá debe saber, según el Dr. Phil Fisher.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="bk-in" id="inside">
   <div class="bk-wrap">
     <h2>Qué vas a encontrar dentro.</h2>
-    <div class="toc"><div class="rw"><div class="n">1<small>Parte</small></div><div><p class="t" lang="en">The Old Cosmology</p><p>Cómo las ideas conocidas sobre el desarrollo infantil moldearon los consejos que los papás escuchan hoy.</p></div></div><div class="rw"><div class="n">2<small>Parte</small></div><div><p class="t" lang="en">The Big Bang</p><p>Cómo se conectan las primeras capacidades y empiezan a desarrollarse durante el primer año.</p></div></div><div class="rw"><div class="n">3<small>Parte</small></div><div><p class="t" lang="en">The Universe Takes Shape</p><p>Cómo las habilidades de los niños se vuelven más distintas y cómo las experiencias cotidianas apoyan su desarrollo.</p></div></div></div>
+    <div class="toc"><div class="rw"><div class="n">1<small>Parte</small></div><div><p class="t" lang="en">The Old Cosmology</p><p>De dónde vienen los consejos de crianza de hoy, y por qué tantas veces se contradicen. Lo que las teorías clásicas revelan sobre cómo los niños piensan, aprenden, se vinculan y construyen su sentido de sí mismos.</p><ul><li>Qué nos ayuda a entender cada uno: Piaget, Vygotsky, Bowlby y Erikson.</li><li>Cómo la investigación se simplifica en reglas de crianza y consejos de redes sociales.</li><li>Por qué ninguna teoría cuenta por sí sola la historia completa de tu hijo.</li></ul></div></div><div class="rw"><div class="n">2<small>Parte</small></div><div><p class="t" lang="en">The Big Bang</p><p>Lo que pasa debajo de las primeras sonrisas, sonidos y pasos: cómo se conectan las primeras habilidades, por qué cada niño sigue su propio calendario y cómo las experiencias de todos los días ayudan a que surjan nuevas capacidades.</p><ul><li>Por qué lo que tu bebé puede mostrar no siempre es todo lo que entiende.</li><li>Qué pueden decirte, y qué no, las ventanas del desarrollo y las edades de los hitos.</li><li>Cómo apoyar el siguiente paso observando la disposición, los intereses y el entorno de tu hijo.</li></ul></div></div><div class="rw"><div class="n">3<small>Parte</small></div><div><p class="t" lang="en">The Universe Takes Shape</p><p>El desarrollo desde el nacimiento hasta los cinco años, y tu papel en el camino. De las primeras palabras y el juego simbólico a las amistades y las emociones grandes: cómo las capacidades de los niños se vuelven más distintas y trabajan juntas de formas nuevas.</p><ul><li>Qué cambia entre la primera infancia, la etapa de caminar y el preescolar.</li><li>Las cuatro fuerzas cotidianas: juego, relaciones, estrés y rutinas predecibles.</li><li>Cómo la conexión, el aliento, los límites y la reparación ayudan a construir un vínculo duradero.</li></ul></div></div><div class="rw also"><div class="n"><small>También dentro</small></div><div><p>Ideas para llevar de “Building Your Map” a lo largo del libro, una guía para papás sobre la investigación de Kinedu, un glosario en lenguaje sencillo y una introducción a la investigación para quien quiera ir más a fondo.</p></div></div></div>
   </div>
 </section>
 
