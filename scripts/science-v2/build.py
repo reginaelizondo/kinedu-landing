@@ -463,6 +463,15 @@ MOBILE_CSS = """@media(max-width:640px){
 .sci-btn{padding:14px 22px;font-size:15px}
 .sci-btn-xl{padding:18px 28px;font-size:16.5px}
 .sci26-acts .sci26-act{min-height:0!important}
+.sci26-area{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center;padding:16px 18px}
+.sci26-area .ic{margin:0;grid-row:1/span 2}
+.sci26-area .t,.sci26-area .c{grid-column:2}
+.sci26-area .c{margin-top:2px}
+.pg-onegrid .c{display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:center;text-align:left;padding:12px 14px}
+.pg-onegrid .c img{width:36px;height:36px;margin:0;grid-row:1/span 2}
+.pg-onegrid .c .area,.pg-onegrid .c p{grid-column:2;margin:0}
+.pg-onegrid .c .area{margin-bottom:2px}
+.pg-one .pg-onegrid .c .area,.pg-one .pg-onegrid .c p{text-align:left;justify-self:start}
 }"""
 COMMON_CSS = COMMON_CSS.replace("</style>", MOBILE_CSS+"\n</style>")
 
@@ -547,7 +556,7 @@ p1_product = ('<section id="assessment" class="sci26" style="--sciacc:#2EA84F">'
  + CH_HEAD + '</div></details>'
  '</div></section>')
 
-p1_areas = sec("What the assessment covers", '414 milestones. 46 skills. <span class="sci-squig">Four areas.</span>',
+p1_areas = sec("What the assessment covers", '414 milestones. <span style="display:inline-block">46 skills.</span> <span class="sci-squig">Four areas.</span>',
  "",
  """<div class="sci26-areas">
 <div class="sci26-area" style="background:#E3F0FE"><img class="ic" src="/images/areas/physical.png" alt="" width="44" height="44" loading="lazy"><div class="t">Physical</div><div class="c" style="color:#1E88E5">From holding their head up to jumping on one foot.</div></div>
