@@ -300,6 +300,9 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci26-act p.more a:hover{border-bottom-color:#0E3687}
 .sci-line{font-size:16.5px;line-height:1.6;color:#52607A;text-align:center;max-width:720px;margin:22px auto 0;text-wrap:pretty}
 .sci-line strong{color:#081B46}
+.sci-deeper{margin:22px auto 0;font-size:14px;color:#8A94A8;text-align:center;line-height:1.7}
+.sci-deeper a{color:#52607A;font-weight:700;text-decoration:none;border-bottom:1.5px solid #D9D3C8}
+.sci-deeper a:hover{color:#087BF3;border-bottom-color:#087BF3}
 .sci-disc{max-width:780px;margin:26px auto 0;border:1px solid #EBE6DF;border-radius:18px;background:#fff;text-align:left;overflow:hidden}
 .sci-disc>summary{list-style:none;cursor:pointer;padding:17px 22px;font-size:16.5px;font-weight:700;color:#081B46;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .sci-disc>summary::-webkit-details-marker{display:none}
@@ -611,7 +614,7 @@ def app_slot(title, text, href, link):
 
 p3_hero = hero("The science behind Kinedu · Part 3 of 3",
     'Four ways to support your child’s <span class="gradient-shift">development.</span>',
-    "Everyday ways to play, connect, help your child through stress, and build familiar routines.",
+    "Supporting your child doesn’t have to mean adding more to your day. Four everyday ways to play, connect, help them through stress, and build familiar routines.",
     "", badges=False)
 
 ICO={"play":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M3 12h18"/><path d="M12 3c-3 3-3 15 0 18M12 3c3 3 3 15 0 18"/></svg>',
@@ -655,7 +658,7 @@ p3_rel = sec("Two · Relationships", 'Warmth and clear limits <span class="sci-s
       ("Keep the limit. Stay connected.","Name the feeling and repeat the boundary in simple words."),
       ("Help them find their calm.","Offer a calm voice and support while they learn to handle strong feelings.")])
  +line("You won’t get every moment right. You can reconnect and try again.")
- +app_slot2("Live classes and the Positive Education masterclass", "Learn ways to set limits with care and respond to tantrums, with guidance from child psychologists.", [("/live-classes", "Explore live classes"), ("/masterclasses/positive-education", "Explore the Positive Education masterclass")]), "#F7567C", "", 1040)
+, "#F7567C", "", 1040)
 p3_rel = p3_rel.replace('<section class="sci26', '<section id="relationships" class="sci26', 1)
 
 p3_stress = sec("Three · Stress", 'Not all stress is <span class="sci-squig">the same.</span>',
@@ -666,7 +669,7 @@ p3_stress = sec("Three · Stress", 'Not all stress is <span class="sci-squig">th
 <div class="c" style="background:#FBE3ED"><b>Toxic</b><p>Prolonged or excessive stress without adequate adult support. This can affect development and long-term health.</p></div>
 </div>
 """+take("Your support can help your child <span class=\"mk\">through difficult moments.</span>")
- +app_slot("Ask an expert live", "Bring your questions to a live class.", "/live-classes", "See live classes"), "#E8A33D", "sci26-blue", 1040)
+, "#E8A33D", "sci26-blue", 1040)
 p3_stress = p3_stress.replace('<section class="sci26', '<section id="stress" class="sci26', 1)
 
 DAY=[("wake","Wake up"),("meal","Meals"),("play","Play"),("nap","Nap"),("bath","Bath"),("bed","Bedtime")]
@@ -685,10 +688,11 @@ p3_pred = sec("Four · Predictability", 'Familiar routines help your child know 
  line("Familiar patterns around meals, play, and bedtime can make the day easier to recognize. A routine can be simple and still leave room to adapt.")
  +day_html()
  +take("Keep it simple, familiar, <span class=\"mk\">and flexible.</span>")
- +app_slot2("Baby Tracker and the Sleep Habits masterclass", "Keep track of feeds, naps, and diaper changes in one place. Explore bedtime routines in the Sleep Habits masterclass.", [("/masterclasses/sleep-habits", "Explore the Sleep Habits masterclass"), (TRY, "Get the Baby Tracker in the app")]), "#913FA3", "sci26-mint", 1040)
+, "#913FA3", "sci26-mint", 1040)
 p3_pred = p3_pred.replace('<section class="sci26', '<section id="predictability" class="sci26', 1)
 
-p3_closer = '<section class="sci26 sci26-plain" style="padding:44px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><p class="sci-mantra" style="margin:0">Connect. Guide. Protect. Repeat.</p><p class="sci-line" style="margin-top:18px">Find ideas for putting these principles into practice with your child.</p><p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">'+cta("Explore Kinedu", TRY)+cta("Take the free assessment", ASSESS, False)+'</p></div></section>'
+DEEP_LINKS = '''<p class="sci-deeper">Want to go deeper? <a href="/live-classes">Live classes</a> <span aria-hidden="true">·</span> <a href="/masterclasses/positive-education">Positive Education masterclass</a> <span aria-hidden="true">·</span> <a href="/masterclasses/sleep-habits">Sleep Habits masterclass</a></p>'''
+p3_closer = '<section class="sci26 sci26-plain" style="padding:44px 20px 56px"><div class="sci26-wrap" style="max-width:900px;text-align:center"><p class="sci-mantra" style="margin:0">Connect. Guide. Protect. Repeat.</p><p class="sci-line" style="margin-top:18px">Find ideas for putting these principles into practice with your child.</p><p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">'+cta("Explore Kinedu", TRY)+cta("Take the free assessment", ASSESS, False)+'</p>'+DEEP_LINKS+'</div></section>'
 
 page3 = page("/science-what-you-can-do", "Four Ways to Support Your Child’s Development | Kinedu",
  "Play, relationships, stress and predictability: the four things the evidence keeps pointing to, and what a parent can actually do with them.",
