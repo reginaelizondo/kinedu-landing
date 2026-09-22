@@ -492,7 +492,9 @@ footer a{color:var(--body)}
 (function(){
   var m = /^\/(es|pt)(\/|$)/.exec(location.pathname);
   var lang = m ? m[1] : 'en';
-  document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = 'https://webpromo.kinedu.com/gift/checkout?lang=' + lang; });
+  var utm = new URLSearchParams(); new URLSearchParams(location.search).forEach(function(v, k){ if (/^utm_[a-z]+$/.test(k) && v) utm.set(k, v.slice(0, 80)); });
+  var q = utm.toString();
+  document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = 'https://webpromo.kinedu.com/gift/checkout?lang=' + lang + (q ? '&' + q : ''); });
 })();
 
 // Scroll reveal: one entrance, no loops
