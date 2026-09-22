@@ -645,12 +645,12 @@ p3_play = sec("One · Play", 'Play starts with the back-and-forth <span class="s
 <div style="--c:#913FA3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v11M9 7V5a3 3 0 0 1 6 0v2M9 12h6M9 16h6"/></svg></span><span class="role">You lead</span><b>Direct instruction</b><p>You show your child how to do a specific task, then give them a chance to try.</p></div>
 </div>
 </div>
-"""+take("Choose the approach that fits <span class=\"mk\">what your child is exploring.</span>")
- +app_slot("Daily activity ideas", "Short videos that show you how to try activities with your baby.", TRY, "Try it free"), "#2EA84F", "sci26-mint", 1040)
+"""+take("There’s no single right way to play. <span class=\"mk\">Choose what fits the moment.</span>")
+ +app_slot("Daily activity ideas", "Short videos with simple activities you can try together.", TRY, "Try it free"), "#2EA84F", "sci26-mint", 1040)
 p3_play = p3_play.replace('<section class="sci26', '<section id="play" class="sci26', 1)
 
 p3_rel = sec("Two · Relationships", 'Warmth and clear limits <span class="sci-squig">can go together.</span>',
- "You can respond to your child’s feelings while keeping a clear limit. The goal is to offer support and expectations that fit their age.",
+ "You can comfort your child without changing the limit. They can be upset and still feel safe, loved, and supported.",
  pts([("You can say no with care.","Your child can feel upset about a limit and still receive your comfort and support."),
       ("Keep the limit. Stay connected.","Acknowledge the feeling and explain the boundary in simple words."),
       ("Help them find their calm.","Offer a calm voice and support while they learn to handle strong feelings.")])
