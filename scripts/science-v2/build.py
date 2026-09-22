@@ -508,7 +508,7 @@ p1_product = ('<section id="assessment" class="sci26" style="--sciacc:#2EA84F">'
  '<div class="sci26-wrap" style="max-width:880px">'
  '<div class="sci26-kick">How the assessment works</div>'
  '<h2>Answer simple questions about what your baby does. <span class="sci-squig">That’s it.</span></h2>'
- '<p class="sci26-lead">Based on what you see every day.</p>\n'
+ '<p class="sci26-lead">You can answer at home, based on what you see every day. Here’s a sample question from the assessment for 12&#8209;month&#8209;olds:</p>\n'
  + SCIQ
  + line('<strong>We consider each answer alongside your baby’s age and other skills.</strong>')
  + '<details class="sci-disc"><summary>How we interpret your answers</summary><div class="bd">'

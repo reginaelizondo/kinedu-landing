@@ -47,7 +47,7 @@ T = {
 "Now": "Ahora",
 "A checklist of milestones by age.": "Una lista de hitos por edad.",
 "A connected picture of the skills your baby is developing.": "Una imagen conectada de las habilidades que tu bebé está desarrollando.",
-"Based on what you see every day.": "Basado en lo que ves todos los días.",
+"You can answer at home, based on what you see every day. Here’s a sample question from the assessment for 12&#8209;month&#8209;olds:": "Puedes contestar en casa, con lo que ves todos los días. Esta es una pregunta de ejemplo de la evaluación para bebés de 12 meses:",
 "We consider each answer alongside your baby’s age and other skills.": "Consideramos cada respuesta junto con la edad de tu bebé y sus otras habilidades.",
 "How we interpret your answers": "Cómo interpretamos tus respuestas",
 "Answer simple questions about what your baby does.": "Contesta preguntas sencillas sobre lo que hace tu bebé.",
