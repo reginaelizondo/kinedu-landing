@@ -507,8 +507,8 @@ p1_rebuilt = sec("The rebuild", 'We rebuilt the assessment around <span class="s
 p1_product = ('<section id="assessment" class="sci26" style="--sciacc:#2EA84F">'
  '<div class="sci26-wrap" style="max-width:880px">'
  '<div class="sci26-kick">How the assessment works</div>'
- '<h2>Tell us what your baby <span class="sci-squig">does.</span></h2>'
- '<p class="sci26-lead">Answer simple questions based on everyday moments.</p>\n'
+ '<h2>Answer simple questions about what your baby does. <span class="sci-squig">That’s it.</span></h2>'
+ '<p class="sci26-lead">Based on what you see every day.</p>\n'
  + SCIQ
  + line('<strong>We consider each answer alongside your baby’s age and other skills.</strong>')
  + '<details class="sci-disc"><summary>How we interpret your answers</summary><div class="bd">'
