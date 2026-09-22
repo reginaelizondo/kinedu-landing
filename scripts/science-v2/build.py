@@ -292,8 +292,18 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci-four a .k{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:4px}
 .sci-four a b{font-size:18px;line-height:1.2;margin-bottom:6px}
 .sci-four a small{font-size:13.5px;line-height:1.4;color:#52607A}
+.sci26 h2+.sci26-areas{margin-top:40px}
 .sci-line{font-size:16.5px;line-height:1.6;color:#52607A;text-align:center;max-width:720px;margin:22px auto 0;text-wrap:pretty}
 .sci-line strong{color:#081B46}
+.sci-disc{max-width:780px;margin:26px auto 0;border:1px solid #EBE6DF;border-radius:18px;background:#fff;text-align:left;overflow:hidden}
+.sci-disc>summary{list-style:none;cursor:pointer;padding:17px 22px;font-size:16.5px;font-weight:700;color:#081B46;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.sci-disc>summary::-webkit-details-marker{display:none}
+.sci-disc>summary::after{content:"↓";font-size:18px;font-weight:800;color:var(--sciacc);transition:transform .2s ease}
+.sci-disc[open]>summary::after{transform:rotate(180deg)}
+.sci-disc>summary:hover{background:#FAF8F5}
+.sci-disc .bd{padding:4px 22px 24px;border-top:1px solid #F1ECE5}
+.sci-disc .bd .sci-prose p{font-size:16px;line-height:1.65;margin:18px 0 0}
+.sci-disc .bd .sci26-chart{margin:22px auto 0}
 .sci-rally{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:28px auto 0;max-width:980px}
 .sci-rally .st{display:flex;flex-direction:column;align-items:flex-start;padding:16px 18px 16px 16px;border-radius:18px;background:color-mix(in srgb,var(--c) 9%,#fff);border:1px solid color-mix(in srgb,var(--c) 25%,#fff);min-width:160px}
 .sci-rally .av{width:36px;height:36px;border-radius:99px;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
@@ -386,11 +396,8 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci-now{border:2px solid #087BF3;box-shadow:0 18px 44px rgba(8,123,243,.12)}
 .sci-then .k,.sci-now .k{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A94A8;margin-bottom:14px}
 .sci-now .k{color:#087BF3}
-.sci-then p{margin:16px 0 0;font-size:15px;line-height:1.55;color:#52607A}
-.sci-now .q{font-size:clamp(20px,2.4vw,25px);font-weight:800;line-height:1.25;letter-spacing:-.02em;color:#081B46;margin:0 0 18px;text-wrap:balance}
-.sci-now .q .pre{display:block;font-weight:500;font-size:15.5px;color:#52607A;margin-bottom:8px;letter-spacing:0}
-.sci-now .a{margin:18px 0 0;font-size:15.5px;line-height:1.55;color:#33415C}
-.sci-now .a strong{display:block;color:#081B46;font-size:19px;line-height:1.3;margin-bottom:8px}
+.sci-then .s{margin:20px 0 0;font-size:19px;line-height:1.35;font-weight:600;color:#52607A;text-wrap:balance;text-align:center}
+.sci-now .s{margin:20px 0 0;font-size:20px;line-height:1.32;font-weight:800;letter-spacing:-.01em;color:#081B46;text-wrap:balance;text-align:center}
 .sci-arrow{display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#C9D2E0}
 .sci-areas4{display:flex;justify-content:center;padding:6px 0}
 .sci-areas4 span{width:64px;height:64px;border-radius:99px;background:#fff;border:3px solid var(--c);display:inline-flex;align-items:center;justify-content:center;margin-left:-12px;box-shadow:0 6px 18px rgba(8,27,70,.10)}
@@ -443,7 +450,7 @@ HONEST1=[("Kinedu does not diagnose.","It shows you what is worth raising with y
 # ====================================================================
 p1_hero = hero("The science behind Kinedu · Part 1 of 3",
     'How we built Kinedu’s <span class="gradient-shift">developmental assessment.</span>',
-    "Research using data from 3.5 million children helped shape the assessment. Here’s how it works and what it can tell you about your baby’s developing skills.",
+    "Informed by data from 3.5 million children. Designed to help you understand your baby’s developing skills.",
     "")
 
 CHECKLIST_SVG = """<svg viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An old-style milestone checklist by age" style="width:100%;max-width:320px;height:auto;display:block;margin:0 auto">
@@ -463,10 +470,10 @@ AREAS4 = '<div class="sci-areas4">' + "".join('<span style="--c:%s"><img src="/i
 
 p1_bridge = sec("From milestones to a clearer picture", 'How Kinedu’s assessment <span class="sci-squig">has evolved.</span>', "",
  '<div class="sci-bridge">'
- '<div class="sci-then"><div class="k">2013 · Where Kinedu started</div>'+CHECKLIST_SVG+'<p>Kinedu began with an age-based milestone checklist: one item at a time, with a yes-or-no answer. It was a simple way to record what a baby could already do. We wanted to show more of how those skills develop.</p></div>'
+ '<div class="sci-then"><div class="k">Then</div>'+CHECKLIST_SVG+'<p class="s">A checklist of milestones by age.</p></div>'
  '<div class="sci-arrow" aria-hidden="true">→</div>'
- '<div class="sci-now"><div class="k">Today · Where Kinedu is</div><p class="q">How do the four areas of development connect?</p>'+AREAS4+'<p class="a"><strong>Closely linked early on. More distinct as children grow.</strong> We used that insight to look at skills together and build a fuller picture of development.</p></div>'
- '</div>'+line("Here are three key steps in that journey."), "#2EA84F", "", 1060)
+ '<div class="sci-now"><div class="k">Now</div>'+AREAS4+'<p class="s">A connected picture of the skills your baby is developing.</p></div>'
+ '</div>', "#2EA84F", "", 1060)
 
 p1_acts = sec("How we got there", 'Built by Kinedu. Studied by <span class="sci-squig">Stanford researchers.</span> Informed by millions of children.',
  "From the first assessment to research at a much larger scale.",
@@ -489,22 +496,28 @@ p1_rebuilt = sec("The rebuild", 'We rebuilt the assessment around <span class="s
 <div class="sci-spec" style="position:relative">
 <div class="bar"><i style="background:#913FA3"></i><i style="background:#1248B7"></i><i style="background:#3EB646"></i><i style="background:#EEBD0E"></i></div>
 <div class="legend">
-<div><img src="/images/states/upcoming.png" alt="" width="32" height="32" loading="lazy"><b style="color:#913FA3">Upcoming</b><p>Skills that usually appear later than your baby’s current age.</p></div>
-<div><img src="/images/states/reinforce.png" alt="" width="32" height="32" loading="lazy"><b style="color:#1248B7">Reinforce</b><p>Skills expected around this age that your baby is still working on.</p></div>
-<div><img src="/images/states/ontrack.png" alt="" width="32" height="32" loading="lazy"><b style="color:#3EB646">On track</b><p>Skills your baby is showing at the expected age.</p></div>
-<div><img src="/images/states/mastered.png" alt="" width="32" height="32" loading="lazy"><b style="color:#D9A800">Mastered</b><p>Skills your baby already shows consistently.</p></div>
+<div><img src="/images/states/upcoming.png" alt="" width="32" height="32" loading="lazy"><b style="color:#913FA3">Upcoming</b><p>Usually develops at a later age.</p></div>
+<div><img src="/images/states/reinforce.png" alt="" width="32" height="32" loading="lazy"><b style="color:#1248B7">Reinforce</b><p>Expected around this age; still developing.</p></div>
+<div><img src="/images/states/ontrack.png" alt="" width="32" height="32" loading="lazy"><b style="color:#3EB646">On track</b><p>Showing at the expected age.</p></div>
+<div><img src="/images/states/mastered.png" alt="" width="32" height="32" loading="lazy"><b style="color:#D9A800">Mastered</b><p>Showing consistently.</p></div>
 </div>
 </div>
 <p class="sci-quote">A clearer picture of the skills your baby is building <span class="mk">and what may come next.</span></p>""", "#087BF3", "sci26-mint")
 
-p1_product = '<section id="assessment" class="sci26" style="--sciacc:#2EA84F"><div class="sci26-wrap" style="max-width:860px"><div class="sci26-kick">How the assessment works</div><h2>Answer simple questions about what your baby does. <span class="sci-squig">That’s it.</span></h2><p class="sci26-lead">You can answer at home, based on what you see every day. Here’s a sample question from the assessment for 12&#8209;month&#8209;olds:</p>\n' + SCIQ + '</div></section>'
-
-p1_instrument = sec("Why we ask what we ask", 'Questions chosen to capture <span class="sci-squig">developing skills.</span>',
- "A “not yet” answer doesn’t tell the whole story. We look at it alongside your baby’s age and other answers to understand how their skills are developing.",
- '<div class="sci26-edge"><div class="sci-prose"><p class="big" style="font-size:clamp(19px,2.3vw,24px)">Your answers help us build a picture.</p><p>We compare your answers with patterns in caregiver reports across ages. Together, they help us understand which skills your baby is developing. You don’t need special training to answer.</p></div>'+CH_HEAD+'</div>', "#1FA66E")
+p1_product = ('<section id="assessment" class="sci26" style="--sciacc:#2EA84F">'
+ '<div class="sci26-wrap" style="max-width:880px">'
+ '<div class="sci26-kick">How the assessment works</div>'
+ '<h2>Tell us what your baby <span class="sci-squig">does.</span></h2>'
+ '<p class="sci26-lead">Answer simple questions based on everyday moments.</p>\n'
+ + SCIQ
+ + line('<strong>We consider each answer alongside your baby’s age and other skills.</strong>')
+ + '<details class="sci-disc"><summary>How we interpret your answers</summary><div class="bd">'
+ '<div class="sci-prose"><p>We compare your answers with patterns in caregiver reports across ages. Together, they help us understand which skills your baby is developing. You don’t need special training to answer.</p></div>'
+ + CH_HEAD + '</div></details>'
+ '</div></section>')
 
 p1_areas = sec("What the assessment covers", '414 milestones. 46 skills. <span class="sci-squig">Four areas.</span>',
- "The assessment covers physical, cognitive, language, and social-emotional development. These areas are closely connected early in life and become more distinct as children grow.",
+ "",
  """<div class="sci26-areas">
 <div class="sci26-area" style="background:#E3F0FE"><img class="ic" src="/images/areas/physical.png" alt="" width="44" height="44" loading="lazy"><div class="t">Physical</div><div class="c" style="color:#1E88E5">From holding their head up to jumping on one foot.</div><p>How your child moves and uses their body.</p></div>
 <div class="sci26-area" style="background:#E4F6E7"><img class="ic" src="/images/areas/cognitive.png" alt="" width="44" height="44" loading="lazy"><div class="t">Cognitive</div><div class="c" style="color:#2EA84F">Exploring, solving problems, and playing pretend.</div><p>How your child learns about the world.</p></div>
@@ -520,7 +533,7 @@ p1_cta = sec("Your turn", 'See which skills your baby <span class="pg-squig">is 
 
 page1 = page("/science", "The Science Behind Kinedu: How We Got Here | Kinedu",
  "We watched 3.5 million children grow up. What we learned made us rebuild Kinedu: from a milestone checklist to an assessment that shows what is emerging.",
- "/science", p1_hero, [p1_bridge, p1_acts, p1_rebuilt, p1_product, p1_instrument, p1_areas, p1_honest, p1_cta, p3_note, nextprev(None, ("/science-what-we-know","How babies grow"))],
+ "/science", p1_hero, [p1_bridge, p1_acts, p1_rebuilt, p1_product, p1_areas, p1_honest, p1_cta, p3_note, nextprev(None, ("/science-what-we-know","How babies grow"))],
  og_title="Kinedu is built on how 3.5 million babies actually grew | Kinedu")
 
 # ====================================================================
