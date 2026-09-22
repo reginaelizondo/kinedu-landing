@@ -140,7 +140,6 @@ T = {
 "The science, in three parts": "La ciencia, en tres partes",
 "Try it free": "Pruébalo gratis",
 "In the Kinedu app": "En la app de Kinedu",
-"References to Stanford, Harvard’s Center on the Developing Child and named researchers are for attribution only and do not imply endorsement of Kinedu. Nothing on this page is medical advice.": "Las menciones a Stanford, al Center on the Developing Child de Harvard y a los investigadores citados son solo de atribución y no implican ningún respaldo a Kinedu. Nada de lo que hay en esta página es consejo médico.",
 
 # ---------- página 1 ----------
 "By 9 months": "A los 9 meses",

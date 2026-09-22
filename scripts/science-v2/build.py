@@ -549,7 +549,7 @@ p1_cta = sec("Your turn", 'See which skills your baby <span class="pg-squig">is 
 
 page1 = page("/science", "The Science Behind Kinedu: How We Got Here | Kinedu",
  "We watched 3.5 million children grow up. What we learned made us rebuild Kinedu: from a milestone checklist to an assessment that shows what is emerging.",
- "/science", p1_hero, [p1_bridge, p1_acts, p1_rebuilt, p1_product, p1_areas, p1_honest, p1_cta, p3_note, nextprev(None, ("/science-what-we-know","How skills develop"))],
+ "/science", p1_hero, [p1_bridge, p1_acts, p1_rebuilt, p1_product, p1_areas, p1_honest, p1_cta, nextprev(None, ("/science-what-we-know","How skills develop"))],
  og_title="Kinedu is built on how 3.5 million babies actually grew | Kinedu")
 
 # ====================================================================
@@ -598,7 +598,7 @@ p2_honest = honest(cannot=CANNOT[:2]+[("Read the room for you.","About 11% of a 
 
 page2 = page("/science-what-we-know", "Five Things We’ve Learned About How Babies Develop | Kinedu",
  "What data from 3.5 million children show about the early years: everything grows together, skills build in order, the range is wide, and no chart can predict your child.",
- "/science-what-we-know", p2_hero, [p2_intro, p2_one, p2_two, p2_three, p2_four, p2_five, p2_closer, p3_note, nextprev(("/science","Why we built it"), ("/science-what-you-can-do","How you can support them"))],
+ "/science-what-we-know", p2_hero, [p2_intro, p2_one, p2_two, p2_three, p2_four, p2_five, p2_closer, nextprev(("/science","Why we built it"), ("/science-what-you-can-do","How you can support them"))],
  og_title="Five things we’ve learned about how babies develop | Kinedu")
 
 # ====================================================================
@@ -696,7 +696,7 @@ p3_closer = '<section class="sci26 sci26-plain" style="padding:44px 20px 56px"><
 
 page3 = page("/science-what-you-can-do", "Four Ways to Support Your Child’s Development | Kinedu",
  "Play, relationships, stress and predictability: the four things the evidence keeps pointing to, and what a parent can actually do with them.",
- "/science-what-you-can-do", p3_hero, [p3_open, p3_play, p3_rel, p3_stress, p3_pred, p3_closer, p3_note, nextprev(("/science-what-we-know","How skills develop"), None)],
+ "/science-what-you-can-do", p3_hero, [p3_open, p3_play, p3_rel, p3_stress, p3_pred, p3_closer, nextprev(("/science-what-we-know","How skills develop"), None)],
  og_title="Four ways to support your child’s development | Kinedu")
 
 ARIA={'viewBox="0 0 380 210"':"Share of babies who lift their head while on tummy, by age: 17% at birth, 48% at 3 months, 93% at 5 months",
