@@ -112,18 +112,25 @@ tr:hover td { background: #FAF8F4; }
 .aff-edit-btn { color: var(--c4, #8A5CF6); }
 .aff-modal { position: fixed; inset: 0; background: rgba(14,27,44,.45); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
 .aff-modal[hidden] { display: none; }
-.aff-modal-card { background: #fff; border-radius: 16px; max-width: 448px; width: 100%; box-shadow: 0 20px 60px rgba(14,27,44,.3); padding: 22px 24px; max-height: 90vh; overflow: auto; }
-.aff-modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
-.aff-modal-head h2 { margin: 0; }
-.aff-modal-body { display: flex; flex-direction: column; gap: 13px; }
-.aff-row2 { display: flex; gap: 12px; }
-.aff-row2 > * { flex: 1; }
-.aff-modal .aff-field label { display: block; font-size: 11.5px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
-.aff-modal input, .aff-modal select, .aff-modal textarea { width: 100%; border: 1.5px solid var(--line); border-radius: 9px; padding: 9px 11px; font: inherit; color: var(--ink); background: #fff; box-sizing: border-box; }
-.aff-modal input:focus, .aff-modal select:focus, .aff-modal textarea:focus { outline: none; border-color: var(--c1); }
-.aff-modal textarea { resize: vertical; }
-.aff-meta { font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; line-height: 1.8; font-family: 'DM Mono', monospace; word-break: break-all; }
-.aff-modal-foot { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.aff-modal-card { background: #fff; border-radius: 20px; max-width: 480px; width: 100%; box-shadow: 0 30px 80px -20px rgba(14,27,44,.45); padding: 0; max-height: 90vh; overflow: auto; }
+.aff-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 22px 24px 16px; border-bottom: 1px solid var(--line); }
+.aff-modal-head h2 { margin: 0; font-size: 18px; letter-spacing: -.01em; }
+.aff-modal-head .sub { display: block; margin-top: 4px; font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+.aff-modal-head .aff-copy { flex: 0 0 auto; padding: 6px 12px; border-radius: 999px; }
+.aff-modal-body { display: flex; flex-direction: column; gap: 14px; padding: 18px 24px 6px; }
+.aff-modal .aff-field { flex: 0 0 auto; gap: 6px; }
+.aff-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.aff-modal .aff-field label { display: block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.aff-modal input, .aff-modal select, .aff-modal textarea { width: 100%; border: 1.5px solid var(--line); border-radius: 11px; padding: 10px 13px; font: inherit; font-size: 14px; color: var(--ink); background: #fff; box-sizing: border-box; transition: border-color .15s, box-shadow .15s; }
+.aff-modal input:focus, .aff-modal select:focus, .aff-modal textarea:focus { outline: none; border-color: var(--c1); box-shadow: 0 0 0 3px rgba(8,123,243,.12); }
+.aff-modal select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2366708A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+.aff-modal textarea { resize: vertical; min-height: 72px; }
+.aff-meta { font-size: 12px; color: var(--muted); background: #F5F4F0; border-radius: 12px; padding: 10px 14px; line-height: 1.8; }
+.aff-meta code { font-family: 'DM Mono', monospace; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; }
+.aff-meta .aff-copy { margin-left: 6px; }
+.aff-modal-foot { display: flex; justify-content: flex-end; gap: 10px; padding: 14px 24px 22px; border-top: 1px solid var(--line); margin-top: 14px; }
+.aff-modal .aff-msg { padding: 0 24px; margin-top: 8px; }
+.aff-modal .aff-msg:empty { display: none; }
 .aff-save { border: 0; background: var(--c1); color: #fff; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 9px; cursor: pointer; font-family: inherit; }
 .aff-save:hover { filter: brightness(1.08); }
 .aff-save:disabled { opacity: .55; cursor: default; }
@@ -467,7 +474,7 @@ tr:hover td { background: #FAF8F4; }
 
     <div id="affEdit" class="aff-modal" hidden>
       <div class="aff-modal-card">
-        <div class="aff-modal-head"><h2 id="affEditTitle">Editar afiliado</h2><button class="aff-copy" id="affEditClose">Cerrar</button></div>
+        <div class="aff-modal-head"><div><h2 id="affEditTitle">Editar afiliado</h2><span class="sub" id="affEditSub"></span></div><button class="aff-copy" id="affEditClose">Cerrar</button></div>
         <div class="aff-modal-body">
           <div class="aff-field"><label for="affEditName">Nombre</label><input id="affEditName" type="text"></div>
           <div class="aff-field"><label for="affEditEmail">Email</label><input id="affEditEmail" type="email" placeholder="sin email"></div>
@@ -1465,7 +1472,8 @@ $('affTable').addEventListener('click', function (e) {
 /* editar afiliado: lápiz por fila → modal con todos sus campos → PATCH */
 function affEditOpen(code) {
   var a = (affState.byCode || {})[code]; if (!a) return;
-  $('affEditTitle').textContent = 'Editar: ' + a.name;
+  $('affEditTitle').textContent = a.name;
+  $('affEditSub').textContent = 'kinedu.com/masterclasses/r/' + a.code;
   $('affEditName').value = a.name || '';
   $('affEditEmail').value = a.email || '';
   $('affEditComm').value = (a.commission_pct != null ? a.commission_pct : '');
@@ -1473,8 +1481,8 @@ function affEditOpen(code) {
   $('affEditNotes').value = a.notes || '';
   var created = '—';
   if (a.created_at) { try { created = new Date(a.created_at).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' }); } catch (x) {} }
-  $('affEditMeta').innerHTML = 'Código (fijo): /r/' + esc(a.code) + '<br>Creado: ' + esc(created) +
-    '<br>Link: ' + esc(a.link) + ' <button class="aff-copy" data-link="' + esc(a.link) + '" style="margin-left:6px">Copiar</button>';
+  $('affEditMeta').innerHTML = 'Código (fijo) <code>' + esc(a.code) + '</code> · creado ' + esc(created) +
+    '<br>Link <code>' + esc(a.link) + '</code><button class="aff-copy" data-link="' + esc(a.link) + '">Copiar</button>';
   $('affEditMeta').dataset.code = code;
   var msg = $('affEditMsg'); msg.className = 'aff-msg'; msg.textContent = '';
   $('affEdit').hidden = false;
