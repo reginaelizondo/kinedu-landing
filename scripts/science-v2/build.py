@@ -652,7 +652,7 @@ p3_play = p3_play.replace('<section class="sci26', '<section id="play" class="sc
 p3_rel = sec("Two · Relationships", 'Warmth and clear limits <span class="sci-squig">can go together.</span>',
  "You can comfort your child without changing the limit. They can be upset and still feel safe, loved, and supported.",
  pts([("You can say no with care.","Your child can feel upset about a limit and still receive your comfort and support."),
-      ("Keep the limit. Stay connected.","Acknowledge the feeling and explain the boundary in simple words."),
+      ("Keep the limit. Stay connected.","Name the feeling and repeat the boundary in simple words."),
       ("Help them find their calm.","Offer a calm voice and support while they learn to handle strong feelings.")])
  +line("You won’t get every moment right. You can reconnect and try again.")
  +app_slot2("Live classes and the Positive Education masterclass", "Learn ways to set limits with care and respond to tantrums, with guidance from child psychologists.", [("/live-classes", "Explore live classes"), ("/masterclasses/positive-education", "Explore the Positive Education masterclass")]), "#F7567C", "", 1040)

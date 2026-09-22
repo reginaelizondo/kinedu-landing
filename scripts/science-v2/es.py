@@ -303,7 +303,7 @@ T = {
 "You can say no with care.": "Puedes decir que no con cariño.",
 "Your child can feel upset about a limit and still receive your comfort and support.": "Tu hijo puede sentirse molesto por un límite y aun así recibir tu consuelo y tu apoyo.",
 "Keep the limit. Stay connected.": "Mantén el límite. Mantén la conexión.",
-"Acknowledge the feeling and explain the boundary in simple words.": "Reconoce lo que siente y explícale el límite con palabras sencillas.",
+"Name the feeling and repeat the boundary in simple words.": "Nombra lo que siente y repite el límite con palabras sencillas.",
 "Help them find their calm.": "Ayúdalo a encontrar la calma.",
 "Offer a calm voice and support while they learn to handle strong feelings.": "Ofrécele una voz tranquila y apoyo mientras aprende a manejar emociones intensas.",
 "You won’t get every moment right. You can reconnect and try again.": "No vas a acertar en todos los momentos. Siempre puedes reconectar y volver a intentarlo.",
