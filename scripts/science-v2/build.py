@@ -298,18 +298,17 @@ COMMON_CSS = COMMON_CSS.replace("</style>", """
 .sci26-act p.more{margin-top:12px}
 .sci26-act p.more a{font-weight:700;color:#0E3687;text-decoration:none;border-bottom:2px solid rgba(14,54,135,.25)}
 .sci26-act p.more a:hover{border-bottom-color:#0E3687}
-.sci-pts.five{grid-template-columns:repeat(5,1fr);gap:12px}
-.sci-pts.five .sci-pt{padding:18px 16px 16px}
-.sci-pts.five .sci-pt b{font-size:16px}
+.sci-pts.five{grid-template-columns:repeat(5,1fr);gap:16px}
+.sci-pts.five .sci-pt{display:flex;flex-direction:column;align-items:flex-start;padding:24px 20px 22px;border:1px solid #EFEAE3;border-radius:20px;box-shadow:0 2px 10px rgba(8,27,70,.05);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.sci-pts.five .sci-pt:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(8,27,70,.10);border-color:color-mix(in srgb,var(--c,#F7567C) 32%,#EFEAE3)}
+.sci-pts.five .sci-pt .ic{width:46px;height:46px;border-radius:99px;background:color-mix(in srgb,var(--c,#F7567C) 12%,#fff);color:var(--c,#F7567C);display:inline-flex;align-items:center;justify-content:center;margin-bottom:15px;flex-shrink:0}
+.sci-pts.five .sci-pt .ic svg{width:24px;height:24px}
+.sci-pts.five .sci-pt b{font-size:16px;margin-bottom:7px}
+.sci-pts.five .sci-pt p{font-size:14px;line-height:1.55}
 @media(max-width:1000px){.sci-pts.five{grid-template-columns:repeat(3,1fr)}}
-.sci-rout{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1040px;margin:26px auto 0;text-align:left}
-.sci-rout .c{background:#fff;border:1px solid #EBE6DF;border-radius:18px;padding:20px 20px 18px}
-.sci-rout .ic{width:40px;height:40px;border-radius:99px;background:color-mix(in srgb,#913FA3 12%,#fff);color:#913FA3;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
-.sci-rout .ic svg{width:22px;height:22px}
-.sci-rout b{display:block;font-size:17px;color:#081B46;margin-bottom:6px}
-.sci-rout p{margin:0;font-size:14.5px;line-height:1.55;color:#52607A}
-@media(max-width:900px){.sci-rout{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.sci-rout{grid-template-columns:1fr}}
+@media(max-width:680px){.sci-pts.five{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.sci-pts.five{grid-template-columns:1fr}}
+@media(max-width:1000px){.sci-pts.five{grid-template-columns:repeat(3,1fr)}}
 .sci-line{font-size:16.5px;line-height:1.6;color:#52607A;text-align:center;max-width:720px;margin:22px auto 0;text-wrap:pretty}
 .sci-line strong{color:#081B46}
 .sci-deeper{margin:22px auto 0;font-size:14px;color:#8A94A8;text-align:center;line-height:1.7}
@@ -689,16 +688,8 @@ p3_play = sec("Connect · Play", 'Play starts with the back-and-forth <span clas
  +app_slot("Daily activity ideas", "Short videos with simple activities you can try together.", TRY, "Try it free"), "#2EA84F", "sci26-mint", 1040)
 p3_play = p3_play.replace('<section class="sci26', '<section id="play" class="sci26', 1)
 
-p3_rel = sec("Guide · Relationships", 'Your relationship is built from <span class="sci-squig">more than play.</span>',
- "Play builds the bond, but the bond is made of much more: how you push, protect, repair, model, and talk. Warmth and high expectations aren’t opposites. They work best together.",
- pts([("Push.","Nudge them past their comfort zone. Hold the limit, and hold them while they’re upset about it. Struggling a little is how character gets built."),
-      ("Protect.","You are your child’s first way of handling big feelings. First you soothe them, then you name the feeling for them, and little by little they learn to do it themselves."),
-      ("Repair.","You’ll snap sometimes. Come back, own it without excuses, and reconnect. Your child doesn’t need a perfect parent. They need one who returns."),
-      ("Model.","They learn to handle frustration by watching you handle yours. A breath instead of a yell teaches more than any lesson."),
-      ("Talk.","Praise effort, character, and the person when you mean it. Say no when you mean it. Real beats scripted.")]).replace('class="sci-pts"','class="sci-pts five"')
- +take("Holding a limit isn’t the opposite of warmth. <span class=\"mk\">It’s warmth in action.</span>")
-, "#F7567C", "", 1120)
-p3_rel = p3_rel.replace('<section class="sci26', '<section id="relationships" class="sci26', 1)
+# Relationships: sección editada a mano por Regina vía Slack (PRs #1 y #2, 23-sep-2026); se conserva tal cual.
+p3_rel = r'''<section id="relationships" class="sci26 " style="--sciacc:#F7567C;"><div class="sci26-wrap" style="max-width:1120px"><div class="sci26-kick">Guide · Relationships</div><h2>Your relationship grows through <span class="sci-squig">everyday moments.</span></h2><p class="sci26-lead">Play connects you, but your bond grows from more: how you encourage, protect, repair, model, and talk.</p><div class="sci-pts five"><div class="sci-pt" style="--c:#2EA84F"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v-8"/><path d="M12 12c0-3 2.2-5.3 5.3-5.3 0 3-2.2 5.3-5.3 5.3z"/><path d="M12 13.5c0-2.6-1.9-4.6-4.6-4.6 0 2.6 1.9 4.6 4.6 4.6z"/><path d="M6.5 20h11"/></svg></span><b>Encourage</b><p>Help them try what feels hard.</p></div><div class="sci-pt" style="--c:#087BF3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-3 7.3-7 8.5-4-1.2-7-4.2-7-8.5V6z"/><path d="M12 8.4c-1-1.1-2.7-.7-3.1.6-.2.9.2 1.7.9 2.3L12 14l2.2-2.7c.7-.6 1.1-1.4.9-2.3-.4-1.3-2.1-1.7-3.1-.6z"/></svg></span><b>Protect</b><p>Be their safe place in big feelings.</p></div><div class="sci-pt" style="--c:#F7567C"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 9a8 8 0 0 0-14.5-2.7"/><path d="M4 4v4h4"/><path d="M4 15a8 8 0 0 0 14.5 2.7"/><path d="M20 20v-4h-4"/></svg></span><b>Repair</b><p>When it goes wrong, come back and reconnect.</p></div><div class="sci-pt" style="--c:#913FA3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="7.5" r="3"/><path d="M3.5 20a5 5 0 0 1 10 0"/><path d="M18 4.4c-.8-.9-2.2-.6-2.5.5-.2.7.1 1.4.7 1.9L18 8.6l1.8-1.8c.6-.5.9-1.2.7-1.9-.3-1.1-1.7-1.4-2.5-.5z"/></svg></span><b>Model</b><p>Show big feelings can be handled with care.</p></div><div class="sci-pt" style="--c:#E8A33D"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M12 8.6c-.9-1-2.4-.6-2.7.5-.2.7.2 1.4.7 1.9L12 13.3l2-1.8c.5-.5.9-1.2.7-1.9-.3-1.1-1.8-1.5-2.7-.5z"/></svg></span><b>Talk</b><p>Celebrate effort. Set loving limits.</p></div></div><p class="sci-take">Warmth helps them feel safe. Guidance <span class="mk">helps them grow.</span></p><p class="sci-line">A loving limit doesn’t weaken your bond. It makes it safe.</p></div></section>'''
 
 p3_stress = sec("Buffer · Stress", 'Not all stress is <span class="sci-squig">the same.</span>',
  "Being upset is not the same as being harmed. Most of the stress your child feels is the normal kind, and you are what keeps it that way.",
@@ -712,21 +703,23 @@ p3_stress = sec("Buffer · Stress", 'Not all stress is <span class="sci-squig">t
 , "#E8A33D", "sci26-blue", 1040)
 p3_stress = p3_stress.replace('<section class="sci26', '<section id="stress" class="sci26', 1)
 
-ROUT_ICO={"book":'<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/>',
+DAY=[("wake","Wake up"),("meal","Meals"),("play","Playtime"),("nap","Nap"),("bath","Bath"),("bed","Bedtime")]
+DAY_ICO={"wake":'<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
  "meal":'<path d="M4 3v7a3 3 0 0 0 3 3v8M7 3v7M10 3v7M17 3c-2 0-3 3-3 7h3v11"/>',
+ "play":'<rect x="3" y="11" width="8" height="8" rx="1.5"/><rect x="13" y="5" width="8" height="8" rx="1.5"/><rect x="13" y="15" width="8" height="6" rx="1.5"/>',
+ "nap":'<path d="M21 13A8 8 0 1 1 11 3a6 6 0 0 0 10 10z"/>',
  "bath":'<path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M6 12V6a2 2 0 0 1 4 0M17 20l1 2M7 20l-1 2"/>',
  "bed":'<path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M5 9V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/>'}
-ROUT=[("book","Reading","The one routine where all four forces meet: it’s play, it’s closeness, it’s calm, and it’s the same ritual every night. Point, ask, let them turn the page."),
-      ("meal","Meals","Together, at roughly the same time. Fed is best; the rest is about the habit of sharing the table."),
-      ("bath","Bath","A daily anchor that doubles as playtime, and the natural preamble to bed."),
-      ("bed","Sleep","Naps help lock in what they learned that morning. At night, keep the last hour calm and the sequence the same: teeth, pajamas, book, song, lights off.")]
-def rout_html():
-    return '<div class="sci-rout">'+"".join('<div class="c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg></span><b>%s</b><p>%s</p></div>'%(ROUT_ICO[k],t,p) for k,t,p in ROUT)+'</div>'
+def day_html():
+    items="".join('<div class="d"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg></span><b>%s</b></div>'%(DAY_ICO[k],t) for k,t in DAY)
+    return '<div class="sci-day">'+items+'<div class="d again"><span class="i">↻</span><b>A familiar rhythm, day after day</b></div></div>'
 
-p3_pred = sec("Repeat · Routines", 'Routines tell your child <span class="sci-squig">what comes next.</span>',
- "When Stanford’s Phil Fisher was asked for the one thing he would recommend to every parent, his answer was a single word: “Predictability.” When your child knows what comes next, their mind is free to learn instead of bracing for what’s coming.",
- rout_html()
- +take("Keep it simple, familiar, <span class=\"mk\">and flexible.</span>"), "#913FA3", "sci26-mint", 1040)
+p3_pred = sec("Four · Predictability", 'Familiar routines help your child know <span class="sci-squig">what comes next.</span>',
+ "When our team asked Phil Fisher, of the Stanford Center on Early Childhood, what advice he would give parents, he emphasized predictability: familiar routines children can count on.",
+ line("Familiar patterns around meals, play, and bedtime can make the day easier to recognize. A routine can be simple and still leave room to adapt.")
+ +day_html()
+ +take("Keep it simple, familiar, <span class=\"mk\">and flexible.</span>")
+, "#913FA3", "sci26-mint", 1040)
 p3_pred = p3_pred.replace('<section class="sci26', '<section id="predictability" class="sci26', 1)
 
 DEEP_LINKS = '''<p class="sci-deeper">Want to go deeper? <a href="/live-classes">Live classes</a> <span aria-hidden="true">·</span> <a href="/masterclasses/positive-education">Positive Education masterclass</a> <span aria-hidden="true">·</span> <a href="/masterclasses/sleep-habits">Sleep Habits masterclass</a></p>'''
