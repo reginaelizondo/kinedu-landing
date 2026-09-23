@@ -1,58 +1,70 @@
-// Agrega los contadores diarios de Redis (Upstash) para /analytics.
-//
-// Coste en comandos (cada comando de un pipeline cuenta contra la cuota mensual de Upstash):
-//   - Un día ya cerrado se guarda resumido en `analytics:day:<fecha>` la primera vez que se pide;
-//     después cuesta 1 GET en vez de 12 HGETALL/PFCOUNT. Solo el día de hoy se lee "en crudo".
-//   - Con 14 días: ~13 GET + 12 (hoy) + 2 totales ≈ 27 comandos (antes 170); con 90: ~105 (antes 1,082).
-//   - Si Upstash devuelve "max requests limit exceeded", respondemos 503 {error:'kv_quota'} para que el
-//     dashboard lo diga en vez de mostrar ceros.
-const FIELDS = ['pv', 'uv', 'conv', 'ref', 'lang', 'cta', 'ab_view', 'ab_cta', 'crawl', 'cat', 'catconv', 'search'];
-const FIELDS_PER_DAY = FIELDS.length;
-const DAY_CACHE_TTL = 400 * 86400; // segundos; un año largo
+// Agregados del tracking propio para /analytics. Mismo JSON de siempre (daily[], summary, top*, abSummary...),
+// leído de Supabase (una llamada: rpc web_stats) o, si no está configurado, de Upstash Redis con un resumen
+// cacheado por día (analytics:day:<fecha>) para gastar ~1 comando por día cerrado en vez de 12.
+const { supabase, upstash } = require('./_store');
 
+const FIELDS = ['pv', 'uv', 'conv', 'ref', 'lang', 'cta', 'ab_view', 'ab_cta', 'crawl', 'cat', 'catconv', 'search'];
+const DAY_CACHE_TTL = 400 * 86400;
+
+function emptyDay(date) {
+  return { date, pageViews: 0, uniqueVisitors: 0, conversions: 0, convByPage: {}, pages: {}, referrers: {}, languages: {}, ctaClicks: {}, abViews: {}, abCta: {}, crawlers: {}, cats: {}, catConv: {}, searches: {} };
+}
+function dayFromCounters(date, c, uv) {
+  const g = (k) => c[k] || {};
+  const d = emptyDay(date);
+  d.pages = g('pv'); d.convByPage = g('conv'); d.referrers = g('ref'); d.languages = g('lang'); d.ctaClicks = g('cta');
+  d.abViews = g('ab_view'); d.abCta = g('ab_cta'); d.crawlers = g('crawl'); d.cats = g('cat'); d.catConv = g('catconv'); d.searches = g('search');
+  d.uniqueVisitors = uv || 0;
+  for (const k in d.pages) d.pageViews += d.pages[k];
+  for (const k in d.convByPage) d.conversions += d.convByPage[k];
+  return d;
+}
 function parseHash(result) {
-  const hash = {};
-  const arr = (result && result.result) || [];
+  const hash = {}; const arr = (result && result.result) || [];
   for (let j = 0; j < arr.length; j += 2) hash[arr[j]] = parseInt(arr[j + 1]) || 0;
   return hash;
 }
-
-function dayFromResults(results, offset, date) {
+function dayFromRedis(results, offset, date) {
   const r = (k) => results[offset + FIELDS.indexOf(k)];
-  const pages = parseHash(r('pv'));
-  const conversions = parseHash(r('conv'));
-  let totalPV = 0; for (const k in pages) totalPV += pages[k];
-  let totalConv = 0; for (const k in conversions) totalConv += conversions[k];
-  return {
-    date,
-    pageViews: totalPV,
-    uniqueVisitors: (r('uv') && r('uv').result) || 0,
-    conversions: totalConv,
-    convByPage: conversions,
-    pages,
-    referrers: parseHash(r('ref')),
-    languages: parseHash(r('lang')),
-    ctaClicks: parseHash(r('cta')),
-    abViews: parseHash(r('ab_view')),
-    abCta: parseHash(r('ab_cta')),
-    crawlers: parseHash(r('crawl')),
-    cats: parseHash(r('cat')),
-    catConv: parseHash(r('catconv')),
-    searches: parseHash(r('search')),
-  };
+  const c = {}; for (const k of FIELDS) if (k !== 'uv') c[k] = parseHash(r(k));
+  return dayFromCounters(date, c, (r('uv') && r('uv').result) || 0);
 }
-
 function quotaError(results) {
   if (!Array.isArray(results)) return (results && results.error) || 'KV error';
   for (const x of results) if (x && x.error && /max requests limit/i.test(x.error)) return x.error;
   return null;
 }
 
+function aggregate(dates, daily, totals, extra) {
+  const acc = { topPages: {}, topReferrers: {}, topLanguages: {}, topCTAs: {}, abViews: {}, abCta: {}, topCats: {}, topCatConv: {}, topSearches: {}, crawlTotals: {} };
+  let sumUV = 0, sumPV = 0, sumConv = 0;
+  const add = (a, o) => { for (const k in o) a[k] = (a[k] || 0) + o[k]; };
+  for (const day of daily) {
+    sumPV += day.pageViews; sumUV += day.uniqueVisitors; sumConv += day.conversions;
+    add(acc.topPages, day.pages); add(acc.topReferrers, day.referrers); add(acc.topLanguages, day.languages); add(acc.topCTAs, day.ctaClicks);
+    add(acc.abViews, day.abViews); add(acc.abCta, day.abCta); add(acc.topCats, day.cats); add(acc.topCatConv, day.catConv); add(acc.topSearches, day.searches); add(acc.crawlTotals, day.crawlers);
+  }
+  const abSummary = {};
+  const langOf = (p) => (p.includes('-en') ? 'en' : p.includes('-es') ? 'es' : p.includes('-pt') ? 'pt' : 'en');
+  const bump = (map, field) => { for (const [key, count] of Object.entries(map)) { const [page, variant] = key.split('|'); const lang = langOf(page); if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } }; if (variant === 'a' || variant === 'b') abSummary[lang][variant][field] += count; } };
+  bump(acc.abViews, 'views'); bump(acc.abCta, 'cta');
+  const sorted = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
+  return Object.assign({
+    period: { days: dates.length, from: dates[0], to: dates[dates.length - 1] },
+    summary: { pageViews: sumPV, uniqueVisitors: sumUV, conversions: sumConv, conversionRate: sumUV > 0 ? ((sumConv / sumUV) * 100).toFixed(2) : '0.00' },
+    daily,
+    topPages: sorted(acc.topPages), topReferrers: sorted(acc.topReferrers), topLanguages: sorted(acc.topLanguages), topCTAs: sorted(acc.topCTAs),
+    abSummary,
+    topCategories: sorted(acc.topCats), topCategoryConv: sorted(acc.topCatConv), topSearches: sorted(acc.topSearches).slice(0, 100),
+    crawlTotals: acc.crawlTotals,
+    allTimeTotals: totals,
+  }, extra || {});
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -60,103 +72,51 @@ module.exports = async function handler(req, res) {
   const ANALYTICS_PASSWORD = process.env.ANALYTICS_PASSWORD;
   if (!ANALYTICS_PASSWORD || password !== ANALYTICS_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
 
-  const KV_URL = process.env.KV_REST_API_URL;
-  const KV_TOKEN = process.env.KV_REST_API_TOKEN;
-  if (!KV_URL || !KV_TOKEN) return res.status(500).json({ error: 'KV not configured' });
+  const days = Math.min(365, Math.max(1, parseInt(req.query.days) || 30));
+  const dates = [];
+  for (let i = days - 1; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); dates.push(d.toISOString().slice(0, 10)); }
+  const today = new Date().toISOString().slice(0, 10);
 
-  const kv = async (cmds) => {
-    const r = await fetch(`${KV_URL}/pipeline`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${KV_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(cmds),
-    });
-    return r.json();
-  };
-
-  try {
-    const days = Math.min(365, Math.max(1, parseInt(req.query.days) || 30));
-    const dates = [];
-    for (let i = days - 1; i >= 0; i--) {
-      const d = new Date(); d.setDate(d.getDate() - i);
-      dates.push(d.toISOString().slice(0, 10));
+  const sb = supabase();
+  if (sb) {
+    try {
+      const data = await sb.rpc('web_stats', { p_from: dates[0], p_to: dates[dates.length - 1] });
+      const byDate = {};
+      for (const d of (data && data.days) || []) byDate[d.date] = dayFromCounters(d.date, d.counters || {}, d.uv);
+      const daily = dates.map((d) => byDate[d] || emptyDay(d));
+      const t = (data && data.totals) || {};
+      res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
+      return res.status(200).json(aggregate(dates, daily, { pageViews: parseInt(t.pv) || 0, conversions: parseInt(t.conv) || 0 }, { source: 'supabase' }));
+    } catch (err) {
+      console.error('Stats (supabase) error:', err && err.message);
+      return res.status(503).json({ error: 'db', message: (err && err.message) || 'Supabase error' });
     }
-    const today = new Date().toISOString().slice(0, 10);
+  }
 
-    // 1) días cerrados: intentar el resumen cacheado (1 comando por día)
+  const kv = upstash();
+  if (!kv) return res.status(500).json({ error: 'store not configured' });
+  try {
     const past = dates.filter((d) => d < today);
     const cached = {};
     if (past.length) {
-      const r = await kv(past.map((d) => ['GET', `analytics:day:${d}`]));
-      const qe = quotaError(r);
-      if (qe) return res.status(503).json({ error: 'kv_quota', message: qe });
-      past.forEach((d, i) => {
-        const v = r[i] && r[i].result;
-        if (v) { try { cached[d] = JSON.parse(v); } catch (e) { /* recalcula abajo */ } }
-      });
+      const r = await kv.pipeline(past.map((d) => ['GET', `analytics:day:${d}`]));
+      const qe = quotaError(r); if (qe) return res.status(503).json({ error: 'kv_quota', message: qe });
+      past.forEach((d, i) => { const v = r[i] && r[i].result; if (v) { try { cached[d] = JSON.parse(v); } catch (e) { /* recalcula */ } } });
     }
-
-    // 2) hoy + los días sin resumen: lectura en crudo
     const need = dates.filter((d) => !cached[d]);
     const pipeline = [];
     for (const date of need) for (const f of FIELDS) pipeline.push(f === 'uv' ? ['PFCOUNT', `analytics:uv:${date}`] : ['HGETALL', `analytics:${f}:${date}`]);
-    pipeline.push(['GET', 'analytics:total:pv']);
-    pipeline.push(['GET', 'analytics:total:conv']);
-    const results = await kv(pipeline);
-    const qe = quotaError(results);
-    if (qe) return res.status(503).json({ error: 'kv_quota', message: qe });
-
+    pipeline.push(['GET', 'analytics:total:pv'], ['GET', 'analytics:total:conv']);
+    const results = await kv.pipeline(pipeline);
+    const qe = quotaError(results); if (qe) return res.status(503).json({ error: 'kv_quota', message: qe });
     const fresh = {};
-    need.forEach((date, i) => { fresh[date] = dayFromResults(results, i * FIELDS_PER_DAY, date); });
-    const totalPV = parseInt((results[need.length * FIELDS_PER_DAY] || {}).result) || 0;
-    const totalConv = parseInt((results[need.length * FIELDS_PER_DAY + 1] || {}).result) || 0;
-
-    // 3) guardar el resumen de los días cerrados que se acaban de calcular (solo la primera vez)
+    need.forEach((date, i) => { fresh[date] = dayFromRedis(results, i * FIELDS.length, date); });
+    const totals = { pageViews: parseInt((results[need.length * FIELDS.length] || {}).result) || 0, conversions: parseInt((results[need.length * FIELDS.length + 1] || {}).result) || 0 };
     const toCache = need.filter((d) => d < today);
-    if (toCache.length) {
-      try { await kv(toCache.map((d) => ['SET', `analytics:day:${d}`, JSON.stringify(fresh[d]), 'EX', DAY_CACHE_TTL])); } catch (e) { /* best effort */ }
-    }
-
+    if (toCache.length) { try { await kv.pipeline(toCache.map((d) => ['SET', `analytics:day:${d}`, JSON.stringify(fresh[d]), 'EX', DAY_CACHE_TTL])); } catch (e) { /* best effort */ } }
     const daily = dates.map((d) => cached[d] || fresh[d]);
-
-    // Agregados
-    const topPages = {}, topReferrers = {}, topLanguages = {}, topCTAs = {}, abViews = {}, abCta = {}, topCats = {}, topCatConv = {}, topSearches = {}, crawlTotals = {};
-    let sumUV = 0, sumPV = 0, sumConv = 0;
-    const add = (acc, obj) => { for (const k in obj) acc[k] = (acc[k] || 0) + obj[k]; };
-    for (const day of daily) {
-      sumPV += day.pageViews; sumUV += day.uniqueVisitors; sumConv += day.conversions;
-      add(topPages, day.pages); add(topReferrers, day.referrers); add(topLanguages, day.languages); add(topCTAs, day.ctaClicks);
-      add(abViews, day.abViews); add(abCta, day.abCta); add(topCats, day.cats); add(topCatConv, day.catConv); add(topSearches, day.searches); add(crawlTotals, day.crawlers);
-    }
-
-    const abSummary = {};
-    const langOf = (page) => (page.includes('-en') ? 'en' : page.includes('-es') ? 'es' : page.includes('-pt') ? 'pt' : 'en');
-    for (const [key, count] of Object.entries(abViews)) {
-      const [page, variant] = key.split('|'); const lang = langOf(page);
-      if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } };
-      if (variant === 'a' || variant === 'b') abSummary[lang][variant].views += count;
-    }
-    for (const [key, count] of Object.entries(abCta)) {
-      const [page, variant] = key.split('|'); const lang = langOf(page);
-      if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } };
-      if (variant === 'a' || variant === 'b') abSummary[lang][variant].cta += count;
-    }
-
-    const sorted = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
     res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
-    res.status(200).json({
-      period: { days, from: dates[0], to: dates[dates.length - 1] },
-      summary: {
-        pageViews: sumPV, uniqueVisitors: sumUV, conversions: sumConv,
-        conversionRate: sumUV > 0 ? ((sumConv / sumUV) * 100).toFixed(2) : '0.00',
-      },
-      daily,
-      topPages: sorted(topPages), topReferrers: sorted(topReferrers), topLanguages: sorted(topLanguages), topCTAs: sorted(topCTAs),
-      abSummary,
-      topCategories: sorted(topCats), topCategoryConv: sorted(topCatConv), topSearches: sorted(topSearches).slice(0, 100),
-      crawlTotals,
-      allTimeTotals: { pageViews: totalPV, conversions: totalConv },
-      cache: { cachedDays: Object.keys(cached).length, rawDays: need.length },
-    });
+    res.status(200).json(aggregate(dates, daily, totals, { source: 'upstash', cache: { cachedDays: Object.keys(cached).length, rawDays: need.length } }));
   } catch (err) {
     console.error('Stats error:', err);
     res.status(500).json({ error: 'Failed to fetch analytics' });
