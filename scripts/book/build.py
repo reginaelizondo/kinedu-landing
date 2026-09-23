@@ -34,7 +34,7 @@ C = {
  "en": dict(
   path="/book", src="science.html", base="",
   title="Big Bang Baby, the book by Kinedu’s founder | Kinedu",
-  desc="How do your child’s skills develop, and what can you do to support them? Big Bang Baby, by Kinedu founder Luis Garza Sada. Read an excerpt and pre-order the book.",
+  desc="How do your child’s skills develop, and what can you do to support them? Big Bang Baby, by Kinedu founder Luis Garza Sada. Read an excerpt and get it on Amazon.",
   og_title="Big Bang Baby: the book by Kinedu’s founder",
   kick="The book by Kinedu’s founder",
   date="Kindle edition · In English · Out 23 September 2026", date_after="Kindle edition · In English · Out now",
@@ -85,7 +85,7 @@ C = {
  "es": dict(
   path="/es/book", src="es/science.html", base="/es",
   title="Big Bang Baby, el libro del fundador de Kinedu | Kinedu",
-  desc="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas? Big Bang Baby, de Luis Garza Sada, fundador de Kinedu. Lee un extracto y reserva el libro.",
+  desc="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas? Big Bang Baby, de Luis Garza Sada, fundador de Kinedu. Lee un extracto y cómpralo en Amazon.",
   og_title="Big Bang Baby: el libro del fundador de Kinedu",
   kick="El libro del fundador de Kinedu",
   date="Edición Kindle · En inglés · Sale el 23 de septiembre de 2026", date_after="Edición Kindle · En inglés · Ya disponible",
@@ -136,7 +136,7 @@ C = {
  "pt": dict(
   path="/pt/book", src="pt/science.html", base="/pt",
   title="Big Bang Baby, o livro do fundador do Kinedu | Kinedu",
-  desc="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las? Big Bang Baby, de Luis Garza Sada, fundador do Kinedu. Leia um trecho e reserve o livro.",
+  desc="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las? Big Bang Baby, de Luis Garza Sada, fundador do Kinedu. Leia um trecho e compre na Amazon.",
   og_title="Big Bang Baby: o livro do fundador do Kinedu",
   kick="O livro do fundador do Kinedu",
   date="Edição Kindle · Em inglês · Lançamento em 23 de setembro de 2026", date_after="Edição Kindle · Em inglês · Já disponível",
