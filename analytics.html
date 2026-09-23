@@ -1426,6 +1426,50 @@ function affDetailFetch(code, name) {
     .then(function (d) { if (affDetailState.code === code) affDetailRender(d, name); })
     .catch(function (e) { $('affDetailDesc').textContent = 'No se pudo cargar el detalle: ' + e.message; });
 }
+/* Embudo de conducta del afiliado: hasta dónde llegan, a qué le pican y a
+   dónde se van. Se alimenta de los eventos del sitio sellados con la cookie
+   mc_ref (desde 23-sep-2026); antes de eso solo había clics vs ventas. */
+function affBehavior(b, k) {
+  var clicks = (k && k.clicks) || 0;
+  if (!b || !b.events) {
+    return '<div class="card s12"><h2>Cómo se comportan (embudo)</h2>'
+      + '<div class="desc">Qué hacen los que llegan por este link: hasta dónde llegan, a qué le pican y a dónde se van.</div>'
+      + '<div class="empty" style="padding:18px 0;line-height:1.5">Todavía no hay conducta registrada para este afiliado.<br>'
+      + 'Se empezó a medir el 23 de septiembre de 2026. En cuanto la campaña reciba clics nuevos vas a ver aquí el embudo completo: '
+      + 'cuántos cargaron la página, cuántos vieron la clase, cuántos picaron el botón de compra y cuántos llegaron al checkout.</div></div>';
+  }
+  var f = (b.funnel || []).concat([{ step: 'Compraron', visitors: b.sales || 0 }]);
+  var top = (f[0] && f[0].visitors) || 0;
+  var rows = f.map(function (s) {
+    var pct = top ? Math.round((s.visitors / top) * 100) : 0;
+    return '<div class="fnl-row">'
+      + '<div class="fnl-lbl">' + esc(s.step) + '</div>'
+      + '<div class="fnl-bar"><i style="width:' + pct + '%"></i></div>'
+      + '<div class="fnl-val">' + fmt(s.visitors) + ' <span style="color:var(--muted);font-weight:400">(' + pct + '%)</span></div>'
+      + '</div>';
+  }).join('');
+  var note = 'Visitantes distintos en cada paso (desde 23-sep). '
+    + (clicks ? 'El link registró ' + fmt(clicks) + ' clics; ' : '')
+    + 'aquí solo cuentan los que cargaron la página con JavaScript, así que el primer paso puede ser menor que los clics.';
+  var g = '<div class="card s12"><h2>Cómo se comportan (embudo)</h2>'
+    + '<div class="desc">' + note + '</div>'
+    + '<style>.fnl-row{display:grid;grid-template-columns:180px 1fr 120px;align-items:center;gap:12px;padding:6px 0}'
+    + '.fnl-lbl{font-weight:600;font-size:.92rem}.fnl-bar{background:var(--line,#eee);border-radius:6px;height:22px;overflow:hidden}'
+    + '.fnl-bar i{display:block;height:100%;background:var(--c2,#0086D8);border-radius:6px;min-width:2px}'
+    + '.fnl-val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}'
+    + '@media(max-width:640px){.fnl-row{grid-template-columns:120px 1fr 92px;gap:8px}.fnl-lbl{font-size:.82rem}}</style>'
+    + '<div style="margin-top:6px">' + rows + '</div></div>';
+  g += affMiniTable('Hasta dónde llegan (páginas)', b.byPage || [], [
+    { k: 'key', label: 'Página' }, { k: 'count', label: 'Visitantes', num: true, render: function (v) { return fmt(v); } }
+  ], 'Páginas distintas que abrieron los que llegaron por el link.');
+  g += affMiniTable('A qué le pican (CTAs)', b.byCta || [], [
+    { k: 'key', label: 'Botón / link' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v); } }
+  ], 'El texto del botón o link que picaron dentro del sitio.');
+  g += affMiniTable('A dónde se van (destino del clic)', b.byExit || [], [
+    { k: 'key', label: 'Destino' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v); } }
+  ], 'A dónde manda el botón o link que picaron.');
+  return g;
+}
 function affMiniTable(title, rows, cols, note) {
   var html = '<div class="card s6"><h2>' + title + '</h2>' + (note ? '<div class="desc">' + note + '</div>' : '');
   if (!rows.length) return html + '<div class="empty" style="padding:14px 0">Sin datos en el periodo.</div></div>';
@@ -1449,6 +1493,7 @@ function affDetailRender(d, name) {
   var pct = function (n) { return k.clicks ? ' <span style="color:var(--muted);font-weight:400">(' + Math.round((n / k.clicks) * 100) + '%)</span>' : ''; };
   var when = function (iso) { var dt = new Date(iso); return dt.toLocaleDateString('es-MX', { day: '2-digit', month: 'short' }) + ' ' + dt.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' }); };
   var g = '';
+  g += affBehavior(d.behavior || {}, k);
   g += affMiniTable('A qué link le picaron', d.byLanding || [], [
     { k: 'key', label: 'Destino' }, { k: 'count', label: 'Clics', num: true, render: function (v) { return fmt(v) + pct(v); } },
     { k: 'sales', label: 'Ventas', num: true, render: function (v) { return fmt(v); } }, { k: 'revenue', label: 'USD', num: true, render: function (v) { return '$' + fmt(Math.round(v)); } }
