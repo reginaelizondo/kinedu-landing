@@ -107,7 +107,7 @@ module.exports = async function handler(req, res) {
       } catch (e) { /* ignore invalid referrer URLs */ }
     }
 
-    await fetch(`${KV_URL}/pipeline`, {
+    const kvRes = await fetch(`${KV_URL}/pipeline`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${KV_TOKEN}`,
@@ -115,6 +115,12 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify(pipeline),
     });
+    // Upstash responde 200 aunque un comando falle (p. ej. cuota mensual agotada): que quede en los logs.
+    try {
+      const j = await kvRes.json();
+      const bad = !Array.isArray(j) ? j : j.find((x) => x && x.error);
+      if (bad) console.error('Track KV error:', JSON.stringify(bad).slice(0, 300));
+    } catch (e) { console.error('Track KV response unreadable:', kvRes.status); }
 
     res.status(200).json({ ok: true });
   } catch (err) {
