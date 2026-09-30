@@ -157,6 +157,92 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
             margin-bottom: 0;
         }
 
+        /* ---------- BOOK CALLOUT ---------- */
+        .founder-book {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding: 20px 24px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(43,139,228,0.07), rgba(76,217,100,0.05));
+            border: 1px solid rgba(43,139,228,0.16);
+        }
+
+        .founder-book-eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-blue, #2B8BE4);
+            margin-bottom: 6px;
+        }
+
+        .founder-book-title {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+            font-weight: 600;
+            color: var(--text-primary) !important;
+            margin: 0 !important;
+        }
+
+        .founder-book-title a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(43,139,228,0.35);
+            transition: border-color .15s ease;
+        }
+
+        .founder-book-title a:hover {
+            border-bottom-color: var(--accent-blue, #2B8BE4);
+        }
+
+        .founder-book-cta {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-blue, #2B8BE4);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 12px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 6px 18px rgba(43,139,228,0.25);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .founder-book-cta::after {
+            content: "\2192";
+            font-size: 1.05em;
+            transition: transform .15s ease;
+        }
+
+        .founder-book-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 24px rgba(43,139,228,0.32);
+        }
+
+        .founder-book-cta:hover::after {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 600px) {
+            .founder-book {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .founder-book-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         /* ---------- QUOTE ---------- */
         .founder-quote-section {
             padding: 48px 0;
@@ -344,7 +430,13 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
                     <p data-i18n="founder.story.p1" data-i18n-html>I'm Luis, the founder and a dad of four amazing girls. Like many parents, I often wondered, <strong>"Am I doing enough to support my children's development?"</strong> That's why I built Kinedu, the resource I wish I'd had from the start of my parenting journey.</p>
                     <p data-i18n="founder.story.p2" data-i18n-html><strong>Kinedu isn't just an app; it's your personalized guide,</strong> created by experts, to support your child's development. From sleep and motor skills to cognitive growth, Kinedu provides daily activities and advice tailored to your child's needs, <strong>so you know EXACTLY what to do every day.</strong></p>
                     <p data-i18n="founder.story.p3">If you're looking for a way to give your child the best start in life, Kinedu is here to help you every step of the way.</p>
-                    <p data-i18n="founder.story.author" data-i18n-html>Luis is also the author of <a href="https://bigbangbaby.net/" target="_blank" rel="noopener"><strong>Big Bang Baby</strong></a> (2026). <a href="https://bigbangbaby.net/introduction" target="_blank" rel="noopener">Read the Introduction free</a>.</p>
+                    <div class="founder-book">
+                        <div class="founder-book-main">
+                            <span class="founder-book-eyebrow" data-i18n="founder.book.eyebrow">From the founder</span>
+                            <p class="founder-book-title" data-i18n="founder.book.title" data-i18n-html>Luis is also the author of <a href="https://bigbangbaby.net/" target="_blank" rel="noopener"><strong>Big Bang Baby</strong></a> (2026).</p>
+                        </div>
+                        <a class="founder-book-cta" href="https://bigbangbaby.net/introduction" target="_blank" rel="noopener" data-i18n="founder.book.cta">Read the Introduction free</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -415,7 +507,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
         </div>
     </footer>
 
-    <script src="translations.js?v=0851a" defer></script>
+    <script src="translations.js?v=0852a" defer></script>
     <script src="script.js?v=0850a" defer></script>
     <script>
     (function(){
