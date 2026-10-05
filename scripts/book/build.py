@@ -478,7 +478,7 @@ def book_ld(url):
             "author": {"@type": "Person", "name": "Luis Garza Sada", "url": SITE + "/founder"},
             "publisher": {"@type": "Organization", "name": "Garza Jasso Press"},
             "isbn": "979-8-9967408-1-9", "bookFormat": "https://schema.org/EBook", "datePublished": "2026-09-23", "inLanguage": "en",
-            "image": SITE + "/images/book/cover.webp", "url": url, "sameAs": ["https://bigbangbaby.net/", AMAZON],
+            "image": SITE + "/images/book/cover-v2.webp", "url": url, "sameAs": ["https://bigbangbaby.net/", AMAZON],
             "offers": {"@type": "Offer", "price": "9.99", "priceCurrency": "USD", "url": AMAZON, "availability": "https://schema.org/PreOrder"}}
 
 def page_html(lang, head_inner, body_inner):
@@ -531,7 +531,7 @@ def build_landing(lang):
       </div>
     </div>
     <div class="bk-cover">
-      <img src="/images/book/cover-3d.webp" srcset="/images/book/cover-3d-sm.webp 420w, /images/book/cover-3d.webp 724w" sizes="(max-width: 900px) 200px, 320px" width="724" height="1179" alt="{E(c["cover_alt"])}" fetchpriority="high">
+      <img src="/images/book/cover-3d-v2.webp" srcset="/images/book/cover-3d-sm-v2.webp 420w, /images/book/cover-3d-v2.webp 724w" sizes="(max-width: 900px) 200px, 320px" width="724" height="1142" alt="{E(c["cover_alt"])}" fetchpriority="high">
     </div>
   </div>
   </div>
@@ -606,7 +606,7 @@ def build_landing(lang):
   </div>
   <div class="bk-wrap">
     <div class="bk-get">
-      <img src="/images/book/cover-3d-sm.webp" width="420" height="684" alt="" loading="lazy">
+      <img src="/images/book/cover-3d-sm-v2.webp" width="420" height="663" alt="" loading="lazy">
       <div>
         <h2>{E(c["get_h2"])}</h2>
         <ul class="dt">{dts}</ul>
@@ -642,7 +642,7 @@ def build_intro(lang):
 {intro}
   </article>
   <aside class="bk-ixend bk-navy">
-    <img src="/images/book/cover-3d-sm.webp" width="96" height="156" alt="" loading="lazy">
+    <img src="/images/book/cover-3d-sm-v2.webp" width="96" height="152" alt="" loading="lazy">
     <div class="t">
       <p class="h">{E(c["ix_end_h"])}</p>
       <p class="p">{E(c["ix_end_p"])}</p>
