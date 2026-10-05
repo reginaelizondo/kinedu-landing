@@ -55,9 +55,9 @@ PAGES = {
 }
 # La meta description (SEO) del libro también decía "pre-order"; hoy ya salió.
 BOOK_DESC = {
-  "book.html":    ("Read an excerpt and pre-order the book.", "Read an excerpt and get it on Amazon."),
-  "es/book.html": ("Lee un extracto y reserva el libro.", "Lee un extracto y cómpralo en Amazon."),
-  "pt/book.html": ("Leia um trecho e reserve o livro.", "Leia um trecho e compre na Amazon."),
+  "book.html":    ("Read an excerpt and pre-order the book.", "Read the introduction and get it on Amazon."),
+  "es/book.html": ("Lee un extracto y reserva el libro.", "Lee la introducción y cómpralo en Amazon."),
+  "pt/book.html": ("Leia um trecho e reserve o livro.", "Leia a introdução e compre na Amazon."),
 }
 
 def esc(s): return s.replace("&", "&amp;").replace('"', "&quot;")

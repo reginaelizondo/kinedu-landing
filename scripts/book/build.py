@@ -34,13 +34,13 @@ C = {
  "en": dict(
   path="/book", src="science.html", base="",
   title="Big Bang Baby, the book by Kinedu’s founder | Kinedu",
-  desc="How do your child’s skills develop, and what can you do to support them? Big Bang Baby, by Kinedu founder Luis Garza Sada. Read an excerpt and get it on Amazon.",
+  desc="How do your child’s skills develop, and what can you do to support them? Big Bang Baby, by Kinedu founder Luis Garza Sada. Read the introduction and get it on Amazon.",
   og_title="Big Bang Baby: the book by Kinedu’s founder",
   kick="The book by Kinedu’s founder",
   date="Kindle edition · In English · Out 23 September 2026", date_after="Kindle edition · In English · Out now",
   q="How do your child’s skills develop, and what can you do to support them?",
   p="In Big Bang Baby, Kinedu founder and father of four Luis Garza Sada explores how early skills connect, why children develop at different paces, and how play, relationships, and everyday routines help them learn.",
-  cta="Pre-order on Amazon", cta_after="Get it on Amazon", cta2="Read an excerpt",
+  cta="Pre-order on Amazon", cta_after="Get it on Amazon", cta2="Read the Introduction",
   qs_h2="The questions behind the everyday moments.",
   qs=[("Why does one new skill seem to unlock others?", "How movement, language, thinking, and emotions develop together."),
       ("Why do children reach milestones at different times?", "Why the timing varies, and what milestones can and can’t tell you about your child."),
@@ -85,13 +85,13 @@ C = {
  "es": dict(
   path="/es/book", src="es/science.html", base="/es",
   title="Big Bang Baby, el libro del fundador de Kinedu | Kinedu",
-  desc="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas? Big Bang Baby, de Luis Garza Sada, fundador de Kinedu. Lee un extracto y cómpralo en Amazon.",
+  desc="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas? Big Bang Baby, de Luis Garza Sada, fundador de Kinedu. Lee la introducción y cómpralo en Amazon.",
   og_title="Big Bang Baby: el libro del fundador de Kinedu",
   kick="El libro del fundador de Kinedu",
   date="Edición Kindle · En inglés · Sale el 23 de septiembre de 2026", date_after="Edición Kindle · En inglés · Ya disponible",
   q="¿Cómo se desarrollan las habilidades de tu hijo y qué puedes hacer para apoyarlas?",
   p="En Big Bang Baby, Luis Garza Sada, fundador de Kinedu y papá de cuatro, explora cómo se conectan las primeras habilidades, por qué cada niño se desarrolla a su ritmo y cómo el juego, las relaciones y las rutinas de todos los días los ayudan a aprender.",
-  cta="Reserva en Amazon", cta_after="Cómpralo en Amazon", cta2="Lee un extracto",
+  cta="Reserva en Amazon", cta_after="Cómpralo en Amazon", cta2="Lee la introducción",
   qs_h2="Las preguntas detrás de los momentos de todos los días.",
   qs=[("¿Por qué una habilidad nueva parece desbloquear otras?", "Cómo el movimiento, el lenguaje, el pensamiento y las emociones se desarrollan juntos."),
       ("¿Por qué los niños alcanzan los hitos en momentos distintos?", "Por qué varían los tiempos, y qué pueden y qué no pueden decirte los hitos sobre tu hijo."),
@@ -136,13 +136,13 @@ C = {
  "pt": dict(
   path="/pt/book", src="pt/science.html", base="/pt",
   title="Big Bang Baby, o livro do fundador do Kinedu | Kinedu",
-  desc="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las? Big Bang Baby, de Luis Garza Sada, fundador do Kinedu. Leia um trecho e compre na Amazon.",
+  desc="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las? Big Bang Baby, de Luis Garza Sada, fundador do Kinedu. Leia a introdução e compre na Amazon.",
   og_title="Big Bang Baby: o livro do fundador do Kinedu",
   kick="O livro do fundador do Kinedu",
   date="Edição Kindle · Em inglês · Lançamento em 23 de setembro de 2026", date_after="Edição Kindle · Em inglês · Já disponível",
   q="Como as habilidades do seu filho se desenvolvem, e o que você pode fazer para apoiá-las?",
   p="Em Big Bang Baby, Luis Garza Sada, fundador do Kinedu e pai de quatro, explora como as primeiras habilidades se conectam, por que cada criança se desenvolve no seu ritmo e como a brincadeira, as relações e as rotinas do dia a dia as ajudam a aprender.",
-  cta="Reserve na Amazon", cta_after="Compre na Amazon", cta2="Leia um trecho",
+  cta="Reserve na Amazon", cta_after="Compre na Amazon", cta2="Leia a introdução",
   qs_h2="As perguntas por trás dos momentos do dia a dia.",
   qs=[("Por que uma habilidade nova parece destravar outras?", "Como movimento, linguagem, pensamento e emoções se desenvolvem juntos."),
       ("Por que as crianças alcançam os marcos em momentos diferentes?", "Por que os tempos variam, e o que os marcos podem e não podem dizer sobre o seu filho."),
@@ -526,7 +526,7 @@ def build_landing(lang):
       <p class="bk-p">{E(c["p"])}</p>
       <div class="bk-ctas">
         {cta}
-        <a class="bk-btn bk-btn-ghost" href="#excerpt">{E(c["cta2"])}</a>
+        <a class="bk-btn bk-btn-ghost" href="https://bigbangbaby.net/introduction" target="_blank" rel="noopener">{E(c["cta2"])}</a>
         {date_pill}
       </div>
     </div>
