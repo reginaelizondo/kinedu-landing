@@ -511,6 +511,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
   </div>
 </nav>
 
+<style>.kb-ctx-wrap,.kb-bar{display:none}html.blogcta-b .kb-ctx-wrap{display:block}.kb-ctx{display:flex;align-items:center;gap:16px;margin:-12px 0 32px;padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,#EAF4FD,#E4F6E7);border:1px solid rgba(8,27,70,.08);text-decoration:none;color:#081B46}.kb-ctx-text{flex:1;min-width:0}.kb-ctx-kicker{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1273A0;margin-bottom:4px}.kb-ctx b{display:block;font-size:17px;font-weight:800;line-height:1.25;letter-spacing:-.01em}.kb-ctx-sub{display:block;font-size:13.5px;color:#4A5C74;margin-top:4px}.kb-ctx-btn{flex:none;background:#087BF3;color:#fff;font-weight:700;font-size:14px;padding:12px 18px;border-radius:999px;white-space:nowrap}@media(max-width:640px){.kb-ctx{flex-direction:column;align-items:stretch;text-align:center;gap:12px;padding:16px}.kb-ctx-btn{text-align:center}}.kb-bar{position:fixed;left:0;right:0;bottom:0;z-index:9000;align-items:center;gap:10px;padding:10px 12px 10px 16px;background:#fff;border-top:1px solid rgba(8,27,70,.1);box-shadow:0 -8px 24px rgba(8,27,70,.08);padding-bottom:calc(10px + env(safe-area-inset-bottom))}.kb-bar.on{display:flex}@media(min-width:769px){.kb-bar.on{display:none}}.kb-bar-text{flex:1;font-size:13.5px;font-weight:700;color:#081B46;line-height:1.25}.kb-bar-btn{flex:none;background:#087BF3;color:#fff;font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}.kb-bar-x{flex:none;width:32px;height:32px;border:0;background:#F1F3F7;border-radius:50%;font-size:18px;line-height:1;color:#5B6170;cursor:pointer}</style><script>(function(){var v=null;try{var m=location.search.match(/[?&]blogcta=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem("kinedu-blogcta",v);}else{v=sessionStorage.getItem("kinedu-blogcta")||localStorage.getItem("kinedu-blogcta");}if(v!=="a"&&v!=="b"){v=Math.random()<0.5?"a":"b";localStorage.setItem("kinedu-blogcta",v);}}catch(e){v="a"}window.KINEDU_BLOGCTA=v;if(v==="b")document.documentElement.classList.add("blogcta-b");})();</script>
 <article>
   <div class="kb-art-wrap">
     <div class="kb-art-head">
@@ -540,6 +541,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
       <img src="/blog-media/es/wp-content/uploads/2021/08/la-salud-de-los-bebes-en-invierno.webp" alt="Consejos para cuidar la salud de los bebés en invierno" style="--focus:50% 50%;" width="760" height="507" fetchpriority="high">
     </div>
   </div>
+  <div class="kb-art-wrap kb-ctx-wrap"><a class="kb-ctx" href="https://webpromo.kinedu.com/p/landing-kinedu?utm_source=blog&utm_medium=cta&utm_campaign=blog-ctx&utm_content=block" data-blogcta="block"><span class="kb-ctx-text"><span class="kb-ctx-kicker">Guía de Salud</span><b>Mira las actividades de hoy para tu bebé</b><span class="kb-ctx-sub">Para su edad exacta. Gratis 7 días.</span></span><span class="kb-ctx-btn">Prueba gratis &rarr;</span></a></div>
 
   <div class="kb-art-wrap">
     <div class="kb-art-body">
@@ -773,17 +775,21 @@ else{var ce=document.querySelector('.kb-art-cat');if(ce)cat=(ce.textContent||'')
 cat=cat.replace(/\s+/g,' ').slice(0,40);
 function send(d){try{navigator.sendBeacon('/api/track',JSON.stringify(d))}catch(e){}}
 send({page:P,referrer:document.referrer,lang:L,cat:cat});
+var BV='blog-'+(window.KINEDU_BLOGCTA||'a');send({page:P,lang:L,event:'ab_view',variant:BV});
+try{if(window.clarity)window.clarity('set','blogcta',BV);}catch(e){}
 document.addEventListener('click',function(e){
 var t=e.target,a=t&&t.closest?t.closest('a[href]'):null;if(!a)return;
 var h=a.getAttribute('href')||'',lb='';
-if(h.indexOf('webpromo.kinedu.com')>-1)lb='Blog CTA — Try free';
+if(a.getAttribute('data-blogcta')==='block')lb='Blog CTA — Contextual block';
+else if(a.getAttribute('data-blogcta')==='bar')lb='Blog CTA — Sticky bar';
+else if(h.indexOf('webpromo.kinedu.com')>-1)lb='Blog CTA — Try free';
 else if(h.indexOf('apps.apple.com')>-1)lb='Blog CTA — App Store';
 else if(h.indexOf('play.google.com')>-1)lb='Blog CTA — Google Play';
 else if(h.indexOf('smart.link')>-1)lb='Blog CTA — Download (smartlink)';
 else if(h.indexOf('app.kinedu.com')>-1)lb='Blog CTA — app.kinedu.com';
 else if(h.indexOf('assessment4.kinedu.com')>-1)lb='Blog CTA — Assessment';
 if(!lb)return;
-send({page:P,lang:L,cat:cat,event:'conversion',cta:lb});
+send({page:P,lang:L,cat:cat,event:'conversion',cta:lb,variant:BV});
 },true);
 var si=document.getElementById('esBlogSearch')||document.getElementById('ptBlogSearch')||document.getElementById('blogSearch');
 if(si){var lastQ='';function sq(){var q=(si.value||'').trim();if(q.length>=2&&q!==lastQ){lastQ=q;send({page:P,lang:L,event:'search',q:q});}}
@@ -792,5 +798,7 @@ var btn=si.parentElement?si.parentElement.querySelector('button'):null;
 if(btn)btn.addEventListener('click',sq);
 var db;si.addEventListener('input',function(){clearTimeout(db);db=setTimeout(sq,2500);});}
 }catch(e){}})();</script>
+<div class="kb-bar" id="kbBar"><span class="kb-bar-text">Actividades para la edad exacta de tu bebé</span><a class="kb-bar-btn" href="https://webpromo.kinedu.com/p/landing-kinedu?utm_source=blog&utm_medium=cta&utm_campaign=blog-ctx&utm_content=bar" data-blogcta="bar">Prueba gratis</a><button class="kb-bar-x" type="button" aria-label="Cerrar">&times;</button></div>
+<script>(function(){var b=document.getElementById("kbBar");if(!b||window.KINEDU_BLOGCTA!=="b")return;try{if(sessionStorage.getItem("kinedu-bar-x"))return;}catch(e){}var shown=false;function chk(){if(!shown&&window.scrollY>600){shown=true;b.classList.add("on");}}window.addEventListener("scroll",chk,{passive:true});chk();b.querySelector(".kb-bar-x").addEventListener("click",function(){b.classList.remove("on");try{sessionStorage.setItem("kinedu-bar-x","1");}catch(e){}});})();</script>
 </body>
 </html>

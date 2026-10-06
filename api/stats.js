@@ -44,10 +44,17 @@ function aggregate(dates, daily, totals, extra) {
     add(acc.topPages, day.pages); add(acc.topReferrers, day.referrers); add(acc.topLanguages, day.languages); add(acc.topCTAs, day.ctaClicks);
     add(acc.abViews, day.abViews); add(acc.abCta, day.abCta); add(acc.topCats, day.cats); add(acc.topCatConv, day.catConv); add(acc.topSearches, day.searches); add(acc.crawlTotals, day.crawlers);
   }
+  // A/B por prueba e idioma. La variante llega como 'a'/'b' (hero móvil del home) o
+  // '<prueba>-a'/'<prueba>-b' (p. ej. 'blog-b' = CTAs del blog). abSummary = { hero: { en: {a,b} }, blog: {...} }.
   const abSummary = {};
-  // Idioma del A/B: landings de Learn (…-es) o páginas del sitio (/es, /es/…, /pt, /pt/…).
   const langOf = (p) => (p === '/es' || p.startsWith('/es/') || p.includes('-es') ? 'es' : p === '/pt' || p.startsWith('/pt/') || p.includes('-pt') ? 'pt' : 'en');
-  const bump = (map, field) => { for (const [key, count] of Object.entries(map)) { const [page, variant] = key.split('|'); const lang = langOf(page); if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } }; if (variant === 'a' || variant === 'b') abSummary[lang][variant][field] += count; } };
+  const bump = (map, field) => { for (const [key, count] of Object.entries(map)) {
+    const [page, variant = ''] = key.split('|'); const lang = langOf(page);
+    const dash = variant.lastIndexOf('-'); const test = dash > 0 ? variant.slice(0, dash) : 'hero'; const v = dash > 0 ? variant.slice(dash + 1) : variant;
+    if (v !== 'a' && v !== 'b') continue;
+    if (!abSummary[test]) abSummary[test] = {};
+    if (!abSummary[test][lang]) abSummary[test][lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } };
+    abSummary[test][lang][v][field] += count; } };
   bump(acc.abViews, 'views'); bump(acc.abCta, 'cta');
   const sorted = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
   return Object.assign({

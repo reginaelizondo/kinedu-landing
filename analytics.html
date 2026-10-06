@@ -287,13 +287,7 @@ tr:hover td { background: #FAF8F4; }
     </div>
   </div>
 
-  <div class="grid" id="abWrap" style="display:none; margin-top:16px;">
-    <div class="card s12">
-      <h2>A/B — Hero móvil del home (A actual vs B nuevo) · vistas y clics al botón del hero en celular</h2>
-      <div class="desc">Variante A vs B por idioma</div>
-      <div class="scroll-x"><table id="tblAB"></table></div>
-    </div>
-  </div>
+  <div class="grid" id="abWrap" style="display:none; margin-top:16px;"></div>
 
   </div><!-- /#viewSite -->
 
@@ -1013,18 +1007,37 @@ function renderAll() {
     $('chCrawl').innerHTML = '<div class="empty">Sin actividad de crawlers registrada en el periodo</div>';
   }
 
-  /* ---- A/B ---- */
+  /* ---- A/B (una tarjeta por prueba) ---- */
   var ab = state.raw.abSummary || {};
-  var abLangs = Object.keys(ab);
-  if (abLangs.length) {
+  var AB_META = {
+    hero: ['A/B — Hero móvil del home', 'A = hero actual · B = título corto, botón arriba del fold, prueba social. Vistas = visitas en celular; clics = botón del hero.'],
+    blog: ['A/B — CTAs en el blog', 'A = post como está · B = bloque contextual bajo la portada + barra fija en móvil. Vistas = posts vistos; clics = cualquier CTA del post (incluye los nuevos).']
+  };
+  var abTests = Object.keys(ab);
+  if (abTests.length) {
     $('abWrap').style.display = '';
-    var html = '<thead><tr><th>Idioma</th><th class="num">A vistas</th><th class="num">A clicks</th><th class="num">A CVR</th><th class="num">B vistas</th><th class="num">B clicks</th><th class="num">B CVR</th></tr></thead><tbody>';
-    abLangs.forEach(function (l) {
-      var a = ab[l].a, b = ab[l].b;
-      html += '<tr><td class="k">' + l.toUpperCase() + '</td><td class="num">' + fmt(a.views) + '</td><td class="num">' + fmt(a.cta) + '</td><td class="num">' + pct(a.views ? a.cta / a.views * 100 : 0) + '</td>' +
-              '<td class="num">' + fmt(b.views) + '</td><td class="num">' + fmt(b.cta) + '</td><td class="num">' + pct(b.views ? b.cta / b.views * 100 : 0) + '</td></tr>';
+    var cards = '';
+    abTests.forEach(function (t) {
+      var meta = AB_META[t] || ['A/B — ' + t, 'Variante A vs B por idioma'];
+      var html = '<thead><tr><th>Idioma</th><th class="num">A vistas</th><th class="num">A clicks</th><th class="num">A CVR</th><th class="num">B vistas</th><th class="num">B clicks</th><th class="num">B CVR</th><th class="num">B vs A</th></tr></thead><tbody>';
+      var TA = {views:0, cta:0}, TB = {views:0, cta:0};
+      Object.keys(ab[t]).forEach(function (l) {
+        var a = ab[t][l].a, b = ab[t][l].b; TA.views += a.views; TA.cta += a.cta; TB.views += b.views; TB.cta += b.cta;
+        var ca = a.views ? a.cta / a.views * 100 : 0, cb = b.views ? b.cta / b.views * 100 : 0;
+        var lift = ca ? ((cb - ca) / ca * 100) : 0;
+        html += '<tr><td class="k">' + l.toUpperCase() + '</td><td class="num">' + fmt(a.views) + '</td><td class="num">' + fmt(a.cta) + '</td><td class="num">' + pct(ca) + '</td>' +
+                '<td class="num">' + fmt(b.views) + '</td><td class="num">' + fmt(b.cta) + '</td><td class="num">' + pct(cb) + '</td>' +
+                '<td class="num" style="color:' + (lift > 0 ? '#1E7A2E' : lift < 0 ? '#C22F2F' : 'inherit') + '">' + (ca ? (lift > 0 ? '+' : '') + lift.toFixed(0) + '%' : '·') + '</td></tr>';
+      });
+      var ca = TA.views ? TA.cta / TA.views * 100 : 0, cb = TB.views ? TB.cta / TB.views * 100 : 0, lift = ca ? ((cb - ca) / ca * 100) : 0;
+      html += '<tr style="font-weight:700"><td class="k">Total</td><td class="num">' + fmt(TA.views) + '</td><td class="num">' + fmt(TA.cta) + '</td><td class="num">' + pct(ca) + '</td>' +
+              '<td class="num">' + fmt(TB.views) + '</td><td class="num">' + fmt(TB.cta) + '</td><td class="num">' + pct(cb) + '</td>' +
+              '<td class="num" style="color:' + (lift > 0 ? '#1E7A2E' : lift < 0 ? '#C22F2F' : 'inherit') + '">' + (ca ? (lift > 0 ? '+' : '') + lift.toFixed(0) + '%' : '·') + '</td></tr>';
+      var n = Math.min(TA.views, TB.views);
+      var note = n < 1000 ? 'Aún pocas vistas (' + fmt(n) + ' en la variante más chica): espera al menos 1,000 por variante antes de decidir.' : 'Con ' + fmt(n) + '+ vistas por variante ya se puede leer la diferencia.';
+      cards += '<div class="card s12"><h2>' + meta[0] + '</h2><div class="desc">' + meta[1] + ' ' + note + '</div><div class="scroll-x"><table>' + html + '</tbody></table></div></div>';
     });
-    $('tblAB').innerHTML = html + '</tbody>';
+    $('abWrap').innerHTML = cards;
   } else { $('abWrap').style.display = 'none'; }
 }
 
