@@ -17,10 +17,15 @@
 - Push a main del repo landing con la cuenta reginaelizondo (`gh auth switch -u reginaelizondo` y `git -c credential.helper='!gh auth git-credential' push`). Nunca forzar push. Vercel tarda de 2 a 20 minutos.
 - Bump de `?v=` en styles.css / translations.js cuando se tocan; HTML no necesita.
 
+## Decisiones de Regina (vigentes)
+- 6-oct-2026: los badges de App Store y Google Play se quedan en el hero y se miden por clic ("App Store Badge" / "Google Play Badge" en /api/stats). No proponer quitarlos.
+- 6-oct-2026: plan de medición y mejora aprobado ("dale al plan").
+
 ## Datos
 - Search Console: 28 días vs 28 anteriores (los últimos 3 días no están cerrados).
 - Clarity: solo 3 días por llamada, 10 llamadas al día; el histórico se acumula a diario en history/.
 - /api/stats: visitas, conversiones, CTAs y abSummary por prueba e idioma.
+- Masterclasses, Web Promos (placements), Gift y Assessment: mismos endpoints que /analytics, ya en el recolector (misma llave).
 - Lo que se mide en clics se confirma en webpromo (leads y compras por utm). Un clic no es una venta.
 - Ruido conocido: /privacy y /terms vienen desde la app; bots ya excluidos por Clarity.
 

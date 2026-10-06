@@ -10,5 +10,8 @@ Formato: [estado] nombre · dato que lo justifica · tipo (A/B o directo) · ori
 - [pendiente] Errores JS del índice del blog (anclas con caracteres raros, call stack) · 0.32% de sesiones · directo
 - [pendiente] Contact us: formulario corto o WhatsApp en vez de mailto · 66 clics/mes sin completar · necesita decisión de Regina (quién atiende)
 - [pendiente] Link app → kinedu.com: 319 sesiones de 1 a 8 s sin clics · revisar con Tech
-- [decisión Regina] Badges de App Store / Google Play en el hero: quitar o atribuir · 198 toques/mes se van sin rastro
+- [decidido 6-oct] Badges de App Store / Google Play: se quedan en el hero, se miden por clic. Opcional a futuro: apuntarlos al smart.link (Kochava) con creative_id por ubicación para atribuir instalaciones
+- [hecho 6-oct] Clarity en Masterclasses (layout, mismo proyecto)
+- [pendiente] Masterclasses: embudo tienda → clase → checkout → compra con Clarity, línea base semana 1
+- [pendiente] Gift: línea base de visita → clic → checkout → compra
 - [pendiente] Segmento "landing real" en Clarity (sin /privacy, /terms, app.kinedu.com)
