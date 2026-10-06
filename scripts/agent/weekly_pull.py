@@ -8,6 +8,10 @@ Junta en un solo JSON lo que el analista de los lunes necesita:
     Se guarda cada corrida en history/ para acumular histórico (la API no da más de 3 días).
   - /api/stats de kinedu.com: visitas, conversiones, CTAs y A/B (últimos 14 días,
     partidos en semana actual vs anterior).
+  - Masterclasses (admin/summary, engagement, affiliates), Web Promos (placement
+    landing-kinedu y assessment-*: llegaron → correos → iniciaron → pagadas), Gift
+    (gift-api/summary) y Assessment (admin/summary): mismos endpoints que /analytics,
+    misma llave (ANALYTICS_PASSWORD == METRICS_KEY).
 
 Secretos: ~/.config/kinedu-agent/.env (CLARITY_TOKEN, ANALYTICS_PASSWORD, GSC_KEY_FILE,
 GSC_PROPERTY). Nunca se imprimen ni se escriben en la salida.
@@ -129,9 +133,41 @@ def site_stats():
         "abSummary": d.get("abSummary", {}), "source": (d.get("meta") or {}).get("source"),
     }
 
+# ---------------- Masterclasses, Web Promos, Gift, Assessment (misma llave que /analytics) ----------------
+def products():
+    pw = secret("ANALYTICS_PASSWORD")
+    if not pw:
+        out["errors"].append("productos: sin ANALYTICS_PASSWORD"); return
+    def get(path, **params):
+        params["key"] = pw
+        r = requests.get("https://www.kinedu.com/" + path, params=params, timeout=120)
+        if r.status_code != 200:
+            out["errors"].append(f"{path}: http {r.status_code}"); return None
+        return r.json()
+    mc = get("masterclasses/api/admin/summary", days=14) or {}
+    eng = get("masterclasses/api/admin/engagement") or {}
+    aff = get("masterclasses/api/admin/affiliates") or {}
+    out["masterclasses"] = {
+        "days": 14, "funnel": mc.get("funnel"), "people": mc.get("people"), "totals": mc.get("totals"),
+        "byDay": mc.get("byDay", []), "byProduct": mc.get("byProduct", []), "byPage": (mc.get("byPage") or [])[:20],
+        "byCta": (mc.get("byCta") or [])[:20], "byDestination": mc.get("byDestination", []), "sources": mc.get("sources", []),
+        "engagementKpis": eng.get("kpis"), "engagementByClass": (eng.get("byClass") or [])[:15],
+        "affiliatesTotals": aff.get("totals"),
+    }
+    # Embudo de webpromo para el link que usa toda la landing (home, nav, blog): llegaron → correos → iniciaron → pagadas
+    wp = {}
+    for pid in ("landing-kinedu", "assessment-meta", "assessment-landing"):
+        d = get("wp-api/placement", id=pid, days=14)
+        if d: wp[pid] = {"placement": d.get("placement"), "stats": d.get("stats")}
+    out["webpromo"] = wp
+    g = get("gift-api/summary", days=14) or {}
+    out["gift"] = {"days": 14, "totals": g.get("totals"), "revenue": g.get("revenue"), "byDay": g.get("byDay", []), "byLang": g.get("byLang"), "bySource": g.get("bySource")}
+    a = get("assessment/api/admin/summary") or {}
+    out["assessment"] = {"totals": a.get("totals"), "byDay": (a.get("byDay") or [])[-14:], "byTier": a.get("byTier"), "events30d": a.get("events30d")}
+
 clarity()
 if not CLARITY_ONLY:
-    gsc(); site_stats()
+    gsc(); site_stats(); products()
 name = f"clarity-{TODAY.isoformat()}.json" if CLARITY_ONLY else f"weekly-{TODAY.isoformat()}.json"
 path = os.path.join(HIST, name)
 if not CLARITY_ONLY:
