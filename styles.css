@@ -3784,3 +3784,36 @@ body.amodal-lock { overflow: hidden; }
         transition: none !important;
     }
 }
+
+
+/* ===== Hero móvil, variante B (A/B, oct-2026). Solo <=768px; en desktop no cambia nada. ===== */
+.hero-b-only { display: none; }
+@media (max-width: 768px) {
+    .hero--b .hero-a-only { display: none !important; }
+    .hero--b .hero-b-only { display: block; }
+    .hero--b .hero-split { display: flex; flex-direction: column; }
+    .hero--b .hero-text-col { display: contents; }
+    .hero--b .hero-headline--b { order: 1; }
+    .hero--b .hero-sub--b { order: 2; }
+    .hero--b .hero-ctas { order: 3; }
+    .hero--b .hero-proof--b { order: 4; text-align: center; }
+    .hero--b .hero-phone-col { order: 5; margin-top: 26px; }
+    .hero--b .store-badges { order: 6; }
+    .hero--b .hero-headline--b, .hero--b .hero-sub--b { text-align: center; }
+    .hero--b .hero-headline--b { font-size: clamp(1.9rem, 8.2vw, 2.3rem) !important; line-height: 1.12; letter-spacing: -0.035em; margin-bottom: 12px; text-wrap: balance; animation: fadeUp 0.8s ease 0.15s forwards; opacity: 0; }
+    .hero--b .hero-sub--b { font-size: 0.95rem !important; line-height: 1.55; color: var(--text-secondary); max-width: 320px; margin: 0 auto 20px; text-wrap: pretty; animation: fadeUp 0.8s ease 0.3s forwards; opacity: 0; }
+    .hero--b .hero-ctas { margin-bottom: 10px; }
+    .hero--b .hero-proof--b { font-size: 0.82rem; line-height: 1.5; color: var(--text-tertiary); font-weight: 500; margin: 0 0 4px; animation: fadeUp 0.8s ease 0.5s forwards; opacity: 0; }
+    .hero--b .hero-proof-stars { color: #F9BA48; letter-spacing: 1px; margin-right: 4px; }
+    .hero--b .hero-phone-img { width: 200px; }
+    .hero--b .device-glow { width: 220px; height: 220px; }
+    .hero--b .store-badges { margin-top: 22px; transform: scale(0.9); }
+}
+@media (max-width: 600px) {
+    .hero--b .hero-headline--b { font-size: 1.75rem !important; }
+    .hero--b .hero-sub--b { font-size: 0.9rem !important; }
+}
+@media (max-width: 480px) {
+    .hero--b { padding-top: 92px; }
+    .hero--b .hero-headline--b { font-size: 1.85rem !important; }
+}

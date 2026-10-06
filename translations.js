@@ -64,6 +64,9 @@ window.TRANSLATIONS = {
     'hero.proof': 'Trusted by 11 million families. Recommended by pediatricians. Research-based.',
     'hero.ctaDesktop': 'Try 7 days for FREE',
     'hero.ctaMobile': 'Try 7 days for FREE',
+    'hero.b.headline': 'Exactly what to do with your baby, <span class="gradient-shift-alt">today.</span>',
+    'hero.b.sub': 'A daily plan of activities for your baby\'s exact age, built by child development experts.',
+    'hero.b.proof': '<span class="hero-proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 11 million families<br>Recommended by pediatricians',
     'hero.ctaSecondary': 'For Schools & Educators',
 
     // TRUST BAR
@@ -582,6 +585,9 @@ window.TRANSLATIONS = {
     'hero.proof': '11 millones de familias ya lo usan. Recomendado por pediatras. Basado en ciencia.',
     'hero.ctaDesktop': 'Prueba 7 días GRATIS',
     'hero.ctaMobile': 'Prueba 7 días GRATIS',
+    'hero.b.headline': 'Qué hacer hoy con tu bebé, <span class="gradient-shift-alt">exactamente.</span>',
+    'hero.b.sub': 'Un plan diario de actividades para la edad exacta de tu bebé, hecho por expertos en desarrollo infantil.',
+    'hero.b.proof': '<span class="hero-proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 11 millones de familias<br>Recomendado por pediatras',
     'hero.ctaSecondary': 'Para Escuelas y Educadores',
 
     // TRUST BAR
@@ -1099,6 +1105,9 @@ window.TRANSLATIONS = {
     'hero.proof': '11 milhões de famílias já usam. Recomendado por pediatras. Baseado em ciência.',
     'hero.ctaDesktop': 'Teste 7 dias GRÁTIS',
     'hero.ctaMobile': 'Teste 7 dias GRÁTIS',
+    'hero.b.headline': 'O que fazer hoje com o seu bebê, <span class="gradient-shift-alt">exatamente.</span>',
+    'hero.b.sub': 'Um plano diário de atividades para a idade exata do seu bebê, feito por especialistas em desenvolvimento infantil.',
+    'hero.b.proof': '<span class="hero-proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 11 milhões de famílias<br>Recomendado por pediatras',
     'hero.ctaSecondary': 'Para Escolas e Educadores',
 
     // TRUST BAR

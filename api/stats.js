@@ -45,7 +45,8 @@ function aggregate(dates, daily, totals, extra) {
     add(acc.abViews, day.abViews); add(acc.abCta, day.abCta); add(acc.topCats, day.cats); add(acc.topCatConv, day.catConv); add(acc.topSearches, day.searches); add(acc.crawlTotals, day.crawlers);
   }
   const abSummary = {};
-  const langOf = (p) => (p.includes('-en') ? 'en' : p.includes('-es') ? 'es' : p.includes('-pt') ? 'pt' : 'en');
+  // Idioma del A/B: landings de Learn (…-es) o páginas del sitio (/es, /es/…, /pt, /pt/…).
+  const langOf = (p) => (p === '/es' || p.startsWith('/es/') || p.includes('-es') ? 'es' : p === '/pt' || p.startsWith('/pt/') || p.includes('-pt') ? 'pt' : 'en');
   const bump = (map, field) => { for (const [key, count] of Object.entries(map)) { const [page, variant] = key.split('|'); const lang = langOf(page); if (!abSummary[lang]) abSummary[lang] = { a: { views: 0, cta: 0 }, b: { views: 0, cta: 0 } }; if (variant === 'a' || variant === 'b') abSummary[lang][variant][field] += count; } };
   bump(acc.abViews, 'views'); bump(acc.abCta, 'cta');
   const sorted = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
