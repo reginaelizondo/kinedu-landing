@@ -8,7 +8,7 @@ Formato: [estado] nombre · dato que lo justifica · tipo (A/B o directo) · ori
 - [pendiente] Clics muertos del hero (título, imagen) y de las ilustraciones de features a clics útiles · 180 clics muertos/mes · directo
 - [pendiente] LCP del home de 3.2 s a < 2.5 s (hero más ligero, preload, fuentes) · performance 82/100, 66% móvil · directo
 - [pendiente] Errores JS del índice del blog (anclas con caracteres raros, call stack) · 0.32% de sesiones · directo
-- [pendiente] Contact us: formulario corto o WhatsApp en vez de mailto · 66 clics/mes sin completar · necesita decisión de Regina (quién atiende)
+- [pendiente] Contact us: formulario corto en la página (nombre, correo, mensaje) que manda el correo a hello@kinedu.com, mismo help desk y mismo Customer Support que hoy; solo cambia la forma de enviar (hoy es un mailto que abre la app de correo y muchos abandonan) · 66 clics/mes · A/B contra el mailto, métrica = envíos / clics en Contact us · decidido por Regina 6-oct
 - [pendiente] Link app → kinedu.com: 319 sesiones de 1 a 8 s sin clics · revisar con Tech
 - [decidido 6-oct] Badges de App Store / Google Play: se quedan en el hero, se miden por clic. Opcional a futuro: apuntarlos al smart.link (Kochava) con creative_id por ubicación para atribuir instalaciones
 - [hecho 6-oct] Clarity en Masterclasses (layout, mismo proyecto)
