@@ -20,3 +20,4 @@ Formato: [estado] nombre · dato que lo justifica · tipo (A/B o directo) · ori
 - [pendiente] Gift: línea base de visita → clic → checkout → compra
 - [pendiente] Segmento "landing real" en Clarity (sin /privacy, /terms, app.kinedu.com)
 - [pendiente] weekly_pull.py: no repetir las llamadas de Clarity si ya hay datos del día en history/ · el 6-oct dieron 429 por gastar el cupo de 10 con dos corridas · directo · Medidor 6-oct
+- [pendiente] Search Console, informe de indexación (7-oct): 56 URLs con 404 (error), 9 bloqueadas 403, 88 "rastreada sin indexar", 5 "indexada aunque robots la bloqueaba", 22 noindex (incluye previews). Revisar cuáles de las 404 tienen enlaces o tráfico y poner 301; ver qué bloquea 403. · tarea para el Investigador · origen: correo de GSC 7-oct
