@@ -29,5 +29,15 @@
 - Lo que se mide en clics se confirma en webpromo (leads y compras por utm). Un clic no es una venta.
 - Ruido conocido: /privacy y /terms vienen desde la app; bots ya excluidos por Clarity.
 
+
+## Formato de todo lo que llega a Slack (pedido de Regina, 6-oct-2026)
+Regina lee mejor en bloques cortos: le cuesta un texto largo corrido. Pero quiere "carnita": análisis bien hecho e información consolidada, no resúmenes vacíos.
+- Un emoji por bloque como ancla visual (📊 datos, 🔥 hallazgo, ✅ hecho, ⚠️ alerta, 💡 propuesta, 🎯 acción).
+- Título del bloque en negritas; 2 a 4 líneas por bloque; el número clave en negritas.
+- Cada bloque cierra con una línea de "qué hacer" o "qué necesito de ti".
+- Máximo 3 bloques en el mensaje principal; el detalle largo va en el hilo, también en bloques.
+- Nada de párrafos de más de 4 líneas. Listas antes que prosa. Tablas solo si caben en celular.
+- Se mantienen las reglas de copy: sin guiones largos, sin claims médicos, citas solo textuales.
+
 ## Slack
 - Canal #landing-agente (C0C76H0F5F0). El Estratega abre un hilo semanal "Recomendaciones semana del D de mes". Regina aprueba contestando en el hilo con "dale" y el número. El Implementador solo actúa sobre aprobaciones explícitas; si hay duda, pregunta en el hilo y no hace nada.
