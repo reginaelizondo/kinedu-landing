@@ -36,10 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
         try { localStorage.setItem(STORAGE_KEY, currentLang); } catch (e) {}
     })();
 
+        // Las páginas del blog cargan solo su idioma (translations-<lang>.js). Si hace
+        // falta otro (visitante con preferencia guardada distinta a la carpeta, o cambio
+        // de idioma en la página), se carga bajo demanda y se vuelve a aplicar.
+        const loadingLang = {};
+        function loadLang(lang, cb) {
+            if (loadingLang[lang]) return;
+            loadingLang[lang] = true;
+            const s = document.createElement('script');
+            s.src = '/translations-' + lang + '.js?v=1007a';
+            s.onload = cb;
+            document.head.appendChild(s);
+        }
+
         function applyTranslations(lang) {
             if (!window.TRANSLATIONS) return;
             const t = window.TRANSLATIONS[lang];
-            if (!t) return;
+            if (!t) { if (SUPPORTED.includes(lang)) loadLang(lang, function () { applyTranslations(lang); }); return; }
 
             document.documentElement.lang = lang;
 
