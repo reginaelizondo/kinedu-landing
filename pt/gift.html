@@ -495,6 +495,13 @@ footer a{color:var(--body)}
   var m = /^\/(es|pt)(\/|$)/.exec(location.pathname);
   var lang = m ? m[1] : 'en';
   var utm = new URLSearchParams(); new URLSearchParams(location.search).forEach(function(v, k){ if (/^utm_[a-z]+$/.test(k) && v) utm.set(k, v.slice(0, 80)); });
+  // Medición del salto a Web Promos (7-oct-2026): si la visita no trae utm propio
+  // (campañas de correo, anuncios), el enlace al checkout se marca como venido de
+  // esta página. Así en Web Promos se cuentan las llegadas con utm_source=gift-landing
+  // y se comparan con los clics "Gift — Checkout (1 year)" de /analytics.
+  if (!utm.has('utm_source')) utm.set('utm_source', 'gift-landing');
+  if (!utm.has('utm_medium')) utm.set('utm_medium', 'landing');
+  if (!utm.has('utm_content')) utm.set('utm_content', 'plans');
   var q = utm.toString();
   document.querySelectorAll('[data-checkout]').forEach(function(a){ a.href = 'https://webpromo.kinedu.com/gift/checkout?lang=' + lang + (q ? '&' + q : ''); });
 })();
@@ -547,6 +554,8 @@ document.querySelectorAll('.faq-q').forEach(function(q){
     var a = e.target.closest('a'); if (!a) return;
     var l = label(a); if (!l) return;
     send({ event: 'conversion', cta: l });
+    // Etiqueta en Clarity para filtrar las grabaciones del clic al checkout (giftcta = checkout)
+    if (a.hasAttribute('data-checkout')) { try { window.clarity && clarity('set', 'giftcta', 'checkout'); } catch (err) {} }
   }, true);
 })();
 </script>
