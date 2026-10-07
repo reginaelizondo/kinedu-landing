@@ -45,11 +45,15 @@ def clarity():
     tok = secret("CLARITY_TOKEN")
     if not tok:
         out["errors"].append("clarity: sin token"); return
-    # La API da 10 llamadas al día y cada corrida usa 3: si hoy ya se bajó, se reutiliza
-    # (Guardia, Medidor y Analista corren el mismo día). --clarity-fresh fuerza la descarga.
+    # La API da 10 llamadas al día y cada corrida usa 3: si hoy YA SE BAJÓ CON ÉXITO se
+    # reutiliza (Guardia, Medidor y Analista corren el mismo día). Un día con 429 nunca se
+    # cachea, para no servir un resultado vacío el resto del día. --clarity-fresh fuerza.
+    NEED = ("totals", "byUrl", "byDevice")
     cached = os.path.join(HIST, f"clarity-{TODAY.isoformat()}.json")
     if os.path.exists(cached) and "--clarity-fresh" not in sys.argv:
-        out["clarity"] = json.load(open(cached)); out["clarity"]["cached"] = True; return
+        prev = json.load(open(cached))
+        if all(k in prev for k in NEED):
+            out["clarity"] = prev; out["clarity"]["cached"] = True; return
     base = "https://www.clarity.ms/export-data/api/v1/project-live-insights"
     h = {"Authorization": "Bearer " + tok}
     res = {"days": 3}
@@ -59,6 +63,10 @@ def clarity():
             out["errors"].append(f"clarity {name}: http {r.status_code}"); continue
         res[name] = r.json()
     out["clarity"] = res
+    # Solo se guarda el caché del día cuando las tres llamadas trajeron datos; si hubo 429
+    # u otro error, no se escribe, y la próxima corrida del día vuelve a intentar.
+    if not all(k in res for k in NEED):
+        return
     with open(os.path.join(HIST, f"clarity-{TODAY.isoformat()}.json"), "w") as f:
         json.dump(res, f)
 
