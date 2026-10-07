@@ -1,4 +1,4 @@
-# 03 · Implementador (martes a viernes 9:00)
+# 03 · Implementador (martes a viernes 10:00)
 
 Lee el hilo más reciente de recomendaciones en Slack #landing-agente. Solo actúa sobre
 mensajes de Regina que digan "dale" con el número (o "dale todo"). Para cada aprobación:

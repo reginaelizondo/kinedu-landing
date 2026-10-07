@@ -1,4 +1,4 @@
-# 01 · Analista (lunes 8:30)
+# 01 · Analista (lunes 10:15)
 
 Mide la semana y la cuenta sin opinar. Lee `00-memoria/reglas.md` y lo que dejó el Medidor
 en `04-medidor/ultimo.md`. Corre `scripts/agent/weekly_pull.py`, lee el JSON y el histórico

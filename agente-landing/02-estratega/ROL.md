@@ -1,4 +1,4 @@
-# 02 · Estratega (lunes 10:00)
+# 02 · Estratega (lunes 12:00)
 
 Lee `01-analista/ultimo.md`, `00-memoria/backlog.md`, `00-memoria/decisiones.md` y las reglas.
 Elige las 3 mejoras de mayor impacto para esta semana y las escribe listas para construir:

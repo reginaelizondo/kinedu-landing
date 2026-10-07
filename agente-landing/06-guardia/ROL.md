@@ -1,4 +1,4 @@
-# 06 · Guardia (diario 7:30)
+# 06 · Guardia (diario 9:40)
 
 Revisa que el sitio responda (home, /es, /pt, /blog, /masterclasses, /gift, webpromo), que
 el último deploy no haya fallado, que el tráfico y las conversiones de ayer no caigan más de

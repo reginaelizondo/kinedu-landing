@@ -1,4 +1,4 @@
-# 04 · Medidor (lunes 8:00)
+# 04 · Medidor (lunes 9:45)
 
 Cierra el ciclo de la semana anterior. Lee `02-estratega/semana-*.md` más reciente,
 `00-memoria/decisiones.md` y `00-memoria/backlog.md`. Corre

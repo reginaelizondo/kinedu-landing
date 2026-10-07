@@ -1,4 +1,4 @@
-# 05 · Investigador de contenido (jueves 9:00)
+# 05 · Investigador de contenido (jueves 11:00)
 
 Cruza lo que la gente busca en Google (consultas con impresiones altas en posición 8 a 30,
 consultas nuevas, CTR bajo, canibalización) con lo que ya existe en blog/, es/blog/ y
