@@ -594,3 +594,97 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+/* ===== Contact us: formulario en la página en vez de mailto (oct-2026) =====
+   Antes el link abría la app de correo con un mensaje vacío y muchos lo cerraban
+   sin escribir. Ahora abre un formulario corto aquí mismo; el mensaje sale por
+   /masterclasses/api/contact (mismo dominio) hacia hello@kinedu.com, el mismo
+   help desk de siempre. Si el envío falla, se abre el mailto con el texto ya
+   escrito: nunca se pierde un mensaje. Se mide: abierto, enviado, fallback. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('a[href^="mailto:hello@kinedu.com"]'));
+  if (!links.length) return;
+  var P = location.pathname;
+  var L = P.indexOf('/es/') === 0 || P === '/es' ? 'es' : P.indexOf('/pt/') === 0 || P === '/pt' ? 'pt' : 'en';
+  var T = {
+    en: { title: 'Write to us', sub: 'A real person at Kinedu answers every message, usually within a day.', name: 'Your name', email: 'Your email', msg: 'How can we help?', send: 'Send message', sending: 'Sending…', ok: 'Sent. We will write back to', fail: 'We could not send it from here. Your email app will open with your message ready.', close: 'Close', or: 'Or write directly to hello@kinedu.com' },
+    es: { title: 'Escríbenos', sub: 'Una persona real de Kinedu contesta cada mensaje, normalmente en un día.', name: 'Tu nombre', email: 'Tu correo', msg: '¿En qué te ayudamos?', send: 'Enviar mensaje', sending: 'Enviando…', ok: 'Enviado. Te respondemos a', fail: 'No pudimos enviarlo desde aquí. Se abrirá tu app de correo con el mensaje listo.', close: 'Cerrar', or: 'O escribe directo a hello@kinedu.com' },
+    pt: { title: 'Fale conosco', sub: 'Uma pessoa real da Kinedu responde cada mensagem, normalmente em um dia.', name: 'Seu nome', email: 'Seu e-mail', msg: 'Como podemos ajudar?', send: 'Enviar mensagem', sending: 'Enviando…', ok: 'Enviado. Vamos responder para', fail: 'Não conseguimos enviar daqui. Seu app de e-mail vai abrir com a mensagem pronta.', close: 'Fechar', or: 'Ou escreva direto para hello@kinedu.com' }
+  }[L];
+  function track(label) { try { navigator.sendBeacon('/api/track', JSON.stringify({ page: P, lang: L, event: 'conversion', cta: label })); } catch (e) {} }
+  var css = '.kc-ov{position:fixed;inset:0;background:rgba(8,27,70,.45);z-index:10000;display:flex;align-items:flex-end;justify-content:center;padding:0}' +
+    '@media(min-width:641px){.kc-ov{align-items:center;padding:24px}}' +
+    '.kc-box{background:#fff;width:100%;max-width:440px;border-radius:22px 22px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));box-shadow:0 20px 60px rgba(8,27,70,.25);font-family:"Proxima Nova","Plus Jakarta Sans","Segoe UI",Helvetica,Arial,sans-serif;color:#1A1D2E;position:relative}' +
+    '@media(min-width:641px){.kc-box{border-radius:22px;padding:26px 26px}}' +
+    '.kc-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border:0;border-radius:50%;background:#F1F3F7;font-size:20px;line-height:1;color:#5B6170;cursor:pointer}' +
+    '.kc-box h3{margin:0 32px 6px 0;font-size:21px;font-weight:800;letter-spacing:-.3px;color:#0A2540}.kc-box p{margin:0 0 14px;font-size:14px;color:#5B6170;line-height:1.5}' +
+    '.kc-box input,.kc-box textarea{display:block;width:100%;box-sizing:border-box;border:1.5px solid #E3E6EE;border-radius:12px;padding:12px 14px;font:inherit;font-size:16px;margin:0 0 10px;background:#FBFAF8;color:#1A1D2E}' +
+    '.kc-box input:focus,.kc-box textarea:focus{outline:none;border-color:#087BF3;background:#fff}.kc-box textarea{min-height:110px;resize:vertical}' +
+    '.kc-hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;opacity:0}' +
+    '.kc-btn{display:block;width:100%;border:0;border-radius:999px;background:#087BF3;color:#fff;font:inherit;font-size:16px;font-weight:700;padding:14px 18px;cursor:pointer}.kc-btn[disabled]{opacity:.6;cursor:default}' +
+    '.kc-alt{display:block;text-align:center;font-size:12.5px;color:#9AA0AD;margin:12px 0 0}.kc-alt a{color:#087BF3;text-decoration:none}' +
+    '.kc-ok{text-align:center;padding:18px 0 6px}.kc-ok .kc-ico{width:56px;height:56px;border-radius:50%;background:#E4F6E7;color:#23803A;font-size:28px;line-height:56px;margin:0 auto 12px}' +
+    '.kc-err{background:#FDEBD8;color:#B4531F;border-radius:10px;padding:10px 12px;font-size:13.5px;margin:0 0 10px}';
+  var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+  function mailtoFallback(name, email, msg) {
+    var subject = encodeURIComponent('Contact us (kinedu.com)');
+    var body = encodeURIComponent((name ? name + '\n' : '') + (email ? email + '\n\n' : '') + msg);
+    location.href = 'mailto:hello@kinedu.com?subject=' + subject + '&body=' + body;
+  }
+  function open() {
+    track('Contact us — opened');
+    var ov = document.createElement('div'); ov.className = 'kc-ov';
+    ov.innerHTML = '<div class="kc-box" role="dialog" aria-modal="true" aria-label="' + T.title + '"><button type="button" class="kc-x" aria-label="' + T.close + '">&times;</button>' +
+      '<h3>' + T.title + '</h3><p>' + T.sub + '</p>' +
+      '<form novalidate><input type="text" name="name" placeholder="' + T.name + '" autocomplete="name">' +
+      '<input type="email" name="email" placeholder="' + T.email + '" autocomplete="email" required>' +
+      '<textarea name="message" placeholder="' + T.msg + '" required></textarea>' +
+      '<input type="text" name="website" class="kc-hp" tabindex="-1" autocomplete="off">' +
+      '<div class="kc-err" style="display:none"></div>' +
+      '<button type="submit" class="kc-btn">' + T.send + '</button>' +
+      '<span class="kc-alt"><a href="mailto:hello@kinedu.com" data-kc-direct="1">' + T.or + '</a></span></form></div>';
+    document.body.appendChild(ov);
+    var box = ov.querySelector('.kc-box'), form = ov.querySelector('form'), err = ov.querySelector('.kc-err'), btn = ov.querySelector('.kc-btn');
+    function close() { ov.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    document.addEventListener('keydown', onKey);
+    ov.querySelector('.kc-x').addEventListener('click', close);
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    ov.querySelector('[data-kc-direct]').addEventListener('click', function () { track('Contact us — direct mailto'); close(); });
+    setTimeout(function () { var f = form.querySelector('input[name=name]'); if (f) f.focus(); }, 50);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.name.value.trim(), email = form.email.value.trim(), msg = form.message.value.trim();
+      err.style.display = 'none';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || msg.length < 5) {
+        err.textContent = T.email + ' · ' + T.msg; err.style.display = 'block'; return;
+      }
+      btn.disabled = true; btn.textContent = T.sending;
+      var payload = JSON.stringify({ name: name, email: email, message: msg, website: form.website.value, page: location.href, lang: L });
+      var done = false;
+      var timer = setTimeout(function () { if (!done) { done = true; fail(); } }, 12000);
+      function fail() {
+        track('Contact us — fallback mailto');
+        box.innerHTML = '<button type="button" class="kc-x" aria-label="' + T.close + '">&times;</button><div class="kc-ok"><p>' + T.fail + '</p></div>';
+        box.querySelector('.kc-x').addEventListener('click', close);
+        setTimeout(function () { mailtoFallback(name, email, msg); }, 900);
+      }
+      fetch('/masterclasses/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) {
+          if (done) return; done = true; clearTimeout(timer);
+          if (!d || !d.ok) return fail();
+          track('Contact us — sent');
+          box.innerHTML = '<button type="button" class="kc-x" aria-label="' + T.close + '">&times;</button><div class="kc-ok"><div class="kc-ico">&#10003;</div><h3>' + T.ok + '<br>' + email.replace(/</g, '&lt;') + '</h3></div>';
+          box.querySelector('.kc-x').addEventListener('click', close);
+        })
+        .catch(function () { if (done) return; done = true; clearTimeout(timer); fail(); });
+    });
+  }
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (a.getAttribute('data-kc-direct')) return;
+      e.preventDefault(); open();
+    });
+  });
+})();
