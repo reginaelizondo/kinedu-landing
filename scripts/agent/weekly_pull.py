@@ -45,6 +45,11 @@ def clarity():
     tok = secret("CLARITY_TOKEN")
     if not tok:
         out["errors"].append("clarity: sin token"); return
+    # La API da 10 llamadas al día y cada corrida usa 3: si hoy ya se bajó, se reutiliza
+    # (Guardia, Medidor y Analista corren el mismo día). --clarity-fresh fuerza la descarga.
+    cached = os.path.join(HIST, f"clarity-{TODAY.isoformat()}.json")
+    if os.path.exists(cached) and "--clarity-fresh" not in sys.argv:
+        out["clarity"] = json.load(open(cached)); out["clarity"]["cached"] = True; return
     base = "https://www.clarity.ms/export-data/api/v1/project-live-insights"
     h = {"Authorization": "Bearer " + tok}
     res = {"days": 3}
