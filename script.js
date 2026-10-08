@@ -50,6 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function applyTranslations(lang) {
+            // El assessment (/assessment, otra app en este mismo dominio) lee
+            // el idioma de OTRA llave: 'kinedu_lang' (guion bajo). Se copia
+            // ahí para que «¿Cómo va mi bebé?» abra en el idioma elegido.
+            // Solo si hubo elección (guardada o por ruta /es, /pt): sin ella,
+            // el assessment sigue usando el idioma del dispositivo.
+            try {
+                if (localStorage.getItem(STORAGE_KEY) || /^\/(es|pt)(\/|$)/.test(window.location.pathname)) {
+                    localStorage.setItem('kinedu_lang', lang);
+                }
+            } catch (e) {}
             if (!window.TRANSLATIONS) return;
             const t = window.TRANSLATIONS[lang];
             if (!t) { if (SUPPORTED.includes(lang)) loadLang(lang, function () { applyTranslations(lang); }); return; }
