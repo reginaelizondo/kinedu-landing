@@ -3056,6 +3056,21 @@
       "source": "/pt/blog/como-ensinar-o-valor-da-honestidade-para-criancas-pequenas/:extra+",
       "destination": "/pt/blog/como-ensinar-o-valor-da-honestidade-para-criancas-pequenas",
       "permanent": true
+    },
+    {
+      "source": "/es/blog/que-es-normal-en-la-fontanela-de-un-bebe",
+      "destination": "/es/blog/mollera-sumida",
+      "permanent": true
+    },
+    {
+      "source": "/es/blog/mollera-bebe",
+      "destination": "/es/blog/mollera-sumida",
+      "permanent": true
+    },
+    {
+      "source": "/pt/blog/o-que-e-normal-na-fontanela-de-um-bebe",
+      "destination": "/pt/blog/moleira-funda",
+      "permanent": true
     }
   ]
 }
