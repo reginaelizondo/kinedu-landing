@@ -5,3 +5,6 @@ el último deploy no haya fallado, que el tráfico y las conversiones de ayer no
 30% contra los 7 días anteriores, que ningún A/B vaya más de 10% abajo con 500 vistas, y que
 los errores de script en Clarity no se dupliquen. Si hay algo, un solo mensaje en Slack
 "Guardia D de mes:". Si no hay nada, no escribe. Nunca cambia código.
+
+Si la alerta vale la pena recordarla, déjala en la bitácora:
+`python3 scripts/agent/bitacora.py add rol=Guardia tipo=alerta area=<área> estado=na titulo="qué pasó" detalle="..."`.

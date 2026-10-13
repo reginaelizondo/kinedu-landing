@@ -16,5 +16,18 @@ CTA, empezar en webpromo, pagar). Plan completo: ~/Downloads/Plan-Agente-Landing
 | 06 Guardia | diario 9:40 | sitio, deploys, tráfico, A/B, errores | alerta en Slack solo si pasa algo |
 
 Reglas comunes en `00-memoria/reglas.md`. Backlog vivo en `00-memoria/backlog.md`.
-Decisiones y resultados en `00-memoria/decisiones.md`. Datos crudos en
-`~/.config/kinedu-agent/history/` (no en el repo). Recolector: `scripts/agent/weekly_pull.py`.
+Datos crudos en `~/.config/kinedu-agent/history/` (no en el repo).
+Recolector: `scripts/agent/weekly_pull.py`.
+
+## Bitácora (cada cambio queda registrado, y Marina aprende)
+
+Fuente única: `00-memoria/bitacora.jsonl` (una línea por entrada, append-only). NUNCA se
+edita a mano: todo pasa por `scripts/agent/bitacora.py`, que de ahí genera el `BITACORA.md`
+legible y el tablero `~/Downloads/Marina-Avance/avance.html` que Regina abre para ver el avance.
+
+- **Cada cambio se anota** cuando se hace: `bitacora.py add rol=... tipo=cambio area=... estado=publicado|preview commit=... medir_en=AAAA-MM-DD titulo="..." detalle="..."`. Nace con impacto `pendiente`.
+- **El Medidor lo cierra** cuando ya hay datos: `bitacora.py set <id> resultado="..." impacto=win|neutral|loss`. Si deja lección, `bitacora.py aprende "regla corta" area=SEO`.
+- **Antes de actuar**, los roles leen `00-memoria/aprendizajes.md` para no repetir errores.
+- Áreas: SEO · Gift · Masterclasses · Landing · A/B · Contenido · Infra · Proceso.
+
+`decisiones.md` queda como notas largas o de contexto; el registro de cambios vive en la bitácora.

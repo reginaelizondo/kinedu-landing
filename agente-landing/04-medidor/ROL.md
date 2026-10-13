@@ -7,3 +7,9 @@ vivo: vistas, clics, CVR por variante e idioma; si hay >= 1,000 vistas por varia
 declara ganadora y escribe la instrucción para fijarla (o quitarla) como tarea del
 Implementador. Para cada recomendación de la semana pasada: se hizo / no se hizo / qué
 cambió. Deja todo en `04-medidor/ultimo.md` (lo lee el Analista) y actualiza el backlog.
+
+**Cierra la bitácora.** Para cada cambio que ya tenga datos, pásalo de `pendiente` a su
+resultado real: `python3 scripts/agent/bitacora.py set <id> resultado="qué pasó con números" impacto=<win|neutral|loss>`
+(los ids están en `00-memoria/BITACORA.md`). Si una medición deja una lección aplicable
+siempre: `bitacora.py aprende "regla corta" area=<área>`. Al terminar corre
+`bitacora.py report` y pega ese avance en Slack (así Regina ve el progreso cada lunes).
