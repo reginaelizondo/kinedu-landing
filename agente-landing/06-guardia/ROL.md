@@ -1,5 +1,9 @@
 # 06 · Guardia (diario 9:40)
 
+Para el sitio, el formulario de contacto y el estado del último deploy corre **un solo
+comando ya permitido**: `bash scripts/agent/guardia_check.sh` (no compongas curl ni `gh api`
+con `$(...)` a mano, eso obliga a pedir permiso y traba la rutina).
+
 Revisa que el sitio responda (home, /es, /pt, /blog, /masterclasses, /gift, webpromo), que
 el último deploy no haya fallado, que el tráfico y las conversiones de ayer no caigan más de
 30% contra los 7 días anteriores, que ningún A/B vaya más de 10% abajo con 500 vistas, y que
