@@ -37,7 +37,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue:#0086D8;--blue-hover:#0B76BF;--green:#45C94E;--yellow:#F9BA48;--pink:#DA4D7A;
-  --bluelt:#32AFE0;--orange:#F99848;--cognitive:#3EB646;--health:#EC4D4D;
+  --bluelt:#32AFE0;--orange:#F99848;--cognitive:#3EB646;--health:#EC4D4D;--cta:#E57339;--cta-hover:#D5632B;
   --ink:#2B2E3A;--body:#5B6170;--muted:#9AA0AD;
   --bg:#FCFBF9;--card:#FFFFFF;--border:#EFEDE6;
   --tb:#E7F4FC;--tg:#E9F8EA;--ty:#FEF3DD;--tp:#FBEAF0;
@@ -62,6 +62,8 @@ h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
 .btn:hover{background:var(--blue-hover);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,134,216,.36)}
 .btn.yellow{background:var(--yellow);box-shadow:0 4px 14px rgba(249,186,72,.4)}
 .btn.yellow:hover{background:#F2AD2E}
+.btn.orange{background:var(--cta);box-shadow:0 8px 22px -6px rgba(229,115,57,.5)}
+.btn.orange:hover{background:var(--cta-hover);box-shadow:0 12px 26px -8px rgba(229,115,57,.55)}
 .btn.ghost{background:#fff;color:var(--ink);box-shadow:none;border:1.5px solid var(--border)}
 .btn.ghost:hover{border-color:var(--blue);color:var(--blue);transform:none;box-shadow:none}
 .blob{position:absolute;border-radius:50%;pointer-events:none}
@@ -85,8 +87,9 @@ h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
 /* ── HERO ── */
 .hero{position:relative;overflow:hidden;padding:150px 0 88px;text-align:center}
 .hero .wrap{position:relative}
-.hero h1{font-size:clamp(2.2rem,5.2vw,3.7rem);letter-spacing:-.03em;max-width:820px;margin:0 auto 18px}
-.hero p{font-size:1.1rem;color:var(--body);max-width:600px;margin:0 auto 32px;line-height:1.6}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.7rem);letter-spacing:-.03em;max-width:820px;margin:0 auto 18px;text-wrap:balance}
+.hero h1 .blue{white-space:nowrap}
+.hero p{font-size:1.1rem;color:var(--body);max-width:600px;margin:0 auto 32px;line-height:1.6;text-wrap:pretty}
 .hero-sub{font-size:.85rem;color:var(--muted);margin-top:14px;font-weight:500}
 .occasions{display:flex;gap:10px 26px;justify-content:center;flex-wrap:wrap;margin-top:40px}
 .occ{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;color:var(--body)}
@@ -197,6 +200,11 @@ footer{text-align:center;font-size:.8rem;color:var(--muted);padding:28px 24px 40
 footer a{color:var(--body)}
 
 /* ── RESPONSIVE ── */
+.hero-price{font-size:.9rem;color:var(--body);font-weight:600;margin-top:14px}
+.hero-price b{color:var(--ink)}
+.mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(252,251,249,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--border);transform:translateY(130%);transition:transform .28s ease;box-shadow:0 -6px 20px rgba(43,46,58,.08)}
+.mcta.show{transform:translateY(0)}
+.mcta .btn{width:100%;height:52px}
 @media(max-width:900px){
   .cardsec .wrap{grid-template-columns:1fr;gap:44px}
   .giftcard{max-width:430px;margin:0 auto}
@@ -204,9 +212,21 @@ footer a{color:var(--body)}
   .plan--hot{order:-1}
 }
 @media(max-width:600px){
-  .hero{padding:120px 0 64px}
+  .hero{padding:88px 0 26px}
   .hero .dot{display:none}
-  .occ{font-size:.8rem;padding:7px 13px}
+  .hero h1{font-size:2.05rem;line-height:1.14;margin-bottom:14px}
+  .hero p{font-size:1rem;margin-bottom:24px;line-height:1.55}
+  .hero .btn{width:100%;max-width:330px;height:56px;font-size:1.05rem}
+  .hero-sub{margin-top:13px}
+  .occasions{gap:8px 10px;margin-top:24px}
+  .occ{font-size:.8rem;padding:8px 14px;background:#fff;border:1px solid var(--border);border-radius:999px;box-shadow:0 1px 2px rgba(43,46,58,.05)}
+  /* menos scroll: secciones mas juntas en movil */
+  .cardsec,.how,.plans,.faq{padding:56px 0}
+  .cardsec{padding-top:40px}
+  .proof{padding:52px 0 48px}
+  .how-sub,.plans-sub{margin-bottom:32px}
+  .step{padding:26px 22px}
+  .plan{padding:30px 22px 26px}
   .giftcard{padding:22px calc(9% + 40px) 18px 20px;border-radius:20px}
   .gc-title{font-size:1.3rem}
   .gc-sub{font-size:.8rem}
@@ -214,7 +234,9 @@ footer a{color:var(--body)}
   .gc-tag{top:20px;right:calc(9% + 38px);font-size:.56rem;padding:5px 9px}
   .gc-meta{gap:16px;font-size:.74rem}
   .gc-code{display:none}
-  .final{margin:0 12px 12px;padding:64px 20px;border-radius:24px}
+  .final{margin:0 12px 12px;padding:58px 20px;border-radius:24px}
+  body{padding-bottom:76px}
+  .mcta{display:block}
 }
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -294,7 +316,8 @@ footer a{color:var(--body)}
     <div class="kick pink"><i></i>The Kinedu gift</div>
     <h1>They'll forget the onesies.<br>They'll use this <span class="blue">every day.</span></h1>
     <p>Give a new parent a year of knowing exactly what to do: daily activity plans, live classes with pediatricians and sleep experts, and milestone tracking for their baby.</p>
-    <a href="#plans" class="btn">Give the gift <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="#plans" class="btn orange">Gift Kinedu now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="hero-price">One payment &middot; <b>They&#39;re never charged</b> &middot; Nothing renews</div>
     <div class="hero-sub">Delivered by email · Schedule it for the big day</div>
     <div class="occasions">
       <span class="occ"><i style="background:var(--blue)"></i>Baby showers</span>
@@ -386,7 +409,7 @@ footer a{color:var(--body)}
           <li>Live classes with experts, ask your questions live</li>
           <li>One year that grows with them, newborn to preschool</li>
         </ul>
-        <a class="btn" data-checkout href="https://webpromo.kinedu.com/gift/checkout?lang=en">Gift a full year</a>
+        <a class="btn orange" data-checkout href="https://webpromo.kinedu.com/gift/checkout?lang=en">Gift a full year</a>
       </div>
     </div>
     <p class="plans-note">Secure checkout · Gift cards never expire before activation</p>
@@ -446,8 +469,9 @@ footer a{color:var(--body)}
   <div class="kick"><i></i>Ready when you are</div>
   <h2>Be the gift they talk about at every playdate.</h2>
   <p>Two minutes now. A year of confidence for them.</p>
-  <a href="#plans" class="btn yellow">Give Kinedu <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <a href="#plans" class="btn orange">Gift Kinedu now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </section>
+<div class="mcta"><a href="#plans" class="btn orange">Gift Kinedu now</a></div>
 <footer class="footer">
         <div class="footer-wrap">
             <div class="footer-grid">
@@ -562,5 +586,17 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 </script>
 <script src="/translations.js?v=0851a" defer></script>
 <script src="/script.js?v=0851a" defer></script>
+<script>
+(function(){
+  var bar=document.querySelector('.mcta'); if(!bar) return;
+  var hero=document.querySelector('.hero .btn'), fin=document.querySelector('.final');
+  var past=false, end=false;
+  function upd(){ bar.classList.toggle('show', past && !end); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ past=!e[0].isIntersecting; upd(); },{threshold:0}).observe(hero);
+    if(fin) new IntersectionObserver(function(e){ end=e[0].isIntersecting; upd(); },{threshold:0}).observe(fin);
+  }
+})();
+</script>
 </body>
 </html>
