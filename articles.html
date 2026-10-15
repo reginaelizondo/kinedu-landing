@@ -908,6 +908,7 @@ applyLimit();
   }
 
   setTimeout(function() {
+   try {
     if (cats) {
       var arr = cats.split(',').map(function(s){return s.trim();}).filter(Boolean);
       if (arr.length) {
@@ -918,19 +919,22 @@ applyLimit();
       }
     } else if (cat) {
       document.querySelectorAll('#catPills .kb-pill').forEach(function(p) { p.classList.remove('on'); });
-      var pill = document.querySelector('#catPills .kb-pill[data-cat="' + cat + '"]');
+      var pill = null;
+      document.querySelectorAll('#catPills .kb-pill').forEach(function(p){ if (p.getAttribute('data-cat') === cat) pill = p; });
       if (pill) pill.classList.add('on');
       applyCategoryFilter([cat], labels[cat] || cat.replace(/-/g,' '));
       var g = document.getElementById('articleGrid');
       if (g) { var nh = (document.getElementById('navbar') || {offsetHeight:72}).offsetHeight || 72; window.scrollTo({top: g.getBoundingClientRect().top + window.pageYOffset - nh - 24, behavior: 'smooth'}); }
     } else if (stage) {
       // Trigger stage filter
-      var stageCard = document.querySelector('.kb-stage[data-stage="' + stage + '"]');
+      var stageCard = null;
+      document.querySelectorAll('.kb-stage').forEach(function(c){ if (c.getAttribute('data-stage') === stage) stageCard = c; });
       if (stageCard) {
         var fakeEvt = { preventDefault: function() {} };
         filterByStage(fakeEvt, stageCard);
       }
     }
+   } catch (e) { /* parametros raros en la URL: no romper la pagina */ }
   }, 50);
 })();
 
