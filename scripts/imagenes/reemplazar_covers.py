@@ -12,11 +12,17 @@ LOTE = next(a for a in sys.argv[1:] if not a.startswith("--"))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
 
+ya_hechos = set()
+if os.path.exists("scripts/imagenes/registro-covers.csv"):
+    ya_hechos = {r["reemplaza_a"] for r in csv.DictReader(open("scripts/imagenes/registro-covers.csv"))}
+
 mapping = {}
 for line in open(LOTE, encoding="utf-8"):
     cells = [c.strip() for c in line.strip().strip("|").split("|")]
     if len(cells) == 4 and cells[2].endswith(".jpg"):
         photo = cells[2][:-4]
+        if cells[3] in ya_hechos:
+            continue
         if os.path.exists(f"blog-photos/{photo}.jpg"):
             mapping[photo] = cells[3]
         else:
