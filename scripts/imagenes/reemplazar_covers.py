@@ -1,15 +1,28 @@
-import json, os, re, sys
+"""Reemplaza fotos de stock del blog por fotos licenciadas de blog-photos/.
+
+Uso: python3 scripts/imagenes/reemplazar_covers.py scripts/imagenes/ENVATO_LOTE_2.md [--apply]
+Lee la tabla del lote (columnas "Guardar como" y "Reemplaza a"). Las filas cuya
+foto todavía no está en blog-photos/ se saltan, así que se puede correr con un
+lote a medio descargar. Sin --apply solo simula."""
+import csv, datetime, os, re, sys
 from collections import Counter
 
 DRY = "--apply" not in sys.argv
-ROOT = "/Users/paolapadilla/Desktop/kinedu-landing"
-SP = os.path.dirname(os.path.abspath(__file__))
+LOTE = next(a for a in sys.argv[1:] if not a.startswith("--"))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
 
-mapping = json.load(open(os.path.join(SP, "lote1-map.json")))
+mapping = {}
+for line in open(LOTE, encoding="utf-8"):
+    cells = [c.strip() for c in line.strip().strip("|").split("|")]
+    if len(cells) == 4 and cells[2].endswith(".jpg"):
+        photo = cells[2][:-4]
+        if os.path.exists(f"blog-photos/{photo}.jpg"):
+            mapping[photo] = cells[3]
+        else:
+            print("falta descargar:", cells[2])
 assert len(set(mapping.values())) == len(mapping), "target repetido"
-for photo in mapping:
-    assert os.path.exists(f"blog-photos/{photo}.jpg"), photo
+lote_n = re.search(r"(\d+)", os.path.basename(LOTE)).group(1)
 
 def target_re(t):
     m = re.match(r"(shutterstock|istock|getty)_(\d+)$", t)
@@ -92,5 +105,10 @@ if not DRY:
         im.save(f"blog-media/covers/{photo}.webp", quality=80, method=6)
     for f in old_files:
         os.remove(f)
-    json.dump(sorted(old_files), open(os.path.join(SP, "lote1-borrados.json"), "w"), indent=0)
-    print("covers generadas y archivos viejos borrados")
+    hoy = datetime.date.today().isoformat()
+    with open("scripts/imagenes/registro-covers.csv", "a", newline="") as fh:
+        w = csv.writer(fh)
+        for photo, old in mapping.items():
+            w.writerow([f"blog-media/covers/{photo}.webp", "Envato Elements (suscripción Kinedu)",
+                        f"blog-photos/{photo}.jpg", old, lote_n, hoy])
+    print("covers generadas, archivos viejos borrados y registro actualizado")
