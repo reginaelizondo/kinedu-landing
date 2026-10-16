@@ -730,13 +730,19 @@ try{
         // mismo CTA del hero para convertirlos en clic util, medidos aparte con la variante.
         if (isMobile) {
             var heroBtn = document.querySelector('.hero-ctas a');
-            if (heroBtn) document.querySelectorAll('.hero-headline, #heroImg').forEach(function(el){
-                el.style.cursor = 'pointer';
-                el.addEventListener('click', function(){
-                    navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: 'Hero — Visual tap', lang: lang, variant: heroVar}));
-                    window.location.href = heroBtn.href;
-                });
-            });
+            if (heroBtn) {
+                var mkTap = function(sel, label){
+                    document.querySelectorAll(sel).forEach(function(el){
+                        el.style.cursor = 'pointer';
+                        el.addEventListener('click', function(){
+                            navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang, variant: heroVar}));
+                            window.location.href = heroBtn.href;
+                        });
+                    });
+                };
+                mkTap('.hero-headline, #heroImg', 'Hero — Visual tap');
+                mkTap('.feature-row__image img', 'Feature — Visual tap');
+            }
         }
         document.querySelectorAll('a[href*="app.kinedu.com"]').forEach(function(a){
             if (a.closest('.hero-ctas')) return;
