@@ -813,5 +813,60 @@ try{
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 })();
 </script>
+<style>
+@media(max-width:768px){
+  .nav-links.nav-menu-b .mb-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary,#9AA0AD);padding:14px 16px 6px}
+  .nav-links.nav-menu-b .mb-label:first-child{padding-top:6px}
+  .nav-links.nav-menu-b .mb-cta{display:flex!important;align-items:center;justify-content:center;gap:8px;background:#E57339;color:#fff!important;font-weight:800;font-size:16px;padding:15px;border-radius:999px;margin:2px 0 2px}
+  .nav-links.nav-menu-b .mb-cta:hover,.nav-links.nav-menu-b .mb-cta:active{background:#D5632B}
+  .nav-links.nav-menu-b a.mb-assess{background:#E7F4FC;color:#0A2540!important;border-radius:14px;font-weight:700;margin-top:8px}
+  .nav-links.nav-menu-b a.mb-sub{font-size:16px}
+  .nav-links.nav-menu-b .mb-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .nav-links.nav-menu-b .mb-more a{flex:0 1 auto;width:auto;text-align:center;background:#F5EFE6;border-radius:12px;font-size:13px!important;font-weight:700!important;color:var(--text-secondary,#5B6170)!important;padding:11px 6px}
+}
+</style>
+<script>
+/* A/B del menú móvil (solo móvil). A = menú actual, B = menú por secciones. ?menu=a|b fuerza.
+   Mide menu_open y menu_click con variante en las dos. */
+window.addEventListener('load', function(){
+  try{
+    if(!(window.matchMedia && window.matchMedia('(max-width:768px)').matches)) return;
+    var nl=document.getElementById('navLinks'), ham=document.getElementById('hamburger');
+    if(!nl||!ham) return;
+    var mv=null;
+    try{ var m=location.search.match(/[?&]menu=(a|b)\b/);
+      if(m){mv=m[1];} else { mv=localStorage.getItem('kinedu-menu'); if(mv!=='a'&&mv!=='b'){ mv=Math.random()<0.5?'a':'b'; localStorage.setItem('kinedu-menu',mv);} }
+    }catch(e){ mv='a'; }
+    window.KINEDU_MENU=mv;
+    try{ if(window.clarity) window.clarity('set','menu',mv); }catch(e){}
+    var page=location.pathname, lang=((localStorage.getItem('kinedu-lang')||document.documentElement.lang||'en')+'').slice(0,2);
+    ham.addEventListener('click', function(){ setTimeout(function(){
+      if(nl.classList.contains('active')) navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'menu_open',variant:mv,lang:lang}));
+    },0); });
+    nl.addEventListener('click', function(e){ var a=e.target.closest('a[href]'); if(!a) return;
+      navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'menu_click',variant:mv,lang:lang,cta:(a.textContent||'').trim().slice(0,30)})); });
+    if(mv!=='b') return;
+    var L=({en:['Start','Explore','More'],es:['Empieza','Explora','Más'],pt:['Comece','Explore','Mais']})[lang]||['Start','Explore','More'];
+    var q=function(h){ return nl.querySelector('a[href$="'+h+'"]'); };
+    var mc=q('/masterclasses'),live=q('/live-classes'),blog=q('/blog'),gift=q('/gift'),science=(nl.querySelector('a.nav-flat[href$="/science"]')||q('/science')),book=q('/book'),founder=q('/founder'),experts=q('/experts');
+    var assess=nl.querySelector('a[href*="assessment"]'), tryfree=nl.querySelector('a.nav-cta'), langt=nl.querySelector('.lang-toggle--mobile');
+    if(!mc||!blog||!gift||!tryfree) return;
+    var lbl=function(t){ var d=document.createElement('div'); d.className='mb-label'; d.textContent=t; return d; };
+    var f=document.createDocumentFragment();
+    f.appendChild(lbl(L[0]));
+    var cta=tryfree.cloneNode(true); cta.className='mb-cta'; f.appendChild(cta);
+    if(assess){ assess.className='mb-assess'; f.appendChild(assess); }
+    f.appendChild(lbl(L[1]));
+    [mc,live,blog,gift].forEach(function(a){ if(a){ a.className='mb-sub'; f.appendChild(a);} });
+    f.appendChild(lbl(L[2]));
+    var more=document.createElement('div'); more.className='mb-more';
+    [science,book,founder,experts].forEach(function(a){ if(a){ a.className=''; more.appendChild(a);} });
+    f.appendChild(more);
+    if(langt) f.appendChild(langt);
+    nl.innerHTML=''; nl.appendChild(f); nl.classList.add('nav-menu-b');
+  }catch(e){}
+});
+</script>
 </body>
+
 </html>
