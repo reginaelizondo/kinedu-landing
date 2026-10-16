@@ -30,19 +30,33 @@ for line in open(LOTE, encoding="utf-8"):
 assert len(set(mapping.values())) == len(mapping), "target repetido"
 lote_n = re.search(r"(\d+)", os.path.basename(LOTE)).group(1)
 
+# Formatos de "Reemplaza a":
+#   shutterstock_123 / istock_123 / getty_123  -> cualquier archivo con ese ID de stock
+#   name:<archivo>                             -> ese nombre de archivo en cualquier carpeta
+#   path:blog-media/<carpeta>/<archivo>        -> solo ese archivo (nombres genéricos como picture-39)
+#   <archivo>                                  -> igual que name: (lote 1)
+SUFIJOS = r"(?:-e\d{10,})?(?:-\d+x\d+)?"
+EXT = r"\.(jpe?g|png|gif|webp)"
+
 def target_re(t):
     m = re.match(r"(shutterstock|istock|getty)_(\d+)$", t)
     if m:
         core = rf"{m.group(1)}[_-]?0*{m.group(2)}(?!\d)"
-    else:
-        core = re.escape(t) + r"(?:-\d+x\d+)?(?=\.)"
-    return re.compile(r"(?:https://www\.kinedu\.com)?/blog-media/[^\"'\s)>]*?" + core + r"[^\"'\s)>]*?\.(jpe?g|png|gif|webp)", re.I)
+        return re.compile(r"(?:https://www\.kinedu\.com)?/blog-media/[^\"'\s)>]*?" + core + r"[^\"'\s)>]*?" + EXT, re.I)
+    if t.startswith("path:"):
+        return re.compile(r"(?:https://www\.kinedu\.com)?/" + re.escape(t[5:]) + SUFIJOS + EXT, re.I)
+    name = t[5:] if t.startswith("name:") else t
+    return re.compile(r"(?:https://www\.kinedu\.com)?/blog-media/(?:[^\"'\s)>/]+/)*" + re.escape(name) + SUFIJOS + EXT, re.I)
 
-def file_re(t):
+def is_old_file(folder, fn, t):
     m = re.match(r"(shutterstock|istock|getty)_(\d+)$", t)
     if m:
-        return re.compile(rf"{m.group(1)}[_-]?0*{m.group(2)}(?!\d)", re.I)
-    return re.compile(r"^" + re.escape(t) + r"(?:-\d+x\d+)?\.", re.I)
+        return re.search(rf"{m.group(1)}[_-]?0*{m.group(2)}(?!\d)", fn, re.I) is not None
+    if t.startswith("path:"):
+        d, name = t[5:].rsplit("/", 1)
+        return folder == d and re.match("^" + re.escape(name) + SUFIJOS + EXT + "$", fn, re.I) is not None
+    name = t[5:] if t.startswith("name:") else t
+    return re.match("^" + re.escape(name) + SUFIJOS + EXT + "$", fn, re.I) is not None
 
 targets = {t: (photo, target_re(t)) for photo, t in mapping.items()}
 
@@ -90,7 +104,7 @@ for folder, dirs, files in os.walk("blog-media"):
         continue
     for fn in files:
         for t in targets:
-            if file_re(t).search(fn):
+            if is_old_file(folder, fn, t):
                 old_files.append(os.path.join(folder, fn))
                 break
 
