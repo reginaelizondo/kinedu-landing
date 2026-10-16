@@ -3058,6 +3058,11 @@
       "permanent": true
     },
     {
+      "source": "/pt/blog/por-que-o-padrao-do-sono-do-meu-bebe-de-8-meses-mudou",
+      "destination": "/pt/blog/por-que-o-padrao-de-sono-do-meu-bebe-de-8-meses-mudou",
+      "permanent": true
+    },
+    {
       "source": "/es/blog/que-es-normal-en-la-fontanela-de-un-bebe",
       "destination": "/es/blog/mollera-sumida",
       "permanent": true
