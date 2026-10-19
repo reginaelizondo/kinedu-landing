@@ -1,0 +1,83 @@
+# Envato Elements · Lote 22 (WordPress, 77 fotos)
+
+Fotos de la era WordPress con licencia desconocida. Las 3 propias de Kinedu de este grupo (foto personal de autora, banner de la app y foto de cámara propia) se añadieron a propias-kinedu.txt. Las 3 propias de Kinedu de este grupo se añadieron a propias-kinedu.txt.
+
+| # | Buscar en Envato | Guardar como | Reemplaza a |
+|---|---|---|---|
+| 1 | REUSE:joy-of-motherhood | lessons-motherhood-es.jpg | path:blog-media/es/wp-content/uploads/2019/05/original-fa14fc6b7c80b153b228232bead7520d |
+| 2 | REUSE:what-are-baby-growth-charts | growth-development-es.jpg | path:blog-media/es/wp-content/uploads/2019/05/original-7dbc72a3ba073d39869d6687dcd507c0 |
+| 3 | REUSE:baby-early-milestone | support-development-es.jpg | path:blog-media/es/wp-content/uploads/2019/05/original-b38e3a83442b20d330a758e338fbb9ba |
+| 4 | REUSE:baby-routine-pt | routine-baby-es.jpg | path:blog-media/es/wp-content/uploads/2019/05/original-a134d2a532eee9149b117bd7cf6663d0 |
+| 5 | REUSE:stimulate-talking-pt | teach-talk-es.jpg | path:blog-media/es/wp-content/uploads/2019/04/original-234bd0717d214394a3f93e3f10f02ff0 |
+| 6 | REUSE:scissors-skills | scissors-es.jpg | path:blog-media/es/wp-content/uploads/2018/04/3147 |
+| 7 | REUSE:prepare-baby-bottle | prepare-bottle-es.jpg | path:blog-media/es/wp-content/uploads/2016/09/H_2093 |
+| 8 | REUSE:vaccines-autism-pt | vaccines-autism-es.jpg | path:blog-media/es/wp-content/uploads/2016/09/H_2021 |
+| 9 | REUSE:diaper-change-out | diaper-change-out-es.jpg | path:blog-media/es/wp-content/uploads/2016/09/H_2051 |
+| 10 | REUSE:choose-daycare | choose-daycare-es.jpg | path:blog-media/es/wp-content/uploads/2016/09/H_2061 |
+| 11 | REUSE:dress-baby-weather | dress-weather-es.jpg | path:blog-media/es/wp-content/uploads/2016/09/H_2057 |
+| 12 | REUSE:first-foods-pt | first-foods-es.jpg | path:blog-media/es/wp-content/uploads/2016/08/H_2013 |
+| 13 | REUSE:healthy-snacks | healthy-snacks-es.jpg | path:blog-media/es/wp-content/uploads/2016/08/H_2015 |
+| 14 | REUSE:sleep-7-9-months | sleep-7-9-months-es.jpg | path:blog-media/es/wp-content/uploads/2016/07/H_2042 |
+| 15 | REUSE:touch-smell-pt | touch-smell-es.jpg | name:foto-blog-touch-and-smell |
+| 16 | REUSE:visual-development-first-year | visual-development-es.jpg | name:foto_blog_visual_dev |
+| 17 | REUSE:parent-play-floor | happy-life-es.jpg | name:foto-blog-leila-feliz1 |
+| 18 | REUSE:conversation-skills | meaningful-conversations-es.jpg | name:anacaro |
+| 19 | REUSE:honesty-pt | honesty-es.jpg | name:3160-ORIGINAL |
+| 20 | REUSE:develop-skills-pt | support-skills-es.jpg | path:blog-media/es/wp-content/uploads/2020/07/original-fa81499dd4737ad5b3a1814a3da22ccb |
+| 21 | happy baby awake in bouncer seat | baby-swing-vs-rocker-pt.jpg | name:adorable-baby-sleeps-in-baby-rocker-in-room-newborn-scaled |
+| 22 | REUSE:sleep-regression-8-10-months | sleep-8-months-pt.jpg | path:blog-media/pt/wp-content/uploads/2024/11/5-scaled |
+| 23 | REUSE:baby-kicks | baby-moves-pt.jpg | name:post_thumbnail-fc6ff0accb9931fe411d9ee7c23254d8 |
+| 24 | REUSE:power-pumping-es | power-pump-pt.jpg | name:power-pump |
+| 25 | REUSE:botox-breastfeeding | botox-breastfeeding-pt.jpg | name:pode-fazer-botox-amamentando |
+| 26 | REUSE:labor-signs-pt | mucus-plug-pt.jpg | name:post_thumbnail-e74d5c007db7fe67f0df64964b5dfd45 |
+| 27 | REUSE:reheat-breast-milk-es | reheated-milk-pt.jpg | name:pode-refrigerar-leite-materno-aquecido |
+| 28 | REUSE:development-milestones | development-leaps-pt.jpg | name:salto-de-desenvolvimento |
+| 29 | REUSE:breastfeeding-baby-sleep | asleep-while-feeding-pt.jpg | name:Art_Pre_ID_108 |
+| 30 | baby sitting in stroller park | stroller-sitting-pt.jpg | name:com-quantos-meses-pode-colocar-bebe-sentado-no-carrinho |
+| 31 | REUSE:open-ended-toys | waldorf-toys-pt.jpg | name:brinquedos-waldorf |
+| 32 | REUSE:one-nap | one-nap-pt.jpg | name:soneca |
+| 33 | REUSE:cmpa-allergy | lactose-intolerance-pt.jpg | name:bebe-com-intolerancia-a-lactose |
+| 34 | REUSE:babies-social-play | social-skills-learn-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-425 |
+| 35 | REUSE:parent-child-love | importance-love-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-419 |
+| 36 | REUSE:baby-routine | baby-routine-pt-2.jpg | path:blog-media/pt/wp-content/uploads/2020/01/original-e21e9e48f962898c77106ef449267a9d |
+| 37 | REUSE:weaning-pt | gentle-weaning-pt.jpg | name:post_thumbnail-c2a3b9813d1a786fdfe1b96fd86296b2 |
+| 38 | REUSE:child-empathy | respect-differences-pt.jpg | name:diferencas |
+| 39 | REUSE:hand-coordination-pt | visual-motor-pt.jpg | name:post_thumbnail-389b867d8f29902496f3f6e61a7c37f1 |
+| 40 | REUSE:constipation-es | newborn-constipation-pt.jpg | name:post_thumbnail-7c8d8b30fca0ad9aec139c65a9c1979e |
+| 41 | REUSE:baby-teeth | bottle-caries-pt.jpg | name:post_thumbnail-2a240ad6aa2199a276b4ac804c6731f1 |
+| 42 | REUSE:emotional-education | emotions-activities-pt.jpg | name:post_thumbnail-8a84813a51d470f22f840fa7c8c5dced |
+| 43 | REUSE:shapes-colors-pt | geometric-shapes-pt.jpg | name:post_thumbnail-34e6e1945ae056df0aed1190328ae633 |
+| 44 | REUSE:tantrum-books | tantrum-books-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-398 |
+| 45 | REUSE:fine-motor-pt | fine-motor-coordination-pt.jpg | name:coordenacao-motora-fina |
+| 46 | REUSE:hypertonia-es | hypotonia-pt.jpg | name:post_thumbnail-1ea6c2eb3fe51ab474081ea3e5064217 |
+| 47 | REUSE:books-for-new-parents | books-new-parents-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-393 |
+| 48 | REUSE:caring-children | loving-children-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-391 |
+| 49 | REUSE:heimlich-baby | choking-first-aid-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-339 |
+| 50 | REUSE:car-seat-age-es | car-seat-pt.jpg | name:cadeirinha-de-carro |
+| 51 | REUSE:pregnancy-headaches | pregnancy-headaches-pt.jpg | name:post_thumbnail-2f12c3156526607629c79cc7719bee7c |
+| 52 | REUSE:breast-milk-popsicles | milk-popsicles-pt.jpg | name:post_thumbnail-cd9656210c1de23440a4e8af3b2ea223 |
+| 53 | REUSE:potty-training | potty-training-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-331 |
+| 54 | REUSE:dance-benefits-pt | baby-dance-pt.jpg | name:post_thumbnail-5fb6624637f2f6e80f83af17b6b05f27 |
+| 55 | REUSE:pacifier-weaning | pacifier-weaning-pt.jpg | name:post_thumbnail-824480b569e42f759f08a85c3e960f8c |
+| 56 | REUSE:down-syndrome | down-syndrome-pt.jpg | name:post_thumbnail-db86390f553fd110a01d427789fafba7 |
+| 57 | REUSE:1-month-old-baby | first-month-pt.jpg | name:post_thumbnail-5bb2db00d0f5fb2cfb40823fdaa48f4b |
+| 58 | REUSE:prenatal-vitamins | prenatal-postnatal-vitamins-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/08/picture-91 |
+| 59 | REUSE:cervical-cerclage-es | induced-labor-pt.jpg | name:post_thumbnail-3b10b82e15189b1ce3a9cb2684317ce3 |
+| 60 | REUSE:baby-sleeps-night | baby-sleep-guide-pt.jpg | name:post_thumbnail-964ab6ba8e52da53bb5250fddfa28118 |
+| 61 | REUSE:grasping-objects-pt | hand-movement-pt.jpg | path:blog-media/pt/wp-content/uploads/2018/06/picture-495 |
+| 62 | REUSE:morphology-ultrasound-es | morphology-ultrasound-pt.jpg | name:post_thumbnail-22ec1b6db744998b99d6c5fbb48348fa |
+| 63 | REUSE:sun-protection-pt | sunbath-pt.jpg | name:post_thumbnail-6776ec186fb422a26c7e9442559c41f4 |
+| 64 | REUSE:sleep-hygiene-es | sleep-hygiene-pt.jpg | name:post_thumbnail-d71bca1ea37971adb89c4cb4da6843fd |
+| 65 | REUSE:development-milestones-es | baby-development-pt.jpg | name:post_thumbnail-d258b282ed74817af5ee5e02bfc6450f |
+| 66 | REUSE:breast-milk-composition-es | milk-composition-pt.jpg | name:post_thumbnail-5789b59ce4cc20b4f06d07af9f4c7317 |
+| 67 | REUSE:breastfeeding-home | breastfeeding-teeth-pt.jpg | path:blog-media/pt/wp-content/uploads/2020/07/original-a17941bfb0db4d3be008ae41afeedfc2 |
+| 68 | REUSE:educational-activities-pt | school-play-pt.jpg | path:blog-media/pt/wp-content/uploads/2020/07/original-383d9c325b7f2cfdda9d6abca77c1e31 |
+| 69 | REUSE:breastfeeding-positions-es | breastfeeding-positions-pt.jpg | path:blog-media/pt/wp-content/uploads/2020/07/original-fe926bebba7b45e3473d06593e3a82de |
+| 70 | REUSE:track-baby-development | kinedu-app-pt.jpg | path:blog-media/pt/wp-content/uploads/2020/02/original-58d9f415aeed808999b008029a808210 |
+| 71 | REUSE:motherhood-challenges-es | motherhood-challenges-pt.jpg | path:blog-media/pt/wp-content/uploads/2020/01/original-c0051134dd8c4d68f78b0d9c71ee0ccb |
+| 72 | REUSE:types-of-crying-es | baby-crying-types-pt.jpg | name:chorodobebe |
+| 73 | REUSE:c-section-scar-es | c-section-scar-pt.jpg | path:blog-media/pt/wp-content/uploads/2019/11/original-b9eb4c5045198c6fbd7498acfbcf2ce7 |
+| 74 | REUSE:tech-motherhood-es | technology-development-pt.jpg | path:blog-media/pt/wp-content/uploads/2019/09/original-e5a4007c7b4e815d26270d065d580578 |
+| 75 | REUSE:postpartum-recovery | postpartum-healthy-pt.jpg | path:blog-media/pt/wp-content/uploads/2019/09/original-d70020091c32de3c3f1ac5b2ec027611 |
+| 76 | REUSE:bottle-types-es | bottle-types-pt.jpg | path:blog-media/pt/wp-content/uploads/2019/09/original-d0c629fa6a0c9a13e20411d18a29e79f |
+| 77 | REUSE:toddler-copying-dad | imitating-parents.jpg | name:4157-Kineud-imitating-parents |
