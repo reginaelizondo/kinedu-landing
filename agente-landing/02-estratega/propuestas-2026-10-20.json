@@ -1,0 +1,20 @@
+{
+  "titulo": "Propuestas de Marina · 20 de octubre",
+  "intro": "Regina: aquí van las decisiones pendientes con botón. Si un botón no responde todavía, falta activar Interactivity en la app de Slack (2 minutos, Claude te pasó los pasos); mientras, escribir \"va 1\" en el hilo sigue valiendo.",
+  "items": [
+    {"n": 1, "emoji": "🧪", "titulo": "Fijar la variante B de los CTAs del blog (ganó el A/B)", "impacto": "+180% clics al CTA del blog", "se_ve": "/analytics › A/B y en Web Promos (correos de landing-kinedu) en 2 semanas", "dueno": "Marina",
+     "detalle": "El A/B de CTAs del blog ya tiene más de 1,000 vistas por variante y B (bloque contextual + barra fija en móvil) gana en los tres idiomas. Propongo apagar el reparto y dejar B para todos los lectores del blog.",
+     "calculo": "14 días en /api/stats: A 11 clics / 1,883 vistas = 0.58%; B 29 / 1,780 = 1.63%. z 3.05, p 0.002. PT: 0.69% → 2.60%; EN 0.48% → 0.95%; ES 0.55% → 1.32%.",
+     "riesgo": "Un clic no es una venta: Web Promos no separa por variante. Vigilar correos y pruebas pagadas de landing-kinedu las 2 semanas siguientes."},
+    {"n": 2, "emoji": "🧹", "titulo": "Consolidar las 83 series de posts plantilla en hubs por edad (219 posts, con 301)", "impacto": "calidad del sitio ante el update de Google", "se_ve": "Search Console en 4 a 6 semanas", "dueno": "Marina",
+     "detalle": "La auditoría del 20-oct encontró 83 series de posts casi iguales por tramo de edad (\"horas de sueño 0-3 / 13-16 / 17-20 meses\" ×7 por idioma, \"cómo leerle a tu bebé de X meses\" ×4, \"coordinación de manos\" ×4, regresiones de sueño ×4). Es contenido escalado por plantilla, justo lo que castiga el update que nos quitó el 60% de los clics en PT y ES. Propongo unirlos en un hub por serie e idioma con tabla por edad y 301 desde las variantes, por lotes de 10, empezando por las series con menos clics.",
+     "calculo": "3,416 posts; 197 (5%) hacen el 80% de los clics de 90 días. Las 30 que más perdieron están indexadas y rastreadas: Google las tiene y las muestra menos.",
+     "riesgo": "Baja temporal de posiciones al redirigir. Mitigación: empezar por las series con menos tráfico y medir cada lote antes del siguiente."},
+    {"n": 3, "emoji": "👩‍⚕️", "titulo": "Autor experto real en cada post (schema Person + \"revisado por\")", "impacto": "palanca E-E-A-T para recuperar visibilidad", "se_ve": "Search Console 4 a 8 semanas después de publicarlo", "dueno": "Marina + Regina asigna expertas",
+     "detalle": "Hoy el schema dice que el autor de cada artículo es la organización \"Kinedu\". Google premia una persona con credenciales: pediatra o psicóloga del desarrollo, con su página en /experts y la leyenda \"revisado por\". Es UN cambio de plantilla para todo el blog; propongo hacerlo al levantar el freeze (tras leer 2 semanas más de Google). Necesito que Regina diga qué experta firma qué categoría.",
+     "riesgo": "Cambio masivo de plantilla con la caída encima: por eso después del freeze y con medición antes/después."},
+    {"n": 4, "emoji": "📅", "titulo": "Calendario estacional BR/MX y alta en Bing Webmaster Tools", "impacto": "picos planeados en vez de sorpresas", "se_ve": "impresiones en las fechas clave", "dueno": "Marina",
+     "detalle": "\"Atividades primavera\" movió 19,000 impresiones en una sola fecha y se acabó en octubre. Propongo un calendario de Brasil y México (vuelta a clases, Día del Niño, regalos de fin de año que empata con Gift) para escribir antes del pico, y dar de alta Bing Webmaster Tools, pendiente del estudio GEO, para depender menos de Google.",
+     "riesgo": "Bajo. Es planeación y un alta."}
+  ]
+}

@@ -12,10 +12,16 @@ Uso:
   slack_bot.py thread <ts>                    → todas las respuestas de ese hilo (JSON)
   slack_bot.py find  "prefijo"                → el mensaje más reciente del canal que empiece
                                                 con ese texto (ignora emoji y formato), con su hilo
+  slack_bot.py propose <spec.json>            → publica propuestas con botones ✅ Acepto / ✖ No por ahora
+                                                (Block Kit). spec: {"titulo","intro"?,"fecha"?,"items":[{"n","titulo",
+                                                "detalle","impacto"?,"se_ve"?,"dueno"?,"calculo"?,"riesgo"?,"emoji"?,"id"?}]}
+                                                El clic llega a kinedu.com/masterclasses/api/slack/interact y queda guardado.
+  slack_bot.py approvals [dias]               → decisiones tomadas con los botones (JSON), vía
+                                                /masterclasses/api/admin/approvals (llave ANALYTICS_PASSWORD)
 El texto acepta formato de Slack (mrkdwn): *negritas*, _cursivas_, `código`, listas con •.
 Canal por defecto: C0C76H0F5F0 (#landing-agente); se puede cambiar con SLACK_CHANNEL en .env.
 """
-import os, sys, json, re, urllib.request, urllib.parse
+import os, sys, json, re, datetime, urllib.request, urllib.parse
 
 CFG = os.path.expanduser("~/.config/kinedu-agent/.env")
 env = {}
@@ -71,6 +77,39 @@ def main():
                        "replies": [{"ts": x.get("ts"), "user": x.get("user"), "bot": x.get("bot_id"), "text": x.get("text", "")} for x in t.get("messages", [])[1:]]}
                 print(json.dumps(out, ensure_ascii=False, indent=1)); return
         print(json.dumps({"ok": False, "error": "no encontrado"}))
+    elif cmd == "propose":
+        spec = json.load(open(sys.argv[2], encoding="utf-8"))
+        fecha = spec.get("fecha") or datetime.date.today().isoformat()
+        def pid(it): return it.get("id") or f"{fecha}-{it['n']}"
+        blocks = [{"type": "header", "text": {"type": "plain_text", "text": str(spec.get("titulo", "Recomendaciones"))[:150], "emoji": True}}]
+        if spec.get("intro"):
+            blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": str(spec["intro"])[:2900]}})
+        for it in spec["items"]:
+            head = f"*{it['n']}. {it.get('emoji', '')} {it['titulo']}*".replace("  ", " ")
+            if it.get("impacto"): head += f" · *{it['impacto']}*"
+            if it.get("se_ve"): head += f" · se ve en {it['se_ve']}"
+            if it.get("dueno"): head += f" · dueño: {it['dueno']}"
+            body = str(it.get("detalle", ""))
+            if it.get("calculo"): body += f"\n_Cómo se calculó:_ {it['calculo']}"
+            if it.get("riesgo"): body += f"\n_Riesgo:_ {it['riesgo']}"
+            val = json.dumps({"id": pid(it), "n": it["n"], "titulo": str(it["titulo"])[:80]}, ensure_ascii=False)
+            blocks += [
+                {"type": "divider"},
+                {"type": "section", "text": {"type": "mrkdwn", "text": (head + "\n" + body)[:2900]}},
+                {"type": "actions", "block_id": f"acc-{pid(it)}"[:255], "elements": [
+                    {"type": "button", "style": "primary", "action_id": "aprobar", "text": {"type": "plain_text", "text": "✅ Acepto", "emoji": True}, "value": val},
+                    {"type": "button", "action_id": "rechazar", "text": {"type": "plain_text", "text": "✖ No por ahora", "emoji": True}, "value": val},
+                ]},
+            ]
+        fallback = str(spec.get("titulo", "Recomendaciones")) + ": " + "; ".join(f"{i['n']}. {i['titulo']}" for i in spec["items"])
+        r = api("chat.postMessage", {"channel": CHANNEL, "text": fallback, "blocks": blocks, "unfurl_links": False}, post=True)
+        print(json.dumps({"ok": r.get("ok"), "ts": r.get("ts"), "error": r.get("error"), "ids": [pid(i) for i in spec["items"]]}, ensure_ascii=False))
+    elif cmd == "approvals":
+        days = sys.argv[2] if len(sys.argv) > 2 else "14"
+        req = urllib.request.Request("https://www.kinedu.com/masterclasses/api/admin/approvals?days=" + urllib.parse.quote(days),
+                                     headers={"x-metrics-key": env.get("ANALYTICS_PASSWORD", "")})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            print(r.read().decode("utf-8"))
     else:
         print(__doc__); sys.exit(1)
 
