@@ -1834,7 +1834,7 @@ function giftRender() {
     ['Vistas de /gift', fmt(views), delta(views, viewsP)],
     ['Clics a "ver planes"', fmt(plans), delta(plans, plansP)],
     ['Clics a checkout', fmt(checkoutClicks), delta(checkoutClicks, checkoutClicksP)],
-    ['Regalos pagados', paid == null ? (giftState.loading ? '…' : '—') : fmt(paid), t ? '<span class="dlt flat">' + fmt(t.checkout_started) + ' llegaron al checkout' + (t.checkout_started ? ' · ' + pct(paid / t.checkout_started * 100) + ' pagan' : '') + '</span>' : '<span class="dlt flat">' + (giftState.error ? 'sin datos de Web Promos' : 'cargando…') + '</span>'],
+    ['Regalos pagados', paid == null ? (giftState.loading ? '…' : '—') : fmt(paid), t ? '<span class="dlt flat">' + (t.checkout_viewed != null ? fmt(t.checkout_viewed) + ' llegaron al checkout · ' : '') + fmt(t.checkout_started) + ' iniciaron el pago' + (t.checkout_started ? ' · ' + pct(paid / t.checkout_started * 100) + ' pagan' : '') + '</span>' : '<span class="dlt flat">' + (giftState.error ? 'sin datos de Web Promos' : 'cargando…') + '</span>'],
     ['Ingresos', t ? '$' + usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '—', t ? '<span class="dlt flat">USD · ticket ' + (paid ? '$' + (usd / paid).toFixed(2) : '—') + (t.redeemed ? ' · ' + fmt(t.redeemed) + ' canjeados' : '') + '</span>' : '<span class="dlt flat">de Web Promos</span>']
   ];
   $('giftKpis').innerHTML = kp.map(function (k) { return '<div class="kpi"><div class="lbl">' + k[0] + '</div><div class="val">' + k[1] + '</div>' + k[2] + '</div>'; }).join('');
@@ -1862,11 +1862,12 @@ function giftRender() {
     ['Vieron /gift', views, PAL[0]],
     ['Clic a "ver planes"', plans, PAL[1]],
     ['Clic a checkout', checkoutClicks, PAL[3]],
-    ['Llegaron al checkout (Web Promos)', t.checkout_started, PAL[5]],
+    ['Llegaron al checkout (Web Promos)', t.checkout_viewed != null ? t.checkout_viewed : null, PAL[5]],
+    ['Iniciaron el pago (Stripe)', t.checkout_started, PAL[1]],
     ['Pagaron', t.paid, PAL[2]],
     ['Abrieron el regalo', t.opened, PAL[4]],
     ['Canjearon', t.redeemed, PAL[2]]
-  ];
+  ].filter(function (s) { return s[1] != null; }); /* "Llegaron" solo cuando Web Promos ya manda checkout_viewed (20-oct-2026) */
   var top = Math.max.apply(null, steps.map(function (s) { return s[1]; })) || 1;
   $('giftFunnel').innerHTML = steps.map(function (s, i) {
     var prevV = i ? steps[i - 1][1] : 0;
@@ -1880,7 +1881,8 @@ function giftRender() {
   var bd = {}; (d.byDay || []).forEach(function (r) { bd[r.day] = r; });
   lineAreaChart($('giftDaily'), [
     { name: 'Vistas de /gift', color: PAL[0], values: labels.map(function (l) { return byDayViews[l] || 0; }), area: true },
-    { name: 'Llegaron al checkout', color: PAL[3], values: labels.map(function (l) { return bd[l] ? bd[l].checkout_started : 0; }) },
+    { name: 'Llegaron al checkout', color: PAL[5], values: labels.map(function (l) { return bd[l] && bd[l].checkout_viewed != null ? bd[l].checkout_viewed : 0; }) },
+    { name: 'Iniciaron el pago', color: PAL[1], values: labels.map(function (l) { return bd[l] ? bd[l].checkout_started : 0; }) },
     { name: 'Regalos pagados', color: PAL[2], values: labels.map(function (l) { return bd[l] ? bd[l].paid : 0; }) }
   ], { labels: labels, h: 230 });
 
