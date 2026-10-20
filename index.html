@@ -827,7 +827,8 @@ try{
 </style>
 <script>
 /* A/B del menú móvil (solo móvil). A = menú actual, B = menú por secciones. ?menu=a|b fuerza.
-   Mide menu_open y menu_click con variante en las dos. */
+   Mide aperturas (ab_view) y clics (ab_cta) con variante menu-a/menu-b, que es lo que /api/stats
+   agrega en abSummary.menu. Arreglo 20-oct: menu_open/menu_click no existian en /api/track y caian como pageview. */
 window.addEventListener('load', function(){
   try{
     if(!(window.matchMedia && window.matchMedia('(max-width:768px)').matches)) return;
@@ -841,10 +842,10 @@ window.addEventListener('load', function(){
     try{ if(window.clarity) window.clarity('set','menu',mv); }catch(e){}
     var page=location.pathname, lang=((localStorage.getItem('kinedu-lang')||document.documentElement.lang||'en')+'').slice(0,2);
     ham.addEventListener('click', function(){ setTimeout(function(){
-      if(nl.classList.contains('active')) navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'menu_open',variant:mv,lang:lang}));
+      if(nl.classList.contains('active')) navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'ab_view',variant:'menu-'+mv,lang:lang}));
     },0); });
     nl.addEventListener('click', function(e){ var a=e.target.closest('a[href]'); if(!a) return;
-      navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'menu_click',variant:mv,lang:lang,cta:(a.textContent||'').trim().slice(0,30)})); });
+      navigator.sendBeacon('/api/track', JSON.stringify({page:page,event:'ab_cta',variant:'menu-'+mv,lang:lang,cta:(a.textContent||'').trim().slice(0,30)})); }, true); /* captura: script.js detiene la propagacion en el <a>, en burbuja este listener nunca corria (20-oct) */
     if(mv!=='b') return;
     var L=({en:['Start','Explore','More'],es:['Empieza','Explora','Más'],pt:['Comece','Explore','Mais']})[lang]||['Start','Explore','More'];
     var q=function(h){ return nl.querySelector('a[href$="'+h+'"]'); };

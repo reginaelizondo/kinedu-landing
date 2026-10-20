@@ -23,6 +23,13 @@ function itemsFor(body, date) {
     if (body.variant) add('ab_view', `${page}|${body.variant}`);
     return { items, countsAsVisit: false };
   }
+  // Clic de un A/B que NO es conversión del sitio (p. ej. tocar un ítem del menú móvil):
+  // suma a ab_cta para abSummary sin tocar conversiones ni vistas. Antes (20-oct) el menú
+  // mandaba menu_open/menu_click, que no existían aquí y caían como pageview.
+  if (event === 'ab_cta') {
+    if (body.variant) add('ab_cta', `${page}|${body.variant}`);
+    return { items, countsAsVisit: false };
+  }
 
   add('pv', page); add('lang', lang);
   if (cat) add('cat', cat);
