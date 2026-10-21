@@ -42,3 +42,15 @@ Regina lee mejor en bloques cortos: le cuesta un texto largo corrido. Pero quier
 ## Slack
 - Todo lo que se publica en Slack sale con el bot **Marina (Claude)** (`scripts/agent/slack_bot.py`, token SLACK_BOT_TOKEN en ~/.config/kinedu-agent/.env). Nunca con la integración de Slack de la app, que firma como Regina. Comandos: `post`, `reply <ts>`, `read`, `thread <ts>`, `find "prefijo"`.
 - Canal #landing-agente (C0C76H0F5F0). El Estratega abre un hilo semanal "Recomendaciones semana del D de mes" y el Investigador uno de "Contenido semana del...". Aprueban contestando en el hilo con "dale N" / "dale todo" / "va" / la opción que Marina ofreció: **Regina Elizondo (U06V90A0Q86) y Pepis Avalos (U043LK1JQMT)**, desde el 7-oct-2026. Nadie más. Si se contradicen, manda Regina. El Implementador solo actúa sobre aprobaciones explícitas; si hay duda, pregunta en el hilo y no hace nada.
+
+## AEO: que la IA pueda leernos y recomendarnos (desde 21-oct-2026)
+Toda página o post nuevo sale cumpliendo esto; `scripts/seo/aeo_audit.py` lo vigila mes a mes.
+- El copy del idioma va en el HTML crudo (no inyectado por JavaScript): los bots de IA no ejecutan JS.
+- Nada clave (precios, cifras, prueba social) solo en imágenes ni en `<script>`; testimonios en texto.
+- Toda imagen con `alt` descriptivo (como se la explicarías a alguien que no la ve); botones de ícono con `aria-label`; cada campo de formulario con `<label>`.
+- Definición clara en la página principal de cada producto: qué es, para quién, qué hace ("Kinedu es una app de desarrollo infantil para papás de bebés de 0 a 4 años que…"), no solo el eslogan.
+- En artículos y comparativas: la pregunta del lector como primer H2 bajo el H1 y una respuesta honesta de "depende" en ≤100 palabras; en páginas "X vs Y", recomendar por caso de uso.
+- Cifras con fecha ("11 millones de familias, a 2026"), tomadas del CLAIMS-REGISTER.
+- HTML semántico: `<header>`, `<nav>`, `<main>`, `<footer>`, `<button>`; nada de `<div>` haciendo de botón.
+- Fechas reales de publicado y actualizado visibles y en el schema; nunca cambiar la fecha sin un cambio real.
+- robots.txt abierto a los bots de IA (GPTBot, ClaudeBot, PerplexityBot, meta-webindexer, Bingbot).

@@ -13,3 +13,8 @@ resultado real: `python3 scripts/agent/bitacora.py set <id> resultado="qué pas�
 (los ids están en `00-memoria/BITACORA.md`). Si una medición deja una lección aplicable
 siempre: `bitacora.py aprende "regla corta" area=<área>`. Al terminar corre
 `bitacora.py report` y pega ese avance en Slack (así Regina ve el progreso cada lunes).
+
+**AEO mensual (primer lunes del mes, desde noviembre 2026).** Corre `python3 scripts/seo/aeo_audit.py`,
+compara con el `aeo-*.json` del mes anterior y manda al backlog cualquier retroceso (imágenes sin alt
+nuevas, páginas sin definición o sin fecha, H1 en inglés en es/ o pt/). Si hay BING_API_KEY en el .env,
+agrega al reporte el bloque "AI Performance" de Bing Webmaster Tools (citas en respuestas de IA).

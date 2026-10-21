@@ -1,0 +1,26 @@
+{
+  "titulo": "AEO (que la IA nos recomiende) · 5 arreglos con dato",
+  "intro": "Regina pasó una lista de 11 optimizaciones para que agentes como Meta Muse / ChatGPT recomienden el sitio. Auditamos kinedu.com punto por punto: 2 ya los cumplimos (robots.txt abierto a bots de IA; testimonios en texto, no imagen) y los links rotos los corre el Investigador como rutina. Estos 5 sí fallan y valen la pena:",
+  "items": [
+    {"n": 1, "emoji": "🌐", "titulo": "Servir español y portugués en el HTML crudo (hoy /es y /pt mandan inglés y traducen con JavaScript)", "impacto": "lo que leen los bots de IA y Bing en ES/PT", "se_ve": "curl a /es muestra español; Bing/IA en 2-4 semanas", "dueno": "Marina",
+     "detalle": "El H1 crudo de /es/index.html y /pt/index.html es \"Exactly what to do with your baby, today.\": el texto en español/portugués lo pone translations.js al cargar. Los crawlers de IA (y Bing en parte) no ejecutan JavaScript, así que nos leen en inglés en ES y PT, justo los mercados grandes. Propongo un script que prerenderice las traducciones en las 10 páginas principales de es/ y pt/ (deja data-i18n para el switcher) y se corra en cada publicación.",
+     "calculo": "Auditoría 21-oct sobre 10 hubs: en es/ y pt/ el HTML crudo trae el copy en inglés; el blog sí está en cada idioma.",
+     "riesgo": "Bajo: se genera desde translations.js y se verifica con curl. Google no cambia (ya ejecuta JS)."},
+    {"n": 2, "emoji": "🖼️", "titulo": "Alt text en ~1,000 imágenes del blog y en science.html (14 de 16 sin alt)", "impacto": "accesibilidad + lectura por agentes de IA + imagen en Google", "se_ve": "auditoría interna la semana siguiente", "dueno": "Marina",
+     "detalle": "Un 15% de las imágenes del blog no tiene alt (muestra: EN 308/2,119, ES 368/2,170, PT 309/2,108). Pase automático: alt a partir del pie de foto o del H2 cercano; si no hay, \"Foto: <tema del post>\". Sin inventar hechos; solo describir.",
+     "calculo": "Conteo directo en el HTML, 21-oct.",
+     "riesgo": "Algún alt quedará genérico; mejor que vacío. No toca fechas ni cuerpo."},
+    {"n": 3, "emoji": "📝", "titulo": "Definición clara de Kinedu + fechas en los claims del home (EN/ES/PT)", "impacto": "cómo nos describe la IA cuando nos cita", "se_ve": "inmediato en el HTML", "dueno": "Marina",
+     "detalle": "El home no tiene una frase tipo \"Kinedu es una app de desarrollo infantil para papás de bebés de 0 a 4 años que da un plan diario de actividades, seguimiento de hitos y guía de expertas\" (qué es / para quién / qué hace); hoy la frase más cercana empieza con \"Kinedu gives you…\". Y los números (11M familias, 180+ países, 25K reseñas) no llevan fecha: agregar \"as of 2026\" / \"a 2026\", tomando los valores del CLAIMS-REGISTER.",
+     "calculo": "Auditoría 21-oct: 0 frases \"Kinedu is …\" y 0 \"as of\" en index.html.",
+     "riesgo": "Ninguno técnico. Copy sin guion largo y sin Harvard."},
+    {"n": 4, "emoji": "🧱", "titulo": "HTML semántico y frescura en las páginas principales (<main>/<header>, dateModified y línea \"Actualizado\")", "impacto": "confianza y lectura de la estructura por agentes", "se_ve": "inmediato", "dueno": "Marina",
+     "detalle": "index.html no tiene <main> ni <header> (sí <nav> y <footer>, y los botones son <button>). science, book y masterclasses no llevan dateModified en el schema ni una línea \"Actualizado\". Propongo envolver el contenido en <main>, el nav en <header>, y fechas reales en los hubs de contenido (science, book).",
+     "calculo": "Auditoría 21-oct.",
+     "riesgo": "Bajo. Regla: nunca cambiar fechas sin un cambio real de contenido."},
+    {"n": 5, "emoji": "⚖️", "titulo": "Investigar y proponer páginas \"Kinedu vs …\" con la pregunta como primer H2 y respuesta \"depende\" en 100 palabras", "impacto": "es exactamente lo que citan Muse y ChatGPT", "se_ve": "propuesta del Investigador el jueves; páginas en 2-3 semanas", "dueno": "Marina",
+     "detalle": "No tenemos páginas comparativas. El Investigador revisa en Search Console qué comparaciones buscan los papás (vs BabySparks, Huckleberry, Lovevery, Pathways, Kinedu alternativas) y propone 2-3 páginas por idioma con el formato que la IA cita: pregunta en el H2, respuesta honesta de \"depende del caso\", tabla, fecha. Ligado al plan GEO pendiente.",
+     "calculo": "Estudio GEO 27-ago: ChatGPT ya nos da #1 en ES; en EN salimos 4º vía terceros. Las comparativas son la pieza que falta.",
+     "riesgo": "Claims comparativos: verificables, con fecha y sin desprestigiar."}
+  ]
+}
