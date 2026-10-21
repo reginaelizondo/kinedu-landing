@@ -127,6 +127,39 @@ def gsc():
         "split": {"current": split(cur_p), "previous": split(prev_p)},
     }
 
+def bing():
+    """Bing Webmaster Tools: clics/impresiones (28 d vs 28 d previos) y, si existe, el
+    bloque de rendimiento en respuestas de IA. Mismo formato que gsc() para el reporte."""
+    key = secret("BING_API_KEY")
+    if not key:
+        return  # opcional: sin key no es error
+    site = env.get("GSC_PROPERTY", "https://www.kinedu.com/")
+    def call(method, extra=""):
+        u = f"https://ssl.bing.com/webmaster/api.svc/json/{method}?apikey={urllib.parse.quote(key)}&siteUrl={urllib.parse.quote(site)}{extra}"
+        try:
+            r = requests.get(u, timeout=60)
+            if r.status_code != 200:
+                out["errors"].append(f"bing {method}: http {r.status_code}"); return None
+            return r.json().get("d")
+        except Exception as e:
+            out["errors"].append(f"bing {method}: {str(e)[:60]}"); return None
+    def msdate(x):
+        try: return datetime.date(1970,1,1) + datetime.timedelta(days=int(x[x.find("(")+1:x.find(")")].split("+")[0]) / 86400000)
+        except Exception: return None
+    rows = call("GetRankAndTrafficStats") or []
+    daily = sorted(([(msdate(r.get("Date","")), r.get("Clicks",0), r.get("Impressions",0)) for r in rows]), key=lambda z: (z[0] or datetime.date.min))
+    daily = [d for d in daily if d[0]]
+    def win(days_back_end, length):
+        end = TODAY - datetime.timedelta(days=days_back_end); start = end - datetime.timedelta(days=length-1)
+        sel = [d for d in daily if start <= d[0] <= end]
+        return {"clicks": sum(d[1] for d in sel), "impressions": sum(d[2] for d in sel), "days": len(sel)}
+    cur, prev = win(3, 28), win(31, 28)
+    out["bing"] = {
+        "current": cur, "previous": prev,
+        "daily": [{"date": str(d[0]), "clicks": d[1], "impressions": d[2]} for d in daily[-28:]],
+        "note": "Bing Webmaster Tools (GetRankAndTrafficStats). 'AI Performance' aún sin API pública; revisar el panel a mano."
+    }
+
 # ---------------- /api/stats ----------------
 def site_stats():
     pw = secret("ANALYTICS_PASSWORD")
@@ -180,7 +213,7 @@ def products():
 
 clarity()
 if not CLARITY_ONLY:
-    gsc(); site_stats(); products()
+    gsc(); bing(); site_stats(); products()
 name = f"clarity-{TODAY.isoformat()}.json" if CLARITY_ONLY else f"weekly-{TODAY.isoformat()}.json"
 path = os.path.join(HIST, name)
 if not CLARITY_ONLY:
