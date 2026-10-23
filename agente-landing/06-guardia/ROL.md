@@ -12,3 +12,9 @@ los errores de script en Clarity no se dupliquen. Si hay algo, un solo mensaje e
 
 Si la alerta vale la pena recordarla, déjala en la bitácora:
 `python3 scripts/agent/bitacora.py add rol=Guardia tipo=alerta area=<área> estado=na titulo="qué pasó" detalle="..."`.
+
+**Correos de Google Search Console (cuando Regina reenvíe uno).** Antes de alarmar, diagnostica:
+- "Página con redirección" → casi siempre son nuestros 301 de consolidación. Verifica: el sitemap solo trae URLs destino; muestra ~40 URLs del sitemap, todas 200 (alguna en 301 = fuga, sacarla del sitemap); cruza con `vercel.json`. Si cuadra, es ruido bueno, no es la caída.
+- "Página con errores 404" → cruza cada URL con su tráfico en GSC; 301 solo las que rankean/tienen enlaces, el resto se deja en 404.
+- "Rastreada, no indexada" / "Alternativa con canónica" → suele ser contenido delgado o duplicado (ligar a la consolidación de series).
+Siempre: reporta en Slack qué es, si es nuestro o de Google, y qué hacer (muchas veces nada). Anótalo en la bitácora.
