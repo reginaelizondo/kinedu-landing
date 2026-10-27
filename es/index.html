@@ -51,7 +51,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="preload" as="image" href="/TAP/NEW/mobile EN.webp?v=4" media="(max-width: 768px)">
     <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/styles.css?v=0843a">
+    <link rel="stylesheet" href="/styles.css?v=1027a">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kinedu", "url": "https://www.kinedu.com/", "logo": "https://www.kinedu.com/logo%20kinedu.png", "sameAs": ["https://www.facebook.com/kineducom/", "https://www.instagram.com/kinedu/", "https://www.tiktok.com/@kineduapp", "https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw"]}</script>
@@ -125,7 +125,7 @@ try{
         <script>/* A/B del hero móvil. ?hero=b o ?hero=a fuerzan la variante (y la fijan para la
         sesión); si no, reparto 50/50 sticky en localStorage cuando AB_ON está encendido.
         Se decide aquí, durante el parse, para que la variante B no parpadee. */
-        (function(){var AB_ON=true;var v=null,ok=false;try{var m=location.search.match(/[?&]hero=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem('kinedu-hero',v);}else{v=sessionStorage.getItem('kinedu-hero');}if(!v&&AB_ON){v=localStorage.getItem('kinedu-hero');if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-hero',v);}}ok=true;}catch(e){}window.KINEDU_HERO=v||'a';window.KINEDU_HERO_OK=ok&&(v==='a'||v==='b');if(v==='b')document.getElementById('hero').className+=' hero--b';})();</script>
+        (function(){var H=document.getElementById('hero');if(H)H.className+=' hero--b';var v=null,ok=false;try{var m=location.search.match(/[?&]herocopy=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem('kinedu-herocopy',v);}else{v=sessionStorage.getItem('kinedu-herocopy');}if(!v){v=localStorage.getItem('kinedu-herocopy');if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herocopy',v);}}ok=true;}catch(e){}window.KINEDU_HERO='b';window.KINEDU_HEROCOPY=v||'a';window.KINEDU_HEROCOPY_OK=ok&&(v==='a'||v==='b');if(v==='b'&&H)H.className+=' hero--copy-b';})();</script>
         <!-- Animated gradient orbs -->
         <div class="hero-orbs">
             <div class="orb orb-1"></div>
@@ -152,8 +152,9 @@ try{
 
             <!-- RIGHT — Text content -->
             <div class="hero-text-col">
-                <!-- Variante B del hero (solo móvil): título de 2 líneas, una promesa, botón arriba del fold, prueba social. Se activa con ?hero=b o por el reparto A/B. -->
-                <h1 class="hero-headline hero-headline--b hero-b-only" data-i18n="hero.b.headline" data-i18n-html>Exactly what to do with your baby, <span class="gradient-shift-alt">today.</span></h1>
+                <!-- Hero móvil: layout B fijo desde el 27-oct (ganó la posición del botón arriba del fold). A/B SOLO de copy del titular: ?herocopy=a ('today') | ?herocopy=b ('every single day'), 50/50 sticky en localStorage 'kinedu-herocopy'. Mismo estilo B en ambos h1, solo cambia el texto. -->
+                <h1 class="hero-headline hero-headline--b hero-b-only hero-copy-today" data-i18n="hero.b.headline" data-i18n-html>Exactly what to do with your baby, <span class="gradient-shift-alt">today.</span></h1>
+                <h1 class="hero-headline hero-headline--b hero-b-only hero-copy-everyday" data-i18n="hero.copy.everyday" data-i18n-html>Know <span class="gradient-shift">exactly</span> what to do with your baby, <span class="gradient-shift-alt">every single day.</span></h1>
                 <p class="hero-sub hero-sub--b hero-b-only" data-i18n="hero.b.sub">A daily plan of activities for your baby's exact age, built by child development experts.</p>
                 <h1 class="hero-headline hero-a-only" data-i18n="hero.headline" data-i18n-html>
                     <span class="line">Know <span class="gradient-shift">exactly</span> what to</span>
@@ -714,10 +715,10 @@ try{
         var lang = localStorage.getItem('kinedu-lang') || 'en';
         var page = location.pathname;
         navigator.sendBeacon('/api/track', JSON.stringify({page: page, referrer: document.referrer, lang: lang}));
-        var heroVar = window.KINEDU_HERO || 'a';
+        var heroVar = 'herocopy-' + (window.KINEDU_HEROCOPY || 'a');
         var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-        if (isMobile && window.KINEDU_HERO_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_view', variant: heroVar, lang: lang}));
-        try { if (window.clarity) window.clarity('set', 'hero', heroVar); } catch (e) {}
+        if (isMobile && window.KINEDU_HEROCOPY_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_view', variant: heroVar, lang: lang}));
+        try { if (window.clarity) window.clarity('set', 'herocopy', window.KINEDU_HEROCOPY || 'a'); } catch (e) {}
         // El boton del hero va a webpromo (no a app.kinedu.com): se mide aparte, con la
         // variante del A/B en movil, sin importar el destino.
         document.querySelectorAll('.hero-ctas a').forEach(function(a){

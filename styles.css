@@ -3804,6 +3804,10 @@ body.amodal-lock { overflow: hidden; }
     .hero--b .hero-sub--b { font-size: 0.95rem !important; line-height: 1.55; color: var(--text-secondary); max-width: 320px; margin: 0 auto 20px; text-wrap: pretty; animation: fadeUp 0.8s ease 0.3s forwards; opacity: 0; }
     .hero--b .hero-ctas { margin-bottom: 10px; }
     .hero--b .hero-proof--b { font-size: 0.82rem; line-height: 1.5; color: var(--text-tertiary); font-weight: 500; margin: 0 0 4px; animation: fadeUp 0.8s ease 0.5s forwards; opacity: 0; }
+    /* A/B de copy del titular (27-oct): ambos h1 tienen estilo B; hero--copy-b muestra 'every single day' */
+    .hero--b .hero-copy-everyday { display: none; }
+    .hero--b.hero--copy-b .hero-copy-everyday { display: block; }
+    .hero--b.hero--copy-b .hero-copy-today { display: none; }
     .hero--b .hero-proof-stars { color: #F9BA48; letter-spacing: 1px; margin-right: 4px; }
     .hero--b .hero-phone-img { width: 200px; }
     .hero--b .device-glow { width: 220px; height: 220px; }
