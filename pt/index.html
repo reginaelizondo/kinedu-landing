@@ -51,7 +51,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="preload" as="image" href="/TAP/NEW/mobile EN.webp?v=4" media="(max-width: 768px)">
     <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/styles.css?v=1027a">
+    <link rel="stylesheet" href="/styles.css?v=1027b">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kinedu", "url": "https://www.kinedu.com/", "logo": "https://www.kinedu.com/logo%20kinedu.png", "sameAs": ["https://www.facebook.com/kineducom/", "https://www.instagram.com/kinedu/", "https://www.tiktok.com/@kineduapp", "https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw"]}</script>
@@ -125,7 +125,7 @@ try{
         <script>/* A/B del hero móvil. ?hero=b o ?hero=a fuerzan la variante (y la fijan para la
         sesión); si no, reparto 50/50 sticky en localStorage cuando AB_ON está encendido.
         Se decide aquí, durante el parse, para que la variante B no parpadee. */
-        (function(){var H=document.getElementById('hero');if(H)H.className+=' hero--b';var v=null,ok=false;try{var m=location.search.match(/[?&]herocopy=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem('kinedu-herocopy',v);}else{v=sessionStorage.getItem('kinedu-herocopy');}if(!v){v=localStorage.getItem('kinedu-herocopy');if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herocopy',v);}}ok=true;}catch(e){}window.KINEDU_HERO='b';window.KINEDU_HEROCOPY=v||'a';window.KINEDU_HEROCOPY_OK=ok&&(v==='a'||v==='b');if(v==='b'&&H)H.className+=' hero--copy-b';})();</script>
+        (function(){var H=document.getElementById('hero');if(H)H.className+=' hero--b';var v=null,ok=false;try{var m=location.search.match(/[?&]herocopy=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem('kinedu-herocopy',v);}else{v=sessionStorage.getItem('kinedu-herocopy');}if(!v){v=localStorage.getItem('kinedu-herocopy');if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herocopy',v);}}ok=true;}catch(e){}window.KINEDU_HERO='b';window.KINEDU_HEROCOPY=v||'a';window.KINEDU_HEROCOPY_OK=ok&&(v==='a'||v==='b');if(v==='b'&&H)H.className+=' hero--copy-b';var c=null,cok=false;try{var mb=location.search.match(/[?&]herobtn=(a|b|blue|orange)\b/);if(mb){c=mb[1];c=(c==='blue')?'a':(c==='orange')?'b':c;sessionStorage.setItem('kinedu-herobtn',c);}else{c=sessionStorage.getItem('kinedu-herobtn');}if(!c){c=localStorage.getItem('kinedu-herobtn');if(c!=='a'&&c!=='b'){c=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herobtn',c);}}cok=true;}catch(e){}window.KINEDU_HEROBTN=c||'a';window.KINEDU_HEROBTN_OK=cok&&(c==='a'||c==='b');if(c==='b'&&H)H.className+=' hero--btn-orange';})();</script>
         <!-- Animated gradient orbs -->
         <div class="hero-orbs">
             <div class="orb orb-1"></div>
@@ -152,7 +152,7 @@ try{
 
             <!-- RIGHT — Text content -->
             <div class="hero-text-col">
-                <!-- Hero móvil: layout B fijo desde el 27-oct (ganó la posición del botón arriba del fold). A/B SOLO de copy del titular: ?herocopy=a ('today') | ?herocopy=b ('every single day'), 50/50 sticky en localStorage 'kinedu-herocopy'. Mismo estilo B en ambos h1, solo cambia el texto. -->
+                <!-- Hero móvil: layout B fijo desde el 27-oct (ganó la posición del botón arriba del fold). A/B SOLO de copy del titular: ?herocopy=a ('today') | ?herocopy=b ('every single day'), 50/50 sticky en localStorage 'kinedu-herocopy'. Mismo estilo B en ambos h1, solo cambia el texto. Segundo sorteo independiente de COLOR del boton: ?herobtn=blue|orange (a|b), clase hero--btn-orange, beacons herobtn-a|b. -->
                 <h1 class="hero-headline hero-headline--b hero-b-only hero-copy-today" data-i18n="hero.b.headline" data-i18n-html>Exactly what to do with your baby, <span class="gradient-shift-alt">today.</span></h1>
                 <h1 class="hero-headline hero-headline--b hero-b-only hero-copy-everyday" data-i18n="hero.copy.everyday" data-i18n-html>Know <span class="gradient-shift">exactly</span> what to do with your baby, <span class="gradient-shift-alt">every single day.</span></h1>
                 <p class="hero-sub hero-sub--b hero-b-only" data-i18n="hero.b.sub">A daily plan of activities for your baby's exact age, built by child development experts.</p>
@@ -719,6 +719,12 @@ try{
         var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         if (isMobile && window.KINEDU_HEROCOPY_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_view', variant: heroVar, lang: lang}));
         try { if (window.clarity) window.clarity('set', 'herocopy', window.KINEDU_HEROCOPY || 'a'); } catch (e) {}
+        // A/B color del boton (27-oct): segundo sorteo independiente, herobtn-a azul | herobtn-b naranja.
+        var btnVar = 'herobtn-' + (window.KINEDU_HEROBTN || 'a');
+        if (isMobile && window.KINEDU_HEROBTN_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_view', variant: btnVar, lang: lang}));
+        try { if (window.clarity) window.clarity('set', 'herobtn', window.KINEDU_HEROBTN || 'a'); } catch (e) {}
+        // ab_cta no suma conversiones: atribuye el mismo clic al test de color sin contarlo dos veces.
+        var btnCta = function(){ if (isMobile && window.KINEDU_HEROBTN_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_cta', variant: btnVar, lang: lang})); };
         // El boton del hero va a webpromo (no a app.kinedu.com): se mide aparte, con la
         // variante del A/B en movil, sin importar el destino.
         document.querySelectorAll('.hero-ctas a').forEach(function(a){
@@ -726,6 +732,7 @@ try{
                 var payload = {page: page, event: 'conversion', cta: 'Hero — Try Free', lang: lang};
                 if (isMobile) payload.variant = heroVar;
                 navigator.sendBeacon('/api/track', JSON.stringify(payload));
+                btnCta();
             });
         });
         // Clics muertos del hero (titulo e imagen del telefono, solo movil): los mandamos al
@@ -737,7 +744,7 @@ try{
                     document.querySelectorAll(sel).forEach(function(el){
                         el.style.cursor = 'pointer';
                         el.addEventListener('click', function(){
-                            navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang, variant: heroVar}));
+                            navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'conversion', cta: label, lang: lang, variant: heroVar})); btnCta();
                             window.location.href = heroBtn.href;
                         });
                     });
@@ -777,10 +784,12 @@ try{
         if (appStore) appStore.addEventListener('click', function(){
             var p = {page: page, event: 'conversion', cta: 'App Store Badge', lang: lang}; if (isMobile) p.variant = heroVar;
             navigator.sendBeacon('/api/track', JSON.stringify(p));
+            btnCta();
         });
         if (playStore) playStore.addEventListener('click', function(){
             var p = {page: page, event: 'conversion', cta: 'Google Play Badge', lang: lang}; if (isMobile) p.variant = heroVar;
             navigator.sendBeacon('/api/track', JSON.stringify(p));
+            btnCta();
         });
     })();
     </script>

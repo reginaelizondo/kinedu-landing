@@ -3808,6 +3808,9 @@ body.amodal-lock { overflow: hidden; }
     .hero--b .hero-copy-everyday { display: none; }
     .hero--b.hero--copy-b .hero-copy-everyday { display: block; }
     .hero--b.hero--copy-b .hero-copy-today { display: none; }
+    /* A/B color del boton del hero (27-oct): hero--btn-orange pinta el CTA naranja #E57339 (a = azul, b = naranja). Solo movil, como los otros tests del hero. */
+    .hero--btn-orange .btn-hero-primary .btn-bg { background: #E57339; }
+    .hero--btn-orange .btn-hero-primary:hover .btn-bg, .hero--btn-orange .btn-hero-primary:active .btn-bg { background: #D9652C; }
     .hero--b .hero-proof-stars { color: #F9BA48; letter-spacing: 1px; margin-right: 4px; }
     .hero--b .hero-phone-img { width: 200px; }
     .hero--b .device-glow { width: 220px; height: 220px; }
