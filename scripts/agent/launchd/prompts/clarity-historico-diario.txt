@@ -1,0 +1,5 @@
+[Carpeta de trabajo: /Users/reginaelizondo/kinedu-landing-agent/repo. No uses el Desktop: launchd no puede leerlo.]
+
+Tarea de mantenimiento silenciosa. Desde "/Users/reginaelizondo/kinedu-landing-agent/repo" corre:
+  ~/.config/kinedu-agent/venv/bin/python scripts/agent/weekly_pull.py --clarity-only
+Esto guarda los últimos 3 días de Microsoft Clarity en ~/.config/kinedu-agent/history/clarity-YYYY-MM-DD.json (la API de Clarity solo entrega 3 días, por eso se acumula a diario). Si la salida dice "errores: ninguno", termina sin más. Si hay un error (token vencido, http 401/403/429), escribe una sola línea explicando el error y qué hacer (p. ej. regenerar el token en Clarity > Settings > Data Export y pegarlo en ~/.config/kinedu-agent/.env). Nunca imprimas el contenido de .env.
