@@ -2,8 +2,17 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-10-22 19:23.
+Última actualización: 2026-10-28 10:16.
 
+
+## Semana del 2026-10-26
+
+- 🔧 **2026-10-28-01** · Contenido · Preview EN: hub 'Oral phase in babies' que consolida oral-stage-of-development + 2 posts de mouthing (consolida de Regina 8-oct)  _(Implementador)_
+  - _estado: preview · commit 11e10a309 · medir: 2026-11-25 · ⏳ por medir_
+  - Se queda /blog/oral-stage-of-development (28 clics, pos 7.4, racimo 'oral phase baby'); why-do-babies-put-everything-in-their-mouths (3 clics, pos 16) y mouthing-why-does-everything-end-up-in-my-babys-mouth (3 clics, pos 18) iran con 301 al 'va'. Reescritura completa: 1,927 palabras, 10 H2 (primer H2 = la pregunta del lector con respuesta de 97 palabras), tabla por edad, teething vs mouthing, seguridad, que hacer si traga algo, FAQ de 7 con schema; CTA masterclass de primeros auxilios y app (sensory play). Noindex, sin enlazar, fuera del sitemap. Esperado: capturar 'oral phase baby' + 'why do babies put everything in their mouth' en una sola URL; se mide en GSC 4 semanas despues de publicar.
+- 🔧 **2026-10-28-02** · SEO · AEO hubs: <header>/<main> en 26 paginas principales, alt en iconos de science/app/libro, dateModified + 'Updated on' en las 9 de science  _(Implementador)_
+  - _estado: publicado · commit a1de88a3c · medir: 2026-11-20 · ⏳ por medir_
+  - Aprobaciones 2026-10-21-2 (parte science) y -4. Auditoria AEO: hubs sin <main> 16 a 0, img sin alt en hubs 96 a 54 (quedan el pixel de Meta y fotos de live-classes), hubs sin dateModified 17 a 14. Fecha visible = ultimo cambio real de contenido segun git (30-sep-2026), no la de hoy. Script idempotente scripts/seo/aeo_hubs.py. Sin efecto visible salvo la linea 'Updated on' en science. Pendiente: alt masivo del blog (3,830 img) y definicion/as-of visibles del home, que esperan el A/B del hero (~10-nov).
 
 ## Semana del 2026-10-19
 
