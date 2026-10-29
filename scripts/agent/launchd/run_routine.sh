@@ -10,6 +10,8 @@ PY=/Users/reginaelizondo/.config/kinedu-agent/venv/bin/python
 CLAUDE=/Users/reginaelizondo/.local/bin/claude
 LOG="$SCHED/logs/$ID-$(date +%Y%m%d-%H%M).log"
 WATCHDOG=3600   # tope duro 60 min: no mas zombies
+# launchd arranca con PATH minimo: node (/usr/local/bin) y gh (/opt/homebrew/bin) quedan fuera.
+export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 alert() { "$PY" "$CLONE/scripts/agent/slack_bot.py" post "$1" >/dev/null 2>&1 || true; }
 
@@ -28,7 +30,7 @@ alert() { "$PY" "$CLONE/scripts/agent/slack_bot.py" post "$1" >/dev/null 2>&1 ||
     echo "CONFLICTO rebase"; alert "Marina/$ID: conflicto al sincronizar el clon con main. No corri la rutina."; exit 1
   fi
 
-  "$CLAUDE" -p "$(cat "$PROMPT")" --permission-mode acceptEdits --max-turns 160 2>&1 &
+  "$CLAUDE" -p "$(cat "$PROMPT")" --model sonnet --permission-mode acceptEdits --max-turns 160 2>&1 &
   CPID=$!
   ( sleep $WATCHDOG; kill -TERM $CPID 2>/dev/null; sleep 10; kill -KILL $CPID 2>/dev/null ) &
   WPID=$!
