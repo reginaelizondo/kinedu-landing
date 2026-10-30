@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-10-29 09:28.
+Última actualización: 2026-10-30 11:43.
 
 
 ## Semana del 2026-10-26
@@ -30,6 +30,12 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 - • **2026-10-28-03** · Gift · Gift: el trafico del in-app rebota en segundos; quien si interactua viene de correo  _(Analista)_
   - _commit n/a · medir: 2026-11-10_
   - Clarity 28-oct (343 sesiones con /gift en 30 d, ~100 tarjetas leidas + resumen IA de 105): de ~65 sesiones del in-app (utm_source=inapp), ~70% dura menos de 30 s, ~28% 4 s o menos, ~75% sin un solo clic; las largas (13-25 min) tienen 0 clics (telefono abierto). El 97.8% de 'clics' del in-app son en buena parte taps reflejos sobre un interstitial a pantalla completa de papas premium que no estan en modo regalar (trigger S_TAPHome a todo premium con >15 aperturas). Las sesiones que si interactuan (7-14 clics, varias paginas) vienen del correo lifecycle gift-premium-3m y de navegacion interna; una de correo termino en un quiz de webpromo, no en el checkout (fuga a CTAs ajenos). Checkouts: solo visitas de prueba. Resumen IA: muchos entran y salen sin interaccion; pide simplificar checkout y CTA mas claro. Conclusion: el problema #1 no es la pagina, es a quien y cuando se muestra el in-app; #2 la primera pantalla de /gift no responde al instante que es/para quien/precio.
+- 🔧 **2026-10-30-01** · Contenido · Hub Oral phase in babies publicado (EN) con 2 301  _(Implementador)_
+  - _estado: publicado · commit dbff985ef · medir: 2026-11-27 · ⏳ por medir_
+  - Reemplaza oral-stage-of-development, 301 desde los 2 posts de mouthing. Esperado: CTR del racimo oral phase baby; medir en GSC 28 dias.
+- 🔧 **2026-10-30-02** · Contenido · Previews PT garrafa PET y ES nodriza  _(Implementador)_
+  - _estado: preview · commit 722fbdfe3 · medir: 2026-11-30 · ⏳ por medir_
+  - Ambos noindex y sin enlazar hasta el va de Regina.
 
 ## Semana del 2026-10-19
 
