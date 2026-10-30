@@ -3076,6 +3076,16 @@
       "source": "/pt/blog/o-que-e-normal-na-fontanela-de-um-bebe",
       "destination": "/pt/blog/moleira-funda",
       "permanent": true
+    },
+    {
+      "source": "/blog/why-do-babies-put-everything-in-their-mouths",
+      "destination": "/blog/oral-stage-of-development",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mouthing-why-does-everything-end-up-in-my-babys-mouth",
+      "destination": "/blog/oral-stage-of-development",
+      "permanent": true
     }
   ]
 }
