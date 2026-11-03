@@ -2,8 +2,17 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-10-30 11:43.
+Última actualización: 2026-11-03 12:19.
 
+
+## Semana del 2026-11-02
+
+- 🔧 **2026-11-03-01** · Infra · Marina: el Medidor ya no se corta por timeout (lunes.sh pregenera el weekly_pull)  _(Implementador)_
+  - _estado: publicado · commit 9fa0d0027 · medir: 2026-11-09 · ⏳ por medir_
+  - La cadena del lunes 2-nov corrio sola por launchd en orden (Medidor, Analista, Estratega) pero el Medidor quedo a medias: su llamada a weekly_pull.py (3-5 min) la corto el timeout de 2 min de la shell de Claude. Fix: lunes.sh corre weekly_pull.py antes de lanzar al Medidor y el prompt del Medidor solo lee history/weekly-<hoy>.json. Esperado: el lunes 9-nov Medidor completo (A/B, ultimo.md, backlog, commit).
+- 🔧 **2026-11-03-02** · Infra · Marina: allowlist completo (Regina) + Guardia sin Gmail, validada por launchd  _(Implementador)_
+  - _estado: publicado · commit ecf63340a · medir: 2026-11-04 · ⏳ por medir_
+  - Regina agrego 'Bash' y Read(history/**) al allowlist del clon (347 reglas): Analista y Guardia dejan de quedar a medias (curl, comparar semanas, comandos encadenados). El paso 3 de la Guardia ya no usa Gmail (el conector no existe en el claude -p de launchd): scripts/agent/gsc_sitemaps.py revisa sitemaps por API + lee #landing-agente por correos reenviados; registro en history/alerts-seen.json. Validado 3-nov 12:11 por launchd: rc=0, 0 negaciones, 6 puntos cubiertos. No cubre acciones manuales ni seguridad de GSC (solo por correo: Regina los reenvia al canal).
 
 ## Semana del 2026-10-26
 
