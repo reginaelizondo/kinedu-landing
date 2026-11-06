@@ -24,10 +24,20 @@ alert() { "$PY" "$CLONE/scripts/agent/slack_bot.py" post "$1" >/dev/null 2>&1 ||
 
   cd "$CLONE" || { alert "Marina/$ID: no pude entrar al clon."; exit 1; }
 
-  git fetch origin main --quiet 2>&1
-  if ! git pull --rebase origin main 2>&1; then
+  # Sincroniza con main: reintenta en cortes de red; distingue red (transitorio) de conflicto real.
+  sync_ok=0
+  for intento in 1 2 3; do
+    if git fetch origin main --quiet 2>&1 && git pull --rebase origin main 2>&1; then sync_ok=1; break; fi
     git rebase --abort 2>/dev/null || true
-    echo "CONFLICTO rebase"; alert "Marina/$ID: conflicto al sincronizar el clon con main. No corri la rutina."; exit 1
+    echo "sync intento $intento fallo; reintento en 20s"; sleep 20
+  done
+  if [ $sync_ok -ne 1 ]; then
+    if git ls-files -u 2>/dev/null | grep -q .; then
+      echo "CONFLICTO real de merge"; alert "Marina/$ID: CONFLICTO real de merge en el clon (hay archivos sin resolver). No corri; revisar a mano."
+    else
+      echo "sync fallo (posible red)"; alert "Marina/$ID: no pude sincronizar el clon con main (posible red caida). No corri; reintenta en la proxima corrida."
+    fi
+    exit 1
   fi
 
   "$CLAUDE" -p "$(cat "$PROMPT")" --model sonnet --permission-mode acceptEdits --max-turns 160 2>&1 &
