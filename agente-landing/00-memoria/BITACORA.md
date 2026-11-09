@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-03 12:19.
+Última actualización: 2026-11-09 09:32.
 
 
 ## Semana del 2026-11-02
@@ -28,7 +28,7 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 - ⚠️ **2026-10-27-04** · Gift · Gift: 15 taps a Checkout en /gift y 0 cargas del checkout en 14 dias (in-app iOS)  _(Implementador)_
   - _estado: pendiente · commit n/a · medir: 2026-11-03 · ➖ neutral_
   - Verificado 27-oct: in-app CleverTap 1791843280 vivo (764 vistas, 747 clics, 0 CreateUserGift_Web). /gift 559 vistas (EN 239, ES 232, PT 88) -> 106 'See plans' -> 15 'Checkout (1 year)' -> 0 checkout_viewed en Web Promos. El tracking SI funciona (mi visita aparece como unico checkout_viewed de 14 dias). El boton es un <a> normal a webpromo.kinedu.com/gift/checkout?lang=xx, responde 200, carga sin errores y dispara /api/gift/view. NO es Universal Links: webpromo no sirve AASA. Sospecha: el webview del app (audiencia 100% iOS) no navega a webpromo. Siguiente: Regina prueba en iPhone in-app -> /gift -> 'Gift a full year'; si no carga, abrir el checkout fuera del webview o whitelist con Tech. Ademas: 81% nunca llega a planes; ver grabaciones de Clarity de /gift.
-  - **Resultado:** RESUELTO 28-oct: no era fuga ni webview. Regina probo en iPhone: in-app -> /gift -> 'Gift a full year' abre el checkout en Safari y su visita quedo registrada. El evento checkout_viewed nacio el 20-oct (Web Promos ac1c0c3, email correcto, desplegado); antes el checkout no dejaba rastro. CORRECCION de ventana: /api/stats agrega 30 dias, no 14: /gift 559 vistas/30d, Checkout 15/30d pero solo 3 en 16d (2 antes del evento + Regina). Desde el 20-oct cada clic real produjo su vista: sin hueco residual. Lo real: 0 regalos pagados en 30 dias.
+  - **Resultado:** 9-nov, 14d: checkout_viewed 8 (antes 2), checkout_started 2, created 2 (fuente gift-landing, EN), 0 pagados. Ya se ve la llegada al checkout; falta volumen para leer conversion.
   - **Aprendizaje:** Antes de declarar una fuga, verificar desde cuando existe el evento que la mediria (git log del tracking): un cero puede ser hueco de medicion, no comportamiento.
 - 🔧 **2026-10-28-01** · Contenido · Preview EN: hub 'Oral phase in babies' que consolida oral-stage-of-development + 2 posts de mouthing (consolida de Regina 8-oct)  _(Implementador)_
   - _estado: preview · commit 11e10a309 · medir: 2026-11-25 · ⏳ por medir_

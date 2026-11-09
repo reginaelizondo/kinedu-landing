@@ -1,40 +1,34 @@
-# Medición · lunes 12 de octubre de 2026
+# Medición · lunes 9 de noviembre de 2026
 
-Fuente: `weekly-2026-10-12.json` contra `weekly-2026-10-06.json`, más una consulta extra a Search Console por semana (3 al 9 de octubre contra 26 de septiembre al 2 de octubre). Clarity sí entregó datos esta vez (3 días, 3,565 sesiones, 1,022 de bots).
+Fuente: `weekly-2026-11-09.json` contra `weekly-2026-11-02.json`. Sin errores en el pull. Clarity no se revisó aquí. Ojo: abSummary es una ventana de 14 días.
 
-## Alerta mayor: Google nos manda la mitad de clics desde el 3 de octubre
-- Semana 3 al 9 de octubre: 1,040 clics. Semana anterior: 2,068. Cae 49.7%. La de antes (19 al 25 de septiembre) fue 2,372. Los días 3 al 6 ya están cerrados y van en 160 a 184 clics diarios contra 350 a 400 la semana previa. No es efecto de datos sin cerrar.
-- Blog: 1,644 a 692 clics (cae 58%). Resto del sitio: 442 a 363 (cae 18%). Páginas con al menos un clic: 436 a 303.
-- Todos los países caen: Brasil 834 a 320, EE. UU. 203 a 116, México 202 a 147, Portugal 194 a 82. Móvil 1,513 a 762, escritorio 541 a 264 (posición escritorio 8.7 a 21.5).
-- Las que más pierden: /pt/blog/atividades-criancas-1-ano 60 a 4, /pt/blog/atividades-primavera 50 a 1, /pt/blog/atividades-maternal 45 a 2, /pt/blog/bebe-dorme-de-boca-aberta 44 a 7, /es/blog/actividades-maternal 35 a 4, /blog/baby-fake-cough 44 a 16. El home aguanta: 244 a 195, posición 3.5 a 3.3.
-- La caída empieza el 2 y 3 de octubre, antes del retítulo masivo del 7 de octubre y antes de los A/B del 6. No la causamos nosotros, pero el retítulo cae en medio y va a estorbar su lectura el 3 de noviembre.
-- Contexto externo: reportes del sector ubican la segunda fase del "September 2026 Spam Update" de Google el 30 de septiembre y su cierre entre el 4 y 6 de octubre. Coincide en fechas. No lo puedo confirmar desde aquí.
-- El dato de 28 días lo esconde: 7,798 clics contra 7,590 (sube 2.7%) porque las primeras tres semanas fueron buenas. Posición 28d 8.7 contra 11.3, CTR 0.61% contra 0.71%.
-- Para el Analista: abrir Search Console y revisar acciones manuales y problemas de seguridad, y comparar por consulta la semana 3 al 9 contra la anterior en Brasil. Para el Estratega: congelar cambios masivos de plantilla hasta leer la semana que entra.
-
-## A/B vivos
-- Hero móvil: NO SE PUEDE LEER. A 488 vistas (EN 341, ES 91, PT 56), B 363 (EN 232, ES 81, PT 50), 0 clics en las dos. El motivo es un hueco de tracking: el beacon de conversión del home solo escucha enlaces a app.kinedu.com y el botón del hero apunta a webpromo.kinedu.com/p/landing-kinedu. La etiqueta "Hero, Try Free" nunca ha aparecido en /api/stats. Los badges de App Store (85 clics) y Google Play (53) están en el hero pero se mandan sin variante.
-- Instrucción para el Implementador (técnico, sin efecto visible, directo): en index.html, es/index.html y pt/index.html, bloque inline cerca de la línea 718: (1) escuchar el clic en `.hero-ctas a` y mandar conversion "Hero, Try Free" con `variant` cuando sea móvil; (2) agregar `variant` a las conversiones de App Store Badge y Google Play Badge en móvil; (3) si localStorage falla (el catch), no mandar `ab_view`. Anotar la fecha del arreglo: las 1,000 vistas por variante se cuentan desde ahí.
-- Reparto desbalanceado en el hero: EN 341 contra 232 cuando se esperan 286 y 286 (z 4.6). Causa probable: navegadores sin storage caen en "a" por defecto (Clarity ve 566 sesiones en navegadores de Instagram y Facebook). El punto (3) de arriba lo corrige.
-- Blog CTAs: A 883 vistas y 8 clics (0.91%). B 787 vistas y 13 clics (1.65%). B va 82% arriba. Prueba z: 1.37, p 0.17. No es significativo. Faltan 213 vistas en B y un día para los 7 mínimos; con 130 vistas diarias se lee el lunes 19. No se apaga: B no va abajo.
-- Blog por idioma: EN A 1 de 321 (0.3%), B 5 de 275 (1.8%). PT A 4 de 298 (1.3%), B 7 de 252 (2.8%). ES A 3 de 264 (1.1%), B 1 de 260 (0.4%). El reparto del blog también se inclina a A (883 contra 787, z 2.4), mismo motivo.
-- Confirmación en webpromo: el JSON no trae utm_source=blog. El placement landing-kinedu junta hero y blog: 456 llegadas, 104 correos, 6 pagadas en 14 días. No se puede atribuir por variante. Un clic no es una venta.
+## A/B vivos (CVR = clics al CTA entre vistas)
+- **herobtn (azul A, naranja B), abierto 27-oct, 13 días:** total A 114/845 (13.5%), B 136/961 (14.2%), lift +5%, z 0.41, p 0.69. EN A 74/534 (13.9%), B 95/671 (14.2%). ES 16.4% vs 17.8%. PT 7.8% vs 8.6%.
+- **herocopy ("today" A, "every single day" B):** total A 126/899 (14.0%), B 124/907 (13.7%), lift -2%, p 0.83. EN 13.3% vs 14.7%. ES A 20.8% vs B 13.1% (-37%, p 0.055, 175 vistas). PT 7.3% vs 9.1%.
+- **Lección:** el 2-nov EN decía naranja +51% (17.5% vs 11.6%, n=485). Con n=1,205 es +2%. Era ruido temprano.
+- **Sin ganadora:** la variante más chica es 845 (herobtn) y 899 (herocopy), menos de 1,000. Faltan **155 vistas en herobtn A** y **101 en herocopy A** en total; por idioma EN faltan ~470 en herobtn A, ES y PT no llegan en semanas. Hay más de 7 días, pero no hay muestra. No hay motivo para apagar: ninguna B va más de 10% abajo con 500+ vistas (ES copy B -37% tiene 175 vistas).
+- **Instrucción al Implementador:** ninguna hoy. Con ~100 vistas diarias en total, el corte de 1,000 por variante cae el 11-12 nov. Leer el jueves 12 y decidir con 95%. Si sigue plano, fijar lo que prefiera Regina (azul o naranja da lo mismo en CVR).
+- **menú móvil:** total A 19/82 (23.2%), B 35/113 (31.0%), +34%, p 0.23. Muestra mínima (ventana rodante), faltan ~900 vistas en A. B va arriba. Sigue.
+- **hero (layout) y blog:** cerrados (B fijo). Restos en el JSON: hero 99 y 100 vistas, blog 1 y 2.
+- **Confirmación webpromo landing-kinedu (7 d):** llegaron 522 (529), correos 98 (108, -9%), iniciaron 33 (30), pagadas 6 (5), ingreso $440 ($392). Junta hero y blog, no se parte por variante ni trae utm_source=blog. Un clic no es una venta.
 
 ## Recomendaciones de la semana pasada
-- Estratega 1 (títulos sin guion, sufijo Kinedu): hecho el 7 de octubre. Dato: los clics del blog cayeron 58% la semana siguiente, pero la caída empezó antes del cambio. Lectura limpia el 3 de noviembre, con la alerta de arriba encima.
-- Estratega 2A (utm y etiqueta Clarity en /gift): hecho el 7 de octubre. Desde entonces 0 checkouts iniciados en el endpoint de Gift. 13 clics al botón de checkout en 14 días (el JSON no los parte por día). El lado Web Promos sigue en pregunta. 2B (A/B "qué pasa después"): no se hizo, esperaba esta lectura. Ojo: el 8 de octubre el precio de /gift bajó a $49.99 (commit af07d6af9, fuera del agente); cambia la base de medición.
-- Estratega 3 (fuentes y translations partido): hecho el 7 de octubre. Lighthouse neutro, 65 a 68 en el home.
-- Investigador 6-oct, pieza 1 (primavera PT): publicada el 8 de octubre. 28 días: 375 clics contra 224. Pero la semana 3 al 9 cayó de 50 a 1 clic, posición 7.7 a 8.5. Demasiado pronto y con la caída general encima.
-- Investigador 6-oct, pieza 3 (mollera ES y moleira PT): publicada el 8 de octubre con 3 redirects 301. 28 días: mollera-sumida 57 clics (antes 42), moleira-funda 20 (antes 35). Semana: mollera 19 a 1.
-- Investigador 6-oct, pieza 2 (oral phase): no se escribió; Regina pidió consolidar. Falta que el Investigador diga qué página queda.
-- Investigador 9-oct (3 piezas): previews listos el 12 de octubre, esperan el "va". Nada publicado.
-- Sin avance: menú móvil, clics muertos, errores JS del blog, link app a web, segmento Clarity, indexación GSC (56 URLs con 404). Sí avanzó: el recolector ya reutiliza Clarity del día y no cachea errores (7 de octubre).
+- Estratega 1 (barra fija en clases de Masterclasses): **no se hizo**. Necesita "dale" y vive en otro repo. Dato ahora: vistas de clase 28 en 14 d (antes 557), checkouts 3 (1). El push de 29-oct y 1-nov salió de la ventana; el problema se queda sin medir.
+- Estratega 2 (`?lang=es|pt` en el Try free de ES y PT): **no se hizo**. `es/index.html` sigue sin `lang=`. Sí salió el 4-nov el home ES/PT traducido en HTML crudo y links de nav corregidos (GEO, otra tarea). Propuesta repetida desde el 12-oct.
+- Estratega 3 (reescribir ES maternal y PT 1 ano): **no se hizo**. Sin commits en esas páginas.
+- Investigador 5-nov (animales PT, tamaño del bebé PT, leche materna EN): **no se hizo**. Sin commits; no pude abrir el hilo del Estratega para ver si hubo "dale". Siguen en preview (sin "va"): PT garrafa PET y ES nodriza.
+- Google en esas páginas: no se puede leer, no se tocaron.
 
-## Semana vs semana por área (cambios de más de 15% marcados con ALERTA)
-- Sitio (api/stats, 6 al 12 de octubre con hoy incompleto, contra 29 de septiembre al 5): visitas 5,504 contra 7,319 (cae 24.8%, ALERTA). Únicos 1,997 contra 2,284 (cae 12.6%). Conversiones 155 contra 216 (cae 28.2%, ALERTA). CVR 7.8% contra 9.5% (cae 17.9%, ALERTA). Referidor google.com en 14 días: 4,183 contra 5,628.
-- Google: ver alerta mayor. Semana 1,040 contra 2,068 clics (ALERTA). Posición semanal 11.1 contra 8.5.
-- Masterclasses (14 días): visitors 329 contra 314 (sube 4.8%). classViews 256 contra 184 (sube 39%, ALERTA). checkoutsStarted 34 contra 13 (sube 162%, ALERTA). purchases 3 contra 3. revenue en ventana $0 contra $0 (el endpoint reporta $0 con 3 compras, problema conocido). El 7 de octubre hubo 18 checkouts, 13 de First Aid, 0 compras; fuente "email" 178 visitas: huele a campaña.
-- Gift (14 días): paid 1 contra 1. Es la misma venta del 30 de septiembre (BRL 299.90). Cero desde entonces.
-- Assessment (14 días): completed 95 contra 92 (sube 3%). purchases 54 contra 54 (sin cambio; el número parece acumulado, no de 14 días).
-- Webpromo landing-kinedu (14 días): llegaron 456 contra 503 (cae 9.3%). Correos 104 contra 123 (cae 15.4%, ALERTA). Pagadas 6 contra 9 (cae 33%, ALERTA). Ingreso $463 contra $683.
-- Raro, para el Analista: /pt/blog (índice) pasa de 493 a 859 vistas y app.kinedu.com como referidor de 159 a 251. Puede ser un enlace nuevo desde la app.
+## Semana vs semana (cambios de más de 15% marcados con ALERTA)
+- **Sitio** (JSON, 7 d contra 7 d previos): visitas 6,015 (5,636, +6.7%), únicos 2,011 (1,965), conversiones 277 (276), CVR 13.8% (14.0%). Estable. Contra el reporte del 2-nov: visitas +12%, conversiones +8%.
+- **Google** (28 d, 10-oct al 6-nov contra 12-sep al 9-oct): clics 5,508 contra 7,798 (**-29%, ALERTA**), impresiones 885,960 contra 1,278,098 (-31%), posición 9.9 contra 8.7. Blog 3,816 contra 5,757; resto 1,452 contra 1,723. La semana 31-oct al 6-nov: 1,638 clics contra 1,691 (-3%). Diario estable en 184 a 281. Se estabilizó sin recuperarse.
+- **Bing** (28 d): clics 476 (536, -11%).
+- **Masterclasses** (14 d): visitors 326 contra 582 (**-44%, ALERTA**), storefront 349 contra 109 (**+220%, ALERTA**), classViews 28 contra 557 (**-95%, ALERTA**), checkouts 3 contra 1, purchases 0 contra 0, revenue $0. Cayó la oleada de push; hoy casi todo entra por la portada.
+- **Gift** (14 d): checkout_viewed 8 (2), checkout_started 2 (0), created 2, paid 0. Los 2 vienen de gift-landing en EN el 6-nov. Sitio: "Gift, See plans" 17 clics (22), 89 vistas de /gift (99).
+- **Assessment**: started 123 (120), completed 106 (104, +2%), cuentas 160 (148), purchases 54 (sin cambio, acumulado). Webpromo assessment-landing: llegaron 44 (35, +26%), correos 2 (0), iniciaron 1, pagadas 0.
+- **Webpromo landing-kinedu**: ver arriba. Cambios dentro de 15%.
+
+## Para el Analista y el Estratega
+- El hero no mueve CVR (14% en las dos pruebas). Dejar de gastar semanas en el hero y mirar lo que viene después del clic: de 522 llegadas hay 98 correos (19%) y 6 pagadas.
+- Guardia avisó el 9-nov: conversiones de ayer 23, -47% contra el promedio de 43. Dato de un domingo; no cambia la semana.
+- Tres recomendaciones del Estratega llevan sin "dale" ni ejecución. Preguntar en el hilo cuál se descarta.
