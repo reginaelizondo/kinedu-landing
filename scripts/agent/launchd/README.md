@@ -39,3 +39,10 @@ las agrega Regina o se autoriza una regla de `Bash`). Chrome headless/verificaci
 ## Arreglos 29-oct (commit en este kit)
 - **Modelo fijado a Sonnet** (`--model sonnet`): el default era Fable y su límite de uso tumbó el `clarity` del 29-oct (RC=1).
 - **PATH exportado** en `run_routine.sh`: launchd arranca con PATH mínimo y `node` (/usr/local/bin) y `gh` (/opt/homebrew/bin) quedaban fuera.
+
+## Instalar a Marina en otra Mac (handoff, 9-nov)
+`bash scripts/agent/launchd/install.sh` adapta este kit (escrito con las rutas de la Mac de Regina) a la Mac de quien lo corre:
+revisa requisitos, crea el venv, hace un clon ligero (`--filter=blob:none` + sparse) en `~/kinedu-landing-agent/repo`, genera scripts,
+prompts y plists con las rutas y el usuario de GitHub locales, pregunta por los permisos del agente y por la activacion en launchd.
+Los secretos (`~/.config/kinedu-agent/.env` y `gsc-service-account.json`) NO viajan en el repo: se pasan por canal seguro.
+Solo una Mac debe tener a Marina activa. Prueba en seco: `RENDER_ONLY=1 AGENT_HOME=/tmp/marina-test bash scripts/agent/launchd/install.sh`.
