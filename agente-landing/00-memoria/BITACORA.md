@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-09 09:34.
+Última actualización: 2026-11-09 18:25.
 
 
 ## Semana del 2026-11-02
@@ -13,6 +13,12 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 - 🔧 **2026-11-03-02** · Infra · Marina: allowlist completo (Regina) + Guardia sin Gmail, validada por launchd  _(Implementador)_
   - _estado: publicado · commit ecf63340a · medir: 2026-11-04 · ⏳ por medir_
   - Regina agrego 'Bash' y Read(history/**) al allowlist del clon (347 reglas): Analista y Guardia dejan de quedar a medias (curl, comparar semanas, comandos encadenados). El paso 3 de la Guardia ya no usa Gmail (el conector no existe en el claude -p de launchd): scripts/agent/gsc_sitemaps.py revisa sitemaps por API + lee #landing-agente por correos reenviados; registro en history/alerts-seen.json. Validado 3-nov 12:11 por launchd: rc=0, 0 negaciones, 6 puntos cubiertos. No cubre acciones manuales ni seguridad de GSC (solo por correo: Regina los reenvia al canal).
+- • **2026-11-04-01** · Infra · Rage clicks en webpromo promo-minimal: vienen de la serie Promo Push (4 envios x ~950K) y caen en el boton sin correo  _(Analista)_
+  - _commit n/a · medir: 2026-11-11_
+  - 4-nov. Origen (CleverTap 44Z-RR6-5Z7Z): Promo Push #25 (27-oct, 943,039 enviados, 885 clics), #26 (29-oct, 955,413, 694), #27 (31-oct, 957,971, 447), #28 (3-nov, 943,206, 800); audiencia free sin free trial previo; copy 'BABYNAME is copying everything you do / the full year for less'; TODOS llevan a promo-minimal con test minimal-59-ft-vs-49-e6dfee v=A offer=p59-t7 (checkout=sheet): el push no reparte A/B (B = 8 sesiones). A que le pican (heatmap Clarity movil 7 d, 4,385 vistas, 912 taps): #cta 'Start/Desbloqueie' 24.9% (227), bloque de precio/contenedor 21.6% + 17.3% (no es tocable: dead), logo 10%, cerrar el sheet 6.6% + fondo 1.9%, campo email solo 3.8%. Reproducido: sin correo el boton solo muestra una linea roja debajo y hace focus; el sheet monta Stripe sin estado de carga. Solo 5 errores JS. Pedido a Web Promos: feedback visible al tocar sin correo, loading en el sheet, y revisar el reparto del test.
+- 🔧 **2026-11-06-01** · Infra · Wrapper de Marina: reintenta en cortes de red y ya no confunde red con conflicto  _(Implementador)_
+  - _estado: publicado · commit 6ad008831 · medir: 2026-11-13 · ⏳ por medir_
+  - 6-nov 10:02 el Implementador fallo con 'Connection reset by peer' de GitHub (se cayo la red de Regina) pero el wrapper lo reporto como 'conflicto al sincronizar' y no reintento. El clon quedo intacto (nada choco) y la Guardia de 10:21 sincronizo bien. Fix: el sync reintenta 3 veces con 20s y distingue conflicto real (git ls-files -u) de fallo de red ('reintenta la proxima corrida'). No se perdio trabajo: no habia aprobaciones nuevas en Slack. Lo mismo aplica si GitHub parpadea.
 
 ## Semana del 2026-10-26
 
