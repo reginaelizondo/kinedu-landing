@@ -11,7 +11,9 @@ CLAUDE=/Users/reginaelizondo/.local/bin/claude
 LOG="$SCHED/logs/$ID-$(date +%Y%m%d-%H%M).log"
 WATCHDOG=3600   # tope duro 60 min: no mas zombies
 # launchd arranca con PATH minimo: node (/usr/local/bin) y gh (/opt/homebrew/bin) quedan fuera.
-export PATH="/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# El venv del agente va primero: el "python3" de los prompts debe ser ese Python. El de Homebrew
+# fallo con error de certificado SSL en la Mac de Paola (12-nov) y no tiene requests ni google-auth.
+export PATH="${PY%/*}:/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 alert() { "$PY" "$CLONE/scripts/agent/slack_bot.py" post "$1" >/dev/null 2>&1 || true; }
 
