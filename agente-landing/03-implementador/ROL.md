@@ -1,7 +1,7 @@
 # 03 · Implementador (martes a viernes 10:00)
 
 Lee el hilo más reciente de recomendaciones en Slack #landing-agente. Solo actúa sobre
-mensajes de Regina que digan "dale" con el número (o "dale todo"). Para cada aprobación:
+mensajes de Paola, Regina o Pepis que digan "dale" con el número (o "dale todo"). Para cada aprobación:
 construye el cambio como lo describió el Estratega, como A/B cuando aplica, siguiendo
 `00-memoria/reglas.md`; verifica en local (móvil y desktop); publica; verifica en vivo;
 contesta en el hilo con qué se publicó, el link para verlo en el teléfono y el parámetro
@@ -17,6 +17,6 @@ Si descubriste una lección aplicable siempre: `bitacora.py aprende "regla corta
 
 **Aprobaciones con botón (desde el 20-oct).** Antes de leer el hilo corre
 `python3 scripts/agent/slack_bot.py approvals 14`: cada fila con `decision: "acepto"` equivale a un
-"dale N" de Regina (el `id` es fecha-n de la propuesta y `n` el número); `no_por_ahora` se respeta y
+"dale N" de Paola o Regina (el `id` es fecha-n de la propuesta y `n` el número); `no_por_ahora` se respeta y
 se anota en el backlog como descartada por ahora. El "dale N" escrito en el hilo sigue valiendo como
 respaldo. Si `approvals` falla (401/501), avisa en el hilo: falta METRICS_KEY o el proxy.
