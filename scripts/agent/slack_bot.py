@@ -48,6 +48,13 @@ def api(method, params=None, post=False):
 def strip(t):
     return re.sub(r"[^\w]+", " ", (t or "").lower()).strip()
 
+# Slack guarda el emoji inicial como codigo (":memo:", ":bulb:"); strip() lo volvia la palabra
+# "memo" y find saltaba los hilos nuevos y devolvia los del 6-oct, que no tenian emoji.
+LEAD_EMOJI = re.compile(r"^\s*(?::[a-z0-9_+'-]+:\s*)+", re.I)
+
+def title(t):
+    return strip(LEAD_EMOJI.sub("", t or ""))
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__); sys.exit(1)
@@ -68,10 +75,10 @@ def main():
         msgs = [{"ts": m.get("ts"), "user": m.get("user"), "bot": m.get("bot_id"), "text": m.get("text", "")} for m in r.get("messages", [])]
         print(json.dumps({"ok": r.get("ok"), "error": r.get("error"), "messages": msgs}, ensure_ascii=False, indent=1))
     elif cmd == "find":
-        want = strip(sys.argv[2])
+        want = title(sys.argv[2])
         r = api("conversations.history", {"channel": CHANNEL, "limit": 100})
         for m in r.get("messages", []):
-            if strip(m.get("text", "")).startswith(want):
+            if title(m.get("text", "")).startswith(want):
                 t = api("conversations.replies", {"channel": CHANNEL, "ts": m["ts"], "limit": 200})
                 out = {"ok": True, "ts": m["ts"], "text": m.get("text", ""),
                        "replies": [{"ts": x.get("ts"), "user": x.get("user"), "bot": x.get("bot_id"), "text": x.get("text", "")} for x in t.get("messages", [])[1:]]}
