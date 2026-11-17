@@ -1,60 +1,61 @@
-# Analista · lunes 9 de noviembre de 2026
+# Analista · lunes 17 de noviembre de 2026
 
-Fuente: `weekly-2026-11-09.json` (sin errores) contra `weekly-2026-11-02.json`, `clarity-2026-11-03/04/05/09.json` y `04-medidor/ultimo.md`. Reporte completo: `~/Downloads/Reportes-Lunes/reporte-2026-11-09.pdf`.
-Avisos: Clarity da 3 días por llamada (el acumulado puede traslapar). abSummary es de 14 días.
+Fuente: `weekly-2026-11-17.json` (sin errores) contra `weekly-2026-11-12.json`, `clarity-2026-11-12/13/16/17.json` y `04-medidor/ultimo.md`. Reporte completo: `~/Downloads/Reportes-Lunes/reporte-2026-11-17.pdf`.
+Avisos: Clarity da 3 días por llamada (no se suma, se traslapa). Webpromo, masterclasses, gift y abSummary son de 14 días y se comparan contra el pull del 12-nov.
 
 ## Cinco líneas
-1. Google bajó 29% en 28 días: 5,508 clics contra 7,798; impresiones 885,960 contra 1,278,098 (-31%). La última semana está estable: 1,638 contra 1,691 (-3%).
-2. El sitio está plano: 6,015 visitas (+6.7%), 277 conversiones (276), CVR 13.8% (14.0%). Los A/B del hero siguen en 14% (p 0.69 y 0.83).
-3. Webpromo landing-kinedu (14 d): 522 llegaron, 98 correos (18.8%), 33 iniciaron, 6 pagadas, $440 (antes 5 pagadas, $392).
-4. Masterclasses: 326 visitantes (-44%), vistas de clase 28 (antes 557), 3 checkouts, 0 compras, $0. La oleada de push ya salió.
-5. Errores de script en Clarity: 2.79% de sesiones (187) contra 0.23% (14). 49 vienen de guia.kinedu.com; 185 de móvil.
+1. Google, 28 días (18-oct al 14-nov): 6,610 clics (+8%), 1,107,314 impresiones (+7%), CTR 0.60%, posición 9.5 (antes 9.1). La alerta de -20% del 12-nov ya no aparece.
+2. Sitio: 13,130 visitas (+44%), pero únicos 2,314 (+10%) y conversiones 313 (antes 312). CVR 13.5% (14.8%). Las visitas extra no convierten; www.aocr.org trae 1,068 referidos.
+3. Webpromo landing-kinedu: 532 llegaron, 114 correos (21.4%), 26 iniciaron, 6 pagadas, $485.52 (antes $394.84, +23%).
+4. Masterclasses (14 d): 484 visitors, 211 vistas de clase (antes 89), 13 checkouts y 1 compra de $34.99 (antes 0). Se cae en el checkout: 1 de 13.
+5. A/B: herobtn (p 0.52) y herocopy (p 0.41) siguen sin ganadora. Menú móvil +45% con p 0.11 y 120/114 vistas. Gift: 2 pagadas, $119.98 (antes 0).
 
-## Embudo del sitio (semana o ventana anterior entre paréntesis)
+## Embudo del sitio (ahora, entre paréntesis lo anterior)
 | Área | Llegar | Interesarse | Tocar CTA | Empezar | Pagar |
 |---|---|---|---|---|---|
-| kinedu.com · 7 d | 2,011 únicos (1,965) | 65% scroll (73%) | 277 conv., 13.8% (276, 14.0%) | ver webpromo | ver webpromo |
-| Webpromo landing-kinedu · 14 d | 522 (529) | 98 correos, 18.8% (108, 20.4%) | n/a | 33 iniciaron (30) | 6 pagadas, $440 (5, $392) |
-| Webpromo assessment-meta · 14 d | 0 (0) | 0 | n/a | 0 | 0 |
-| Webpromo assessment-landing · 14 d | 44 (35) | 2 correos (0) | n/a | 1 (0) | 0 (0) |
-| Masterclasses · 14 d | 326 visitantes (582) | 28 vistas de clase (557) | 349 vistas de portada (109) | 3 checkouts (1) | 0 compras, $0 (0) |
-| Gift · 14 d | 89 vistas /gift (99) | 17 See plans (22) | 8 checkout_viewed (2) | 2 iniciados (0) | 0 pagados (0) |
-| Assessment · acumulado | 160 cuentas (148) | 123 iniciados (120) | 106 completados, 86.2% (104) | 12 checkouts 30 d | 54 compras (54) |
+| Sitio kinedu.com (7 d) | 13,130 vis. (9,110) | 2,314 únicos (2,112) | 313 conv. (312) | 26 iniciaron (27) | 6 pagadas (5) |
+| Webpromo landing-kinedu | 532 llegaron (507) | 114 correos (94) | n/d | 26 iniciaron (27) | 6 pagadas (5), $485.52 ($394.84) |
+| Webpromo assessment-landing | 52 llegaron (50) | 2 correos (2) | n/d | 1 inició (1) | 0 (0) |
+| Webpromo assessment-meta | 0 (0) | 0 (0) | n/d | 0 (0) | 0 (0) |
+| Masterclasses (14 d) | 484 visitors (394) | 305 storefront (359); 211 clases (89) | n/d | 13 checkouts (15) | 1 compra, $34.99 (0) |
+| Gift (14 d) | 14 checkout_viewed (14) | n/d | n/d | 5 iniciados (3), 5 creados (3) | 2 pagadas, $119.98 (0) |
+| Assessment | 179 cuentas (162) | 130 iniciados (124) | 110 completados (106) | n/d | 55 compras (54) |
 
-## SEO (28 d, 10 oct al 6 nov contra 12 sep al 9 oct)
+## SEO (28 d, 18-oct al 14-nov contra 20-sep al 17-oct)
 | Métrica | Ahora | Antes |
 |---|---|---|
-| Clics | 5,508 | 7,798 (-29%) |
-| Impresiones | 885,960 | 1,278,098 (-31%) |
-| CTR / posición | 0.62% / 9.9 | 0.61% / 8.7 |
-| Blog / resto (clics) | 3,816 / 1,452 | 5,757 / 1,723 |
-| Bing (clics) | 476 | 536 (-11%) |
+| Clics | 6,610 | 6,118 (+8%) |
+| Impresiones | 1,107,314 | 1,034,916 (+7%) |
+| CTR / posición | 0.60% / 9.5 | 0.59% / 9.1 |
+| Blog / resto (clics) | 4,561 / 1,729 | 4,286 / 1,618 |
+| Bing (clics) | 542 | 519 (+4%) |
 
-Suben: /es/blog/calculadora-gestacional (29 contra 8), /blog/breastfeeding-pierced-nipples (23, nueva), /pt/blog/brinquedos-com-garrafa-pet (44 contra 27). Caen: /pt/blog/atividades-primavera-educacao-infantil (16 contra 375), /pt/blog/atividades-criancas-1-ano (90 contra 212), /pt/blog/cuidados-mediatos-imediatos-recem-nascido (41 contra 107), /pt (232 contra 294).
-CTR menor a 1% en posición menor a 10: /blog/baby-fake-cough (19,676 impr.), /pt/blog/bebe-sente-fome-na-barriga-da-mae, /blog/baby-hungry-during-pregnancy, /pt/blog/tamanho-do-bebe.
+Suben: /es (437 contra 341), baby-fake-cough (185 contra 137), atividades-maternal PT (132 contra 92), calculadora gestacional ES (44 contra 6).
+Caen: atividades-primavera PT (13 contra 208), atividades-criancas-1-ano PT (98 contra 143), cuidados-mediatos ES (12 contra 57) y PT (51 contra 83).
 
-## Clarity (3 d, ahora contra anterior)
-| Métrica | Ahora | Antes |
+## Masterclasses y Gift (14 d)
+| Paso | Ahora | Antes |
 |---|---|---|
-| Sesiones | 5,919 | 4,747 |
-| Scroll promedio | 65.0% | 72.7% |
-| Clics muertos | 3.51% | 3.86% |
-| Rage / quick backs | 0.12% / 0.93% | 0.08% / 0.82% |
-| Errores de script | 2.79% | 0.23% |
-
-Móvil 91% de las sesiones. Más fricción: /masterclasses (62 clics muertos en 403 sesiones), aq-quiz-storytelling-short (13 en 146), guia.kinedu.com (49 errores de script).
-
-## Masterclasses y Gift
-Portada: 349 vistas, 605 clics (casi todos del quiz); solo 28 llegan a una clase. Fuentes: push 338, directo 24, email 17. Gift: 2 creados (EN, gift-landing), 0 pagados.
+| Visitors | 484 | 394 |
+| Vistas de clase | 211 | 89 |
+| Checkouts | 13 | 15 |
+| Compras / revenue | 1 / $34.99 | 0 / $0 |
+| Gift iniciados / pagados | 5 / 2 ($119.98) | 3 / 0 |
 
 ## Estado de cada A/B
-| Prueba | A | B | Lift | Estado |
-|---|---|---|---|---|
-| herobtn | 114/845 (13.5%) | 136/961 (14.2%) | +5%, p 0.69 | Sin ganadora, faltan 155 vistas |
-| herocopy | 126/899 (14.0%) | 124/907 (13.7%) | -2%, p 0.83 | Sin ganadora, faltan 101 vistas |
-| menú móvil | 19/82 (23.2%) | 35/113 (31.0%) | +34%, p 0.23 | Muestra mínima |
-| hero (layout) | 99 vistas | 100 vistas | n/a | Cerrado |
-| blog | 1 vista | 2 vistas | n/a | Cerrado |
+- **herobtn:** sin ganadora (p 0.52, 1300/1365 vistas)
+- **herocopy:** sin ganadora (p 0.41, 1342/1319 vistas)
+- **menu:** sigue (+45%, p 0.11, 120/114 vistas)
+- **hero:** cerrada, B fijo
+- **blog:** cerrada, B fijo
 
-## Anomalías y datos que faltan
-Alertas: Google -29%; Masterclasses visitantes -44%, clases -95%, portada +220%; errores de script x12; scroll -7.7 puntos; Guardia 9-nov: 23 conversiones, -47%. Faltan: Clarity de webpromo por variante, evento "fallback" de Contact us, vistas de blog por variante.
+## Anomalías
+- Visitas sin personas. 13,130 visitas contra 2,314 únicos (5.7 por único; antes 4.3). La home sola suma 12,868. www.aocr.org: 1,068 referidos (918 el 12-nov). No confirmado si es tráfico no humano; las conversiones no se movieron (313 contra 312) y el CVR bajó de 14.8% a 13.5%.
+- Caída de clics en 4 páginas con más de 50 clics previos: atividades-primavera PT (208 a 13, posición 7.7 a 8.1, impresiones 1,470), atividades-criancas-1-ano PT (143 a 98), cuidados-mediatos ES (57 a 12) y PT (83 a 51).
+- CTR bajo con buena posición: calculadora gestacional ES (47,461 impresiones, CTR 0.09%, posición 9.5), que-es-una-nodriza ES (36,158, 0.10%), baby-fake-cough (21,212, 0.87%).
+- Home en Clarity: 1,668 sesiones con scroll promedio de 15% y 34 quick backs. Es la URL con más sesiones y la de menos lectura.
+- Webpromo promo-minimal-bf: 131 clics muertos en 538 sesiones (24 por cada 100). Scroll 99.9%.
+- guia.kinedu.com: 55 errores de script y 55 clics muertos en 383 sesiones (tráfico de Meta pagado, utm guia del mes).
+- Masterclasses: 13 checkouts y 1 compra. De 6 compradores históricos, 0 han empezado una clase (engagementKpis started 0). Afiliados: 7, 8,116 clics, 2 ventas.
+- Gift: 5 iniciados y 5 creados, 2 pagadas, 0 canjeadas, 2 pendientes.
+- Datos que faltan: (1) el acumulado de 7 días de Clarity no se puede sumar: las ventanas son de 3 días y se traslapan (12, 13, 16 y 17-nov); uso la última ventana contra la del 12-nov. (2) Clarity no trae URLs de masterclasses en su top. (3) Webpromo no se parte por variante del A/B ni trae utm_source=blog. (4) Las ventanas de webpromo, masterclasses y gift son de 14 días y se traslapan con el pull del 12-nov; las comparaciones son 'ahora contra el pull anterior', no semana contra semana cerrada. (5) El JSON del 9-nov no está en disco. (6) CTAs de Contact us: opened 49 (46), sent 22 (19), mailto directo 4; el fallback no aparece en el top.
