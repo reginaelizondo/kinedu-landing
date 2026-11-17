@@ -2,8 +2,14 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-13 10:04.
+Última actualización: 2026-11-17 11:20.
 
+
+## Semana del 2026-11-16
+
+- 🔧 **2026-11-17-01** · SEO · Publicadas 3 reescrituras: calculadora ES, mãos fechadas PT, tamanho do bebê PT  _(Implementador)_
+  - _estado: publicado · commit pendiente · medir: 2026-12-15 · ⏳ por medir_
+  - va de Paola 17-nov; reemplazan las URLs vivas, sin 301, dateModified 2026-11-17. Medir clics y CTR en GSC 28 dias antes/despues.
 
 ## Semana del 2026-11-09
 
