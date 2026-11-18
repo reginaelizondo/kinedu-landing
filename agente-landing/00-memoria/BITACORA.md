@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-17 11:20.
+Última actualización: 2026-11-18 10:16.
 
 
 ## Semana del 2026-11-16
@@ -10,6 +10,9 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 - 🔧 **2026-11-17-01** · SEO · Publicadas 3 reescrituras: calculadora ES, mãos fechadas PT, tamanho do bebê PT  _(Implementador)_
   - _estado: publicado · commit pendiente · medir: 2026-12-15 · ⏳ por medir_
   - va de Paola 17-nov; reemplazan las URLs vivas, sin 301, dateModified 2026-11-17. Medir clics y CTR en GSC 28 dias antes/despues.
+- 🔧 **2026-11-18-01** · Landing · Hero fijo naranja + today, definicion Kinedu es en HTML crudo, fuente ACOG Naegele  _(Implementador)_
+  - _estado: publicado · commit b9a378ac · medir: 2026-12-16 · ⏳ por medir_
+  - Paola dijo dale todo (18-nov). Cierra A/B herocopy/herobtn sin ganadora (p 0.52 y 0.41); definicion bajo el hero EN/ES/PT para AEO; calculadora ES cita ACOG CO 700. Medir CVR hero >=13% y aeo_audit sin 0 definiciones.
 
 ## Semana del 2026-11-09
 
