@@ -41,7 +41,23 @@ function itemsFor(body, date) {
   if (body.referrer) {
     try { const h = new URL(body.referrer).hostname; if (h) add('ref', h); } catch (e) { /* referrer inválido */ }
   }
+  // Campañas (18-nov-2026): una vista que llega con utm_source (correos, anuncios) se cuenta aparte en
+  // 'utm' con clave source|campaign|page, para ver en /analytics cuántos entraron a /gift desde un correo.
+  // Solo en pageview (no en conversion, que también suma pv) para contar una vez por llegada.
+  if (event === 'pageview' && body._utm && body._utm.source) add('utm', `${body._utm.source}|${body._utm.campaign || ''}|${page}`);
   return { items, countsAsVisit: true };
+}
+
+// utm_source/utm_campaign de la URL de la página. Los beacons no mandan la query, pero sendBeacon
+// a /api/track es same-origin y el navegador manda el Referer completo (con query); también se
+// aceptan body.utm_source / body.utm_campaign si una página los manda explícitos.
+function utmOf(body, referer) {
+  const clean = (v) => (v || '').toString().toLowerCase().trim().replace(/[^a-z0-9_.\-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+  let source = clean(body.utm_source), campaign = clean(body.utm_campaign);
+  if (!source && referer) {
+    try { const u = new URL(referer); source = clean(u.searchParams.get('utm_source')); if (!campaign) campaign = clean(u.searchParams.get('utm_campaign')); } catch (e) { /* referer inválido */ }
+  }
+  return source ? { source, campaign } : null;
 }
 
 module.exports = async function handler(req, res) {
@@ -74,6 +90,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ ok: true, skipped: 'bot' });
     }
 
+    body._utm = utmOf(body, req.headers.referer || req.headers.referrer);
     const { items, countsAsVisit } = itemsFor(body, date);
     if (!items.length) return res.status(200).json({ ok: true, skipped: 'empty' });
     const vid = countsAsVisit ? crypto.createHash('sha256').update(ip + ua + date).digest('hex').slice(0, 16) : null;
@@ -95,3 +112,4 @@ module.exports = async function handler(req, res) {
   }
 };
 module.exports.itemsFor = itemsFor;
+module.exports.utmOf = utmOf;

@@ -3,17 +3,17 @@
 // cacheado por día (analytics:day:<fecha>) para gastar ~1 comando por día cerrado en vez de 12.
 const { supabase, upstash } = require('./_store');
 
-const FIELDS = ['pv', 'uv', 'conv', 'ref', 'lang', 'cta', 'ab_view', 'ab_cta', 'crawl', 'cat', 'catconv', 'search'];
+const FIELDS = ['pv', 'uv', 'conv', 'ref', 'lang', 'cta', 'ab_view', 'ab_cta', 'crawl', 'cat', 'catconv', 'search', 'utm'];
 const DAY_CACHE_TTL = 400 * 86400;
 
 function emptyDay(date) {
-  return { date, pageViews: 0, uniqueVisitors: 0, conversions: 0, convByPage: {}, pages: {}, referrers: {}, languages: {}, ctaClicks: {}, abViews: {}, abCta: {}, crawlers: {}, cats: {}, catConv: {}, searches: {} };
+  return { date, pageViews: 0, uniqueVisitors: 0, conversions: 0, convByPage: {}, pages: {}, referrers: {}, languages: {}, ctaClicks: {}, abViews: {}, abCta: {}, crawlers: {}, cats: {}, catConv: {}, searches: {}, utm: {} };
 }
 function dayFromCounters(date, c, uv) {
   const g = (k) => c[k] || {};
   const d = emptyDay(date);
   d.pages = g('pv'); d.convByPage = g('conv'); d.referrers = g('ref'); d.languages = g('lang'); d.ctaClicks = g('cta');
-  d.abViews = g('ab_view'); d.abCta = g('ab_cta'); d.crawlers = g('crawl'); d.cats = g('cat'); d.catConv = g('catconv'); d.searches = g('search');
+  d.abViews = g('ab_view'); d.abCta = g('ab_cta'); d.crawlers = g('crawl'); d.cats = g('cat'); d.catConv = g('catconv'); d.searches = g('search'); d.utm = g('utm');
   d.uniqueVisitors = uv || 0;
   for (const k in d.pages) d.pageViews += d.pages[k];
   for (const k in d.convByPage) d.conversions += d.convByPage[k];
@@ -36,13 +36,13 @@ function quotaError(results) {
 }
 
 function aggregate(dates, daily, totals, extra) {
-  const acc = { topPages: {}, topReferrers: {}, topLanguages: {}, topCTAs: {}, abViews: {}, abCta: {}, topCats: {}, topCatConv: {}, topSearches: {}, crawlTotals: {} };
+  const acc = { topPages: {}, topReferrers: {}, topLanguages: {}, topCTAs: {}, abViews: {}, abCta: {}, topCats: {}, topCatConv: {}, topSearches: {}, crawlTotals: {}, topUtm: {} };
   let sumUV = 0, sumPV = 0, sumConv = 0;
   const add = (a, o) => { for (const k in o) a[k] = (a[k] || 0) + o[k]; };
   for (const day of daily) {
     sumPV += day.pageViews; sumUV += day.uniqueVisitors; sumConv += day.conversions;
     add(acc.topPages, day.pages); add(acc.topReferrers, day.referrers); add(acc.topLanguages, day.languages); add(acc.topCTAs, day.ctaClicks);
-    add(acc.abViews, day.abViews); add(acc.abCta, day.abCta); add(acc.topCats, day.cats); add(acc.topCatConv, day.catConv); add(acc.topSearches, day.searches); add(acc.crawlTotals, day.crawlers);
+    add(acc.abViews, day.abViews); add(acc.abCta, day.abCta); add(acc.topCats, day.cats); add(acc.topCatConv, day.catConv); add(acc.topSearches, day.searches); add(acc.crawlTotals, day.crawlers); add(acc.topUtm, day.utm || {});
   }
   // A/B por prueba e idioma. La variante llega como 'a'/'b' (hero móvil del home) o
   // '<prueba>-a'/'<prueba>-b' (p. ej. 'blog-b' = CTAs del blog). abSummary = { hero: { en: {a,b} }, blog: {...} }.
@@ -65,6 +65,7 @@ function aggregate(dates, daily, totals, extra) {
     abSummary,
     topCategories: sorted(acc.topCats), topCategoryConv: sorted(acc.topCatConv), topSearches: sorted(acc.topSearches).slice(0, 100),
     crawlTotals: acc.crawlTotals,
+    topUtm: sorted(acc.topUtm).slice(0, 200),
     allTimeTotals: totals,
   }, extra || {});
 }

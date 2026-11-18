@@ -12,7 +12,7 @@
 
 create table if not exists public.web_daily (
   date date not null,
-  kind text not null,   -- 'pv' | 'conv' | 'ref' | 'lang' | 'cta' | 'ab_view' | 'ab_cta' | 'crawl' | 'cat' | 'catconv' | 'search' | '_uv' (importado)
+  kind text not null,   -- 'pv' | 'conv' | 'ref' | 'lang' | 'cta' | 'ab_view' | 'ab_cta' | 'crawl' | 'cat' | 'catconv' | 'search' | 'utm' (source|campaign|page, 18-nov-2026) | '_uv' (importado)
   key  text not null,   -- página, dominio, idioma, etiqueta del CTA, categoría, término...
   n    integer not null default 0,
   primary key (date, kind, key)

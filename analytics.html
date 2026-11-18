@@ -275,6 +275,11 @@ tr:hover td { background: #FAF8F4; }
       <div class="desc">Vistas por idioma en el periodo</div>
       <div class="ch" id="chLangs"></div>
     </div>
+    <div class="card s12">
+      <h2>Campañas (utm)</h2>
+      <div class="desc">Vistas que llegaron con <code>utm_source</code> en la liga (correos, anuncios, app), por campaña y página — se mide desde el 18 nov 2026. Liga tipo: <code>kinedu.com/gift?utm_source=email&amp;utm_medium=email&amp;utm_campaign=gift-noviembre-2026</code></div>
+      <div class="scroll-x"><table id="tblUtm"></table></div>
+    </div>
   </div>
 
   <div class="section-title" style="--dot:var(--c6)">SEO — crawlers</div>
@@ -986,6 +991,20 @@ function renderAll() {
     if (/Interno/.test(n)) return PAL[1];
     return PAL[3];
   });
+
+  /* ---- campañas utm (source|campaign|page) ---- */
+  var utm = mergeHash(cur, 'utm', function (k) { return langFilterKey(k.split('|')[2] || ''); });
+  var utmRows = Object.entries(utm).map(function (e) { var p = e[0].split('|'); return [p[0], p[1] || '', p[2] || '', e[1]]; });
+  if (utmRows.length) {
+    sortable($('tblUtm'), utmRows, [
+      { k: 's', label: 'Fuente (utm_source)' },
+      { k: 'c', label: 'Campaña (utm_campaign)', render: function (v) { return v ? esc(v) : '<span style="color:#8A94A8">(sin campaña)</span>'; } },
+      { k: 'p', label: 'Página', render: function (v) { var l = langOfPath(v); return '<span class="tag ' + l + '">' + l.toUpperCase() + '</span>' + esc(v); } },
+      { k: 'v', label: 'Vistas', num: true, render: function (v) { return fmt(v); } }
+    ], { i: 3, dir: -1 });
+  } else {
+    $('tblUtm').innerHTML = '<tbody><tr><td class="empty">Sin vistas con utm en el periodo — se miden desde el 18 nov 2026</td></tr></tbody>';
+  }
 
   /* ---- idiomas ---- */
   var langs = mergeHash(cur, 'languages');
