@@ -51,7 +51,7 @@ src="https://www.facebook.com/tr?id=2089634224620932&ev=PageView&noscript=1"
     <link rel="preload" as="image" href="/TAP/NEW/mobile EN.webp?v=4" media="(max-width: 768px)">
     <link rel="preload" href="/fonts/proxima-nova/proximanova-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/proxima-nova/proximanova-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/styles.css?v=1027b">
+    <link rel="stylesheet" href="/styles.css?v=1118a">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Kinedu", "url": "https://www.kinedu.com/", "logo": "https://www.kinedu.com/logo%20kinedu.png", "sameAs": ["https://www.facebook.com/kineducom/", "https://www.instagram.com/kinedu/", "https://www.tiktok.com/@kineduapp", "https://www.youtube.com/channel/UCrvcN7IA-CtN-3STacygIPw"]}</script>
@@ -131,7 +131,7 @@ try{
         <script>/* A/B del hero móvil. ?hero=b o ?hero=a fuerzan la variante (y la fijan para la
         sesión); si no, reparto 50/50 sticky en localStorage cuando AB_ON está encendido.
         Se decide aquí, durante el parse, para que la variante B no parpadee. */
-        (function(){var H=document.getElementById('hero');if(H)H.className+=' hero--b';var v=null,ok=false;try{var m=location.search.match(/[?&]herocopy=(a|b)\b/);if(m){v=m[1];sessionStorage.setItem('kinedu-herocopy',v);}else{v=sessionStorage.getItem('kinedu-herocopy');}if(!v){v=localStorage.getItem('kinedu-herocopy');if(v!=='a'&&v!=='b'){v=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herocopy',v);}}ok=true;}catch(e){}window.KINEDU_HERO='b';window.KINEDU_HEROCOPY=v||'a';window.KINEDU_HEROCOPY_OK=ok&&(v==='a'||v==='b');if(v==='b'&&H)H.className+=' hero--copy-b';var c=null,cok=false;try{var mb=location.search.match(/[?&]herobtn=(a|b|blue|orange)\b/);if(mb){c=mb[1];c=(c==='blue')?'a':(c==='orange')?'b':c;sessionStorage.setItem('kinedu-herobtn',c);}else{c=sessionStorage.getItem('kinedu-herobtn');}if(!c){c=localStorage.getItem('kinedu-herobtn');if(c!=='a'&&c!=='b'){c=Math.random()<0.5?'a':'b';localStorage.setItem('kinedu-herobtn',c);}}cok=true;}catch(e){}window.KINEDU_HEROBTN=c||'a';window.KINEDU_HEROBTN_OK=cok&&(c==='a'||c==='b');if(c==='b'&&H)H.className+=' hero--btn-orange';})();</script>
+        (function(){var H=document.getElementById('hero');if(H)H.className+=' hero--b hero--btn-orange';window.KINEDU_HERO='b';window.KINEDU_HEROCOPY='a';window.KINEDU_HEROCOPY_OK=false;window.KINEDU_HEROBTN='b';window.KINEDU_HEROBTN_OK=false;})();</script>
         <!-- Animated gradient orbs -->
         <div class="hero-orbs">
             <div class="orb orb-1"></div>
@@ -210,6 +210,9 @@ try{
             </div>
         </div>
     </section>
+
+    <!-- DEFINICION (AEO, 18-nov-2026): que es Kinedu, en HTML crudo -->
+    <section class="about-def" id="about"><div class="section-wrap"><p class="about-def-text" data-i18n="about.def">Kinedu es una app de desarrollo infantil para papás de bebés y niños de 0 a 4 años, con actividades diarias de juego y seguimiento.</p></div></section>
 
     <!-- PROBLEM STATEMENT — Illuminating text on scroll -->
     <section class="problem" id="problem">
@@ -708,14 +711,14 @@ try{
         </div>
     </div>
 
-    <script src="/translations.js?v=0853a" defer></script>
+    <script src="/translations.js?v=1118a" defer></script>
     <script src="/script.js?v=0851a" defer></script>
     <script>
     (function(){
         var lang = localStorage.getItem('kinedu-lang') || 'en';
         var page = location.pathname;
         navigator.sendBeacon('/api/track', JSON.stringify({page: page, referrer: document.referrer, lang: lang}));
-        var heroVar = 'herocopy-' + (window.KINEDU_HEROCOPY || 'a');
+        var heroVar = window.KINEDU_HEROCOPY_OK ? 'herocopy-' + (window.KINEDU_HEROCOPY || 'a') : undefined; // hero fijo desde 18-nov: sin variante
         var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         if (isMobile && window.KINEDU_HEROCOPY_OK) navigator.sendBeacon('/api/track', JSON.stringify({page: page, event: 'ab_view', variant: heroVar, lang: lang}));
         try { if (window.clarity) window.clarity('set', 'herocopy', window.KINEDU_HEROCOPY || 'a'); } catch (e) {}

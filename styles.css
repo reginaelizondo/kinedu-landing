@@ -3824,3 +3824,7 @@ body.amodal-lock { overflow: hidden; }
     .hero--b { padding-top: 92px; }
     .hero--b .hero-headline--b { font-size: 1.85rem !important; }
 }
+
+/* Definicion de Kinedu bajo el hero (AEO, 18-nov-2026) */
+.about-def { padding: 28px 0 8px; background: linear-gradient(180deg, #EAF6EF 0%, #EAF6EF 100%); }
+.about-def-text { font-family: 'Proxima Nova', 'Plus Jakarta Sans', sans-serif; font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.5; text-align: center; max-width: 760px; margin: 0 auto; padding: 0 20px; color: var(--text-primary); opacity: .9; }
