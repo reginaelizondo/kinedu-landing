@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-18 10:16.
+Última actualización: 2026-11-23 09:31.
 
 
 ## Semana del 2026-11-16
@@ -38,14 +38,17 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 ## Semana del 2026-10-26
 
 - 🔧 **2026-10-27-01** · A/B · Hero movil: layout B fijo + nuevo A/B solo de copy del titular (herocopy)  _(Implementador)_
-  - _estado: publicado · commit 5257647cb · medir: 2026-11-10 · ⏳ por medir_
+  - _estado: publicado · commit 5257647cb · medir: 2026-11-10 · ➖ neutral_
   - Regina (27-oct) cerro el A/B de layout del hero: B (boton arriba del fold) 10.5% vs A 11.1%, 2,000+ vistas/variante en 3 semanas, sin lift ni significancia (z -0.43). Decidio dejar el layout B fijo por preferencia y aislar el COPY: ?herocopy=a 'Exactly what to do with your baby, today' vs ?herocopy=b 'Know exactly what to do with your baby, every single day', mismo estilo B en ambos h1 (solo cambia el texto), 50/50 sticky en localStorage kinedu-herocopy, variante herocopy-a|b en ab_view y conversion, tag Clarity herocopy. EN/ES/PT via clave i18n hero.copy.everyday (ES: Descubre exactamente que hacer con tu bebe, cada dia; PT: Descubra exatamente o que fazer com o seu bebe, todos os dias). Desktop intacto. styles ?v=1027a. Esperado: decidir copy con 1,500-2,000 vistas/variante (~2 semanas, medir_en 10-nov); leer tambien compras en webpromo, no solo clics.
+  - **Resultado:** A/B herocopy cerrado 18-nov. 14 d al 23-nov: today 9.0% (88/973) vs every single day 10.8% (101/938), p 0.21. Con 16-nov: 12.9% vs 14.2%, p 0.39. Sin ganadora; se fijo 'today' por gusto.
 - 🔧 **2026-10-27-02** · Infra · Marina migrada a launchd: corre sola aunque la app este cerrada, modo acotado, sin zombies  _(Implementador)_
   - _estado: publicado · commit 454c8926b · medir: 2026-11-03 · ⏳ por medir_
   - Causa: las rutinas de la app se perdian si la app no estaba abierta a la hora (2 semanas sin Guardia/Clarity, Estratega saltado, Analista y Medidor colgados 16 h). Fix permanente: launchd + claude -p headless en modo acotado (acceptEdits + allowlist; Regina rechazo el bypass total) desde un clon en el home (~/kinedu-landing-agent/repo, porque TCC bloquea leer el Desktop desde launchd), con watchdog de 60 min, espera de red, git pull --rebase que falla ruidoso en Slack, y alerta a #landing-agente si una rutina truena. Horarios: diario 9:00, lunes 9:30 (Medidor->Analista->Estratega en orden), mar-vie 10:00, jueves 11:00. Humo OK (Clarity, 17 s, sin negaciones). 7 tareas de la app deshabilitadas. Esperado: el lunes 3-nov salen reporte y propuestas solos; medir que no haya corridas perdidas ni dobles.
 - 🔧 **2026-10-27-03** · A/B · Hero movil: A/B de COLOR del boton (azul vs naranja #E57339), 2x2 con el de copy  _(Implementador)_
-  - _estado: publicado · commit 825bbeaa1 · medir: 2026-11-10 · ⏳ por medir_
+  - _estado: publicado · commit 825bbeaa1 · medir: 2026-11-10 · ➖ neutral_
   - Regina (27-oct): 'el naranja es mas llamativo'. Segundo sorteo independiente al de copy: ?herobtn=blue|orange (a = azul #087BF3, b = naranja #E57339, clase hero--btn-orange, solo movil; desktop sigue azul). 50/50 sticky kinedu-herobtn. Beacons: ab_view herobtn-a|b en carga y ab_cta herobtn-a|b en cada conversion del hero (boton, visual tap, badges) sin duplicar conversiones; tag Clarity herobtn. Diseno factorial: dos tarjetas en /analytics (herocopy y herobtn), cada una con 50% del trafico, asi se responden las dos preguntas en las mismas ~2 semanas. Prueba de lectura OK (abSummary.herobtn a=1,b=1). Esperado: decidir color y copy con 1,500-2,000 vistas/variante (~10-nov); leer compras en webpromo, no solo clics. Si gana naranja y gana 'every day', se fijan los dos.
+  - **Resultado:** A/B herobtn cerrado 18-nov. 14 d al 23-nov: azul 10.5% (102/968) vs naranja 9.2% (87/947), p 0.32. Con 16-nov: 13.8% vs 13.3%, p 0.74. Sin ganadora; se fijo naranja por gusto de Regina. El color no mueve el clic.
+  - **Aprendizaje:** Color y copy del titular del hero no mueven el clic (2,000 vistas por variante, p>0.2). No gastar mas pruebas ahi; probar lo que pasa despues del clic.
 - ⚠️ **2026-10-27-04** · Gift · Gift: 15 taps a Checkout en /gift y 0 cargas del checkout en 14 dias (in-app iOS)  _(Implementador)_
   - _estado: pendiente · commit n/a · medir: 2026-11-03 · ➖ neutral_
   - Verificado 27-oct: in-app CleverTap 1791843280 vivo (764 vistas, 747 clics, 0 CreateUserGift_Web). /gift 559 vistas (EN 239, ES 232, PT 88) -> 106 'See plans' -> 15 'Checkout (1 year)' -> 0 checkout_viewed en Web Promos. El tracking SI funciona (mi visita aparece como unico checkout_viewed de 14 dias). El boton es un <a> normal a webpromo.kinedu.com/gift/checkout?lang=xx, responde 200, carga sin errores y dispara /api/gift/view. NO es Universal Links: webpromo no sirve AASA. Sospecha: el webview del app (audiencia 100% iOS) no navega a webpromo. Siguiente: Regina prueba en iPhone in-app -> /gift -> 'Gift a full year'; si no carga, abrir el checkout fuera del webview o whitelist con Tech. Ademas: 81% nunca llega a planes; ver grabaciones de Clarity de /gift.

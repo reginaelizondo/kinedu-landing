@@ -1,33 +1,31 @@
-# Medición · lunes 16 de noviembre de 2026
+# Medición · lunes 23 de noviembre de 2026
 
-Ojo con la fuente: el pull de hoy no terminó (weekly_pull.py cortado por tiempo). Uso `weekly-2026-11-12.json` (generado el 12-nov 11:00, sin errores). Los datos llegan hasta el 9 al 12-nov. El JSON del 9-nov ya no está en disco: comparo contra los números del reporte del 9-nov. abSummary es una ventana de 14 días.
+Fuente: `weekly-2026-11-23.json` (generado hoy, sin errores) contra `weekly-2026-11-17.json`. abSummary y Masterclasses/Gift son ventanas de 14 días; el sitio es 7 d contra 7 d previos; Google 28 d (24-oct al 20-nov).
 
-## A/B vivos (CVR = clics al CTA entre vistas)
-- **herobtn (azul A, naranja B), abierto 27-oct, 20 días:** A 144/1,045 (13.8%), B 149/1,121 (13.3%), lift **-4%**, z -0.33, p **0.74**. EN 14.5% vs 13.9%. ES 14.5% vs 14.9%. PT 9.8% vs 7.3% (-26%, 153 y 137 vistas).
-- **herocopy ("today" A, "every single day" B):** A 142/1,099 (12.9%), B 151/1,065 (14.2%), lift **+10%**, z 0.85, p **0.39**. EN 11.9% vs 16.5% (+38%). ES 18.1% vs 10.8% (-40%). PT 9.5% vs 7.8%.
-- **Veredicto: sin ganadora.** La variante más chica ya tiene más de 1,000 y pasaron más de 7 días, pero p es 0.74 y 0.39. No hay ninguna B más de 10% abajo con 500+ vistas en total. El +51% del naranja (2-nov) y el +38% de EN en copy son ruido por idioma.
-- **Instrucción al Implementador:** ninguna ganadora que fijar. Cierre propuesto por el Estratega (9-nov): "fijar B en el hero móvil: quitar el reparto y dejar hero--b (botón naranja) y dejar el copy A (today); apagar herobtn y herocopy". Solo con "dale" de Regina, Paola o Pepis (el hero lo necesita). Sin "dale", los dos siguen corriendo.
-- **menú móvil:** A 16/90 (17.8%), B 30/102 (29.4%), **+65%**, z 1.88, p **0.059**. Casi 95%, pero 90 y 102 vistas, faltan ~900 en A. B va arriba, sigue.
-- **hero (layout) y blog:** cerrados con B fijo (restos: hero 14 vistas, blog 0).
-- **Confirmación webpromo landing-kinedu (7 d):** llegaron 507 (522), correos 94 (98, -4%), iniciaron 27 (33), pagadas 5 (6), ingreso $395 ($440, -10%). Junta hero y blog, no se parte por variante ni trae utm_source=blog. Los clics del hero no se ven como más ventas. Un clic no es una venta.
+## A/B (CVR = clics al CTA entre vistas, 14 d)
+- **herobtn (azul A, naranja B): CERRADO el 18-nov** (naranja fijo). Final: A 10.5% (102/968), B 9.2% (87/947), lift -13%, p 0.32. Con el corte del 16-nov: 13.8% vs 13.3%, p 0.74. Sin ganadora, nunca hubo diferencia. B no pasa el umbral de apagar (-13% pero p 0.32).
+- **herocopy ("today" A, "every single day" B): CERRADO el 18-nov** ("today" fijo). Final: A 9.0% (88/973), B 10.8% (101/938), +19%, p 0.21. Sin ganadora. EN B 12.0% vs 9.1%, ES y PT iguales: ruido.
+- Los dos arrastran vistas del 9 al 17-nov dentro de la ventana de 14 d; no sigue habiendo reparto. Instrucción al Implementador: ninguna. Revisar en 7 días que el reparto ya no mande beacons.
+- **Menú móvil (único A/B vivo):** A 22.0% (27/123), B 32.3% (43/133), **+47%**, z 1.86, **p 0.06**. EN 20.2% vs 33.0% (89 y 97 vistas), ES 26.3% vs 23.5%, PT 26.7% vs 36.8%. Sin 95%. **Faltan ~880 vistas en A** (y ~870 en B) para 1,000; al ritmo de 123 por 14 d tarda más de 3 meses. B no va abajo: no se apaga. Instrucción: ninguna; decidir si se fija B por gusto, porque la muestra no llegará pronto.
+- **hero (layout) y blog:** cerrados (hero 1 vista, blog 0).
+- **Webpromo landing-kinedu (7 d):** llegaron 560 (532, +5%), correos 119 (114), iniciaron 25 (26), pagadas 5 (6), ingreso $389.24 ($485.52, **-20%**). El JSON no trae utm_source=blog ni parte por variante. Un clic no es una venta: el clic del hero no cambió con color ni copy y las ventas siguen en 5 a 6 por semana.
 
 ## Recomendaciones de la semana pasada
-- Estratega 1 (cerrar hero el 12-nov y definición "Kinedu es..."): **no se hizo**. El A/B sigue vivo sin decisión; la definición no salió. Dato: sin ganadora, cerrar es de gusto.
-- Estratega 2 (`?lang=es|pt` en el Try free de ES y PT): **no se hizo**. Propuesta repetida desde el 12-oct. PT sigue con el CVR más bajo del hero (7 a 10%).
-- Estratega 3 (reescribir PT "atividades criancas 1 ano"): **no se hizo**. Sin commits en esa página.
-- Investigador 12-nov (calculadora ES, mãos fechadas PT, tamanho do bebê PT): **hecho como PREVIEW** el 13-nov (8161421a, noindex, sin enlazar), revisado en celular por Paola. **No publicado**: falta "va". Sin datos de Google aún.
-- Otros cambios del sitio (no eran recomendaciones): 12-nov Leadpages paso 1 (27 links de la landing a webpromo y masterclasses), 11-nov correos de Gift de temporada.
+- Estratega 17-nov 1 (Masterclasses: confirmar acceso en el pago y botón "Empezar mi clase"): **no se hizo**. Paola dijo "espera" el 20-nov (lo hacen ellas en la app). Dato: checkouts 20 (13), compras 1 (1), de 6 compradores 0 han empezado una clase. Sigue abierto.
+- Estratega 17-nov 2 (fuente en la calculadora ES): **se hizo** el 18-nov (ACOG, b9a378ac). Calculadora ES publicada el 17-nov; su efecto en Google se mide desde el 15-dic (28 d).
+- Estratega 17-nov 3 (cerrar hero y definición "Kinedu es..."): **se hizo** el 18-nov (hero fijo naranja + today, definición EN/ES/PT). Efecto: CVR del sitio 13.7% (13.8%), plano, como se esperaba.
+- Investigador 19-nov: título ES cuidados del recién nacido, metas y sección "hambre en el vientre" EN/PT **hechos** el 21-nov (directo). Nodriza ES y cobertor PT quedaron como PREVIEW noindex: **falta "va" de Paola**. Sin datos de Google aún (muy reciente).
+- Pendientes sin respuesta: `?lang=es|pt` (6 semanas) y reescritura PT "atividades criancas 1 ano" (3 semanas).
 
-## Semana vs semana (cambios de más de 15% marcados)
-- **Sitio** (JSON 12-nov, 7 d contra 7 d previos): visitas 9,319 contra 5,099 (**+83%, ALERTA, ver nota**), únicos 2,086 contra 1,955, conversiones 306 contra 278 (+10%), CVR 14.7% contra 14.2%. Las visitas suben y los únicos no: huele a páginas por visita o tráfico no humano; las conversiones y el CVR están estables. Nota: contra el 9-nov (6,015 visitas) también es +55%. Pedir al Analista revisar.
-- **Google** (28 d, 13-oct al 9-nov contra 15-sep al 12-oct): clics 5,820 contra 7,245 (**-20%, ALERTA**), impresiones 959,049 contra 1,199,298 (-20%), CTR 0.61% (igual), posición 9.8 contra 8.7. Última semana (3 al 9-nov) 1,634 clics contra 1,627 (0%). Plano, sin recuperar.
-- **Bing** (28 d): clics 496 contra 521 (-5%).
-- **Masterclasses** (14 d): visitors 394 (326, +21%), storefront 359 (349), classViews 89 (28, **+218%, ALERTA**), checkoutsStarted 15 (3, **ALERTA**), purchases 0 (0), revenue $0. Hubo otra oleada el 7-nov (199 vistas). 15 checkouts y 0 compras: el cuello es el checkout.
-- **Gift** (14 d): checkout_viewed 14 (8), checkout_started 3 (2), created 3, **paid 0**.
-- **Assessment**: started 124 (123), completed 106 (106), cuentas 162 (160), purchases 54 (54). Webpromo assessment-landing: llegaron 50 (44), correos 2, pagadas 0.
+## Semana vs semana (marcado si pasa de 15%)
+- **Sitio 7 d:** visitas 9,373 (15,886, **-41%**; la semana previa traía el pico de www.aocr.org), únicos 2,183 (2,349, -7%), conversiones 299 (323, -7%), CVR 13.7% (13.8%). Referido www.aocr.org ahora 252 (antes 1,068): el tráfico raro bajó.
+- **Google 28 d:** clics 6,999 (5,287, **+32%**), impresiones 1,196,385 (949,587, **+26%**), CTR 0.59%, posición 9.3 (9.5). Contra el corte de la semana pasada (6,610) sube 6%. Recuperación real. Bing 564 clics (496, **+14%**, casi).
+- **Masterclasses 14 d:** visitors 428 (484, -12%), classViews 297 (211, **+41%**), checkoutsStarted 20 (13, **+54%**), purchases 1 (1), revenue $34.99 (igual). Fuentes: directo 336, email 116, push 58. Cuello: 20 checkouts, 1 compra (5%).
+- **Gift 14 d:** checkout_viewed 13 (14), started 3 (5, **-40%**, base chica), paid 2 (2), ingreso $119.98. Los correos de Gift con utm_source=email se miden en la tabla Campañas (utm) de /analytics; el JSON no las trae.
+- **Assessment:** started 132 (130), completed 111 (110), cuentas 189 (179, +6%), purchases 55 (55). Webpromo assessment-landing: llegaron 37 (52, **-29%**), correos 1, pagadas 0.
 
 ## Para el Analista y el Estratega
-- Dos pruebas de hero, 2,200 vistas cada una y cero diferencia. Cerrar y dejar de medir el hero. Lo que falta está después del clic: 507 llegadas, 94 correos, 5 pagadas.
-- Masterclasses: 15 checkouts sin ninguna compra en 14 días. Revisar el checkout.
-- Tres recomendaciones del Estratega llevan 2 semanas sin "dale". Preguntar en el hilo cuáles se descartan.
-- Pull de hoy: revisar por qué weekly_pull.py pasa de 25 min (antes 3 a 5).
+- El hero ya no es palanca: 4,000 vistas entre dos pruebas, cero efecto. Lo que falta está después del clic (560 llegan, 119 correos, 5 pagan).
+- Masterclasses: la demanda sube (+41% clases vistas, +54% checkouts) y la compra no. Ya está en manos de Paola/app.
+- Google se recupera: hacer seguimiento de las URLs publicadas el 17-nov y 21-nov antes de tocar más plantilla.
+- Menú móvil: decidir fijar B sin 95% o dejarlo corriendo meses.
