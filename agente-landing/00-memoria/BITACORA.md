@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-23 09:31.
+Última actualización: 2026-11-23 09:34.
 
 
 ## Semana del 2026-11-16
