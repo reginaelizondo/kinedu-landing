@@ -840,7 +840,7 @@ try{
 }
 </style>
 <script>
-/* A/B del menú móvil (solo móvil). A = menú actual, B = menú por secciones. ?menu=a|b fuerza.
+/* Menú móvil (solo móvil): menú por secciones (B) fijo desde el 24-nov-2026, tras el A/B.
    Mide aperturas (ab_view) y clics (ab_cta) con variante menu-a/menu-b, que es lo que /api/stats
    agrega en abSummary.menu. Arreglo 20-oct: menu_open/menu_click no existian en /api/track y caian como pageview. */
 window.addEventListener('load', function(){
@@ -849,9 +849,7 @@ window.addEventListener('load', function(){
     var nl=document.getElementById('navLinks'), ham=document.getElementById('hamburger');
     if(!nl||!ham) return;
     var mv=null;
-    try{ var m=location.search.match(/[?&]menu=(a|b)\b/);
-      if(m){mv=m[1];} else { mv=localStorage.getItem('kinedu-menu'); if(mv!=='a'&&mv!=='b'){ mv=Math.random()<0.5?'a':'b'; localStorage.setItem('kinedu-menu',mv);} }
-    }catch(e){ mv='a'; }
+    mv='b'; /* 24-nov-2026: B fijo para todos (dale 1 de Paola); se acabó el reparto 50/50. Se sigue midiendo como menu-b. */
     window.KINEDU_MENU=mv;
     try{ if(window.clarity) window.clarity('set','menu',mv); }catch(e){}
     var page=location.pathname, lang=((localStorage.getItem('kinedu-lang')||document.documentElement.lang||'en')+'').slice(0,2);

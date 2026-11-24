@@ -2,8 +2,20 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-23 09:34.
+Última actualización: 2026-11-24 10:03.
 
+
+## Semana del 2026-11-23
+
+- 🔧 **2026-11-24-01** · Contenido · Publicados nodriza ES y cobertor PT (va de Paola)  _(Implementador)_
+  - _estado: publicado · commit pendiente · medir: 2026-12-21 · ⏳ por medir_
+  - Reescrituras sobre su URL viva, sin noindex, dateModified 2026-11-24. Se mide CTR y clics por URL en Search Console 28 d antes y despues; control atividades-maternal.
+- 🔧 **2026-11-24-02** · Landing · Menu movil B fijo (dale 1 de Paola)  _(Implementador)_
+  - _estado: publicado · commit pendiente · medir: 2026-12-22 · ⏳ por medir_
+  - Se apaga el reparto A/B del menu movil y B queda para todos. Esperado: clics por apertura cerca de 32% y CVR del sitio (13.7%) sin bajar.
+- 🔧 **2026-11-24-03** · SEO · Title y meta de 2 paginas PT (1 ano y animais)  _(Implementador)_
+  - _estado: publicado · commit pendiente · medir: 2026-12-21 · ⏳ por medir_
+  - Solo metas, sin tocar el cuerpo. Esperado: CTR por URL arriba con posicion igual (hoy ~1.7% y ~1.0%).
 
 ## Semana del 2026-11-16
 
