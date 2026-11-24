@@ -10,6 +10,11 @@ el último deploy no haya fallado, que el tráfico y las conversiones de ayer no
 los errores de script en Clarity no se dupliquen. Si hay algo, un solo mensaje en Slack
 "Guardia D de mes:". Si no hay nada, no escribe. Nunca cambia código.
 
+Lo que la alerta ofrezca "con tu dale" lo ejecuta el Implementador (martes a viernes 10:00), que desde el
+23-nov lee las respuestas a estos hilos: una sola acción clara por bloque, solo del Implementador (no del
+Estratega ni de otro rol), diciendo si es revisar o cambiar algo. Si ya se ofreció en una alerta anterior
+y sigue sin "dale", recordarlo en una línea en vez de ofrecerlo otra vez.
+
 Si la alerta vale la pena recordarla, déjala en la bitácora:
 `python3 scripts/agent/bitacora.py add rol=Guardia tipo=alerta area=<área> estado=na titulo="qué pasó" detalle="..."`.
 

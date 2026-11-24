@@ -11,7 +11,7 @@ CTA, empezar en webpromo, pagar). Plan completo: ~/Downloads/Plan-Agente-Landing
 | 04 Medidor | lunes 9:45 | datos de la semana, decisiones anteriores | qué pasó con lo propuesto, cierre de A/B, backlog actualizado |
 | 01 Analista | lunes 10:15 | Search Console, Clarity, /api/stats, salida del Medidor | reporte de la semana (PDF) |
 | 02 Estratega | lunes 12:00 | reporte del Analista, backlog, reglas | 3 recomendaciones concretas en Slack, con copy y diseño |
-| 03 Implementador | martes a viernes 10:00 | el hilo de Slack con los "dale" | el cambio construido como A/B, verificado y publicado |
+| 03 Implementador | martes a viernes 10:00 | los hilos de Slack con los "dale" (Recomendaciones, Contenido y alertas de la Guardia) | el cambio construido como A/B, verificado y publicado; o la respuesta a lo que la Guardia ofreció revisar |
 | 05 Investigador | jueves 11:00 | Search Console vs el blog que ya existe | 3 piezas de contenido propuestas en Slack |
 | 06 Guardia | diario 9:40 | sitio, deploys, tráfico, A/B, errores | alerta en Slack solo si pasa algo |
 
