@@ -60,6 +60,20 @@ function utmOf(body, referer) {
   return source ? { source, campaign } : null;
 }
 
+// Filtro de bucles (decisión de Paola, "referrer", 25-nov-2026): una vista (pageview) cuyo referrer es
+// la misma página en kinedu.com es la página recargándose a sí misma (los picos del home del 10, 14, 16
+// y 20-nov traían ~48% de referrer www.kinedu.com con visitantes únicos planos). Se descarta.
+// Conversiones, clics y A/B no pasan por aquí. Costo asumido: se pierde la recarga legítima del mismo URL.
+function isSelfReferral(body) {
+  if ((body.event || 'pageview') !== 'pageview' || !body.referrer) return false;
+  try {
+    const u = new URL(body.referrer);
+    if (!/(^|\.)kinedu\.com$/i.test(u.hostname)) return false;
+    const norm = (p) => (p || '/').replace(/\/index\.html$/i, '/').replace(/\/+$/, '') || '/';
+    return norm(u.pathname) === norm(body.page);
+  } catch (e) { return false; }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -90,6 +104,8 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ ok: true, skipped: 'bot' });
     }
 
+    if (isSelfReferral(body)) return res.status(200).json({ ok: true, skipped: 'self-referrer' });
+
     body._utm = utmOf(body, req.headers.referer || req.headers.referrer);
     const { items, countsAsVisit } = itemsFor(body, date);
     if (!items.length) return res.status(200).json({ ok: true, skipped: 'empty' });
@@ -113,3 +129,4 @@ module.exports = async function handler(req, res) {
 };
 module.exports.itemsFor = itemsFor;
 module.exports.utmOf = utmOf;
+module.exports.isSelfReferral = isSelfReferral;
