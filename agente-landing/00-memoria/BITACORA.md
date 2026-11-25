@@ -2,7 +2,7 @@
 
 Registro único de lo que hace el agente de la landing. Generado desde `bitacora.jsonl` (no editar a mano; usar `scripts/agent/bitacora.py`).
 
-Última actualización: 2026-11-24 10:03.
+Última actualización: 2026-11-25 16:27.
 
 
 ## Semana del 2026-11-23
@@ -16,6 +16,9 @@ Registro único de lo que hace el agente de la landing. Generado desde `bitacora
 - 🔧 **2026-11-24-03** · SEO · Title y meta de 2 paginas PT (1 ano y animais)  _(Implementador)_
   - _estado: publicado · commit pendiente · medir: 2026-12-21 · ⏳ por medir_
   - Solo metas, sin tocar el cuerpo. Esperado: CTR por URL arriba con posicion igual (hoy ~1.7% y ~1.0%).
+- 🔧 **2026-11-25-01** · Infra · track.js descarta vistas cuyo referrer es la misma página  _(Implementador)_
+  - _estado: publicado · commit 48f6f01 · medir: 2026-12-02 · ⏳ por medir_
+  - Los picos del home (10, 14, 16, 20-nov) eran una máquina recargando el home con referrer www.kinedu.com y únicos planos. Regla sin memoria: pageview con referrer kinedu.com y mismo path se descarta. Esperado: sin picos de vistas con únicos planos; costo: se pierde la recarga legítima del mismo URL.
 
 ## Semana del 2026-11-16
 
