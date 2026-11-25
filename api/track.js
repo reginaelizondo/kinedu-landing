@@ -64,11 +64,16 @@ function utmOf(body, referer) {
 // la misma página en kinedu.com es la página recargándose a sí misma (los picos del home del 10, 14, 16
 // y 20-nov traían ~48% de referrer www.kinedu.com con visitantes únicos planos). Se descarta.
 // Conversiones, clics y A/B no pasan por aquí. Costo asumido: se pierde la recarga legítima del mismo URL.
-function isSelfReferral(body) {
+// El referrer tiene que ser del MISMO host que sirve la página (host del beacon): los que vienen de otro
+// sitio (app., app-es., guia., webpromo., get.kinedu.com) llegan recortados al origen por
+// strict-origin-when-cross-origin ("https://guia.kinedu.com/") y parecerían venir de "/" (fix 25-nov).
+function isSelfReferral(body, host) {
   if ((body.event || 'pageview') !== 'pageview' || !body.referrer) return false;
   try {
     const u = new URL(body.referrer);
     if (!/(^|\.)kinedu\.com$/i.test(u.hostname)) return false;
+    const bare = (h) => String(h || '').split(',')[0].trim().toLowerCase().split(':')[0].replace(/^www\./, '');
+    if (!host || bare(u.hostname) !== bare(host)) return false;
     const norm = (p) => (p || '/').replace(/\/index\.html$/i, '/').replace(/\/+$/, '') || '/';
     return norm(u.pathname) === norm(body.page);
   } catch (e) { return false; }
@@ -104,7 +109,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ ok: true, skipped: 'bot' });
     }
 
-    if (isSelfReferral(body)) return res.status(200).json({ ok: true, skipped: 'self-referrer' });
+    if (isSelfReferral(body, req.headers['x-forwarded-host'] || req.headers.host)) return res.status(200).json({ ok: true, skipped: 'self-referrer' });
 
     body._utm = utmOf(body, req.headers.referer || req.headers.referrer);
     const { items, countsAsVisit } = itemsFor(body, date);
