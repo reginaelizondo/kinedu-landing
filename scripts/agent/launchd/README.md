@@ -14,6 +14,9 @@ en Slack si hay conflicto). Regina ve los commits del agente en su Desktop con `
 Horarios (hora local): diario 9:00 (Clarity histórico → Guardia) · lunes 9:30 (Medidor → Analista →
 Estratega, secuencial) · mar-vie 10:00 Implementador · jueves 11:00 Investigador. Tope duro 60 min
 por rutina (watchdog). Logs: `~/kinedu-landing-agent/schedule/logs/`.
+Una rutina a la vez: si la Mac estuvo dormida, al despertar launchd lanza juntas las rutinas atrasadas;
+`run_routine.sh` las pone en fila con el candado `~/kinedu-landing-agent/.turno` (el log dice "esperando
+turno"). Si quedó huérfano (reinicio a media rutina), la siguiente lo libera sola (26-nov).
 
 Operación:
   pausar todo    for l in diario lunes impl jueves; do launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.kinedu.landing.$l.plist; done

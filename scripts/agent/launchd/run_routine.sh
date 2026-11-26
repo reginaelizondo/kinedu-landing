@@ -21,6 +21,27 @@ alert() { "$PY" "$CLONE/scripts/agent/slack_bot.py" post "$1" >/dev/null 2>&1 ||
   echo "=== $ID · $(date) ==="
   [ -f "$PROMPT" ] || { echo "sin prompt $PROMPT"; alert "Marina/$ID: no encontre el prompt."; exit 1; }
 
+  # Turno: una rutina a la vez. Si la Mac estuvo dormida (laptop cerrada), al despertar launchd lanza
+  # juntas todas las rutinas atrasadas; el 26-nov tres arrancaron en el mismo segundo, chocaron en
+  # `git pull` ("Cannot rebase onto multiple branches") y el Implementador y el Investigador no corrieron.
+  # Candado = directorio (mkdir es atómico). Se libera al salir (trap EXIT; no corre en subshells).
+  # Huérfano (reinicio, kill -9): su pid ya no es un run_routine.sh vivo, o quedó sin pid más de 5 min.
+  LOCK="$BASE/.turno"; espera=0
+  until mkdir "$LOCK" 2>/dev/null; do
+    dueno="$(cat "$LOCK/pid" 2>/dev/null)"
+    if { [ -n "$dueno" ] && ! ps -p "$dueno" -o command= 2>/dev/null | grep -q run_routine; } \
+       || { [ -z "$dueno" ] && [ -n "$(find "$LOCK" -maxdepth 0 -mmin +5 2>/dev/null)" ]; }; then
+      echo "turno huérfano (pid ${dueno:-ninguno}); lo libero"; rm -rf "$LOCK"; continue
+    fi
+    [ $espera -eq 0 ] && echo "esperando turno: está corriendo $(cat "$LOCK/id" 2>/dev/null)"
+    espera=$((espera+1))
+    [ $espera -ge 480 ] && { echo "sin turno tras 4 h, salto"; alert "Marina/$ID: no corrí, otra rutina ocupó el turno más de 4 h."; exit 1; }
+    sleep 30
+  done
+  echo $$ > "$LOCK/pid"; echo "$ID" > "$LOCK/id"
+  trap 'rm -rf "$LOCK"' EXIT
+  [ $espera -gt 0 ] && echo "turno tomado tras $((espera / 2)) min de espera"
+
   net_ok() { curl -sI --max-time 6 https://api.github.com >/dev/null 2>&1; }
   t=0; until net_ok; do t=$((t+1)); [ $t -ge 6 ] && { echo "sin red, salto (no es error)"; exit 0; }; echo "sin red $t/6"; sleep 15; done
 
